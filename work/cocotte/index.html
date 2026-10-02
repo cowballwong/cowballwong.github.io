@@ -1,0 +1,849 @@
+<meta charset="utf-8">
+<title>Cocotte 法式小館</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,600;1,500&display=swap">
+<style>
+/* Single committed look: a light design workspace in a Paris-bistro palette. Every colour is painted explicitly. */
+:root{
+  --paper:#F2EEE6; --panel:#FFFDF9; --ink:#1B1B1A; --muted:#5C605C; --faint:#8C918E; --rule:#E2DCD0;
+  --side:#1F3A2E; --side2:#2A4A3B; --side-ink:#EEF0EA; --side-mute:#A9BBAF;
+  --accent:#B08D57; --accent-deep:#7C5E2E; --moss:#2E5A45; --moss-bg:#E4EDE7; --amber-bg:#F5ECDC; --amber:#7A5A2A;
+  --iron:#1B1B1A; --oak:#B07A4A; --mirror:#9AA3A0;
+  --viewer:#EAE5DB;
+  --serif:"Noto Serif TC", "Songti TC", Georgia, serif;
+  --display:"Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --sans:"IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--sans);padding-inline:0}
+button{font:inherit;color:inherit}
+a{color:var(--moss)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{max-width:100%;height:auto;display:block}
+.mono{font-family:var(--mono)}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- app frame ---------- */
+.app{display:grid;grid-template-columns:260px minmax(0,1fr) 300px;grid-template-rows:56px minmax(0,1fr);min-height:100vh}
+.top{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-inline:16px;background:var(--panel);border-bottom:1px solid var(--rule);min-width:0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;width:228px}
+.mark{width:30px;height:30px;border-radius:50%;background:var(--side);display:grid;place-items:center;flex:none}
+.brand b{font-weight:600;font-size:14px;display:block;line-height:1.1}
+.brand span{font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.crumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;min-width:0;overflow:hidden;white-space:nowrap}
+.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--moss);background:var(--moss-bg)}
+.top .grow{flex:1}
+.btn{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:7px 12px;display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:12.5px;white-space:nowrap}
+.btn:hover{border-color:#c9c2b4}
+.btn.dark{background:var(--side);color:var(--side-ink);border-color:var(--side)}
+.btn.dark:hover{background:var(--side2)}
+
+/* ---------- left sidebar ---------- */
+.side{background:var(--side);color:var(--side-ink);padding:22px 20px;display:flex;flex-direction:column;gap:22px;overflow:auto}
+.side .cap{color:var(--side-mute)}
+.side .logo{font-family:var(--display);font-style:italic;font-weight:500;font-size:34px;line-height:1;color:#E3CFA6;margin-top:10px;letter-spacing:.01em}
+.side h1{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.36;margin:10px 0 0;letter-spacing:.02em;text-wrap:balance}
+.side .loc{font-size:12px;color:var(--side-mute);margin-top:10px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(255,255,255,.12)}
+.specs div{display:grid;gap:1px}
+.specs span{font-size:11px;color:var(--side-mute)}
+.specs b{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.specs b small{font-size:11px;color:var(--side-mute);margin-left:3px;font-weight:400}
+.rounds{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.rounds button{appearance:none;width:100%;border:0;background:transparent;display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:8px 8px;border-radius:6px;text-align:left;cursor:pointer;color:var(--side-ink)}
+.rounds button:hover{background:rgba(255,255,255,.07)}
+.rounds .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--side-mute);display:grid;place-items:center}
+.rounds .tick svg{width:10px;height:10px}
+.rounds .who{font-size:10px;color:var(--side-mute);font-family:var(--mono)}
+.rounds .t{font-size:13px}
+.rounds button[aria-current="true"]{background:var(--paper);color:var(--ink)}
+.rounds button[aria-current="true"] .tick{background:var(--side);border-color:var(--side);color:#fff}
+.rounds button[aria-current="true"] .who{color:var(--muted)}
+.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+
+/* ---------- centre ---------- */
+.centre{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel);border-right:1px solid var(--rule)}
+.tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--rule);padding-inline:12px;gap:2px;overflow-x:auto}
+.tab{appearance:none;border:0;background:none;padding:12px 14px;display:flex;gap:7px;align-items:center;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;font-size:13px}
+.tab svg{width:14px;height:14px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.tabs .tag{margin-left:auto;align-self:center;color:var(--faint);white-space:nowrap;padding-left:12px}
+.pane{flex:1;min-height:0;display:none}
+.pane.on{display:flex;flex-direction:column}
+
+/* 3D pane */
+.vhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 18px 0;position:absolute;inset:0 0 auto 0;pointer-events:none;z-index:2}
+.vhead h2{font-family:var(--serif);font-weight:500;font-size:19px;margin:0}
+.vhead .cap{color:var(--muted);margin-top:3px}
+.stage{position:relative;flex:1;min-height:520px;background:var(--viewer);overflow:hidden}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.tools{position:absolute;right:14px;top:14px;display:grid;gap:6px;z-index:3}
+.tools button{appearance:none;width:32px;height:32px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.tools button svg{width:15px;height:15px}
+.tools button[aria-pressed="true"]{background:var(--side);color:#fff;border-color:var(--side)}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:3px;gap:2px}
+.seg button{appearance:none;border:0;background:transparent;border-radius:5px;padding:5px 11px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--side);color:#fff}
+.vfoot{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;z-index:3;pointer-events:none;padding-inline:12px}
+.vfoot .seg{pointer-events:auto}
+.hint{position:absolute;left:16px;bottom:16px;color:var(--muted);font-size:11px;z-index:2}
+.scale{position:absolute;right:16px;bottom:18px;color:var(--faint);z-index:2}
+.loading{position:absolute;inset:0;display:grid;place-items:center;z-index:4;color:var(--muted);font-size:13px;background:var(--viewer)}
+.loading .bar{width:180px;height:3px;background:var(--rule);margin-top:10px;overflow:hidden;border-radius:2px}
+.loading .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.card{position:absolute;left:14px;top:72px;width:min(280px,42%);background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden;z-index:3;box-shadow:0 8px 24px rgba(27,27,26,.14)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#fff;cursor:zoom-in}
+.card .ct{padding:8px 10px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}
+.card .ct button{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;font-size:11px}
+.walkpad{position:absolute;right:16px;bottom:60px;display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;z-index:3}
+.walkpad button{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;cursor:pointer;font-size:15px}
+.walkpad .up{grid-column:2}
+.walkbar{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:4;background:var(--side);color:#fff;border-radius:999px;padding:6px 8px 6px 14px;display:flex;gap:10px;align-items:center;font-size:12px;max-width:calc(100% - 24px)}
+.walkbar button{appearance:none;border:0;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;font-size:12px;white-space:nowrap}
+
+/* scene strip */
+.strip{border-top:1px solid var(--rule);padding:12px 18px 14px;display:grid;gap:10px;background:var(--panel)}
+.strip .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.strip h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.strip h3 span{font-weight:400;color:var(--muted);font-size:12px}
+.play{appearance:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);cursor:pointer;display:grid;place-items:center;flex:none}
+.scenes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(64px,1fr);gap:4px;overflow-x:auto;padding-bottom:2px}
+.scenes button{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:5px;text-align:left}
+.scenes i{display:block;height:3px;border-radius:2px;background:var(--rule)}
+.scenes span{font-size:11px;color:var(--muted);white-space:nowrap}
+.scenes button[aria-current="true"] i{background:var(--accent)}
+.scenes button[aria-current="true"] span{color:var(--ink)}
+.scenes button.done i{background:var(--side-mute)}
+
+/* document panes */
+.doc{overflow:auto;padding:22px clamp(16px,2.4vw,32px) 40px;display:grid;gap:34px;align-content:start}
+.doc h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:0}
+.doc h2 small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400;margin-left:8px;letter-spacing:.02em}
+.doc .lead{color:var(--muted);max-width:66ch;margin:6px 0 0}
+.sec{display:grid;gap:12px}
+.sheet{background:#FFFFFF;border:1px solid var(--rule);border-radius:6px;padding:12px;display:grid;gap:8px;margin:0}
+.sheet button{appearance:none;border:0;padding:0;background:none;cursor:zoom-in;display:block;width:100%}
+.sheet figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.dgrid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.rooms{list-style:none;margin:0;padding:0}
+.rooms li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.rooms li span{color:var(--muted);font-size:12px;text-align:right}
+.rooms li.tot{font-weight:600;border-bottom:0}
+.key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--muted)}
+.key i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:5px;border:1px solid rgba(0,0,0,.14)}
+.key i.stripe{background:repeating-linear-gradient(45deg,#1B1B1A 0 3px,#FFFFFF 3px 6px)}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:#fff}
+table.fin{border-collapse:collapse;width:100%;min-width:560px;font-size:12.5px}
+table.fin th,table.fin td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.fin th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:#FAF7F1}
+table.fin td:first-child{font-family:var(--mono);white-space:nowrap;color:var(--accent-deep)}
+table.fin tr.grp td{background:#FAF7F1;font-family:var(--sans);color:var(--ink);font-weight:600;font-size:12px}
+.rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rcard{margin:0;display:grid;gap:7px}
+.rcard.wide{grid-column:1/-1}
+.flip{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--rule);background:#fff}
+.flipimg{appearance:none;border:0;padding:0;margin:0;display:block;width:100%;aspect-ratio:3/2;position:relative;background:#fff;cursor:zoom-in}
+.flipimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.flip[data-state="ai"] .b{opacity:0}.flip[data-state="b"] .a{opacity:0}
+.fseg{position:absolute;left:10px;bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.flip[data-state="b"] .aitag{display:none}
+.aitag{position:absolute;right:10px;top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(27,27,26,.8);color:#fff;padding:3px 8px;border-radius:3px;pointer-events:none}
+.rcard figcaption{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;flex-wrap:wrap}
+.rcard figcaption span{color:var(--muted);font-family:var(--mono);font-size:10.5px}
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:78px 16px minmax(0,1fr);gap:0 14px;cursor:pointer}
+.tl time{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;padding-top:2px}
+.tl .d{position:relative}
+.tl .d::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--rule)}
+.tl .d::after{content:"";position:absolute;left:2px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--panel);border:2px solid var(--moss)}
+.tl li.issued .d::after{background:var(--side);border-color:var(--side)}
+.tl li[aria-current="true"] .d::after{background:var(--accent);border-color:var(--accent)}
+.tl .b{padding-bottom:20px;display:grid;gap:3px;max-width:62ch}
+.tl .b h4{margin:0;font-size:14px;font-weight:600}
+.tl .b p{margin:0;color:var(--muted);font-size:13px}
+.tl .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--moss)}
+.tl li.issued .who{color:var(--accent-deep)}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.thumbs button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:zoom-in;display:grid;text-align:left}
+.thumbs img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.thumbs span{font-size:10.5px;color:var(--muted);padding:4px 6px}
+.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.links a{display:grid;gap:4px;padding:14px;border:1px solid var(--rule);border-radius:8px;background:#fff;text-decoration:none;color:var(--ink)}
+.links a:hover{border-color:var(--accent)}
+.links a b{font-weight:600;font-size:14px}
+.links a span{font-size:12px;color:var(--muted)}
+.links a em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--accent-deep)}
+.match{list-style:none;margin:0;padding:0;display:grid;border:1px solid var(--rule);border-radius:8px;background:#fff;overflow:hidden}
+.match li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:10px 14px;border-bottom:1px solid var(--rule);font-size:13px}
+.match li:last-child{border-bottom:0}
+.match li.h{background:#FAF7F1;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.match small{display:block;color:var(--muted);font-size:11.5px}
+
+/* ---------- right panel ---------- */
+.right{background:var(--panel);overflow:auto;padding:18px 18px 28px;display:grid;gap:20px;align-content:start}
+.right section{display:grid;gap:10px}
+.right section + section{border-top:1px solid var(--rule);padding-top:18px}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rh h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:7px;align-items:center}
+.rh h3 svg{width:14px;height:14px}
+.rh .pill{font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:1px 6px;color:var(--muted)}
+.big{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1}
+.big small{font-family:var(--sans);font-size:12px;color:var(--muted);margin-left:4px}
+.finbar{display:flex;height:8px;border-radius:2px;overflow:hidden;gap:2px}
+.finbar i{display:block;height:100%}
+.finlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.finlist li{display:grid;grid-template-columns:12px 1fr auto;gap:9px;align-items:center;font-size:12.5px}
+.finlist li i{width:12px;height:12px;border-radius:2px;border:1px solid rgba(0,0,0,.14)}
+.finlist li span{color:var(--muted);font-size:11px;font-family:var(--mono)}
+.ctrl{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;font-size:12.5px}
+.ctrl label{display:flex;gap:8px;align-items:center}
+.sw{appearance:none;width:34px;height:20px;border-radius:999px;background:#D6D0C4;position:relative;cursor:pointer;border:0;flex:none;transition:background .15s}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw:checked{background:var(--moss)}
+.sw:checked::after{transform:translateX(14px)}
+.rng{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.rng input{grid-column:1/-1;width:100%;accent-color:var(--side)}
+.rng output{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.opt{display:grid;gap:5px}
+.opt > span{font-size:12.5px}
+.opt > span small{color:var(--muted);font-size:11px;margin-left:4px}
+.walkbtn{appearance:none;border:0;border-radius:7px;background:var(--side);color:#fff;padding:11px;display:flex;justify-content:center;gap:8px;align-items:center;cursor:pointer;font-size:13px;font-weight:500}
+.walkbtn:hover{background:var(--side2)}
+.note{border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.6;margin:0}
+.note.moss{background:var(--moss-bg);color:#22432F}
+.note.amber{background:var(--amber-bg);color:#5E4520;display:grid;grid-template-columns:16px 1fr;gap:8px}
+.note b{display:block;font-size:11.5px;margin-bottom:3px}
+.note ul{margin:0;padding-left:14px}
+
+dialog{border:0;border-radius:10px;padding:0;max-width:min(96vw,1400px);background:#111}
+dialog::backdrop{background:rgba(15,20,17,.84)}
+dialog img{max-height:84vh;width:auto;margin-inline:auto}
+dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#E8ECE7;font-size:13px}
+dialog .dc button{appearance:none;border:1px solid #555;background:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
+dialog.brief{background:var(--panel);max-width:580px}
+dialog.brief .in{padding:22px 24px;display:grid;gap:10px;color:var(--ink);font-size:13.5px}
+dialog.brief h3{margin:0;font-family:var(--serif);font-weight:500;font-size:20px}
+dialog.brief ul{margin:0;padding-left:18px;display:grid;gap:6px}
+dialog.brief q{font-family:var(--mono);font-size:12px;quotes:"“" "”"}
+
+@media (max-width:1180px){
+  .app{grid-template-columns:230px minmax(0,1fr)}
+  .right{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .right section + section{border-top:0;padding-top:0}
+}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:auto}
+  .top{padding-inline:16px;flex-wrap:wrap;padding-block:10px;height:auto}
+  .brand{width:auto}.crumb{display:none}
+  .side{padding-inline:16px}
+  .stage{min-height:420px}
+  .grid2,.rgrid,.dgrid,.dgrid3,.links{grid-template-columns:minmax(0,1fr)}
+  .match li{grid-template-columns:minmax(0,1fr)}
+  .card,.hint,.scale{display:none}
+  .right{padding-inline:16px}
+  .tl li{grid-template-columns:58px 16px minmax(0,1fr);gap:0 10px}
+  .vfoot{bottom:10px}
+}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#EEF0EA" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
+      <div><b>Anzon Wong 設計室</b><span>Design workspace</span></div>
+    </div>
+    <div class="crumb"><span>PROJECTS</span><span>›</span><span>Cocotte 法式餐廳酒吧</span><span class="pill">室內設計 · 2013</span></div>
+    <span class="grow"></span>
+    <button class="btn" id="briefBtn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 7.2V11M8 5v.2"/></svg>設計前提</button>
+  </header>
+
+  <aside class="side" aria-label="項目資料">
+    <div>
+      <div class="cap">Restaurant &amp; Bar · Interior · G/F</div>
+      <div class="logo">Cocotte</div>
+      <h1>一間巴黎小館,<br>擺落中環橫街。</h1>
+      <p class="loc">法式餐廳及酒吧 · 中環新興街地舖<br><span lang="en">French restaurant &amp; bar, Central, Hong Kong</span></p>
+    </div>
+    <div class="specs">
+      <div><span>可用面積 Area</span><b>≈78<small>m²</small></b></div>
+      <div><span>樓層 Level</span><b>1<small>地舖 G/F</small></b></div>
+      <div><span>圖則 Sheets</span><b>18<small>張</small></b></div>
+      <div><span>設計週期 Period</span><b>10<small>週</small></b></div>
+    </div>
+    <div>
+      <div class="cap" style="margin-bottom:8px">Design rounds · 設計回合</div>
+      <ul class="rounds" id="rounds"></ul>
+    </div>
+    <p class="foot">室內設計、3D 模型、圖則及細部:Anzon Wong<br>2013 年 10 月至 2014 年 1 月 · SketchUp + CAD<br>2026 年以原模型重整為互動展示</p>
+  </aside>
+
+  <main class="centre">
+    <div class="tabs" role="tablist" aria-label="檢視">
+      <button class="tab" role="tab" aria-selected="true" data-pane="p3d" id="t3d"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/><path d="M2.5 5 8 8.2 13.5 5M8 8.2v6"/></svg>3D · 內觀</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pdraw" id="tdraw"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11"/><path d="M2.5 8h5V2.5M7.5 13.5V10h6"/></svg>圖則 · 物料</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="prender" id="trender"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="m2 11 4-4 3 3 2-2 3 3"/><circle cx="10.5" cy="6" r="1"/></svg>效果圖</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pproc" id="tproc"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3v10M3 5h8l-1.5 2L11 9H3"/></svg>設計過程</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pbuilt" id="tbuilt"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 13.5h11M3.5 13.5V6.5L8 3l4.5 3.5v7M6.5 13.5v-4h3v4"/></svg>落成</button>
+      <span class="tag cap">SketchUp model · 3 Jan 2014</span>
+    </div>
+
+    <!-- 3D -->
+    <section class="pane on" id="p3d" role="tabpanel" aria-labelledby="t3d">
+      <div class="stage" id="stage">
+        <div class="vhead"><div><h2 id="vTitle">全店剖切 · 定稿</h2><div class="cap" id="vSub">3 JAN 2014 · FINAL MODEL</div></div></div>
+        <canvas id="cv" aria-label="Cocotte 互動 3D 模型"></canvas>
+        <div class="tools" role="toolbar" aria-label="視圖工具">
+          <button id="tReset" title="重設視角" aria-label="重設視角"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8"/></svg></button>
+          <button id="tIn" title="放大" aria-label="放大"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></button>
+          <button id="tOut" title="縮小" aria-label="縮小"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10"/></svg></button>
+          <button id="tTop" title="俯視平面" aria-label="俯視平面" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11"/><path d="M2.5 7h6v6.5"/></svg></button>
+        </div>
+        <div class="card" id="card" hidden>
+          <img id="cardImg" alt="">
+          <div class="ct"><span id="cardCap"></span><button id="cardClose" aria-label="關閉">✕</button></div>
+        </div>
+        <div class="walkbar" id="walkbar" hidden><span>行入去睇 · 拖曳轉頭 · WASD / 方向鍵行</span><button id="walkExit">完成</button></div>
+        <div class="walkpad" id="walkpad" hidden>
+          <button class="up" data-mv="f" aria-label="向前">▲</button>
+          <button data-mv="l" aria-label="向左">◀</button><button data-mv="b" aria-label="向後">▼</button><button data-mv="r" aria-label="向右">▶</button>
+        </div>
+        <div class="hint">拖曳旋轉 · 滾輪縮放 · 右鍵平移</div>
+        <div class="scale cap">1:1 model · metres</div>
+        <div class="vfoot"><div class="seg" role="group" aria-label="區域">
+          <button aria-pressed="true" data-zone="all">全店</button><button aria-pressed="false" data-zone="dining">飯廳</button><button aria-pressed="false" data-zone="bar">吧枱</button><button aria-pressed="false" data-zone="bath">洗手間</button>
+        </div></div>
+        <div class="loading" id="loading"><div style="text-align:center">3D 模型載入中<div class="bar"><i id="loadbar"></i></div></div></div>
+      </div>
+      <div class="strip">
+        <div class="row">
+          <h3 id="stripTitle">SketchUp 場景 <span>當年 14 個視角,撳一下飛過去</span></h3>
+          <button class="play" id="play" aria-label="逐個場景播放"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg></button>
+        </div>
+        <div class="scenes" id="scenes"></div>
+      </div>
+    </section>
+
+    <!-- Drawings -->
+    <section class="pane" id="pdraw" role="tabpanel" aria-labelledby="tdraw">
+      <div class="doc">
+        <div class="sec">
+          <div><h2>彩色平面<small>Colour plan · 示意</small></h2>
+          <p class="lead">由定稿 SketchUp 模型直接導出嘅平面,再按區域填色。顏色只係示意,分出木地台、灰色服務區同洗手間,唔係指定飾面。</p></div>
+          <figure class="sheet"><button data-src="img/plan_top.webp" data-cap="彩色平面 · 示意 · Colour plan (indicative)"><img src="img/plan_top.webp" alt="Cocotte 彩色平面,顏色屬示意" width="1600" height="655"></button><figcaption><span>G/F · PLAN · NOT TO SCALE</span><span>顏色示意 · INDICATIVE</span></figcaption></figure>
+          <div class="grid2">
+            <ul class="rooms" id="dRooms"></ul>
+            <div style="display:grid;gap:12px;align-content:start">
+              <div class="key"><span><i style="background:#DCC29E"></i>木地台 飯廳 · 通道</span><span><i style="background:#CCCCCC"></i>廚房 · 後勤 · 巷</span><span><i style="background:#D5E0E0"></i>吧枱 · 服務枱</span><span><i class="stripe"></i>洗手間地台花紋</span><span><i style="background:#FFFFFF"></i>枱櫈</span></div>
+              <p class="note amber"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V9M8 11v.2"/></svg><span>面積由當年面積表逐項加埋,約 78 m²。地台飾面圖同洗手間地台都出咗兩個方案,最後揀咗邊個,檔案冇記錄。</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div><h2>施工圖<small>Drawings · Dec 2013 – Jan 2014</small></h2><p class="lead">Anzon 自己畫嘅招標圖,已裁走圖框。撳圖放大。</p></div>
+          <div class="dgrid" id="dSheets"></div>
+        </div>
+
+        <div class="sec">
+          <div><h2>細部<small>Joinery details</small></h2><p class="lead">吧枱、吧櫈同卡位嘅大樣,連黃銅腳踏同 LED 燈槽。</p></div>
+          <div class="dgrid3" id="dDetails"></div>
+        </div>
+
+        <div class="sec">
+          <div><h2>物料表<small>Finishes schedule · 12 Dec 2013</small></h2><p class="lead">定稿物料表嘅編號同規格。家具數量係由枱位圖數出嚟,屬估計。</p></div>
+          <div class="tablewrap"><table class="fin" id="finTable"></table></div>
+          <p class="lead" id="furnLine"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Renders -->
+    <section class="pane" id="prender" role="tabpanel" aria-labelledby="trender">
+      <div class="doc">
+        <div class="sec">
+          <div><h2>AI 渲染 ⇄ 2013 SketchUp<small>AI renders</small></h2><p class="lead">每張都由當年 SketchUp 場景出發,用 gpt-image-2.5 按物料表上物料同燈光,幾何唔改。<b style="color:var(--ink);font-weight:600">呢啲係 AI 渲染,唔係餐廳落成後嘅相。</b>撳下面個掣切換返原本嘅 SketchUp 畫面。</p></div>
+          <div class="rgrid" id="rgrid"></div>
+        </div>
+        <div class="sec">
+          <div><h2>2013 原設計渲染<small>Original 2013 renders</small></h2><p class="lead">2013 年 12 月 16 日 Anzon 自己出嘅照片級效果圖,同樣係設計階段嘅渲染,唔係實景。</p></div>
+          <div class="rgrid" id="r2013"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="pane" id="pproc" role="tabpanel" aria-labelledby="tproc">
+      <div class="doc">
+        <div><h2>十個禮拜,八個回合<small>Design process</small></h2><p class="lead">由任務書到定稿,方案靠一輪輪業主意見同出圖推進。撳左邊回合,或者下面時間線睇返嗰輪嘅圖。</p></div>
+        <div class="grid2">
+          <ol class="tl" id="tl"></ol>
+          <div style="display:grid;gap:10px;align-content:start">
+            <figure class="rcard" style="margin:0">
+              <div class="flip" data-state="b" id="evoFlip">
+                <button class="flipimg" data-src="img/evo/08_dining_white.webp" data-cap="2 Nov 2013 · 白色方案 SketchUp"><img class="a" src="img/evo/02_interior_long.webp" alt="28 Oct 2013 木色方案 SketchUp 視角"><img class="b" src="img/evo/08_dining_white.webp" alt="2 Nov 2013 白色方案 SketchUp 視角"></button>
+                <div class="fseg seg" role="group" aria-label="木色或白色方案"><button aria-pressed="false" data-v="ai" data-cap="28 Oct 2013 · 木色方案 SketchUp">28 Oct 木色</button><button aria-pressed="true" data-v="b" data-cap="2 Nov 2013 · 白色方案 SketchUp">2 Nov 白色</button></div>
+              </div>
+              <figcaption><b style="font-weight:500">剝走木色之前同之後</b><span>SKETCHUP · 28 OCT / 2 NOV 2013</span></figcaption>
+            </figure>
+            <div id="roundImgs"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built -->
+    <section class="pane" id="pbuilt" role="tabpanel" aria-labelledby="tbuilt">
+      <div class="doc">
+        <div class="sec">
+          <div><h2>由設計到落成<small>Design to built</small></h2>
+          <p class="lead">餐廳已經起好,以 Cocotte 名義喺中環新興街開業。以下只列公開報道描述過嘅嘢,同設計檔案對照;報道冇講嘅部分,呢度唔會當係保留咗。開業日期未核實,所以唔寫。</p></div>
+          <ul class="match">
+            <li class="h"><span>設計檔案 · Design file</span><span>公開報道提到 · Press describes</span></li>
+            <li><span>MT-01 手繪鐵框門窗,50×50<small>黑色手繪鐵框玻璃門窗</small></span><span>黑框窗<small>black-framed windows</small></span></li>
+            <li><span>WD-01 人字拼木地板 50×300<small>地台飾面最後揀邊款,檔案冇記錄</small></span><span>橡木地板<small>oak flooring</small></span></li>
+            <li><span>WP-01 牆紙,夾板底<small>「wallpaper green – pull from the forest wallpaper」</small></span><span>牆紙<small>wallpapers</small></span></li>
+            <li><span>GL-02 古董鏡 3–5 mm 斜邊<small>物料表項目</small></span><span>古董鏡<small>vintage mirrors</small></span></li>
+            <li><span>椅:扶手椅、靠卡位單椅<small>設計檔案冇寫明絲絨</small></span><span>絲絨椅<small>velvet chairs</small></span></li>
+          </ul>
+        </div>
+        <div class="sec">
+          <div><h2>報道連結<small>Coverage · links only</small></h2><p class="lead">唔轉載任何報道或食客相片,請去原網站睇。</p></div>
+          <div class="links">
+            <a href="https://www.openrice.com/en/hongkong/r-cocotte-central-international-r166807" target="_blank" rel="noopener"><em>OPENRICE</em><b>Cocotte · Central</b><span>餐廳資料同食客評語</span></a>
+            <a href="https://www.tatlerasia.com/dining/cocotte-french-hong-kong" target="_blank" rel="noopener"><em>TATLER ASIA</em><b>Cocotte, French</b><span>餐廳介紹,提到室內裝修</span></a>
+            <a href="https://www.yelp.com/biz/cocotte-%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener"><em>YELP</em><b>Cocotte 香港</b><span>餐廳資料同評語</span></a>
+          </div>
+          <p class="note amber"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V9M8 11v.2"/></svg><span>門窗用咗邊個方案、側窗有冇保留、地台揀咗邊款,設計檔案都冇記錄,呢頁唔作推斷。</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="right" aria-label="模型控制">
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 12 8 3l6 9z"/></svg>物料構成</h3><span class="pill">物料表 12 Dec 2013</span></div>
+      <div class="big">22<small>項飾面及燈具編號</small></div>
+      <div class="finbar" aria-hidden="true"><i style="flex:4;background:#B07A4A"></i><i style="flex:3;background:#EDE8DF"></i><i style="flex:2;background:#2E5A45"></i><i style="flex:2;background:#F2EEE6"></i><i style="flex:1.5;background:#1B1B1A"></i><i style="flex:1;background:#9AA3A0"></i><i style="flex:1;background:#B08D57"></i></div>
+      <ul class="finlist">
+        <li><i style="background:#B07A4A"></i>人字拼木地板<span>WD-01</span></li>
+        <li><i style="background:#EDE8DF"></i>手繪斜邊木線牆身<span>WD-02</span></li>
+        <li><i style="background:#2E5A45"></i>森林圖案牆紙<span>WP-01</span></li>
+        <li><i style="background:#F2EEE6"></i>雲石枱面及地台<span>ST-01–03</span></li>
+        <li><i style="background:#1B1B1A"></i>手繪鐵框門窗<span>MT-01</span></li>
+        <li><i style="background:#9AA3A0"></i>古董鏡<span>GL-02</span></li>
+        <li><i style="background:#B08D57"></i>黃銅色髮絲紋金屬<span>MT-02</span></li>
+        <li><i style="background:#F3D9A4"></i>3000K LED 燈槽<span>LT-03</span></li>
+      </ul>
+    </section>
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/></svg>模型顯示</h3></div>
+      <div class="ctrl">
+        <label for="cSection">剖切</label><input class="sw" type="checkbox" id="cSection" checked>
+        <div class="rng" id="secRow"><span style="font-size:12px;color:var(--muted)">剖切高度 · 離地</span><output id="secOut">1.4 m</output><input type="range" id="cSecH" min="0.8" max="4" step="0.1" value="1.4" aria-label="剖切高度"></div>
+        <label for="cCeil">天花</label><input class="sw" type="checkbox" id="cCeil">
+        <label for="cFurn">枱椅、卡位及吊燈</label><input class="sw" type="checkbox" id="cFurn" checked>
+        <label for="cShell">大廈外殼</label><input class="sw" type="checkbox" id="cShell" checked>
+      </div>
+      <div class="opt">
+        <span>門面方案 · 開 / 關<small>30 Oct 門窗研究</small></span>
+        <div class="seg" role="group" aria-label="門面方案" style="justify-self:start">
+          <button aria-pressed="true" data-door="open">開 Open</button><button aria-pressed="false" data-door="close">關 Closed</button>
+        </div>
+      </div>
+      <div class="opt">
+        <span>側窗<small>Side window</small></span>
+        <div class="seg" role="group" aria-label="側窗" style="justify-self:start">
+          <button aria-pressed="true" data-win="with">有窗</button><button aria-pressed="false" data-win="without">冇窗</button>
+        </div>
+      </div>
+      <div class="opt">
+        <span>洗手間地台<small>Bathroom floor</small></span>
+        <div class="seg" role="group" aria-label="洗手間地台" style="justify-self:start">
+          <button aria-pressed="true" data-bath="1">方案 1</button><button aria-pressed="false" data-bath="2">方案 2</button>
+        </div>
+      </div>
+      <p class="note amber"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V9M8 11v.2"/></svg><span>三個掣都係換真實模型幾何。最後門窗、側窗同地台揀咗邊個,檔案冇記錄。</span></p>
+      <button class="walkbtn" id="walkBtn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="3" r="1.4"/><path d="m6 14 1.5-5L6 7l2-1.5L10 8l2 1M7.5 9l2 5"/></svg>入去行下 · 飯廳</button>
+    </section>
+    <section>
+      <div class="note moss"><b>呢一版嘅重點</b><ul><li>黑色手繪鐵框玻璃門面,灰白間條雨篷</li><li>長卡位連背後暖光燈槽</li><li>雲石枱面,紅筆加咗黃銅腳踏</li><li>古董鏡、手繪木線、大膽牆紙</li></ul></div>
+      <div class="note amber"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V9M8 11v.2"/></svg><span>3D 顏色、彩色平面同 AI 效果圖嘅物料屬示意,按物料表推斷,並非實景。</span></div>
+    </section>
+  </aside>
+</div>
+
+<dialog id="lb" aria-label="放大檢視"><img id="lbImg" alt=""><div class="dc"><span id="lbCap"></span><button id="lbClose">關閉</button></div></dialog>
+<dialog id="brief" class="brief" aria-label="設計前提"><div class="in">
+  <h3>設計前提</h3>
+  <p style="margin:0">Mood board 標題:<q>COCOTTE // restaurant and bar</q>。方向係巴黎小館:黑色手繪鐵框玻璃、手繪木線、雲石、黃銅、古董鏡、大膽牆紙。</p>
+  <ul>
+    <li>第一輪意見:<q>remove all materials: dark wood / light wood</q>、<q>solid white floor in dining &amp; bathrooms</q>、<q>grey floor in kitchen / bar</q>、<q>leave texture on banquette</q></li>
+    <li>牆紙顏色:<q>wallpaper green – pull from the forest wallpaper</q></li>
+    <li>門面:<q>add a grey + white striped awning</q>、<q>pivot the doors when open</q>、<q>change bottom of doors to glass</q></li>
+    <li>椅:<q>arm chair at loose table; MAX 60cm wide</q>、<q>side chair at banquette MAX 55cm wide</q>、<q>wood legs tapered / danish</q></li>
+    <li>地舖一層,比條巷高少少,要行一級上。</li>
+  </ul>
+  <p style="margin:0;color:var(--muted);font-size:12px">來源:2013 年 10 月至 12 月嘅 mood board 同業主書面意見。</p>
+  <button class="btn dark" style="justify-self:end" id="briefClose">知道</button>
+</div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const V = "1";
+/* SketchUp scene cameras (metres, z-up); converted below to three.js [x, z, -y] */
+const RAW_CAMS = [{"name":"VIEW1","eye":[11.8,3.26,98.87],"target":[11.8,3.26,2.15],"fov":8.29},{"name":"VIEW2","eye":[-5.05,2.79,2.77],"target":[19.28,2.18,2.55],"fov":35.0},{"name":"VIEW3","eye":[31.74,2.32,2.31],"target":[12.01,2.32,2.31],"fov":35.0},{"name":"VIEW4","eye":[3.39,1.05,1.53],"target":[10.44,3.67,1.53],"fov":43.47},{"name":"VIEW4B","eye":[2.93,1.46,1.74],"target":[12.63,2.17,1.74],"fov":43.47},{"name":"VIEW4C","eye":[2.96,2.58,1.74],"target":[9.78,2.36,1.74],"fov":43.47},{"name":"VIEW5","eye":[15.64,4.1,1.8],"target":[14.15,2.92,1.8],"fov":51.21},{"name":"VIEW6","eye":[19.96,-10.24,2.56],"target":[20.18,8.6,2.24],"fov":18.8,"near":12.1},{"name":"VIEW7","eye":[20.85,2.2,11.89],"target":[20.85,3.36,-10.72],"fov":18.8},{"name":"VIEW8","eye":[-3.45,-2.15,1.89],"target":[-0.15,0.39,1.89],"fov":36.79},{"name":"VIEW9","eye":[-0.67,6.55,0.42],"target":[2.27,3.81,0.42],"fov":36.79},{"name":"VIEW10","eye":[10.75,1.51,1.75],"target":[-10.26,4.75,1.91],"fov":28.78},{"name":"VIEW11","eye":[12.97,1.56,2.04],"target":[34.13,-0.43,2.04],"fov":42.57},{"name":"VIEW12","eye":[13.81,0.71,2.13],"target":[43.54,25.63,2.13],"fov":51.0}];
+const CAMS = RAW_CAMS.map(c => ({id:c.name, eye:[c.eye[0], c.eye[2], -c.eye[1]], target:[c.target[0], c.target[2], -c.target[1]], fov:c.fov, near:c.near}));
+const $ = id => document.getElementById(id);
+
+/* ---------- data ---------- */
+const ROUNDS = [
+  {id:"r1", date:"22–23 Oct", who:"任務書 · 出圖", issued:true, t:"任務書同首版 3D", p:"收到任務書,砌好 mood board「COCOTTE // restaurant and bar」,同時出第一批 SketchUp 視角,包括一刀切開成間舖嘅長剖面。", imgs:[["evo/04_long_section","23 Oct · 長剖面"]]},
+  {id:"r2", date:"28–29 Oct", who:"業主意見", t:"木色方案,再剝走木", p:"先出木色視角 1 至 9。業主第一輪意見:「remove all materials: dark wood / light wood」,飯廳同洗手間用白色地台,廚房同吧枱用灰色,卡位保留質感。Edit 1 就將木色剝走改做白同灰,分隔空間,換細啲、冇扶手嘅椅。", imgs:[["evo/01_cutaway","28 Oct · 剖切鳥瞰"],["evo/02_interior_long","28 Oct · 飯廳長景"],["evo/03_bar_stools","28 Oct · 吧枱"]]},
+  {id:"r3", date:"30 Oct", who:"出圖", issued:true, t:"門窗四個方案", p:"門面門窗出四個方案,每個都有開同關兩個狀態。業主回覆:「KEEP CURRENT OPTION 1, ADD OPTION 2, 3」。", imgs:[["evo/10_window_options_1-4_open","30 Oct · 方案 1 至 4 · 開"]]},
+  {id:"r4", date:"1–4 Nov", who:"業主意見 · 出圖", issued:true, t:"雨篷、轉軸門、白色方案", p:"「add a grey + white striped awning」「pivot the doors when open」「change bottom of doors to glass」。加服務枱、卡位後面燈槽、新款吧櫈;地台升高改灰;側窗出有同冇兩個版本,後門都加雨篷。", imgs:[["evo/06_facade_awning_open","2 Nov · 門面連雨篷"],["evo/05_long_section_awning","2 Nov · 長剖面"],["evo/08_dining_white","2 Nov · 白色飯廳"],["evo/09_bar_white","2 Nov · 白色吧枱"],["evo/11_side_window_with_without","3 Nov · 側窗有 / 冇"],["evo/07_alley_corner_side_window","4 Nov · 側巷轉角"]]},
+  {id:"r5", date:"24 Nov", who:"出圖", issued:true, t:"招標草圖", p:"第一套招標草圖:物料表、平面、地台飾面同立面。"},
+  {id:"r6", date:"25 Nov–14 Dec", who:"業主意見 · 出圖", issued:true, t:"紅筆批註,圖由 6 張變 18 張", p:"紅筆寫「awning」「LED warm」「brass hairline」「brass foot rest」。椅嘅要求:「arm chair at loose table; MAX 60cm wide」「side chair at banquette MAX 55cm wide」「wood legs tapered / danish」。跟住出家具模型,同吧枱、吧櫈、卡位、層架、服務枱同金屬大樣。", imgs:[["evo/12_furniture_overall","2 Dec · 家具模型"],["evo/13_furniture_armchair","2 Dec · 扶手椅"],["draw/17_area_diagram","12 Dec · 面積分區圖"],["draw/21_bar_details","12 Dec · 吧枱大樣"],["draw/22_barstool_details","12 Dec · 吧櫈大樣"]]},
+  {id:"r7", date:"16–22 Dec", who:"出圖", issued:true, t:"合併圖則同照片級渲染", p:"圖則合併成套;門面外牆磚改做手繪木線;防火木門加視窗;出照片級效果圖同插蘇位置圖;卡位再改一版。", imgs:[["r2013/exterior","16 Dec · 2013 原設計渲染 · 門面"],["r2013/interior","16 Dec · 2013 原設計渲染 · 室內"],["draw/15_floor_plan","18 Dec · 平面圖"],["draw/18_elev_front_rear_side","18 Dec · 外立面"],["draw/23_banquette_details","22 Dec · 卡位大樣"]]},
+  {id:"r8", date:"3 Jan 2014", who:"定稿", issued:true, t:"定稿模型同圖則", p:"最後一版 SketchUp 模型同 CAD 圖,地台飾面平面出兩個方案,洗手間地台都有兩款。最後揀咗邊個門窗方案、側窗有冇保留、地台用邊款,檔案冇記錄。", imgs:[["draw/16_floor_finishes_options","3 Jan · 地台飾面兩個方案"],["evo/14_bathroom_floor_options","3 Jan · 洗手間地台方案"]]}
+];
+const SCENE_NAMES = {VIEW1:"平面鳥瞰",VIEW2:"門面",VIEW3:"後巷入口",VIEW4:"卡位飯廳",VIEW4B:"望向吧枱",VIEW4C:"飯廳另一角",VIEW5:"吧枱",VIEW6:"洗手間",VIEW7:"洗手間平面",VIEW8:"巷口剖切",VIEW9:"側巷轉角",VIEW10:"望返門面",VIEW11:"走廊",VIEW12:"鏡牆吊燈"};
+const AI_OF = {VIEW2:"facade",VIEW4:"dining",VIEW4B:"dining_bar",VIEW5:"bar",VIEW9:"alley",VIEW10:"front_inside"};
+const ZONES = [["飯廳","Dining","40.6"],["吧枱","Bar","9.6"],["廚房 1","Kitchen 1","6.4"],["廚房 2","Kitchen 2","6.9"],["後勤","Back of house","6.9"],["後院","Yard","2.7"],["女洗手間","Bathroom F","2.2"],["男洗手間","Bathroom M","1.5"],["門口平台","Patio","0.8"]];
+const SHEETS = [
+  ["15_floor_plan","平面圖","FLOOR PLAN · 18 DEC 2013"],
+  ["16_floor_finishes_options","地台飾面 · 兩個方案","FLOOR FINISHES OPTIONS · 3 JAN 2014"],
+  ["17_area_diagram","面積分區圖","AREA DIAGRAM · 12 DEC 2013"],
+  ["18_elev_front_rear_side","門面、後面及側立面","FRONT / REAR / SIDE ELEVATIONS · 18 DEC 2013"],
+  ["19_elev_1_2_4","室內立面 1、2、4","INTERIOR ELEVATIONS 1, 2, 4 · 18 DEC 2013"],
+  ["20_elev_3_bar","室內立面 3 及吧枱","INTERIOR ELEVATION 3 + BAR · 18 DEC 2013"]
+];
+const DETAILS = [["21_bar_details","吧枱大樣","BAR · 12 DEC 2013"],["22_barstool_details","吧櫈大樣","BAR STOOL · 12 DEC 2013"],["23_banquette_details","卡位大樣","BANQUETTE · 22 DEC 2013"]];
+const FINISHES = [
+  ["地台 Floors"],
+  ["TL-01","防滑均質地磚 300×300","廚房、吧枱"],["WD-01","人字拼木地板 50×300,瀝青氈底",""],["WD-04","木地板 80 mm",""],["ST-03","雲石地台 50 mm",""],
+  ["牆身 Walls"],
+  ["TL-02","外牆磚 95×45","18 Dec 後改做手繪木線"],["TL-03","廚房牆磚 100×200","廚房"],["TL-04","洗手間牆磚 95×45","洗手間"],["WD-02","40 mm 斜邊木線,夾板底,人手油",""],["WD-03","木腳線",""],["WP-01","牆紙,夾板底",""],["PT-01 / 02","室內 / 室外油漆",""],
+  ["玻璃、石材及金屬 Glass, stone, metal"],
+  ["GL-01","8 mm 清玻璃","自動回彈大門"],["GL-02","古董鏡 3–5 mm 斜邊",""],["ST-01","雲石枱面",""],["ST-02","雲石",""],["MT-01","人手油鐵框門窗 50×50",""],["MT-02","黃銅色髮絲紋不銹鋼",""],["MT-03","髮絲紋不銹鋼",""],
+  ["燈光 Lighting"],
+  ["LT-01","壁燈,離地 2 m",""],["LT-02","吊燈",""],["LT-03","3000K LED 燈帶","卡位、吧枱底、吧枱層架"]
+];
+const RENDERS = [
+  ["dining","卡位飯廳","VIEW4",true],
+  ["dining_bar","飯廳望向吧枱","VIEW4B"],
+  ["bar","吧枱","VIEW5"],
+  ["facade","門面","VIEW2",true],
+  ["front_inside","由店內望返門面","VIEW10"],
+  ["alley","側巷轉角","VIEW9"]
+];
+
+/* ---------- tabs ---------- */
+function showPane(id){
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.pane === id));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === id));
+  if(id === "p3d") window.dispatchEvent(new Event("resize"));
+}
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => showPane(t.dataset.pane)));
+
+/* ---------- lightbox & brief ---------- */
+const lb = $("lb");
+function openLb(src, cap){ $("lbImg").src = src; $("lbImg").alt = cap; $("lbCap").textContent = cap; lb.showModal(); }
+$("lbClose").onclick = () => lb.close(); lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+$("briefBtn").onclick = () => $("brief").showModal(); $("briefClose").onclick = () => $("brief").close();
+document.addEventListener("click", e => {
+  const v = e.target.closest(".flip button[data-v]");
+  if(v){ const f = v.closest(".flip"); f.dataset.state = v.dataset.v; f.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === v));
+    const img = f.querySelector(v.dataset.v === "ai" ? ".a" : ".b"); const fb = f.querySelector(".flipimg"); fb.dataset.src = img.getAttribute("src"); fb.dataset.cap = v.dataset.cap || img.alt; return; }
+  const b = e.target.closest("#pdraw button[data-src], #prender button[data-src], #pproc button[data-src]"); if(b) openLb(b.dataset.src, b.dataset.cap);
+});
+
+/* ---------- rounds + timeline ---------- */
+const check = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 5.2 2 2L8 3"/></svg>';
+$("rounds").innerHTML = ROUNDS.map((r,i) => `<li><button data-r="${r.id}" aria-current="${r.id==='r8'}"><span class="tick">${check}</span><span><span class="t">${r.t}</span><br><span class="who">${r.date} · ${r.who}</span></span><span class="who">0${i+1}</span></button></li>`).join("");
+$("tl").innerHTML = ROUNDS.map(r => `<li class="${r.issued?'issued':''}" data-r="${r.id}" aria-current="${r.id==='r8'}"><time>${r.date}</time><span class="d"></span><div class="b"><span class="who">${r.who}</span><h4>${r.t}</h4><p>${r.p}</p></div></li>`).join("");
+function pickRound(id){
+  document.querySelectorAll("#rounds button").forEach(b => b.setAttribute("aria-current", b.dataset.r === id));
+  document.querySelectorAll("#tl li").forEach(l => l.setAttribute("aria-current", l.dataset.r === id));
+  const r = ROUNDS.find(x => x.id === id);
+  $("roundImgs").innerHTML = r.imgs ? `<p class="cap" style="color:var(--muted);margin:10px 0 0">${r.date} · ${r.t}</p><div class="thumbs">${r.imgs.map(([p,c]) => `<button data-src="img/${p}.webp" data-cap="${c}"><img loading="lazy" src="img/${p}.webp" alt="${c}"><span>${c}</span></button>`).join("")}</div>`
+    : `<p class="note moss" style="margin-top:10px"><b>${r.date} · ${r.who}</b>${r.p}呢一輪冇保存到可以公開嘅圖。</p>`;
+}
+$("rounds").addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if(!b) return; pickRound(b.dataset.r); showPane("pproc"); });
+$("tl").addEventListener("click", e => { const l = e.target.closest("li[data-r]"); if(l) pickRound(l.dataset.r); });
+pickRound("r8");
+
+/* ---------- drawings ---------- */
+$("dRooms").innerHTML = ZONES.map(z => `<li>${z[0]} <small style="color:var(--faint)">${z[1]}</small><span>${z[2]} m²</span></li>`).join("") + `<li class="tot">合計 Total<span>≈ 77.6 m²</span></li>`;
+const sheetFig = ([f,zh,en]) => `<figure class="sheet"><button data-src="img/draw/${f}.webp" data-cap="${zh} · ${en}"><img loading="lazy" src="img/draw/${f}.webp" alt="${zh}"></button><figcaption><span>${zh}</span><span>${en}</span></figcaption></figure>`;
+$("dSheets").innerHTML = SHEETS.map(sheetFig).join("");
+$("dDetails").innerHTML = DETAILS.map(sheetFig).join("");
+$("finTable").innerHTML = `<thead><tr><th>編號 Code</th><th>物料 Finish</th><th>位置 Where</th></tr></thead><tbody>` +
+  FINISHES.map(r => r.length === 1 ? `<tr class="grp"><td colspan="3">${r[0]}</td></tr>` : `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2] || '<span style="color:var(--faint)">未註明</span>'}</td></tr>`).join("") + `</tbody>`;
+$("furnLine").innerHTML = "家具(由枱位圖估計):扶手椅約 12 張、單椅約 7 張、枱約 13 張、長卡位 1 條、吧櫈約 14 張、服務枱連 3 塊玻璃層板、L 形吧枱牆身層架連 LED 燈槽、洗手間櫃。服務枱 1000 W × 450 D × 900 H;鏡框窗位 1400 × 800,離地 1200;門面闊約 2620,樓底約 3190;防火門高 2.5 m。";
+
+/* ---------- renders ---------- */
+function flipCard([ai, title, scene, wide]){
+  return `<figure class="rcard ${wide?'wide':''}"><div class="flip" data-state="ai"><button class="flipimg" data-src="img/ai/${ai}.webp" data-cap="${title} · AI 渲染,唔係實景相"><img class="a" loading="lazy" src="img/ai/${ai}.webp" alt="${title} · AI 渲染"><img class="b" loading="lazy" src="img/before/${ai}.webp" alt="${title} · 2013 SketchUp 畫面"></button><span class="aitag">AI 渲染 · AI RENDER</span><div class="fseg seg" role="group" aria-label="${title} 版本"><button aria-pressed="true" data-v="ai" data-cap="${title} · AI 渲染,唔係實景相">AI 渲染</button><button aria-pressed="false" data-v="b" data-cap="${title} · 2013 SketchUp">2013 SketchUp</button></div></div><figcaption><b style="font-weight:500">${title}</b><span>${scene} · ${SCENE_NAMES[scene]}</span></figcaption></figure>`;
+}
+$("rgrid").innerHTML = RENDERS.map(flipCard).join("");
+$("r2013").innerHTML = [["exterior","門面 · 2013 原設計渲染","EXTERIOR · 16 DEC 2013"],["interior","室內 · 2013 原設計渲染","INTERIOR · 16 DEC 2013"]].map(([f,t,m]) =>
+  `<figure class="rcard"><div class="flip"><button class="flipimg" data-src="img/r2013/${f}.webp" data-cap="${t}" style="aspect-ratio:16/9.2"><img class="a" loading="lazy" src="img/r2013/${f}.webp" alt="${t}"></button><span class="aitag" style="background:rgba(31,58,46,.88)">2013 原設計渲染</span></div><figcaption><b style="font-weight:500">${t}</b><span>${m}</span></figcaption></figure>`).join("");
+
+/* ---------- 3D ---------- */
+(function(){
+  const stage = $("stage"), canvas = $("cv");
+  if(!window.THREE || !THREE.GLTFLoader){ $("loading").textContent = "3D 檢視器載入唔到。"; return; }
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0xEAE5DB);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.05, 400);
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true; controls.dampingFactor = 0.09; controls.screenSpacePanning = true;
+
+  scene.add(new THREE.HemisphereLight(0xF6F3EC, 0x8A7F6C, 0.55));
+  const sun = new THREE.DirectionalLight(0xFFEBD2, 1.2);
+  sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+  scene.add(sun); scene.add(sun.target);
+  const fill = new THREE.DirectionalLight(0xDDE6E3, 0.35); scene.add(fill);
+
+  const M = (color, o={}) => new THREE.MeshStandardMaterial(Object.assign({color:new THREE.Color(color).convertSRGBToLinear(), roughness:0.85, metalness:0, flatShading:true, side:THREE.DoubleSide}, o));
+  const MATS = {
+    wall:M(0xEDE8DF), floor:M(0xA8743F,{roughness:.7}), ceiling:M(0xF4F1EA), banquette:M(0x2E5A45,{roughness:.95}),
+    pendant:M(0xB08D57,{roughness:.45}), barstool:M(0x3A3A38,{roughness:.6}), chair:M(0x8A5A3A,{roughness:.7}), table:M(0xEFEAE0,{roughness:.35}),
+    sanitary:M(0xF7F7F4,{roughness:.3}), metal:M(0xB08D57,{roughness:.45}), awning:M(0xD9D9D6),
+    glass:M(0xCFE2E6,{transparent:true, opacity:.25, roughness:.1, depthWrite:false}),
+    timber:M(0x6B4A33,{roughness:.6}), dark:M(0x1B1B1A,{roughness:.55}),
+    paving:M(0xB9B4AA,{roughness:.95}), panel:M(0x9AA3A0,{transparent:true, opacity:.45, roughness:.25, depthWrite:false}),
+    bathpattern:M(0x2B2B2A,{roughness:.5, polygonOffset:true, polygonOffsetFactor:-2, polygonOffsetUnits:-2})
+  };
+  const FLOOR_Y = 0.55;
+  const CLS = /^(wall|floor|ceiling|banquette|pendant|barstool|chair|table|sanitary|metal|glass|awning|timber|dark)/;
+  const FURN = new Set(["banquette","pendant","barstool","chair","table"]);
+  const FILES = ["MAIN","SHELL","OPT_opt1_OPEN","OPT_opt1_CLOSE","OPT_wall_with_window","OPT_wall_without_window","OPT_BATH_OPTION1","OPT_BATH_OPTION2"];
+  const parts = {}, loader = new THREE.GLTFLoader(), pendingSplit = [];
+  /* The export lumps floor slabs into "wall" and the lane kerb into "dark": re-sort each triangle by world height and facing. */
+  function splitByFace(o){
+    const g = o.geometry, pos = g.attributes.position, idx = g.index, n = idx ? idx.count : pos.count;
+    const arr = pos.array, sc = !pos.normalized ? 1 : arr instanceof Int16Array ? 1/32767 : arr instanceof Int8Array ? 1/127 : arr instanceof Uint16Array ? 1/65535 : arr instanceof Uint8Array ? 1/255 : 1;
+    const A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3(), e1 = new THREE.Vector3(), e2 = new THREE.Vector3();
+    const get = (v, i) => v.set(pos.getX(i)*sc, pos.getY(i)*sc, pos.getZ(i)*sc).applyMatrix4(o.matrixWorld);
+    const base = o.userData.cls, keys = [base, "floor", "paving"], buckets = [[], [], []];
+    for(let t = 0; t < n; t += 3){
+      const i0 = idx ? idx.getX(t) : t, i1 = idx ? idx.getX(t+1) : t+1, i2 = idx ? idx.getX(t+2) : t+2;
+      get(A, i0); get(B, i1); get(C, i2);
+      const cy = (A.y + B.y + C.y) / 3;
+      const ny = Math.abs(e1.subVectors(B, A).cross(e2.subVectors(C, A)).normalize().y);
+      let k = 0;
+      if(base !== "dark" && ny > 0.9 && cy > FLOOR_Y - 0.12 && cy < FLOOR_Y + 0.2) k = 1;
+      else if(Math.max(A.y, B.y, C.y) < FLOOR_Y + 0.02) k = 2;
+      buckets[k].push(i0, i1, i2);
+    }
+    const all = buckets[0].concat(buckets[1], buckets[2]);
+    g.setIndex(all); g.clearGroups();
+    let start = 0; buckets.forEach((b, j) => { if(b.length) g.addGroup(start, b.length, j); start += b.length; });
+    o.material = keys.map(k => MATS[k]);
+  }
+  let loaded = 0;
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(90, 60), new THREE.ShadowMaterial({opacity:.18}));
+  ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
+
+  function b64(str){ const bin = atob(str), u = new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i] = bin.charCodeAt(i); return u.buffer; }
+  function loadPart(k){
+    return new Promise((res, rej) => {
+      const s = document.createElement("script"); s.src = `models/${k}.js?v=${V}`;
+      s.onload = () => loader.parse(b64(window.COCOTTE_GLB[k]), "", g => { delete window.COCOTTE_GLB[k]; res(g); }, rej);
+      s.onerror = rej; document.body.appendChild(s);
+    });
+  }
+  const box = new THREE.Box3(), center = new THREE.Vector3(); let radius = 13;
+  Promise.all(FILES.map(k => loadPart(k).then(g => {
+    const grp = new THREE.Group(); grp.name = k;
+    g.scene.traverse(o => { if(o.isMesh){
+      const m = CLS.exec(o.name) || (o.parent && CLS.exec(o.parent.name));
+      let key = m ? m[1] : "wall";
+      if(k.startsWith("OPT_BATH") && key === "floor") key = "bathpattern";
+      if(k === "MAIN" && key === "awning") key = "panel";   /* MAIN's "awning" class holds the upright glazed / mirror panels */
+      o.material = MATS[key]; o.userData.cls = key;
+      if(key === "wall" || key === "floor" || key === "dark") pendingSplit.push(o);
+      o.castShadow = key !== "glass"; o.receiveShadow = true;
+    }});
+    if(k.startsWith("OPT_BATH")) grp.position.y = 0.06;
+    grp.add(g.scene); scene.add(grp); parts[k] = grp;
+    grp.updateMatrixWorld(true); pendingSplit.splice(0).forEach(splitByFace);
+    loaded++; $("loadbar").style.width = (loaded/FILES.length*100) + "%";
+  }))).then(() => {
+    box.setFromObject(parts.MAIN); box.getCenter(center); radius = box.getSize(new THREE.Vector3()).length()/2;
+    ground.position.set(center.x, box.min.y - 0.01, center.z);
+    sun.position.set(center.x - 10, center.y + 24, center.z + 14); sun.target.position.copy(center);
+    const sc = sun.shadow.camera; sc.left = -radius; sc.right = radius; sc.top = radius; sc.bottom = -radius; sc.near = 1; sc.far = 80; sc.updateProjectionMatrix();
+    fill.position.set(center.x + 16, center.y + 10, center.z - 16);
+    applyVis(); home(false); $("loading").hidden = true;
+    /* bathroom floor options: the GLBs lost the two-tone tile pattern, so rebuild it from the per-colour triangles */
+    const bs = document.createElement("script"); bs.src = `models/BATH_COLOURS.js?v=${V}`;
+    bs.onload = () => { ["OPT_BATH_OPTION1","OPT_BATH_OPTION2"].forEach(k => {
+      const data = window.COCOTTE_BATH && window.COCOTTE_BATH[k]; if(!data || !parts[k]) return;
+      parts[k].clear();
+      for(const hex in data){
+        const bin = atob(data[hex]), u = new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i] = bin.charCodeAt(i);
+        const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(u.buffer), 3));
+        const mesh = new THREE.Mesh(geo, M(hex, {roughness:.4, polygonOffset:true, polygonOffsetFactor:-2, polygonOffsetUnits:-2}));
+        mesh.userData.cls = "bathpattern"; mesh.receiveShadow = true; parts[k].add(mesh);
+      }
+    }); applyVis(); };
+    document.body.appendChild(bs);
+  }).catch(err => { console.warn(err); $("loading").textContent = "模型有部分載入唔到。"; });
+
+  /* camera tween */
+  let tween = null;
+  function flyTo(pos, tgt, fov, instant){
+    if(instant){ camera.position.copy(pos); controls.target.copy(tgt); if(fov){camera.fov = fov; camera.updateProjectionMatrix();} controls.update(); return; }
+    tween = {t:0, p0:camera.position.clone(), t0:controls.target.clone(), f0:camera.fov, p1:pos, t1:tgt, f1:fov || camera.fov};
+  }
+  function setNear(n){ camera.near = n || 0.05; camera.updateProjectionMatrix(); }
+  const V3 = (x,y,z) => new THREE.Vector3(x,y,z);
+  const ZONE_VIEWS = {
+    all:  () => [V3(8.5, 27, 10.5), V3(12, 0.6, -2.7), 38],
+    dining:() => [V3(4.6, 12.5, 3.6), V3(5.8, 0.6, -2.2), 40],
+    bar:  () => [V3(11.4, 11.5, 3.2), V3(12.4, 0.6, -2.3), 42],
+    bath: () => [V3(21.0, 9.5, -1.2), V3(21.0, 0.6, -2.4), 36]
+  };
+  function home(anim=true){ const [p,t,f] = ZONE_VIEWS.all(); setNear(); flyTo(p, t, f, !anim); }
+
+  /* visibility */
+  const SEC_H = 1.4;
+  let furn = true, ceilOn = false, shellOn = true, secOn = true, door = "open", win = "with", bath = "1";
+  const clip = new THREE.Plane(new THREE.Vector3(0,-1,0), FLOOR_Y + 1.4);
+  function applyVis(){
+    const want = {MAIN:true, SHELL:shellOn, OPT_opt1_OPEN:door==="open", OPT_opt1_CLOSE:door==="close",
+      OPT_wall_with_window:win==="with", OPT_wall_without_window:win==="without", OPT_BATH_OPTION1:bath==="1", OPT_BATH_OPTION2:bath==="2"};
+    for(const k in parts){
+      parts[k].visible = !!want[k];
+      parts[k].traverse(o => { if(o.isMesh){ const c = o.userData.cls; o.visible = FURN.has(c) ? furn : (c === "ceiling" ? ceilOn : true); } });
+    }
+    renderer.clippingPlanes = secOn ? [clip] : [];
+  }
+  function setSec(on, h){ secOn = on; $("cSection").checked = on; $("secRow").hidden = !on; if(h != null){ clip.constant = FLOOR_Y + h; $("cSecH").value = h; $("secOut").textContent = h.toFixed(1) + " m"; } }
+  function setCeil(on){ ceilOn = on; $("cCeil").checked = on; }
+  const pressGroup = (attr, val) => document.querySelectorAll(`[data-${attr}]`).forEach(x => x.setAttribute("aria-pressed", x.dataset[attr] === val));
+
+  document.querySelectorAll("[data-zone]").forEach(b => b.onclick = () => {
+    exitWalk(); stopPlay(); pressGroup("zone", b.dataset.zone); $("card").hidden = true;
+    setSec(true, b.dataset.zone === "bath" ? 1.0 : SEC_H); setCeil(false); applyVis();
+    const [p,t,f] = ZONE_VIEWS[b.dataset.zone](); setNear(); flyTo(p, t, f);
+    const names = {all:["全店剖切 · 定稿","3 JAN 2014 · FINAL MODEL"], dining:["飯廳 · 卡位同散枱","DINING · 40.6 M²"], bar:["吧枱 · L 形雲石枱","BAR · 9.6 M²"], bath:["洗手間 · 地台方案","BATHROOMS · 2.2 + 1.5 M²"]};
+    $("vTitle").textContent = names[b.dataset.zone][0]; $("vSub").textContent = names[b.dataset.zone][1];
+  });
+  $("cCeil").onchange = e => { ceilOn = e.target.checked; applyVis(); };
+  $("cFurn").onchange = e => { furn = e.target.checked; applyVis(); };
+  $("cShell").onchange = e => { shellOn = e.target.checked; applyVis(); };
+  $("cSection").onchange = e => { setSec(e.target.checked); applyVis(); };
+  $("cSecH").oninput = e => { const h = +e.target.value; clip.constant = FLOOR_Y + h; $("secOut").textContent = h.toFixed(1) + " m"; };
+  document.querySelectorAll("[data-door]").forEach(b => b.onclick = () => { door = b.dataset.door; pressGroup("door", door); applyVis(); });
+  document.querySelectorAll("[data-win]").forEach(b => b.onclick = () => { win = b.dataset.win; pressGroup("win", win); applyVis(); });
+  document.querySelectorAll("[data-bath]").forEach(b => b.onclick = () => { bath = b.dataset.bath; pressGroup("bath", bath); applyVis(); });
+  $("tReset").onclick = () => { $("tTop").setAttribute("aria-pressed","false"); exitWalk(); home(); };
+  $("tIn").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(0.75); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+  $("tOut").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(1.33); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+  $("tTop").onclick = e => { const on = e.currentTarget.getAttribute("aria-pressed") !== "true"; e.currentTarget.setAttribute("aria-pressed", on); exitWalk(); setNear();
+    if(on){ setSec(true, SEC_H); setCeil(false); applyVis(); flyTo(V3(center.x, 34, center.z + 0.01), V3(center.x, 0.5, center.z), 38); } else home(); };
+
+  /* SketchUp scenes */
+  const scenesEl = $("scenes");
+  scenesEl.innerHTML = CAMS.map((c,i) => `<button data-i="${i}" aria-current="false" title="${c.id} · ${SCENE_NAMES[c.id]}"><i></i><span>${SCENE_NAMES[c.id]}</span></button>`).join("");
+  let cur = -1;
+  function goScene(i){
+    const c = CAMS[i]; if(!c) return; cur = i; exitWalk();
+    scenesEl.querySelectorAll("button").forEach((b,j) => { b.setAttribute("aria-current", j === i); b.classList.toggle("done", j < i); });
+    pressGroup("zone", ""); $("tTop").setAttribute("aria-pressed","false");
+    const eye = V3(...c.eye), tgt = V3(...c.target);
+    const looksDown = (eye.y - tgt.y) > Math.hypot(eye.x - tgt.x, eye.z - tgt.z) * 1.5;
+    if(looksDown){ setSec(true, SEC_H); setCeil(false); tgt.y = FLOOR_Y; if(Math.abs(eye.z - tgt.z) < 0.01) eye.z = tgt.z + 0.01; }
+    else { setSec(false); setCeil(true); const dir = tgt.clone().sub(eye).normalize(); tgt.copy(eye).add(dir.multiplyScalar(c.near ? c.near + 3 : 3)); }
+    applyVis(); setNear(c.near);
+    flyTo(eye, tgt, Math.min(70, c.fov * 0.95));
+    $("vTitle").textContent = SCENE_NAMES[c.id]; $("vSub").textContent = `SKETCHUP SCENE · ${c.id}`;
+    const ai = AI_OF[c.id];
+    $("cardImg").src = ai ? `img/ai/${ai}.webp` : `img/scene/${c.id}.webp`;
+    $("cardImg").alt = SCENE_NAMES[c.id] + (ai ? " · AI 渲染" : " · 2013 SketchUp 畫面");
+    $("cardCap").textContent = ai ? "AI 渲染 · 同一視角 · 唔係實景" : "2013 SketchUp · 同一視角";
+    $("card").hidden = false;
+  }
+  scenesEl.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if(b) { stopPlay(); goScene(+b.dataset.i); } });
+  $("cardClose").onclick = () => $("card").hidden = true;
+  $("cardImg").onclick = () => openLb($("cardImg").src, $("cardImg").alt);
+  let playT = null;
+  function stopPlay(){ clearInterval(playT); playT = null; $("play").innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg>'; }
+  $("play").onclick = () => {
+    if(playT){ stopPlay(); return; }
+    goScene((cur + 1) % CAMS.length);
+    playT = setInterval(() => goScene((cur + 1) % CAMS.length), 4200);
+    $("play").innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2h2v8H3zM7 2h2v8H7z" fill="currentColor"/></svg>';
+  };
+
+  /* walk mode */
+  let walking = false, yaw = 0, pitch = 0; const keys = {}; const pad = {};
+  function enterWalk(){
+    stopPlay(); walking = true; controls.enabled = false; $("card").hidden = true; tween = null;
+    setSec(false); setCeil(true); applyVis(); setNear(); pressGroup("zone", "");
+    const start = CAMS.find(c => c.id === "VIEW4");
+    camera.position.set(start.eye[0], FLOOR_Y + 1.6, start.eye[2]);
+    const d = V3(start.target[0]-start.eye[0], 0, start.target[2]-start.eye[2]);
+    yaw = Math.atan2(-d.x, -d.z); pitch = 0; camera.fov = 62; camera.updateProjectionMatrix();
+    $("walkbar").hidden = false; $("walkpad").hidden = false; $("vTitle").textContent = "行入去 · 飯廳"; $("vSub").textContent = "EYE LEVEL 1.6 M";
+  }
+  function exitWalk(){
+    if(!walking) return; walking = false; controls.enabled = true; $("walkbar").hidden = true; $("walkpad").hidden = true;
+    controls.target.copy(camera.position.clone().add(V3(-Math.sin(yaw), 0, -Math.cos(yaw)).multiplyScalar(3)));
+    controls.update();
+  }
+  $("walkBtn").onclick = () => { showPane("p3d"); enterWalk(); };
+  $("walkExit").onclick = () => { exitWalk(); setSec(true, SEC_H); setCeil(false); applyVis(); pressGroup("zone","all"); home(); };
+  let drag = null;
+  canvas.addEventListener("pointerdown", e => { if(walking){ drag = {x:e.clientX, y:e.clientY}; canvas.setPointerCapture(e.pointerId); } });
+  canvas.addEventListener("pointermove", e => { if(walking && drag){ yaw -= (e.clientX - drag.x) * 0.004; pitch = Math.max(-1.2, Math.min(1.2, pitch - (e.clientY - drag.y) * 0.004)); drag = {x:e.clientX, y:e.clientY}; } });
+  canvas.addEventListener("pointerup", () => drag = null);
+  addEventListener("keydown", e => { if(walking){ keys[e.key.toLowerCase()] = true; if(["arrowup","arrowdown","arrowleft","arrowright"].includes(e.key.toLowerCase())) e.preventDefault(); } });
+  addEventListener("keyup", e => { keys[e.key.toLowerCase()] = false; });
+  document.querySelectorAll("[data-mv]").forEach(b => { const k = b.dataset.mv;
+    b.addEventListener("pointerdown", () => pad[k] = true); ["pointerup","pointerleave","pointercancel"].forEach(ev => b.addEventListener(ev, () => pad[k] = false)); });
+
+  function resize(){ const w = stage.clientWidth, h = stage.clientHeight; if(!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+  new ResizeObserver(resize).observe(stage); addEventListener("resize", resize); resize();
+
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dt = Math.min(clock.getDelta(), 0.05);
+    if(!stage.offsetParent) return;
+    if(tween){
+      tween.t = Math.min(1, tween.t + dt/1.1); const k = tween.t < .5 ? 4*tween.t**3 : 1 - Math.pow(-2*tween.t+2, 3)/2;
+      camera.position.lerpVectors(tween.p0, tween.p1, k); controls.target.lerpVectors(tween.t0, tween.t1, k);
+      camera.fov = tween.f0 + (tween.f1 - tween.f0)*k; camera.updateProjectionMatrix();
+      if(tween.t >= 1) tween = null;
+    }
+    if(walking){
+      const f = (keys.w||keys.arrowup||pad.f ? 1:0) - (keys.s||keys.arrowdown||pad.b ? 1:0);
+      const s = (keys.d||keys.arrowright||pad.r ? 1:0) - (keys.a||keys.arrowleft||pad.l ? 1:0);
+      const sp = 2.2 * dt;
+      camera.position.x += (-Math.sin(yaw)*f + Math.cos(yaw)*s) * sp;
+      camera.position.z += (-Math.cos(yaw)*f - Math.sin(yaw)*s) * sp;
+      camera.rotation.set(pitch, yaw, 0, "YXZ");
+    } else controls.update();
+    renderer.render(scene, camera);
+  });
+})();
+</script>

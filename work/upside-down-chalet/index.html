@@ -1,0 +1,762 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>The Upside-Down Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Single committed look: a light design workspace (the reference is light-only). Every colour is painted explicitly. */
+:root{
+  --paper:#F3F2EE; --panel:#FFFFFF; --ink:#1D2321; --muted:#6B736F; --faint:#9AA19D; --rule:#E3E2DC;
+  --side:#1F2A27; --side2:#2A3733; --side-ink:#E8ECE7; --side-mute:#9FB0A9;
+  --accent:#B4602C; --accent-ink:#FFFFFF; --moss:#56724B; --moss-bg:#EDF2EA; --amber-bg:#F7EFE2; --amber:#9A6A2C;
+  --viewer:#EFEEE9;
+  --serif:"Noto Serif TC", "Songti TC", Georgia, serif;
+  --sans:"IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--sans);padding-inline:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{max-width:100%;height:auto;display:block}
+.mono{font-family:var(--mono)}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- app frame ---------- */
+.app{display:grid;grid-template-columns:260px minmax(0,1fr) 300px;grid-template-rows:56px minmax(0,1fr);min-height:100vh}
+.top{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-inline:16px;background:var(--panel);border-bottom:1px solid var(--rule);min-width:0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;width:228px}
+.mark{width:30px;height:30px;border-radius:50%;background:var(--side);display:grid;place-items:center;flex:none}
+.brand b{font-weight:600;font-size:14px;display:block;line-height:1.1}
+.brand span{font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.crumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;min-width:0;overflow:hidden;white-space:nowrap}
+.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--moss);background:var(--moss-bg)}
+.top .grow{flex:1}
+.btn{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:7px 12px;display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:12.5px;white-space:nowrap}
+.btn:hover{border-color:#c9c8c0}
+.btn.dark{background:var(--side);color:var(--side-ink);border-color:var(--side)}
+.btn.dark:hover{background:var(--side2)}
+
+/* ---------- left sidebar ---------- */
+.side{background:var(--side);color:var(--side-ink);padding:22px 20px;display:flex;flex-direction:column;gap:22px;overflow:auto}
+.side .cap{color:var(--side-mute)}
+.side h1{font-family:var(--serif);font-weight:700;font-size:25px;line-height:1.32;margin:8px 0 0;letter-spacing:.02em;text-wrap:balance}
+.side .loc{font-size:12px;color:var(--side-mute);margin-top:10px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(255,255,255,.1)}
+.specs div{display:grid;gap:1px}
+.specs span{font-size:11px;color:var(--side-mute)}
+.specs b{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.specs b small{font-size:11px;color:var(--side-mute);margin-left:3px;font-weight:400}
+.rounds{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.rounds button{appearance:none;width:100%;border:0;background:transparent;display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:8px 8px;border-radius:6px;text-align:left;cursor:pointer;color:var(--side-ink)}
+.rounds button:hover{background:rgba(255,255,255,.06)}
+.rounds .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--side-mute);display:grid;place-items:center}
+.rounds .tick svg{width:10px;height:10px}
+.rounds .who{font-size:10px;color:var(--side-mute);font-family:var(--mono)}
+.rounds .t{font-size:13px}
+.rounds button[aria-current="true"]{background:#E9EDE6;color:var(--ink)}
+.rounds button[aria-current="true"] .tick{background:var(--side);border-color:var(--side);color:#fff}
+.rounds button[aria-current="true"] .who{color:var(--muted)}
+.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+
+/* ---------- centre ---------- */
+.centre{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel);border-right:1px solid var(--rule)}
+.tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--rule);padding-inline:12px;gap:2px;overflow-x:auto}
+.tab{appearance:none;border:0;background:none;padding:12px 14px;display:flex;gap:7px;align-items:center;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;font-size:13px}
+.tab svg{width:14px;height:14px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.tabs .tag{margin-left:auto;align-self:center;color:var(--faint);white-space:nowrap}
+.pane{flex:1;min-height:0;display:none}
+.pane.on{display:flex;flex-direction:column}
+
+/* 3D pane */
+.vhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 18px 0;position:absolute;inset:0 0 auto 0;pointer-events:none;z-index:2}
+.vhead h2{font-family:var(--serif);font-weight:500;font-size:19px;margin:0}
+.vhead .cap{color:var(--muted);margin-top:3px}
+.stage{position:relative;flex:1;min-height:520px;background:var(--viewer);overflow:hidden}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.tools{position:absolute;right:14px;top:14px;display:grid;gap:6px;z-index:3}
+.tools button{appearance:none;width:32px;height:32px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.tools button svg{width:15px;height:15px}
+.tools button[aria-pressed="true"]{background:var(--side);color:#fff;border-color:var(--side)}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:3px;gap:2px}
+.seg button{appearance:none;border:0;background:transparent;border-radius:5px;padding:5px 11px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--side);color:#fff}
+.vfoot{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;z-index:3;pointer-events:none}
+.vfoot .seg{pointer-events:auto}
+.hint{position:absolute;left:16px;bottom:16px;color:var(--muted);font-size:11px;z-index:2}
+.scale{position:absolute;right:16px;bottom:18px;color:var(--faint);z-index:2}
+.loading{position:absolute;inset:0;display:grid;place-items:center;z-index:4;color:var(--muted);font-size:13px;background:var(--viewer)}
+.loading .bar{width:180px;height:3px;background:var(--rule);margin-top:10px;overflow:hidden;border-radius:2px}
+.loading .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.card{position:absolute;left:14px;top:72px;width:min(280px,42%);background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden;z-index:3;box-shadow:0 8px 24px rgba(29,35,33,.12)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#fff}
+.card .ct{padding:8px 10px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}
+.card .ct button{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;font-size:11px}
+.walkpad{position:absolute;right:16px;bottom:60px;display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;z-index:3}
+.walkpad button{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;cursor:pointer;font-size:15px}
+.walkpad .up{grid-column:2}
+.walkbar{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:4;background:var(--side);color:#fff;border-radius:999px;padding:6px 8px 6px 14px;display:flex;gap:10px;align-items:center;font-size:12px}
+.walkbar button{appearance:none;border:0;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;font-size:12px}
+
+/* scene strip */
+.strip{border-top:1px solid var(--rule);padding:12px 18px 14px;display:grid;gap:10px;background:var(--panel)}
+.strip .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.strip h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:baseline}
+.strip h3 span{font-weight:400;color:var(--muted);font-size:12px}
+.play{appearance:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);cursor:pointer;display:grid;place-items:center}
+.scenes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(64px,1fr);gap:4px;overflow-x:auto;padding-bottom:2px}
+.scenes button{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:5px;text-align:left}
+.scenes i{display:block;height:3px;border-radius:2px;background:var(--rule)}
+.scenes span{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.scenes button[aria-current="true"] i{background:var(--ink)}
+.scenes button[aria-current="true"] span{color:var(--ink)}
+.scenes button.done i{background:#9FB0A9}
+
+/* document panes */
+.doc{overflow:auto;padding:22px clamp(16px,2.4vw,32px) 40px;display:grid;gap:34px;align-content:start}
+.doc h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:0}
+.doc .lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
+.sheet{background:#FBFBF9;border:1px solid var(--rule);border-radius:6px;padding:14px;display:grid;gap:8px;margin:0}
+.sheet figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+.lvtabs{display:flex;gap:6px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.rooms{list-style:none;margin:0;padding:0}
+.rooms li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.rooms li span{color:var(--muted);font-size:12px;text-align:right}
+.key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--muted)}
+.key i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:5px;border:1px solid rgba(0,0,0,.12)}
+.board{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:0;background:#FBFAF6;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.board.navy{background:#16233A;color:#E6EBF2;border-color:#16233A}
+.board .art{padding:16px;display:grid;place-items:center}
+.board .notes{padding:18px 18px 18px 0;display:grid;gap:12px;align-content:start;font-size:12.5px}
+.board .notes h4{margin:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;opacity:.75}
+.board ol{margin:0;padding-left:0;list-style:none;display:grid;gap:7px}
+.board ol li{display:grid;grid-template-columns:20px 1fr;gap:6px;align-items:start}
+.board ol li b{width:18px;height:18px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-family:var(--mono);font-size:10px;font-weight:500}
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.palette div{display:grid;gap:3px;font-size:10.5px}
+.palette i{display:block;height:26px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+.rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rcard{margin:0;display:grid;gap:7px}
+.rcard.wide{grid-column:1/-1}
+.cmp{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--rule);background:#fff;max-width:100%}
+.cmp img{width:100%;user-select:none;pointer-events:none}
+.cmp .over{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.cmp .over img{height:100%;object-fit:cover}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.cmp .knob{position:absolute;top:50%;left:var(--x,50%);transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);display:grid;place-items:center;font-size:11px}
+.cmp .lab{position:absolute;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(29,35,33,.78);color:#fff;padding:2px 7px;border-radius:3px}
+.cmp .l{left:8px}.cmp .r{right:8px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.flip{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--rule);background:#fff}
+.flipimg{appearance:none;border:0;padding:0;margin:0;display:block;width:100%;aspect-ratio:3/2;position:relative;background:#fff;cursor:zoom-in}
+.flipimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .35s}
+.flipimg .a{object-fit:cover}
+.flip[data-state="ai"] .b{opacity:0}.flip[data-state="b"] .a{opacity:0}
+.fseg{position:absolute;left:10px;bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.rcard figcaption{display:flex;justify-content:space-between;gap:10px;font-size:12.5px}
+.rcard figcaption span{color:var(--muted);font-family:var(--mono);font-size:10.5px}
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:74px 16px minmax(0,1fr);gap:0 14px}
+.tl time{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;padding-top:2px}
+.tl .d{position:relative}
+.tl .d::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--rule)}
+.tl .d::after{content:"";position:absolute;left:2px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--panel);border:2px solid var(--moss)}
+.tl li.issued .d::after{background:var(--side);border-color:var(--side)}
+.tl li[aria-current="true"] .d::after{background:var(--accent);border-color:var(--accent)}
+.tl .b{padding-bottom:20px;display:grid;gap:3px;max-width:62ch}
+.tl .b h4{margin:0;font-size:14px;font-weight:600}
+.tl .b p{margin:0;color:var(--muted);font-size:13px}
+.tl .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--moss)}
+.tl li.issued .who{color:var(--accent)}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.thumbs button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:zoom-in}
+.thumbs img{aspect-ratio:16/10;object-fit:cover;width:100%}
+
+/* ---------- right panel ---------- */
+.right{background:var(--panel);overflow:auto;padding:18px 18px 28px;display:grid;gap:20px;align-content:start}
+.right section{display:grid;gap:10px}
+.right section + section{border-top:1px solid var(--rule);padding-top:18px}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rh h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:7px;align-items:center}
+.rh h3 svg{width:14px;height:14px}
+.rh .pill{font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:1px 6px;color:var(--muted)}
+.big{font-family:var(--serif);font-size:30px;font-weight:500;line-height:1}
+.big small{font-family:var(--sans);font-size:12px;color:var(--muted);margin-left:4px}
+.finbar{display:flex;height:8px;border-radius:2px;overflow:hidden;gap:2px}
+.finbar i{display:block;height:100%}
+.finlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.finlist li{display:grid;grid-template-columns:12px 1fr auto;gap:9px;align-items:center;font-size:12.5px}
+.finlist li i{width:12px;height:12px;border-radius:2px;border:1px solid rgba(0,0,0,.12)}
+.finlist li span{color:var(--muted);font-size:11px}
+.finlist li.x{color:var(--faint);text-decoration:line-through}
+.ctrl{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;font-size:12.5px}
+.ctrl label{display:flex;gap:8px;align-items:center}
+.sw{appearance:none;width:34px;height:20px;border-radius:999px;background:#D9D8D1;position:relative;cursor:pointer;border:0;flex:none;transition:background .15s}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw:checked{background:var(--moss)}
+.sw:checked::after{transform:translateX(14px)}
+.rng{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.rng input{grid-column:1/-1;width:100%;accent-color:var(--side)}
+.rng output{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.walkbtn{appearance:none;border:0;border-radius:7px;background:var(--side);color:#fff;padding:11px;display:flex;justify-content:center;gap:8px;align-items:center;cursor:pointer;font-size:13px;font-weight:500}
+.walkbtn:hover{background:var(--side2)}
+.note{border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.6}
+.note.moss{background:var(--moss-bg);color:#3F5637}
+.note.amber{background:var(--amber-bg);color:#6F4E23;display:grid;grid-template-columns:16px 1fr;gap:8px}
+.note b{display:block;font-size:11.5px;margin-bottom:3px}
+.note ul{margin:0;padding-left:14px}
+
+dialog{border:0;border-radius:10px;padding:0;max-width:min(96vw,1400px);background:#111}
+dialog::backdrop{background:rgba(15,18,17,.82)}
+dialog img{max-height:84vh;width:auto;margin-inline:auto}
+dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#E8ECE7;font-size:13px}
+dialog .dc button{appearance:none;border:1px solid #555;background:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
+dialog.brief{background:var(--panel);max-width:560px}
+dialog.brief .in{padding:22px 24px;display:grid;gap:10px;color:var(--ink);font-size:13.5px}
+dialog.brief h3{margin:0;font-family:var(--serif);font-weight:500;font-size:20px}
+dialog.brief ul{margin:0;padding-left:18px;display:grid;gap:5px}
+
+@media (max-width:1180px){
+  .app{grid-template-columns:230px minmax(0,1fr)}
+  .right{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .right section + section{border-top:0;padding-top:0}
+}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:auto}
+  .top{padding-inline:16px;flex-wrap:wrap;padding-block:10px;height:auto}
+  .brand{width:auto}.crumb{display:none}
+  .side{padding-inline:16px}
+  .stage{min-height:420px}
+  .grid2,.board,.rgrid{grid-template-columns:minmax(0,1fr)}
+  .board .notes{padding:0 16px 16px}
+  .card{display:none}
+  .right{padding-inline:16px}
+}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#E8ECE7" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
+      <div><b>Anzon Wong 設計室</b><span>Design workspace</span></div>
+    </div>
+    <div class="crumb"><span>PROJECT 02</span><span>›</span><span>雪山木屋 Chalet</span><span class="pill">室內設計 · 2017</span></div>
+    <span class="grow"></span>
+    <button class="btn" id="briefBtn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 7.2V11M8 5v.2"/></svg>設計前提</button>
+  </header>
+
+  <aside class="side" aria-label="項目資料">
+    <div>
+      <div class="cap">Chalet · Interior · 02</div>
+      <h1>臥室落樓,<br>生活上屋頂。</h1>
+      <p class="loc">舊木屋改建 · 三層 · 私人業主</p>
+    </div>
+    <div class="specs">
+      <div><span>樓層 Levels</span><b>3<small>SS·RDC·R+1</small></b></div>
+      <div><span>睡房 Bedrooms</span><b>3</b></div>
+      <div><span>浴室 Showers</span><b>4</b></div>
+      <div><span>設計週期</span><b>3<small>週</small></b></div>
+    </div>
+    <div>
+      <div class="cap" style="margin-bottom:8px">Design rounds · 設計回合</div>
+      <ul class="rounds" id="rounds"></ul>
+    </div>
+    <p class="foot">室內方案及 3D 模型:Anzon Wong<br>2017 年 5–6 月 · SketchUp<br>2026 年以原模型重整為互動展示</p>
+  </aside>
+
+  <main class="centre">
+    <div class="tabs" role="tablist" aria-label="檢視">
+      <button class="tab" role="tab" aria-selected="true" data-pane="p3d" id="t3d"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/><path d="M2.5 5 8 8.2 13.5 5M8 8.2v6"/></svg>3D · 內觀</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pdraw" id="tdraw"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11"/><path d="M2.5 8h5V2.5M7.5 13.5V10h6"/></svg>圖則</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="prender" id="trender"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="m2 11 4-4 3 3 2-2 3 3"/><circle cx="10.5" cy="6" r="1"/></svg>效果圖</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pproc" id="tproc"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3v10M3 5h8l-1.5 2L11 9H3"/></svg>設計過程</button>
+      <span class="tag cap">SketchUp model · 2017</span>
+    </div>
+
+    <!-- 3D -->
+    <section class="pane on" id="p3d" role="tabpanel" aria-labelledby="t3d">
+      <div class="stage" id="stage">
+        <div class="vhead"><div><h2 id="vTitle">整間屋 · 定稿</h2><div class="cap" id="vSub">06 / 8 JUN 2017 · FINAL ISSUE</div></div></div>
+        <canvas id="cv" aria-label="木屋互動 3D 模型"></canvas>
+        <div class="tools" role="toolbar" aria-label="視圖工具">
+          <button id="tReset" title="重設視角" aria-label="重設視角"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8"/></svg></button>
+          <button id="tIn" title="放大" aria-label="放大"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></button>
+          <button id="tOut" title="縮小" aria-label="縮小"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10"/></svg></button>
+          <button id="tTop" title="俯視平面" aria-label="俯視平面" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11"/><path d="M2.5 7h6v6.5"/></svg></button>
+        </div>
+        <div class="card" id="card" hidden>
+          <img id="cardImg" alt="">
+          <div class="ct"><span id="cardCap"></span><button id="cardClose" aria-label="關閉">✕</button></div>
+        </div>
+        <div class="walkbar" id="walkbar" hidden><span>行入去睇 · 拖曳轉頭 · WASD / 方向鍵行</span><button id="walkExit">完成</button></div>
+        <div class="walkpad" id="walkpad" hidden>
+          <button class="up" data-mv="f" aria-label="向前">▲</button>
+          <button data-mv="l" aria-label="向左">◀</button><button data-mv="b" aria-label="向後">▼</button><button data-mv="r" aria-label="向右">▶</button>
+        </div>
+        <div class="hint">拖曳旋轉 · 滾輪縮放 · 右鍵平移</div>
+        <div class="scale cap">1:1 model · metres</div>
+        <div class="vfoot"><div class="seg" role="group" aria-label="樓層">
+          <button aria-pressed="true" data-lv="all">全部</button><button aria-pressed="false" data-lv="1F">R+1</button><button aria-pressed="false" data-lv="GF">RDC</button><button aria-pressed="false" data-lv="BF">SS</button>
+        </div></div>
+        <div class="loading" id="loading"><div style="text-align:center">3D 模型載入中<div class="bar"><i id="loadbar"></i></div></div></div>
+      </div>
+      <div class="strip">
+        <div class="row">
+          <h3 id="stripTitle">SketchUp 場景 <span>當年 19 個視角,撳一下飛過去</span></h3>
+          <button class="play" id="play" aria-label="逐個場景播放"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg></button>
+        </div>
+        <div class="scenes" id="scenes"></div>
+      </div>
+    </section>
+
+    <!-- Drawings -->
+    <section class="pane" id="pdraw" role="tabpanel" aria-labelledby="tdraw">
+      <div class="doc">
+        <div>
+          <h2>分層圖則</h2>
+          <p class="lead">彩色平面及剖切軸測,全部由原 SketchUp 模型直接導出。層名沿用當年法文施工圖:SS 地庫、RDC 地面、R+1 頂層。</p>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div class="lvtabs seg" role="group" aria-label="揀層">
+            <button aria-pressed="true" data-dl="1F">R+1 生活層</button><button aria-pressed="false" data-dl="GF">RDC 睡房層</button><button aria-pressed="false" data-dl="BF">SS 地庫</button>
+          </div>
+          <div class="grid2">
+            <figure class="sheet"><img id="dPlan" src="img/plan_1F.webp" alt="R+1 彩色平面" width="1600" height="1613"><figcaption id="dPlanCap">R+1 · PLAN · NOT TO SCALE</figcaption></figure>
+            <div style="display:grid;gap:14px">
+              <figure class="sheet"><img id="dIso" src="img/iso_1F.webp" alt="R+1 剖切軸測" width="1600" height="1217"><figcaption id="dIsoCap">R+1 · ISOMETRIC CUT-AWAY</figcaption></figure>
+              <ul class="rooms" id="dRooms"></ul>
+              <div class="key"><span><i style="background:#DCC29E"></i>木地板</span><span><i style="background:#CFDCDC"></i>浴室/儲物</span><span><i style="background:#C9C0B2"></i>露台</span><span><i style="background:#D3CCC0"></i>混凝土</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div><h2>爆炸軸測</h2><p class="lead">屋頂、三層逐層拆開。AI 按原模型幾何渲染,標註同色板由網頁疊加。</p></div>
+          <div class="board">
+            <div class="art"><img id="aiExploded" src="img/ai/exploded.webp" alt="AI 渲染爆炸軸測圖" style="max-height:760px;width:auto"></div>
+            <div class="notes">
+              <h4>Layers · 層次</h4>
+              <ol>
+                <li><b>1</b><span>石板瓦屋頂<br><small style="opacity:.7">Slate roof, lifted</small></span></li>
+                <li><b>2</b><span>R+1 廚房、長枱、客廳、吊火爐</span></li>
+                <li><b>3</b><span>RDC 三間睡房、四個浴室、樓梯廳</span></li>
+                <li><b>4</b><span>SS 洗衣、淋浴、酒窖、儲物</span></li>
+              </ol>
+              <h4>Palette · 色板</h4>
+              <div class="palette">
+                <div><i style="background:#F1EEE8"></i>白灰牆</div><div><i style="background:#D8BC93"></i>橡木地</div>
+                <div><i style="background:#C49A6C"></i>松木板</div><div><i style="background:#6B5642"></i>舊原木</div>
+                <div><i style="background:#9A9A96"></i>清水混凝土</div><div><i style="background:#2F3032"></i>黑鋼</div>
+                <div><i style="background:#5B3E2A"></i>胡桃木</div><div><i style="background:#585D62"></i>石板瓦</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div><h2>剖面透視</h2><p class="lead">一刀切開成間屋:頂層斜屋頂下嘅生活空間,下面係睡房同上下格床。</p></div>
+          <div class="board navy">
+            <div class="art"><img id="aiSection" src="img/ai/section.webp" alt="AI 渲染剖面透視" ></div>
+            <div class="notes">
+              <h4>Section A-A · 剖面</h4>
+              <ol>
+                <li><b>1</b><span>R+1 生活層,扇形屋架外露</span></li>
+                <li><b>2</b><span>吊式黑鋼火爐及煙囪</span></li>
+                <li><b>3</b><span>樓梯井邊:竹林花槽 (B) 或垂繩屏風 (A)</span></li>
+                <li><b>4</b><span>RDC 睡房,連上下格床凹位</span></li>
+                <li><b>5</b><span>清水混凝土樑柱</span></li>
+                <li><b>6</b><span>SS 地庫服務空間</span></li>
+              </ol>
+              <h4>Legend · 圖例</h4>
+              <div class="palette">
+                <div><i style="background:#D8BC93"></i>橡木</div><div><i style="background:#F1EEE8"></i>白牆</div><div><i style="background:#9A9A96"></i>混凝土</div><div><i style="background:#2F3032"></i>黑鋼</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Renders -->
+    <section class="pane" id="prender" role="tabpanel" aria-labelledby="trender">
+      <div class="doc">
+        <div><h2>效果圖 · 2017 線稿 ⇄ AI 渲染</h2><p class="lead">每張都由當年 SketchUp 視角出發,用 gpt-image-2.5 上物料同光線,幾何唔改。左右拉嚟對比。</p></div>
+        <div class="rgrid" id="rgrid"></div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="pane" id="pproc" role="tabpanel" aria-labelledby="tproc">
+      <div class="doc">
+        <div><h2>三個禮拜嘅紅筆</h2><p class="lead">方案靠一輪輪批註推進:業主喺圖上寫意見,每次出圖回應。撳左邊回合,或者下面時間線。</p></div>
+        <div class="grid2">
+          <ol class="tl" id="tl"></ol>
+          <div style="display:grid;gap:10px;align-content:start">
+            <div class="cmp" id="cmpEvo" style="--x:50%">
+              <img src="img/r_1F_V001_OPT1.webp" alt="R+1 平面 · 8 Jun 定稿" width="1800" height="1035">
+              <div class="over"><img src="img/old_V007_1F_PLAN.webp" alt="R+1 平面 · 20 May 首版"></div>
+              <span class="bar"></span><span class="knob">⇄</span><span class="lab l">20 MAY</span><span class="lab r">8 JUN</span>
+              <input type="range" id="cmpEvoR" min="0" max="100" value="50" aria-label="比較首版同定稿平面">
+            </div>
+            <p class="cap" style="color:var(--muted)">R+1 平面 · 首版 (左) / 定稿 (右)</p>
+            <div id="roundImgs"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="right" aria-label="模型控制">
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 12 8 3l6 9z"/></svg>物料構成</h3><span class="pill">示意 · 按業主批註</span></div>
+      <div class="big">8<small>種主要飾面</small></div>
+      <div class="finbar" aria-hidden="true"><i style="flex:5;background:#EDE9E2"></i><i style="flex:3;background:#D8BC93"></i><i style="flex:2;background:#C49A6C"></i><i style="flex:1.5;background:#9A9A96"></i><i style="flex:1;background:#5B3E2A"></i><i style="flex:1;background:#2F3032"></i><i style="flex:1;background:#6F8F45"></i></div>
+      <ul class="finlist">
+        <li><i style="background:#F1EEE8"></i>白灰牆<span>大部分牆身</span></li>
+        <li><i style="background:#D8BC93"></i>淺橡木地板<span>RDC · R+1</span></li>
+        <li><i style="background:#C49A6C"></i>橫向松木板<span>樓梯廳 · 走廊</span></li>
+        <li><i style="background:#9A9A96"></i>清水混凝土樑<span>RDC</span></li>
+        <li><i style="background:#5B3E2A"></i>白色廚櫃配胡桃木<span>R+1</span></li>
+        <li><i style="background:#2F3032"></i>吊式黑鋼火爐<span>R+1 中央</span></li>
+        <li><i style="background:#6F8F45"></i>竹林花槽<span>方案 B</span></li>
+        <li class="x"><i style="background:#C9C2BA"></i>磚砌電視櫈<span>3 Jun 刪除</span></li>
+      </ul>
+    </section>
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/></svg>模型顯示</h3></div>
+      <div class="ctrl">
+        <label for="cSection">剖面顯示</label><input class="sw" type="checkbox" id="cSection" checked>
+        <div class="rng" id="secRow"><span style="font-size:12px;color:var(--muted)">剖切高度</span><output id="secOut">+11.2 m</output><input type="range" id="cSecH" min="4" max="15" step="0.1" value="11.2" aria-label="剖切高度"></div>
+        <label for="cRoof">屋頂</label><input class="sw" type="checkbox" id="cRoof">
+        <label for="cFurn">傢俬及植物</label><input class="sw" type="checkbox" id="cFurn" checked>
+        <div class="rng"><span style="font-size:12px">分層睇</span><output id="expOut">0.0 m</output><input type="range" id="cExp" min="0" max="6" step="0.1" value="0" aria-label="分層距離"></div>
+      </div>
+      <div class="ctrl" style="grid-template-columns:1fr">
+        <span style="font-size:12.5px">樓梯井邊方案</span>
+        <div class="seg" role="group" aria-label="樓梯井邊方案" style="justify-self:start">
+          <button aria-pressed="true" data-opt="B">B · 竹林花槽</button><button aria-pressed="false" data-opt="A">A · 垂繩屏風</button>
+        </div>
+      </div>
+      <button class="walkbtn" id="walkBtn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="3" r="1.4"/><path d="m6 14 1.5-5L6 7l2-1.5L10 8l2 1M7.5 9l2 5"/></svg>入去行下 · 頂層</button>
+    </section>
+    <section>
+      <div class="note moss"><b>呢一版嘅重點</b><ul><li>長枱坐到 10–12 人,廚房牆連儲物間</li><li>吊火爐放喺客廳正中</li><li>樓梯井兩個方案並列</li><li>門口掛一張舊吊車椅做鞦韆</li></ul></div>
+      <div class="note amber"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V9M8 11v.2"/></svg><span>3D 顏色同 AI 效果圖嘅物料屬示意,由業主批註推斷,並非當年定案規格。</span></div>
+    </section>
+  </aside>
+</div>
+
+<dialog id="lb" aria-label="放大檢視"><img id="lbImg" alt=""><div class="dc"><span id="lbCap"></span><button id="lbClose">關閉</button></div></dialog>
+<dialog id="brief" class="brief" aria-label="設計前提"><div class="in">
+  <h3>設計前提</h3>
+  <ul>
+    <li>舊原木農舍改建,主結構及地基已完成,間隔、開窗及木工待做。</li>
+    <li>業主要求「上下倒轉」:睡房放中層,廚房、飯廳、客廳放頂層屋頂之下。</li>
+    <li>地庫:洗衣、淋浴、酒窖、儲物、L 形長櫈。</li>
+    <li>頂層:廚房、早餐吧、八人以上飯枱已定;客廳、電視同火爐位置需要協助。</li>
+    <li>牆身逐間定白灰或木板。</li>
+  </ul>
+  <p style="margin:0;color:var(--muted);font-size:12px">來源:業主 2017 年 5 月 21 日書面意見。業主姓名及地點不作公開。</p>
+  <button class="btn dark" style="justify-self:end" id="briefClose">知道</button>
+</div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const CAMS = [{"id": "BF_V001", "eye": [19.525, 20.718, -12.929], "target": [19.525, -3.917, -12.929], "up": [0.0, 0.0, -1.0], "fov": 54.6, "thumb": true}, {"id": "BF_v002", "eye": [20.118, 13.445, -17.766], "target": [20.075, -10.281, -11.134], "up": [-0.0061, 0.2692, 0.9631], "fov": 54.6, "thumb": true}, {"id": "GF_V001", "eye": [19.538, 33.179, -12.842], "target": [19.538, 8.544, -12.842], "up": [0.0, 0.0, -1.0], "fov": 30.88, "thumb": true}, {"id": "GF_V002", "eye": [16.369, 8.432, -8.341], "target": [27.979, 8.384, -30.069], "up": [0.0009, 1.0, -0.0017], "fov": 73.53, "thumb": true}, {"id": "GF_V003", "eye": [18.872, 8.427, -13.438], "target": [10.237, 8.427, -36.511], "up": [0.0, 1.0, -0.0], "fov": 66.32, "thumb": true}, {"id": "GF_V004", "eye": [16.579, 8.399, -17.036], "target": [18.315, 7.947, -15.024], "up": [0.1096, 0.9858, 0.1271], "fov": 67.6, "thumb": true}, {"id": "GF_V005", "eye": [22.807, 8.587, -9.853], "target": [26.13, 8.587, -6.795], "up": [0.0, 1.0, -0.0], "fov": 62.77, "thumb": true}, {"id": "GF_V006", "eye": [26.404, 8.753, -7.372], "target": [22.749, 7.558, -10.214], "up": [-0.1972, 0.9683, -0.1533], "fov": 62.77, "thumb": true}, {"id": "GF_V007", "eye": [22.475, 8.415, -13.862], "target": [26.988, 8.415, -38.081], "up": [0.0, 1.0, -0.0], "fov": 58.0, "thumb": true}, {"id": "GF_V008", "eye": [22.51, 8.57, -17.85], "target": [23.717, 8.321, -14.736], "up": [0.0269, 0.9972, 0.0693], "fov": 58.0, "thumb": true}, {"id": "1F_V001", "eye": [19.708, 57.966, -13.262], "target": [19.708, 33.33, -13.381], "up": [0.0, 0.0048, -1.0], "fov": 15.4, "thumb": true}, {"id": "1F_V002", "eye": [10.69, 11.112, -13.018], "target": [35.326, 11.112, -13.001], "up": [0.0, 1.0, -0.0], "fov": 48.08, "thumb": true}, {"id": "1F_V003", "eye": [10.69, 11.112, -13.018], "target": [35.326, 11.112, -13.001], "up": [0.0, 1.0, -0.0], "fov": 48.08, "thumb": true}, {"id": "1F_V004", "eye": [14.72, 11.07, -17.182], "target": [29.56, 11.07, 2.483], "up": [0.0, 1.0, -0.0], "fov": 58.28, "thumb": true}, {"id": "1F_V005", "eye": [24.552, 11.247, -8.401], "target": [9.84, 11.247, -28.161], "up": [0.0, 1.0, -0.0], "fov": 54.17, "thumb": true}, {"id": "1F_V006", "eye": [22.705, 10.979, -16.5], "target": [22.669, 9.162, -7.454], "up": [-0.0008, 0.9804, 0.197], "fov": 54.17, "thumb": true}, {"id": "1F_V007", "eye": [21.187, 10.903, -17.601], "target": [24.42, 10.903, -8.959], "up": [0.0, 1.0, -0.0], "fov": 54.17, "thumb": true}, {"id": "1F_V008", "eye": [30.098, 11.634, -12.347], "target": [24.448, 11.655, -12.368], "up": [0.0038, 1.0, 0.0], "fov": 54.17, "thumb": true}, {"id": "1F_V009", "eye": [15.093, 11.097, -12.956], "target": [16.829, 10.694, -22.891], "up": [0.0069, 0.9992, -0.0393], "fov": 58.28, "thumb": true}];
+const $ = id => document.getElementById(id);
+
+/* ---------- data ---------- */
+const ROUNDS = [
+  {id:"0520", date:"20 May", who:"出圖", issued:true, t:"首版 3D", p:"十三個視角,每層一張平面。現場仍係空殼,間隔未起。", imgs:["0520_V008_1F","0520_V003_GF","0520_V007_1F_PLAN"]},
+  {id:"0521", date:"21 May", who:"業主意見", t:"地庫任務書,客廳要幫手", p:"地庫要酒架、淋浴、洗衣同 L 形長櫈。頂層飯枱「太細」,中島「唔靚」,請協助客廳佈局。"},
+  {id:"0526", date:"26 May", who:"出圖", issued:true, t:"修改版", p:"回應第一輪意見嘅修訂視角。", imgs:["0526_V008_1F","0526_V003_GF","0526_V007_1F_PLAN"]},
+  {id:"0601", date:"1–2 Jun", who:"業主意見 · 出圖", issued:true, t:"白牆定木板,逐道牆定", p:"業主用顏色標示牆身分區;浴室改做無門開口;地庫加儲物箱櫈。梳化「係咪太大??」", imgs:["0601_1F_V002","0601_1F_V004","0601_GF_V002"]},
+  {id:"0603", date:"3 Jun", who:"業主意見", t:"繩定竹?磚牆唔要", p:"樓梯井邊兩個方向,刪走磚牆,再加三張參考:白色胡桃木廚房、吊式黑火爐、舊吊車椅鞦韆。"},
+  {id:"0608", date:"8 Jun", who:"定稿", issued:true, t:"定稿連雙方案", p:"十至十二人長枱、成幅廚櫃牆連儲物間、吊火爐、樓梯井 A/B 方案、門口鞦韆。", imgs:["0608_1F_V002_OPT1","0608_GF_V002","0608_1F_V001_OPT1"]}
+];
+const SCENE_NAMES = {BF_V001:"地庫平面",BF_v002:"洗衣及淋浴",GF_V001:"睡房層平面",GF_V002:"樓梯廳",GF_V003:"睡房連格床",GF_V004:"主人房",GF_V005:"雙人房",GF_V006:"雙人房另一面",GF_V007:"窗台睡房",GF_V008:"走廊",
+  "1F_V001":"頂層平面","1F_V002":"屋頂下嘅廚房飯廳","1F_V003":"全屋剖面","1F_V004":"望向樓梯井","1F_V005":"火爐旁","1F_V006":"客廳低視角","1F_V007":"望向電視牆","1F_V008":"客廳剖切","1F_V009":"門口鞦韆"};
+const AI_OF = {"1F_V002":"hero_kitchen","1F_V004":"opt_b","1F_V005":"living_fire","1F_V009":"swing","GF_V003":"bedroom","GF_V002":"stair_hall","BF_v002":"laundry","1F_V003":"section"};
+const LEVELS = {
+  "1F":{code:"R+1",rooms:[["入口","趟門"],["廚房牆","高櫃連儲物間"],["中島","早餐吧"],["飯廳","長枱 10–12 座"],["樓梯井邊","方案 A 或 B"],["客廳","梳化、單椅、電視牆"],["火爐","吊式,客廳正中"],["鞦韆","舊吊車椅"]]},
+  "GF":{code:"RDC",rooms:[["主人房","衣櫃牆、電視"],["第二睡房","衣帽間、獨立浴室"],["雙人房","兩張單人床"],["淋浴間","三個"],["樓梯廳","樓梯底長櫈"],["走廊","木板盒子、平門"]]},
+  "BF":{code:"SS",rooms:[["洗衣房","兩部洗衣機、洗手盤"],["淋浴","花紋磚"],["酒窖","層架"],["乾貨儲物","層架"],["長櫈","儲物箱連高枱"],["樓梯","通往屋內"]]}
+};
+const RENDERS = [
+  ["hero_kitchen","0608_1F_V002_OPT1","屋頂下嘅廚房飯廳","R+1 · 1F_V002",true],
+  ["living_fire",null,"火爐旁","R+1 · 1F_V005"],
+  ["swing",null,"門口吊車椅鞦韆","R+1 · 1F_V009"],
+  ["stair_hall","0608_GF_V002","樓梯廳","RDC · GF_V002"],
+  ["bedroom",null,"睡房連格床凹位","RDC · GF_V003"],
+  ["laundry",null,"地庫洗衣及淋浴","SS · BF_V002"],
+  ["exterior",null,"外觀 · 手繪水彩","EXTERIOR · 模型軸測"]
+];
+
+/* ---------- tabs ---------- */
+function showPane(id){
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.pane === id));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === id));
+  if(id === "p3d") window.dispatchEvent(new Event("resize"));
+}
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => showPane(t.dataset.pane)));
+
+/* ---------- lightbox & brief ---------- */
+const lb = $("lb");
+function openLb(src, cap){ $("lbImg").src = src; $("lbImg").alt = cap; $("lbCap").textContent = cap; lb.showModal(); }
+$("lbClose").onclick = () => lb.close(); lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+$("briefBtn").onclick = () => $("brief").showModal(); $("briefClose").onclick = () => $("brief").close();
+
+/* ---------- compare slider ---------- */
+function bindCmp(box){ const r = box.querySelector("input"); const f = () => box.style.setProperty("--x", r.value + "%"); r.addEventListener("input", f); f(); }
+document.querySelectorAll(".cmp").forEach(bindCmp);
+
+/* ---------- rounds + timeline ---------- */
+const check = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 5.2 2 2L8 3"/></svg>';
+$("rounds").innerHTML = ROUNDS.map((r,i) => `<li><button data-r="${r.id}" aria-current="${r.id==='0608'}"><span class="tick">${check}</span><span><span class="t">${r.t}</span><br><span class="who">${r.date} · ${r.who}</span></span><span class="who">0${i+1}</span></button></li>`).join("");
+$("tl").innerHTML = ROUNDS.map(r => `<li class="${r.issued?'issued':''}" data-r="${r.id}" aria-current="${r.id==='0608'}"><time>${r.date}</time><span class="d"></span><div class="b"><span class="who">${r.who}</span><h4>${r.t}</h4><p>${r.p}</p></div></li>`).join("");
+function pickRound(id){
+  document.querySelectorAll("#rounds button").forEach(b => b.setAttribute("aria-current", b.dataset.r === id));
+  document.querySelectorAll("#tl li").forEach(l => l.setAttribute("aria-current", l.dataset.r === id));
+  const r = ROUNDS.find(x => x.id === id);
+  $("roundImgs").innerHTML = r.imgs ? `<p class="cap" style="color:var(--muted);margin:10px 0 0">${r.date} 出圖</p><div class="thumbs">${r.imgs.map(n => `<button data-src="img/round/${n}.webp" data-cap="${r.date} · ${n.slice(5)}"><img loading="lazy" src="img/round/${n}.webp" alt="${r.date} 出圖 ${n.slice(5)}"></button>`).join("")}</div>`
+    : `<p class="note moss" style="margin-top:10px"><b>${r.date} · ${r.who}</b>${r.p}</p>`;
+}
+$("rounds").addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if(!b) return; pickRound(b.dataset.r); showPane("pproc"); });
+$("tl").addEventListener("click", e => { const l = e.target.closest("li[data-r]"); if(l) pickRound(l.dataset.r); });
+$("roundImgs").addEventListener("click", e => { const b = e.target.closest("button[data-src]"); if(b) openLb(b.dataset.src, b.dataset.cap); });
+pickRound("0608");
+
+/* ---------- drawings ---------- */
+function showDrawLevel(k){
+  const L = LEVELS[k];
+  document.querySelectorAll("[data-dl]").forEach(b => b.setAttribute("aria-pressed", b.dataset.dl === k));
+  $("dPlan").src = `img/plan_${k}.webp`; $("dPlan").alt = `${L.code} 彩色平面`;
+  $("dIso").src = `img/iso_${k}.webp`; $("dIso").alt = `${L.code} 剖切軸測`;
+  $("dPlanCap").textContent = `${L.code} · PLAN · NOT TO SCALE`; $("dIsoCap").textContent = `${L.code} · ISOMETRIC CUT-AWAY`;
+  $("dRooms").innerHTML = L.rooms.map(r => `<li>${r[0]}<span>${r[1]}</span></li>`).join("");
+}
+document.querySelectorAll("[data-dl]").forEach(b => b.onclick = () => showDrawLevel(b.dataset.dl));
+showDrawLevel("1F");
+["aiExploded","aiSection"].forEach(id => $(id).addEventListener("click", e => openLb(e.target.src, e.target.alt)));
+
+/* ---------- renders ---------- */
+function cmpCard(ai, before, title, meta, wide){
+  return `<figure class="rcard ${wide?'wide':''}"><div class="flip" data-state="ai"><button class="flipimg" data-src="img/ai/${ai}.webp" data-cap="${title}" aria-label="放大 ${title}"><img class="a" loading="lazy" src="img/ai/${ai}.webp" alt="${title} · AI 渲染"><img class="b" loading="lazy" src="img/before/${ai}.webp" alt="${title} · 2017 SketchUp 線稿"></button><div class="fseg seg" role="group" aria-label="${title} 版本"><button aria-pressed="true" data-v="ai">AI 渲染</button><button aria-pressed="false" data-v="b">2017 線稿</button></div></div><figcaption><b style="font-weight:500">${title}</b><span>${meta}</span></figcaption></figure>`;
+}
+$("rgrid").innerHTML =
+  cmpCard(...RENDERS[0]) +
+  `<figure class="rcard wide"><div class="cmp" id="cmpOpt" style="--x:50%"><img src="img/ai/opt_b.webp" alt="方案 B 竹林花槽"><div class="over"><img src="img/ai/opt_a.webp" alt="方案 A 垂繩屏風"></div><span class="bar"></span><span class="knob">⇄</span><span class="lab l">A · 垂繩</span><span class="lab r">B · 竹林</span><input type="range" min="0" max="100" value="50" aria-label="方案 A 同 B 對比"></div><figcaption><b style="font-weight:500">樓梯井邊:一個位,兩個答案</b><span>R+1 · 1F_V004 OPT1 / OPT2</span></figcaption></figure>` +
+  RENDERS.slice(1).map(r => cmpCard(...r)).join("");
+document.querySelectorAll("#rgrid .cmp").forEach(bindCmp);
+$("rgrid").addEventListener("click", e => {
+  const v = e.target.closest("button[data-v]");
+  if(v){ const f = v.closest(".flip"); f.dataset.state = v.dataset.v; f.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === v));
+    const img = f.querySelector(v.dataset.v === "ai" ? ".a" : ".b"); f.querySelector(".flipimg").dataset.src = img.getAttribute("src"); return; }
+  const b = e.target.closest("button[data-src]"); if(b) openLb(b.dataset.src, b.dataset.cap); });
+
+/* ---------- 3D ---------- */
+(function(){
+  const stage = $("stage"), canvas = $("cv");
+  if(!window.THREE || !THREE.GLTFLoader){ $("loading").textContent = "3D 檢視器載入唔到。"; return; }
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0xEFEEE9);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.05, 400);
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true; controls.dampingFactor = 0.09; controls.screenSpacePanning = true;
+
+  scene.add(new THREE.HemisphereLight(0xF4F6F7, 0x8F8676, 0.42));
+  const sun = new THREE.DirectionalLight(0xFFEFD9, 1.35);
+  sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+  scene.add(sun); scene.add(sun.target);
+  const fill = new THREE.DirectionalLight(0xDCE6EC, 0.28); scene.add(fill);
+
+  const M = (color, o={}) => new THREE.MeshStandardMaterial(Object.assign({color:new THREE.Color(color).convertSRGBToLinear(), roughness:0.88, metalness:0, flatShading:true, side:THREE.DoubleSide}, o));
+  const MATS = {
+    plaster:M(0xE4DED4), floor:M(0xC9A170,{roughness:.72}), concrete_floor:M(0xC9C3B8), timber:M(0xB98F5E), wood:M(0xB58A5C,{roughness:.7}),
+    concrete:M(0xA9A6A0), stone:M(0x9A968F), cut:M(0x2B2A28,{roughness:1}), glass:M(0xCFE2E6,{transparent:true, opacity:.28, roughness:.1, depthWrite:false}),
+    bed:M(0xF4F1EA), sofa:M(0x9C9389), rug:M(0xC2B39C), dark:M(0x2F3032,{roughness:.55}), ceramic:M(0xF7F7F4,{roughness:.35}),
+    plant:M(0x6F8F45), soil:M(0x5C4A3A), kitchen:M(0xF3F1EC,{roughness:.5}), walnut:M(0x6B4A33,{roughness:.6}),
+    slate:M(0x5A5F64,{roughness:.8}), rooftimber:M(0xB98E61)
+  };
+  const FURN = new Set(["bed","sofa","rug","wood","plant","soil","ceramic","dark","kitchen","walnut"]);
+  const ORDER = {BF:0, GF:1, "1F":2, OPT1:2, OPT2:2, ROOF:3};
+  const FILES = ["BF","GF","1F","ROOF","OPT1","OPT2"];
+  const parts = {}, loader = new THREE.GLTFLoader();
+  let loaded = 0;
+
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(60, 64), new THREE.ShadowMaterial({opacity:.22}));
+  ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
+
+  function b64(str){ const bin = atob(str), u = new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i] = bin.charCodeAt(i); return u.buffer; }
+  function loadPart(k){
+    return new Promise((res, rej) => {
+      const s = document.createElement("script"); s.src = `models/${k}.js`;
+      s.onload = () => loader.parse(b64(window.CHALET_GLB[k]), "", g => { delete window.CHALET_GLB[k]; res(g); }, rej);
+      s.onerror = rej; document.body.appendChild(s);
+    });
+  }
+  const box = new THREE.Box3(), center = new THREE.Vector3(); let radius = 14;
+  Promise.all(FILES.map(k => loadPart(k).then(g => {
+    const grp = new THREE.Group(); grp.name = k;
+    g.scene.traverse(o => { if(o.isMesh){
+      const cls = o.name.replace(/_\d+$/,"").replace(/^q_/,"");
+      const key = MATS[cls] ? cls : (MATS[o.parent && o.parent.name] ? o.parent.name : "plaster");
+      o.material = MATS[key]; o.userData.cls = key;
+      o.castShadow = key !== "glass"; o.receiveShadow = true;
+    }});
+    grp.add(g.scene); scene.add(grp); parts[k] = grp;
+    loaded++; $("loadbar").style.width = (loaded/FILES.length*100) + "%";
+  }))).then(() => {
+    parts.ROOF.visible = false; parts.OPT2.visible = false;
+    box.setFromObject(parts.GF).union(new THREE.Box3().setFromObject(parts["1F"])).union(new THREE.Box3().setFromObject(parts.BF));
+    box.getCenter(center); radius = box.getSize(new THREE.Vector3()).length()/2;
+    ground.position.set(center.x, box.min.y - 0.01, center.z);
+    sun.position.set(center.x - 16, center.y + 26, center.z + 12); sun.target.position.copy(center);
+    const sc = sun.shadow.camera; sc.left = -radius; sc.right = radius; sc.top = radius; sc.bottom = -radius; sc.near = 1; sc.far = 80; sc.updateProjectionMatrix();
+    fill.position.set(center.x + 20, center.y + 8, center.z - 18);
+    home(false); $("loading").hidden = true;
+  }).catch(() => { $("loading").textContent = "模型有部分載入唔到。"; });
+
+  /* camera tween */
+  let tween = null;
+  function flyTo(pos, tgt, fov, instant){
+    if(instant){ camera.position.copy(pos); controls.target.copy(tgt); if(fov){camera.fov = fov; camera.updateProjectionMatrix();} controls.update(); return; }
+    tween = {t:0, p0:camera.position.clone(), t0:controls.target.clone(), f0:camera.fov, p1:pos, t1:tgt, f1:fov || camera.fov};
+  }
+  function home(anim=true){
+    flyTo(new THREE.Vector3(center.x - radius*1.0, center.y + radius*1.75, center.z + radius*1.25), center.clone(), 38, !anim);
+  }
+
+  /* levels */
+  let level = "all", explode = 0, furn = true, opt = "B", roofOn = false, secOn = true;
+  const clip = new THREE.Plane(new THREE.Vector3(0,-1,0), 11.2);
+  function applyVis(){
+    for(const k in parts){
+      const lv = k.startsWith("OPT") ? "1F" : k;
+      let v = level === "all" || lv === level;
+      if(k === "ROOF") v = roofOn && (level === "all");
+      if(k === "OPT1") v = v && opt === "B";
+      if(k === "OPT2") v = v && opt === "A";
+      parts[k].visible = v;
+      parts[k].position.y = ORDER[k] * explode;
+      parts[k].traverse(o => { if(o.isMesh && FURN.has(o.userData.cls)) o.visible = furn; });
+    }
+    renderer.clippingPlanes = secOn ? [clip] : [];
+  }
+  document.querySelectorAll("[data-lv]").forEach(b => b.onclick = () => {
+    level = b.dataset.lv; document.querySelectorAll("[data-lv]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    const names = {all:"整間屋 · 定稿","1F":"R+1 · 生活層",GF:"RDC · 睡房層",BF:"SS · 地庫"};
+    $("vTitle").textContent = names[level]; applyVis();
+  });
+  $("cRoof").onchange = e => { roofOn = e.target.checked; applyVis(); };
+  $("cFurn").onchange = e => { furn = e.target.checked; applyVis(); };
+  $("cSection").onchange = e => { secOn = e.target.checked; $("secRow").hidden = !secOn; applyVis(); };
+  $("cSecH").oninput = e => { clip.constant = +e.target.value; $("secOut").textContent = "+" + (+e.target.value).toFixed(1) + " m"; };
+  $("cExp").oninput = e => { explode = +e.target.value; $("expOut").textContent = explode.toFixed(1) + " m"; applyVis(); };
+  document.querySelectorAll("[data-opt]").forEach(b => b.onclick = () => { opt = b.dataset.opt; document.querySelectorAll("[data-opt]").forEach(x => x.setAttribute("aria-pressed", x === b)); applyVis(); });
+  $("tReset").onclick = () => { $("tTop").setAttribute("aria-pressed","false"); home(); };
+  $("tIn").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(0.75); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+  $("tOut").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(1.33); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+  $("tTop").onclick = e => { const on = e.currentTarget.getAttribute("aria-pressed") !== "true"; e.currentTarget.setAttribute("aria-pressed", on);
+    if(on) flyTo(new THREE.Vector3(center.x, center.y + radius*2.6, center.z + 0.01), center.clone(), 38); else home(); };
+
+  /* SketchUp scenes */
+  const scenesEl = $("scenes");
+  scenesEl.innerHTML = CAMS.map((c,i) => `<button data-i="${i}" aria-current="false" title="${SCENE_NAMES[c.id]||c.id}"><i></i><span>${c.id.replace("_v","_V")}</span></button>`).join("");
+  let cur = -1;
+  function goScene(i){
+    const c = CAMS[i]; if(!c) return; cur = i; exitWalk();
+    scenesEl.querySelectorAll("button").forEach((b,j) => { b.setAttribute("aria-current", j === i); b.classList.toggle("done", j < i); });
+    const lv = c.id.slice(0,2) === "1F" ? "1F" : c.id.slice(0,2);
+    const eye = new THREE.Vector3(...c.eye), tgt = new THREE.Vector3(...c.target);
+    const looksDown = (eye.y - tgt.y) > Math.hypot(eye.x - tgt.x, eye.z - tgt.z) * 1.5;
+    secOn = false; $("cSection").checked = false; $("secRow").hidden = true;
+    level = looksDown ? lv : "all"; explode = 0; $("cExp").value = 0; $("expOut").textContent = "0.0 m";
+    document.querySelectorAll("[data-lv]").forEach(x => x.setAttribute("aria-pressed", x.dataset.lv === level));
+    applyVis();
+    flyTo(eye, tgt, Math.min(70, c.fov * 0.95));
+    $("vTitle").textContent = SCENE_NAMES[c.id] || c.id; $("vSub").textContent = `SKETCHUP SCENE · ${c.id.toUpperCase()}`;
+    const ai = AI_OF[c.id];
+    $("cardImg").src = ai ? `img/ai/${ai}.webp` : `img/scene/${c.id}.webp`;
+    $("cardImg").alt = (SCENE_NAMES[c.id]||c.id) + (ai ? " · AI 渲染" : " · 2017 SketchUp");
+    $("cardCap").textContent = ai ? "AI 渲染 · 同一視角" : "2017 SketchUp · 同一視角";
+    $("card").hidden = false;
+  }
+  scenesEl.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if(b) { stopPlay(); goScene(+b.dataset.i); } });
+  $("cardClose").onclick = () => $("card").hidden = true;
+  $("cardImg").onclick = () => openLb($("cardImg").src, $("cardImg").alt);
+  let playT = null;
+  function stopPlay(){ clearInterval(playT); playT = null; $("play").innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg>'; }
+  $("play").onclick = () => {
+    if(playT){ stopPlay(); return; }
+    goScene((cur + 1) % CAMS.length);
+    playT = setInterval(() => goScene((cur + 1) % CAMS.length), 4200);
+    $("play").innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2h2v8H3zM7 2h2v8H7z" fill="currentColor"/></svg>';
+  };
+
+  /* walk mode */
+  let walking = false, yaw = 0, pitch = 0; const keys = {}; const pad = {};
+  function enterWalk(){
+    secOn = false; $("cSection").checked = false; $("secRow").hidden = true;
+    stopPlay(); walking = true; controls.enabled = false; $("card").hidden = true;
+    level = "all"; roofOn = true; $("cRoof").checked = true; explode = 0; $("cExp").value = 0; $("expOut").textContent = "0.0 m"; applyVis();
+    const start = CAMS.find(c => c.id === "1F_V002") || CAMS[0];
+    camera.position.set(start.eye[0], 9.42 + 1.6, start.eye[2]);
+    const d = new THREE.Vector3(start.target[0]-start.eye[0], 0, start.target[2]-start.eye[2]);
+    yaw = Math.atan2(-d.x, -d.z); pitch = 0; camera.fov = 62; camera.updateProjectionMatrix();
+    $("walkbar").hidden = false; $("walkpad").hidden = false; $("vTitle").textContent = "行入去 · R+1"; $("vSub").textContent = "EYE LEVEL 1.6 M";
+  }
+  function exitWalk(){
+    if(!walking) return; walking = false; controls.enabled = true; $("walkbar").hidden = true; $("walkpad").hidden = true;
+    controls.target.copy(camera.position.clone().add(new THREE.Vector3(-Math.sin(yaw), 0, -Math.cos(yaw)).multiplyScalar(3)));
+    controls.update();
+  }
+  $("walkBtn").onclick = () => { showPane("p3d"); enterWalk(); };
+  $("walkExit").onclick = () => { exitWalk(); roofOn = false; $("cRoof").checked = false; applyVis(); home(); };
+  let drag = null;
+  canvas.addEventListener("pointerdown", e => { if(walking){ drag = {x:e.clientX, y:e.clientY}; canvas.setPointerCapture(e.pointerId); } });
+  canvas.addEventListener("pointermove", e => { if(walking && drag){ yaw -= (e.clientX - drag.x) * 0.004; pitch = Math.max(-1.2, Math.min(1.2, pitch - (e.clientY - drag.y) * 0.004)); drag = {x:e.clientX, y:e.clientY}; } });
+  canvas.addEventListener("pointerup", () => drag = null);
+  addEventListener("keydown", e => { if(walking){ keys[e.key.toLowerCase()] = true; if(["arrowup","arrowdown","arrowleft","arrowright"].includes(e.key.toLowerCase())) e.preventDefault(); } });
+  addEventListener("keyup", e => { keys[e.key.toLowerCase()] = false; });
+  document.querySelectorAll("[data-mv]").forEach(b => { const k = b.dataset.mv;
+    b.addEventListener("pointerdown", () => pad[k] = true); ["pointerup","pointerleave","pointercancel"].forEach(ev => b.addEventListener(ev, () => pad[k] = false)); });
+
+  function resize(){ const w = stage.clientWidth, h = stage.clientHeight; if(!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+  new ResizeObserver(resize).observe(stage); addEventListener("resize", resize); resize();
+
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dt = Math.min(clock.getDelta(), 0.05);
+    if(tween){
+      tween.t = Math.min(1, tween.t + dt/1.1); const k = tween.t < .5 ? 4*tween.t**3 : 1 - Math.pow(-2*tween.t+2, 3)/2;
+      camera.position.lerpVectors(tween.p0, tween.p1, k); controls.target.lerpVectors(tween.t0, tween.t1, k);
+      camera.fov = tween.f0 + (tween.f1 - tween.f0)*k; camera.updateProjectionMatrix();
+      if(tween.t >= 1) tween = null;
+    }
+    if(walking){
+      const f = (keys.w||keys.arrowup||pad.f ? 1:0) - (keys.s||keys.arrowdown||pad.b ? 1:0);
+      const s = (keys.d||keys.arrowright||pad.r ? 1:0) - (keys.a||keys.arrowleft||pad.l ? 1:0);
+      const sp = 2.2 * dt;
+      camera.position.x += (-Math.sin(yaw)*f + Math.cos(yaw)*s) * sp;
+      camera.position.z += (-Math.cos(yaw)*f - Math.sin(yaw)*s) * sp;
+      camera.rotation.set(pitch, yaw, 0, "YXZ");
+    } else controls.update();
+    renderer.render(scene, camera);
+  });
+  applyVis();
+})();
+</script>
+
+</body></html>

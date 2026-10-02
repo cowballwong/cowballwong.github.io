@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-title-en="Courses · Anzon Wong" data-title-zh="課程 · Anzon Wong">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courses · Anzon Wong</title>
+<meta name="description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
+<meta name="author" content="Anzon Wong">
+
+<meta property="og:title" content="Courses · Anzon Wong">
+<meta property="og:description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<style>
+/* Anzon Wong home site. Editorial / architectural-minimal. System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#7a756b;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--rule)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-top:22px;padding-bottom:18px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand small{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:10px}
+.nav{display:flex;align-items:baseline;gap:clamp(14px,2.2vw,28px);flex-wrap:wrap;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:4px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+.lang{font:inherit;letter-spacing:.08em;background:none;border:1px solid var(--rule);color:var(--ink);padding:3px 9px;border-radius:3px;cursor:pointer}
+.lang:hover{border-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+
+/* page head: margin label + title */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(48px,9vw,120px) 0 clamp(32px,5vw,56px);border-bottom:1px solid var(--rule)}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(40px,7vw,92px);line-height:1.02;letter-spacing:-.02em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(26px,3.4vw,40px);line-height:1.12}
+h3{font-size:22px;line-height:1.2}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:28px 0 0}
+
+/* sections */
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.more{display:inline-block;margin-top:22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+/* home hero */
+.hero{padding:clamp(56px,11vw,150px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)}
+.hero h1{font-size:clamp(52px,11vw,152px);line-height:.95}
+.hero .lede{max-width:28em}
+.hero-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--ink)}
+.hero-meta div{padding:12px 16px 0 0;font-size:14px;color:var(--ink-2)}
+.hero-meta b{display:block;font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+
+/* work: magazine rows */
+.work-list{display:grid;gap:clamp(48px,7vw,96px)}
+.wk{display:grid;grid-template-columns:7fr 5fr;gap:clamp(20px,3vw,40px);align-items:end;text-decoration:none}
+.wk:nth-child(even){grid-template-columns:5fr 7fr}
+.wk:nth-child(even) .wk-fig{order:2}
+.wk-fig{margin:0;background:var(--rule-2);aspect-ratio:16/10;overflow:hidden;border:1px solid var(--rule)}
+.wk-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.wk:hover .wk-fig img{transform:scale(1.02)}
+.wk-no{font:12px var(--mono);color:var(--muted);letter-spacing:.06em}
+.wk h3{font-size:clamp(26px,3vw,38px);margin:10px 0 12px}
+.wk p{margin:0;color:var(--ink-2);max-width:30em}
+.wk .meta{margin-top:16px;font-size:13px;color:var(--muted)}
+.wk:hover h3{color:var(--accent)}
+
+/* featured trio on home */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.trio .wk,.trio .wk:nth-child(even){grid-template-columns:1fr;align-items:start}
+.trio .wk:nth-child(even) .wk-fig{order:0}
+.trio .wk h3{font-size:24px;margin:6px 0 8px}
+.trio .wk p{font-size:15px}
+
+/* lab register */
+.reg{width:100%;border-collapse:collapse}
+.reg-row{display:grid;grid-template-columns:64px 168px minmax(0,1fr) 150px;gap:0 24px;padding:24px 0;border-top:1px solid var(--rule);align-items:start;text-decoration:none}
+.reg-row:last-child{border-bottom:1px solid var(--rule)}
+.reg-no{font:12px var(--mono);color:var(--muted);padding-top:6px}
+.reg-fig{margin:0;aspect-ratio:16/10;border:1px solid var(--rule);background:var(--rule-2);overflow:hidden}
+.reg-fig img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.reg-row h3{font-size:24px;margin-bottom:6px}
+a.reg-row:hover h3{color:var(--accent)}
+.reg-row p{margin:0;color:var(--ink-2);max-width:40em}
+.disc{margin-top:10px!important;font-size:13px;color:var(--muted)!important;font-style:italic}
+:root[data-lang="zh"] .disc{font-style:normal}
+.reg-st{font-size:13px;color:var(--ink-2);padding-top:6px;text-align:right}
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:26px 28px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 16px;padding:18px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:counter(l,decimal-leading-zero);font-family:var(--serif);font-size:30px;line-height:1;color:var(--accent)}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(32px,4vw,48px)}
+.facts div{padding:12px 16px 0 0;font-size:15px;color:var(--ink-2)}
+.facts b{display:block;font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+.band{background:var(--ink);color:var(--paper);padding:clamp(40px,6vw,72px) 0}
+.band h2{color:var(--paper)}
+.band p{color:#cfc9bd;max-width:34em}
+.band .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.band .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band .label{color:#9d978b}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: a quiet title strip */
+.foot{border-top:1px solid var(--ink);margin-top:clamp(48px,8vw,96px)}
+.strip{display:grid;grid-template-columns:3fr 3fr 3fr 3fr;border-bottom:1px solid var(--rule)}
+.strip div{padding:14px 16px 16px 0;font-size:14px;color:var(--ink-2);min-width:0}
+.strip div + div{border-left:1px solid var(--rule);padding-left:16px}
+.strip b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+.fine{font-size:12.5px;color:var(--muted);padding:16px 0 32px;max-width:60em}
+
+/* phone */
+@media (max-width:860px){
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:14px}
+  .wk,.wk:nth-child(even){grid-template-columns:1fr}
+  .wk:nth-child(even) .wk-fig{order:0}
+  .trio{grid-template-columns:1fr}
+  .reg-row{grid-template-columns:44px minmax(0,1fr);gap:12px 14px}
+  .reg-fig{grid-column:2}
+  .reg-txt{grid-column:2;min-width:0}
+  .reg-st{grid-column:2;text-align:left;padding-top:0}
+  .reg-no{grid-column:1;grid-row:1 / span 3}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .hero-meta,.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip div:nth-child(3){border-left:0;padding-left:0}
+  .strip div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .nav{gap:14px;font-size:12px}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+</style>
+<script>
+// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+(function(){
+  var root = document.documentElement;
+  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+  function apply(lang){
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
+    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
+    var b = document.getElementById('langBtn');
+    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
+  }
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  var lang = q || store('aw-lang') || 'en';
+  if(q) store('aw-lang', q);
+  apply(lang);
+  document.addEventListener('DOMContentLoaded', function(){
+    apply(root.getAttribute('data-lang'));
+    var b = document.getElementById('langBtn');
+    if(b) b.addEventListener('click', function(){
+      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
+      store('aw-lang', next); apply(next);
+    });
+  });
+})();
+
+</script>
+<!-- Cloudflare Web Analytics: add the snippet here once anzonwong.com is set up (no token yet).
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN_HERE"}'></script>
+-->
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
+      <a href="../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
+      <a href="../courses/" aria-current="page"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
+      <a href="../about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
+      <a href="../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
+      <button class="lang" id="langBtn" type="button">中文</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<header class="head">
+  <div class="label">03 / <span class="en">Courses</span><span class="zh">課程</span></div>
+  <div>
+    <h1><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></h1>
+    <p class="lede en">Five one-to-one lessons online. We start from an agent that already works, open it up to see how it runs, then reshape it step by step into an assistant that is yours alone. Very little code.</p>
+    <p class="lede zh" lang="zh-Hant">五堂一對一網上課。由一個已經能運作的代理人開始，拆開來看清它的原理，再一步步改造成只屬於你的助理。所需編程極少。</p>
+    <div class="facts">
+      <div><b><span class="en">Format</span><span class="zh">形式</span></b><span class="en">One to one, online</span><span class="zh">一對一，網上授課</span></div>
+      <div><b><span class="en">Length</span><span class="zh">堂數</span></b><span class="en">5 lessons</span><span class="zh">共 5 堂</span></div>
+      <div><b><span class="en">Times</span><span class="zh">時間</span></b><span class="en">Shown in UK and Hong Kong time</span><span class="zh">同時顯示英國及香港時間</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="label"><span class="en">Why</span><span class="zh">背景</span></div>
+  <div class="prose">
+    <p class="en">The layer underneath an agent (memory, scheduling, a control panel, messaging) used to take weeks to put together. Now it is all there in the first lesson, so the course spends its time on the part that matters: making the agent do your work.</p>
+    <p class="zh" lang="zh-Hant">代理人的底層（記憶、排程、控制面板、通訊）以往要花上數星期才能搭建。現在第一堂已一應俱全，課程的時間便可全部用在真正有價值的部分：讓代理人做你的工作。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Two tracks</span><span class="zh">兩個版本</span></div>
+  <div>
+    <p class="prose en" style="margin:0 0 22px;color:var(--ink-2)">One course, the same five lessons and the same agent design. The only difference is the tool you build with.</p>
+    <p class="prose zh" lang="zh-Hant" style="margin:0 0 22px;color:var(--ink-2)">同一個課程，五堂內容及代理人架構完全相同，分別只在於所用的工具。</p>
+    <div class="tracks">
+      <div>
+        <span class="kind">Track A</span>
+        <h3>Hermes + Ollama</h3>
+        <p class="en">An open-source agent with no Claude account needed. For places where Claude is not available, such as Hong Kong and mainland China.</p>
+        <p class="zh" lang="zh-Hant">開源代理人，毋須 Claude 帳戶。適合未能使用 Claude 的地區，例如香港及中國內地。</p>
+      </div>
+      <div>
+        <span class="kind">Track B</span>
+        <h3>Claude app</h3>
+        <p class="en">Built in Anthropic's Claude app, which needs a Claude Pro plan. For places where Claude is available, such as the UK.</p>
+        <p class="zh" lang="zh-Hant">使用 Anthropic 的 Claude 應用程式，需訂閱 Claude Pro 月費計劃。適合可使用 Claude 的地區，例如英國。</p>
+      </div>
+    </div>
+    <p class="en" style="margin:16px 0 0;font-size:14px;color:var(--muted)">Not sure which one? Choose "not sure" when you book and we decide together before the first lesson.</p>
+    <p class="zh" lang="zh-Hant" style="margin:16px 0 0;font-size:14px;color:var(--muted)">未能決定？報名時選擇「未知」，我們會在第一堂前一同決定。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Lessons</span><span class="zh">課堂</span></div>
+  <ol class="lessons">
+    <li><div><b><span class="en">Boot it up</span><span class="zh">開機</span></b><span class="en">Install the agent and let it interview you.</span><span class="zh">安裝代理人，讓它即場訪問你。</span></div></li>
+    <li><div><b><span class="en">Anatomy</span><span class="zh">拆解原理</span></b><span class="en">Lift the lid and see how it actually works.</span><span class="zh">揭開外殼，看清它實際如何運作。</span></div></li>
+    <li><div><b><span class="en">Rebuild it</span><span class="zh">一同改造</span></b><span class="en">Make a workflow out of your own material.</span><span class="zh">用你自己的資料建立一套工作流程。</span></div></li>
+    <li><div><b><span class="en">Give it hands</span><span class="zh">加上工具</span></b><span class="en">Email, calendar, documents and online services.</span><span class="zh">電郵、日曆、文件及雲端服務。</span></div></li>
+    <li><div><b><span class="en">One of a kind</span><span class="zh">獨一無二</span></b><span class="en">Shape its control panel and keep it on call.</span><span class="zh">設計它的控制面板，讓它隨傳隨到。</span></div></li>
+  </ol>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">What you leave with</span><span class="zh">成果</span></div>
+  <div class="prose">
+    <p class="en">Not an assistant you downloaded, but one you changed yourself: it knows your work, remembers, connects to your tools and has a control panel of its own.</p>
+    <p class="zh" lang="zh-Hant">不是一個下載回來的助理，而是你親手改造、獨一無二的代理人：熟悉你的工作、有記憶、連接你的工具，並有屬於自己的控制面板。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap grid">
+    <div class="label"><span class="en">Book</span><span class="zh">報名</span></div>
+    <div>
+      <h2><span class="en">Pick a time for lesson one</span><span class="zh" lang="zh-Hant">揀選第一堂的時間</span></h2>
+      <p class="en">The booking page shows open times in UK and Hong Kong time, with course details. Returning students can look up their progress there too.</p>
+      <p class="zh" lang="zh-Hant">報名頁面以英國及香港時間列出可預約的時段及課程詳情。現有學生亦可在該頁查閱進度。</p>
+      <p style="margin-top:26px"><a class="btn" href="https://cowballwong.github.io/teaching-booking/" rel="noopener"><span class="en">Book a lesson</span><span class="zh">預約課堂</span></a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="strip">
+      <div><b><span class="en">Name</span><span class="zh" lang="zh-Hant">姓名</span></b>Anzon Wong</div>
+      <div><b><span class="en">Practice label</span><span class="zh" lang="zh-Hant">設計品牌</span></b>AW Design</div>
+      <div><b><span class="en">Based</span><span class="zh" lang="zh-Hant">現居</span></b><span class="en">United Kingdom</span><span class="zh" lang="zh-Hant">英國</span></div>
+      <div><b><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></b><a href="../contact/"><span class="en">Email</span><span class="zh" lang="zh-Hant">電郵</span></a></div>
+    </div>
+    <p class="fine"><span class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</span><span class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</span></p>
+  </div>
+</footer>
+</body>
+</html>

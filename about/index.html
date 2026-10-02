@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-title-en="About · Anzon Wong" data-title-zh="關於 · Anzon Wong">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Anzon Wong</title>
+<meta name="description" content="About Anzon Wong, architect in the UK from Hong Kong.">
+<meta name="author" content="Anzon Wong">
+
+<meta property="og:title" content="About · Anzon Wong">
+<meta property="og:description" content="About Anzon Wong, architect in the UK from Hong Kong.">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<style>
+/* Anzon Wong home site. Editorial / architectural-minimal. System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#7a756b;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--rule)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-top:22px;padding-bottom:18px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand small{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:10px}
+.nav{display:flex;align-items:baseline;gap:clamp(14px,2.2vw,28px);flex-wrap:wrap;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:4px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+.lang{font:inherit;letter-spacing:.08em;background:none;border:1px solid var(--rule);color:var(--ink);padding:3px 9px;border-radius:3px;cursor:pointer}
+.lang:hover{border-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+
+/* page head: margin label + title */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(48px,9vw,120px) 0 clamp(32px,5vw,56px);border-bottom:1px solid var(--rule)}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(40px,7vw,92px);line-height:1.02;letter-spacing:-.02em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(26px,3.4vw,40px);line-height:1.12}
+h3{font-size:22px;line-height:1.2}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:28px 0 0}
+
+/* sections */
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.more{display:inline-block;margin-top:22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+/* home hero */
+.hero{padding:clamp(56px,11vw,150px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)}
+.hero h1{font-size:clamp(52px,11vw,152px);line-height:.95}
+.hero .lede{max-width:28em}
+.hero-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--ink)}
+.hero-meta div{padding:12px 16px 0 0;font-size:14px;color:var(--ink-2)}
+.hero-meta b{display:block;font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+
+/* work: magazine rows */
+.work-list{display:grid;gap:clamp(48px,7vw,96px)}
+.wk{display:grid;grid-template-columns:7fr 5fr;gap:clamp(20px,3vw,40px);align-items:end;text-decoration:none}
+.wk:nth-child(even){grid-template-columns:5fr 7fr}
+.wk:nth-child(even) .wk-fig{order:2}
+.wk-fig{margin:0;background:var(--rule-2);aspect-ratio:16/10;overflow:hidden;border:1px solid var(--rule)}
+.wk-fig img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.wk:hover .wk-fig img{transform:scale(1.02)}
+.wk-no{font:12px var(--mono);color:var(--muted);letter-spacing:.06em}
+.wk h3{font-size:clamp(26px,3vw,38px);margin:10px 0 12px}
+.wk p{margin:0;color:var(--ink-2);max-width:30em}
+.wk .meta{margin-top:16px;font-size:13px;color:var(--muted)}
+.wk:hover h3{color:var(--accent)}
+
+/* featured trio on home */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.trio .wk,.trio .wk:nth-child(even){grid-template-columns:1fr;align-items:start}
+.trio .wk:nth-child(even) .wk-fig{order:0}
+.trio .wk h3{font-size:24px;margin:6px 0 8px}
+.trio .wk p{font-size:15px}
+
+/* lab register */
+.reg{width:100%;border-collapse:collapse}
+.reg-row{display:grid;grid-template-columns:64px 168px minmax(0,1fr) 150px;gap:0 24px;padding:24px 0;border-top:1px solid var(--rule);align-items:start;text-decoration:none}
+.reg-row:last-child{border-bottom:1px solid var(--rule)}
+.reg-no{font:12px var(--mono);color:var(--muted);padding-top:6px}
+.reg-fig{margin:0;aspect-ratio:16/10;border:1px solid var(--rule);background:var(--rule-2);overflow:hidden}
+.reg-fig img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.reg-row h3{font-size:24px;margin-bottom:6px}
+a.reg-row:hover h3{color:var(--accent)}
+.reg-row p{margin:0;color:var(--ink-2);max-width:40em}
+.disc{margin-top:10px!important;font-size:13px;color:var(--muted)!important;font-style:italic}
+:root[data-lang="zh"] .disc{font-style:normal}
+.reg-st{font-size:13px;color:var(--ink-2);padding-top:6px;text-align:right}
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:26px 28px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 16px;padding:18px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:counter(l,decimal-leading-zero);font-family:var(--serif);font-size:30px;line-height:1;color:var(--accent)}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(32px,4vw,48px)}
+.facts div{padding:12px 16px 0 0;font-size:15px;color:var(--ink-2)}
+.facts b{display:block;font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+.band{background:var(--ink);color:var(--paper);padding:clamp(40px,6vw,72px) 0}
+.band h2{color:var(--paper)}
+.band p{color:#cfc9bd;max-width:34em}
+.band .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.band .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band .label{color:#9d978b}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: a quiet title strip */
+.foot{border-top:1px solid var(--ink);margin-top:clamp(48px,8vw,96px)}
+.strip{display:grid;grid-template-columns:3fr 3fr 3fr 3fr;border-bottom:1px solid var(--rule)}
+.strip div{padding:14px 16px 16px 0;font-size:14px;color:var(--ink-2);min-width:0}
+.strip div + div{border-left:1px solid var(--rule);padding-left:16px}
+.strip b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
+.fine{font-size:12.5px;color:var(--muted);padding:16px 0 32px;max-width:60em}
+
+/* phone */
+@media (max-width:860px){
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:14px}
+  .wk,.wk:nth-child(even){grid-template-columns:1fr}
+  .wk:nth-child(even) .wk-fig{order:0}
+  .trio{grid-template-columns:1fr}
+  .reg-row{grid-template-columns:44px minmax(0,1fr);gap:12px 14px}
+  .reg-fig{grid-column:2}
+  .reg-txt{grid-column:2;min-width:0}
+  .reg-st{grid-column:2;text-align:left;padding-top:0}
+  .reg-no{grid-column:1;grid-row:1 / span 3}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .hero-meta,.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip div:nth-child(3){border-left:0;padding-left:0}
+  .strip div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .nav{gap:14px;font-size:12px}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+</style>
+<script>
+// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+(function(){
+  var root = document.documentElement;
+  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+  function apply(lang){
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
+    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
+    var b = document.getElementById('langBtn');
+    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
+  }
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  var lang = q || store('aw-lang') || 'en';
+  if(q) store('aw-lang', q);
+  apply(lang);
+  document.addEventListener('DOMContentLoaded', function(){
+    apply(root.getAttribute('data-lang'));
+    var b = document.getElementById('langBtn');
+    if(b) b.addEventListener('click', function(){
+      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
+      store('aw-lang', next); apply(next);
+    });
+  });
+})();
+
+</script>
+<!-- Cloudflare Web Analytics: add the snippet here once anzonwong.com is set up (no token yet).
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN_HERE"}'></script>
+-->
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
+      <a href="../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
+      <a href="../courses/"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
+      <a href="../about/" aria-current="page"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
+      <a href="../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
+      <button class="lang" id="langBtn" type="button">中文</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<header class="head">
+  <div class="label">04 / <span class="en">About</span><span class="zh">關於</span></div>
+  <div>
+    <h1><span class="en">About</span><span class="zh" lang="zh-Hant">關於我</span></h1>
+    <p class="lede en">I am Anzon Wong, an architect based in the United Kingdom. I am from Hong Kong.</p>
+    <p class="lede zh" lang="zh-Hant">我是 Anzon Wong，現居英國的建築師，來自香港。</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="label"><span class="en">Architecture</span><span class="zh">建築</span></div>
+  <div class="prose">
+    <p class="en">I have worked on hotels, restaurants, shops and homes in Hong Kong, mainland China and London, from the first sketch through to facade and interior detail.</p>
+    <p class="en">Today my work sits on the safety side of design: Building Regulations, and the Principal Designer duties under the CDM Regulations and the Building Safety Act.</p>
+    <p class="zh" lang="zh-Hant">我曾參與香港、中國內地及倫敦的酒店、餐廳、零售店及住宅項目，由最初的草圖一直做到外牆及室內細部。</p>
+    <p class="zh" lang="zh-Hant">現時我的工作著重設計中的安全範疇：建築規例，以及《建築（設計及管理）規例》與《建築安全法》下主要設計師的職責。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Agents and teaching</span><span class="zh">代理人與教學</span></div>
+  <div class="prose">
+    <p class="en">In my own time I build AI agents and small tools for architects, and I teach people to build agents of their own, one to one. The tools in the <a href="../lab/">Lab</a> are hobby projects and say so on every page.</p>
+    <p class="zh" lang="zh-Hant">業餘時間，我為建築師製作 AI 代理人及小工具，並以一對一形式教人建立自己的代理人。<a href="../lab/">實驗室</a>內的工具均屬個人興趣項目，每頁都有清楚說明。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label">AW Design</div>
+  <div class="prose">
+    <p class="en">AW Design is the label I put on my own design work and tools.</p>
+    <p class="en">I work in English and Cantonese, and write in English and Traditional Chinese.</p>
+    <p class="zh" lang="zh-Hant">AW Design 是我個人設計作品及工具所用的名稱。</p>
+    <p class="zh" lang="zh-Hant">我以英語及粵語工作，以英文及繁體中文書寫。</p>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="strip">
+      <div><b><span class="en">Name</span><span class="zh" lang="zh-Hant">姓名</span></b>Anzon Wong</div>
+      <div><b><span class="en">Practice label</span><span class="zh" lang="zh-Hant">設計品牌</span></b>AW Design</div>
+      <div><b><span class="en">Based</span><span class="zh" lang="zh-Hant">現居</span></b><span class="en">United Kingdom</span><span class="zh" lang="zh-Hant">英國</span></div>
+      <div><b><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></b><a href="../contact/"><span class="en">Email</span><span class="zh" lang="zh-Hant">電郵</span></a></div>
+    </div>
+    <p class="fine"><span class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</span><span class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</span></p>
+  </div>
+</footer>
+</body>
+</html>
