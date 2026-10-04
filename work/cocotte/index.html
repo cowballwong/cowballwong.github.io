@@ -5,9 +5,9 @@
 <style>
 /* Single committed look: a light design workspace in a Paris-bistro palette. Every colour is painted explicitly. */
 :root{
-  --paper:#F2EEE6; --panel:#FFFDF9; --ink:#1B1B1A; --muted:#5C605C; --faint:#8C918E; --rule:#E2DCD0;
-  --side:#1F3A2E; --side2:#2A4A3B; --side-ink:#EEF0EA; --side-mute:#A9BBAF;
-  --accent:#B08D57; --accent-deep:#7C5E2E; --moss:#2E5A45; --moss-bg:#E4EDE7; --amber-bg:#F5ECDC; --amber:#7A5A2A;
+  --paper:#f5f2ec; --panel:#FFFDF9; --ink:#1d1c1a; --muted:#6f6a60; --faint:#a39d92; --rule:#d9d3c7;
+  --side:#2B1913; --side2:#3A2219; --side-ink:#F5F2EC; --side-mute:#C9AC9E; --side-accent:#D98A68;
+  --accent:#9c4a2f; --accent-deep:#7d3a24; --accent-text:#7d3a24; --moss:var(--accent); --moss-bg:#F3E7E1; --amber-bg:#F5ECDC; --amber:#7A5A2A;
   --iron:#1B1B1A; --oak:#B07A4A; --mirror:#9AA3A0;
   --viewer:#EAE5DB;
   --serif:"Noto Serif TC", "Songti TC", Georgia, serif;
@@ -23,6 +23,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--
 button{font:inherit;color:inherit}
 a{color:var(--moss)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.side :focus-visible,.btn.dark:focus-visible,.walkbtn:focus-visible{outline-color:var(--side-accent)}
 img{max-width:100%;height:auto;display:block}
 .mono{font-family:var(--mono)}
 .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
@@ -36,7 +37,7 @@ img{max-width:100%;height:auto;display:block}
 .brand b{font-weight:600;font-size:14px;display:block;line-height:1.1}
 .brand span{font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
 .crumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;min-width:0;overflow:hidden;white-space:nowrap}
-.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--moss);background:var(--moss-bg)}
+.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--accent-text);background:var(--moss-bg)}
 .top .grow{flex:1}
 .btn{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:7px 12px;display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:12.5px;white-space:nowrap}
 .btn:hover{border-color:#c9c2b4}
@@ -49,22 +50,22 @@ img{max-width:100%;height:auto;display:block}
 .side .logo{font-family:var(--display);font-style:italic;font-weight:500;font-size:34px;line-height:1;color:#E3CFA6;margin-top:10px;letter-spacing:.01em}
 .side h1{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.36;margin:10px 0 0;letter-spacing:.02em;text-wrap:balance}
 .side .loc{font-size:12px;color:var(--side-mute);margin-top:10px}
-.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(255,255,255,.12)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(245,242,236,.12)}
 .specs div{display:grid;gap:1px}
 .specs span{font-size:11px;color:var(--side-mute)}
 .specs b{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:-.01em}
 .specs b small{font-size:11px;color:var(--side-mute);margin-left:3px;font-weight:400}
 .rounds{list-style:none;margin:0;padding:0;display:grid;gap:3px}
 .rounds button{appearance:none;width:100%;border:0;background:transparent;display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:8px 8px;border-radius:6px;text-align:left;cursor:pointer;color:var(--side-ink)}
-.rounds button:hover{background:rgba(255,255,255,.07)}
+.rounds button:hover{background:rgba(245,242,236,.07)}
 .rounds .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--side-mute);display:grid;place-items:center}
 .rounds .tick svg{width:10px;height:10px}
 .rounds .who{font-size:10px;color:var(--side-mute);font-family:var(--mono)}
 .rounds .t{font-size:13px}
 .rounds button[aria-current="true"]{background:var(--paper);color:var(--ink)}
-.rounds button[aria-current="true"] .tick{background:var(--side);border-color:var(--side);color:#fff}
+.rounds button[aria-current="true"] .tick{background:var(--accent);border-color:var(--accent);color:#fff}
 .rounds button[aria-current="true"] .who{color:var(--muted)}
-.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(245,242,236,.12);padding-top:14px}
 
 /* ---------- centre ---------- */
 .centre{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel);border-right:1px solid var(--rule)}
@@ -119,7 +120,7 @@ img{max-width:100%;height:auto;display:block}
 .scenes span{font-size:11px;color:var(--muted);white-space:nowrap}
 .scenes button[aria-current="true"] i{background:var(--accent)}
 .scenes button[aria-current="true"] span{color:var(--ink)}
-.scenes button.done i{background:var(--side-mute)}
+.scenes button.done i{background:var(--muted)}
 
 /* document panes */
 .doc{overflow:auto;padding:22px clamp(16px,2.4vw,32px) 40px;display:grid;gap:34px;align-content:start}
@@ -218,15 +219,15 @@ table.fin tr.grp td{background:#FAF7F1;font-family:var(--sans);color:var(--ink);
 .walkbtn{appearance:none;border:0;border-radius:7px;background:var(--side);color:#fff;padding:11px;display:flex;justify-content:center;gap:8px;align-items:center;cursor:pointer;font-size:13px;font-weight:500}
 .walkbtn:hover{background:var(--side2)}
 .note{border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.6;margin:0}
-.note.moss{background:var(--moss-bg);color:#22432F}
+.note.moss{background:var(--moss-bg);color:var(--accent-text)}
 .note.amber{background:var(--amber-bg);color:#5E4520;display:grid;grid-template-columns:16px 1fr;gap:8px}
 .note b{display:block;font-size:11.5px;margin-bottom:3px}
 .note ul{margin:0;padding-left:14px}
 
 dialog{border:0;border-radius:10px;padding:0;max-width:min(96vw,1400px);background:#111}
-dialog::backdrop{background:rgba(15,20,17,.84)}
+dialog::backdrop{background:rgba(29,28,26,.84)}
 dialog img{max-height:84vh;width:auto;margin-inline:auto}
-dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#E8ECE7;font-size:13px}
+dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#F5F2EC;font-size:13px}
 dialog .dc button{appearance:none;border:1px solid #555;background:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
 dialog.brief{background:var(--panel);max-width:580px}
 dialog.brief .in{padding:22px 24px;display:grid;gap:10px;color:var(--ink);font-size:13.5px}
@@ -257,7 +258,7 @@ dialog.brief q{font-family:var(--mono);font-size:12px;quotes:"“" "”"}
 <div class="app">
   <header class="top">
     <div class="brand">
-      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#EEF0EA" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F5F2EC" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
       <div><b>Anzon Wong 設計室</b><span>Design workspace</span></div>
     </div>
     <div class="crumb"><span>PROJECTS</span><span>›</span><span>Cocotte 法式餐廳酒吧</span><span class="pill">室內設計 · 2013</span></div>
@@ -597,7 +598,7 @@ function flipCard([ai, title, scene, wide]){
 }
 $("rgrid").innerHTML = RENDERS.map(flipCard).join("");
 $("r2013").innerHTML = [["exterior","門面 · 2013 原設計渲染","EXTERIOR · 16 DEC 2013"],["interior","室內 · 2013 原設計渲染","INTERIOR · 16 DEC 2013"]].map(([f,t,m]) =>
-  `<figure class="rcard"><div class="flip"><button class="flipimg" data-src="img/r2013/${f}.webp" data-cap="${t}" style="aspect-ratio:16/9.2"><img class="a" loading="lazy" src="img/r2013/${f}.webp" alt="${t}"></button><span class="aitag" style="background:rgba(31,58,46,.88)">2013 原設計渲染</span></div><figcaption><b style="font-weight:500">${t}</b><span>${m}</span></figcaption></figure>`).join("");
+  `<figure class="rcard"><div class="flip"><button class="flipimg" data-src="img/r2013/${f}.webp" data-cap="${t}" style="aspect-ratio:16/9.2"><img class="a" loading="lazy" src="img/r2013/${f}.webp" alt="${t}"></button><span class="aitag" style="background:rgba(43,25,19,.88)">2013 原設計渲染</span></div><figcaption><b style="font-weight:500">${t}</b><span>${m}</span></figcaption></figure>`).join("");
 
 /* ---------- 3D ---------- */
 (function(){
