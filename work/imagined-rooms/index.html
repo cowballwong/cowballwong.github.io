@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design illustrations for the South China Morning Post · Anzon Wong</title>
+<meta name="description" content="Design illustrations for the South China Morning Post&#x27;s style pages, 2013-2017: thirteen rooms imagined from interviews, designed and rendered by Anzon Wong.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<!--
+  project-showcase / gallery-workspace.html (tier B), v1 2026-10-04.
+  Same B2 frame as interior-workspace.html (site bar, header, terracotta-dark sidebar, tabs, right panel),
+  but the centre is an image workspace instead of a live 3D model:
+  large viewer + thumbnail strip + captions + keyboard (left/right) + swipe + lightbox,
+  an Overview grid, and a Process pane of pairs (before/after slider "slider" or side by side "side").
+  EVERYTHING project-specific lives in the JSON block id="data" (and <title>/<meta> above). Images in img/.
+  Bilingual: EN default, 中文 (書面語) by toggle, ?lang=zh, or localStorage aw-lang (same as the home site).
+-->
+<style>
+/* ===== site bar (design-standard/site-bar.css v0.1, inlined) ===== */
+:root{--awsb-h:40px}
+.awsb,.awsb *,.awsb-foot,.awsb-foot *{all:unset;box-sizing:border-box}
+.awsb{display:flex;align-items:center;gap:14px;height:var(--awsb-h);padding:0 clamp(16px,4vw,48px);background:#f5f2ec;color:#1d1c1a;border-bottom:1px solid #d9d3c7;font:13px/1 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;position:relative;z-index:50;min-width:0;overflow:hidden;white-space:nowrap}
+.awsb a{cursor:pointer;color:inherit;text-decoration:none}
+.awsb-mark{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;font-size:17px;letter-spacing:.01em;color:#1d1c1a;flex:none}
+.awsb-sep{display:block;width:1px;height:16px;background:#d9d3c7;flex:none}
+.awsb-sec{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#4a4741;padding:3px 0;border-bottom:1px solid transparent;flex:none}
+.awsb-page{font-size:13px;color:#6f6a60;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.awsb-grow{flex:1;min-width:0}
+.awsb-home{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#4a4741;border:1px solid #d9d3c7;border-radius:3px;padding:5px 9px;flex:none}
+.awsb-lang{font:11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;color:#1d1c1a;border:1px solid #1d1c1a;border-radius:3px;padding:5px 8px;cursor:pointer;flex:none}
+.awsb-lang:hover{background:#1d1c1a;color:#f5f2ec}
+.awsb a:hover{color:#9c4a2f}
+.awsb a.awsb-sec:hover{border-bottom-color:#9c4a2f}
+.awsb a.awsb-home:hover{border-color:#1d1c1a;color:#1d1c1a}
+.awsb a:focus-visible,.awsb-lang:focus-visible,.awsb-foot a:focus-visible{outline:2px solid #9c4a2f;outline-offset:3px;border-radius:2px}
+.awsb-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding:14px clamp(16px,4vw,48px) 18px;background:#f5f2ec;color:#6f6a60;border-top:1px solid #1d1c1a;font:12.5px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif}
+.awsb-foot b{font:10.5px/1.5 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6f6a60}
+.awsb-foot a{cursor:pointer;color:#1d1c1a;text-decoration:underline;text-underline-offset:3px}
+.awsb-foot span{display:inline}
+@media (max-width:560px){.awsb-page,.awsb-page-sep{display:none}}
+@media (max-width:380px){.awsb-home{display:none}}
+
+/* ===== B2 workspace frame (design standard 4.1 / 4.2) ===== */
+:root{
+  --paper:#f5f2ec; --panel:#FFFFFF; --card:#fbfaf7; --ink:#1d1c1a; --muted:#6f6a60; --faint:#a39d92; --rule:#d9d3c7;
+  --side:#2B1913; --side2:#3A2219; --side-ink:#F5F2EC; --side-mute:#C9AC9E; --side-accent:#D98A68;
+  --accent:#9c4a2f; --accent-text:#7d3a24; --moss:var(--accent); --moss-bg:#F3E7E1; --amber-bg:#F7EFE2;
+  --viewer:#EFEEE9;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html[lang="en"] .zh{display:none!important}
+html[lang="zh-Hant"] .en{display:none!important}
+html[lang="zh-Hant"] body{letter-spacing:.02em}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--sans);overflow-x:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.side :focus-visible{outline-color:var(--side-accent)}
+img{max-width:100%;height:auto;display:block}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+.app{display:grid;grid-template-columns:260px minmax(0,1fr) 300px;grid-template-rows:56px minmax(0,1fr);min-height:calc(100vh - var(--awsb-h))}
+.top{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-inline:16px;background:var(--panel);border-bottom:1px solid var(--rule);min-width:0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;width:228px}
+.mark{width:30px;height:30px;border-radius:50%;background:var(--side);display:grid;place-items:center;flex:none}
+.brand b{font-weight:600;font-size:14px;display:block;line-height:1.1}
+.brand span{font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.crumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;min-width:0;overflow:hidden;white-space:nowrap}
+.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--accent-text);background:var(--moss-bg)}
+.top .grow{flex:1}
+.btn{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:7px 12px;display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:12.5px;white-space:nowrap}
+.btn:hover{border-color:#c9c8c0}
+.btn.dark{background:var(--side);color:var(--side-ink);border-color:var(--side)}
+
+.side{background:var(--side);color:var(--side-ink);padding:22px 20px;display:flex;flex-direction:column;gap:22px;overflow:auto}
+.side .cap{color:var(--side-mute)}
+.side h1{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.25;margin:8px 0 0;text-wrap:balance}
+.side h1 small{display:block;font-size:15px;color:var(--side-mute);margin-top:6px;line-height:1.4}
+.side .loc{font-size:12px;color:var(--side-mute);margin:10px 0 0}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(245,242,236,.12)}
+.specs div{display:grid;gap:1px;min-width:0}
+.specs span{font-size:11px;color:var(--side-mute)}
+.specs b{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.specs b small{font-size:11px;color:var(--side-mute);margin-left:3px;font-weight:400}
+.role{font-size:12.5px;line-height:1.55}
+.role .tbc{display:inline-block;margin-left:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#2B1913;background:#E8C79A;border-radius:2px;padding:1px 5px;vertical-align:1px}
+.rounds{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.rounds button{appearance:none;width:100%;border:0;background:transparent;display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:8px;border-radius:6px;text-align:left;cursor:pointer;color:var(--side-ink)}
+.rounds button:hover{background:rgba(245,242,236,.07)}
+.rounds .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--side-mute);display:grid;place-items:center}
+.rounds .tick svg{width:10px;height:10px}
+.rounds .who{font-size:10px;color:var(--side-mute);font-family:var(--mono)}
+.rounds .t{font-size:13px}
+.rounds button.done .tick{border-color:var(--side-accent);color:var(--side-accent)}
+.rounds button[aria-current="true"]{background:var(--paper);color:var(--ink)}
+.rounds button[aria-current="true"] .tick{background:var(--accent);border-color:var(--accent);color:#fff}
+.rounds button[aria-current="true"] .who{color:var(--muted)}
+.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(245,242,236,.12);padding-top:14px}
+
+.centre{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel);border-right:1px solid var(--rule)}
+.tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--rule);padding-inline:12px;gap:2px;overflow-x:auto}
+.tab{appearance:none;border:0;background:none;padding:12px 14px;display:flex;gap:7px;align-items:center;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;font-size:13px}
+.tab svg{width:14px;height:14px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.tabs .tag{margin-left:auto;align-self:center;color:var(--muted);white-space:nowrap;padding-left:12px}
+.pane{flex:1;min-height:0;display:none}
+.pane.on{display:flex;flex-direction:column}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{appearance:none;border:0;background:transparent;border-radius:5px;padding:5px 11px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--side);color:#fff}
+
+/* ===== gallery viewer (tier B centre) ===== */
+.gstage{position:relative;flex:1;min-height:380px;background:var(--viewer);overflow:hidden;touch-action:pan-y;user-select:none}
+.gstage .frame{position:absolute;inset:64px 64px 44px}
+.gstage .frame img{-webkit-user-drag:none;position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 30px rgba(29,28,26,.14);background:#fff;cursor:zoom-in;transition:opacity .25s}
+.gstage .frame img.fading{opacity:0}
+.vhead{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 18px 0;z-index:2;pointer-events:none}
+.vhead h2{font-family:var(--serif);font-weight:400;font-size:20px;margin:0;line-height:1.25}
+.vhead .cap{color:var(--muted);margin-top:3px}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;appearance:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.gnav:hover{border-color:var(--ink)}
+.gnav.prev{left:14px}.gnav.next{right:14px}
+.gnav svg{width:16px;height:16px}
+.gcount{position:absolute;right:18px;bottom:14px;font-family:var(--mono);font-size:11px;color:var(--muted);z-index:2}
+.ghint{position:absolute;left:18px;bottom:14px;font-size:11px;color:var(--muted);z-index:2}
+.gzoom{position:absolute;right:14px;top:14px;z-index:3;appearance:none;width:32px;height:32px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.gzoom svg{width:15px;height:15px}
+.gcap{border-top:1px solid var(--rule);padding:12px 18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;background:var(--panel)}
+.gcap p{margin:0;max-width:72ch;font-size:13.5px}
+.gcap .cap{color:var(--muted);white-space:nowrap}
+.strip{border-top:1px solid var(--rule);padding:12px 18px 14px;display:grid;gap:10px;background:var(--panel);min-width:0}
+.strip .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.strip h3{margin:0;font-size:13px;font-weight:600;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;min-width:0}
+.strip h3 span{font-weight:400;color:var(--muted);font-size:12px}
+.gthumbs{display:grid;grid-auto-flow:column;grid-auto-columns:96px;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.gthumbs button{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:4px;text-align:left}
+.gthumbs img{width:96px;height:64px;object-fit:cover;border:1px solid var(--rule);border-radius:3px;opacity:.82}
+.gthumbs span{font-family:var(--mono);font-size:9.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gthumbs button:hover img{opacity:1;border-color:var(--ink)}
+.gthumbs button[aria-current="true"] img{opacity:1;outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.gthumbs button[aria-current="true"] span{color:var(--ink)}
+
+/* ===== document panes ===== */
+.doc{overflow:auto;padding:22px clamp(16px,2.4vw,32px) 40px;display:grid;gap:30px;align-content:start}
+.doc h2{font-family:var(--serif);font-weight:400;font-size:24px;margin:0}
+.doc .lead{color:var(--muted);max-width:66ch;margin:6px 0 0}
+.ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px 14px}
+.ovgrid figure{margin:0;display:grid;gap:6px}
+.ovgrid button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:pointer}
+.ovgrid button:hover{border-color:var(--ink)}
+.ovgrid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ovgrid figcaption{display:grid;gap:1px;font-size:12.5px}
+.ovgrid figcaption span{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
+.pairs{display:grid;gap:30px}
+.pair{margin:0;display:grid;gap:8px}
+.pair figcaption{display:flex;justify-content:space-between;gap:12px;font-size:13px;flex-wrap:wrap}
+.pair figcaption span{color:var(--muted);font-family:var(--mono);font-size:10.5px}
+.pair p{margin:0;color:var(--muted);font-size:12.5px;max-width:70ch}
+.side2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.side2 div{position:relative}
+.side2 img{border:1px solid var(--rule);border-radius:6px;cursor:zoom-in;width:100%}
+/* before/after slider: reusable component */
+.cmp{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--rule);background:#fff;max-width:100%}
+.cmp img{width:100%;user-select:none;pointer-events:none}
+.cmp .over{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.cmp .over img{height:100%;object-fit:cover}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.cmp .knob{position:absolute;top:50%;left:var(--x,50%);transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);display:grid;place-items:center;font-size:11px}
+.lab{position:absolute;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(29,28,26,.78);color:#fff;padding:2px 7px;border-radius:3px;z-index:1}
+.lab.l{left:8px}.lab.r{right:8px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:84px 16px minmax(0,1fr);gap:0 14px;cursor:pointer}
+.tl time{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;padding-top:2px}
+.tl .d{position:relative}
+.tl .d::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--rule)}
+.tl .d::after{content:"";position:absolute;left:2px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--panel);border:2px solid var(--accent)}
+.tl li[aria-current="true"] .d::after{background:var(--accent)}
+.tl .b{padding-bottom:18px;display:grid;gap:3px;max-width:62ch}
+.tl .b h4{margin:0;font-size:14px;font-weight:600}
+.tl .b p{margin:0;color:var(--muted);font-size:13px}
+.tl .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+
+/* ===== right panel ===== */
+.right{background:var(--panel);overflow:auto;padding:18px 18px 28px;display:grid;gap:20px;align-content:start}
+.right section{display:grid;gap:10px}
+.right section + section{border-top:1px solid var(--rule);padding-top:18px}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rh h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:7px;align-items:center}
+.rh h3 svg{width:14px;height:14px}
+.rh .pill{font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:1px 6px;color:var(--muted)}
+.big{font-family:var(--serif);font-size:30px;font-weight:400;line-height:1}
+.big small{font-family:var(--sans);font-size:12px;color:var(--muted);margin-left:4px}
+.meta{list-style:none;margin:0;padding:0;display:grid}
+.meta li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule);font-size:12.5px}
+.meta li span:first-child{color:var(--muted)}
+.meta li span:last-child{text-align:right}
+.glist{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.glist button{appearance:none;width:100%;border:0;background:none;display:grid;grid-template-columns:52px 1fr auto;gap:8px;align-items:baseline;padding:6px 6px;border-radius:5px;cursor:pointer;text-align:left;font-size:12.5px}
+.glist button:hover{background:var(--paper)}
+.glist button[aria-current="true"]{background:var(--moss-bg)}
+.glist .d{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.glist .n{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.note{border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.6;margin:0}
+.note.moss{background:var(--moss-bg);color:var(--accent-text)}
+.note.amber{background:var(--amber-bg);color:#6F4E23}
+.note b{display:block;font-size:11.5px;margin-bottom:3px}
+.note ul{margin:0;padding-left:14px}
+
+dialog{border:0;border-radius:10px;padding:0;max-width:min(96vw,1500px);background:#111}
+dialog::backdrop{background:rgba(29,28,26,.84)}
+dialog img{max-height:84vh;width:auto;margin-inline:auto}
+dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#F5F2EC;font-size:13px}
+dialog .dc button{appearance:none;border:1px solid #555;background:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
+dialog.brief{background:var(--panel);max-width:560px}
+dialog.brief .in{padding:22px 24px;display:grid;gap:10px;color:var(--ink);font-size:13.5px}
+dialog.brief h3{margin:0;font-family:var(--serif);font-weight:400;font-size:21px}
+dialog.brief ul{margin:0;padding-left:18px;display:grid;gap:5px}
+
+@media (min-width:1181px){.app{height:calc(100vh - var(--awsb-h));min-height:620px}.app>*{min-height:0}}
+@media (max-width:1180px){
+  .app{grid-template-columns:230px minmax(0,1fr)}
+  .right{grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .right section + section{border-top:0;padding-top:0}
+}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:auto}
+  .top{padding:10px 16px;flex-wrap:wrap;height:auto}
+  .brand{width:auto}.crumb{display:none}
+  .side{padding-inline:16px}
+  .gstage{min-height:62vh}
+  .gstage .frame{inset:70px 12px 40px}
+  .gnav{width:34px;height:34px;top:auto;bottom:6px;transform:none}
+  .gnav.prev{left:auto;right:58px}.gnav.next{right:16px}
+  .gcount{right:auto;left:18px;bottom:16px}.ghint{display:none}
+  .gcap{flex-direction:column;gap:4px;padding-inline:16px}
+  .strip{padding-inline:16px}
+  .side2{grid-template-columns:1fr}
+  .right{padding-inline:16px}
+  .doc{padding-inline:16px}
+}
+/* ===== AI renders tab ===== */
+.aigrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
+.aigrid figure{margin:0;display:grid;gap:7px;min-width:0}
+.aigrid figure:first-child{grid-column:1/-1}
+.aigrid button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:zoom-in;display:block;width:100%;position:relative}
+.aigrid button:hover{border-color:var(--ink)}
+.aigrid img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.aigrid .aib{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;background:rgba(20,20,18,.72);color:#fff;border-radius:2px;padding:2px 6px}
+.aigrid figcaption{display:grid;gap:2px;font-size:12.5px;line-height:1.45}
+.aigrid figcaption .n{color:var(--muted);font-size:11.5px}
+.aigrid figcaption .l{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em}
+@media (max-width:760px){.aigrid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="awsb" role="banner" aria-label="Anzon Wong site">
+  <a class="awsb-mark" href="https://anzonwong.com/">Anzon Wong</a>
+  <span class="awsb-sep" aria-hidden="true"></span>
+  <a class="awsb-sec" href="https://anzonwong.com/work/"><span class="en">Work</span><span class="zh">作品</span></a>
+  <span class="awsb-sep awsb-page-sep" aria-hidden="true"></span>
+  <span class="awsb-page" id="sbPage"></span>
+  <span class="awsb-grow"></span>
+  <button class="awsb-lang" id="langBtn" type="button">中文</button>
+  <a class="awsb-home" href="https://anzonwong.com/">anzonwong.com</a>
+</div>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F5F2EC" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
+      <div><b><span class="en">Anzon Wong studio</span><span class="zh">Anzon Wong 設計室</span></b><span>Design workspace</span></div>
+    </div>
+    <div class="crumb" id="crumb"></div>
+    <span class="grow"></span>
+    <button class="btn" id="briefBtn" type="button"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 7.2V11M8 5v.2"/></svg><span class="en">Brief</span><span class="zh">設計前提</span></button>
+  </header>
+
+  <aside class="side" id="side" aria-label="Project"></aside>
+
+  <main class="centre">
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button class="tab" role="tab" aria-selected="true" data-pane="pgal" id="tgal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="m2 11 4-4 3 3 2-2 3 3"/><circle cx="10.5" cy="6" r="1"/></svg><span id="tgalL"><span class="en">Gallery</span><span class="zh">圖集</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pov" id="tov"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="4.5" height="4.5"/><rect x="9" y="2.5" width="4.5" height="4.5"/><rect x="2.5" y="9" width="4.5" height="4.5"/><rect x="9" y="9" width="4.5" height="4.5"/></svg><span id="tovL"><span class="en">Overview</span><span class="zh">總覽</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pproc" id="tproc"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3v10M3 5h8l-1.5 2L11 9H3"/></svg><span id="tprocL"><span class="en">Process</span><span class="zh">設計過程</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pai" id="tai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2.5 9.3 6.7 13.5 8 9.3 9.3 8 13.5 6.7 9.3 2.5 8 6.7 6.7z"/></svg><span id="taiL"><span class="en">AI renders</span><span class="zh">AI 效果圖</span></span></button>
+      <span class="tag cap" id="tabTag"></span>
+    </div>
+
+    <section class="pane on" id="pgal" role="tabpanel" aria-labelledby="tgal">
+      <div class="gstage" id="gstage">
+        <div class="vhead"><div><h2 id="gTitle"></h2><div class="cap" id="gSub"></div></div></div>
+        <div class="frame"><img id="gImg" alt="" draggable="false"></div>
+        <button class="gnav prev" id="gPrev" type="button" aria-label="Previous image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m10 3-5 5 5 5"/></svg></button>
+        <button class="gnav next" id="gNext" type="button" aria-label="Next image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 3 5 5-5 5"/></svg></button>
+        <button class="gzoom" id="gZoom" type="button" aria-label="Enlarge"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+        <div class="ghint"><span class="en">← → keys or swipe · click to enlarge</span><span class="zh">← → 鍵或左右掃動 · 點擊放大</span></div>
+        <div class="gcount" id="gCount"></div>
+      </div>
+      <div class="gcap"><p id="gCap"></p><span class="cap" id="gKind"></span></div>
+      <div class="strip">
+        <div class="row">
+          <h3 id="stripTitle"></h3>
+          <div class="seg" role="group" aria-label="Filter" id="gFilter"></div>
+        </div>
+        <div class="gthumbs" id="gThumbs"></div>
+      </div>
+    </section>
+
+    <section class="pane" id="pov" role="tabpanel" aria-labelledby="tov">
+      <div class="doc">
+        <div><h2 id="ovH"></h2><p class="lead" id="ovP"></p></div>
+        <div class="ovgrid" id="ovGrid"></div>
+      </div>
+    </section>
+
+    <section class="pane" id="pproc" role="tabpanel" aria-labelledby="tproc">
+      <div class="doc">
+        <div><h2 id="prH"></h2><p class="lead" id="prP"></p></div>
+        <ol class="tl" id="tl"></ol>
+        <div class="pairs" id="pairs"></div>
+      </div>
+    </section>
+<section class="pane" id="pai" role="tabpanel" aria-labelledby="tai">
+      <div class="doc">
+        <div><h2><span class="en">AI renders</span><span class="zh">AI 效果圖</span></h2><p class="lead" id="aiLead"></p></div>
+        <div class="aigrid" id="aiGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="right" aria-label="Details">
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/></svg><span class="en">This image</span><span class="zh">本圖</span></h3><span class="pill" id="rKind"></span></div>
+      <div class="big" id="rNum"></div>
+      <ul class="meta" id="rMeta"></ul>
+    </section>
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 4h10M3 8h10M3 12h10"/></svg><span id="rGroupsH"></span></h3></div>
+      <ul class="glist" id="rGroups"></ul>
+    </section>
+    <section id="rNotes"></section>
+  </aside>
+</div>
+
+<div class="awsb-foot" role="contentinfo">
+  <span><b>Anzon Wong</b></span>
+  <span><span class="en">AW Design is a practice label, not a registered company.</span><span class="zh">AW Design 為執業名稱，並非註冊公司。</span></span>
+  <span><a href="https://anzonwong.com/work/"><span class="en">All work</span><span class="zh">全部作品</span></a></span>
+</div>
+
+<dialog id="lb" aria-label="Enlarged view"><img id="lbImg" alt=""><div class="dc"><span id="lbCap"></span><button id="lbClose" type="button">✕</button></div></dialog>
+<dialog id="brief" class="brief" aria-label="Brief"><div class="in" id="briefIn"></div></dialog>
+
+<script type="application/json" id="data">
+{
+ "num": "P04",
+ "title": {
+  "en": "Design illustrations for the South China Morning Post",
+  "zh": "南華早報設計插圖"
+ },
+ "type": {
+  "en": "Design illustration series",
+  "zh": "設計插圖系列"
+ },
+ "years": "2013-2017",
+ "eyebrow": {
+  "en": "Design illustration · Hong Kong · 2013-2017",
+  "zh": "設計插圖 · 香港 · 2013-2017"
+ },
+ "h1": {
+  "en": "Design illustrations for the South China Morning Post",
+  "zh": "南華早報設計插圖"
+ },
+ "loc": {
+  "en": "13 rooms imagined from interviews for the newspaper's style pages, one per issue",
+  "zh": "為報章生活版構想的 13 個空間，每期一個，均源自一篇訪問"
+ },
+ "facts": [
+  {
+   "k": {
+    "en": "Commissions",
+    "zh": "委託"
+   },
+   "v": "13"
+  },
+  {
+   "k": {
+    "en": "Years",
+    "zh": "年份"
+   },
+   "v": "2013",
+   "u": {
+    "en": "to 2017",
+    "zh": "至 2017"
+   }
+  },
+  {
+   "k": {
+    "en": "Images here",
+    "zh": "本頁圖像"
+   },
+   "v": "19"
+  },
+  {
+   "k": {
+    "en": "SketchUp files",
+    "zh": "SketchUp 檔案"
+   },
+   "v": "71"
+  }
+ ],
+ "role": {
+  "en": "Design illustration: read each interview, interpreted it into a room and rendered it",
+  "zh": "設計插圖：閱讀每篇訪問，自行理解並設計成空間，再製作效果圖"
+ },
+ "role_confirm": false,
+ "rounds": [
+  {
+   "id": "y2013",
+   "date": "2013",
+   "who": {
+    "en": "3 commissions",
+    "zh": "3 期"
+   },
+   "t": {
+    "en": "Wedding reception ballroom + 2 more",
+    "zh": "婚宴宴會廳 等 3 項"
+   },
+   "p": {
+    "en": "Wedding reception ballroom, Rooftop party deck, Nursery.",
+    "zh": "婚宴宴會廳、天台派對平台、嬰兒房。"
+   },
+   "group": "2013-07"
+  },
+  {
+   "id": "y2014",
+   "date": "2014",
+   "who": {
+    "en": "2 commissions",
+    "zh": "2 期"
+   },
+   "t": {
+    "en": "Private jet cabin + 1 more",
+    "zh": "私人飛機機艙 等 2 項"
+   },
+   "p": {
+    "en": "Private jet cabin, Games room with indoor basketball arena.",
+    "zh": "私人飛機機艙、設有室內籃球場的遊戲室。"
+   },
+   "group": "2014-02"
+  },
+  {
+   "id": "y2015",
+   "date": "2015",
+   "who": {
+    "en": "3 commissions",
+    "zh": "3 期"
+   },
+   "t": {
+    "en": "Celebration cake + 2 more",
+    "zh": "慶典蛋糕 等 3 項"
+   },
+   "p": {
+    "en": "Celebration cake, Men's display cabinet, Farm conservatory feast.",
+    "zh": "慶典蛋糕、男士陳列櫃、農莊溫室晚宴。"
+   },
+   "group": "2015-01"
+  },
+  {
+   "id": "y2016",
+   "date": "2016",
+   "who": {
+    "en": "3 commissions",
+    "zh": "3 期"
+   },
+   "t": {
+    "en": "Rooftop garden room + 2 more",
+    "zh": "天台花園空間 等 3 項"
+   },
+   "p": {
+    "en": "Rooftop garden room, Parametric live-work studio, Sea house.",
+    "zh": "天台花園空間、參數化工作及居住空間、海上居所。"
+   },
+   "group": "2016-01"
+  },
+  {
+   "id": "y2017",
+   "date": "2017",
+   "who": {
+    "en": "2 commissions",
+    "zh": "2 期"
+   },
+   "t": {
+    "en": "Tree house + 1 more",
+    "zh": "樹屋 等 2 項"
+   },
+   "p": {
+    "en": "Tree house, Combined dressing room and bathroom.",
+    "zh": "樹屋、衣帽間與浴室合一空間。"
+   },
+   "group": "2017-02"
+  }
+ ],
+ "foot": {
+  "en": "Design illustration: Anzon Wong | 2013-2017 · SketchUp",
+  "zh": "設計插圖：Anzon Wong | 2013-2017 · SketchUp"
+ },
+ "tag": "Renders · 2013-2017",
+ "groups_h": {
+  "en": "Commissions",
+  "zh": "各期題目"
+ },
+ "groups": [
+  {
+   "id": "2013-07",
+   "label": {
+    "en": "Wedding reception ballroom",
+    "zh": "婚宴宴會廳"
+   },
+   "date": "2013-07"
+  },
+  {
+   "id": "2013-08",
+   "label": {
+    "en": "Rooftop party deck",
+    "zh": "天台派對平台"
+   },
+   "date": "2013-08"
+  },
+  {
+   "id": "2013-09",
+   "label": {
+    "en": "Nursery",
+    "zh": "嬰兒房"
+   },
+   "date": "2013-09"
+  },
+  {
+   "id": "2014-02",
+   "label": {
+    "en": "Private jet cabin",
+    "zh": "私人飛機機艙"
+   },
+   "date": "2014-02"
+  },
+  {
+   "id": "2014-12",
+   "label": {
+    "en": "Games room with indoor basketball arena",
+    "zh": "設有室內籃球場的遊戲室"
+   },
+   "date": "2014-12"
+  },
+  {
+   "id": "2015-01",
+   "label": {
+    "en": "Celebration cake",
+    "zh": "慶典蛋糕"
+   },
+   "date": "2015-01"
+  },
+  {
+   "id": "2015-02",
+   "label": {
+    "en": "Men's display cabinet",
+    "zh": "男士陳列櫃"
+   },
+   "date": "2015-02"
+  },
+  {
+   "id": "2015-09",
+   "label": {
+    "en": "Farm conservatory feast",
+    "zh": "農莊溫室晚宴"
+   },
+   "date": "2015-09"
+  },
+  {
+   "id": "2016-01",
+   "label": {
+    "en": "Rooftop garden room",
+    "zh": "天台花園空間"
+   },
+   "date": "2016-01"
+  },
+  {
+   "id": "2016-07",
+   "label": {
+    "en": "Parametric live-work studio",
+    "zh": "參數化工作及居住空間"
+   },
+   "date": "2016-07"
+  },
+  {
+   "id": "2016-10",
+   "label": {
+    "en": "Sea house",
+    "zh": "海上居所"
+   },
+   "date": "2016-10"
+  },
+  {
+   "id": "2017-02",
+   "label": {
+    "en": "Tree house",
+    "zh": "樹屋"
+   },
+   "date": "2017-02"
+  },
+  {
+   "id": "2017-12",
+   "label": {
+    "en": "Combined dressing room and bathroom",
+    "zh": "衣帽間與浴室合一空間"
+   },
+   "date": "2017-12"
+  }
+ ],
+ "strip": {
+  "en": "All images",
+  "zh": "全部圖像"
+ },
+ "items": [
+  {
+   "src": "img/room-01.webp",
+   "thumb": "img/room-01_t.webp",
+   "w": 1800,
+   "h": 900,
+   "group": "2013-07",
+   "date": "2013-07",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Wedding reception ballroom",
+    "zh": "婚宴宴會廳"
+   },
+   "caption": {
+    "en": "Ballroom set for a wedding reception, with a draped canopy, chandeliers and banquet tables.",
+    "zh": "婚宴宴會廳,設帷幔亭架、水晶吊燈及宴會桌。"
+   }
+  },
+  {
+   "src": "img/room-02.webp",
+   "thumb": "img/room-02_t.webp",
+   "w": 1800,
+   "h": 900,
+   "group": "2013-07",
+   "date": "2013-07",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Wedding reception ballroom",
+    "zh": "婚宴宴會廳"
+   },
+   "caption": {
+    "en": "Detail view of the cake table framed by rose arrangements.",
+    "zh": "蛋糕桌細部,以玫瑰花飾環繞。"
+   }
+  },
+  {
+   "src": "img/room-03.webp",
+   "thumb": "img/room-03_t.webp",
+   "w": 1800,
+   "h": 1190,
+   "group": "2013-08",
+   "date": "2013-08",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Rooftop party deck",
+    "zh": "天台派對平台"
+   },
+   "caption": {
+    "en": "Aerial view of a rooftop deck with pool, jacuzzi, lounge and dining areas, set into a city skyline.",
+    "zh": "天台平台鳥瞰,設泳池、按摩池、休憩及用餐區,融入城市天際線。"
+   }
+  },
+  {
+   "src": "img/room-04.webp",
+   "thumb": "img/room-04_t.webp",
+   "w": 1800,
+   "h": 899,
+   "group": "2013-08",
+   "date": "2013-08",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Rooftop party deck",
+    "zh": "天台派對平台"
+   },
+   "caption": {
+    "en": "Indoor games lounge opening onto the roof deck through folding glazed doors.",
+    "zh": "室內遊戲廳以摺疊玻璃門通往天台平台。"
+   }
+  },
+  {
+   "src": "img/room-05.webp",
+   "thumb": "img/room-05_t.webp",
+   "w": 1800,
+   "h": 834,
+   "group": "2013-09",
+   "date": "2013-09",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Nursery",
+    "zh": "嬰兒房"
+   },
+   "caption": {
+    "en": "Nursery with a painted sky ceiling, cot, changing unit and soft grey rug.",
+    "zh": "嬰兒房,天花繪以藍天,設嬰兒床、換尿布櫃及灰色地氈。"
+   }
+  },
+  {
+   "src": "img/room-07.webp",
+   "thumb": "img/room-07_t.webp",
+   "w": 1800,
+   "h": 998,
+   "group": "2014-02",
+   "date": "2014-02",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Private jet cabin",
+    "zh": "私人飛機機艙"
+   },
+   "caption": {
+    "en": "Bedroom suite in a private jet cabin with timber veneer walls and a glazed shower.",
+    "zh": "私人飛機機艙睡房套間,木飾面牆身配玻璃淋浴間。"
+   }
+  },
+  {
+   "src": "img/room-08.webp",
+   "thumb": "img/room-08_t.webp",
+   "w": 1800,
+   "h": 976,
+   "group": "2014-12",
+   "date": "2014-12",
+   "kind": {
+    "en": "Rendered plan",
+    "zh": "彩色平面"
+   },
+   "title": {
+    "en": "Games room with indoor basketball arena",
+    "zh": "設有室內籃球場的遊戲室"
+   },
+   "caption": {
+    "en": "Rendered plan of the games room, with a circular basketball arena and bar wing.",
+    "zh": "遊戲室彩色平面圖,設圓形籃球場及酒吧翼。"
+   }
+  },
+  {
+   "src": "img/room-09.webp",
+   "thumb": "img/room-09_t.webp",
+   "w": 1800,
+   "h": 1800,
+   "group": "2015-01",
+   "date": "2015-01",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Celebration cake",
+    "zh": "慶典蛋糕"
+   },
+   "caption": {
+    "en": "Tiered celebration cake on a marble floor, ringed by candles.",
+    "zh": "多層慶典蛋糕置於雲石地台,四周以蠟燭圍繞。"
+   }
+  },
+  {
+   "src": "img/room-10.webp",
+   "thumb": "img/room-10_t.webp",
+   "w": 1800,
+   "h": 1800,
+   "group": "2015-01",
+   "date": "2015-01",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Celebration cake",
+    "zh": "慶典蛋糕"
+   },
+   "caption": {
+    "en": "Close-up of the floral ornament.",
+    "zh": "花飾近景。"
+   }
+  },
+  {
+   "src": "img/room-11.webp",
+   "thumb": "img/room-11_t.webp",
+   "w": 1800,
+   "h": 976,
+   "group": "2015-02",
+   "date": "2015-02",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Men's display cabinet",
+    "zh": "男士陳列櫃"
+   },
+   "caption": {
+    "en": "Display cabinet in two states, closed and open, in oak burr veneer with copper detailing.",
+    "zh": "陳列櫃開合兩種狀態,橡木瘤紋飾面配銅色細部。"
+   }
+  },
+  {
+   "src": "img/room-12.webp",
+   "thumb": "img/room-12_t.webp",
+   "w": 1800,
+   "h": 1800,
+   "group": "2015-02",
+   "date": "2015-02",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Men's display cabinet",
+    "zh": "男士陳列櫃"
+   },
+   "caption": {
+    "en": "Three-quarter view of the open cabinet.",
+    "zh": "陳列櫃打開時的斜角視圖。"
+   }
+  },
+  {
+   "src": "img/room-13.webp",
+   "thumb": "img/room-13_t.webp",
+   "w": 1800,
+   "h": 976,
+   "group": "2015-09",
+   "date": "2015-09",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Farm conservatory feast",
+    "zh": "農莊溫室晚宴"
+   },
+   "caption": {
+    "en": "Timber-framed glass conservatory draped in fabric, set among trees at dusk.",
+    "zh": "木框玻璃溫室配垂幔布簾,黃昏時置身林木之間。"
+   }
+  },
+  {
+   "src": "img/room-14.webp",
+   "thumb": "img/room-14_t.webp",
+   "w": 1800,
+   "h": 976,
+   "group": "2015-09",
+   "date": "2015-09",
+   "kind": {
+    "en": "Rendered plan",
+    "zh": "彩色平面"
+   },
+   "title": {
+    "en": "Farm conservatory feast",
+    "zh": "農莊溫室晚宴"
+   },
+   "caption": {
+    "en": "Alternative scheme: an open timber barn with a planted edge at dusk.",
+    "zh": "另一方案:黃昏時的開放式木構穀倉及綠化邊界。"
+   }
+  },
+  {
+   "src": "img/room-15.webp",
+   "thumb": "img/room-15_t.webp",
+   "w": 1800,
+   "h": 966,
+   "group": "2016-01",
+   "date": "2016-01",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Rooftop garden room",
+    "zh": "天台花園空間"
+   },
+   "caption": {
+    "en": "Top view of a rooftop garden room with lawn, built-in seating and storage wall.",
+    "zh": "天台花園空間俯視圖,設草坪、嵌入式座椅及儲物牆。"
+   }
+  },
+  {
+   "src": "img/room-16.webp",
+   "thumb": "img/room-16_t.webp",
+   "w": 1800,
+   "h": 900,
+   "group": "2016-07",
+   "date": "2016-07",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Parametric live-work studio",
+    "zh": "參數化工作及居住空間"
+   },
+   "caption": {
+    "en": "Overall view of a parametric live-work space: sculpted pods set on a patterned floating floor.",
+    "zh": "參數化工作及居住空間全景:雕塑感的艙體座落於圖案浮動地台上。"
+   }
+  },
+  {
+   "src": "img/room-17.webp",
+   "thumb": "img/room-17_t.webp",
+   "w": 1800,
+   "h": 900,
+   "group": "2016-10",
+   "date": "2016-10",
+   "kind": {
+    "en": "Rendered plan",
+    "zh": "彩色平面"
+   },
+   "title": {
+    "en": "Sea house",
+    "zh": "海上居所"
+   },
+   "caption": {
+    "en": "Sea house: a floating dwelling with a planted roof and jetty, on open water.",
+    "zh": "海上居所:設綠化屋頂及棧橋的浮動住宅,置於開闊海面。"
+   }
+  },
+  {
+   "src": "img/room-18.webp",
+   "thumb": "img/room-18_t.webp",
+   "w": 1800,
+   "h": 881,
+   "group": "2017-02",
+   "date": "2017-02",
+   "kind": {
+    "en": "Rendered plan",
+    "zh": "彩色平面"
+   },
+   "title": {
+    "en": "Tree house",
+    "zh": "樹屋"
+   },
+   "caption": {
+    "en": "Tree house wrapped in climbing plants, in a forest clearing beside a stream.",
+    "zh": "樹屋外覆攀藤植物,位於溪畔林間空地。"
+   }
+  },
+  {
+   "src": "img/room-19.webp",
+   "thumb": "img/room-19_t.webp",
+   "w": 1800,
+   "h": 1009,
+   "group": "2017-02",
+   "date": "2017-02",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Tree house",
+    "zh": "樹屋"
+   },
+   "caption": {
+    "en": "Interior of the tree house: full-height glazing, timber slats and a view over the forest.",
+    "zh": "樹屋室內:落地玻璃、木條飾面及林景。"
+   }
+  },
+  {
+   "src": "img/room-20.webp",
+   "thumb": "img/room-20_t.webp",
+   "w": 1800,
+   "h": 1222,
+   "group": "2017-12",
+   "date": "2017-12",
+   "kind": {
+    "en": "Render",
+    "zh": "效果圖"
+   },
+   "title": {
+    "en": "Combined dressing room and bathroom",
+    "zh": "衣帽間與浴室合一空間"
+   },
+   "caption": {
+    "en": "Dressing room and bathroom as one space: open wardrobe, stone vanity and freestanding bath.",
+    "zh": "衣帽間與浴室合為一體:開放式衣櫃、石材洗手台及獨立浴缸。"
+   }
+  }
+ ],
+ "overview": {
+  "h": {
+   "en": "Thirteen rooms",
+   "zh": "十三個空間"
+  },
+  "p": {
+   "en": "One or two final images per commission, in issue order. Each started from an interview: I read it, worked out the room it described or implied, then modelled and rendered it for print.",
+   "zh": "每期一至兩張最終圖像，按刊出次序排列。每個空間都源自一篇訪問：先閱讀內容，理解其中描述或暗示的空間，再建模並製作印刷用的效果圖。"
+  }
+ },
+ "process": {
+  "h": {
+   "en": "Five years, thirteen briefs",
+   "zh": "五年，十三個題目"
+  },
+  "p": {
+   "en": "The commissions by year. Select a year to open its first room.",
+   "zh": "按年份列出各期委託。選擇年份即可打開該年的第一個空間。"
+  }
+ },
+ "pairs": [],
+ "notes": [
+  {
+   "cls": "moss",
+   "h": {
+    "en": "What is shown",
+    "zh": "本頁內容"
+   },
+   "items": [
+    {
+     "en": "Final images as delivered, cropped only where noted in the project record.",
+     "zh": "按交付時的最終圖像展示，只在項目紀錄註明之處作裁剪。"
+    }
+   ]
+  },
+  {
+   "cls": "amber",
+   "h": {
+    "en": "Left out",
+    "zh": "未有展示"
+   },
+   "items": [
+    {
+     "en": "The interviewees' names, the article text, the page layouts, the newspaper's masthead, and images that use photographs of real people or brand logos.",
+     "zh": "受訪者姓名、文章內容、版面、報章報頭，以及含有真人照片或品牌標誌的圖像。"
+    }
+   ]
+  }
+ ],
+ "brief": {
+  "h": {
+   "en": "Brief",
+   "zh": "設計前提"
+  },
+  "items": [
+   {
+    "en": "One commission per issue: a room for a feature in the newspaper's style pages.",
+    "zh": "每期一個委託：為報章生活版專題設計一個空間。"
+   },
+   {
+    "en": "Each brief was an interview. I read it, interpreted it as a room, then designed the room, its materials and the camera in SketchUp.",
+    "zh": "每個題目都是一篇訪問。先閱讀並自行理解，再在 SketchUp 中設計空間、物料及鏡頭。"
+   },
+   {
+    "en": "Output: finished images for print.",
+    "zh": "成果：供印刷用的最終圖像。"
+   }
+  ],
+  "src": {
+   "en": "Source: project folders, 2013-2017. The names of the people interviewed are not shown.",
+   "zh": "來源：2013 至 2017 年項目檔案。受訪者姓名不予公開。"
+  }
+ },
+ "ai": {
+  "lead": {
+   "en": "Three of the commissions rendered again in 2026, one image each, from the original illustrations. The conservatory was rendered first and set the photographic style for the other two. Each room keeps its original design.",
+   "zh": "2026 年按原有插圖重新渲染其中三期，每期一張。先渲染溫室一張，再以其攝影風格統一其餘兩張。各空間的設計保持原狀。"
+  },
+  "items": [
+   {
+    "src": "img/ai/ai-1.webp",
+    "thumb": "img/ai/ai-1_t.webp",
+    "title": {
+     "en": "Farm conservatory feast, dusk",
+     "zh": "農莊溫室宴會，黃昏"
+    },
+    "note": {
+     "en": "From the September 2015 illustration.",
+     "zh": "取自 2015 年 9 月的插圖。"
+    }
+   },
+   {
+    "src": "img/ai/ai-2.webp",
+    "thumb": "img/ai/ai-2_t.webp",
+    "title": {
+     "en": "Tree house interior, morning mist",
+     "zh": "樹屋室內，清晨薄霧"
+    },
+    "note": {
+     "en": "From the February 2017 illustration.",
+     "zh": "取自 2017 年 2 月的插圖。"
+    }
+   },
+   {
+    "src": "img/ai/ai-3.webp",
+    "thumb": "img/ai/ai-3_t.webp",
+    "title": {
+     "en": "Private-jet cabin bedroom, golden hour",
+     "zh": "私人飛機睡房，日落時分"
+    },
+    "note": {
+     "en": "From the February 2014 illustration.",
+     "zh": "取自 2014 年 2 月的插圖。"
+    }
+   }
+  ],
+  "label": {
+   "en": "AI render based on the original model, 2026",
+   "zh": "根據原有模型生成的 AI 效果圖（2026）"
+  }
+ }
+}
+</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById("data").textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T = o => o == null ? "" : typeof o === "string" ? esc(o) : `<span class="en">${esc(o.en)}</span><span class="zh" lang="zh-Hant">${esc(o.zh)}</span>`;
+let LANG = "en";
+const P = o => o == null ? "" : typeof o === "string" ? o : (LANG === "zh" ? o.zh : o.en);
+
+/* ---------- language (same rule as the home site: ?lang, then aw-lang, then English) ---------- */
+function setLang(l, save){
+  LANG = l === "zh" ? "zh" : "en";
+  document.documentElement.lang = LANG === "zh" ? "zh-Hant" : "en";
+  $("langBtn").textContent = LANG === "zh" ? "EN" : "中文";
+  if(save){ try{ localStorage.setItem("aw-lang", LANG); }catch(e){} }
+  document.title = P(D.title) + " · Anzon Wong";
+  refreshAlts();
+}
+let q = null; try{ q = new URLSearchParams(location.search).get("lang"); }catch(e){}
+let stored = null; try{ stored = localStorage.getItem("aw-lang"); }catch(e){}
+$("langBtn").onclick = () => setLang(LANG === "zh" ? "en" : "zh", true);
+
+/* ---------- frame: crumb, sidebar, tag ---------- */
+$("sbPage").innerHTML = T(D.title);
+$("crumb").innerHTML = `<span>PROJECT ${esc(D.num)}</span><span>›</span><span>${T(D.title)}</span><span class="pill">${T(D.type)} · ${esc(D.years)}</span>`;
+$("tabTag").textContent = D.tag || "";
+const check = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 5.2 2 2L8 3"/></svg>';
+$("side").innerHTML = `
+  <div><div class="cap">${T(D.eyebrow)}</div><h1>${T(D.h1)}</h1><p class="loc">${T(D.loc)}</p></div>
+  <div class="specs">${D.facts.map(f => `<div><span>${T(f.k)}</span><b>${esc(f.v)}${f.u ? `<small>${T(f.u)}</small>` : ""}</b></div>`).join("")}</div>
+  <div><div class="cap" style="margin-bottom:6px"><span class="en">Role</span><span class="zh">角色</span></div><p class="role" style="margin:0">${T(D.role)}${D.role_confirm ? '<span class="tbc"><span class="en">to confirm</span><span class="zh">待確認</span></span>' : ""}</p></div>
+  <div><div class="cap" style="margin-bottom:8px"><span class="en">Design rounds</span><span class="zh">設計回合</span></div><ul class="rounds" id="rounds">${D.rounds.map((r,i) => `<li><button type="button" data-r="${esc(r.id)}" aria-current="false"><span class="tick">${check}</span><span><span class="t">${T(r.t)}</span><br><span class="who">${esc(r.date)} · ${T(r.who)}</span></span><span class="who">${String(i+1).padStart(2,"0")}</span></button></li>`).join("")}</ul></div>
+  <p class="foot">${T(D.foot).split(" | ").join("<br>")}</p>`;
+
+/* ---------- tabs ---------- */
+function showPane(id){
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.pane === id));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === id));
+  window.dispatchEvent(new Event("resize"));
+}
+window.showPane = showPane;
+/* optional: rename tabs (D.tabs = {tgal:{en,zh}, ...}), hide tabs (D.hide = ["tov"]), start pane (D.start) */
+Object.entries(D.tabs || {}).forEach(([k, v]) => { const el = $(k + "L"); if(el) el.innerHTML = T(v); });
+(D.hide || []).forEach(k => { if($(k)) $(k).hidden = true; });
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => showPane(t.dataset.pane)));
+if(!D.pairs || !D.pairs.length){ if(!D.rounds.some(r => r.p && (r.p.en || r.p.zh))) $("tproc").hidden = true; }
+
+/* ---------- AI renders tab ---------- */
+if(D.ai && D.ai.items && D.ai.items.length){
+  $("aiLead").innerHTML = T(D.ai.lead);
+  $("aiGrid").innerHTML = D.ai.items.map((a,i) => `<figure><button type="button" data-ai="${i}" aria-label="${esc(a.title.en)}"><img loading="lazy" src="${esc(i ? (a.thumb || a.src) : a.src)}" alt="" width="1536" height="1024"><span class="aib">AI</span></button><figcaption>${T(a.title)}<span class="n">${T(a.note)}</span><span class="l">${T(D.ai.label)}</span></figcaption></figure>`).join("");
+  $("aiGrid").addEventListener("click", e => { const b = e.target.closest("button[data-ai]"); if(!b) return; const a = D.ai.items[+b.dataset.ai]; openLb(a.src, P(a.title) + " · " + P(D.ai.label)); });
+} else { $("tai").hidden = true; }
+
+/* ---------- lightbox + brief ---------- */
+const lb = $("lb");
+function openLb(src, cap){ $("lbImg").src = src; $("lbImg").alt = cap; $("lbCap").textContent = cap; lb.showModal(); }
+$("lbClose").onclick = () => lb.close(); lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+$("briefIn").innerHTML = `<h3>${T(D.brief.h)}</h3><ul>${D.brief.items.map(x => `<li>${T(x)}</li>`).join("")}</ul><p style="margin:0;color:var(--muted);font-size:12px">${T(D.brief.src)}</p><button class="btn dark" style="justify-self:end" id="briefClose" type="button"><span class="en">Close</span><span class="zh">關閉</span></button>`;
+$("briefBtn").onclick = () => $("brief").showModal(); $("briefClose").onclick = () => $("brief").close();
+
+/* ---------- gallery ---------- */
+const G = Object.fromEntries(D.groups.map(g => [g.id, g]));
+let filter = "all", list = D.items.slice(), cur = 0;
+$("stripTitle").innerHTML = `${T(D.strip)} <span>${D.items.length}</span>`;
+$("rGroupsH").innerHTML = T(D.groups_h);
+$("gFilter").innerHTML = `<button type="button" aria-pressed="true" data-f="all"><span class="en">All</span><span class="zh">全部</span></button>` +
+  (D.groups.length > 1 && D.groups.length <= 6 ? D.groups.map(g => `<button type="button" aria-pressed="false" data-f="${esc(g.id)}">${T(g.short || g.label)}</button>`).join("") : "");
+$("gFilter").hidden = !(D.groups.length > 1 && D.groups.length <= 6);
+function setFilter(f, keep){
+  filter = f; list = D.items.filter(it => f === "all" || it.group === f);
+  document.querySelectorAll("#gFilter [data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  renderThumbs(); go(keep ? Math.max(0, list.indexOf(keep)) : 0, true);
+}
+function renderThumbs(){
+  $("gThumbs").innerHTML = list.map((it,i) => `<button type="button" data-i="${i}" aria-current="false"><img loading="lazy" src="${esc(it.thumb || it.src)}" alt="" width="96" height="64"><span>${esc(it.date || "")}</span></button>`).join("");
+}
+function go(i, instant){
+  if(!list.length) return;
+  cur = (i + list.length) % list.length; const it = list[cur], g = G[it.group] || {};
+  const img = $("gImg");
+  const swap = () => { img.src = it.src; img.width = it.w; img.height = it.h; img.alt = P(it.title); img.classList.remove("fading"); };
+  if(instant || !img.getAttribute("src")) swap(); else { img.classList.add("fading"); setTimeout(swap, 140); }
+  $("gTitle").innerHTML = T(it.title);
+  $("gSub").innerHTML = `${g.label && g.label.en === it.title.en ? T(it.kind) : T(g.label)}${it.date ? " · " + esc(it.date) : ""}`;
+  $("gCap").innerHTML = T(it.caption); $("gKind").innerHTML = T(it.kind);
+  $("gCount").textContent = `${String(cur+1).padStart(2,"0")} / ${String(list.length).padStart(2,"0")}`;
+  $("rNum").innerHTML = `${String(D.items.indexOf(it)+1).padStart(2,"0")}<small>/ ${D.items.length}</small>`;
+  $("rKind").innerHTML = T(it.kind);
+  $("rMeta").innerHTML = [[{en:"Part",zh:"部分"}, T(g.label)], [{en:"Date",zh:"日期"}, esc(it.date || "")], [{en:"Image",zh:"圖像"}, `${it.w} × ${it.h}`]]
+    .concat((it.meta || []).map(m => [m.k, T(m.v)])).map(r => `<li><span>${T(r[0])}</span><span>${r[1]}</span></li>`).join("");
+  document.querySelectorAll("#gThumbs button").forEach((b,j) => b.setAttribute("aria-current", j === cur));
+  const tb = $("gThumbs").children[cur]; if(tb && tb.scrollIntoView) { const s = $("gThumbs"); s.scrollTo({left: tb.offsetLeft - s.clientWidth/2 + 48, behavior: instant ? "auto" : "smooth"}); }
+  document.querySelectorAll("#rGroups button").forEach(b => b.setAttribute("aria-current", b.dataset.g === it.group));
+  let rd = D.rounds.findIndex(r => r.item === it.src); if(rd < 0) rd = D.rounds.findIndex(r => !r.item && r.group === it.group);
+  document.querySelectorAll("#rounds button").forEach((b,j) => { b.setAttribute("aria-current", j === rd); b.classList.toggle("done", rd >= 0 && j < rd); });
+}
+function refreshAlts(){ if(list[cur]) $("gImg").alt = P(list[cur].title); }
+$("gPrev").onclick = () => go(cur - 1); $("gNext").onclick = () => go(cur + 1);
+$("gThumbs").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if(b) go(+b.dataset.i); });
+$("gFilter").addEventListener("click", e => { const b = e.target.closest("button[data-f]"); if(b) setFilter(b.dataset.f); });
+const zoom = () => { const it = list[cur]; openLb(it.src, P(it.title) + (it.date ? " · " + it.date : "")); };
+$("gZoom").onclick = zoom; $("gImg").addEventListener("click", () => { if(!swiped) zoom(); });
+addEventListener("keydown", e => {
+  if(lb.open || $("brief").open || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if(!$("pgal").classList.contains("on")) return;
+  if(e.key === "ArrowRight"){ go(cur + 1); e.preventDefault(); } else if(e.key === "ArrowLeft"){ go(cur - 1); e.preventDefault(); }
+});
+let sx = null, swiped = false;
+$("gstage").addEventListener("pointerdown", e => { sx = e.clientX; swiped = false; });
+$("gstage").addEventListener("pointerup", e => { if(sx === null) return; const dx = e.clientX - sx; sx = null; if(Math.abs(dx) > 40){ swiped = true; go(cur + (dx < 0 ? 1 : -1)); setTimeout(() => swiped = false, 50); } });
+
+/* groups list (right) */
+$("rGroups").innerHTML = D.groups.map(g => `<li><button type="button" data-g="${esc(g.id)}" aria-current="false"><span class="d">${esc(g.date || "")}</span><span>${T(g.label)}</span><span class="n">${D.items.filter(i => i.group === g.id).length}</span></button></li>`).join("");
+$("rGroups").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if(!b) return; const first = D.items.find(i => i.group === b.dataset.g); showPane("pgal"); setFilter("all", first); });
+$("rounds").addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if(!b) return; const r = D.rounds.find(x => x.id === b.dataset.r);
+  const first = (r.item && D.items.find(i => i.src === r.item)) || D.items.find(i => i.group === r.group); if(r.pane){ showPane(r.pane === "process" ? "pproc" : r.pane); } else if(first){ showPane("pgal"); setFilter("all", first); } });
+
+/* notes (right) */
+$("rNotes").innerHTML = (D.notes || []).map(n => `<div class="note ${esc(n.cls)}"><b>${T(n.h)}</b>${n.items.length > 1 ? `<ul>${n.items.map(x => `<li>${T(x)}</li>`).join("")}</ul>` : T(n.items[0])}</div>`).join("");
+
+/* ---------- overview ---------- */
+$("ovH").innerHTML = T(D.overview.h); $("ovP").innerHTML = T(D.overview.p);
+$("ovGrid").innerHTML = D.items.map((it,i) => `<figure><button type="button" data-k="${i}" aria-label="${esc(it.title.en)}"><img loading="lazy" src="${esc(it.thumb || it.src)}" alt="" width="480" height="360"></button><figcaption>${T(it.title)}<span>${T((G[it.group]||{}).label)}${it.date ? " · " + esc(it.date) : ""}</span></figcaption></figure>`).join("");
+$("ovGrid").addEventListener("click", e => { const b = e.target.closest("button[data-k]"); if(!b) return; showPane("pgal"); setFilter("all", D.items[+b.dataset.k]); });
+
+/* ---------- process: timeline + pairs ---------- */
+$("prH").innerHTML = T(D.process.h); $("prP").innerHTML = T(D.process.p);
+$("tl").innerHTML = D.rounds.map(r => `<li data-r="${esc(r.id)}" aria-current="false"><time>${esc(r.date)}</time><span class="d"></span><div class="b"><span class="who">${T(r.who)}</span><h4>${T(r.t)}</h4>${r.p && (r.p.en || r.p.zh) ? `<p>${T(r.p)}</p>` : ""}</div></li>`).join("");
+$("tl").addEventListener("click", e => { const l = e.target.closest("li[data-r]"); if(!l) return; const r = D.rounds.find(x => x.id === l.dataset.r); const first = (r.item && D.items.find(i => i.src === r.item)) || D.items.find(i => i.group === r.group); if(first){ showPane("pgal"); setFilter("all", first); } });
+function bindCmp(box){ const r = box.querySelector("input"); const f = () => box.style.setProperty("--x", r.value + "%"); r.addEventListener("input", f); f(); }
+$("pairs").innerHTML = (D.pairs || []).map(p => {
+  const head = `<figcaption><b style="font-weight:500">${T(p.title)}</b><span>${esc(p.meta || "")}</span></figcaption>`;
+  const body = p.mode === "slider"
+    ? `<div class="cmp" style="--x:50%"><img src="${esc(p.b)}" alt="" loading="lazy"><div class="over"><img src="${esc(p.a)}" alt="" loading="lazy"></div><span class="bar"></span><span class="knob">⇄</span><span class="lab l">${T(p.labA)}</span><span class="lab r">${T(p.labB)}</span><input type="range" min="0" max="100" value="50" aria-label="${esc(p.title.en)}: compare"></div>`
+    : `<div class="side2"><div><img src="${esc(p.a)}" alt="" loading="lazy" data-cap="${esc(p.labA.en)}"><span class="lab l">${T(p.labA)}</span></div><div><img src="${esc(p.b)}" alt="" loading="lazy" data-cap="${esc(p.labB.en)}"><span class="lab l">${T(p.labB)}</span></div></div>`;
+  return `<figure class="pair">${head}${body}${p.note && (p.note.en || p.note.zh) ? `<p>${T(p.note)}</p>` : ""}</figure>`;
+}).join("");
+document.querySelectorAll("#pairs .cmp").forEach(bindCmp);
+$("pairs").addEventListener("click", e => { const im = e.target.closest(".side2 img"); if(im) openLb(im.getAttribute("src"), im.dataset.cap); });
+
+setLang(q || stored || "en", false);
+setFilter("all");
+if(D.start) showPane(D.start);
+window.WS = {D, T, P, esc, openLb, showPane};
+})();
+</script>
+</body>
+</html>
