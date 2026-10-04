@@ -1,0 +1,1639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hillside apartment, Hong Kong · Anzon Wong</title>
+<meta name="description" content="A hillside family apartment in Hong Kong, 2015: a live SketchUp model, the saved scenes and three AI renders. Design and visualisation by Anzon Wong, in collaboration with an interior design studio.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<!--
+  project-showcase / gallery-workspace.html (tier B), v1 2026-10-04.
+  Same B2 frame as interior-workspace.html (site bar, header, terracotta-dark sidebar, tabs, right panel),
+  but the centre is an image workspace instead of a live 3D model:
+  large viewer + thumbnail strip + captions + keyboard (left/right) + swipe + lightbox,
+  an Overview grid, and a Process pane of pairs (before/after slider "slider" or side by side "side").
+  EVERYTHING project-specific lives in the JSON block id="data" (and <title>/<meta> above). Images in img/.
+  Bilingual: EN default, 中文 (書面語) by toggle, ?lang=zh, or localStorage aw-lang (same as the home site).
+-->
+<style>
+/* ===== site bar (design-standard/site-bar.css v0.1, inlined) ===== */
+:root{--awsb-h:40px}
+.awsb,.awsb *,.awsb-foot,.awsb-foot *{all:unset;box-sizing:border-box}
+.awsb{display:flex;align-items:center;gap:14px;height:var(--awsb-h);padding:0 clamp(16px,4vw,48px);background:#f5f2ec;color:#1d1c1a;border-bottom:1px solid #d9d3c7;font:13px/1 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;position:relative;z-index:50;min-width:0;overflow:hidden;white-space:nowrap}
+.awsb a{cursor:pointer;color:inherit;text-decoration:none}
+.awsb-mark{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;font-size:17px;letter-spacing:.01em;color:#1d1c1a;flex:none}
+.awsb-sep{display:block;width:1px;height:16px;background:#d9d3c7;flex:none}
+.awsb-sec{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#4a4741;padding:3px 0;border-bottom:1px solid transparent;flex:none}
+.awsb-page{font-size:13px;color:#6f6a60;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.awsb-grow{flex:1;min-width:0}
+.awsb-home{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#4a4741;border:1px solid #d9d3c7;border-radius:3px;padding:5px 9px;flex:none}
+.awsb-lang{font:11px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;color:#1d1c1a;border:1px solid #1d1c1a;border-radius:3px;padding:5px 8px;cursor:pointer;flex:none}
+.awsb-lang:hover{background:#1d1c1a;color:#f5f2ec}
+.awsb a:hover{color:#9c4a2f}
+.awsb a.awsb-sec:hover{border-bottom-color:#9c4a2f}
+.awsb a.awsb-home:hover{border-color:#1d1c1a;color:#1d1c1a}
+.awsb a:focus-visible,.awsb-lang:focus-visible,.awsb-foot a:focus-visible{outline:2px solid #9c4a2f;outline-offset:3px;border-radius:2px}
+.awsb-foot{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding:14px clamp(16px,4vw,48px) 18px;background:#f5f2ec;color:#6f6a60;border-top:1px solid #1d1c1a;font:12.5px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif}
+.awsb-foot b{font:10.5px/1.5 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6f6a60}
+.awsb-foot a{cursor:pointer;color:#1d1c1a;text-decoration:underline;text-underline-offset:3px}
+.awsb-foot span{display:inline}
+@media (max-width:560px){.awsb-page,.awsb-page-sep{display:none}}
+@media (max-width:380px){.awsb-home{display:none}}
+
+/* ===== B2 workspace frame (design standard 4.1 / 4.2) ===== */
+:root{
+  --paper:#f5f2ec; --panel:#FFFFFF; --card:#fbfaf7; --ink:#1d1c1a; --muted:#6f6a60; --faint:#a39d92; --rule:#d9d3c7;
+  --side:#2B1913; --side2:#3A2219; --side-ink:#F5F2EC; --side-mute:#C9AC9E; --side-accent:#D98A68;
+  --accent:#9c4a2f; --accent-text:#7d3a24; --moss:var(--accent); --moss-bg:#F3E7E1; --amber-bg:#F7EFE2;
+  --viewer:#EFEEE9;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html[lang="en"] .zh{display:none!important}
+html[lang="zh-Hant"] .en{display:none!important}
+html[lang="zh-Hant"] body{letter-spacing:.02em}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--sans);overflow-x:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.side :focus-visible{outline-color:var(--side-accent)}
+img{max-width:100%;height:auto;display:block}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+.app{display:grid;grid-template-columns:260px minmax(0,1fr) 300px;grid-template-rows:56px minmax(0,1fr);min-height:calc(100vh - var(--awsb-h))}
+.top{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-inline:16px;background:var(--panel);border-bottom:1px solid var(--rule);min-width:0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;width:228px}
+.mark{width:30px;height:30px;border-radius:50%;background:var(--side);display:grid;place-items:center;flex:none}
+.brand b{font-weight:600;font-size:14px;display:block;line-height:1.1}
+.brand span{font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.crumb{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;min-width:0;overflow:hidden;white-space:nowrap}
+.crumb .pill{border:1px solid var(--rule);border-radius:4px;padding:1px 7px;font-size:11px;color:var(--accent-text);background:var(--moss-bg)}
+.top .grow{flex:1}
+.btn{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:7px 12px;display:inline-flex;gap:7px;align-items:center;cursor:pointer;font-size:12.5px;white-space:nowrap}
+.btn:hover{border-color:#c9c8c0}
+.btn.dark{background:var(--side);color:var(--side-ink);border-color:var(--side)}
+
+.side{background:var(--side);color:var(--side-ink);padding:22px 20px;display:flex;flex-direction:column;gap:22px;overflow:auto}
+.side .cap{color:var(--side-mute)}
+.side h1{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.25;margin:8px 0 0;text-wrap:balance}
+.side h1 small{display:block;font-size:15px;color:var(--side-mute);margin-top:6px;line-height:1.4}
+.side .loc{font-size:12px;color:var(--side-mute);margin:10px 0 0}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-block:16px;border-block:1px solid rgba(245,242,236,.12)}
+.specs div{display:grid;gap:1px;min-width:0}
+.specs span{font-size:11px;color:var(--side-mute)}
+.specs b{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.specs b small{font-size:11px;color:var(--side-mute);margin-left:3px;font-weight:400}
+.role{font-size:12.5px;line-height:1.55}
+.role .tbc{display:inline-block;margin-left:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#2B1913;background:#E8C79A;border-radius:2px;padding:1px 5px;vertical-align:1px}
+.rounds{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.rounds button{appearance:none;width:100%;border:0;background:transparent;display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:8px;border-radius:6px;text-align:left;cursor:pointer;color:var(--side-ink)}
+.rounds button:hover{background:rgba(245,242,236,.07)}
+.rounds .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--side-mute);display:grid;place-items:center}
+.rounds .tick svg{width:10px;height:10px}
+.rounds .who{font-size:10px;color:var(--side-mute);font-family:var(--mono)}
+.rounds .t{font-size:13px}
+.rounds button.done .tick{border-color:var(--side-accent);color:var(--side-accent)}
+.rounds button[aria-current="true"]{background:var(--paper);color:var(--ink)}
+.rounds button[aria-current="true"] .tick{background:var(--accent);border-color:var(--accent);color:#fff}
+.rounds button[aria-current="true"] .who{color:var(--muted)}
+.side .foot{margin-top:auto;font-size:11px;color:var(--side-mute);line-height:1.6;border-top:1px solid rgba(245,242,236,.12);padding-top:14px}
+
+.centre{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--panel);border-right:1px solid var(--rule)}
+.tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--rule);padding-inline:12px;gap:2px;overflow-x:auto}
+.tab{appearance:none;border:0;background:none;padding:12px 14px;display:flex;gap:7px;align-items:center;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;font-size:13px}
+.tab svg{width:14px;height:14px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.tabs .tag{margin-left:auto;align-self:center;color:var(--muted);white-space:nowrap;padding-left:12px}
+.pane{flex:1;min-height:0;display:none}
+.pane.on{display:flex;flex-direction:column}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{appearance:none;border:0;background:transparent;border-radius:5px;padding:5px 11px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--side);color:#fff}
+
+/* ===== gallery viewer (tier B centre) ===== */
+.gstage{position:relative;flex:1;min-height:380px;background:var(--viewer);overflow:hidden;touch-action:pan-y;user-select:none}
+.gstage .frame{position:absolute;inset:64px 64px 44px}
+.gstage .frame img{-webkit-user-drag:none;position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 30px rgba(29,28,26,.14);background:#fff;cursor:zoom-in;transition:opacity .25s}
+.gstage .frame img.fading{opacity:0}
+.vhead{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 18px 0;z-index:2;pointer-events:none}
+.vhead h2{font-family:var(--serif);font-weight:400;font-size:20px;margin:0;line-height:1.25}
+.vhead .cap{color:var(--muted);margin-top:3px}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;appearance:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.gnav:hover{border-color:var(--ink)}
+.gnav.prev{left:14px}.gnav.next{right:14px}
+.gnav svg{width:16px;height:16px}
+.gcount{position:absolute;right:18px;bottom:14px;font-family:var(--mono);font-size:11px;color:var(--muted);z-index:2}
+.ghint{position:absolute;left:18px;bottom:14px;font-size:11px;color:var(--muted);z-index:2}
+.gzoom{position:absolute;right:14px;top:14px;z-index:3;appearance:none;width:32px;height:32px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.gzoom svg{width:15px;height:15px}
+.gcap{border-top:1px solid var(--rule);padding:12px 18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;background:var(--panel)}
+.gcap p{margin:0;max-width:72ch;font-size:13.5px}
+.gcap .cap{color:var(--muted);white-space:nowrap}
+.strip{border-top:1px solid var(--rule);padding:12px 18px 14px;display:grid;gap:10px;background:var(--panel);min-width:0}
+.strip .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.strip h3{margin:0;font-size:13px;font-weight:600;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;min-width:0}
+.strip h3 span{font-weight:400;color:var(--muted);font-size:12px}
+.gthumbs{display:grid;grid-auto-flow:column;grid-auto-columns:96px;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.gthumbs button{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:4px;text-align:left}
+.gthumbs img{width:96px;height:64px;object-fit:cover;border:1px solid var(--rule);border-radius:3px;opacity:.82}
+.gthumbs span{font-family:var(--mono);font-size:9.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gthumbs button:hover img{opacity:1;border-color:var(--ink)}
+.gthumbs button[aria-current="true"] img{opacity:1;outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.gthumbs button[aria-current="true"] span{color:var(--ink)}
+
+/* ===== document panes ===== */
+.doc{overflow:auto;padding:22px clamp(16px,2.4vw,32px) 40px;display:grid;gap:30px;align-content:start}
+.doc h2{font-family:var(--serif);font-weight:400;font-size:24px;margin:0}
+.doc .lead{color:var(--muted);max-width:66ch;margin:6px 0 0}
+.ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px 14px}
+.ovgrid figure{margin:0;display:grid;gap:6px}
+.ovgrid button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:pointer}
+.ovgrid button:hover{border-color:var(--ink)}
+.ovgrid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ovgrid figcaption{display:grid;gap:1px;font-size:12.5px}
+.ovgrid figcaption span{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
+.pairs{display:grid;gap:30px}
+.pair{margin:0;display:grid;gap:8px}
+.pair figcaption{display:flex;justify-content:space-between;gap:12px;font-size:13px;flex-wrap:wrap}
+.pair figcaption span{color:var(--muted);font-family:var(--mono);font-size:10.5px}
+.pair p{margin:0;color:var(--muted);font-size:12.5px;max-width:70ch}
+.side2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.side2 div{position:relative}
+.side2 img{border:1px solid var(--rule);border-radius:6px;cursor:zoom-in;width:100%}
+/* before/after slider: reusable component */
+.cmp{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--rule);background:#fff;max-width:100%}
+.cmp img{width:100%;user-select:none;pointer-events:none}
+.cmp .over{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.cmp .over img{height:100%;object-fit:cover}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.cmp .knob{position:absolute;top:50%;left:var(--x,50%);transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);display:grid;place-items:center;font-size:11px}
+.lab{position:absolute;top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(29,28,26,.78);color:#fff;padding:2px 7px;border-radius:3px;z-index:1}
+.lab.l{left:8px}.lab.r{right:8px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:84px 16px minmax(0,1fr);gap:0 14px;cursor:pointer}
+.tl time{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;padding-top:2px}
+.tl .d{position:relative}
+.tl .d::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--rule)}
+.tl .d::after{content:"";position:absolute;left:2px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--panel);border:2px solid var(--accent)}
+.tl li[aria-current="true"] .d::after{background:var(--accent)}
+.tl .b{padding-bottom:18px;display:grid;gap:3px;max-width:62ch}
+.tl .b h4{margin:0;font-size:14px;font-weight:600}
+.tl .b p{margin:0;color:var(--muted);font-size:13px}
+.tl .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+
+
+/* ===== tier A: 3D stage (from interior-workspace.html) ===== */
+.stage{position:relative;flex:1;min-height:420px;background:var(--viewer);overflow:hidden}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.tools{position:absolute;right:14px;top:14px;display:grid;gap:6px;z-index:3}
+.tools button{appearance:none;width:32px;height:32px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);display:grid;place-items:center;cursor:pointer}
+.tools button svg{width:15px;height:15px}
+.vfoot{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;z-index:3;pointer-events:none}
+.vfoot .seg{pointer-events:auto}
+.hint{position:absolute;left:16px;bottom:16px;color:var(--muted);font-size:11px;z-index:2}
+.loading{position:absolute;inset:0;display:grid;place-items:center;z-index:4;color:var(--muted);font-size:13px;background:var(--viewer)}
+.loading .bar{width:180px;height:3px;background:var(--rule);margin-top:10px;overflow:hidden;border-radius:2px}
+.loading .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.card{position:absolute;left:14px;top:72px;width:min(300px,42%);background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden;z-index:3;box-shadow:0 8px 24px rgba(29,28,26,.12)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#fff;cursor:zoom-in}
+.card .ct{padding:8px 10px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}
+.card .ct button{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;font-size:11px}
+.walkpad{position:absolute;right:16px;bottom:60px;display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;z-index:3}
+.walkpad button{appearance:none;border:1px solid var(--rule);background:var(--panel);border-radius:6px;cursor:pointer;font-size:15px}
+.walkpad .up{grid-column:2}
+.walkbar{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:4;background:var(--side);color:#fff;border-radius:999px;padding:6px 8px 6px 14px;display:flex;gap:10px;align-items:center;font-size:12px;white-space:nowrap}
+.walkbar button{appearance:none;border:0;background:#fff;color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;font-size:12px}
+.scenes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(64px,1fr);gap:4px;overflow-x:auto;padding-bottom:2px}
+.scenes button{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:5px;text-align:left}
+.scenes i{display:block;height:3px;border-radius:2px;background:var(--rule)}
+.scenes span{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.scenes button[aria-current="true"] i{background:var(--accent)}
+.scenes button[aria-current="true"] span{color:var(--ink)}
+.scenes button.done i{background:var(--muted)}
+.play{appearance:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);cursor:pointer;display:grid;place-items:center}
+.sheet{background:#FBFBF9;border:1px solid var(--rule);border-radius:6px;padding:14px;display:grid;gap:8px;margin:0}
+.sheet img{cursor:zoom-in;margin-inline:auto;max-height:72vh;width:auto}
+.sheet figcaption{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+.finbar{display:flex;height:8px;border-radius:2px;overflow:hidden;gap:2px}
+.finbar i{display:block;height:100%}
+.finlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.finlist li{display:grid;grid-template-columns:12px 1fr;gap:1px 9px;align-items:start;font-size:12.5px;line-height:1.4}
+.finlist li i{width:12px;height:12px;border-radius:2px;border:1px solid rgba(0,0,0,.12);margin-top:3px}
+.finlist li span{grid-column:2;color:var(--muted);font-size:11px}
+.ctrl{display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center;font-size:12.5px}
+.sw{appearance:none;width:34px;height:20px;border-radius:999px;background:#D9D8D1;position:relative;cursor:pointer;border:0;flex:none;transition:background .15s;margin:0}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw:checked{background:var(--accent)}
+.sw:checked::after{transform:translateX(14px)}
+.walkbtn{appearance:none;border:0;border-radius:7px;background:var(--side);color:#fff;padding:11px;display:flex;justify-content:center;gap:8px;align-items:center;cursor:pointer;font-size:13px;font-weight:500}
+.walkbtn:hover{background:var(--side2)}
+.walkbtn:focus-visible{outline-color:var(--side-accent)}
+@media (max-width:760px){ .card{display:none} .stage{min-height:62vh} .hint{display:none} .walkbar{font-size:11px} }
+
+/* ===== right panel ===== */
+.right{background:var(--panel);overflow:auto;padding:18px 18px 28px;display:grid;gap:20px;align-content:start}
+.right section{display:grid;gap:10px}
+.right section + section{border-top:1px solid var(--rule);padding-top:18px}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rh h3{margin:0;font-size:13px;font-weight:600;display:flex;gap:7px;align-items:center}
+.rh h3 svg{width:14px;height:14px}
+.rh .pill{font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:1px 6px;color:var(--muted)}
+.big{font-family:var(--serif);font-size:30px;font-weight:400;line-height:1}
+.big small{font-family:var(--sans);font-size:12px;color:var(--muted);margin-left:4px}
+.meta{list-style:none;margin:0;padding:0;display:grid}
+.meta li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule);font-size:12.5px}
+.meta li span:first-child{color:var(--muted)}
+.meta li span:last-child{text-align:right}
+.glist{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.glist button{appearance:none;width:100%;border:0;background:none;display:grid;grid-template-columns:52px 1fr auto;gap:8px;align-items:baseline;padding:6px 6px;border-radius:5px;cursor:pointer;text-align:left;font-size:12.5px}
+.glist button:hover{background:var(--paper)}
+.glist button[aria-current="true"]{background:var(--moss-bg)}
+.glist .d{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.glist .n{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.note{border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.6;margin:0}
+.note.moss{background:var(--moss-bg);color:var(--accent-text)}
+.note.amber{background:var(--amber-bg);color:#6F4E23}
+.note b{display:block;font-size:11.5px;margin-bottom:3px}
+.note ul{margin:0;padding-left:14px}
+
+dialog{border:0;border-radius:10px;padding:0;max-width:min(96vw,1500px);background:#111}
+dialog::backdrop{background:rgba(29,28,26,.84)}
+dialog img{max-height:84vh;width:auto;margin-inline:auto}
+dialog .dc{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#F5F2EC;font-size:13px}
+dialog .dc button{appearance:none;border:1px solid #555;background:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
+dialog.brief{background:var(--panel);max-width:560px}
+dialog.brief .in{padding:22px 24px;display:grid;gap:10px;color:var(--ink);font-size:13.5px}
+dialog.brief h3{margin:0;font-family:var(--serif);font-weight:400;font-size:21px}
+dialog.brief ul{margin:0;padding-left:18px;display:grid;gap:5px}
+
+@media (min-width:1181px){.app{height:calc(100vh - var(--awsb-h));min-height:620px}.app>*{min-height:0}}
+@media (max-width:1180px){
+  .app{grid-template-columns:230px minmax(0,1fr)}
+  .right{grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .right section + section{border-top:0;padding-top:0}
+}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:auto}
+  .top{padding:10px 16px;flex-wrap:wrap;height:auto}
+  .brand{width:auto}.crumb{display:none}
+  .side{padding-inline:16px}
+  .gstage{min-height:62vh}
+  .gstage .frame{inset:70px 12px 40px}
+  .gnav{width:34px;height:34px;top:auto;bottom:6px;transform:none}
+  .gnav.prev{left:auto;right:58px}.gnav.next{right:16px}
+  .gcount{right:auto;left:18px;bottom:16px}.ghint{display:none}
+  .gcap{flex-direction:column;gap:4px;padding-inline:16px}
+  .strip{padding-inline:16px}
+  .side2{grid-template-columns:1fr}
+  .right{padding-inline:16px}
+  .doc{padding-inline:16px}
+}
+/* ===== AI renders tab ===== */
+.aigrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
+.aigrid figure{margin:0;display:grid;gap:7px;min-width:0}
+.aigrid figure:first-child{grid-column:1/-1}
+.aigrid button{appearance:none;border:1px solid var(--rule);background:#fff;padding:0;border-radius:4px;overflow:hidden;cursor:zoom-in;display:block;width:100%;position:relative}
+.aigrid button:hover{border-color:var(--ink)}
+.aigrid img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.aigrid .aib{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;background:rgba(20,20,18,.72);color:#fff;border-radius:2px;padding:2px 6px}
+.aigrid figcaption{display:grid;gap:2px;font-size:12.5px;line-height:1.45}
+.aigrid figcaption .n{color:var(--muted);font-size:11.5px}
+.aigrid figcaption .l{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em}
+@media (max-width:760px){.aigrid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="awsb" role="banner" aria-label="Anzon Wong site">
+  <a class="awsb-mark" href="https://anzonwong.com/">Anzon Wong</a>
+  <span class="awsb-sep" aria-hidden="true"></span>
+  <a class="awsb-sec" href="https://anzonwong.com/work/"><span class="en">Work</span><span class="zh">作品</span></a>
+  <span class="awsb-sep awsb-page-sep" aria-hidden="true"></span>
+  <span class="awsb-page" id="sbPage"></span>
+  <span class="awsb-grow"></span>
+  <button class="awsb-lang" id="langBtn" type="button">中文</button>
+  <a class="awsb-home" href="https://anzonwong.com/">anzonwong.com</a>
+</div>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F5F2EC" stroke-width="1.4"><path d="M2 8.5 8 3l6 5.5M4 7.5V13h8V7.5"/></svg></span>
+      <div><b><span class="en">Anzon Wong studio</span><span class="zh">Anzon Wong 設計室</span></b><span>Design workspace</span></div>
+    </div>
+    <div class="crumb" id="crumb"></div>
+    <span class="grow"></span>
+    <button class="btn" id="briefBtn" type="button"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 7.2V11M8 5v.2"/></svg><span class="en">Brief</span><span class="zh">設計前提</span></button>
+  </header>
+
+  <aside class="side" id="side" aria-label="Project"></aside>
+
+  <main class="centre">
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button class="tab" role="tab" aria-selected="false" data-pane="p3d" id="t3d"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/><path d="M2.5 5 8 8.2 13.5 5M8 8.2v6"/></svg><span class="en">3D model</span><span class="zh">立體模型</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pdraw" id="tdraw"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11"/><path d="M2.5 8h5V2.5M7.5 13.5V10h6"/></svg><span class="en">Drawings</span><span class="zh">圖則</span></button>
+      <button class="tab" role="tab" aria-selected="true" data-pane="pgal" id="tgal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="m2 11 4-4 3 3 2-2 3 3"/><circle cx="10.5" cy="6" r="1"/></svg><span id="tgalL"><span class="en">Gallery</span><span class="zh">圖集</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pov" id="tov"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="2.5" width="4.5" height="4.5"/><rect x="9" y="2.5" width="4.5" height="4.5"/><rect x="2.5" y="9" width="4.5" height="4.5"/><rect x="9" y="9" width="4.5" height="4.5"/></svg><span id="tovL"><span class="en">Overview</span><span class="zh">總覽</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pproc" id="tproc"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3v10M3 5h8l-1.5 2L11 9H3"/></svg><span id="tprocL"><span class="en">Process</span><span class="zh">設計過程</span></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="pai" id="tai"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2.5 9.3 6.7 13.5 8 9.3 9.3 8 13.5 6.7 9.3 2.5 8 6.7 6.7z"/></svg><span id="taiL"><span class="en">AI renders</span><span class="zh">AI 效果圖</span></span></button>
+      <span class="tag cap" id="tabTag"></span>
+    </div>
+
+    <section class="pane" id="p3d" role="tabpanel" aria-labelledby="t3d">
+      <div class="stage" id="stage">
+        <div class="vhead"><div><h2 id="vTitle"><span class="en">The whole apartment</span><span class="zh">全屋</span></h2><div class="cap" id="vSub">SKETCHUP MODEL · 2015</div></div></div>
+        <canvas id="cv" aria-label="Interactive 3D model of the apartment"></canvas>
+        <div class="tools" role="toolbar" aria-label="View tools">
+          <button id="tReset" type="button" title="Reset view" aria-label="Reset view"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8"/></svg></button>
+          <button id="tIn" type="button" title="Zoom in" aria-label="Zoom in"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></button>
+          <button id="tOut" type="button" title="Zoom out" aria-label="Zoom out"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10"/></svg></button>
+        </div>
+        <div class="card" id="card" hidden><img id="cardImg" alt=""><div class="ct"><span id="cardCap"></span><button id="cardClose" type="button" aria-label="Close">✕</button></div></div>
+        <div class="walkbar" id="walkbar" hidden><span><span class="en">Drag to look · WASD or arrows to walk</span><span class="zh">拖曳轉向 · WASD 或方向鍵行走</span></span><button id="walkExit" type="button"><span class="en">Done</span><span class="zh">完成</span></button></div>
+        <div class="walkpad" id="walkpad" hidden><button class="up" type="button" data-mv="f" aria-label="Forward">▲</button><button type="button" data-mv="l" aria-label="Left">◀</button><button type="button" data-mv="b" aria-label="Back">▼</button><button type="button" data-mv="r" aria-label="Right">▶</button></div>
+        <div class="hint"><span class="en">Drag to rotate · scroll to zoom · right-drag to pan</span><span class="zh">拖曳旋轉 · 滾輪縮放 · 右鍵平移</span></div>
+        <div class="vfoot"><div class="seg" role="group" aria-label="View"><button type="button" aria-pressed="true" data-vw="iso"><span class="en">3D</span><span class="zh">立體</span></button><button type="button" aria-pressed="false" data-vw="plan"><span class="en">Plan</span><span class="zh">平面</span></button></div></div>
+        <div class="loading" id="loading"><div style="text-align:center"><span class="en">Loading the 3D model</span><span class="zh">立體模型載入中</span><div class="bar"><i id="loadbar"></i></div></div></div>
+      </div>
+      <div class="strip">
+        <div class="row">
+          <h3><span class="en">SketchUp scenes</span><span class="zh">SketchUp 場景</span> <span><span class="en">the saved scenes of the SketchUp model, select one to fly there</span><span class="zh">SketchUp 模型的已存場景，選擇即可飛往</span></span></h3>
+          <button class="play" id="play" type="button" aria-label="Play the scenes"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg></button>
+        </div>
+        <div class="scenes" id="scenes"></div>
+      </div>
+    </section>
+
+    <section class="pane" id="pdraw" role="tabpanel" aria-labelledby="tdraw">
+      <div class="doc">
+        <div><h2><span class="en">Drawings</span><span class="zh">圖則</span></h2><p class="lead" id="dLead"></p></div>
+        <div class="seg" role="group" aria-label="Sheets" id="dTabs" style="justify-self:start"></div>
+        <figure class="sheet"><img id="dImg" alt=""><figcaption id="dCap"></figcaption></figure>
+        <p class="lead" id="dNote" style="margin:0"></p>
+      </div>
+    </section>
+
+    <section class="pane on" id="pgal" role="tabpanel" aria-labelledby="tgal">
+      <div class="gstage" id="gstage">
+        <div class="vhead"><div><h2 id="gTitle"></h2><div class="cap" id="gSub"></div></div></div>
+        <div class="frame"><img id="gImg" alt="" draggable="false"></div>
+        <button class="gnav prev" id="gPrev" type="button" aria-label="Previous image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m10 3-5 5 5 5"/></svg></button>
+        <button class="gnav next" id="gNext" type="button" aria-label="Next image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 3 5 5-5 5"/></svg></button>
+        <button class="gzoom" id="gZoom" type="button" aria-label="Enlarge"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+        <div class="ghint"><span class="en">← → keys or swipe · click to enlarge</span><span class="zh">← → 鍵或左右掃動 · 點擊放大</span></div>
+        <div class="gcount" id="gCount"></div>
+      </div>
+      <div class="gcap"><p id="gCap"></p><span class="cap" id="gKind"></span></div>
+      <div class="strip">
+        <div class="row">
+          <h3 id="stripTitle"></h3>
+          <div class="seg" role="group" aria-label="Filter" id="gFilter"></div>
+        </div>
+        <div class="gthumbs" id="gThumbs"></div>
+      </div>
+    </section>
+
+    <section class="pane" id="pov" role="tabpanel" aria-labelledby="tov">
+      <div class="doc">
+        <div><h2 id="ovH"></h2><p class="lead" id="ovP"></p></div>
+        <div class="ovgrid" id="ovGrid"></div>
+      </div>
+    </section>
+
+    <section class="pane" id="pproc" role="tabpanel" aria-labelledby="tproc">
+      <div class="doc">
+        <div><h2 id="prH"></h2><p class="lead" id="prP"></p></div>
+        <ol class="tl" id="tl"></ol>
+        <div class="pairs" id="pairs"></div>
+      </div>
+    </section>
+<section class="pane" id="pai" role="tabpanel" aria-labelledby="tai">
+      <div class="doc">
+        <div><h2><span class="en">AI renders</span><span class="zh">AI 效果圖</span></h2><p class="lead" id="aiLead"></p></div>
+        <div class="aigrid" id="aiGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="right" aria-label="Details">
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.8 13.5 5v6L8 14.2 2.5 11V5z"/></svg><span class="en">Model</span><span class="zh">模型顯示</span></h3></div>
+      <div class="ctrl">
+        <label for="cCeil"><span class="en">Ceilings</span><span class="zh">天花</span></label><input class="sw" type="checkbox" id="cCeil">
+        <label for="cFurn"><span class="en">Furniture</span><span class="zh">傢俬</span></label><input class="sw" type="checkbox" id="cFurn" checked>
+      </div>
+      <button class="walkbtn" id="walkBtn" type="button"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="3" r="1.4"/><path d="m6 14 1.5-5L6 7l2-1.5L10 8l2 1M7.5 9l2 5"/></svg><span class="en">Walk through</span><span class="zh">入內漫遊</span></button>
+    </section>
+    
+        <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1"/></svg><span class="en">This image</span><span class="zh">本圖</span></h3><span class="pill" id="rKind"></span></div>
+      <div class="big" id="rNum"></div>
+      <ul class="meta" id="rMeta"></ul>
+    </section>
+    <section>
+      <div class="rh"><h3><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 4h10M3 8h10M3 12h10"/></svg><span id="rGroupsH"></span></h3></div>
+      <ul class="glist" id="rGroups"></ul>
+    </section>
+    <section id="rNotes"></section>
+  </aside>
+</div>
+
+<div class="awsb-foot" role="contentinfo">
+  <span><b>Anzon Wong</b></span>
+  <span><span class="en">AW Design is a practice label, not a registered company.</span><span class="zh">AW Design 為執業名稱，並非註冊公司。</span></span>
+  <span><a href="https://anzonwong.com/work/"><span class="en">All work</span><span class="zh">全部作品</span></a></span>
+</div>
+
+<dialog id="lb" aria-label="Enlarged view"><img id="lbImg" alt=""><div class="dc"><span id="lbCap"></span><button id="lbClose" type="button">✕</button></div></dialog>
+<dialog id="brief" class="brief" aria-label="Brief"><div class="in" id="briefIn"></div></dialog>
+
+<script type="application/json" id="data">
+{
+ "num": "P06",
+ "title": {
+  "en": "Hillside apartment, Hong Kong",
+  "zh": "香港山邊住宅單位"
+ },
+ "type": {
+  "en": "Residential interior",
+  "zh": "住宅室內"
+ },
+ "years": "2015",
+ "eyebrow": {
+  "en": "Residential · Hong Kong · 2015",
+  "zh": "住宅 · 香港 · 2015"
+ },
+ "h1": {
+  "en": "Hillside apartment, Hong Kong",
+  "zh": "香港山邊住宅單位"
+ },
+ "loc": {
+  "en": "A family apartment on one floor: living and dining room, master suite with a walk-in wardrobe, and steel-framed glass screens",
+  "zh": "單層家庭住宅：客飯廳、設步入式衣帽間的主人套房，以及鋼框玻璃屏風"
+ },
+ "facts": [
+  {
+   "k": {
+    "en": "SketchUp scenes",
+    "zh": "SketchUp 場景"
+   },
+   "v": "20"
+  },
+  {
+   "k": {
+    "en": "Model files",
+    "zh": "模型檔案"
+   },
+   "v": "78"
+  },
+  {
+   "k": {
+    "en": "Issues",
+    "zh": "發圖次數"
+   },
+   "v": "17",
+   "u": {
+    "en": "Oct-Nov 2015",
+    "zh": "2015 年 10 至 11 月"
+   }
+  },
+  {
+   "k": {
+    "en": "Mark-up rounds",
+    "zh": "修改回合"
+   },
+   "v": "13"
+  }
+ ],
+ "role": {
+  "en": "Design and visualisation, in collaboration with an interior design studio: SketchUp model, scene sets for every review and design drawings.",
+  "zh": "設計及效果圖（與室內設計工作室合作）：SketchUp 模型、每輪檢討的場景視圖及設計圖則。"
+ },
+ "role_confirm": false,
+ "rounds": [
+  {
+   "id": "r1",
+   "date": "2015-10-17",
+   "who": {
+    "en": "First issue",
+    "zh": "首次發圖"
+   },
+   "t": {
+    "en": "First views",
+    "zh": "初步視圖"
+   },
+   "p": {
+    "en": "Thirteen views of the first layout.",
+    "zh": "首個佈局的十三張視圖。"
+   },
+   "item": "img/scene/s02.webp"
+  },
+  {
+   "id": "r2",
+   "date": "2015-10-27",
+   "who": {
+    "en": "Review",
+    "zh": "檢討"
+   },
+   "t": {
+    "en": "Revised layout",
+    "zh": "修訂佈局"
+   },
+   "p": {
+    "en": "Views reissued after mark-ups, ten issues in the first two weeks.",
+    "zh": "按修改標記重發視圖，首兩星期共發圖十次。"
+   },
+   "item": "img/scene/s03.webp"
+  },
+  {
+   "id": "r3",
+   "date": "2015-11-09",
+   "who": {
+    "en": "Review",
+    "zh": "檢討"
+   },
+   "t": {
+    "en": "Full scene set",
+    "zh": "完整場景"
+   },
+   "p": {
+    "en": "Sections, elevations and all the room views in one set.",
+    "zh": "剖面、立面及所有房間視圖整套發出。"
+   },
+   "item": "img/scene/s05.webp"
+  },
+  {
+   "id": "r4",
+   "date": "2015-11-18",
+   "who": {
+    "en": "Final",
+    "zh": "最終"
+   },
+   "t": {
+    "en": "Final model",
+    "zh": "最終模型"
+   },
+   "p": {
+    "en": "The model shown here, saved on 18 November 2015.",
+    "zh": "本頁所示模型，於 2015 年 11 月 18 日儲存。"
+   },
+   "item": "img/scene/s07.webp"
+  },
+  {
+   "id": "r5",
+   "date": "2015-11-28",
+   "who": {
+    "en": "Close",
+    "zh": "完成"
+   },
+   "t": {
+    "en": "Last issue",
+    "zh": "最後發圖"
+   },
+   "p": {
+    "en": "Last views and details.",
+    "zh": "最後的視圖及細部。"
+   },
+   "item": "img/scene/s12.webp"
+  }
+ ],
+ "foot": {
+  "en": "Design and visualisation: Anzon Wong, in collaboration with an interior design studio | 2015 · SketchUp",
+  "zh": "設計及效果圖：Anzon Wong（與室內設計工作室合作）| 2015 · SketchUp"
+ },
+ "tag": "SketchUp model · 2015",
+ "groups_h": {
+  "en": "Rooms",
+  "zh": "房間"
+ },
+ "groups": [
+  {
+   "id": "plan",
+   "label": {
+    "en": "Plan",
+    "zh": "平面"
+   },
+   "date": "2015-11"
+  },
+  {
+   "id": "liv",
+   "label": {
+    "en": "Living and dining",
+    "zh": "客飯廳"
+   },
+   "date": "2015-11"
+  },
+  {
+   "id": "bed",
+   "label": {
+    "en": "Master suite",
+    "zh": "主人套房"
+   },
+   "date": "2015-11"
+  },
+  {
+   "id": "bath",
+   "label": {
+    "en": "Bathrooms",
+    "zh": "浴室"
+   },
+   "date": "2015-11"
+  }
+ ],
+ "strip": {
+  "en": "SketchUp scenes",
+  "zh": "SketchUp 場景"
+ },
+ "items": [
+  {
+   "src": "img/scene/s01.webp",
+   "thumb": "img/scene/s01_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "plan",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Plan view",
+    "zh": "平面視圖"
+   },
+   "title": {
+    "en": "Apartment from above",
+    "zh": "全屋俯視"
+   },
+   "caption": {
+    "en": "Apartment from above. Living and dining room on the left, master suite on the right.",
+    "zh": "全屋俯視。左為客飯廳，右為主人套房。"
+   }
+  },
+  {
+   "src": "img/scene/s02.webp",
+   "thumb": "img/scene/s02_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Living room towards the glass screen",
+    "zh": "客廳望向玻璃屏風"
+   },
+   "caption": {
+    "en": "Living room towards the glass screen. A long low shelf for books and art, with the steel-framed glass screen at the end.",
+    "zh": "客廳望向玻璃屏風。長矮書架用作放書及藝術品，盡頭為鋼框玻璃屏風。"
+   }
+  },
+  {
+   "src": "img/scene/s03.webp",
+   "thumb": "img/scene/s03_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Dining table and stair",
+    "zh": "飯桌及樓梯"
+   },
+   "caption": {
+    "en": "Dining table and stair. Eight-seat dining table under a branching pendant, with prints above.",
+    "zh": "飯桌及樓梯。枝形吊燈下的八人餐桌，牆上掛有版畫。"
+   }
+  },
+  {
+   "src": "img/scene/s04.webp",
+   "thumb": "img/scene/s04_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Glass screen from the living room",
+    "zh": "由客廳望玻璃屏風"
+   },
+   "caption": {
+    "en": "Glass screen from the living room. The screen slides to join the living room to the room beyond.",
+    "zh": "由客廳望玻璃屏風。屏風可推開，連接客廳與後方房間。"
+   }
+  },
+  {
+   "src": "img/scene/s05.webp",
+   "thumb": "img/scene/s05_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Section perspective",
+    "zh": "剖透視"
+   },
+   "title": {
+    "en": "Long section, living and dining",
+    "zh": "客飯廳縱剖透視"
+   },
+   "caption": {
+    "en": "Long section, living and dining. TV wall, dining table and the kitchen beyond.",
+    "zh": "客飯廳縱剖透視。電視牆、餐桌及後方廚房。"
+   }
+  },
+  {
+   "src": "img/scene/s06.webp",
+   "thumb": "img/scene/s06_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Section perspective",
+    "zh": "剖透視"
+   },
+   "title": {
+    "en": "Section, storage wall",
+    "zh": "儲物牆剖透視"
+   },
+   "caption": {
+    "en": "Section, storage wall. Full-height cupboards and a low bench along the living room.",
+    "zh": "儲物牆剖透視。沿客廳的落地儲物櫃及矮櫈。"
+   }
+  },
+  {
+   "src": "img/scene/s07.webp",
+   "thumb": "img/scene/s07_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bed",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Master bedroom",
+    "zh": "主人睡房"
+   },
+   "caption": {
+    "en": "Master bedroom. Bed under clerestory glazing, with the wardrobe corridor on the right.",
+    "zh": "主人睡房。高窗下的床，右邊為衣帽走廊。"
+   }
+  },
+  {
+   "src": "img/scene/s08.webp",
+   "thumb": "img/scene/s08_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bed",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Section perspective",
+    "zh": "剖透視"
+   },
+   "title": {
+    "en": "Section, bedroom and study",
+    "zh": "睡房及書房剖透視"
+   },
+   "caption": {
+    "en": "Section, bedroom and study. The glass screen between bedroom and study, closed.",
+    "zh": "睡房及書房剖透視。睡房與書房之間的玻璃屏風（關上）。"
+   }
+  },
+  {
+   "src": "img/scene/s09.webp",
+   "thumb": "img/scene/s09_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bed",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Section perspective",
+    "zh": "剖透視"
+   },
+   "title": {
+    "en": "Walk-in wardrobe",
+    "zh": "步入式衣帽間"
+   },
+   "caption": {
+    "en": "Walk-in wardrobe. Hanging, drawers and a dressing table along one wall.",
+    "zh": "步入式衣帽間。沿牆排列的掛衣區、抽屜及梳妝枱。"
+   }
+  },
+  {
+   "src": "img/scene/s10.webp",
+   "thumb": "img/scene/s10_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bed",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Corridor to the bedroom",
+    "zh": "通往睡房的走廊"
+   },
+   "caption": {
+    "en": "Corridor to the bedroom. Built-in cupboards and a window at the end.",
+    "zh": "通往睡房的走廊。嵌入式櫃及盡頭的窗。"
+   }
+  },
+  {
+   "src": "img/scene/s11.webp",
+   "thumb": "img/scene/s11_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bath",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Master bathroom, bath and vanity",
+    "zh": "主浴室：浴缸及洗手盆"
+   },
+   "caption": {
+    "en": "Master bathroom, bath and vanity. Freestanding tub, floating vanity and the shower beyond.",
+    "zh": "主浴室：浴缸及洗手盆。獨立浴缸、懸浮洗手盆及後方淋浴間。"
+   }
+  },
+  {
+   "src": "img/scene/s12.webp",
+   "thumb": "img/scene/s12_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bath",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "SketchUp view",
+    "zh": "SketchUp 視圖"
+   },
+   "title": {
+    "en": "Master bathroom",
+    "zh": "主浴室"
+   },
+   "caption": {
+    "en": "Master bathroom. Tub, double vanity with three mirror panels, and the shower.",
+    "zh": "主浴室。浴缸、配三塊鏡板的雙洗手盆及淋浴間。"
+   }
+  },
+  {
+   "src": "img/scene/s13.webp",
+   "thumb": "img/scene/s13_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "bath",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Section perspective",
+    "zh": "剖透視"
+   },
+   "title": {
+    "en": "Shower room section",
+    "zh": "淋浴間剖透視"
+   },
+   "caption": {
+    "en": "Shower room section. Shower, WC and basin in one cut.",
+    "zh": "淋浴間剖透視。一刀剖開淋浴、座廁及洗手盆。"
+   }
+  },
+  {
+   "src": "img/scene/s14.webp",
+   "thumb": "img/scene/s14_t.webp",
+   "w": 1600,
+   "h": 1000,
+   "group": "liv",
+   "date": "2015-11-18",
+   "kind": {
+    "en": "Elevation view",
+    "zh": "立面視圖"
+   },
+   "title": {
+    "en": "Glass screen, elevation",
+    "zh": "玻璃屏風立面"
+   },
+   "caption": {
+    "en": "Glass screen, elevation. The steel-framed screen drawn flat for the maker.",
+    "zh": "玻璃屏風立面。供製作商參考的鋼框屏風立面。"
+   }
+  }
+ ],
+ "tabs": {
+  "tgal": {
+   "en": "Scenes",
+   "zh": "場景"
+  }
+ },
+ "hide": [
+  "tov",
+  "tdraw"
+ ],
+ "start": "p3d",
+ "overview": {
+  "h": {
+   "en": "Scenes",
+   "zh": "場景"
+  },
+  "p": {
+   "en": "",
+   "zh": ""
+  }
+ },
+ "process": {
+  "h": {
+   "en": "Review rounds",
+   "zh": "檢討回合"
+  },
+  "p": {
+   "en": "Select a date to open that stage. The sliders compare the same scene saved twice.",
+   "zh": "選擇日期即可打開該階段。滑桿比較同一場景的兩個版本。"
+  }
+ },
+ "pairs": [
+  {
+   "mode": "slider",
+   "a": "img/pair1a.webp",
+   "b": "img/pair1b.webp",
+   "labA": {
+    "en": "Closed",
+    "zh": "關上"
+   },
+   "labB": {
+    "en": "Open",
+    "zh": "打開"
+   },
+   "title": {
+    "en": "Living room: glass screen closed and open",
+    "zh": "客廳：玻璃屏風開合"
+   },
+   "meta": "",
+   "note": {
+    "en": "Same scene saved twice, with the steel-framed screen closed and slid open.",
+    "zh": "同一場景存兩次：鋼框屏風關上及推開。"
+   }
+  },
+  {
+   "mode": "slider",
+   "a": "img/pair2a.webp",
+   "b": "img/pair2b.webp",
+   "labA": {
+    "en": "Closed",
+    "zh": "關上"
+   },
+   "labB": {
+    "en": "Open",
+    "zh": "打開"
+   },
+   "title": {
+    "en": "Bedroom and study: screen closed and open",
+    "zh": "睡房及書房：屏風開合"
+   },
+   "meta": "",
+   "note": {
+    "en": "The section view with the screen between the rooms closed and open.",
+    "zh": "剖透視中兩房之間的屏風關上及打開。"
+   }
+  }
+ ],
+ "notes": [
+  {
+   "cls": "moss",
+   "h": {
+    "en": "What is shown",
+    "zh": "本頁內容"
+   },
+   "items": [
+    {
+     "en": "The final SketchUp model (simplified for the web), its saved scenes and two open and closed pairs. Dates are folder dates.",
+     "zh": "最終 SketchUp 模型（為網頁簡化）、已存場景，以及兩組開合對照。日期以檔案夾日期為準。"
+    }
+   ]
+  },
+  {
+   "cls": "amber",
+   "h": {
+    "en": "Left out",
+    "zh": "未有展示"
+   },
+   "items": [
+    {
+     "en": "The owners and the address, the studio's drawing sheets and title blocks, and photos of hand mark-ups.",
+     "zh": "業主及地址、工作室的圖紙及圖框，以及手寫修改標記的照片。"
+    }
+   ]
+  }
+ ],
+ "brief": {
+  "h": {
+   "en": "Brief",
+   "zh": "設計前提"
+  },
+  "items": [
+   {
+    "en": "A family apartment in Hong Kong, redesigned by an interior design studio in autumn 2015.",
+    "zh": "2015 年秋由室內設計工作室重新設計的香港家庭住宅單位。"
+   },
+   {
+    "en": "Work: the SketchUp model, a scene set for every review round (17 issues in six weeks) and design drawings, in collaboration with the studio.",
+    "zh": "工作：SketchUp 模型、每輪檢討的場景視圖（六星期內發圖十七次）及設計圖則，與工作室合作。"
+   }
+  ],
+  "src": {
+   "en": "Source: project folders. The owners, the address and the studio are not named.",
+   "zh": "來源：項目檔案。業主、地址及工作室名稱不予公開。"
+  }
+ },
+ "extra": {
+  "cams": [
+   {
+    "id": "v007_close",
+    "eye": [
+     9.546,
+     1.313,
+     -5.778
+    ],
+    "target": [
+     31.586,
+     1.967,
+     -12.935
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 49.74,
+    "label": "V007",
+    "name": {
+     "en": "Living room",
+     "zh": "客廳"
+    },
+    "img": "img/scene/s02_t.webp",
+    "render": false,
+    "walk": true
+   },
+   {
+    "id": "v008_close",
+    "eye": [
+     6.228,
+     1.56,
+     -7.603
+    ],
+    "target": [
+     23.343,
+     1.56,
+     8.035
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 61.31,
+    "label": "V008",
+    "name": {
+     "en": "Dining",
+     "zh": "飯廳"
+    },
+    "img": "img/scene/s03_t.webp",
+    "render": false,
+    "walk": false
+   },
+   {
+    "id": "v013",
+    "eye": [
+     13.616,
+     1.278,
+     -5.469
+    ],
+    "target": [
+     35.34,
+     1.278,
+     -13.563
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 49.74,
+    "label": "V013",
+    "name": {
+     "en": "Glass screen",
+     "zh": "玻璃屏風"
+    },
+    "img": "img/scene/s04_t.webp",
+    "render": false,
+    "walk": false
+   },
+   {
+    "id": "v009",
+    "eye": [
+     19.179,
+     1.076,
+     -2.905
+    ],
+    "target": [
+     14.019,
+     1.141,
+     -1.664
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 61.31,
+    "label": "V009",
+    "name": {
+     "en": "Master bedroom",
+     "zh": "主人睡房"
+    },
+    "img": "img/scene/s07_t.webp",
+    "render": false,
+    "walk": false
+   },
+   {
+    "id": "v010",
+    "eye": [
+     17.282,
+     1.203,
+     -2.156
+    ],
+    "target": [
+     -4.832,
+     0.842,
+     4.794
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 35.0,
+    "label": "V010",
+    "name": {
+     "en": "Bath and vanity",
+     "zh": "浴缸及洗手盆"
+    },
+    "img": "img/scene/s11_t.webp",
+    "render": false,
+    "walk": false
+   },
+   {
+    "id": "v014",
+    "eye": [
+     12.848,
+     1.48,
+     -6.797
+    ],
+    "target": [
+     12.849,
+     1.48,
+     -1.187
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 35.0,
+    "label": "V014",
+    "name": {
+     "en": "Master bathroom",
+     "zh": "主浴室"
+    },
+    "img": "img/scene/s12_t.webp",
+    "render": false,
+    "walk": false
+   },
+   {
+    "id": "v015",
+    "eye": [
+     8.002,
+     1.344,
+     -6.73
+    ],
+    "target": [
+     8.002,
+     1.344,
+     16.453
+    ],
+    "up": [
+     0,
+     1,
+     0
+    ],
+    "fov": 35.0,
+    "label": "V015",
+    "name": {
+     "en": "Corridor",
+     "zh": "走廊"
+    },
+    "img": "img/scene/s10_t.webp",
+    "render": false,
+    "walk": false
+   }
+  ],
+  "drawings": [],
+  "materials": [],
+  "floor": -0.29,
+  "draw_lead": {
+   "en": "",
+   "zh": ""
+  },
+  "whole": {
+   "en": "The whole apartment",
+   "zh": "全屋"
+  },
+  "levels": [],
+  "remap": {
+   "a5b2bf": "d6d1c8",
+   "ffffff": "f3f0ea"
+  },
+  "start_level": null
+ },
+ "ai": {
+  "lead": {
+   "en": "Three new renders made in 2026 from the saved SketchUp scenes. The living room was rendered first; the bedroom and bathroom take it as their reference, so the light and finishes match. The layout and joinery follow the model; finishes are an AI interpretation of the grey model.",
+   "zh": "2026 年根據已存 SketchUp 場景重新製作的三張效果圖。先渲染客廳，睡房及浴室以此為參照，令光線及飾面一致。間隔及木工依照模型；飾面為 AI 對灰色模型的詮釋。"
+  },
+  "label": {
+   "en": "AI render based on the original model, 2026",
+   "zh": "根據原有模型生成的 AI 效果圖（2026）"
+  },
+  "items": [
+   {
+    "src": "img/ai/ai-1.webp",
+    "thumb": "img/ai/ai-1_t.webp",
+    "title": {
+     "en": "Living room, daylight",
+     "zh": "客廳，日光"
+    },
+    "note": {
+     "en": "From scene v007. The reference for the other two.",
+     "zh": "取自場景 v007，為其餘兩張的參照。"
+    }
+   },
+   {
+    "src": "img/ai/ai-2.webp",
+    "thumb": "img/ai/ai-2_t.webp",
+    "title": {
+     "en": "Master bedroom, morning",
+     "zh": "主人睡房，早上"
+    },
+    "note": {
+     "en": "From scene v009, matched to the living room render.",
+     "zh": "取自場景 v009，並與客廳效果圖配合。"
+    }
+   },
+   {
+    "src": "img/ai/ai-3.webp",
+    "thumb": "img/ai/ai-3_t.webp",
+    "title": {
+     "en": "Master bathroom",
+     "zh": "主浴室"
+    },
+    "note": {
+     "en": "From scene v014, matched to the living room render.",
+     "zh": "取自場景 v014，並與客廳效果圖配合。"
+    }
+   }
+  ]
+ }
+}
+</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById("data").textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T = o => o == null ? "" : typeof o === "string" ? esc(o) : `<span class="en">${esc(o.en)}</span><span class="zh" lang="zh-Hant">${esc(o.zh)}</span>`;
+let LANG = "en";
+const P = o => o == null ? "" : typeof o === "string" ? o : (LANG === "zh" ? o.zh : o.en);
+
+/* ---------- language (same rule as the home site: ?lang, then aw-lang, then English) ---------- */
+function setLang(l, save){
+  LANG = l === "zh" ? "zh" : "en";
+  document.documentElement.lang = LANG === "zh" ? "zh-Hant" : "en";
+  $("langBtn").textContent = LANG === "zh" ? "EN" : "中文";
+  if(save){ try{ localStorage.setItem("aw-lang", LANG); }catch(e){} }
+  document.title = P(D.title) + " · Anzon Wong";
+  refreshAlts();
+}
+let q = null; try{ q = new URLSearchParams(location.search).get("lang"); }catch(e){}
+let stored = null; try{ stored = localStorage.getItem("aw-lang"); }catch(e){}
+$("langBtn").onclick = () => setLang(LANG === "zh" ? "en" : "zh", true);
+
+/* ---------- frame: crumb, sidebar, tag ---------- */
+$("sbPage").innerHTML = T(D.title);
+$("crumb").innerHTML = `<span>PROJECT ${esc(D.num)}</span><span>›</span><span>${T(D.title)}</span><span class="pill">${T(D.type)} · ${esc(D.years)}</span>`;
+$("tabTag").textContent = D.tag || "";
+const check = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 5.2 2 2L8 3"/></svg>';
+$("side").innerHTML = `
+  <div><div class="cap">${T(D.eyebrow)}</div><h1>${T(D.h1)}</h1><p class="loc">${T(D.loc)}</p></div>
+  <div class="specs">${D.facts.map(f => `<div><span>${T(f.k)}</span><b>${esc(f.v)}${f.u ? `<small>${T(f.u)}</small>` : ""}</b></div>`).join("")}</div>
+  <div><div class="cap" style="margin-bottom:6px"><span class="en">Role</span><span class="zh">角色</span></div><p class="role" style="margin:0">${T(D.role)}${D.role_confirm ? '<span class="tbc"><span class="en">to confirm</span><span class="zh">待確認</span></span>' : ""}</p></div>
+  <div><div class="cap" style="margin-bottom:8px"><span class="en">Design rounds</span><span class="zh">設計回合</span></div><ul class="rounds" id="rounds">${D.rounds.map((r,i) => `<li><button type="button" data-r="${esc(r.id)}" aria-current="false"><span class="tick">${check}</span><span><span class="t">${T(r.t)}</span><br><span class="who">${esc(r.date)} · ${T(r.who)}</span></span><span class="who">${String(i+1).padStart(2,"0")}</span></button></li>`).join("")}</ul></div>
+  <p class="foot">${T(D.foot).split(" | ").join("<br>")}</p>`;
+
+/* ---------- tabs ---------- */
+function showPane(id){
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.pane === id));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === id));
+  window.dispatchEvent(new Event("resize"));
+}
+window.showPane = showPane;
+/* optional: rename tabs (D.tabs = {tgal:{en,zh}, ...}), hide tabs (D.hide = ["tov"]), start pane (D.start) */
+Object.entries(D.tabs || {}).forEach(([k, v]) => { const el = $(k + "L"); if(el) el.innerHTML = T(v); });
+(D.hide || []).forEach(k => { if($(k)) $(k).hidden = true; });
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => showPane(t.dataset.pane)));
+if(!D.pairs || !D.pairs.length){ if(!D.rounds.some(r => r.p && (r.p.en || r.p.zh))) $("tproc").hidden = true; }
+
+/* ---------- AI renders tab ---------- */
+if(D.ai && D.ai.items && D.ai.items.length){
+  $("aiLead").innerHTML = T(D.ai.lead);
+  $("aiGrid").innerHTML = D.ai.items.map((a,i) => `<figure><button type="button" data-ai="${i}" aria-label="${esc(a.title.en)}"><img loading="lazy" src="${esc(i ? (a.thumb || a.src) : a.src)}" alt="" width="1536" height="1024"><span class="aib">AI</span></button><figcaption>${T(a.title)}<span class="n">${T(a.note)}</span><span class="l">${T(D.ai.label)}</span></figcaption></figure>`).join("");
+  $("aiGrid").addEventListener("click", e => { const b = e.target.closest("button[data-ai]"); if(!b) return; const a = D.ai.items[+b.dataset.ai]; openLb(a.src, P(a.title) + " · " + P(D.ai.label)); });
+} else { $("tai").hidden = true; }
+
+/* ---------- lightbox + brief ---------- */
+const lb = $("lb");
+function openLb(src, cap){ $("lbImg").src = src; $("lbImg").alt = cap; $("lbCap").textContent = cap; lb.showModal(); }
+$("lbClose").onclick = () => lb.close(); lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+$("briefIn").innerHTML = `<h3>${T(D.brief.h)}</h3><ul>${D.brief.items.map(x => `<li>${T(x)}</li>`).join("")}</ul><p style="margin:0;color:var(--muted);font-size:12px">${T(D.brief.src)}</p><button class="btn dark" style="justify-self:end" id="briefClose" type="button"><span class="en">Close</span><span class="zh">關閉</span></button>`;
+$("briefBtn").onclick = () => $("brief").showModal(); $("briefClose").onclick = () => $("brief").close();
+
+/* ---------- gallery ---------- */
+const G = Object.fromEntries(D.groups.map(g => [g.id, g]));
+let filter = "all", list = D.items.slice(), cur = 0;
+$("stripTitle").innerHTML = `${T(D.strip)} <span>${D.items.length}</span>`;
+$("rGroupsH").innerHTML = T(D.groups_h);
+$("gFilter").innerHTML = `<button type="button" aria-pressed="true" data-f="all"><span class="en">All</span><span class="zh">全部</span></button>` +
+  (D.groups.length > 1 && D.groups.length <= 6 ? D.groups.map(g => `<button type="button" aria-pressed="false" data-f="${esc(g.id)}">${T(g.short || g.label)}</button>`).join("") : "");
+$("gFilter").hidden = !(D.groups.length > 1 && D.groups.length <= 6);
+function setFilter(f, keep){
+  filter = f; list = D.items.filter(it => f === "all" || it.group === f);
+  document.querySelectorAll("#gFilter [data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  renderThumbs(); go(keep ? Math.max(0, list.indexOf(keep)) : 0, true);
+}
+function renderThumbs(){
+  $("gThumbs").innerHTML = list.map((it,i) => `<button type="button" data-i="${i}" aria-current="false"><img loading="lazy" src="${esc(it.thumb || it.src)}" alt="" width="96" height="64"><span>${esc(it.date || "")}</span></button>`).join("");
+}
+function go(i, instant){
+  if(!list.length) return;
+  cur = (i + list.length) % list.length; const it = list[cur], g = G[it.group] || {};
+  const img = $("gImg");
+  const swap = () => { img.src = it.src; img.width = it.w; img.height = it.h; img.alt = P(it.title); img.classList.remove("fading"); };
+  if(instant || !img.getAttribute("src")) swap(); else { img.classList.add("fading"); setTimeout(swap, 140); }
+  $("gTitle").innerHTML = T(it.title);
+  $("gSub").innerHTML = `${g.label && g.label.en === it.title.en ? T(it.kind) : T(g.label)}${it.date ? " · " + esc(it.date) : ""}`;
+  $("gCap").innerHTML = T(it.caption); $("gKind").innerHTML = T(it.kind);
+  $("gCount").textContent = `${String(cur+1).padStart(2,"0")} / ${String(list.length).padStart(2,"0")}`;
+  $("rNum").innerHTML = `${String(D.items.indexOf(it)+1).padStart(2,"0")}<small>/ ${D.items.length}</small>`;
+  $("rKind").innerHTML = T(it.kind);
+  $("rMeta").innerHTML = [[{en:"Part",zh:"部分"}, T(g.label)], [{en:"Date",zh:"日期"}, esc(it.date || "")], [{en:"Image",zh:"圖像"}, `${it.w} × ${it.h}`]]
+    .concat((it.meta || []).map(m => [m.k, T(m.v)])).map(r => `<li><span>${T(r[0])}</span><span>${r[1]}</span></li>`).join("");
+  document.querySelectorAll("#gThumbs button").forEach((b,j) => b.setAttribute("aria-current", j === cur));
+  const tb = $("gThumbs").children[cur]; if(tb && tb.scrollIntoView) { const s = $("gThumbs"); s.scrollTo({left: tb.offsetLeft - s.clientWidth/2 + 48, behavior: instant ? "auto" : "smooth"}); }
+  document.querySelectorAll("#rGroups button").forEach(b => b.setAttribute("aria-current", b.dataset.g === it.group));
+  let rd = D.rounds.findIndex(r => r.item === it.src); if(rd < 0) rd = D.rounds.findIndex(r => !r.item && r.group === it.group);
+  document.querySelectorAll("#rounds button").forEach((b,j) => { b.setAttribute("aria-current", j === rd); b.classList.toggle("done", rd >= 0 && j < rd); });
+}
+function refreshAlts(){ if(list[cur]) $("gImg").alt = P(list[cur].title); }
+$("gPrev").onclick = () => go(cur - 1); $("gNext").onclick = () => go(cur + 1);
+$("gThumbs").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if(b) go(+b.dataset.i); });
+$("gFilter").addEventListener("click", e => { const b = e.target.closest("button[data-f]"); if(b) setFilter(b.dataset.f); });
+const zoom = () => { const it = list[cur]; openLb(it.src, P(it.title) + (it.date ? " · " + it.date : "")); };
+$("gZoom").onclick = zoom; $("gImg").addEventListener("click", () => { if(!swiped) zoom(); });
+addEventListener("keydown", e => {
+  if(lb.open || $("brief").open || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if(!$("pgal").classList.contains("on")) return;
+  if(e.key === "ArrowRight"){ go(cur + 1); e.preventDefault(); } else if(e.key === "ArrowLeft"){ go(cur - 1); e.preventDefault(); }
+});
+let sx = null, swiped = false;
+$("gstage").addEventListener("pointerdown", e => { sx = e.clientX; swiped = false; });
+$("gstage").addEventListener("pointerup", e => { if(sx === null) return; const dx = e.clientX - sx; sx = null; if(Math.abs(dx) > 40){ swiped = true; go(cur + (dx < 0 ? 1 : -1)); setTimeout(() => swiped = false, 50); } });
+
+/* groups list (right) */
+$("rGroups").innerHTML = D.groups.map(g => `<li><button type="button" data-g="${esc(g.id)}" aria-current="false"><span class="d">${esc(g.date || "")}</span><span>${T(g.label)}</span><span class="n">${D.items.filter(i => i.group === g.id).length}</span></button></li>`).join("");
+$("rGroups").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if(!b) return; const first = D.items.find(i => i.group === b.dataset.g); showPane("pgal"); setFilter("all", first); });
+$("rounds").addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if(!b) return; const r = D.rounds.find(x => x.id === b.dataset.r);
+  const first = (r.item && D.items.find(i => i.src === r.item)) || D.items.find(i => i.group === r.group); if(r.pane){ showPane(r.pane === "process" ? "pproc" : r.pane); } else if(first){ showPane("pgal"); setFilter("all", first); } });
+
+/* notes (right) */
+$("rNotes").innerHTML = (D.notes || []).map(n => `<div class="note ${esc(n.cls)}"><b>${T(n.h)}</b>${n.items.length > 1 ? `<ul>${n.items.map(x => `<li>${T(x)}</li>`).join("")}</ul>` : T(n.items[0])}</div>`).join("");
+
+/* ---------- overview ---------- */
+$("ovH").innerHTML = T(D.overview.h); $("ovP").innerHTML = T(D.overview.p);
+$("ovGrid").innerHTML = D.items.map((it,i) => `<figure><button type="button" data-k="${i}" aria-label="${esc(it.title.en)}"><img loading="lazy" src="${esc(it.thumb || it.src)}" alt="" width="480" height="360"></button><figcaption>${T(it.title)}<span>${T((G[it.group]||{}).label)}${it.date ? " · " + esc(it.date) : ""}</span></figcaption></figure>`).join("");
+$("ovGrid").addEventListener("click", e => { const b = e.target.closest("button[data-k]"); if(!b) return; showPane("pgal"); setFilter("all", D.items[+b.dataset.k]); });
+
+/* ---------- process: timeline + pairs ---------- */
+$("prH").innerHTML = T(D.process.h); $("prP").innerHTML = T(D.process.p);
+$("tl").innerHTML = D.rounds.map(r => `<li data-r="${esc(r.id)}" aria-current="false"><time>${esc(r.date)}</time><span class="d"></span><div class="b"><span class="who">${T(r.who)}</span><h4>${T(r.t)}</h4>${r.p && (r.p.en || r.p.zh) ? `<p>${T(r.p)}</p>` : ""}</div></li>`).join("");
+$("tl").addEventListener("click", e => { const l = e.target.closest("li[data-r]"); if(!l) return; const r = D.rounds.find(x => x.id === l.dataset.r); const first = (r.item && D.items.find(i => i.src === r.item)) || D.items.find(i => i.group === r.group); if(first){ showPane("pgal"); setFilter("all", first); } });
+function bindCmp(box){ const r = box.querySelector("input"); const f = () => box.style.setProperty("--x", r.value + "%"); r.addEventListener("input", f); f(); }
+$("pairs").innerHTML = (D.pairs || []).map(p => {
+  const head = `<figcaption><b style="font-weight:500">${T(p.title)}</b><span>${esc(p.meta || "")}</span></figcaption>`;
+  const body = p.mode === "slider"
+    ? `<div class="cmp" style="--x:50%"><img src="${esc(p.b)}" alt="" loading="lazy"><div class="over"><img src="${esc(p.a)}" alt="" loading="lazy"></div><span class="bar"></span><span class="knob">⇄</span><span class="lab l">${T(p.labA)}</span><span class="lab r">${T(p.labB)}</span><input type="range" min="0" max="100" value="50" aria-label="${esc(p.title.en)}: compare"></div>`
+    : `<div class="side2"><div><img src="${esc(p.a)}" alt="" loading="lazy" data-cap="${esc(p.labA.en)}"><span class="lab l">${T(p.labA)}</span></div><div><img src="${esc(p.b)}" alt="" loading="lazy" data-cap="${esc(p.labB.en)}"><span class="lab l">${T(p.labB)}</span></div></div>`;
+  return `<figure class="pair">${head}${body}${p.note && (p.note.en || p.note.zh) ? `<p>${T(p.note)}</p>` : ""}</figure>`;
+}).join("");
+document.querySelectorAll("#pairs .cmp").forEach(bindCmp);
+$("pairs").addEventListener("click", e => { const im = e.target.closest(".side2 img"); if(im) openLb(im.getAttribute("src"), im.dataset.cap); });
+
+setLang(q || stored || "en", false);
+setFilter("all");
+if(D.start) showPane(D.start);
+window.WS = {D, T, P, esc, openLb, showPane};
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* ---------- tier A: live 3D model + drawings (inserted into the gallery-workspace frame) ---------- */
+(function(){
+const {D, T, P, esc, openLb, showPane} = window.WS;
+const X = D.extra, $ = id => document.getElementById(id);
+
+/* drawings pane */
+function showSheet(k){
+  const d = X.drawings[k];
+  document.querySelectorAll("[data-dw]").forEach(b => b.setAttribute("aria-pressed", +b.dataset.dw === k));
+  $("dImg").src = d.src; $("dImg").width = d.w; $("dImg").height = d.h; $("dImg").alt = P(d.title);
+  $("dCap").innerHTML = `${T(d.title)}${d.scale ? " · " + esc(d.scale) : ""} · ${esc(d.date)}`;
+  $("dNote").innerHTML = T(d.note);
+}
+$("dTabs").innerHTML = X.drawings.map((d,i) => `<button type="button" aria-pressed="false" data-dw="${i}">${T(d.short || d.title)}</button>`).join("");
+$("dTabs").addEventListener("click", e => { const b = e.target.closest("[data-dw]"); if(b) showSheet(+b.dataset.dw); });
+$("dImg").addEventListener("click", () => openLb($("dImg").getAttribute("src"), $("dImg").alt));
+if(X.drawings.length) showSheet(0);
+$("dLead").innerHTML = T(X.draw_lead);
+if($("matList")) $("matList").innerHTML = X.materials.map(m => `<li><i style="background:${esc(m.hex)}"></i>${T(m.name)}<span>${T(m.where)}</span></li>`).join("");
+if($("matBar")) $("matBar").innerHTML = X.materials.map(m => `<i style="flex:1;background:${esc(m.hex)}"></i>`).join("");
+
+/* 3D */
+const stage = $("stage"), canvas = $("cv");
+if(!window.THREE || !THREE.GLTFLoader){ $("loading").textContent = "3D viewer could not load."; return; }
+const COARSE = matchMedia("(pointer:coarse)").matches;
+const renderer = new THREE.WebGLRenderer({canvas, antialias:!COARSE});
+renderer.setPixelRatio(Math.min(devicePixelRatio, COARSE ? 1.5 : 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.setClearColor(0xEFEEE9);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40, 1, 0.03, 200);
+const controls = new THREE.OrbitControls(camera, canvas);
+controls.enableDamping = true; controls.dampingFactor = 0.09; controls.screenSpacePanning = true;
+scene.add(new THREE.HemisphereLight(0xFFFFFF, 0xB9B0A2, 0.75));
+const key = new THREE.DirectionalLight(0xFFF1DE, 0.75); scene.add(key); scene.add(key.target);
+const fill = new THREE.DirectionalLight(0xDCE6EC, 0.32); scene.add(fill);
+scene.add(new THREE.AmbientLight(0xFFFFFF, 0.18));
+
+const cache = {};
+function matFor(name){
+  const m = /^c__([0-9a-f]{6})__(\d+)/.exec(name || ""); const hex = m ? "#" + ((X.remap || {})[m[1]] || m[1]) : "#dddddd", a = m ? +m[2] / 100 : 1;
+  const k = hex + a; if(cache[k]) return cache[k];
+  return cache[k] = new THREE.MeshStandardMaterial({color:new THREE.Color(hex).convertSRGBToLinear(), roughness:.85, metalness:0, flatShading:true, side:THREE.DoubleSide,
+    transparent:a < .98, opacity:Math.max(a, .25), depthWrite:a >= .98});
+}
+const FILES = ["shell", "furn", "ceil"], parts = {}, loader = new THREE.GLTFLoader(); let loaded = 0;
+function b64(str){ const bin = atob(str), u = new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i] = bin.charCodeAt(i); return u.buffer; }
+function loadPart(k){
+  return new Promise((res, rej) => {
+    const s = document.createElement("script"); s.src = `models/${k}.js`;
+    s.onload = () => loader.parse(b64(window.FLAT_GLB[k]), "", g => { delete window.FLAT_GLB[k]; res(g); }, rej);
+    s.onerror = rej; document.body.appendChild(s);
+  });
+}
+const box = new THREE.Box3(), center = new THREE.Vector3(); let radius = 6;
+Promise.all(FILES.map(k => loadPart(k).then(g => {
+  g.scene.traverse(o => { if(o.isMesh){ o.material = matFor(o.name || (o.parent && o.parent.name)); } });
+  scene.add(g.scene); parts[k] = g.scene;
+  loaded++; $("loadbar").style.width = (loaded/FILES.length*100) + "%";
+}))).then(() => {
+  box.setFromObject(parts.shell); box.getCenter(center); radius = box.getSize(new THREE.Vector3()).length()/2;
+  key.position.set(center.x - 6, center.y + 12, center.z + 8); key.target.position.copy(center);
+  fill.position.set(center.x + 8, center.y + 4, center.z - 6);
+  applyVis(); home(false); $("loading").hidden = true; stage.dataset.ready = "1";
+}).catch(err => { $("loading").textContent = "Part of the model could not load."; console.error(err); });
+
+let tween = null;
+function flyTo(pos, tgt, fov, instant){
+  if(instant){ camera.position.copy(pos); controls.target.copy(tgt); if(fov){camera.fov = fov; camera.updateProjectionMatrix();} controls.update(); return; }
+  tween = {t:0, p0:camera.position.clone(), t0:controls.target.clone(), f0:camera.fov, p1:pos, t1:tgt, f1:fov || camera.fov};
+}
+function home(anim=true){ flyTo(new THREE.Vector3(center.x - radius*.6, center.y + radius*1.75, center.z + radius*1.35), center.clone(), 40, !anim); }
+
+let ceilOn = false, furnOn = true;
+function applyVis(){ if(parts.ceil) parts.ceil.visible = ceilOn; if(parts.furn) parts.furn.visible = furnOn; $("cCeil").checked = ceilOn; $("cFurn").checked = furnOn; }
+$("cCeil").onchange = e => { ceilOn = e.target.checked; applyVis(); };
+$("cFurn").onchange = e => { furnOn = e.target.checked; applyVis(); };
+document.querySelectorAll("[data-vw]").forEach(b => b.onclick = () => {
+  document.querySelectorAll("[data-vw]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  exitWalk(); ceilOn = false; applyVis();
+  if(b.dataset.vw === "plan") flyTo(new THREE.Vector3(center.x, center.y + radius*2.3, center.z + 0.01), center.clone(), 40);
+  else home();
+  $("vTitle").innerHTML = T(b.dataset.vw === "plan" ? {en:"Plan from above", zh:"俯視平面"} : X.whole); $("vSub").textContent = "SKETCHUP MODEL · 2015";
+});
+$("tReset").onclick = () => document.querySelector('[data-vw="iso"]').click();
+$("tIn").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(0.75); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+$("tOut").onclick = () => { const d = camera.position.clone().sub(controls.target).multiplyScalar(1.33); flyTo(controls.target.clone().add(d), controls.target.clone()); };
+
+/* SketchUp scenes: each is the camera of a 2015 render */
+const CAMS = X.cams, scenesEl = $("scenes");
+scenesEl.innerHTML = CAMS.map((c,i) => `<button type="button" data-i="${i}" aria-current="false" title="${esc(P(c.name))}"><i></i><span>${esc(c.label)}</span></button>`).join("");
+let cur = -1;
+function goScene(i){
+  const c = CAMS[i]; if(!c) return; cur = i; exitWalk();
+  scenesEl.querySelectorAll("button").forEach((b,j) => { b.setAttribute("aria-current", j === i); b.classList.toggle("done", j < i); });
+  const eye = new THREE.Vector3(...c.eye), tgt = new THREE.Vector3(...c.target);
+  ceilOn = eye.y < 2.6; applyVis();
+  const dir = tgt.clone().sub(eye).normalize();
+  flyTo(eye, eye.clone().add(dir.multiplyScalar(1.5)), Math.min(80, c.fov));
+  $("vTitle").innerHTML = T(c.name); $("vSub").textContent = `SKETCHUP SCENE · ${c.label}`;
+  $("cardImg").src = c.img; $("cardImg").alt = P(c.name);
+  $("cardCap").innerHTML = T(c.render ? {en:"2015 render · same camera", zh:"2015 年效果圖 · 同一鏡頭"} : {en:"SketchUp view · same camera", zh:"SketchUp 視圖 · 同一鏡頭"});
+  $("card").hidden = false;
+}
+scenesEl.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if(b){ stopPlay(); goScene(+b.dataset.i); } });
+$("cardClose").onclick = () => $("card").hidden = true;
+$("cardImg").onclick = () => openLb($("cardImg").getAttribute("src"), $("cardImg").alt);
+let playT = null;
+const PLAY = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2v8l7-4z" fill="currentColor"/></svg>';
+function stopPlay(){ clearInterval(playT); playT = null; $("play").innerHTML = PLAY; }
+$("play").onclick = () => {
+  if(playT){ stopPlay(); return; }
+  goScene((cur + 1) % CAMS.length); playT = setInterval(() => goScene((cur + 1) % CAMS.length), 4200);
+  $("play").innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2h2v8H3zM7 2h2v8H7z" fill="currentColor"/></svg>';
+};
+
+/* walk mode: eye 1.6 m above the finished floor */
+let walking = false, yaw = 0, pitch = 0; const keys = {}, pad = {};
+function enterWalk(){
+  stopPlay(); walking = true; controls.enabled = false; $("card").hidden = true; ceilOn = true; applyVis();
+  const s = CAMS.find(c => c.walk) || CAMS[0];
+  camera.position.set(s.eye[0], X.floor + 1.6, s.eye[2]);
+  const d = new THREE.Vector3(s.target[0]-s.eye[0], 0, s.target[2]-s.eye[2]);
+  yaw = Math.atan2(-d.x, -d.z); pitch = 0; camera.fov = 66; camera.updateProjectionMatrix();
+  $("walkbar").hidden = false; $("walkpad").hidden = false;
+  $("vTitle").innerHTML = T({en:"Walk through", zh:"室內漫遊"}); $("vSub").textContent = "EYE LEVEL 1.6 M";
+}
+function exitWalk(){
+  if(!walking) return; walking = false; controls.enabled = true; $("walkbar").hidden = true; $("walkpad").hidden = true;
+  controls.target.copy(camera.position.clone().add(new THREE.Vector3(-Math.sin(yaw), 0, -Math.cos(yaw)).multiplyScalar(1.5))); controls.update();
+}
+$("walkBtn").onclick = () => { showPane("p3d"); enterWalk(); };
+$("walkExit").onclick = () => { exitWalk(); ceilOn = false; applyVis(); home(); };
+let drag = null;
+canvas.addEventListener("pointerdown", e => { if(walking){ drag = {x:e.clientX, y:e.clientY}; canvas.setPointerCapture(e.pointerId); } });
+canvas.addEventListener("pointermove", e => { if(walking && drag){ yaw -= (e.clientX - drag.x) * 0.004; pitch = Math.max(-1.2, Math.min(1.2, pitch - (e.clientY - drag.y) * 0.004)); drag = {x:e.clientX, y:e.clientY}; } });
+canvas.addEventListener("pointerup", () => drag = null);
+addEventListener("keydown", e => { if(walking){ keys[e.key.toLowerCase()] = true; if(e.key.startsWith("Arrow")) e.preventDefault(); } });
+addEventListener("keyup", e => { keys[e.key.toLowerCase()] = false; });
+document.querySelectorAll("[data-mv]").forEach(b => { const k = b.dataset.mv;
+  b.addEventListener("pointerdown", () => pad[k] = true); ["pointerup","pointerleave","pointercancel"].forEach(ev => b.addEventListener(ev, () => pad[k] = false)); });
+
+function resize(){ const w = stage.clientWidth, h = stage.clientHeight; if(!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+new ResizeObserver(resize).observe(stage); addEventListener("resize", resize); resize();
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  if(!$("p3d").classList.contains("on")) return;
+  const dt = Math.min(clock.getDelta(), 0.05);
+  if(tween){
+    tween.t = Math.min(1, tween.t + dt/1.1); const k = tween.t < .5 ? 4*tween.t**3 : 1 - Math.pow(-2*tween.t+2, 3)/2;
+    camera.position.lerpVectors(tween.p0, tween.p1, k); controls.target.lerpVectors(tween.t0, tween.t1, k);
+    camera.fov = tween.f0 + (tween.f1 - tween.f0)*k; camera.updateProjectionMatrix();
+    if(tween.t >= 1) tween = null;
+  }
+  if(walking){
+    const f = (keys.w||keys.arrowup||pad.f ? 1:0) - (keys.s||keys.arrowdown||pad.b ? 1:0);
+    const s = (keys.d||keys.arrowright||pad.r ? 1:0) - (keys.a||keys.arrowleft||pad.l ? 1:0);
+    const sp = 1.6 * dt;
+    camera.position.x += (-Math.sin(yaw)*f + Math.cos(yaw)*s) * sp;
+    camera.position.z += (-Math.cos(yaw)*f - Math.sin(yaw)*s) * sp;
+    camera.rotation.set(pitch, yaw, 0, "YXZ");
+  } else controls.update();
+  renderer.render(scene, camera);
+});
+})();
+
+</script>
+</body>
+</html>
