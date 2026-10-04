@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-title-en="AI 101 · Anzon Wong" data-title-zh="AI 101 · Anzon Wong">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 101 · Anzon Wong</title>
+<meta name="description" content="AI 101: a free bilingual handbook of 45 AI concepts, from the basics to the advanced, by Anzon Wong. Read it as a book or download the PDF.">
+<meta name="author" content="Anzon Wong">
+
+<link rel="canonical" href="https://anzonwong.com/courses/ai-101/">
+<meta property="og:title" content="AI 101 · Anzon Wong">
+<meta property="og:description" content="AI 101: a free bilingual handbook of 45 AI concepts, from the basics to the advanced, by Anzon Wong. Read it as a book or download the PDF.">
+<meta property="og:url" content="https://anzonwong.com/courses/ai-101/">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<style>
+/* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* header: one line, 1px ink rule */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:22px;padding-bottom:14px;flex-wrap:wrap}
+.brand{font:400 22px var(--serif);text-decoration:none;white-space:nowrap}
+.brand small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:12px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);flex-wrap:wrap;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:3px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+.lang{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--ink);background:transparent;padding:5px 9px;border-radius:3px;cursor:pointer;color:var(--ink)}
+.lang:hover{background:var(--ink);color:var(--paper)}
+
+/* type */
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.015em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(24px,3vw,36px);line-height:1.15}
+h3{font-size:21px;line-height:1.2}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:24px 0 0}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* page head + ruled sections (2fr label / 10fr content) */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(36px,5vw,64px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.note{color:var(--ink-2)}
+
+/* home intro */
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;padding:clamp(32px,5vw,56px) 0 40px;align-items:end}
+.intro p{font:400 clamp(26px,3vw,42px)/1.18 var(--serif);margin:0;letter-spacing:-.005em}
+:root[data-lang="zh"] .intro p{line-height:1.35;letter-spacing:.02em}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.meta div{padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.meta b{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* selected strip */
+.sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.sel a{text-decoration:none;display:block;min-width:0}
+.sel img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--rule-2)}
+.sel span{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px}
+.sel b{font:400 17px var(--serif)}
+.sel i{font:11px var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.sel a:hover b{color:var(--accent)}
+
+/* index controls */
+.ix-wrap{margin:0 0 8px}
+.ctl{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);background:transparent;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.chip sup{font:10px var(--mono);color:var(--muted);margin-left:3px}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on sup{color:var(--rule)}
+.ctl-t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.count{font:11px var(--mono);color:var(--muted);letter-spacing:.06em}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:2px 0}
+.search input{border:0;background:transparent;font:15px var(--serif);width:220px;outline:none;color:var(--ink);padding:2px 0}
+.search input::placeholder{color:var(--muted)}
+.search kbd{font:10px var(--mono);border:1px solid var(--rule);padding:1px 5px;border-radius:2px;color:var(--muted)}
+
+/* the index table */
+.ix{width:100%;border-collapse:collapse}
+.ix thead th{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;padding:0;white-space:nowrap}
+.ix thead th button{all:unset;cursor:pointer;display:block;padding:12px 10px 8px 0}
+.ix thead th button:hover{color:var(--ink)}
+.ix thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ix thead th.s button::after{content:" \2193";color:var(--accent)}
+.ix thead th.s.r button::after{content:" \2191"}
+.ix tbody tr{border-top:1px solid var(--rule);cursor:pointer}
+.ix tbody tr:last-child{border-bottom:1px solid var(--rule)}
+.ix td{padding:13px 10px 13px 0;vertical-align:baseline}
+.ix td.no{font:11.5px var(--mono);color:var(--muted);width:64px;white-space:nowrap}
+.ix td.ti{font:400 23px/1.2 var(--serif)}
+.ix td.ti a{text-decoration:none}
+.ix .alt{font:400 14px var(--serif);color:var(--muted);margin-left:12px}
+.ix .sub{display:none}
+.ix td.ty,.ix td.pl{font-size:13.5px;color:var(--ink-2)}
+.ix td.ty{max-width:240px}
+.ix td.pl{white-space:nowrap}
+.ix td.yr{font:12.5px var(--mono);color:var(--ink-2);width:60px}
+.ix td.go{width:30px;text-align:right;color:var(--muted)}
+.ix .tag{margin-left:10px;vertical-align:middle}
+.ix tbody:hover tr td,.ix tbody:hover tr .alt{color:var(--muted)}
+.ix tbody tr:hover td,.ix tbody tr.kb td{color:var(--ink)!important}
+.ix tbody tr:hover td.go,.ix tbody tr.kb td.go,.ix tbody tr:hover td.ti a{color:var(--accent)!important}
+.ix tbody tr.kb{background:var(--card)}
+.ix .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0;max-width:42em}
+.ix .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:6px 0 0;max-width:42em}
+:root[data-lang="zh"] .ix .disc{font-style:normal}
+.ix tbody:hover tr .sum,.ix tbody:hover tr .disc{color:var(--muted)}
+.ix tbody tr:hover .sum{color:var(--ink-2)!important}
+.xp{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin:12px 0 4px;font:14px/1.5 var(--sans);cursor:default}
+.xp[hidden]{display:none}
+.xp img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--rule-2)}
+.xp p{margin:0 0 8px;color:var(--ink-2)}
+.xp .xd{font-size:13px;color:var(--muted)}
+.xp a.open{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.xp.noimg{grid-template-columns:1fr}
+.empty{padding:30px 0;color:var(--muted);font:400 18px var(--serif)}
+
+/* Work / Lab card grid (.gx): 3 / 2 / 1 columns, 4:3 thumbnail, calm hover */
+.gx{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 24px}
+.gc{min-width:0}
+.gc[hidden]{display:none}
+.gc-a{display:block;text-decoration:none;color:inherit}
+.gc-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:transform .2s ease,border-color .2s ease}
+.gc-im img{width:100%;height:100%;object-fit:cover}
+.gc-im.noimg{display:flex;align-items:flex-end;padding:14px;font:12px var(--mono);color:var(--muted)}
+.gc-no{display:inline-block;font:11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:14px 0 4px}
+.gc .tag{margin-left:10px;vertical-align:1px}
+.gc-ti{font:400 23px/1.2 var(--serif);margin:0}
+.gc-ti .alt{display:block;font:400 14px/1.4 var(--serif);color:var(--muted);margin-top:3px}
+.gc .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0}
+.gc-meta{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+:root[data-lang="zh"] .gc-meta{letter-spacing:.1em}
+.gc .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-2)}
+:root[data-lang="zh"] .gc .disc{font-style:normal}
+a.gc-a:hover .gc-im{transform:translateY(-2px);border-color:var(--ink)}
+a.gc-a:hover .gc-ti .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:var(--accent-ink)}
+a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media (max-width:960px){.gx{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}}
+@media (max-width:600px){.gx{grid-template-columns:1fr;gap:36px}.gc-ti{font-size:21px}}
+
+/* preview that follows the cursor */
+.pv{position:fixed;z-index:20;left:0;top:0;width:360px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .15s,transform .15s}
+.pv.on{opacity:1;transform:none}
+.pv img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;box-shadow:0 20px 40px -20px rgba(29,28,26,.5);background:#fff}
+.pv .cap{display:inline-block;margin-top:6px;background:var(--ink);color:var(--paper);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px}
+.pv .pd{margin:6px 0 0;background:var(--paper);border:1px solid var(--rule);padding:6px 8px;font-size:12px;line-height:1.45;color:var(--ink-2)}
+.pv .pd:empty{display:none}
+
+/* tags */
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:24px 26px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:"L" counter(l,decimal-leading-zero);font:12px var(--mono);color:var(--muted);padding-top:6px}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(28px,4vw,44px)}
+.facts div{padding:10px 16px 10px 0;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.facts b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+/* call block: ruled like the index controls, no dark band */
+.band{border-top:3px solid var(--ink);padding:clamp(32px,5vw,56px) 0;margin-top:clamp(28px,4vw,48px)}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band p{color:var(--ink-2);max-width:34em}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: 1px ink rule, one quiet line */
+.foot{margin-top:clamp(40px,6vw,64px)}
+.foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
+.foot p{margin:0;max-width:60em}
+.foot .sig{white-space:nowrap}
+.foot a{color:var(--ink)}
+
+/* phone */
+@media (max-width:860px){
+  .top .wrap{padding-top:16px;padding-bottom:10px;row-gap:8px}
+  .nav{margin-left:0;width:100%;gap:8px 14px;font-size:12px}
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
+  .sel{gap:8px;margin-bottom:30px}
+  .sel b{font-size:13px}.sel i{display:none}
+  .search{margin-left:0;width:100%}.search input{width:100%}.search kbd{display:none}
+  .ix td.ty,.ix td.pl,.ix td.go,.ix th.ty,.ix th.pl,.ix th.go{display:none}
+  .ix td{padding:11px 8px 11px 0}
+  .ix td.no{width:44px;font-size:10.5px}
+  .ix td.ti{font-size:19px}
+  .ix .alt{display:block;margin:2px 0 0;font-size:13px}
+  .ix .sub{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:3px}
+  .ix td.yr{width:auto;text-align:right}
+  .ix th.yr button{text-align:right;padding-right:0}
+  .ix .tag{margin:4px 0 0}
+  .pv{display:none}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot .sig{white-space:normal}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+  .xp{grid-template-columns:96px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* AI 101 handbook page: download row + flip-through book. Tokens from styles.css only. */
+.dl{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.dl-note{margin:12px 0 0;font-size:13px;color:var(--muted)}
+.fb{padding:clamp(28px,4vw,48px) 0;border-bottom:1px solid var(--rule)}
+.fb-stage{background:var(--rule-2);border:1px solid var(--rule);border-radius:3px;padding:clamp(12px,2.6vw,32px)}
+.fb-stage:fullscreen{background:var(--paper);border:0;border-radius:0;display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.fb-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:clamp(12px,2vw,22px)}
+.fb-toc{display:flex;align-items:center;gap:10px;flex:1 1 260px;min-width:0;max-width:560px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fb-toc select{flex:1 1 auto;min-width:0;width:100%;font:14px/1.3 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:8px 10px;cursor:pointer}
+.fb-toc select:hover{border-color:var(--ink)}
+.fb-btn{font:13px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:3px;padding:9px 14px;cursor:pointer;white-space:nowrap}
+.fb-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.fb-btn:disabled,.fb-btn:disabled:hover{opacity:.35;cursor:default;background:transparent;border-color:var(--ink);color:var(--ink)}
+#fbBook{margin:0 auto;min-height:200px}
+.fb-page{background:var(--card)}
+.fb-page img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none;pointer-events:none}
+.fb-nav{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,22px);margin-top:clamp(12px,2vw,22px)}
+.fb-count{font:13px var(--mono);color:var(--ink-2);min-width:7.5em;text-align:center}
+.fb-hint{margin:10px 0 0;text-align:center;font-size:13px;color:var(--muted)}
+.fb-stage:fullscreen .fb-hint{display:none}
+@media (max-width:700px){
+  .fb-btn{padding:8px 11px;font-size:12px}
+  .fb-count{min-width:5.5em}
+}
+
+</style>
+<script>
+// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+(function(){
+  var root = document.documentElement;
+  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+  function apply(lang){
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
+    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
+    var b = document.getElementById('langBtn');
+    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
+    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
+  }
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  var lang = q || store('aw-lang') || 'en';
+  if(q) store('aw-lang', q);
+  apply(lang);
+  document.addEventListener('DOMContentLoaded', function(){
+    apply(root.getAttribute('data-lang'));
+    var b = document.getElementById('langBtn');
+    if(b) b.addEventListener('click', function(){
+      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
+      store('aw-lang', next); apply(next);
+    });
+  });
+})();
+
+</script>
+<!-- Cloudflare Web Analytics: add the snippet here once anzonwong.com is set up (no token yet).
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TOKEN_HERE"}'></script>
+-->
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
+      <a href="../../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
+      <a href="../../courses/" aria-current="page"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
+      <a href="../../about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
+      <a href="../../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
+      <button class="lang" id="langBtn" type="button">中文</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<header class="head">
+  <div class="label"><a href="../../courses/" style="text-decoration:none">03 / <span class="en">Courses</span><span class="zh">課程</span></a></div>
+  <div>
+    <h1>AI 101</h1>
+    <p class="lede en">Forty-five ideas behind today's AI, from the basics to the advanced, one per page. Read it here as a book or download the PDF. Free, in Chinese and English side by side.</p>
+    <p class="lede zh" lang="zh-Hant">當今 AI 背後的 45 個概念，由淺入深，一頁一個。可在此逐頁翻閱，或下載 PDF。免費閱讀，中英對照。</p>
+    <div class="dl">
+      <a class="btn" href="https://drive.google.com/file/d/1Z-068mm_iYaWlJf-qiKOQlUkFrfQ4pgq/view" rel="noopener"><span class="en">Download PDF</span><span class="zh">下載 PDF</span></a>
+      <a class="btn btn-2" href="https://drive.google.com/file/d/1VDFHOO5L87ZSZbFeKIGDEw34VcDowRwl/view" rel="noopener"><span class="en">Print version</span><span class="zh">印刷版</span></a>
+    </div>
+    <p class="dl-note en">Both open on Google Drive. PDF, 10 MB; the print version is high resolution, 47 MB.</p>
+    <p class="dl-note zh" lang="zh-Hant">兩者均存於 Google Drive。PDF 為 10 MB；印刷版為高解像度，47 MB。</p>
+    <div class="facts">
+      <div><b><span class="en">Author</span><span class="zh">作者</span></b>Anzon Wong</div>
+      <div><b><span class="en">Pages</span><span class="zh">頁數</span></b><span class="en">55, A4</span><span class="zh">共 55 頁，A4</span></div>
+      <div><b><span class="en">Language</span><span class="zh">語言</span></b><span class="en">Chinese and English</span><span class="zh">中英對照</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="fb" aria-label="AI 101 handbook">
+  <div class="fb-stage" id="fbStage">
+    <div class="fb-bar">
+      <label class="fb-toc"><span class="en">Contents</span><span class="zh">目錄</span>
+        <select id="fbToc"></select>
+      </label>
+      <button class="fb-btn" id="fbFull" type="button"><span class="en">Full screen</span><span class="zh">全螢幕</span></button>
+    </div>
+    <div id="fbBook"></div>
+    <noscript><p class="fb-hint"><span class="en">The page turner needs JavaScript. The PDF above has every page.</span><span class="zh">翻頁功能需要 JavaScript。上方的 PDF 收錄全書。</span></p></noscript>
+    <div class="fb-nav">
+      <button class="fb-btn" id="fbPrev" type="button" aria-label="Previous page">&larr; <span class="en">Prev</span><span class="zh">上一頁</span></button>
+      <span class="fb-count" id="fbCount" aria-live="polite">1 / 55</span>
+      <button class="fb-btn" id="fbNext" type="button" aria-label="Next page"><span class="en">Next</span><span class="zh">下一頁</span> &rarr;</button>
+    </div>
+    <p class="fb-hint en">Drag a corner, swipe, click a page or use the arrow keys.</p>
+    <p class="fb-hint zh" lang="zh-Hant">可拖動書角、滑動、點擊書頁或使用方向鍵翻頁。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">About the book</span><span class="zh">關於本書</span></div>
+  <div class="prose">
+    <p class="en">It began as a daily series of short posts. Here they are rebuilt into one book, in an order that teaches: what AI is, how to talk to it, what happens inside, how to give it your own knowledge, how to make it act, how to run it well, and whether to trust it.</p>
+    <p class="zh" lang="zh-Hant">本書原是一系列每日短文，現按學習次序重新編排成書：AI 是甚麼、如何與它溝通、內部如何運作、如何把你的知識交給它、如何讓它動手做事、如何運行得順暢而划算，以及可否信任它。</p>
+    <p class="en">If you would rather build an agent of your own, the <a href="../../courses/">one-to-one course</a> starts where this book ends.</p>
+    <p class="zh" lang="zh-Hant">如想親手建立自己的代理人，<a href="../../courses/">一對一課程</a>正好由本書的終點開始。</p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js" integrity="sha384-L4eWrYFdqQ+LoGA0MMuqLqzV13x7SKkQaqacy4MED8e815dS37tTKlO/6xBEUpZW" crossorigin="anonymous"></script>
+
+</main>
+<footer class="foot">
+  <div class="wrap"><div>
+    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
+    <p class="sig">Anzon Wong · AW Design · <a href="mailto:cowballwong@gmail.com">cowballwong@gmail.com</a></p>
+  </div></div>
+</footer>
+<script>
+// AI 101 flip-through book. StPageFlip (page-flip 2.0.7) does the page turn; images upgrade from thumbnail to full size near the open page.
+(function(){
+  var TOC = [{"p":1,"en":"Cover","zh":"封面"},{"p":2,"en":"Contents","zh":"目錄"},{"p":3,"en":"Part 1: What it is","zh":"第 1 部：它是甚麼","part":1},{"p":4,"en":"1. What is AI / an LLM?","zh":"1. 甚麼是 AI / 大語言模型(LLM)"},{"p":5,"en":"2. What is a Token?","zh":"2. 甚麼是 Token"},{"p":6,"en":"3. What do '7B / 70B' mean?","zh":"3. Parameters(參數):7B / 70B 是甚麼"},{"p":7,"en":"4. Training vs Inference","zh":"4. Training vs Inference（訓練 vs 推理）"},{"p":8,"en":"5. What is a knowledge cutoff?","zh":"5. Knowledge Cutoff（知識截止日）"},{"p":9,"en":"6. What is Hallucination?","zh":"6. Hallucination（幻覺：AI 一本正經地老作）"},{"p":10,"en":"Part 2: How you talk to it","zh":"第 2 部：怎樣同它溝通","part":1},{"p":11,"en":"7. What is a Prompt?","zh":"7. Prompt（提示詞）"},{"p":12,"en":"8. What is a System Prompt?","zh":"8. System Prompt（系統提示）"},{"p":13,"en":"9. What is the Context Window?","zh":"9. Context Window（上下文視窗）"},{"p":14,"en":"10. Chain-of-Thought","zh":"10. Chain-of-Thought（思維鏈）"},{"p":15,"en":"11. What AI still can't do","zh":"11. AI 真正做不到的事（限制與誤解）"},{"p":16,"en":"Part 3: What happens inside","zh":"第 3 部：內部發生甚麼事","part":1},{"p":17,"en":"12. Attention: how a model decides which words matter","zh":"12. 注意力機制（Attention）：AI 怎樣決定哪個字重要"},{"p":18,"en":"13. Prefill / Decode","zh":"13. Prefill / Decode（AI 出字的兩個階段）"},{"p":19,"en":"14. KV Cache: why long chats get slower and pricier","zh":"14. KV Cache：為甚麼越談越慢、越貴"},{"p":20,"en":"15. How million-token context works: positional encoding","zh":"15. 百萬 token 從何而來：位置編碼（RoPE）"},{"p":21,"en":"16. Mixture of Experts: only wake the experts you need","zh":"16. Mixture of Experts（MoE）：不是整個腦一起做"},{"p":22,"en":"17. Reasoning models: spending compute to think first","zh":"17. Reasoning 模型：回答之前先「多想一會」"},{"p":23,"en":"18. What is Multimodal AI?","zh":"18. Multimodal（多模態：文字＋圖＋聲）"},{"p":24,"en":"19. Diffusion: why image AI works differently from text AI","zh":"19. Diffusion：AI 出圖為甚麼和出字不同"},{"p":25,"en":"Part 4: Giving it your own knowledge","zh":"第 4 部：把你的知識交給它","part":1},{"p":26,"en":"20. What is an Embedding?","zh":"20. Embedding（向量：AI 怎樣理解意思）"},{"p":27,"en":"21. What is a Vector Database?","zh":"21. Vector Database（向量資料庫）"},{"p":28,"en":"22. What is RAG?","zh":"22. RAG（檢索增強：讓 AI 讀你的文件）"},{"p":29,"en":"23. Advanced RAG: why it fetches the wrong thing","zh":"23. RAG 進階：為甚麼它會找錯資料"},{"p":30,"en":"24. What is Fine-tuning?","zh":"24. Fine-tuning（微調）"},{"p":31,"en":"25. LoRA: fine-tuning by bolting on a tiny adapter","zh":"25. LoRA 微調：不動原模型，貼一張「外掛」"},{"p":32,"en":"26. RLHF & DPO: how a model is taught to behave","zh":"26. RLHF / DPO：模型的「性格」是打分打出來的"},{"p":33,"en":"27. Distillation: a big model teaching a small one","zh":"27. 模型蒸餾（Distillation）：大模型教細模型"},{"p":34,"en":"Part 5: Making it act","zh":"第 5 部：讓它動手做事","part":1},{"p":35,"en":"28. Tool Use / Function Calling","zh":"28. Tool Use / Function Calling（AI 用工具）"},{"p":36,"en":"29. Function calling / structured output","zh":"29. Function Calling / 結構化輸出：叫 AI 吐機器讀得到的東西"},{"p":37,"en":"30. What is MCP?","zh":"30. MCP（給 AI 接外部工具的標準）"},{"p":38,"en":"31. What is an AI Agent?","zh":"31. Agent（AI 代理：懂得自己做事）"},{"p":39,"en":"32. The agentic loop: think, act, observe, repeat","zh":"32. Agentic Loop：想 → 做 → 看 → 再想"},{"p":40,"en":"33. Computer-use agents: AI that sees the screen and clicks","zh":"33. Computer-use Agent：AI 看着螢幕、自己按滑鼠"},{"p":41,"en":"Part 6: Running it well","zh":"第 6 部：跑得順、用得平","part":1},{"p":42,"en":"34. Why AI needs a beefy GPU/VRAM","zh":"34. GPU / VRAM：為甚麼跑 AI 要這麼好的顯示卡"},{"p":43,"en":"35. What is Quantization?","zh":"35. Quantization（量化：把 model 縮細）"},{"p":44,"en":"36. Speculative decoding: small model guesses, big one checks","zh":"36. Speculative Decoding：細模型估、大模型驗"},{"p":45,"en":"37. What is Prompt Caching?","zh":"37. Prompt Caching（快取：省 token 錢）"},{"p":46,"en":"38. Latency vs Throughput","zh":"38. Latency / Throughput（快不快、頂得住多少）"},{"p":47,"en":"39. How token pricing works","zh":"39. Token 收費怎樣計（input vs output）"},{"p":48,"en":"40. API vs subscription","zh":"40. API vs 訂閱：哪一種划算"},{"p":49,"en":"41. Local vs Cloud AI","zh":"41. 本地 vs 雲端 AI：其實有三條路"},{"p":50,"en":"Part 7: Whether to trust it","zh":"第 7 部：可不可以信","part":1},{"p":51,"en":"42. What is Prompt Injection?","zh":"42. Prompt Injection（提示注入攻擊）"},{"p":52,"en":"43. Guardrails & Alignment","zh":"43. Guardrails / 對齊（怎樣防 AI 亂講）"},{"p":53,"en":"44. AI copyright & data privacy","zh":"44. AI 的版權 / 數據私隱"},{"p":54,"en":"45. Evals & benchmarks: can you trust the score?","zh":"45. Evals / Benchmark 怎樣看：那個分數騙不騙你"},{"p":55,"en":"Closing page","zh":"結語"}];
+  var N = 55, W = 778, H = 1100, MIN_W = 280;  // one page at viewports up to 700px: the book is then kept narrower than 2 x MIN_W, the library's own portrait switch
+  var root = document.documentElement;
+  var stage = document.getElementById('fbStage'), book = document.getElementById('fbBook');
+  var sel = document.getElementById('fbToc'), count = document.getElementById('fbCount');
+  var prev = document.getElementById('fbPrev'), next = document.getElementById('fbNext'), full = document.getElementById('fbFull');
+  if(!book) return;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function isZh(){ return root.getAttribute('data-lang') === 'zh'; }
+
+  var imgs = [];
+  for(var i = 1; i <= N; i++){
+    var pg = document.createElement('div');
+    pg.className = 'fb-page';
+    if(i === 1 || i === N) pg.setAttribute('data-density', 'hard');
+    var im = document.createElement('img');
+    im.src = 'pages/t' + pad(i) + '.webp';
+    im.setAttribute('data-full', 'pages/p' + pad(i) + '.webp');
+    im.width = W; im.height = H; im.alt = 'Page ' + i; im.decoding = 'async'; im.draggable = false;
+    pg.appendChild(im); book.appendChild(pg); imgs.push(im);
+  }
+  function hydrate(from, to){
+    for(var k = Math.max(0, from); k <= Math.min(N - 1, to); k++){
+      var m = imgs[k], f = m.getAttribute('data-full');
+      if(f){ m.removeAttribute('data-full'); m.src = f; }
+    }
+  }
+
+  function fillToc(){
+    var zh = isZh(), keep = sel.value;
+    sel.innerHTML = '';
+    TOC.forEach(function(t){
+      var o = document.createElement('option');
+      o.value = t.p;
+      o.textContent = (t.part ? '' : '\u00a0\u00a0') + (zh ? t.zh : t.en) + '  \u00b7  p.' + t.p;
+      sel.appendChild(o);
+    });
+    if(keep) sel.value = keep;
+  }
+  fillToc();
+  new MutationObserver(function(){ fillToc(); update(); }).observe(root, {attributes:true, attributeFilter:['data-lang']});
+
+  function fit(){
+    var fs = document.fullscreenElement === stage || document.webkitFullscreenElement === stage;
+    var w = book.parentNode.clientWidth - (parseFloat(getComputedStyle(stage).paddingLeft) || 0) * 2;
+    var portrait = window.innerWidth <= 700;
+    var pageW = portrait ? w : w / 2;
+    var maxH = fs ? window.innerHeight - 150 : Math.min(window.innerHeight * 0.86, H);
+    var h = Math.round(Math.max(200, Math.min(maxH, pageW * H / W)));
+    book.style.height = h + 'px';
+    // portrait: the library sizes the page from the width, so narrow the book to keep it within the height cap
+    book.style.maxWidth = portrait ? Math.min(Math.floor(h * W / H), 2 * MIN_W - 1) + 'px' : (2 * W) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);  // runs before the library's own resize handler, which reads this height
+
+  if(!window.St || !St.PageFlip){
+    book.innerHTML = '';
+    count.textContent = isZh() ? '翻頁功能未能載入，請下載上方的 PDF。' : 'The page turner did not load. Please use the PDF above.';
+    return;
+  }
+  var pf = new St.PageFlip(book, {
+    width: W, height: H, size: 'stretch', minWidth: MIN_W, maxWidth: W, minHeight: 200, maxHeight: H,
+    showCover: true, usePortrait: true, mobileScrollSupport: true, maxShadowOpacity: 0.45, flippingTime: 800
+  });
+  pf.loadFromHTML(book.querySelectorAll('.fb-page'));
+  book.style.minWidth = '0';  // the library sets min-width = minWidth; let it shrink on very small phones
+  fit(); window.dispatchEvent(new Event('resize'));  // re-apply our width cap over the library's inline max-width
+
+  function update(){
+    var i = pf.getCurrentPageIndex(), land = pf.getOrientation() === 'landscape', a = i + 1, b = a;
+    if(land && i > 0){ a = (i % 2) ? i + 1 : i; b = Math.min(N, a + 1); }  // spreads: [1] [2-3] [4-5] ...
+    count.textContent = (a === b ? a : a + '-' + b) + ' / ' + N;
+    prev.disabled = i <= 0;
+    next.disabled = b >= N;
+    hydrate(a - 3, b + 4);
+    var cur = TOC[0];
+    TOC.forEach(function(t){ if(t.p <= a) cur = t; });
+    sel.value = cur.p;
+  }
+  pf.on('flip', update);
+  pf.on('changeOrientation', update);
+  pf.on('changeState', function(e){ if(e.data === 'flipping' || e.data === 'user_fold'){ var i = pf.getCurrentPageIndex(); hydrate(i - 3, i + 5); } });
+  update();
+
+  prev.addEventListener('click', function(){ pf.flipPrev(); });
+  next.addEventListener('click', function(){ pf.flipNext(); });
+  sel.addEventListener('change', function(){
+    var p = parseInt(sel.value, 10) - 1;
+    hydrate(p - 2, p + 2);
+    var i = pf.getCurrentPageIndex();
+    if(Math.abs(p - i) <= 2) pf.flip(p); else { pf.turnToPage(p); update(); }
+  });
+  document.addEventListener('keydown', function(e){
+    var t = e.target && e.target.tagName;
+    if(t === 'SELECT' || t === 'INPUT' || t === 'TEXTAREA' || e.altKey || e.ctrlKey || e.metaKey) return;
+    if(e.key === 'ArrowRight'){ pf.flipNext(); e.preventDefault(); }
+    else if(e.key === 'ArrowLeft'){ pf.flipPrev(); e.preventDefault(); }
+  });
+
+  var canFs = stage.requestFullscreen || stage.webkitRequestFullscreen;
+  if(!canFs) full.hidden = true;
+  full.addEventListener('click', function(){
+    if(document.fullscreenElement || document.webkitFullscreenElement){ (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+    else { canFs.call(stage); }
+  });
+  function onFs(){
+    var on = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    full.querySelector('.en').textContent = on ? 'Exit full screen' : 'Full screen';
+    full.querySelector('.zh').textContent = on ? '離開全螢幕' : '全螢幕';
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.addEventListener('fullscreenchange', onFs);
+  document.addEventListener('webkitfullscreenchange', onFs);
+})();
+
+</script>
+</body>
+</html>
