@@ -212,6 +212,9 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
+.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.foot .visits[hidden]{display:none}
+.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
 
 /* phone */
@@ -374,9 +377,75 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 <footer class="foot">
   <div class="wrap"><div>
     <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <p class="sig">Anzon Wong · AW Design · <a href="mailto:cowballwong@gmail.com">cowballwong@gmail.com</a></p>
+    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:cowballwong@gmail.com">cowballwong@gmail.com</a></p>
+    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
   </div></div>
 </footer>
+<script>
+// Visitor counter, shown in the footer (added 2026-10-05).
+// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
+// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
+// Counts once per browser per day (localStorage date flag); later loads that day only read.
+// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
+// Runs after page load, so it never delays the page. Not counted from file:// previews.
+(function(){
+  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
+  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
+  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
+  var DOC = PATH + '/site_counters/anzonwong-com';
+  var FLAG = 'aw-visit-day';
+
+  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+
+  function show(n){
+    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
+    if(!el || !num || !isFinite(n) || n < 0) return;
+    num.textContent = Number(n).toLocaleString('en-GB');
+    el.hidden = false;
+  }
+
+  function call(url, opts){
+    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
+    if(ctl) opts.signal = ctl.signal;
+    return fetch(url, opts).then(function(r){
+      clearTimeout(t);
+      if(!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    });
+  }
+
+  function read(){
+    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
+      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
+  }
+
+  function count(){
+    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
+      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
+    return call(BASE + ':commit?key=' + KEY, {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+    }).then(function(d){
+      try{ localStorage.setItem(FLAG, today()); }catch(e){}
+      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
+      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
+    });
+  }
+
+  function run(){
+    try{
+      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
+      var counted = true;  // storage blocked: read only, never recount
+      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
+      (counted ? read() : count()).then(show).catch(function(){});
+    }catch(e){}
+  }
+
+  if(document.readyState === 'complete') setTimeout(run, 300);
+  else window.addEventListener('load', function(){ setTimeout(run, 300); });
+})();
+
+</script>
 <script>
 // AI 101 flip-through book. StPageFlip (page-flip 2.0.7) does the page turn; images upgrade from thumbnail to full size near the open page.
 (function(){
