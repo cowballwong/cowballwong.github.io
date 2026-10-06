@@ -6,7 +6,7 @@
 <title>Courses · Anzon Wong</title>
 <meta name="description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
 <meta name="author" content="Anzon Wong">
-
+<meta name="robots" content="noindex">
 <link rel="canonical" href="https://anzonwong.com/courses/">
 <meta property="og:title" content="Courses · Anzon Wong">
 <meta property="og:description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
@@ -203,6 +203,31 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
 .band p{color:var(--ink-2);max-width:34em}
 
+/* courses: two classes, basic then advanced */
+.path{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;margin-top:clamp(28px,4vw,44px);border:1px solid var(--rule);background:var(--card)}
+.path a{display:block;padding:18px 22px;text-decoration:none;color:var(--ink)}
+.path a:hover{background:var(--paper)}
+.path b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.25;margin:2px 0 8px}
+.path .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 18px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);font:11px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-align:center}
+.path .arrow i{font-style:normal;font-family:var(--sans);font-size:26px;line-height:1;color:var(--accent)}
+.state{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--rule);color:var(--ink-2);border-radius:2px}
+.state.open{border-color:var(--ink);color:var(--ink)}
+.badge{display:inline-block;font:12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;background:var(--accent);color:#fff;border-radius:2px;font-weight:600}
+.cls{padding:clamp(32px,5vw,56px) 0 clamp(20px,3vw,32px);border-bottom:1px solid var(--rule);border-top:3px solid var(--ink);margin-top:clamp(28px,4vw,48px)}
+.cls .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.cls h2{margin:12px 0 0}
+.cls .lede{margin-top:16px}
+.cls.soon{border-top-color:var(--accent)}
+.step{display:flex;align-items:center;justify-content:center;gap:14px;padding:clamp(26px,4vw,40px) 0 0;font:13px/1.4 var(--mono);letter-spacing:.06em;color:var(--ink-2);text-align:center;flex-wrap:wrap}
+.step i{font-style:normal;font-family:var(--sans);font-size:24px;color:var(--accent)}
+.step span.box{border:1px solid var(--rule);background:var(--card);padding:8px 14px}
+.soonband{border:1px dashed var(--accent);background:var(--card);padding:22px 24px;max-width:40em}
+.soonband p{margin:12px 0 0;color:var(--ink-2)}
+.needs{list-style:none;margin:0;padding:0;max-width:40em}
+.needs li{padding:12px 0;border-top:1px solid var(--rule);color:var(--ink-2)}
+.needs li:last-child{border-bottom:1px solid var(--rule)}
+.needs b{color:var(--ink);font-weight:600}
+
 /* contact */
 .mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
 .mail:hover{border-color:var(--accent)}
@@ -240,6 +265,12 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   .tracks{grid-template-columns:1fr}
   .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cls .grid{grid-template-columns:1fr}
+  .path{grid-template-columns:1fr}
+  .path .arrow{flex-direction:row;padding:10px 22px;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .path .arrow i{transform:rotate(90deg)}
+  .step{flex-direction:column;gap:6px}
+  .step i{transform:rotate(90deg)}
   .foot .sig{white-space:normal}
 }
 @media (max-width:420px){
@@ -299,7 +330,23 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 <header class="head">
   <div class="label">03 / <span class="en">Courses</span><span class="zh">課程</span></div>
   <div>
-    <h1><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></h1>
+    <h1><span class="en">Basic first, then advanced</span><span class="zh" lang="zh-Hant">先讀基礎班，再讀進階班</span></h1>
+    <p class="lede en">Two classes. The basic class builds your own AI agent. The advanced class, for the building industry, puts that agent to work on one project from tender to handover.</p>
+    <p class="lede zh" lang="zh-Hant">兩個班。基礎班建立你自己的 AI 代理人；進階班為建築行業而設，用這個代理人把一個項目由投標做到交樓。</p>
+    <nav class="path" aria-label="Course path">
+      <a href="#basic"><span class="kind"><span class="en">Class 1 · Basic</span><span class="zh">第一步 · 基礎班</span></span><b><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></b><span class="state open"><span class="en">Open for booking</span><span class="zh">接受報名</span></span></a>
+      <div class="arrow" aria-hidden="true"><i>&rarr;</i><span class="en">Finish basic</span><span class="zh">完成基礎班</span></div>
+      <a href="#advanced"><span class="kind"><span class="en">Class 2 · Advanced (building industry)</span><span class="zh">第二步 · 進階班（建築行業）</span></span><b><span class="en">From tender to handover</span><span class="zh" lang="zh-Hant">由投標到交樓</span></b><span class="badge">準備中 · Coming soon</span></a>
+    </nav>
+  </div>
+</header>
+
+<section class="cls" id="basic">
+  <div class="grid">
+    <div class="label"><span class="en">Class 1</span><span class="zh">第一步</span></div>
+    <div>
+      <span class="kind"><span class="en">Basic</span><span class="zh">基礎班</span></span>
+      <h2><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></h2>
     <p class="lede en">Five one-to-one lessons online. We start from an agent that already works, open it up to see how it runs, then reshape it step by step into an assistant that is yours alone. Very little code.</p>
     <p class="lede zh" lang="zh-Hant">五堂一對一網上課。由一個已經能運作的代理人開始，拆開來看清它的原理，再一步步改造成只屬於你的助理。所需編程極少。</p>
     <div class="facts">
@@ -307,8 +354,9 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
       <div><b><span class="en">Length</span><span class="zh">堂數</span></b><span class="en">5 lessons</span><span class="zh">共 5 堂</span></div>
       <div><b><span class="en">Times</span><span class="zh">時間</span></b><span class="en">Shown in UK and Hong Kong time</span><span class="zh">同時顯示英國及香港時間</span></div>
     </div>
+    </div>
   </div>
-</header>
+</section>
 
 <section class="sec">
   <div class="label"><span class="en">Why</span><span class="zh">背景</span></div>
@@ -361,6 +409,74 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   </div>
 </section>
 
+<section class="band">
+  <div class="grid">
+    <div class="label"><span class="en">Book</span><span class="zh">報名</span></div>
+    <div>
+      <h2><span class="en">Pick a time for lesson one</span><span class="zh" lang="zh-Hant">揀選第一堂的時間</span></h2>
+      <p class="en">The booking page shows open times in UK and Hong Kong time, with course details. Returning students can look up their progress there too.</p>
+      <p class="zh" lang="zh-Hant">報名頁面以英國及香港時間列出可預約的時段及課程詳情。現有學生亦可在該頁查閱進度。</p>
+      <p style="margin-top:26px"><a class="btn" href="https://anzonwong.com/teaching-booking/" rel="noopener"><span class="en">Book a lesson</span><span class="zh">預約課堂</span></a></p>
+    </div>
+  </div>
+</section>
+
+<div class="step" aria-hidden="true"><span class="box">完成基礎班 · Finish basic</span><i>&rarr;</i><span class="box">進階班 · Advanced</span></div>
+
+<section class="cls soon" id="advanced">
+  <div class="grid">
+    <div class="label"><span class="en">Class 2</span><span class="zh">第二步</span></div>
+    <div>
+      <span class="kind"><span class="en">Advanced, for the building industry</span><span class="zh">進階班（建築行業）</span></span>
+      <h2><span class="en">From tender to handover</span><span class="zh" lang="zh-Hant">由投標到交樓</span></h2>
+      <p style="margin:14px 0 0"><span class="badge">準備中 · Coming soon</span></p>
+      <p class="lede en">You take one project from the tender to handover, using your own agent at every stage, with Revit.</p>
+      <p class="lede zh" lang="zh-Hant">你會用自己的代理人，配合 Revit，把一個項目由投標一路做到交樓。</p>
+      <div class="facts">
+        <div><b><span class="en">Length</span><span class="zh">堂數</span></b><span class="en">5 lessons</span><span class="zh">共 5 堂</span></div>
+        <div><b><span class="en">Fee</span><span class="zh">學費</span></b><span class="en">HK$2,000 for the whole course</span><span class="zh">全期 HK$2,000</span></div>
+        <div><b><span class="en">Status</span><span class="zh">狀態</span></b><span class="en">Coming soon, not yet open for sign-up</span><span class="zh">準備中，暫未接受報名</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Before you join</span><span class="zh">入讀條件</span></div>
+  <div class="prose">
+    <p class="en">You need to finish the basic class first. Exemptions are possible on application; the details will come when the class opens.</p>
+    <p class="zh" lang="zh-Hant">須先完成基礎班。可申請豁免，詳情將於開班時公布。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">What you need</span><span class="zh">所需準備</span></div>
+  <ul class="needs">
+    <li><b><span class="en">Your own Windows PC with Revit</span><span class="zh">自己的 Windows 電腦，並已安裝 Revit</span></b></li>
+    <li><b><span class="en">Homework handed in the day before each lesson</span><span class="zh">每堂的功課須於上堂前一天交回</span></b></li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Lessons</span><span class="zh">課堂</span></div>
+  <ol class="lessons">
+    <li><div><b><span class="en">Tender</span><span class="zh">投標</span></b><span class="en">Read the tender, check compliance and write the technical proposal and fee forms.</span><span class="zh">閱讀招標文件、核對合規要求，撰寫技術建議書及收費表格。</span></div></li>
+    <li><div><b><span class="en">Feasibility</span><span class="zh">可行性研究</span></b><span class="en">Site constraints, floor area and massing options, and a feasibility statement.</span><span class="zh">地盤限制、樓面面積及體量方案，並撰寫可行性報告。</span></div></li>
+    <li><div><b><span class="en">Scheme and statutory submission</span><span class="zh">方案設計及法定審批</span></b><span class="en">The scheme in Revit, the general building plans and a reply to the authority's comments.</span><span class="zh">以 Revit 建立方案，製作一般建築圖則，並回覆審批部門意見。</span></div></li>
+    <li><div><b><span class="en">Detailed design and works tender</span><span class="zh">詳細設計及工程招標</span></b><span class="en">LOD 300 drawings, tender documents and a tender report.</span><span class="zh">LOD 300 圖則、招標文件及回標分析報告。</span></div></li>
+    <li><div><b><span class="en">Construction to handover</span><span class="zh">施工至交樓</span></b><span class="en">Site minutes, RFIs, a defects list and the handover pack.</span><span class="zh">工地會議紀錄、資料索取（RFI）、缺陷清單及交樓文件。</span></div></li>
+  </ol>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Sign-up</span><span class="zh">報名</span></div>
+  <div class="soonband">
+    <span class="badge">準備中 · Coming soon</span>
+    <p class="en">The advanced class is not open for sign-up yet. Start with the basic class above.</p>
+    <p class="zh" lang="zh-Hant">進階班暫未接受報名。請先由上面的基礎班開始。</p>
+  </div>
+</section>
+
 <section class="sec">
   <div class="label"><span class="en">Free reading</span><span class="zh">免費閱讀</span></div>
   <div>
@@ -385,17 +501,6 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   </div>
 </section>
 
-<section class="band">
-  <div class="grid">
-    <div class="label"><span class="en">Book</span><span class="zh">報名</span></div>
-    <div>
-      <h2><span class="en">Pick a time for lesson one</span><span class="zh" lang="zh-Hant">揀選第一堂的時間</span></h2>
-      <p class="en">The booking page shows open times in UK and Hong Kong time, with course details. Returning students can look up their progress there too.</p>
-      <p class="zh" lang="zh-Hant">報名頁面以英國及香港時間列出可預約的時段及課程詳情。現有學生亦可在該頁查閱進度。</p>
-      <p style="margin-top:26px"><a class="btn" href="https://anzonwong.com/teaching-booking/" rel="noopener"><span class="en">Book a lesson</span><span class="zh">預約課堂</span></a></p>
-    </div>
-  </div>
-</section>
 
 </main>
 <footer class="foot">
