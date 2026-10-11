@@ -311,6 +311,82 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   .hc-h .label{font-size:11px}
 }
 
+/* landing: the home page is one screen (100svh): header, intro, carousel, index bar. No page scroll.
+   The index waits in a full-screen overlay (#index) that slides up; without JS it opens through :target.
+   :has() keeps this to the home page; a browser without it shows the old scrolling page. */
+:root{--ixo-hh:60px}
+body:has(.ixo){display:flex;flex-direction:column;height:100svh;overflow:hidden}
+body:has(.ixo) > .top{flex:none}
+body:has(.ixo) > main{flex:1 1 auto;min-height:0;width:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow-y:auto}
+body:has(.ixo) .intro{padding:clamp(18px,5svh,56px) 0 clamp(14px,3.6svh,40px)}
+body:has(.ixo) .intro p{font-size:clamp(21px,min(3vw,4.4svh),42px)}
+body:has(.ixo) .hc{margin-bottom:clamp(12px,2.4svh,30px)}
+/* tiles never grow taller than the screen leaves room for (3:2 tiles, so width = 1.5 x the spare height) */
+body:has(.ixo) .hc-track > li{flex-basis:min(calc((100% - 40px) / 3), calc((100svh - var(--hc-rest)) * 1.5))}
+body:has(.ixo){--hc-rest:540px}
+
+/* the bar that opens the index */
+.ixo-bar{margin-top:auto;padding-bottom:clamp(12px,3svh,32px)}
+.ixo-open{display:flex;align-items:center;gap:14px;min-height:48px;padding:10px 4px;box-sizing:border-box;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);text-decoration:none;color:var(--ink)}
+.ixo-ic{font-size:18px;line-height:1}
+.ixo-l{font:400 21px/1.2 var(--serif)}
+.ixo-n{margin-left:auto;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);text-align:right}
+.ixo-ar{font-size:18px;line-height:1;color:var(--accent);transition:transform .2s ease}
+.ixo-open:hover{color:var(--accent);background:var(--card)}
+.ixo-open:hover .ixo-ar{transform:translateY(-3px)}
+.ixo-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* the overlay */
+.ixo{position:fixed;inset:0;z-index:40;background:var(--paper);overflow-y:auto;overscroll-behavior:contain;
+  transform:translateY(100%);visibility:hidden;
+  transition:transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s linear .38s}
+.ixo.open,.ixo:not(.js):target{transform:none;visibility:visible;transition:transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.ixo:focus{outline:none}
+html.ixo-on body{overflow:hidden}
+.ixo-h{position:sticky;top:0;z-index:7;background:var(--paper);border-bottom:1px solid var(--ink)}
+.ixo-h .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:var(--ixo-hh);box-sizing:border-box}
+.ixo-t{font-size:clamp(22px,2.4vw,30px);line-height:1.1}
+.ixo-x{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 12px;box-sizing:border-box;border:1px solid var(--ink);border-radius:3px;
+  font:12.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:transparent}
+.ixo-xi{font-size:20px;line-height:1;letter-spacing:0}
+.ixo-x:hover{background:var(--ink);color:var(--paper)}
+.ixo-b{padding-top:clamp(18px,3vw,28px)}
+.ixo .ctl{top:var(--ixo-hh)}
+.ixo .foot{margin-top:clamp(28px,4vw,48px)}
+
+@media (max-width:860px){
+  body:has(.ixo) .hc-track > li{flex-basis:min(calc((100% - 12px) / 2), calc((100svh - var(--hc-rest)) * 1.5))}
+}
+@media (max-width:600px){
+  :root{--ixo-hh:56px}
+  body:has(.ixo){--hc-rest:540px}
+  body:has(.ixo) .hc-track > li{flex-basis:min(80%, calc((100svh - var(--hc-rest)) * 1.5))}
+  body:has(.ixo) .intro .meta{display:none}
+  .ixo-l{font-size:19px}
+  .ixo-n{display:none}
+  .ixo-ar{margin-left:auto}
+  .ixo .ctl{position:static}   /* on a phone the chips and search take three lines; let them scroll away */
+}
+@media (max-width:600px) and (max-height:720px){   /* short phones: smaller intro so the tile keeps its size */
+  body:has(.ixo){--hc-rest:500px}
+  body:has(.ixo) .intro p{font-size:19px}
+}
+@media (max-width:380px){   /* narrow phones: keep the nav on one line so the landing still fits */
+  body:has(.ixo) .nav{gap:11px;letter-spacing:.05em;font-size:12.5px}
+}
+/* very short screens (landscape phones): one screen cannot hold it, so the page scrolls as before */
+@media (max-height:540px){
+  body:has(.ixo){height:auto;overflow:visible}
+  body:has(.ixo) > main{overflow:visible}
+  body:has(.ixo) .hc-track > li{flex-basis:calc((100% - 40px) / 3)}
+  .ixo-bar{margin-top:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ixo,.ixo.open,.ixo:not(.js):target{transition:none}
+  .ixo-ar,.ixo-open:hover .ixo-ar{transition:none;transform:none}
+}
+
 </style>
 <script>
 // Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
@@ -395,8 +471,24 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   </ul>
 </section>
 
+<!-- the index is hidden behind this bar and opens as a full-screen overlay (home.js); without JS the link opens it through :target -->
+<div class="ixo-bar">
+  <a class="ixo-open" id="ixoOpen" href="#index" aria-controls="index">
+    <span class="ixo-ic" aria-hidden="true">&#9776;</span>
+    <span class="ixo-l">Index · <span lang="zh-Hant">全部作品</span></span>
+    <span class="ixo-n"><span class="en">Every project, tool and course</span><span class="zh" lang="zh-Hant">所有項目、工具及課程</span></span>
+    <span class="ixo-ar" aria-hidden="true">&uarr;</span>
+  </a>
+</div>
+
+<section id="index" class="ixo" aria-labelledby="ixoT" tabindex="-1">
+  <div class="ixo-h"><div class="wrap">
+    <h2 class="ixo-t" id="ixoT">Index · <span lang="zh-Hant">全部作品</span></h2>
+    <a class="ixo-x" id="ixoClose" href="#"><span class="en">Close</span><span class="zh" lang="zh-Hant">關閉</span><span class="ixo-xi" aria-hidden="true">&times;</span></a>
+  </div></div>
+  <div class="wrap ixo-b">
 <div class="ix-wrap" data-ix>
-  <div class="ctl" id="index"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="en">All</span><span class="zh" lang="zh-Hant">全部</span><sup>27</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="en">Projects</span><span class="zh" lang="zh-Hant">項目</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="en">Tools</span><span class="zh" lang="zh-Hant">工具</span><sup>5</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="en">Pages</span><span class="zh" lang="zh-Hant">頁面</span><sup>2</sup></button></div><span class="count" data-count><span class="en">27 entries</span><span class="zh" lang="zh-Hant">27 項</span></span><label class="search"><input type="search" data-q placeholder="Search the index" aria-label="Search the index"><kbd>/</kbd></label></div>
+  <div class="ctl"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="en">All</span><span class="zh" lang="zh-Hant">全部</span><sup>27</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="en">Projects</span><span class="zh" lang="zh-Hant">項目</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="en">Tools</span><span class="zh" lang="zh-Hant">工具</span><sup>5</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="en">Pages</span><span class="zh" lang="zh-Hant">頁面</span><sup>2</sup></button></div><span class="count" data-count><span class="en">27 entries</span><span class="zh" lang="zh-Hant">27 項</span></span><label class="search"><input type="search" data-q placeholder="Search the index" aria-label="Search the index"><kbd>/</kbd></label></div>
   <table class="ix">
     <thead><tr><th class="no s" data-k="no" scope="col"><button type="button"><span class="en">No.</span><span class="zh" lang="zh-Hant">編號</span></button></th><th class="ti" data-k="ti" scope="col"><button type="button"><span class="en">Title</span><span class="zh" lang="zh-Hant">名稱</span></button></th><th class="ty" data-k="ty" scope="col"><button type="button"><span class="en">Type</span><span class="zh" lang="zh-Hant">類別</span></button></th><th class="pl" data-k="pl" scope="col"><button type="button"><span class="en">Place</span><span class="zh" lang="zh-Hant">地點</span></button></th><th class="yr" data-k="yr" scope="col"><button type="button"><span class="en">Year</span><span class="zh" lang="zh-Hant">年份</span></button></th><th class="go" aria-hidden="true"></th></tr></thead>
     <tbody>
@@ -621,8 +713,7 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   <div class="empty" data-empty hidden><span class="en">Nothing in the index matches that.</span><span class="zh" lang="zh-Hant">目錄中沒有相符的項目。</span></div>
   <div class="pv" aria-hidden="true"><img alt=""><span class="cap"></span><p class="pd"></p></div>
 </div>
-
-</main>
+  </div>
 <footer class="foot">
   <div class="wrap"><div>
     <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
@@ -630,6 +721,10 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
     <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
   </div></div>
 </footer>
+</section>
+
+
+</main>
 <script>
 // Visitor counter, shown in the footer (added 2026-10-05).
 // One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
@@ -764,15 +859,18 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
     pd.textContent = r.dataset['d' + (l === 'zh' ? 'Zh' : 'En')] || '';
     pv.classList.add('on');
   }
-  tb.addEventListener('mouseover', function(ev){ var r = ev.target.closest('tr'); if(r) showPv(r); });
-  tb.addEventListener('mouseleave', function(){ pv.classList.remove('on'); });
-  window.addEventListener('mousemove', function(ev){
-    if(!pv.classList.contains('on')) return;
+  function place(ev){
     var w = pv.offsetWidth || 360, h = pv.offsetHeight || 260;
     var x = ev.clientX + 28, y = ev.clientY - 120;
     if(x + w + 10 > innerWidth) x = ev.clientX - w - 28;
     pv.style.left = Math.max(10, x) + 'px';
     pv.style.top = Math.max(10, Math.min(y, innerHeight - h - 10)) + 'px';
+  }
+  // place it on mouseover too: a row can arrive under a still cursor (the home overlay slides up), with no mousemove yet
+  tb.addEventListener('mouseover', function(ev){ var r = ev.target.closest('tr'); if(r){ showPv(r); place(ev); } });
+  tb.addEventListener('mouseleave', function(){ pv.classList.remove('on'); });
+  window.addEventListener('mousemove', function(ev){
+    if(pv.classList.contains('on')) place(ev);
   });
   tb.addEventListener('click', function(ev){
     var r = ev.target.closest('tr'); if(!r) return;
@@ -793,7 +891,11 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   });
 
   // keyboard: "/" search, Esc clears, arrows move, Enter opens
+  // home: the index lives in a closed overlay (.ixo) until it is opened; keys must not act on a hidden index
+  var ov = box.closest('.ixo');
+  function live(){ return !ov || ov.classList.contains('open') || (!ov.classList.contains('js') && ov.matches(':target')); }
   document.addEventListener('keydown', function(ev){
+    if(!live()) return;
     var tag = (document.activeElement && document.activeElement.tagName) || '';
     if(ev.key === '/' && qi && document.activeElement !== qi && !/INPUT|TEXTAREA|SELECT/.test(tag)){
       ev.preventDefault(); qi.focus(); qi.scrollIntoView({block:'nearest'}); return;
@@ -846,7 +948,8 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   function quiet(ms){ quietUntil = Date.now() + ms; }
 
   setInterval(function(){
-    if(playing && !hover && !focus && onScreen && !document.hidden && Date.now() > quietUntil) go(1);
+    if(playing && !hover && !focus && onScreen && !document.hidden && Date.now() > quietUntil &&
+       !document.documentElement.classList.contains('ixo-on')) go(1);
   }, 4000);
 
   root.addEventListener('mouseenter', function(){ hover = true; });
@@ -870,6 +973,57 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
     new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }, {threshold: 0.3}).observe(tr);
   }
   setPP();
+})();
+
+// Index overlay: the bar (#ixoOpen) slides the full index up over the landing. Focus moves into the overlay and
+// returns to the bar on close; the rest of the page is inert meanwhile. Close: the button, Esc, or the phone's Back
+// (opening pushes #index). "/" opens it straight into the search. Without this script #index opens via :target.
+(function(){
+  var ov = document.getElementById('index'), op = document.getElementById('ixoOpen'), x = document.getElementById('ixoClose');
+  if(!ov || !op || !x) return;
+  var html = document.documentElement, back = null, outside = [];
+  ov.classList.add('js');
+  ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+  op.setAttribute('role', 'button'); op.setAttribute('aria-expanded', 'false');
+  function isOpen(){ return ov.classList.contains('open'); }
+  function search(){ return ov.querySelector('[data-q]'); }
+  function open(push, toSearch){
+    if(isOpen()) return;
+    back = document.activeElement;
+    ov.classList.add('open'); html.classList.add('ixo-on'); op.setAttribute('aria-expanded', 'true');
+    outside = [].slice.call(document.querySelectorAll('body > header, main > :not(.ixo)'));
+    outside.forEach(function(el){ el.inert = true; el.setAttribute('aria-hidden', 'true'); });
+    if(push && history.pushState) history.pushState({ixo: 1}, '', '#index');
+    ov.scrollTop = 0;
+    var f = (toSearch && search()) || x;
+    f.focus({preventScroll: true});
+  }
+  function close(fromPop){
+    if(!isOpen()) return;
+    ov.classList.remove('open'); html.classList.remove('ixo-on'); op.setAttribute('aria-expanded', 'false');
+    outside.forEach(function(el){ el.inert = false; el.removeAttribute('aria-hidden'); });
+    if(!fromPop){
+      if(history.state && history.state.ixo) history.back();
+      else if(location.hash === '#index') history.replaceState(null, '', location.pathname + location.search);
+    }
+    var t = (back && back !== document.body && document.contains(back)) ? back : op;
+    t.focus({preventScroll: true});
+  }
+  op.addEventListener('click', function(e){ e.preventDefault(); open(true); });
+  x.addEventListener('click', function(e){ e.preventDefault(); close(false); });
+  window.addEventListener('popstate', function(){ if(location.hash === '#index') open(false); else close(true); });
+  // capture phase: runs before the index's own keys (index.js), so a first Esc in a filled search box still just clears it
+  window.addEventListener('keydown', function(e){
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if(e.key === 'Escape' && isOpen()){
+      var qi = search();
+      if(qi && document.activeElement === qi && qi.value) return;
+      e.preventDefault(); close(false);
+    } else if(e.key === '/' && !isOpen() && !/INPUT|TEXTAREA|SELECT/.test(tag)){
+      e.preventDefault(); e.stopPropagation(); open(true, true);
+    }
+  }, true);
+  if(location.hash === '#index') open(false);
 })();
 
 </script>
