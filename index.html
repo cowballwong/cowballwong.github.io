@@ -248,6 +248,69 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* home only: carousel (走馬燈) of selected work, lab tools and courses; index rows tinted by category.
+   Category colours are tokens so a later dark mode can redefine them in one place. */
+:root{
+  --c-project:#9c4a2f; --c-tool:#2d5a5a; --c-course:#8a6a1f; --c-page:#6f6a60;
+  --t-project:#f4ebe4; --t-tool:#e9efec; --t-course:#f3eddc; --t-page:#fbfaf7;
+}
+
+/* carousel */
+.hc{margin-bottom:46px;min-width:0}
+.hc-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.hc-h .label{padding-top:0}
+.hc-ctl{display:flex;gap:4px;flex:none}
+.hc-ctl[hidden]{display:none}
+.hc-b{border:1px solid var(--rule);background:transparent;min-width:34px;min-height:32px;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.hc-b:hover{border-color:var(--ink)}
+.hc-pp[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hc-track{list-style:none;margin:0;padding:0 0 12px;display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.hc-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.hc-track > li{flex:0 0 calc((100% - 40px) / 3);min-width:0;scroll-snap-align:start}
+.hc a{display:block;text-decoration:none;color:inherit;-webkit-user-drag:none}
+.hc-im{display:block;position:relative;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:border-color .2s ease}
+.hc-im img{width:100%;height:100%;object-fit:cover}
+.hc-tag{position:absolute;left:10px;top:10px;font:11px/1.4 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:3px 8px;border-radius:2px}
+.hc-tx{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:9px}
+.hc-tx b{font:400 17px/1.3 var(--serif);min-width:0}
+.hc-tx i{flex:none;font:11px/1.4 var(--mono);font-style:normal;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+.hc a:hover b{color:var(--accent)}
+.hc a:hover .hc-im{border-color:var(--ink)}
+.hc a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* index: one tint per category, a 3px category bar on the number cell; the filter chips double as the legend */
+.ix tbody tr[data-t="project"]{background:var(--t-project)}
+.ix tbody tr[data-t="tool"]{background:var(--t-tool)}
+.ix tbody tr[data-t="course"]{background:var(--t-course)}
+.ix tbody tr[data-t="page"]{background:var(--t-page)}
+.ix tbody tr td.no{padding-left:12px}
+.ix tbody tr[data-t="project"] td.no{box-shadow:inset 3px 0 var(--c-project)}
+.ix tbody tr[data-t="tool"] td.no{box-shadow:inset 3px 0 var(--c-tool)}
+.ix tbody tr[data-t="course"] td.no{box-shadow:inset 3px 0 var(--c-course)}
+.ix tbody tr[data-t="page"] td.no{box-shadow:inset 3px 0 var(--c-page)}
+.ix thead th.no button{padding-left:12px}
+.ix tbody tr.kb{filter:brightness(1.02)}
+.chip[data-f="project"]::before,.chip[data-f="tool"]::before,.chip[data-f="course"]::before,.chip[data-f="page"]::before{
+  content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:1px;vertical-align:0}
+.chip[data-f="project"]::before{background:var(--c-project)}
+.chip[data-f="tool"]::before{background:var(--c-tool)}
+.chip[data-f="course"]::before{background:var(--c-course)}
+.chip[data-f="page"]::before{background:var(--c-page)}
+
+@media (max-width:860px){
+  .hc{margin-bottom:30px}
+  .hc-track{gap:12px}
+  .hc-track > li{flex-basis:calc((100% - 12px) / 2)}
+  .ix td.no{width:52px}
+}
+@media (max-width:600px){
+  .hc-track > li{flex-basis:80%}
+  .hc-tx b{font-size:16px}
+  .hc-h .label{font-size:11px}
+}
+
 </style>
 <script>
 // Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
@@ -310,9 +373,26 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   </div>
 </section>
 
-<section class="sel" aria-label="Selected work">
-  <a href="work/upside-down-chalet/"><img src="work/upside-down-chalet/thumb_render.webp" alt="" loading="lazy" width="1200" height="750"><span><b><span class="en">The Upside-Down Chalet</span><span class="zh" lang="zh-Hant">倒置木屋</span></b><i>P01 · 2017</i></span></a>
-  <a href="work/cocotte/"><img src="work/cocotte/thumb_render.webp" alt="" loading="lazy" width="1200" height="750"><span><b><span class="en">Cocotte</span><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></b><i>P02 · 2013</i></span></a>
+<section class="hc" id="hc" aria-roledescription="carousel" aria-label="Selected work, tools and courses">
+  <div class="hc-h">
+    <span class="label"><span class="en">Selected · work, lab, courses</span><span class="zh" lang="zh-Hant">精選 · 作品、實驗室、課程</span></span>
+    <span class="hc-ctl" hidden>
+      <button type="button" class="hc-b" data-go="-1" aria-label="Previous" aria-controls="hcTrack">&larr;</button>
+      <button type="button" class="hc-b hc-pp" data-pp aria-controls="hcTrack"><span class="en">Pause</span><span class="zh" lang="zh-Hant">暫停</span></button>
+      <button type="button" class="hc-b" data-go="1" aria-label="Next" aria-controls="hcTrack">&rarr;</button>
+    </span>
+  </div>
+  <ul class="hc-track" id="hcTrack" tabindex="0" aria-label="Selected work, tools and courses">
+    <li><a href="work/upside-down-chalet/" draggable="false"><span class="hc-im"><img src="work/upside-down-chalet/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">The Upside-Down Chalet</span><span class="zh" lang="zh-Hant">倒置木屋</span></b><i class="en">Work · 2017</i><i class="zh" lang="zh-Hant">作品 · 2017</i></span></a></li>
+    <li><a href="https://anzonwong.com/hk-wind-sketch/" draggable="false"><span class="hc-im"><img src="img/lab/hk-wind-sketch.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Wind Sketch</span><span class="zh" lang="zh-Hant">香港風環境草圖</span></b><i class="en">Lab · Hong Kong</i><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
+    <li><a href="courses/#basic" draggable="false"><span class="hc-im"><img src="courses/img/l3.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></b><i class="en">Course · Basic</i><i class="zh" lang="zh-Hant">課程 · 基礎班</i></span></a></li>
+    <li><a href="work/cocotte/" draggable="false"><span class="hc-im"><img src="work/cocotte/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Cocotte</span><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></b><i class="en">Work · 2013</i><i class="zh" lang="zh-Hant">作品 · 2013</i></span></a></li>
+    <li><a href="https://anzonwong.com/hk-regs-map/" draggable="false"><span class="hc-im"><img src="img/lab/hk-regs-map.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Building Regulations Map</span><span class="zh" lang="zh-Hant">香港建築規例關係地圖</span></b><i class="en">Lab · Hong Kong</i><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
+    <li><a href="courses/#advanced" draggable="false"><span class="hc-im"><img src="courses/img/adv.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"><em class="hc-tag"><span class="en">Enrolling · from 24 Oct</span><span class="zh" lang="zh-Hant">接受報名 · 10 月 24 日起</span></em></span><span class="hc-tx"><b><span class="en">From tender to handover</span><span class="zh" lang="zh-Hant">由投標到交樓</span></b><i class="en">Course · Advanced</i><i class="zh" lang="zh-Hant">課程 · 進階班</i></span></a></li>
+    <li><a href="work/family-flat-hong-kong/" draggable="false"><span class="hc-im"><img src="work/family-flat-hong-kong/thumb.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Family flat, Hong Kong</span><span class="zh" lang="zh-Hant">香港家庭住宅</span></b><i class="en">Work · 2015</i><i class="zh" lang="zh-Hant">作品 · 2015</i></span></a></li>
+    <li><a href="https://anzonwong.com/uk-reg3-checker/" draggable="false"><span class="hc-im"><img src="img/lab/uk-reg3-checker.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Reg 3 Checker</span><span class="zh" lang="zh-Hant">Reg 3 檢查器</span></b><i class="en">Lab · United Kingdom</i><i class="zh" lang="zh-Hant">實驗室 · 英國</i></span></a></li>
+    <li><a href="courses/ai-101/" draggable="false"><span class="hc-im"><img src="courses/ai-101/cover.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">AI 101</span><span class="zh" lang="zh-Hant">AI 101</span></b><i class="en">Free handbook</i><i class="zh" lang="zh-Hant">免費手冊</i></span></a></li>
+  </ul>
 </section>
 
 <div class="ix-wrap" data-ix>
@@ -730,6 +810,66 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   function relabel(){ if(qi){ var zh = lang() === 'zh'; qi.placeholder = zh ? '搜尋目錄' : 'Search the index'; qi.setAttribute('aria-label', qi.placeholder); } }
   document.addEventListener('awlang', function(){ relabel(); draw(); });
   relabel(); draw();
+})();
+
+</script>
+<script>
+// Home carousel (走馬燈): steps one tile every 4 s, loops back to the start, pauses on hover, focus or touch
+// (resumes 8 s after the last touch), when off screen or the tab is hidden. prefers-reduced-motion: no auto-scroll.
+// Without this script the track is a plain swipeable, scroll-snapped row and the buttons stay hidden.
+(function(){
+  var root = document.getElementById('hc'), tr = document.getElementById('hcTrack');
+  if(!root || !tr || !tr.children.length) return;
+  var ctl = root.querySelector('.hc-ctl'), pp = root.querySelector('[data-pp]');
+  var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches: false};
+  var playing = !rm.matches, hover = false, focus = false, quietUntil = 0, onScreen = true;
+  ctl.hidden = false;
+
+  function beh(){ return rm.matches ? 'auto' : 'smooth'; }
+  function stepPx(){
+    var li = tr.children[0], gap = parseFloat(getComputedStyle(tr).columnGap) || 0;
+    return li.getBoundingClientRect().width + gap;
+  }
+  function go(d){
+    var max = tr.scrollWidth - tr.clientWidth;
+    if(max <= 2) return;
+    if(d > 0 && tr.scrollLeft >= max - 4) tr.scrollTo({left: 0, behavior: beh()});
+    else if(d < 0 && tr.scrollLeft <= 4) tr.scrollTo({left: max, behavior: beh()});
+    else tr.scrollBy({left: d * stepPx(), behavior: beh()});
+  }
+  function setPP(){
+    pp.setAttribute('aria-pressed', playing ? 'false' : 'true');
+    pp.innerHTML = playing ? '<span class="en">Pause</span><span class="zh" lang="zh-Hant">暫停</span>'
+                           : '<span class="en">Play</span><span class="zh" lang="zh-Hant">播放</span>';
+    tr.setAttribute('aria-live', playing ? 'off' : 'polite');
+  }
+  function quiet(ms){ quietUntil = Date.now() + ms; }
+
+  setInterval(function(){
+    if(playing && !hover && !focus && onScreen && !document.hidden && Date.now() > quietUntil) go(1);
+  }, 4000);
+
+  root.addEventListener('mouseenter', function(){ hover = true; });
+  root.addEventListener('mouseleave', function(){ hover = false; });
+  root.addEventListener('focusin', function(){ focus = true; });
+  root.addEventListener('focusout', function(e){ if(!root.contains(e.relatedTarget)) focus = false; });
+  tr.addEventListener('touchstart', function(){ quiet(8000); }, {passive: true});
+  tr.addEventListener('pointerdown', function(){ quiet(8000); });
+  tr.addEventListener('wheel', function(){ quiet(8000); }, {passive: true});
+  tr.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
+    else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+  });
+  ctl.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    if(b.hasAttribute('data-pp')){ playing = !playing; setPP(); return; }
+    go(+b.getAttribute('data-go')); quiet(8000);
+  });
+  if(rm.addEventListener) rm.addEventListener('change', function(){ if(rm.matches){ playing = false; setPP(); } });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }, {threshold: 0.3}).observe(tr);
+  }
+  setPP();
 })();
 
 </script>
