@@ -280,56 +280,164 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* journal (2026-10-18): index list + article pages. Same tokens and type as the rest of the site. */
+/* journal (2026-10-18, magazine): index = "the issue" (mock A), article = "review" (mock B). Site tokens and type only. */
+.jm-mono{font:11.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+:root[data-lang="zh"] .jm-mono{letter-spacing:.1em}
+.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(29,28,26,.45)}
+.jm-mat img{width:100%;height:auto;margin:0 auto}
+
+/* ---- index: mast */
+.jm-mast{border-bottom:1px solid var(--ink)}
+.jm-strip{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:18px 0 0}
+.jm-word{font:400 clamp(76px,17vw,230px)/.84 var(--serif);letter-spacing:-.035em;margin:12px 0 0;padding-bottom:.08em}
+:root[data-lang="zh"] .jm-word{letter-spacing:.06em;line-height:1.05;font-weight:700}
+.jm-intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;border-top:3px solid var(--ink);padding:14px 0 18px}
+.jm-intro p{margin:0;font:17px/1.5 var(--serif);color:var(--ink-2);max-width:36em}
+.jm-intro .jm-mono{text-align:right;align-self:end}
+
+/* ---- index: cover story */
+.jm-cover{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:clamp(28px,5vw,64px) 0;border-bottom:1px solid var(--rule);align-items:center;text-decoration:none;color:var(--ink)}
+.jm-covpic img{max-height:78vh;width:auto;max-width:100%}
+.jm-k{font:12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.jm-covh{font:400 clamp(32px,4.4vw,60px)/1.06 var(--serif);letter-spacing:-.015em;margin:14px 0 18px;text-wrap:balance}
+.jm-covh.t-mid{font-size:clamp(28px,3.6vw,48px)}
+.jm-covh.t-long{font-size:clamp(25px,3vw,40px);line-height:1.12}
+:root[data-lang="zh"] .jm-covh{line-height:1.3;letter-spacing:.02em}
+.jm-covtx p{font:19px/1.55 var(--serif);color:var(--ink-2);margin:0 0 20px}
+.jm-by{display:block;font:12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.jm-read{display:inline-block;margin-top:18px;font:14px var(--sans);border-bottom:1px solid var(--accent)}
+.jm-cover:hover .jm-covh{color:var(--accent)}
+
+/* ---- index: sections */
+.jm-sec{padding:clamp(28px,4vw,48px) 0 8px}
+.jm-sh{display:flex;align-items:baseline;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:22px}
+.jm-sh h3{font:400 clamp(26px,3.4vw,44px)/1.1 var(--serif);margin:0}
+.jm-sh .jm-mono{margin-left:auto;white-space:nowrap}
+a.jm-all{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--accent)}
+a.jm-all:hover{color:var(--accent)}
+.jm-toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+.jm-toc a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jm-toc .n{font:400 40px/1 var(--serif);color:var(--accent)}
+.jm-toc b{display:block;font:400 19px/1.3 var(--serif);margin-bottom:4px}
+.jm-toc a:hover b{color:var(--accent)}
+/* one row per section: prints in a uniform mat, the picture whole (never cropped) */
+.jm-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.jm-card a{display:block;text-decoration:none;color:var(--ink)}
+.jm-card .jm-mat{padding:8px;box-shadow:none;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.jm-card .jm-mat img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.jm-card b{display:block;font:400 18px/1.3 var(--serif);margin:10px 0 4px;overflow-wrap:anywhere}
+.jm-card a:hover b{color:var(--accent)}
+.jm-tc{display:flex;flex-direction:column;justify-content:space-between;gap:10px;width:100%;height:100%;padding:16px;background:var(--ink);color:var(--paper)}
+.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#d98a68!important;margin:0!important}
+.jm-tc i{font:400 20px/1.3 var(--serif);font-style:normal;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jm-tc-big{aspect-ratio:4/3}.jm-tc-big i{font-size:clamp(26px,3vw,40px);-webkit-line-clamp:5}
+.jm-back{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.jm-back details{border-top:1px solid var(--ink);padding-top:10px}
+.jm-back summary{cursor:pointer;list-style:none;font:400 26px/1.2 var(--serif)}
+.jm-back summary::-webkit-details-marker{display:none}
+.jm-back summary:after{content:" +";color:var(--accent)}
+.jm-back details[open] summary:after{content:" \2212"}
+.jm-back summary small{display:block;font:11px/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.jm-back ol{margin:10px 0 0;padding:0 0 0 1.6em;font:14px/1.45 var(--sans);color:var(--ink-2)}
+.jm-back li{margin:0 0 6px}
+.jm-full{scroll-margin-top:12px}
+
+/* full list (filter + search) */
 .jx-ctl2{position:static;border-top:0;border-bottom:1px solid var(--rule)}
 .jx-list{list-style:none;margin:0;padding:0}
-.jx a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jx a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
 .jx a:hover .jx-ti{color:var(--accent)}
-.jx-im{display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
-.jx-im img{width:100%;height:100%;object-fit:cover}
-.jx-im.noimg{display:flex;align-items:flex-end;padding:10px;font:10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.jx-im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:var(--card);padding:4px}
+.jx-im img{max-width:100%;max-height:100%;width:auto;height:auto}
+.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d98a68}
 .jx-tx{display:block;min-width:0}
 .jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.jx-ti{display:block;font:400 21px/1.3 var(--serif);margin:5px 0 6px}
+.jx-ti{display:block;font:400 20px/1.3 var(--serif);margin:5px 0 6px}
 .jx-sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:14.5px/1.55 var(--sans);color:var(--ink-2)}
-.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2)}
+.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2);font:10.5px/1.6 var(--mono);letter-spacing:.04em;vertical-align:1px}
 .jx-mini .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px 0}
 .jx-mini .jx-ti{font-size:17px}
 .jx-mini .jx-sum{display:none}
 :root[data-lang="zh"] .jx-ti{letter-spacing:.02em}
 
-.j-head h1{font-size:clamp(30px,4.2vw,54px);line-height:1.12;max-width:20em}
-.j-meta{font:11.5px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:18px 0 0}
-.j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:calc((100% - var(--gutter)) / 6 + var(--gutter))}
-.j-body{max-width:38em;padding-top:clamp(28px,4vw,44px);font:18px/1.72 var(--serif);color:var(--ink)}
-.j-body p{margin:0 0 1.1em}
-.j-body ul{margin:0 0 1.1em;padding-left:1.2em}
-.j-body li{margin:0 0 .4em}
-.j-body a{word-break:break-all}
-:root[data-lang="zh"] .j-body{font-size:17.5px;line-height:1.9;letter-spacing:.03em}
-.j-gal{display:grid;gap:18px;margin-top:clamp(20px,3vw,32px);max-width:60em}
-.j-gal.j-n2,.j-gal.j-n3{grid-template-columns:repeat(2,minmax(0,1fr))}
-.j-fig{margin:0;padding:10px;background:var(--card);border:1px solid var(--rule);border-radius:3px;align-self:start}
-.j-fig img{width:100%;height:auto;margin:0 auto}
-.j-end{max-width:38em;margin-top:clamp(24px,3vw,36px);padding-top:18px;border-top:1px solid var(--ink)}
+/* ---- article: dark title band (full bleed without widening the page) */
+.jr-band{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding:clamp(32px,6vw,80px) 0 clamp(24px,4vw,48px)}
+.jr-band a{color:var(--paper)}
+.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#f0b49a}
+.jr-k a{color:#f0b49a;text-decoration:none;border-bottom:1px solid rgba(240,180,154,.5)}
+.jr-h{font:400 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
+.jr-h.t-mid{font-size:clamp(32px,4.8vw,66px);max-width:17em}
+.jr-h.t-long{font-size:clamp(28px,3.9vw,54px);line-height:1.1;max-width:20em}
+:root[data-lang="zh"] .jr-h{line-height:1.25;letter-spacing:.03em}
+.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#d9d3c7;max-width:34em;margin:0}
+.jr-stand a{word-break:break-all}
+.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #4a4741;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jr-plate0{margin:clamp(20px,3vw,36px) 0 0}
+.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#2b2926}
+.jr-cap{font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.jr-band .jr-cap{color:#9a9386}
+
+/* ---- article: facts rail + text */
+.jr-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,56px);padding-top:clamp(32px,5vw,64px)}
+.jr-rail{align-self:start;position:sticky;top:20px}
+.jr-rail dl{margin:0;border-top:3px solid var(--ink)}
+.jr-rail dt{font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:10px}
+.jr-rail dd{margin:0;padding:2px 0 10px;border-bottom:1px solid var(--rule);font:15px/1.4 var(--serif)}
+.jr-body{min-width:0}
+.jr-txt{font:18px/1.72 var(--serif);color:var(--ink);max-width:40em}
+:root[data-lang="zh"] .jr-txt{font-size:17.5px;line-height:1.95;letter-spacing:.03em}
+.jr-txt p{margin:0 0 1em}
+.jr-txt ul,.jr-txt ol{margin:0 0 1em;padding-left:1.2em}
+.jr-txt li{margin:0 0 .4em}
+.jr-txt a{word-break:break-all}
+.jr-txt pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0;max-width:100%}
+.jr-drop>p:first-child::first-letter{float:left;font:400 4.6em/.8 var(--serif);color:var(--accent);padding:.07em .1em 0 0}
+:root[data-lang="zh"] .jr-drop>p:first-child::first-letter{font-size:3.4em;line-height:1;padding:.04em .12em 0 0}
+@media (min-width:1100px){
+  .jr-c2{max-width:none;column-count:2;column-gap:44px;column-rule:1px solid var(--rule)}
+  .jr-c2 p,.jr-c2 li{break-inside:avoid-column}
+}
+.jr-pull{margin:clamp(24px,4vw,44px) 0;padding:clamp(18px,3vw,28px) 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);max-width:40em}
+.jr-pull p{margin:0;font:400 clamp(26px,3.4vw,42px)/1.18 var(--serif);letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
+:root[data-lang="zh"] .jr-pull p{line-height:1.45;letter-spacing:.04em}
+.jr-pull:before{content:"\201C";display:block;font:400 64px/.6 var(--serif);color:var(--ink);margin-bottom:6px}
+.jr-plate{margin:0}
+.jr-plate img{width:auto;max-width:100%;max-height:86vh;border:1px solid var(--rule)}
+.jr-mid{margin:8px 0 clamp(24px,4vw,40px)}
+.jr-plates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:clamp(28px,4vw,48px);align-items:start}
+.jr-plates.jr-one{grid-template-columns:minmax(0,1fr)}
+.jr-endmark{width:.6em;height:.6em;background:var(--accent);margin:0 0 4px}
+.j-end{max-width:40em;margin-top:clamp(20px,3vw,28px);padding-top:16px;border-top:1px solid var(--ink)}
 .j-orig{display:inline-block;font:13px/1.4 var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--accent);color:var(--ink)}
 .j-pair{margin:14px 0 0;color:var(--ink-2)}
-.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--rule)}
+.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(36px,5vw,56px)}
+.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--ink);color:var(--ink)}
 .j-pn a small{display:block;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.j-pn a span{font:17px/1.35 var(--serif)}
+.j-pn a span{font:18px/1.35 var(--serif)}
 .j-pn .j-newer{text-align:right;grid-column:2}
-.j-rel{margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-rel .label{margin-bottom:6px}
+.jr-more{padding:clamp(28px,4vw,48px) 0 0}
+
 @media (max-width:860px){
-  .j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:0}
-  .j-gal.j-n2,.j-gal.j-n3{grid-template-columns:1fr}
-  .jx a{grid-template-columns:84px minmax(0,1fr);gap:14px}
+  .jm-intro,.jm-cover{grid-template-columns:1fr}
+  .jm-intro .jm-mono{text-align:left}
+  .jm-covpic img{max-height:none;width:100%}
+  .jm-toc{grid-template-columns:1fr}.jm-toc a{grid-template-columns:44px minmax(0,1fr)}.jm-toc .n{font-size:30px}
+  .jm-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter);padding-bottom:6px;overscroll-behavior-x:contain}
+  .jm-row>li{flex:0 0 62%;scroll-snap-align:start;min-width:0}
+  .jm-back{grid-template-columns:1fr}
+  .jm-sh .jm-mono{font-size:10.5px}
+  .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px}
   .jx-ti{font-size:18px}
+  .jr-grid{grid-template-columns:1fr}
+  .jr-rail{position:static}
+  .jr-rail dl{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+  .jr-plates{grid-template-columns:1fr}
+  .jr-plate img,.jr-plate0 img{max-height:none;width:100%}
+  .jr-plate0 img{width:auto}
   .j-pn{grid-template-columns:1fr}
   .j-pn .j-newer{text-align:left;grid-column:auto}
 }
-.j-body pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0}
 
 </style>
 <script>
@@ -360,36 +468,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   </div>
 </header>
 <main class="wrap">
-<article class="j-art">
-<header class="head j-head">
-  <div class="label"><a href="../">文章</a> / AI 新聞</div>
-  <div>
-    <h1 lang="zh-Hant">過去兩年,我哋一路等緊同一件事:AI 搶走份工。上個禮拜出嘅數字話,未發生</h1>
-    <p class="j-meta"><time datetime="2026-09-08">2026 年 9 月 8 日</time> · AI 新聞 · 首發於 Facebook</p>
-  </div>
+<article class="jr">
+<div class="jr-band">
+<header class="jr-head">
+  <div class="jr-k"><a href="../">文章</a> · AI 新聞</div>
+  <h1 class="jr-h" lang="zh-Hant">過去兩年,我哋一路等緊同一件事:AI 搶走份工。上個禮拜出嘅數字話,未發生</h1>
+  <p class="jr-stand">9 月 4 號,美國勞工統計局公布 8 月新增 16.2 萬份工,遠高過預期,失業率 4.1%。呢個水平,喺過去半個世紀所有月份入面,接近九成都冇佢咁低。同一日,《經濟學人》幫呢盤數埋咗一次單:AI 喺美國大約創造咗一百萬份工,而歸咎於 AI 嘅裁員,大約二十萬。</p>
+  <p class="jr-meta"><span>文：Anzon Wong</span><span><time datetime="2026-09-08">2026 年 9 月 8 日</time></span><span>閱讀約 2 分鐘</span><span>1 幅圖</span></p>
 </header>
-<div class="j-body" lang="zh-Hant">
-<p>9 月 4 號,美國勞工統計局公布 8 月新增 16.2 萬份工,遠高過預期,失業率 4.1%。呢個水平,喺過去半個世紀所有月份入面,接近九成都冇佢咁低。同一日,《經濟學人》幫呢盤數埋咗一次單:AI 喺美國大約創造咗一百萬份工,而歸咎於 AI 嘅裁員,大約二十萬。</p>
-<p>最估唔到嗰組數係後生仔。大家一路話 20 至 24 歲會係第一批中招。而家佢哋嘅失業率同整體失業率之間嘅距離,接近幾十年嚟最窄。</p>
-<p>所以標題係啱嘅:災難押後咗。</p>
-<p>但我停低嘅位,唔係總數。</p>
-<p>係邊啲工消失咗,邊啲工出現咗。</p>
-<p>由 2023 年年中計起,客戶服務嘅職位少咗大約一成,行政助理少咗大約一成半。而增長最勁嗰批,係最貼近 AI 嗰啲位置:工程師、開發、數學、數據科學,由 2022 年起比原本趨勢多咗大約 73 萬份。仲有一大截係起數據中心,建築開支按年升六成,做維護嗰啲人工比同類工作高大約四成。</p>
-<p>盤數係打和,甚至有賺。但走咗嗰啲同新增嗰啲,唔喺條梯上面同一個位置。</p>
-<p>走咗嗰啲,好多都係一個人「第一份工」嗰級。</p>
-<p>呢樣嘢我喺自己行業睇得好清楚。以前一個啱畢業嘅同事,係靠幫手做嗰啲重複嘅整理、對圖、寫初稿,慢慢摸熟成件事。而家嗰批嘢,我開個 agent,半個鐘攞得返。我唔會扮清高話自己唔用,我日日都用。但有件事要照認:我踩上嚟嗰條梯,最低嗰級係我踩過先上到嚟,而我而家正在幫手拆走佢。</p>
-<p>所以我唔擔心「將來冇工做」。我擔心嘅係:第一級喺邊?</p>
-<p>📌 呢啲數要打嘅折,照講:全部都係美國數據,唔係英國,更加唔係香港。「因為 AI 而裁員」呢個數本身好虛,好少公司會將個原因寫落公告。起數據中心嗰批工,本身就有到期日,起完就冇。而兩年,對一場結構性轉變嚟講係好短嘅時間,「而家未見到」唔等於「唔會發生」。</p>
-<p>方向我信。但呢一刻真正嘅問題,唔係細路將來有冇工做,係佢哋由邊度入到行。</p>
-<p>你哋屋企嗰個,如果十年後入職場,你估佢第一級會踩喺邊?</p>
+<figure class="jr-plate0"><img src="../../../journal/img/two-years-we-have-all-been/01.webp" alt="" width="1080" height="1080" loading="eager" decoding="async"><figcaption class="jr-cap">圖 01 / 01</figcaption></figure>
 </div>
-<div class="j-gal j-n1"><figure class="j-fig"><img src="../../../journal/img/two-years-we-have-all-been/01.webp" alt="" loading="eager" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure></div>
+<div class="jr-grid">
+<aside class="jr-rail"><dl>
+  <dt>發表</dt><dd><time datetime="2026-09-08">2026 年 9 月 8 日</time></dd>
+  <dt>分類</dt><dd><a href="../#c=ai-news">AI 新聞</a></dd>
+  <dt>閱讀</dt><dd>約 2 分鐘</dd>
+  <dt>原載於</dt><dd><a href="https://www.facebook.com/photo/?fbid=10175055402300702" rel="noopener">Facebook &#8599;</a></dd>
+</dl></aside>
+<div class="jr-body" lang="zh-Hant">
+<div class="jr-txt jr-drop"><p>最估唔到嗰組數係後生仔。大家一路話 20 至 24 歲會係第一批中招。而家佢哋嘅失業率同整體失業率之間嘅距離,接近幾十年嚟最窄。</p><p>所以標題係啱嘅:災難押後咗。</p><p>但我停低嘅位,唔係總數。</p><p>係邊啲工消失咗,邊啲工出現咗。</p><p>由 2023 年年中計起,客戶服務嘅職位少咗大約一成,行政助理少咗大約一成半。而增長最勁嗰批,係最貼近 AI 嗰啲位置:工程師、開發、數學、數據科學,由 2022 年起比原本趨勢多咗大約 73 萬份。仲有一大截係起數據中心,建築開支按年升六成,做維護嗰啲人工比同類工作高大約四成。</p><p>盤數係打和,甚至有賺。但走咗嗰啲同新增嗰啲,唔喺條梯上面同一個位置。</p><p>走咗嗰啲,好多都係一個人「第一份工」嗰級。</p></div><blockquote class="jr-pull"><p>仲有一大截係起數據中心,建築開支按年升六成,做維護嗰啲人工比同類工作高大約四成。</p></blockquote><div class="jr-txt"><p>呢樣嘢我喺自己行業睇得好清楚。以前一個啱畢業嘅同事,係靠幫手做嗰啲重複嘅整理、對圖、寫初稿,慢慢摸熟成件事。而家嗰批嘢,我開個 agent,半個鐘攞得返。我唔會扮清高話自己唔用,我日日都用。但有件事要照認:我踩上嚟嗰條梯,最低嗰級係我踩過先上到嚟,而我而家正在幫手拆走佢。</p><p>所以我唔擔心「將來冇工做」。我擔心嘅係:第一級喺邊?</p><p>📌 呢啲數要打嘅折,照講:全部都係美國數據,唔係英國,更加唔係香港。「因為 AI 而裁員」呢個數本身好虛,好少公司會將個原因寫落公告。起數據中心嗰批工,本身就有到期日,起完就冇。而兩年,對一場結構性轉變嚟講係好短嘅時間,「而家未見到」唔等於「唔會發生」。</p><p>方向我信。但呢一刻真正嘅問題,唔係細路將來有冇工做,係佢哋由邊度入到行。</p><p>你哋屋企嗰個,如果十年後入職場,你估佢第一級會踩喺邊?</p></div>
+
+<p class="jr-endmark" aria-hidden="true"></p>
 <div class="j-end">
   <a class="j-orig" href="https://www.facebook.com/photo/?fbid=10175055402300702" rel="noopener">在 Facebook 查看原帖 &rarr;</a>
   
 </div>
+</div>
+</div>
 <nav class="j-pn" aria-label="較早及較新文章"><a class="j-older" href="../ai-agent-equipment-14/"><small>較早</small><span>AI Agent 裝備 14 · 唔做嘢就要大聲講</span></a><a class="j-newer" href="../2026-09-09-the-folder-tree-is-a-trailer/"><small>較新</small><span>我今朝數過:我部機上面有 46 個 CLAUDE.md</span></a></nav>
-<section class="j-rel"><div class="label">同類文章</div><ol class="jx-list jx-mini"><li class="jx" data-c="ai-news" data-l="en zh" data-q="i counted this morning: 46 claude.md files on my machine 我今朝數過:我部機上面有 46 個 claude.md"><a href="../2026-09-09-the-folder-tree-is-a-trailer/"><span class="jx-im"><img src="../../../journal/img/2026-09-09-the-folder-tree-is-a-trailer/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-09">2026 年 9 月 9 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">我今朝數過:我部機上面有 46 個 CLAUDE.md</b><span class="jx-sum">事緣我喺 Instagram 見到一張 Claude Code 專案結構圖,畫得幾靚⋯CLAUDE.md、.mcp.json、.claude/ 入面 set…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="a desktop machine can now hold a 300-billion-parameter model 一部枱頭機,而家裝得落一個三千億參數嘅模型。裝得落,唔等於行得順"><a href="../2026-09-07-fits-is-not-the-same-as-runs/"><span class="jx-im"><img src="../../../journal/img/2026-09-07-fits-is-not-the-same-as-runs/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-07">2026 年 9 月 7 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">一部枱頭機,而家裝得落一個三千億參數嘅模型。裝得落,唔等於行得順</b><span class="jx-sum">上星期五 AMD 喺柏林 IFA 開幕主題演講出咗 Ryzen AI Max PRO 400,代號 Gorgon Halo。賣點就係一個數字:192GB u…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="buried in the advice the us government just gave its own ai labs is this 美國政府畀本土 ai 公司嘅建議入面"><a href="../2026-09-10-industrial-scale-distillation/"><span class="jx-im"><img src="../../../journal/img/2026-09-10-industrial-scale-distillation/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-10">2026 年 9 月 10 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">美國政府畀本土 AI 公司嘅建議入面</b><span class="jx-sum">…有一條係咁寫:遇到疑似偷師嘅帳戶,唔使封,照答佢,但答差少少,而且唔好話俾佢知。 9 月 8 號,NSA、CISA 同 FBI 出咗一份聯合警告,點名六間…</span></span></a></li></ol></section>
+<section class="jr-more"><div class="jm-sh"><h3>更多AI 新聞</h3><a class="jm-mono jm-all" href="../#c=ai-news">全部 &rarr;</a></div>
+<ul class="jm-row"><li class="jm-card"><a href="../2026-09-09-the-folder-tree-is-a-trailer/"><span class="jm-mat"><img src="../../../journal/img/2026-09-09-the-folder-tree-is-a-trailer/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>我今朝數過:我部機上面有 46 個 CLAUDE.md</b><span class="jm-mono"><time datetime="2026-09-09">2026 年 9 月 9 日</time></span></a></li><li class="jm-card"><a href="../2026-09-07-fits-is-not-the-same-as-runs/"><span class="jm-mat"><img src="../../../journal/img/2026-09-07-fits-is-not-the-same-as-runs/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>一部枱頭機,而家裝得落一個三千億參數嘅模型。裝得落,唔等於行得順</b><span class="jm-mono"><time datetime="2026-09-07">2026 年 9 月 7 日</time></span></a></li><li class="jm-card"><a href="../2026-09-10-industrial-scale-distillation/"><span class="jm-mat"><img src="../../../journal/img/2026-09-10-industrial-scale-distillation/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>美國政府畀本土 AI 公司嘅建議入面</b><span class="jm-mono"><time datetime="2026-09-10">2026 年 9 月 10 日</time></span></a></li><li class="jm-card"><a href="../everyone-watching-humanoids-guessing-when-one/"><span class="jm-mat"><img src="../../../journal/img/everyone-watching-humanoids-guessing-when-one/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>大家望住嗰啲識行識跳嘅人形機器人,估佢幾時入到屋</b><span class="jm-mono"><time datetime="2026-09-06">2026 年 9 月 6 日</time></span></a></li></ul></section>
 </article>
 </main>
 <footer class="foot">

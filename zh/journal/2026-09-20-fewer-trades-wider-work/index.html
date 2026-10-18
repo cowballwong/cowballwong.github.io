@@ -277,56 +277,164 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* journal (2026-10-18): index list + article pages. Same tokens and type as the rest of the site. */
+/* journal (2026-10-18, magazine): index = "the issue" (mock A), article = "review" (mock B). Site tokens and type only. */
+.jm-mono{font:11.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+:root[data-lang="zh"] .jm-mono{letter-spacing:.1em}
+.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(29,28,26,.45)}
+.jm-mat img{width:100%;height:auto;margin:0 auto}
+
+/* ---- index: mast */
+.jm-mast{border-bottom:1px solid var(--ink)}
+.jm-strip{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:18px 0 0}
+.jm-word{font:400 clamp(76px,17vw,230px)/.84 var(--serif);letter-spacing:-.035em;margin:12px 0 0;padding-bottom:.08em}
+:root[data-lang="zh"] .jm-word{letter-spacing:.06em;line-height:1.05;font-weight:700}
+.jm-intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;border-top:3px solid var(--ink);padding:14px 0 18px}
+.jm-intro p{margin:0;font:17px/1.5 var(--serif);color:var(--ink-2);max-width:36em}
+.jm-intro .jm-mono{text-align:right;align-self:end}
+
+/* ---- index: cover story */
+.jm-cover{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:clamp(28px,5vw,64px) 0;border-bottom:1px solid var(--rule);align-items:center;text-decoration:none;color:var(--ink)}
+.jm-covpic img{max-height:78vh;width:auto;max-width:100%}
+.jm-k{font:12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.jm-covh{font:400 clamp(32px,4.4vw,60px)/1.06 var(--serif);letter-spacing:-.015em;margin:14px 0 18px;text-wrap:balance}
+.jm-covh.t-mid{font-size:clamp(28px,3.6vw,48px)}
+.jm-covh.t-long{font-size:clamp(25px,3vw,40px);line-height:1.12}
+:root[data-lang="zh"] .jm-covh{line-height:1.3;letter-spacing:.02em}
+.jm-covtx p{font:19px/1.55 var(--serif);color:var(--ink-2);margin:0 0 20px}
+.jm-by{display:block;font:12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.jm-read{display:inline-block;margin-top:18px;font:14px var(--sans);border-bottom:1px solid var(--accent)}
+.jm-cover:hover .jm-covh{color:var(--accent)}
+
+/* ---- index: sections */
+.jm-sec{padding:clamp(28px,4vw,48px) 0 8px}
+.jm-sh{display:flex;align-items:baseline;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:22px}
+.jm-sh h3{font:400 clamp(26px,3.4vw,44px)/1.1 var(--serif);margin:0}
+.jm-sh .jm-mono{margin-left:auto;white-space:nowrap}
+a.jm-all{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--accent)}
+a.jm-all:hover{color:var(--accent)}
+.jm-toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+.jm-toc a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jm-toc .n{font:400 40px/1 var(--serif);color:var(--accent)}
+.jm-toc b{display:block;font:400 19px/1.3 var(--serif);margin-bottom:4px}
+.jm-toc a:hover b{color:var(--accent)}
+/* one row per section: prints in a uniform mat, the picture whole (never cropped) */
+.jm-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.jm-card a{display:block;text-decoration:none;color:var(--ink)}
+.jm-card .jm-mat{padding:8px;box-shadow:none;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.jm-card .jm-mat img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.jm-card b{display:block;font:400 18px/1.3 var(--serif);margin:10px 0 4px;overflow-wrap:anywhere}
+.jm-card a:hover b{color:var(--accent)}
+.jm-tc{display:flex;flex-direction:column;justify-content:space-between;gap:10px;width:100%;height:100%;padding:16px;background:var(--ink);color:var(--paper)}
+.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#d98a68!important;margin:0!important}
+.jm-tc i{font:400 20px/1.3 var(--serif);font-style:normal;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jm-tc-big{aspect-ratio:4/3}.jm-tc-big i{font-size:clamp(26px,3vw,40px);-webkit-line-clamp:5}
+.jm-back{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.jm-back details{border-top:1px solid var(--ink);padding-top:10px}
+.jm-back summary{cursor:pointer;list-style:none;font:400 26px/1.2 var(--serif)}
+.jm-back summary::-webkit-details-marker{display:none}
+.jm-back summary:after{content:" +";color:var(--accent)}
+.jm-back details[open] summary:after{content:" \2212"}
+.jm-back summary small{display:block;font:11px/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.jm-back ol{margin:10px 0 0;padding:0 0 0 1.6em;font:14px/1.45 var(--sans);color:var(--ink-2)}
+.jm-back li{margin:0 0 6px}
+.jm-full{scroll-margin-top:12px}
+
+/* full list (filter + search) */
 .jx-ctl2{position:static;border-top:0;border-bottom:1px solid var(--rule)}
 .jx-list{list-style:none;margin:0;padding:0}
-.jx a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jx a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
 .jx a:hover .jx-ti{color:var(--accent)}
-.jx-im{display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
-.jx-im img{width:100%;height:100%;object-fit:cover}
-.jx-im.noimg{display:flex;align-items:flex-end;padding:10px;font:10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.jx-im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:var(--card);padding:4px}
+.jx-im img{max-width:100%;max-height:100%;width:auto;height:auto}
+.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d98a68}
 .jx-tx{display:block;min-width:0}
 .jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.jx-ti{display:block;font:400 21px/1.3 var(--serif);margin:5px 0 6px}
+.jx-ti{display:block;font:400 20px/1.3 var(--serif);margin:5px 0 6px}
 .jx-sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:14.5px/1.55 var(--sans);color:var(--ink-2)}
-.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2)}
+.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2);font:10.5px/1.6 var(--mono);letter-spacing:.04em;vertical-align:1px}
 .jx-mini .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px 0}
 .jx-mini .jx-ti{font-size:17px}
 .jx-mini .jx-sum{display:none}
 :root[data-lang="zh"] .jx-ti{letter-spacing:.02em}
 
-.j-head h1{font-size:clamp(30px,4.2vw,54px);line-height:1.12;max-width:20em}
-.j-meta{font:11.5px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:18px 0 0}
-.j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:calc((100% - var(--gutter)) / 6 + var(--gutter))}
-.j-body{max-width:38em;padding-top:clamp(28px,4vw,44px);font:18px/1.72 var(--serif);color:var(--ink)}
-.j-body p{margin:0 0 1.1em}
-.j-body ul{margin:0 0 1.1em;padding-left:1.2em}
-.j-body li{margin:0 0 .4em}
-.j-body a{word-break:break-all}
-:root[data-lang="zh"] .j-body{font-size:17.5px;line-height:1.9;letter-spacing:.03em}
-.j-gal{display:grid;gap:18px;margin-top:clamp(20px,3vw,32px);max-width:60em}
-.j-gal.j-n2,.j-gal.j-n3{grid-template-columns:repeat(2,minmax(0,1fr))}
-.j-fig{margin:0;padding:10px;background:var(--card);border:1px solid var(--rule);border-radius:3px;align-self:start}
-.j-fig img{width:100%;height:auto;margin:0 auto}
-.j-end{max-width:38em;margin-top:clamp(24px,3vw,36px);padding-top:18px;border-top:1px solid var(--ink)}
+/* ---- article: dark title band (full bleed without widening the page) */
+.jr-band{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding:clamp(32px,6vw,80px) 0 clamp(24px,4vw,48px)}
+.jr-band a{color:var(--paper)}
+.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#f0b49a}
+.jr-k a{color:#f0b49a;text-decoration:none;border-bottom:1px solid rgba(240,180,154,.5)}
+.jr-h{font:400 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
+.jr-h.t-mid{font-size:clamp(32px,4.8vw,66px);max-width:17em}
+.jr-h.t-long{font-size:clamp(28px,3.9vw,54px);line-height:1.1;max-width:20em}
+:root[data-lang="zh"] .jr-h{line-height:1.25;letter-spacing:.03em}
+.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#d9d3c7;max-width:34em;margin:0}
+.jr-stand a{word-break:break-all}
+.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #4a4741;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jr-plate0{margin:clamp(20px,3vw,36px) 0 0}
+.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#2b2926}
+.jr-cap{font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.jr-band .jr-cap{color:#9a9386}
+
+/* ---- article: facts rail + text */
+.jr-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,56px);padding-top:clamp(32px,5vw,64px)}
+.jr-rail{align-self:start;position:sticky;top:20px}
+.jr-rail dl{margin:0;border-top:3px solid var(--ink)}
+.jr-rail dt{font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:10px}
+.jr-rail dd{margin:0;padding:2px 0 10px;border-bottom:1px solid var(--rule);font:15px/1.4 var(--serif)}
+.jr-body{min-width:0}
+.jr-txt{font:18px/1.72 var(--serif);color:var(--ink);max-width:40em}
+:root[data-lang="zh"] .jr-txt{font-size:17.5px;line-height:1.95;letter-spacing:.03em}
+.jr-txt p{margin:0 0 1em}
+.jr-txt ul,.jr-txt ol{margin:0 0 1em;padding-left:1.2em}
+.jr-txt li{margin:0 0 .4em}
+.jr-txt a{word-break:break-all}
+.jr-txt pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0;max-width:100%}
+.jr-drop>p:first-child::first-letter{float:left;font:400 4.6em/.8 var(--serif);color:var(--accent);padding:.07em .1em 0 0}
+:root[data-lang="zh"] .jr-drop>p:first-child::first-letter{font-size:3.4em;line-height:1;padding:.04em .12em 0 0}
+@media (min-width:1100px){
+  .jr-c2{max-width:none;column-count:2;column-gap:44px;column-rule:1px solid var(--rule)}
+  .jr-c2 p,.jr-c2 li{break-inside:avoid-column}
+}
+.jr-pull{margin:clamp(24px,4vw,44px) 0;padding:clamp(18px,3vw,28px) 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);max-width:40em}
+.jr-pull p{margin:0;font:400 clamp(26px,3.4vw,42px)/1.18 var(--serif);letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
+:root[data-lang="zh"] .jr-pull p{line-height:1.45;letter-spacing:.04em}
+.jr-pull:before{content:"\201C";display:block;font:400 64px/.6 var(--serif);color:var(--ink);margin-bottom:6px}
+.jr-plate{margin:0}
+.jr-plate img{width:auto;max-width:100%;max-height:86vh;border:1px solid var(--rule)}
+.jr-mid{margin:8px 0 clamp(24px,4vw,40px)}
+.jr-plates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:clamp(28px,4vw,48px);align-items:start}
+.jr-plates.jr-one{grid-template-columns:minmax(0,1fr)}
+.jr-endmark{width:.6em;height:.6em;background:var(--accent);margin:0 0 4px}
+.j-end{max-width:40em;margin-top:clamp(20px,3vw,28px);padding-top:16px;border-top:1px solid var(--ink)}
 .j-orig{display:inline-block;font:13px/1.4 var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--accent);color:var(--ink)}
 .j-pair{margin:14px 0 0;color:var(--ink-2)}
-.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--rule)}
+.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(36px,5vw,56px)}
+.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--ink);color:var(--ink)}
 .j-pn a small{display:block;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.j-pn a span{font:17px/1.35 var(--serif)}
+.j-pn a span{font:18px/1.35 var(--serif)}
 .j-pn .j-newer{text-align:right;grid-column:2}
-.j-rel{margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-rel .label{margin-bottom:6px}
+.jr-more{padding:clamp(28px,4vw,48px) 0 0}
+
 @media (max-width:860px){
-  .j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:0}
-  .j-gal.j-n2,.j-gal.j-n3{grid-template-columns:1fr}
-  .jx a{grid-template-columns:84px minmax(0,1fr);gap:14px}
+  .jm-intro,.jm-cover{grid-template-columns:1fr}
+  .jm-intro .jm-mono{text-align:left}
+  .jm-covpic img{max-height:none;width:100%}
+  .jm-toc{grid-template-columns:1fr}.jm-toc a{grid-template-columns:44px minmax(0,1fr)}.jm-toc .n{font-size:30px}
+  .jm-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter);padding-bottom:6px;overscroll-behavior-x:contain}
+  .jm-row>li{flex:0 0 62%;scroll-snap-align:start;min-width:0}
+  .jm-back{grid-template-columns:1fr}
+  .jm-sh .jm-mono{font-size:10.5px}
+  .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px}
   .jx-ti{font-size:18px}
+  .jr-grid{grid-template-columns:1fr}
+  .jr-rail{position:static}
+  .jr-rail dl{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+  .jr-plates{grid-template-columns:1fr}
+  .jr-plate img,.jr-plate0 img{max-height:none;width:100%}
+  .jr-plate0 img{width:auto}
   .j-pn{grid-template-columns:1fr}
   .j-pn .j-newer{text-align:left;grid-column:auto}
 }
-.j-body pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0}
 
 </style>
 <script>
@@ -357,57 +465,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   </div>
 </header>
 <main class="wrap">
-<article class="j-art">
-<header class="head j-head">
-  <div class="label"><a href="../">文章</a> / AI 新聞</div>
-  <div>
-    <h1 lang="zh-Hant">今日喺一個實驗入面見到一個數字,然後忽然明白咗一件關於我哋呢行將來會點嘅事</h1>
-    <p class="j-meta"><time datetime="2026-09-20">2026 年 9 月 20 日</time> · AI 新聞 · 首發於 Facebook</p>
-  </div>
+<article class="jr">
+<div class="jr-band">
+<header class="jr-head">
+  <div class="jr-k"><a href="../">文章</a> · AI 新聞</div>
+  <h1 class="jr-h" lang="zh-Hant">今日喺一個實驗入面見到一個數字,然後忽然明白咗一件關於我哋呢行將來會點嘅事</h1>
+  <p class="jr-stand">先講個數。</p>
+  <p class="jr-meta"><span>文：Anzon Wong</span><span><time datetime="2026-09-20">2026 年 9 月 20 日</time></span><span>閱讀約 4 分鐘</span><span>1 幅圖</span></p>
 </header>
-<div class="j-body" lang="zh-Hant">
-<p>先講個數。</p>
-<p>我而家做緊一個實驗,用一份真實嘅香港政府資助項目顧問投標,問一條好簡單嘅問題:用 AI 之後,究竟慳到幾多人手?</p>
-<p>唔係憑感覺講。係砌咗一個 81 個工序嘅工作計劃,逐個星期排人,做資源平衡,然後再排多一次,今次將 AI 做得到嘅工作全部劃走。</p>
-<p>第一次計:102.69 人月。<br>第二次計:90.20 人月。<br>慳咗 12.2%。</p>
-<p>老實講,呢個數比我預期細好多。我原本估最少三成。</p>
-<p>原因係:24.3% 嘅工作完全代替唔到。要簽名嘅、要孭專業責任嘅、要對一個未確認嘅事實落判斷嘅、要出席政府部門會議同人傾嘅,同埋獨立覆核 …… 一個 AI 起咗份稿,佢唔可以做自己份稿嘅獨立覆核。</p>
-<p>而且工期完全冇縮短。87 個星期,用完 AI 之後仍然係 87 個星期。因為入面有九個工序橫跨 79 個星期,係完全冇顧問投入嘅,全部都係等政府審批。</p>
-<p>到呢度為止,結論好似幾灰:AI 幫唔到幾多。</p>
-<p>但係我叫佢再計多一次。而呢一次唔係「每個職位縮細啲」,係「重新諗個團隊點組成」。</p>
-<p>結果:89.24 人月,而具名專業人員佔嘅比例,由 74.8% 升到 84.4%。</p>
-<p>點解?因為刪咗嘅唔係人手,係職位。建築助理、工程師、規劃師 …… 佢哋本來負責嗰啲工作,搬咗去一個揸住 AI 工具嘅具名建築師身上。同一批工作,換咗一雙手做。</p>
-<p>呢個數先係真正有意思嘅地方。</p>
-<p>AI 帶嚟嘅慳,唔係嚟自「做快咗」,係嚟自「一個人做得闊咗」。</p>
-<p>跟住我就諗起一樣嘢。</p>
-<p>其實建築師呢個行業,係轉緊一個圈。</p>
-<p>以前嘅建築師係乜都識嘅。畫圖、計結構、睇工程、同工匠傾、幫業主諗數。一個人由頭到尾。</p>
-<p>後來唔得喇。樓越起越複雜,機電、結構、消防、環保、可持續、法規、安全,每一樣都深到一個人食唔落。於是就一路拆、一路拆,拆到今日一個項目十幾個顧問,每個人守住自己嗰一小塊。專業化係被逼出嚟嘅,唔係有人鍾意咁。</p>
-<p>而家個圈好似行返轉頭。</p>
-<p>唔係因為樓簡單咗 …… 樓只會越嚟越複雜。係因為「深度」變咗可以借。以前你要識一樣嘢,你要用幾年時間養一個識嘅人喺你隔籬。而家好多呢種深度,你可以即刻問到、即刻攞到、即刻驗到。</p>
-<p>所以我估將來係咁:</p>
-<p>工種嘅種類會少咗,但每個人要做嘅範圍會闊咗。</p>
-<p>唔會再有一個職位叫「幫人排版嗰個」、「幫人抄數嗰個」、「幫人整會議紀錄嗰個」。呢啲會消失。</p>
-<p>但亦都唔會有一個職位叫「乜都唔使識,問 AI 就得」。因為你唔識就驗唔到,驗唔到你就唔敢簽。</p>
-<p>會留低嘅,係識得揸住成件事嘅人。知道成個流程點行、知道邊度會出事、知道一個答案幾時信得過幾時信唔過,最後夠膽簽個名落去。</p>
-<p>呢個其實就係以前嗰個「乜都識」嘅建築師。只不過今次佢唔係靠自己一個人識晒,佢係靠工具借返嚟。</p>
-<p>一個打十個嘅光景,可能真係返緊嚟。</p>
-<p>但我要補三句,唔係謙虛,係要講清楚:</p>
-<p>一、等嘅時間將來會短。79 個星期係今日嘅數。用 AI 嘅唔會淨係我哋,政府部門、業主、其他顧問大家都會用。審批入面好大部分係讀文件、對資料、寫意見,呢啲正正係 AI 做得最好嗰類。所以呢條樽頸會鬆,只係鬆得幾快、由邊邊先鬆,而家冇人答得到。</p>
-<p>二、有啲嘢用咗 AI 之後反而要加人。我哋計到有一個職位唔單止冇縮,仲要大咗 12.6%,就係負責數碼交付同品質保證嗰個。因為 AI 起嘅稿要更大嘅審計追蹤,唔係更細。你要證明得到每一句嘢邊度嚟、邊份文件、邊條條文。</p>
-<p>三、簽名唔會搬去第二個人度。工具再快,責任都仲係喺一個有名有姓嘅人身上。</p>
-<p>所以如果有後生仔問我而家應該練咩,我會咁答:</p>
-<p>唔好練做一個「做得快」嘅人,練做一個「揸得住、驗得到、夠膽簽」嘅人。</p>
-<p>前者將來會越嚟越平,後者將來會越嚟越貴。</p>
-<p>(實驗仲進行緊,以上係中途量到嘅數,唔係最終結論。數字全部嚟自一個實際排出嚟嘅資源模型,唔係估算。個案來源係一份已過期嘅投標文件,經同意後用作教學,所有識別資料已經移除。)</p>
+<figure class="jr-plate0"><img src="../../../journal/img/2026-09-20-fewer-trades-wider-work/01.webp" alt="" width="1080" height="1404" loading="eager" decoding="async"><figcaption class="jr-cap">圖 01 / 01</figcaption></figure>
 </div>
-<div class="j-gal j-n1"><figure class="j-fig"><img src="../../../journal/img/2026-09-20-fewer-trades-wider-work/01.webp" alt="" loading="eager" decoding="async" width="1080" height="1404" style="max-width:1080px"></figure></div>
+<div class="jr-grid">
+<aside class="jr-rail"><dl>
+  <dt>發表</dt><dd><time datetime="2026-09-20">2026 年 9 月 20 日</time></dd>
+  <dt>分類</dt><dd><a href="../#c=ai-news">AI 新聞</a></dd>
+  <dt>閱讀</dt><dd>約 4 分鐘</dd>
+  <dt>原載於</dt><dd><a href="https://www.facebook.com/photo/?fbid=10175150188360702" rel="noopener">Facebook &#8599;</a></dd>
+</dl></aside>
+<div class="jr-body" lang="zh-Hant">
+<div class="jr-txt jr-c2 jr-drop"><p>我而家做緊一個實驗,用一份真實嘅香港政府資助項目顧問投標,問一條好簡單嘅問題:用 AI 之後,究竟慳到幾多人手?</p><p>唔係憑感覺講。係砌咗一個 81 個工序嘅工作計劃,逐個星期排人,做資源平衡,然後再排多一次,今次將 AI 做得到嘅工作全部劃走。</p><p>第一次計:102.69 人月。<br>第二次計:90.20 人月。<br>慳咗 12.2%。</p><p>老實講,呢個數比我預期細好多。我原本估最少三成。</p><p>原因係:24.3% 嘅工作完全代替唔到。要簽名嘅、要孭專業責任嘅、要對一個未確認嘅事實落判斷嘅、要出席政府部門會議同人傾嘅,同埋獨立覆核 …… 一個 AI 起咗份稿,佢唔可以做自己份稿嘅獨立覆核。</p><p>而且工期完全冇縮短。87 個星期,用完 AI 之後仍然係 87 個星期。因為入面有九個工序橫跨 79 個星期,係完全冇顧問投入嘅,全部都係等政府審批。</p><p>到呢度為止,結論好似幾灰:AI 幫唔到幾多。</p><p>但係我叫佢再計多一次。而呢一次唔係「每個職位縮細啲」,係「重新諗個團隊點組成」。</p><p>結果:89.24 人月,而具名專業人員佔嘅比例,由 74.8% 升到 84.4%。</p><p>點解?因為刪咗嘅唔係人手,係職位。建築助理、工程師、規劃師 …… 佢哋本來負責嗰啲工作,搬咗去一個揸住 AI 工具嘅具名建築師身上。同一批工作,換咗一雙手做。</p><p>呢個數先係真正有意思嘅地方。</p><p>AI 帶嚟嘅慳,唔係嚟自「做快咗」,係嚟自「一個人做得闊咗」。</p><p>跟住我就諗起一樣嘢。</p><p>其實建築師呢個行業,係轉緊一個圈。</p><p>以前嘅建築師係乜都識嘅。畫圖、計結構、睇工程、同工匠傾、幫業主諗數。一個人由頭到尾。</p><p>後來唔得喇。樓越起越複雜,機電、結構、消防、環保、可持續、法規、安全,每一樣都深到一個人食唔落。於是就一路拆、一路拆,拆到今日一個項目十幾個顧問,每個人守住自己嗰一小塊。專業化係被逼出嚟嘅,唔係有人鍾意咁。</p></div><blockquote class="jr-pull"><p>AI 帶嚟嘅慳,唔係嚟自「做快咗」,係嚟自「一個人做得闊咗」。</p></blockquote><div class="jr-txt jr-c2"><p>而家個圈好似行返轉頭。</p><p>唔係因為樓簡單咗 …… 樓只會越嚟越複雜。係因為「深度」變咗可以借。以前你要識一樣嘢,你要用幾年時間養一個識嘅人喺你隔籬。而家好多呢種深度,你可以即刻問到、即刻攞到、即刻驗到。</p><p>所以我估將來係咁:</p><p>工種嘅種類會少咗,但每個人要做嘅範圍會闊咗。</p><p>唔會再有一個職位叫「幫人排版嗰個」、「幫人抄數嗰個」、「幫人整會議紀錄嗰個」。呢啲會消失。</p><p>但亦都唔會有一個職位叫「乜都唔使識,問 AI 就得」。因為你唔識就驗唔到,驗唔到你就唔敢簽。</p><p>會留低嘅,係識得揸住成件事嘅人。知道成個流程點行、知道邊度會出事、知道一個答案幾時信得過幾時信唔過,最後夠膽簽個名落去。</p><p>呢個其實就係以前嗰個「乜都識」嘅建築師。只不過今次佢唔係靠自己一個人識晒,佢係靠工具借返嚟。</p><p>一個打十個嘅光景,可能真係返緊嚟。</p><p>但我要補三句,唔係謙虛,係要講清楚:</p><p>一、等嘅時間將來會短。79 個星期係今日嘅數。用 AI 嘅唔會淨係我哋,政府部門、業主、其他顧問大家都會用。審批入面好大部分係讀文件、對資料、寫意見,呢啲正正係 AI 做得最好嗰類。所以呢條樽頸會鬆,只係鬆得幾快、由邊邊先鬆,而家冇人答得到。</p><p>二、有啲嘢用咗 AI 之後反而要加人。我哋計到有一個職位唔單止冇縮,仲要大咗 12.6%,就係負責數碼交付同品質保證嗰個。因為 AI 起嘅稿要更大嘅審計追蹤,唔係更細。你要證明得到每一句嘢邊度嚟、邊份文件、邊條條文。</p><p>三、簽名唔會搬去第二個人度。工具再快,責任都仲係喺一個有名有姓嘅人身上。</p><p>所以如果有後生仔問我而家應該練咩,我會咁答:</p><p>唔好練做一個「做得快」嘅人,練做一個「揸得住、驗得到、夠膽簽」嘅人。</p><p>前者將來會越嚟越平,後者將來會越嚟越貴。</p><p>(實驗仲進行緊,以上係中途量到嘅數,唔係最終結論。數字全部嚟自一個實際排出嚟嘅資源模型,唔係估算。個案來源係一份已過期嘅投標文件,經同意後用作教學,所有識別資料已經移除。)</p></div>
+
+<p class="jr-endmark" aria-hidden="true"></p>
 <div class="j-end">
   <a class="j-orig" href="https://www.facebook.com/photo/?fbid=10175150188360702" rel="noopener">在 Facebook 查看原帖 &rarr;</a>
   
 </div>
+</div>
+</div>
 <nav class="j-pn" aria-label="較早及較新文章"><a class="j-older" href="../six-hours-from-installing-revit-12/"><small>較早</small><span>由安裝 Revit 到完成一套 12 張的設計圖紙,用了六小時</span></a><a class="j-newer" href="../last-week-company-called-typesafe-ai/"><small>較新</small><span>上星期，一間叫 TypeSafe AI 嘅公司推出咗一個新 model</span></a></nav>
-<section class="j-rel"><div class="label">同類文章</div><ol class="jx-list jx-mini"><li class="jx" data-c="ai-news" data-l="en zh" data-q="last week a company called typesafe ai released a new model called jev 上星期，一間叫 typesafe ai 嘅公司推出咗一個新 model"><a href="../last-week-company-called-typesafe-ai/"><span class="jx-im"><img src="../../../journal/img/last-week-company-called-typesafe-ai/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-22">2026 年 9 月 22 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">上星期，一間叫 TypeSafe AI 嘅公司推出咗一個新 model</b><span class="jx-sum">…叫 Jev。 佢唔識寫文章，亦唔會同你傾偈。你問佢，佢只會答一個決定：係定唔係、屬於邊一類、一個數字，再加一個「我有幾肯定」嘅機率。 聽落好似退步咗。但係…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="some of the work people hand to ai outside their own job turns into a habit. some doesn&#x27;t 用 ai 做自己本行以外嘅嘢,有啲做完一次就變成習慣,有啲唔會"><a href="../some-work-people-hand-ai-outside/"><span class="jx-im"><img src="../../../journal/img/some-work-people-hand-ai-outside/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-18">2026 年 9 月 18 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">用 AI 做自己本行以外嘅嘢,有啲做完一次就變成習慣,有啲唔會</b><span class="jx-sum">最易黐身嘅:同客人溝通,用過一次之後,下個月再用嘅有 54%。寫廣告 44%,整宣傳物料 37%。 最唔黐身嘅:向客人解釋財務資料 15%,法律研究 10%…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="in my line of work there is one rule nobody argues with 我做嘅工作,有一條規矩係冇人會質疑嘅:畫則嗰個人,唔可以自己批自己張則"><a href="../line-work-there-one-rule-nobody/"><span class="jx-im"><img src="../../../journal/img/line-work-there-one-rule-nobody/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-09-17">2026 年 9 月 17 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">我做嘅工作,有一條規矩係冇人會質疑嘅:畫則嗰個人,唔可以自己批自己張則</b><span class="jx-sum">一棟樓要過 Building Regulations,檢查嗰個人同設計嗰個人一定係兩個人。唔係因為設計師唔老實,係因為想個 project 準時完成嘅人,天…</span></span></a></li></ol></section>
+<section class="jr-more"><div class="jm-sh"><h3>更多AI 新聞</h3><a class="jm-mono jm-all" href="../#c=ai-news">全部 &rarr;</a></div>
+<ul class="jm-row"><li class="jm-card"><a href="../last-week-company-called-typesafe-ai/"><span class="jm-mat"><img src="../../../journal/img/last-week-company-called-typesafe-ai/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>上星期，一間叫 TypeSafe AI 嘅公司推出咗一個新 model</b><span class="jm-mono"><time datetime="2026-09-22">2026 年 9 月 22 日</time></span></a></li><li class="jm-card"><a href="../some-work-people-hand-ai-outside/"><span class="jm-mat"><img src="../../../journal/img/some-work-people-hand-ai-outside/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>用 AI 做自己本行以外嘅嘢,有啲做完一次就變成習慣,有啲唔會</b><span class="jm-mono"><time datetime="2026-09-18">2026 年 9 月 18 日</time></span></a></li><li class="jm-card"><a href="../line-work-there-one-rule-nobody/"><span class="jm-mat"><img src="../../../journal/img/line-work-there-one-rule-nobody/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>我做嘅工作,有一條規矩係冇人會質疑嘅:畫則嗰個人,唔可以自己批自己張則</b><span class="jm-mono"><time datetime="2026-09-17">2026 年 9 月 17 日</time></span></a></li><li class="jm-card"><a href="../un-security-council-usually-talks-about/"><span class="jm-mat"><img src="../../../journal/img/un-security-council-usually-talks-about/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>聯合國安理會平時傾嘅,係戰爭、停火、制裁</b><span class="jm-mono"><time datetime="2026-09-24">2026 年 9 月 24 日</time></span></a></li></ul></section>
 </article>
 </main>
 <footer class="foot">

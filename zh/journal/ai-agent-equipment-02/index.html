@@ -277,56 +277,164 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* journal (2026-10-18): index list + article pages. Same tokens and type as the rest of the site. */
+/* journal (2026-10-18, magazine): index = "the issue" (mock A), article = "review" (mock B). Site tokens and type only. */
+.jm-mono{font:11.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+:root[data-lang="zh"] .jm-mono{letter-spacing:.1em}
+.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(29,28,26,.45)}
+.jm-mat img{width:100%;height:auto;margin:0 auto}
+
+/* ---- index: mast */
+.jm-mast{border-bottom:1px solid var(--ink)}
+.jm-strip{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:18px 0 0}
+.jm-word{font:400 clamp(76px,17vw,230px)/.84 var(--serif);letter-spacing:-.035em;margin:12px 0 0;padding-bottom:.08em}
+:root[data-lang="zh"] .jm-word{letter-spacing:.06em;line-height:1.05;font-weight:700}
+.jm-intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;border-top:3px solid var(--ink);padding:14px 0 18px}
+.jm-intro p{margin:0;font:17px/1.5 var(--serif);color:var(--ink-2);max-width:36em}
+.jm-intro .jm-mono{text-align:right;align-self:end}
+
+/* ---- index: cover story */
+.jm-cover{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:clamp(28px,5vw,64px) 0;border-bottom:1px solid var(--rule);align-items:center;text-decoration:none;color:var(--ink)}
+.jm-covpic img{max-height:78vh;width:auto;max-width:100%}
+.jm-k{font:12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.jm-covh{font:400 clamp(32px,4.4vw,60px)/1.06 var(--serif);letter-spacing:-.015em;margin:14px 0 18px;text-wrap:balance}
+.jm-covh.t-mid{font-size:clamp(28px,3.6vw,48px)}
+.jm-covh.t-long{font-size:clamp(25px,3vw,40px);line-height:1.12}
+:root[data-lang="zh"] .jm-covh{line-height:1.3;letter-spacing:.02em}
+.jm-covtx p{font:19px/1.55 var(--serif);color:var(--ink-2);margin:0 0 20px}
+.jm-by{display:block;font:12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.jm-read{display:inline-block;margin-top:18px;font:14px var(--sans);border-bottom:1px solid var(--accent)}
+.jm-cover:hover .jm-covh{color:var(--accent)}
+
+/* ---- index: sections */
+.jm-sec{padding:clamp(28px,4vw,48px) 0 8px}
+.jm-sh{display:flex;align-items:baseline;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:22px}
+.jm-sh h3{font:400 clamp(26px,3.4vw,44px)/1.1 var(--serif);margin:0}
+.jm-sh .jm-mono{margin-left:auto;white-space:nowrap}
+a.jm-all{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--accent)}
+a.jm-all:hover{color:var(--accent)}
+.jm-toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+.jm-toc a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jm-toc .n{font:400 40px/1 var(--serif);color:var(--accent)}
+.jm-toc b{display:block;font:400 19px/1.3 var(--serif);margin-bottom:4px}
+.jm-toc a:hover b{color:var(--accent)}
+/* one row per section: prints in a uniform mat, the picture whole (never cropped) */
+.jm-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.jm-card a{display:block;text-decoration:none;color:var(--ink)}
+.jm-card .jm-mat{padding:8px;box-shadow:none;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.jm-card .jm-mat img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.jm-card b{display:block;font:400 18px/1.3 var(--serif);margin:10px 0 4px;overflow-wrap:anywhere}
+.jm-card a:hover b{color:var(--accent)}
+.jm-tc{display:flex;flex-direction:column;justify-content:space-between;gap:10px;width:100%;height:100%;padding:16px;background:var(--ink);color:var(--paper)}
+.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#d98a68!important;margin:0!important}
+.jm-tc i{font:400 20px/1.3 var(--serif);font-style:normal;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jm-tc-big{aspect-ratio:4/3}.jm-tc-big i{font-size:clamp(26px,3vw,40px);-webkit-line-clamp:5}
+.jm-back{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.jm-back details{border-top:1px solid var(--ink);padding-top:10px}
+.jm-back summary{cursor:pointer;list-style:none;font:400 26px/1.2 var(--serif)}
+.jm-back summary::-webkit-details-marker{display:none}
+.jm-back summary:after{content:" +";color:var(--accent)}
+.jm-back details[open] summary:after{content:" \2212"}
+.jm-back summary small{display:block;font:11px/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.jm-back ol{margin:10px 0 0;padding:0 0 0 1.6em;font:14px/1.45 var(--sans);color:var(--ink-2)}
+.jm-back li{margin:0 0 6px}
+.jm-full{scroll-margin-top:12px}
+
+/* full list (filter + search) */
 .jx-ctl2{position:static;border-top:0;border-bottom:1px solid var(--rule)}
 .jx-list{list-style:none;margin:0;padding:0}
-.jx a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jx a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
 .jx a:hover .jx-ti{color:var(--accent)}
-.jx-im{display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
-.jx-im img{width:100%;height:100%;object-fit:cover}
-.jx-im.noimg{display:flex;align-items:flex-end;padding:10px;font:10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.jx-im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:var(--card);padding:4px}
+.jx-im img{max-width:100%;max-height:100%;width:auto;height:auto}
+.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d98a68}
 .jx-tx{display:block;min-width:0}
 .jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.jx-ti{display:block;font:400 21px/1.3 var(--serif);margin:5px 0 6px}
+.jx-ti{display:block;font:400 20px/1.3 var(--serif);margin:5px 0 6px}
 .jx-sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:14.5px/1.55 var(--sans);color:var(--ink-2)}
-.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2)}
+.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2);font:10.5px/1.6 var(--mono);letter-spacing:.04em;vertical-align:1px}
 .jx-mini .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px 0}
 .jx-mini .jx-ti{font-size:17px}
 .jx-mini .jx-sum{display:none}
 :root[data-lang="zh"] .jx-ti{letter-spacing:.02em}
 
-.j-head h1{font-size:clamp(30px,4.2vw,54px);line-height:1.12;max-width:20em}
-.j-meta{font:11.5px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:18px 0 0}
-.j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:calc((100% - var(--gutter)) / 6 + var(--gutter))}
-.j-body{max-width:38em;padding-top:clamp(28px,4vw,44px);font:18px/1.72 var(--serif);color:var(--ink)}
-.j-body p{margin:0 0 1.1em}
-.j-body ul{margin:0 0 1.1em;padding-left:1.2em}
-.j-body li{margin:0 0 .4em}
-.j-body a{word-break:break-all}
-:root[data-lang="zh"] .j-body{font-size:17.5px;line-height:1.9;letter-spacing:.03em}
-.j-gal{display:grid;gap:18px;margin-top:clamp(20px,3vw,32px);max-width:60em}
-.j-gal.j-n2,.j-gal.j-n3{grid-template-columns:repeat(2,minmax(0,1fr))}
-.j-fig{margin:0;padding:10px;background:var(--card);border:1px solid var(--rule);border-radius:3px;align-self:start}
-.j-fig img{width:100%;height:auto;margin:0 auto}
-.j-end{max-width:38em;margin-top:clamp(24px,3vw,36px);padding-top:18px;border-top:1px solid var(--ink)}
+/* ---- article: dark title band (full bleed without widening the page) */
+.jr-band{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding:clamp(32px,6vw,80px) 0 clamp(24px,4vw,48px)}
+.jr-band a{color:var(--paper)}
+.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#f0b49a}
+.jr-k a{color:#f0b49a;text-decoration:none;border-bottom:1px solid rgba(240,180,154,.5)}
+.jr-h{font:400 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
+.jr-h.t-mid{font-size:clamp(32px,4.8vw,66px);max-width:17em}
+.jr-h.t-long{font-size:clamp(28px,3.9vw,54px);line-height:1.1;max-width:20em}
+:root[data-lang="zh"] .jr-h{line-height:1.25;letter-spacing:.03em}
+.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#d9d3c7;max-width:34em;margin:0}
+.jr-stand a{word-break:break-all}
+.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #4a4741;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jr-plate0{margin:clamp(20px,3vw,36px) 0 0}
+.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#2b2926}
+.jr-cap{font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.jr-band .jr-cap{color:#9a9386}
+
+/* ---- article: facts rail + text */
+.jr-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,56px);padding-top:clamp(32px,5vw,64px)}
+.jr-rail{align-self:start;position:sticky;top:20px}
+.jr-rail dl{margin:0;border-top:3px solid var(--ink)}
+.jr-rail dt{font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:10px}
+.jr-rail dd{margin:0;padding:2px 0 10px;border-bottom:1px solid var(--rule);font:15px/1.4 var(--serif)}
+.jr-body{min-width:0}
+.jr-txt{font:18px/1.72 var(--serif);color:var(--ink);max-width:40em}
+:root[data-lang="zh"] .jr-txt{font-size:17.5px;line-height:1.95;letter-spacing:.03em}
+.jr-txt p{margin:0 0 1em}
+.jr-txt ul,.jr-txt ol{margin:0 0 1em;padding-left:1.2em}
+.jr-txt li{margin:0 0 .4em}
+.jr-txt a{word-break:break-all}
+.jr-txt pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0;max-width:100%}
+.jr-drop>p:first-child::first-letter{float:left;font:400 4.6em/.8 var(--serif);color:var(--accent);padding:.07em .1em 0 0}
+:root[data-lang="zh"] .jr-drop>p:first-child::first-letter{font-size:3.4em;line-height:1;padding:.04em .12em 0 0}
+@media (min-width:1100px){
+  .jr-c2{max-width:none;column-count:2;column-gap:44px;column-rule:1px solid var(--rule)}
+  .jr-c2 p,.jr-c2 li{break-inside:avoid-column}
+}
+.jr-pull{margin:clamp(24px,4vw,44px) 0;padding:clamp(18px,3vw,28px) 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);max-width:40em}
+.jr-pull p{margin:0;font:400 clamp(26px,3.4vw,42px)/1.18 var(--serif);letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
+:root[data-lang="zh"] .jr-pull p{line-height:1.45;letter-spacing:.04em}
+.jr-pull:before{content:"\201C";display:block;font:400 64px/.6 var(--serif);color:var(--ink);margin-bottom:6px}
+.jr-plate{margin:0}
+.jr-plate img{width:auto;max-width:100%;max-height:86vh;border:1px solid var(--rule)}
+.jr-mid{margin:8px 0 clamp(24px,4vw,40px)}
+.jr-plates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:clamp(28px,4vw,48px);align-items:start}
+.jr-plates.jr-one{grid-template-columns:minmax(0,1fr)}
+.jr-endmark{width:.6em;height:.6em;background:var(--accent);margin:0 0 4px}
+.j-end{max-width:40em;margin-top:clamp(20px,3vw,28px);padding-top:16px;border-top:1px solid var(--ink)}
 .j-orig{display:inline-block;font:13px/1.4 var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--accent);color:var(--ink)}
 .j-pair{margin:14px 0 0;color:var(--ink-2)}
-.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--rule)}
+.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(36px,5vw,56px)}
+.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--ink);color:var(--ink)}
 .j-pn a small{display:block;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.j-pn a span{font:17px/1.35 var(--serif)}
+.j-pn a span{font:18px/1.35 var(--serif)}
 .j-pn .j-newer{text-align:right;grid-column:2}
-.j-rel{margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-rel .label{margin-bottom:6px}
+.jr-more{padding:clamp(28px,4vw,48px) 0 0}
+
 @media (max-width:860px){
-  .j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:0}
-  .j-gal.j-n2,.j-gal.j-n3{grid-template-columns:1fr}
-  .jx a{grid-template-columns:84px minmax(0,1fr);gap:14px}
+  .jm-intro,.jm-cover{grid-template-columns:1fr}
+  .jm-intro .jm-mono{text-align:left}
+  .jm-covpic img{max-height:none;width:100%}
+  .jm-toc{grid-template-columns:1fr}.jm-toc a{grid-template-columns:44px minmax(0,1fr)}.jm-toc .n{font-size:30px}
+  .jm-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter);padding-bottom:6px;overscroll-behavior-x:contain}
+  .jm-row>li{flex:0 0 62%;scroll-snap-align:start;min-width:0}
+  .jm-back{grid-template-columns:1fr}
+  .jm-sh .jm-mono{font-size:10.5px}
+  .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px}
   .jx-ti{font-size:18px}
+  .jr-grid{grid-template-columns:1fr}
+  .jr-rail{position:static}
+  .jr-rail dl{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+  .jr-plates{grid-template-columns:1fr}
+  .jr-plate img,.jr-plate0 img{max-height:none;width:100%}
+  .jr-plate0 img{width:auto}
   .j-pn{grid-template-columns:1fr}
   .j-pn .j-newer{text-align:left;grid-column:auto}
 }
-.j-body pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0}
 
 </style>
 <script>
@@ -357,38 +465,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   </div>
 </header>
 <main class="wrap">
-<article class="j-art">
-<header class="head j-head">
-  <div class="label"><a href="../">文章</a> / 我試過</div>
-  <div>
-    <h1 lang="zh-Hant">AI Agent 裝備 02 · 定時自我重開</h1>
-    <p class="j-meta"><time datetime="2026-08-10">2026 年 8 月 10 日</time> · 我試過 · 首發於 Facebook</p>
-  </div>
+<article class="jr">
+<div class="jr-band">
+<header class="jr-head">
+  <div class="jr-k"><a href="../">文章</a> · 我試過</div>
+  <h1 class="jr-h" lang="zh-Hant">AI Agent 裝備 02 · 定時自我重開</h1>
+  <p class="jr-stand">上一集講交接檔。但交接檔淨係解決咗「換 session 之後乜都唔記得」,冇解決「邊個負責去換」。</p>
+  <p class="jr-meta"><span>文：Anzon Wong</span><span><time datetime="2026-08-10">2026 年 8 月 10 日</time></span><span>閱讀約 3 分鐘</span><span>2 幅圖</span></p>
 </header>
-<div class="j-body" lang="zh-Hant">
-<p>上一集講交接檔。但交接檔淨係解決咗「換 session 之後乜都唔記得」,冇解決「邊個負責去換」。</p>
-<p>一開始係我自己換。即係話⋯冇換。</p>
-<p>所以第二件裝備：<strong>佢自己殺自己。</strong></p>
-<p>機制簡單到有啲失望：一個守衛,每二十分鐘望一次隻 agent,夠鐘就劈咗佢,再開一隻新嘅,順手叫新嗰隻第一時間讀返交接檔。</p>
-<p>真正要諗嘅唔係點殺,係<strong>幾時先准殺</strong>。我哋設咗三度閘,三度同時開先郁：</p>
-<p>・對話已經谷到 <strong>18 萬 token</strong><br>・佢已經 <strong>靜止咗 12 分鐘</strong>（即係唔會斬斷緊做緊嘅嘢）<br>・<strong>距上次重開夠 3 個鐘</strong>（唔准連環劈）</p>
-<p>另外兩條後備線：<strong>400 轉</strong>對話,或者開咗 <strong>12 個鐘</strong>⋯就算 token 讀唔到都照換。</p>
-<p>最反直覺嗰樣：<strong>「靜咗好耐」唔係故障,係最好時機。</strong> 我哋一開始寫成「太耐冇郁＝有問題,唔好掂」,結果係最安全嗰刻反而唔敢做。</p>
-<p>呢件裝備真正嘅內容,唔係上面三個數字,係下面三個坑。三個都係同一種死法：<strong>佢冇報錯,但佢乜都冇做過。</strong></p>
-<p><strong>一,佢認錯人。</strong> 守衛靠指令行認邊隻先係自己。但我部機同時行緊兩隻 agent（另一隻係返工用嗰隻）,兩隻樣都一樣。於是個 log 日日寫住「搵到 2 隻,唔敢郁,收工」⋯8 月 5、6、7、8 號,連續四日冇重開過,而我完全唔知,因為佢由頭到尾冇當自己失敗過。改法：唔靠個樣,沿住 parent 一路行上去搵返係邊個launcher開嘅。</p>
-<p><strong>二,個驗證講大話。</strong> 做完之後有一步「確認新嗰隻真係起返」。佢當時撞啱另一隻 process 就當成功,寫低「已成功」。實情係冇。而交接檔寫住「已成功」,下一手就喺一個錯嘅前提上做落去⋯比冇寫仲衰。改法：驗證一定要確認條命真係喺度先准講成功。</p>
-<p><strong>三,讀緊死人嘅脈。</strong> token 用量係由對話記錄檔度讀。session 一死,個數就凍住。凍喺 18 萬之下,永遠唔夠鐘,靜靜咁廢咗；凍喺 18 萬之上,就變成永遠滿足條件。兩邊都錯,而且兩邊都唔會叫救命。改法：另開一個心跳檔,真係跳緊先算數。</p>
-<p>三個坑,冇一個係「唔識寫」。全部都係「以為佢做緊」。</p>
-<p>一個唔會報錯嘅自動化,同一個唔存在嘅自動化,喺你發現之前係一模一樣嘅。所以自我重開呢件裝備,寫個 kill 指令係十分鐘嘅事,其餘全部時間都用喺一個問題度：<strong>點樣證明佢真係做咗。</strong></p>
-<p>裝備 03,一三五見。</p>
+<figure class="jr-plate0"><img src="../../../journal/img/ai-agent-equipment-02/01.webp" alt="" width="1080" height="1080" loading="eager" decoding="async"><figcaption class="jr-cap">圖 01 / 02</figcaption></figure>
 </div>
-<div class="j-gal j-n2"><figure class="j-fig"><img src="../../../journal/img/ai-agent-equipment-02/01.webp" alt="" loading="eager" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure><figure class="j-fig"><img src="../../../journal/img/ai-agent-equipment-02/02.webp" alt="" loading="lazy" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure></div>
+<div class="jr-grid">
+<aside class="jr-rail"><dl>
+  <dt>發表</dt><dd><time datetime="2026-08-10">2026 年 8 月 10 日</time></dd>
+  <dt>分類</dt><dd><a href="../#c=i-tried">我試過</a></dd>
+  <dt>閱讀</dt><dd>約 3 分鐘</dd>
+  <dt>原載於</dt><dd><a href="https://www.facebook.com/anzonwong" rel="noopener">Facebook &#8599;</a></dd>
+</dl></aside>
+<div class="jr-body" lang="zh-Hant">
+<div class="jr-txt jr-c2 jr-drop"><p>一開始係我自己換。即係話⋯冇換。</p><p>所以第二件裝備：<strong>佢自己殺自己。</strong></p><p>機制簡單到有啲失望：一個守衛,每二十分鐘望一次隻 agent,夠鐘就劈咗佢,再開一隻新嘅,順手叫新嗰隻第一時間讀返交接檔。</p><p>真正要諗嘅唔係點殺,係<strong>幾時先准殺</strong>。我哋設咗三度閘,三度同時開先郁：</p><p>・對話已經谷到 <strong>18 萬 token</strong><br>・佢已經 <strong>靜止咗 12 分鐘</strong>（即係唔會斬斷緊做緊嘅嘢）<br>・<strong>距上次重開夠 3 個鐘</strong>（唔准連環劈）</p><p>另外兩條後備線：<strong>400 轉</strong>對話,或者開咗 <strong>12 個鐘</strong>⋯就算 token 讀唔到都照換。</p><p>最反直覺嗰樣：<strong>「靜咗好耐」唔係故障,係最好時機。</strong> 我哋一開始寫成「太耐冇郁＝有問題,唔好掂」,結果係最安全嗰刻反而唔敢做。</p><p>呢件裝備真正嘅內容,唔係上面三個數字,係下面三個坑。三個都係同一種死法：<strong>佢冇報錯,但佢乜都冇做過。</strong></p><p><strong>一,佢認錯人。</strong> 守衛靠指令行認邊隻先係自己。但我部機同時行緊兩隻 agent（另一隻係返工用嗰隻）,兩隻樣都一樣。於是個 log 日日寫住「搵到 2 隻,唔敢郁,收工」⋯8 月 5、6、7、8 號,連續四日冇重開過,而我完全唔知,因為佢由頭到尾冇當自己失敗過。改法：唔靠個樣,沿住 parent 一路行上去搵返係邊個launcher開嘅。</p></div><blockquote class="jr-pull"><p>三個都係同一種死法：佢冇報錯,但佢乜都冇做過。</p></blockquote><figure class="jr-plate jr-mid"><img src="../../../journal/img/ai-agent-equipment-02/02.webp" alt="" width="1080" height="1080" loading="lazy" decoding="async"><figcaption class="jr-cap">圖 02 / 02</figcaption></figure><div class="jr-txt"><p><strong>二,個驗證講大話。</strong> 做完之後有一步「確認新嗰隻真係起返」。佢當時撞啱另一隻 process 就當成功,寫低「已成功」。實情係冇。而交接檔寫住「已成功」,下一手就喺一個錯嘅前提上做落去⋯比冇寫仲衰。改法：驗證一定要確認條命真係喺度先准講成功。</p><p><strong>三,讀緊死人嘅脈。</strong> token 用量係由對話記錄檔度讀。session 一死,個數就凍住。凍喺 18 萬之下,永遠唔夠鐘,靜靜咁廢咗；凍喺 18 萬之上,就變成永遠滿足條件。兩邊都錯,而且兩邊都唔會叫救命。改法：另開一個心跳檔,真係跳緊先算數。</p><p>三個坑,冇一個係「唔識寫」。全部都係「以為佢做緊」。</p><p>一個唔會報錯嘅自動化,同一個唔存在嘅自動化,喺你發現之前係一模一樣嘅。所以自我重開呢件裝備,寫個 kill 指令係十分鐘嘅事,其餘全部時間都用喺一個問題度：<strong>點樣證明佢真係做咗。</strong></p><p>裝備 03,一三五見。</p></div>
+
+<p class="jr-endmark" aria-hidden="true"></p>
 <div class="j-end">
   <a class="j-orig" href="https://www.facebook.com/anzonwong" rel="noopener">原帖的連結未有記錄，可到我的 Facebook 專頁查看 &rarr;</a>
   
 </div>
+</div>
+</div>
 <nav class="j-pn" aria-label="較早及較新文章"><a class="j-older" href="../ai-agent-equipment-01/"><small>較早</small><span>AI Agent 裝備 01 · 交接檔</span></a><a class="j-newer" href="../thirty-four-us-states-have-issued/"><small>較新</small><span>美國有 34 個州出咗學校用 AI 嘅指引</span></a></nav>
-<section class="j-rel"><div class="label">同類文章</div><ol class="jx-list jx-mini"><li class="jx" data-c="i-tried" data-l="zh" data-q=" ai agent 裝備 01 · 交接檔"><a href="../ai-agent-equipment-01/"><span class="jx-im"><img src="../../../journal/img/ai-agent-equipment-01/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-09">2026 年 8 月 9 日</time> · 我試過 · Facebook</span><b class="jx-ti">AI Agent 裝備 01 · 交接檔</b><span class="jx-sum">AI-101 派咗 45 個概念,派完喇。多謝一路睇。 不過講完概念,問題仲喺度:你識晒啲名詞,but 隻 agent 用兩日就開始蠢,或者一換機就乜都唔記…</span></span></a></li><li class="jx" data-c="i-tried" data-l="zh" data-q=" ai agent 裝備 03 · 記憶唔係越多越好"><a href="../ai-agent-equipment-03/"><span class="jx-im"><img src="../../../journal/img/ai-agent-equipment-03/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-12">2026 年 8 月 12 日</time> · 我試過 · Facebook</span><b class="jx-ti">AI Agent 裝備 03 · 記憶唔係越多越好</b><span class="jx-sum">前兩集講點樣唔失憶⋯交接檔,加自我重開。跟住落嚟最自然嘅諗法係:咁俾多啲記憶佢咪得囉。 我哋而家有 238 份記憶檔,加埋 3.4MB。第一個直覺一定係:全…</span></span></a></li><li class="jx" data-c="i-tried" data-l="zh" data-q=" ai agent 裝備 04 · 記低自己做過乜"><a href="../ai-agent-equipment-04/"><span class="jx-im"><img src="../../../journal/img/ai-agent-equipment-04/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-15">2026 年 8 月 15 日</time> · 我試過 · Facebook</span><b class="jx-ti">AI Agent 裝備 04 · 記低自己做過乜</b><span class="jx-sum">頭三集講嘅係點樣唔失憶:交接檔、自我重開、記憶點揀。今集講一件更加基本嘅事⋯你點知佢頭先做過乜。 8 月 10 號早上,個 FB 趨勢掃描冇出過聲。冇報錯,…</span></span></a></li></ol></section>
+<section class="jr-more"><div class="jm-sh"><h3>更多我試過</h3><a class="jm-mono jm-all" href="../#c=i-tried">全部 &rarr;</a></div>
+<ul class="jm-row"><li class="jm-card"><a href="../ai-agent-equipment-01/"><span class="jm-mat"><img src="../../../journal/img/ai-agent-equipment-01/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>AI Agent 裝備 01 · 交接檔</b><span class="jm-mono"><time datetime="2026-08-09">2026 年 8 月 9 日</time></span></a></li><li class="jm-card"><a href="../ai-agent-equipment-03/"><span class="jm-mat"><img src="../../../journal/img/ai-agent-equipment-03/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>AI Agent 裝備 03 · 記憶唔係越多越好</b><span class="jm-mono"><time datetime="2026-08-12">2026 年 8 月 12 日</time></span></a></li><li class="jm-card"><a href="../ai-agent-equipment-04/"><span class="jm-mat"><img src="../../../journal/img/ai-agent-equipment-04/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>AI Agent 裝備 04 · 記低自己做過乜</b><span class="jm-mono"><time datetime="2026-08-15">2026 年 8 月 15 日</time></span></a></li><li class="jm-card"><a href="../ai-agent-equipment-05/"><span class="jm-mat"><img src="../../../journal/img/ai-agent-equipment-05/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>AI Agent 裝備 05 · 搵返舊對話</b><span class="jm-mono"><time datetime="2026-08-17">2026 年 8 月 17 日</time></span></a></li></ul></section>
 </article>
 </main>
 <footer class="foot">

@@ -280,56 +280,164 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* journal (2026-10-18): index list + article pages. Same tokens and type as the rest of the site. */
+/* journal (2026-10-18, magazine): index = "the issue" (mock A), article = "review" (mock B). Site tokens and type only. */
+.jm-mono{font:11.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+:root[data-lang="zh"] .jm-mono{letter-spacing:.1em}
+.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(29,28,26,.45)}
+.jm-mat img{width:100%;height:auto;margin:0 auto}
+
+/* ---- index: mast */
+.jm-mast{border-bottom:1px solid var(--ink)}
+.jm-strip{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:18px 0 0}
+.jm-word{font:400 clamp(76px,17vw,230px)/.84 var(--serif);letter-spacing:-.035em;margin:12px 0 0;padding-bottom:.08em}
+:root[data-lang="zh"] .jm-word{letter-spacing:.06em;line-height:1.05;font-weight:700}
+.jm-intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;border-top:3px solid var(--ink);padding:14px 0 18px}
+.jm-intro p{margin:0;font:17px/1.5 var(--serif);color:var(--ink-2);max-width:36em}
+.jm-intro .jm-mono{text-align:right;align-self:end}
+
+/* ---- index: cover story */
+.jm-cover{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:clamp(28px,5vw,64px) 0;border-bottom:1px solid var(--rule);align-items:center;text-decoration:none;color:var(--ink)}
+.jm-covpic img{max-height:78vh;width:auto;max-width:100%}
+.jm-k{font:12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.jm-covh{font:400 clamp(32px,4.4vw,60px)/1.06 var(--serif);letter-spacing:-.015em;margin:14px 0 18px;text-wrap:balance}
+.jm-covh.t-mid{font-size:clamp(28px,3.6vw,48px)}
+.jm-covh.t-long{font-size:clamp(25px,3vw,40px);line-height:1.12}
+:root[data-lang="zh"] .jm-covh{line-height:1.3;letter-spacing:.02em}
+.jm-covtx p{font:19px/1.55 var(--serif);color:var(--ink-2);margin:0 0 20px}
+.jm-by{display:block;font:12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.jm-read{display:inline-block;margin-top:18px;font:14px var(--sans);border-bottom:1px solid var(--accent)}
+.jm-cover:hover .jm-covh{color:var(--accent)}
+
+/* ---- index: sections */
+.jm-sec{padding:clamp(28px,4vw,48px) 0 8px}
+.jm-sh{display:flex;align-items:baseline;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:22px}
+.jm-sh h3{font:400 clamp(26px,3.4vw,44px)/1.1 var(--serif);margin:0}
+.jm-sh .jm-mono{margin-left:auto;white-space:nowrap}
+a.jm-all{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--accent)}
+a.jm-all:hover{color:var(--accent)}
+.jm-toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+.jm-toc a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jm-toc .n{font:400 40px/1 var(--serif);color:var(--accent)}
+.jm-toc b{display:block;font:400 19px/1.3 var(--serif);margin-bottom:4px}
+.jm-toc a:hover b{color:var(--accent)}
+/* one row per section: prints in a uniform mat, the picture whole (never cropped) */
+.jm-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.jm-card a{display:block;text-decoration:none;color:var(--ink)}
+.jm-card .jm-mat{padding:8px;box-shadow:none;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.jm-card .jm-mat img{max-height:100%;width:auto;max-width:100%;object-fit:contain}
+.jm-card b{display:block;font:400 18px/1.3 var(--serif);margin:10px 0 4px;overflow-wrap:anywhere}
+.jm-card a:hover b{color:var(--accent)}
+.jm-tc{display:flex;flex-direction:column;justify-content:space-between;gap:10px;width:100%;height:100%;padding:16px;background:var(--ink);color:var(--paper)}
+.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#d98a68!important;margin:0!important}
+.jm-tc i{font:400 20px/1.3 var(--serif);font-style:normal;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jm-tc-big{aspect-ratio:4/3}.jm-tc-big i{font-size:clamp(26px,3vw,40px);-webkit-line-clamp:5}
+.jm-back{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.jm-back details{border-top:1px solid var(--ink);padding-top:10px}
+.jm-back summary{cursor:pointer;list-style:none;font:400 26px/1.2 var(--serif)}
+.jm-back summary::-webkit-details-marker{display:none}
+.jm-back summary:after{content:" +";color:var(--accent)}
+.jm-back details[open] summary:after{content:" \2212"}
+.jm-back summary small{display:block;font:11px/1.6 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.jm-back ol{margin:10px 0 0;padding:0 0 0 1.6em;font:14px/1.45 var(--sans);color:var(--ink-2)}
+.jm-back li{margin:0 0 6px}
+.jm-full{scroll-margin-top:12px}
+
+/* full list (filter + search) */
 .jx-ctl2{position:static;border-top:0;border-bottom:1px solid var(--rule)}
 .jx-list{list-style:none;margin:0;padding:0}
-.jx a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jx a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
 .jx a:hover .jx-ti{color:var(--accent)}
-.jx-im{display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
-.jx-im img{width:100%;height:100%;object-fit:cover}
-.jx-im.noimg{display:flex;align-items:flex-end;padding:10px;font:10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.jx-im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:var(--card);padding:4px}
+.jx-im img{max-width:100%;max-height:100%;width:auto;height:auto}
+.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d98a68}
 .jx-tx{display:block;min-width:0}
 .jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.jx-ti{display:block;font:400 21px/1.3 var(--serif);margin:5px 0 6px}
+.jx-ti{display:block;font:400 20px/1.3 var(--serif);margin:5px 0 6px}
 .jx-sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:14.5px/1.55 var(--sans);color:var(--ink-2)}
-.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2)}
+.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2);font:10.5px/1.6 var(--mono);letter-spacing:.04em;vertical-align:1px}
 .jx-mini .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px 0}
 .jx-mini .jx-ti{font-size:17px}
 .jx-mini .jx-sum{display:none}
 :root[data-lang="zh"] .jx-ti{letter-spacing:.02em}
 
-.j-head h1{font-size:clamp(30px,4.2vw,54px);line-height:1.12;max-width:20em}
-.j-meta{font:11.5px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:18px 0 0}
-.j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:calc((100% - var(--gutter)) / 6 + var(--gutter))}
-.j-body{max-width:38em;padding-top:clamp(28px,4vw,44px);font:18px/1.72 var(--serif);color:var(--ink)}
-.j-body p{margin:0 0 1.1em}
-.j-body ul{margin:0 0 1.1em;padding-left:1.2em}
-.j-body li{margin:0 0 .4em}
-.j-body a{word-break:break-all}
-:root[data-lang="zh"] .j-body{font-size:17.5px;line-height:1.9;letter-spacing:.03em}
-.j-gal{display:grid;gap:18px;margin-top:clamp(20px,3vw,32px);max-width:60em}
-.j-gal.j-n2,.j-gal.j-n3{grid-template-columns:repeat(2,minmax(0,1fr))}
-.j-fig{margin:0;padding:10px;background:var(--card);border:1px solid var(--rule);border-radius:3px;align-self:start}
-.j-fig img{width:100%;height:auto;margin:0 auto}
-.j-end{max-width:38em;margin-top:clamp(24px,3vw,36px);padding-top:18px;border-top:1px solid var(--ink)}
+/* ---- article: dark title band (full bleed without widening the page) */
+.jr-band{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding:clamp(32px,6vw,80px) 0 clamp(24px,4vw,48px)}
+.jr-band a{color:var(--paper)}
+.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#f0b49a}
+.jr-k a{color:#f0b49a;text-decoration:none;border-bottom:1px solid rgba(240,180,154,.5)}
+.jr-h{font:400 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
+.jr-h.t-mid{font-size:clamp(32px,4.8vw,66px);max-width:17em}
+.jr-h.t-long{font-size:clamp(28px,3.9vw,54px);line-height:1.1;max-width:20em}
+:root[data-lang="zh"] .jr-h{line-height:1.25;letter-spacing:.03em}
+.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#d9d3c7;max-width:34em;margin:0}
+.jr-stand a{word-break:break-all}
+.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #4a4741;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jr-plate0{margin:clamp(20px,3vw,36px) 0 0}
+.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#2b2926}
+.jr-cap{font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.jr-band .jr-cap{color:#9a9386}
+
+/* ---- article: facts rail + text */
+.jr-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,56px);padding-top:clamp(32px,5vw,64px)}
+.jr-rail{align-self:start;position:sticky;top:20px}
+.jr-rail dl{margin:0;border-top:3px solid var(--ink)}
+.jr-rail dt{font:10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:10px}
+.jr-rail dd{margin:0;padding:2px 0 10px;border-bottom:1px solid var(--rule);font:15px/1.4 var(--serif)}
+.jr-body{min-width:0}
+.jr-txt{font:18px/1.72 var(--serif);color:var(--ink);max-width:40em}
+:root[data-lang="zh"] .jr-txt{font-size:17.5px;line-height:1.95;letter-spacing:.03em}
+.jr-txt p{margin:0 0 1em}
+.jr-txt ul,.jr-txt ol{margin:0 0 1em;padding-left:1.2em}
+.jr-txt li{margin:0 0 .4em}
+.jr-txt a{word-break:break-all}
+.jr-txt pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0;max-width:100%}
+.jr-drop>p:first-child::first-letter{float:left;font:400 4.6em/.8 var(--serif);color:var(--accent);padding:.07em .1em 0 0}
+:root[data-lang="zh"] .jr-drop>p:first-child::first-letter{font-size:3.4em;line-height:1;padding:.04em .12em 0 0}
+@media (min-width:1100px){
+  .jr-c2{max-width:none;column-count:2;column-gap:44px;column-rule:1px solid var(--rule)}
+  .jr-c2 p,.jr-c2 li{break-inside:avoid-column}
+}
+.jr-pull{margin:clamp(24px,4vw,44px) 0;padding:clamp(18px,3vw,28px) 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);max-width:40em}
+.jr-pull p{margin:0;font:400 clamp(26px,3.4vw,42px)/1.18 var(--serif);letter-spacing:-.01em;color:var(--accent);text-wrap:balance}
+:root[data-lang="zh"] .jr-pull p{line-height:1.45;letter-spacing:.04em}
+.jr-pull:before{content:"\201C";display:block;font:400 64px/.6 var(--serif);color:var(--ink);margin-bottom:6px}
+.jr-plate{margin:0}
+.jr-plate img{width:auto;max-width:100%;max-height:86vh;border:1px solid var(--rule)}
+.jr-mid{margin:8px 0 clamp(24px,4vw,40px)}
+.jr-plates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:clamp(28px,4vw,48px);align-items:start}
+.jr-plates.jr-one{grid-template-columns:minmax(0,1fr)}
+.jr-endmark{width:.6em;height:.6em;background:var(--accent);margin:0 0 4px}
+.j-end{max-width:40em;margin-top:clamp(20px,3vw,28px);padding-top:16px;border-top:1px solid var(--ink)}
 .j-orig{display:inline-block;font:13px/1.4 var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--accent);color:var(--ink)}
 .j-pair{margin:14px 0 0;color:var(--ink-2)}
-.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--rule)}
+.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(36px,5vw,56px)}
+.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--ink);color:var(--ink)}
 .j-pn a small{display:block;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.j-pn a span{font:17px/1.35 var(--serif)}
+.j-pn a span{font:18px/1.35 var(--serif)}
 .j-pn .j-newer{text-align:right;grid-column:2}
-.j-rel{margin-top:clamp(28px,4vw,44px);max-width:60em}
-.j-rel .label{margin-bottom:6px}
+.jr-more{padding:clamp(28px,4vw,48px) 0 0}
+
 @media (max-width:860px){
-  .j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:0}
-  .j-gal.j-n2,.j-gal.j-n3{grid-template-columns:1fr}
-  .jx a{grid-template-columns:84px minmax(0,1fr);gap:14px}
+  .jm-intro,.jm-cover{grid-template-columns:1fr}
+  .jm-intro .jm-mono{text-align:left}
+  .jm-covpic img{max-height:none;width:100%}
+  .jm-toc{grid-template-columns:1fr}.jm-toc a{grid-template-columns:44px minmax(0,1fr)}.jm-toc .n{font-size:30px}
+  .jm-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter);padding-bottom:6px;overscroll-behavior-x:contain}
+  .jm-row>li{flex:0 0 62%;scroll-snap-align:start;min-width:0}
+  .jm-back{grid-template-columns:1fr}
+  .jm-sh .jm-mono{font-size:10.5px}
+  .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px}
   .jx-ti{font-size:18px}
+  .jr-grid{grid-template-columns:1fr}
+  .jr-rail{position:static}
+  .jr-rail dl{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+  .jr-plates{grid-template-columns:1fr}
+  .jr-plate img,.jr-plate0 img{max-height:none;width:100%}
+  .jr-plate0 img{width:auto}
   .j-pn{grid-template-columns:1fr}
   .j-pn .j-newer{text-align:left;grid-column:auto}
 }
-.j-body pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0}
 
 </style>
 <script>
@@ -360,32 +468,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   </div>
 </header>
 <main class="wrap">
-<article class="j-art">
-<header class="head j-head">
-  <div class="label"><a href="../">文章</a> / AI 新聞</div>
-  <div>
-    <h1 lang="zh-Hant">一個由幼稚園開始教 AI 嘅國家</h1>
-    <p class="j-meta"><time datetime="2026-10-07">2026 年 10 月 7 日</time> · AI 新聞 · 首發於 Facebook</p>
-  </div>
+<article class="jr">
+<div class="jr-band">
+<header class="jr-head">
+  <div class="jr-k"><a href="../">文章</a> · AI 新聞</div>
+  <h1 class="jr-h" lang="zh-Hant">一個由幼稚園開始教 AI 嘅國家</h1>
+  <p class="jr-stand">一個由幼稚園開始教 AI 嘅國家，教育部長呢個禮拜出嚟講：人同人之間嘅接觸，冇得取代。</p>
+  <p class="jr-meta"><span>文：Anzon Wong</span><span><time datetime="2026-10-07">2026 年 10 月 7 日</time></span><span>閱讀約 2 分鐘</span><span>4 幅圖</span></p>
 </header>
-<div class="j-body" lang="zh-Hant">
-<p>一個由幼稚園開始教 AI 嘅國家，教育部長呢個禮拜出嚟講：人同人之間嘅接觸，冇得取代。</p>
-<p>阿聯酋教育部長 Sarah Al Amiri 喺阿布扎比 Education First Forum 講：「科技同人工智能係我哋有意識咁用嘅工具，前提係唔可以犧牲獨立思考，同埋人與人之間嘅互動。」啱啱過咗世界教師日，呢句說話來得幾合時。</p>
-<p>講呢句嘢嘅，唔係一個怕 AI 嘅國家。阿聯酋由今個學年開始，公立學校同跟國家課程嘅私校，由幼稚園到十二年級都有一科「人工智能與科技」。2023 年，教育部已經話緊要同合作伙伴開發 GPT AI 補習老師。</p>
-<p>順帶一提：網上有句「阿聯酋 2027 年課室會有 AI 老師」。我查過，源頭係 2018 年杜拜一位教育官員嘅預測，佢講「十年內」，唔係政府計劃。</p>
-<p>部長講老師做嘅嘢，佢列咗五樣：將課程變成學習經歷、發掘學生嘅天份、建立佢哋嘅自信、灌輸價值觀、教佢哋點樣思考同重新學。</p>
-<p>作為爸爸，我逐樣諗過。第一樣，AI 已經幫緊手：夜晚九點解釋一條數，佢比我仲有耐性。但係發掘天份同建立自信，要有一個人長時間睇住你，記得你上個學期喺邊度跌過、點樣企返起身。價值觀就更加唔係「教」出嚟，係細路睇住大人點做，學返去。</p>
-<p>所以我嘅睇法係：AI 可以幫老師講解，但「被人睇見」呢樣嘢，暫時冇機器做得到。呢個係我自己嘅判斷，唔係研究結論。</p>
-<p>你覺得老師做嘅嘢入面，邊一樣係 AI 永遠取代唔到？留言話我知你點睇 👇</p>
-<p>The National 原文：<a href="https://www.thenationalnews.com/news/uae/2026/10/06/human-interaction-will-remain-vital-to-learning-despite-rapid-rise-of-ai-says-education-minister/" rel="noopener nofollow">https://www.thenationalnews.com/news/uae/2026/10/06/human-interaction-will-remain-vital-to-learning-despite-rapid-rise-of-ai-says-education-minister/</a></p>
+<figure class="jr-plate0"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/01.webp" alt="" width="1080" height="1080" loading="eager" decoding="async"><figcaption class="jr-cap">圖 01 / 04</figcaption></figure>
 </div>
-<div class="j-gal j-n3"><figure class="j-fig"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/01.webp" alt="" loading="eager" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure><figure class="j-fig"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/02.webp" alt="" loading="lazy" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure><figure class="j-fig"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/03.webp" alt="" loading="lazy" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure><figure class="j-fig"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/04.webp" alt="" loading="lazy" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure></div>
+<div class="jr-grid">
+<aside class="jr-rail"><dl>
+  <dt>發表</dt><dd><time datetime="2026-10-07">2026 年 10 月 7 日</time></dd>
+  <dt>分類</dt><dd><a href="../#c=ai-news">AI 新聞</a></dd>
+  <dt>閱讀</dt><dd>約 2 分鐘</dd>
+  <dt>原載於</dt><dd><a href="https://www.facebook.com/anzonwong/posts/10175289223365702" rel="noopener">Facebook &#8599;</a></dd>
+</dl></aside>
+<div class="jr-body" lang="zh-Hant">
+<div class="jr-txt jr-drop"><p>阿聯酋教育部長 Sarah Al Amiri 喺阿布扎比 Education First Forum 講：「科技同人工智能係我哋有意識咁用嘅工具，前提係唔可以犧牲獨立思考，同埋人與人之間嘅互動。」啱啱過咗世界教師日，呢句說話來得幾合時。</p><p>講呢句嘢嘅，唔係一個怕 AI 嘅國家。阿聯酋由今個學年開始，公立學校同跟國家課程嘅私校，由幼稚園到十二年級都有一科「人工智能與科技」。2023 年，教育部已經話緊要同合作伙伴開發 GPT AI 補習老師。</p><p>順帶一提：網上有句「阿聯酋 2027 年課室會有 AI 老師」。我查過，源頭係 2018 年杜拜一位教育官員嘅預測，佢講「十年內」，唔係政府計劃。</p><p>部長講老師做嘅嘢，佢列咗五樣：將課程變成學習經歷、發掘學生嘅天份、建立佢哋嘅自信、灌輸價值觀、教佢哋點樣思考同重新學。</p></div><blockquote class="jr-pull"><p>順帶一提：網上有句「阿聯酋 2027 年課室會有 AI 老師」。</p></blockquote><figure class="jr-plate jr-mid"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/02.webp" alt="" width="1080" height="1080" loading="lazy" decoding="async"><figcaption class="jr-cap">圖 02 / 04</figcaption></figure><div class="jr-txt"><p>作為爸爸，我逐樣諗過。第一樣，AI 已經幫緊手：夜晚九點解釋一條數，佢比我仲有耐性。但係發掘天份同建立自信，要有一個人長時間睇住你，記得你上個學期喺邊度跌過、點樣企返起身。價值觀就更加唔係「教」出嚟，係細路睇住大人點做，學返去。</p><p>所以我嘅睇法係：AI 可以幫老師講解，但「被人睇見」呢樣嘢，暫時冇機器做得到。呢個係我自己嘅判斷，唔係研究結論。</p><p>你覺得老師做嘅嘢入面，邊一樣係 AI 永遠取代唔到？留言話我知你點睇 👇</p><p>The National 原文：<a href="https://www.thenationalnews.com/news/uae/2026/10/06/human-interaction-will-remain-vital-to-learning-despite-rapid-rise-of-ai-says-education-minister/" rel="noopener nofollow">https://www.thenationalnews.com/news/uae/2026/10/06/human-interaction-will-remain-vital-to-learning-despite-rapid-rise-of-ai-says-education-minister/</a></p></div>
+<div class="jr-plates"><figure class="jr-plate"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/03.webp" alt="" width="1080" height="1080" loading="lazy" decoding="async"><figcaption class="jr-cap">圖 03 / 04</figcaption></figure><figure class="jr-plate"><img src="../../../journal/img/country-teaches-ai-from-kindergarten-has/04.webp" alt="" width="1080" height="1080" loading="lazy" decoding="async"><figcaption class="jr-cap">圖 04 / 04</figcaption></figure></div>
+<p class="jr-endmark" aria-hidden="true"></p>
 <div class="j-end">
   <a class="j-orig" href="https://www.facebook.com/anzonwong/posts/10175289223365702" rel="noopener">在 Facebook 查看原帖 &rarr;</a>
   
 </div>
+</div>
+</div>
 <nav class="j-pn" aria-label="較早及較新文章"><a class="j-older" href="../72-us-hiring-managers-say-they/"><small>較早</small><span>百分之七十二嘅美國招聘經理話：會為 AI 技能俾多啲人工</span></a><a class="j-newer" href="../drawing-shows-one-thing-specification-says/"><small>較新</small><span>圖則顯示一樣,規範寫另一樣</span></a></nav>
-<section class="j-rel"><div class="label">同類文章</div><ol class="jx-list jx-mini"><li class="jx" data-c="ai-news" data-l="en zh" data-q="parental controls switched on. does that mean you would hear about anything serious? 家長監控開咗，係咪就等於會收到通知？一份新測試話：未必"><a href="../parental-controls-switched-does-mean-would/"><span class="jx-im"><img src="../../../journal/img/parental-controls-switched-does-mean-would/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-10-08">2026 年 10 月 8 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">家長監控開咗，係咪就等於會收到通知？一份新測試話：未必</b><span class="jx-sum">美國兒童媒體機構 Common Sense Media 轄下嘅 Youth AI Safety Institute，琴日（10 月 7 日）將 ChatGP…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="72% of us hiring managers say they will pay more for ai skills 百分之七十二嘅美國招聘經理話：會為 ai 技能俾多啲人工"><a href="../72-us-hiring-managers-say-they/"><span class="jx-im"><img src="../../../journal/img/72-us-hiring-managers-say-they/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-10-06">2026 年 10 月 6 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">百分之七十二嘅美國招聘經理話：會為 AI 技能俾多啲人工</b><span class="jx-sum">數字嚟自人力顧問公司 Robert Half 上個禮拜出嘅 2027 年薪酬指南，問咗二千幾個美國嘅招聘經理、管理層同打工仔。72% 經理話，會為相關嘅 A…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="this ai cannot hold a conversation. microsoft designed it that way 呢個 ai 唔識同你傾偈。microsoft 係刻意咁設計"><a href="../ai-cannot-hold-conversation-microsoft-designed/"><span class="jx-im"><img src="../../../journal/img/ai-cannot-hold-conversation-microsoft-designed/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-10-12">2026 年 10 月 12 日</time> · AI 新聞 · Facebook</span><b class="jx-ti">呢個 AI 唔識同你傾偈。Microsoft 係刻意咁設計</b><span class="jx-sum">10 月 9 號，Microsoft 喺 Foundry 推出 Microsoft-Decision-1。你俾佢一條問題，再俾佢幾個固定答案，佢唔會寫一段文…</span></span></a></li></ol></section>
+<section class="jr-more"><div class="jm-sh"><h3>更多AI 新聞</h3><a class="jm-mono jm-all" href="../#c=ai-news">全部 &rarr;</a></div>
+<ul class="jm-row"><li class="jm-card"><a href="../parental-controls-switched-does-mean-would/"><span class="jm-mat"><img src="../../../journal/img/parental-controls-switched-does-mean-would/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>家長監控開咗，係咪就等於會收到通知？一份新測試話：未必</b><span class="jm-mono"><time datetime="2026-10-08">2026 年 10 月 8 日</time></span></a></li><li class="jm-card"><a href="../72-us-hiring-managers-say-they/"><span class="jm-mat"><img src="../../../journal/img/72-us-hiring-managers-say-they/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>百分之七十二嘅美國招聘經理話：會為 AI 技能俾多啲人工</b><span class="jm-mono"><time datetime="2026-10-06">2026 年 10 月 6 日</time></span></a></li><li class="jm-card"><a href="../ai-cannot-hold-conversation-microsoft-designed/"><span class="jm-mat"><img src="../../../journal/img/ai-cannot-hold-conversation-microsoft-designed/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>呢個 AI 唔識同你傾偈。Microsoft 係刻意咁設計</b><span class="jm-mono"><time datetime="2026-10-12">2026 年 10 月 12 日</time></span></a></li><li class="jm-card"><a href="../he-34-spent-nine-years-as/"><span class="jm-mat"><img src="../../../journal/img/he-34-spent-nine-years-as/thumb.webp" alt="" loading="lazy" decoding="async"></span><b>34 歲，做咗九年 software developer</b><span class="jm-mono"><time datetime="2026-10-02">2026 年 10 月 2 日</time></span></a></li></ul></section>
 </article>
 </main>
 <footer class="foot">
