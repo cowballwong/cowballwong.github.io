@@ -417,6 +417,44 @@ html.ixo-on body{overflow:hidden}
   .ixo-ar,.ixo-open:hover .ixo-ar{transition:none;transform:none}
 }
 
+/* 2026-10-18: three doors (clients, practices, learners) in place of the carousel. Own drawing-sheet look:
+   ruled panels, mono numbers, one image each; the practices door is a typeset diagram, not a photo. */
+.dd{min-width:0;margin-bottom:clamp(10px,2svh,24px)}
+.dd-h{margin-bottom:10px}
+.dd-h .label{padding-top:0}
+.dd-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+.dd-list > li{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.dd-list a{display:flex;flex-direction:column;height:100%;box-sizing:border-box;padding:14px 16px 16px;text-decoration:none;color:var(--ink)}
+.dd-list a:hover{background:var(--card)}
+.dd-list a:hover .dd-ti,.dd-list a:hover .dd-go{color:var(--accent)}
+.dd-list a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.dd-no{font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dd-im{display:block;position:relative;margin:10px 0 0;height:clamp(120px,calc(100svh - 690px),300px);overflow:hidden;border:1px solid var(--rule);border-radius:2px;background:var(--rule-2)}
+.dd-im img{width:100%;height:100%;object-fit:cover}
+.dd-draw{background:var(--card)}
+.dd-svg{display:block;width:100%;height:100%}
+.dd-svg .dd-bg{fill:var(--card)}
+.dd-svg .dd-grid path{stroke:var(--rule-2);stroke-width:1}
+.dd-svg .dd-bx{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.dd-svg .dd-ac{stroke:var(--accent);stroke-width:2}
+.dd-svg .dd-ln{fill:none;stroke:var(--ink);stroke-width:1.4}
+.dd-svg .dd-ar{fill:none;stroke:var(--ink);stroke-width:1.4}
+.dd-svg .dd-t{font:400 19px var(--serif);fill:var(--ink)}
+.dd-svg .dd-m{font:13px var(--mono);fill:var(--muted)}
+.dd-ti{display:block;font:400 clamp(19px,1.7vw,24px)/1.2 var(--serif);margin-top:12px}
+.dd-tx{display:block;font:14px/1.5 var(--sans);color:var(--ink-2);margin-top:6px}
+.dd-go{display:block;margin-top:auto;padding-top:10px;font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.dd-also{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;margin:12px 0 0;font-size:14px}
+.dd-also .label{padding-top:0}
+.dd-also a{text-decoration:none;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+.dd-also a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+:root[data-lang="zh"] .dd-ti{letter-spacing:.03em}
+@media (max-width:860px){
+  .dd-list{grid-template-columns:1fr}
+  .dd-im{height:auto;aspect-ratio:16/9}
+}
+body:has(.ixo) .dd{--hc-rest:600px}
+
 </style>
 <script>
 // Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
@@ -460,26 +498,45 @@ html.ixo-on body{overflow:hidden}
   </div>
 </section>
 
-<section class="hc" id="hc" aria-roledescription="carousel" aria-label="Selected work, tools and courses">
-  <div class="hc-h">
-    <span class="label"><span class="zh" lang="zh-Hant">精選 · 作品、實驗室、課程</span></span>
-    <span class="hc-ctl" hidden>
-      <button type="button" class="hc-b" data-go="-1" aria-label="Previous" aria-controls="hcTrack">&larr;</button>
-      <button type="button" class="hc-b hc-pp" data-pp aria-controls="hcTrack"><span class="zh" lang="zh-Hant">暫停</span></button>
-      <button type="button" class="hc-b" data-go="1" aria-label="Next" aria-controls="hcTrack">&rarr;</button>
-    </span>
-  </div>
-  <ul class="hc-track" id="hcTrack" tabindex="0" aria-label="Selected work, tools and courses">
-    <li><a href="../work/upside-down-chalet/" draggable="false"><span class="hc-im"><img src="../work/upside-down-chalet/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">倒置木屋</span></b><i class="zh" lang="zh-Hant">作品 · 2017</i></span></a></li>
-    <li><a href="https://anzonwong.com/hk-wind-sketch/" draggable="false"><span class="hc-im"><img src="../img/lab/hk-wind-sketch.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">香港風環境草圖</span></b><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
-    <li><a href="courses/#basic" draggable="false"><span class="hc-im"><img src="../courses/img/l3.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></b><i class="zh" lang="zh-Hant">課程 · 基礎班</i></span></a></li>
-    <li><a href="../work/cocotte/" draggable="false"><span class="hc-im"><img src="../work/cocotte/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></b><i class="zh" lang="zh-Hant">作品 · 2013</i></span></a></li>
-    <li><a href="https://anzonwong.com/hk-regs-map/" draggable="false"><span class="hc-im"><img src="../img/lab/hk-regs-map.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">香港建築規例關係地圖</span></b><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
-    <li><a href="courses/#advanced" draggable="false"><span class="hc-im"><img src="../courses/img/adv.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"><em class="hc-tag"><span class="zh" lang="zh-Hant">接受報名 · 10 月 24 日起</span></em></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">由投標到交樓</span></b><i class="zh" lang="zh-Hant">課程 · 進階班</i></span></a></li>
-    <li><a href="../work/family-flat-hong-kong/" draggable="false"><span class="hc-im"><img src="../work/family-flat-hong-kong/thumb.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">香港家庭住宅</span></b><i class="zh" lang="zh-Hant">作品 · 2015</i></span></a></li>
-    <li><a href="https://anzonwong.com/uk-reg3-checker/" draggable="false"><span class="hc-im"><img src="../img/lab/uk-reg3-checker.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">Reg 3 檢查器</span></b><i class="zh" lang="zh-Hant">實驗室 · 英國</i></span></a></li>
-    <li><a href="courses/ai-101/" draggable="false"><span class="hc-im"><img src="../courses/ai-101/cover.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="zh" lang="zh-Hant">AI 101</span></b><i class="zh" lang="zh-Hant">免費手冊</i></span></a></li>
-  </ul>
+<section class="dd" aria-label="Three ways in">
+  <div class="dd-h"><span class="label"><span class="zh" lang="zh-Hant">由這裡開始</span></span></div>
+  <ol class="dd-list">
+    <li><a href="work/">
+      <span class="dd-no">01 · <span class="zh" lang="zh-Hant">業主</span></span>
+      <span class="dd-im"><img src="../work/upside-down-chalet/thumb_render.webp" alt="" width="1200" height="900" decoding="async"><em class="ai-tag"><span class="zh" lang="zh-Hant">AI 效果圖</span></em></span>
+      <b class="dd-ti"><span class="zh" lang="zh-Hant">看看我怎樣設計</span></b>
+      <span class="dd-tx"><span class="zh" lang="zh-Hant">建築及室內項目，每個以互動網頁呈現，先看三個。</span></span>
+      <span class="dd-go"><span class="zh" lang="zh-Hant">作品</span> &rarr;</span></a></li>
+    <li><a href="ai-agents-for-practices/">
+      <span class="dd-no">02 · <span class="zh" lang="zh-Hant">事務所</span></span>
+      <span class="dd-im dd-draw">
+      <svg class="dd-svg" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
+        <rect class="dd-bg" x="0" y="0" width="600" height="400"/>
+        <g class="dd-grid"><path d="M40 0 V400"/><path d="M80 0 V400"/><path d="M120 0 V400"/><path d="M160 0 V400"/><path d="M200 0 V400"/><path d="M240 0 V400"/><path d="M280 0 V400"/><path d="M320 0 V400"/><path d="M360 0 V400"/><path d="M400 0 V400"/><path d="M440 0 V400"/><path d="M480 0 V400"/><path d="M520 0 V400"/><path d="M560 0 V400"/><path d="M0 40 H600"/><path d="M0 80 H600"/><path d="M0 120 H600"/><path d="M0 160 H600"/><path d="M0 200 H600"/><path d="M0 240 H600"/><path d="M0 280 H600"/><path d="M0 320 H600"/><path d="M0 360 H600"/></g>
+        <rect class="dd-bx" x="34" y="120" width="150" height="150"/><rect class="dd-bx dd-ac" x="225" y="120" width="150" height="150"/><rect class="dd-bx" x="416" y="120" width="150" height="150"/>
+        <path class="dd-ln" d="M184 195 H219 M375 195 H410"/><path class="dd-ar" d="M213 189 L221 195 L213 201 M404 189 L412 195 L404 201"/>
+        <path class="dd-ln" d="M60 160 h52 v40 h-52 z M70 160 v-8 h28 l6 8 M60 214 h96 M60 232 h80"/>
+        <circle class="dd-ln" cx="300" cy="180" r="26"/><path class="dd-ln" d="M287 180 h26 M300 167 v26"/>
+        <path class="dd-ln" d="M452 200 l16 16 l34 -40"/>
+        
+        <g class="zh" lang="zh-Hant"><text class="dd-t" x="109" y="300" text-anchor="middle">你的資料夾</text><text class="dd-t" x="300" y="300" text-anchor="middle">代理人起草</text><text class="dd-t" x="491" y="300" text-anchor="middle">由人簽批</text>
+          <text class="dd-m" x="109" y="322" text-anchor="middle">留在事務所</text><text class="dd-m" x="300" y="322" text-anchor="middle">並自行檢查</text><text class="dd-m" x="491" y="322" text-anchor="middle">才可發出</text></g>
+      </svg>
+      </span>
+      <b class="dd-ti"><span class="zh" lang="zh-Hant">設計事務所裡的 AI 代理人</span></b>
+      <span class="dd-tx"><span class="zh" lang="zh-Hant">代理人在事務所做甚麼、資料留在哪裡，以及哪些仍須由人簽批。</span></span>
+      <span class="dd-go"><span class="zh" lang="zh-Hant">閱讀說明</span> &rarr;</span></a></li>
+    <li><a href="courses/#basic">
+      <span class="dd-no">03 · <span class="zh" lang="zh-Hant">學員</span></span>
+      <span class="dd-im"><img src="../courses/img/l3.jpg" alt="" width="1400" height="844" decoding="async"></span>
+      <b class="dd-ti"><span class="zh" lang="zh-Hant">建立你自己的 AI 代理人</span></b>
+      <span class="dd-tx"><span class="zh" lang="zh-Hant">一對一網上授課，毋須編程。基礎班由免費的第一堂 Class 0 開始。</span></span>
+      <span class="dd-go"><span class="zh" lang="zh-Hant">課程</span> &rarr;</span></a></li>
+  </ol>
+  <p class="dd-also"><span class="label"><span class="zh" lang="zh-Hant">另見</span></span>
+    <a href="lab/"><span class="zh" lang="zh-Hant">實驗室：建築規例及早期設計的免費工具</span> &rarr;</a>
+    <a href="journal/"><span class="zh" lang="zh-Hant">文章：8 月以來的所有帖文</span> &rarr;</a>
+  </p>
 </section>
 
 <!-- the index is hidden behind this bar and opens as a full-screen overlay (home.js); without JS the link opens it through :target -->
@@ -499,7 +556,7 @@ html.ixo-on body{overflow:hidden}
   </div></div>
   <div class="wrap ixo-b">
 <div class="ix-wrap" data-ix>
-  <div class="ctl"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="zh" lang="zh-Hant">全部</span><sup>29</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="zh" lang="zh-Hant">項目</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="zh" lang="zh-Hant">工具</span><sup>6</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="zh" lang="zh-Hant">課程</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="zh" lang="zh-Hant">頁面</span><sup>3</sup></button></div><span class="count" data-count><span class="zh" lang="zh-Hant">29 項</span></span><label class="search"><input type="search" data-q placeholder="搜尋目錄" aria-label="搜尋目錄"><kbd>/</kbd></label></div>
+  <div class="ctl"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="zh" lang="zh-Hant">全部</span><sup>30</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="zh" lang="zh-Hant">項目</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="zh" lang="zh-Hant">工具</span><sup>6</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="zh" lang="zh-Hant">課程</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="zh" lang="zh-Hant">頁面</span><sup>4</sup></button></div><span class="count" data-count><span class="zh" lang="zh-Hant">30 項</span></span><label class="search"><input type="search" data-q placeholder="搜尋目錄" aria-label="搜尋目錄"><kbd>/</kbd></label></div>
   <table class="ix">
     <thead><tr><th class="no s" data-k="no" scope="col"><button type="button"><span class="zh" lang="zh-Hant">編號</span></button></th><th class="ti" data-k="ti" scope="col"><button type="button"><span class="zh" lang="zh-Hant">名稱</span></button></th><th class="ty" data-k="ty" scope="col"><button type="button"><span class="zh" lang="zh-Hant">類別</span></button></th><th class="pl" data-k="pl" scope="col"><button type="button"><span class="zh" lang="zh-Hant">地點</span></button></th><th class="yr" data-k="yr" scope="col"><button type="button"><span class="zh" lang="zh-Hant">年份</span></button></th><th class="go" aria-hidden="true"></th></tr></thead>
     <tbody>
@@ -731,6 +788,14 @@ html.ixo-on body{overflow:hidden}
         <td class="no">A03</td>
         <td class="ti"><a href="journal/"><span class="zh" lang="zh-Hant">文章<span class="alt" lang="en">Journal</span></span></a><span class="zh sub" lang="zh-Hant">頁面</span><div class="xp noimg" hidden><div><p class="zh" lang="zh-Hant">2026 年 8 月起的所有 Facebook 及 LinkedIn 帖文，整理成文章。</p><a class="open" href="journal/"><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
         <td class="ty"><span class="zh" lang="zh-Hant">頁面</span></td>
+        <td class="pl"><span class="zh" lang="zh-Hant"></span></td>
+        <td class="yr"></td>
+        <td class="go" aria-hidden="true">&rarr;</td>
+      </tr>
+      <tr data-t="page" data-no="A04" data-yr="" data-href="ai-agents-for-practices/" data-img="" data-ti-en="AI agents in a design practice" data-ti-zh="設計事務所裡的 AI 代理人" data-ty-en="Explainer" data-ty-zh="說明" data-pl-en="" data-pl-zh="" data-d-en="" data-d-zh="" data-q="a04 ai agents in a design practice 設計事務所裡的 ai 代理人 explainer 說明    what an agent does in an office, where the data stays, and what a person still signs off. 代理人在事務所做甚麼、資料留在哪裡，以及哪些仍須由人簽批。">
+        <td class="no">A04</td>
+        <td class="ti"><a href="ai-agents-for-practices/"><span class="zh" lang="zh-Hant">設計事務所裡的 AI 代理人<span class="alt" lang="en">AI agents in a design practice</span></span></a><span class="zh sub" lang="zh-Hant">說明</span><div class="xp noimg" hidden><div><p class="zh" lang="zh-Hant">代理人在事務所做甚麼、資料留在哪裡，以及哪些仍須由人簽批。</p><a class="open" href="ai-agents-for-practices/"><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="zh" lang="zh-Hant">說明</span></td>
         <td class="pl"><span class="zh" lang="zh-Hant"></span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
