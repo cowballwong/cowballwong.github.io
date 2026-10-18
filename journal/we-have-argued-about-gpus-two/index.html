@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-alt="../../zh/journal/we-have-argued-about-gpus-two/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We have argued about GPUs for two years · Anzon Wong</title>
+<meta name="description" content="This week the industry quietly conceded something else: what actually limits AI is often not compute. It is memory. On 4 August at FMS 2026, SK hynix and…">
+<meta name="author" content="Anzon Wong">
+
+<link rel="canonical" href="https://anzonwong.com/journal/we-have-argued-about-gpus-two/">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/we-have-argued-about-gpus-two/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/we-have-argued-about-gpus-two/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/we-have-argued-about-gpus-two/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="We have argued about GPUs for two years · Anzon Wong">
+<meta property="og:description" content="This week the industry quietly conceded something else: what actually limits AI is often not compute. It is memory. On 4 August at FMS 2026, SK hynix and…">
+<meta property="og:url" content="https://anzonwong.com/journal/we-have-argued-about-gpus-two/">
+<meta property="og:image" content="https://anzonwong.com/img/og/journal-we-have-argued-about-gpus-two.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="We have argued about GPUs for two years">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta property="article:published_time" content="2026-08-07">
+<meta property="article:section" content="AI news">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BlogPosting","@id":"https://anzonwong.com/journal/we-have-argued-about-gpus-two/#article","headline":"We have argued about GPUs for two years · Anzon Wong","description":"This week the industry quietly conceded something else: what actually limits AI is often not compute. It is memory. On 4 August at FMS 2026, SK hynix and…","inLanguage":"en-GB","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/journal/we-have-argued-about-gpus-two/#page"},"image":["https://anzonwong.com/img/og/journal-we-have-argued-about-gpus-two.jpg","https://anzonwong.com/journal/img/we-have-argued-about-gpus-two/01.webp"],"datePublished":"2026-08-07","articleSection":"AI news","isBasedOn":"https://www.facebook.com/photo/?fbid=10174794851430702"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://anzonwong.com/journal/"},{"@type":"ListItem","position":3,"name":"We have argued about GPUs for two years","item":"https://anzonwong.com/journal/we-have-argued-about-gpus-two/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/journal/we-have-argued-about-gpus-two/#page","url":"https://anzonwong.com/journal/we-have-argued-about-gpus-two/","name":"We have argued about GPUs for two years · Anzon Wong","description":"This week the industry quietly conceded something else: what actually limits AI is often not compute. It is memory. On 4 August at FMS 2026, SK hynix and…","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/journal-we-have-argued-about-gpus-two.jpg"}]}</script>
+<style>
+/* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* header: one line, 1px ink rule */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:22px;padding-bottom:14px;flex-wrap:wrap}
+.brand{font:400 22px var(--serif);text-decoration:none;white-space:nowrap}
+.brand small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:12px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);flex-wrap:wrap;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:3px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+.lang{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--ink);background:transparent;padding:5px 9px;border-radius:3px;cursor:pointer;color:var(--ink)}
+.lang:hover{background:var(--ink);color:var(--paper)}
+
+/* type */
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.015em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(24px,3vw,36px);line-height:1.15}
+h3{font-size:21px;line-height:1.2}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:24px 0 0}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* page head + ruled sections (2fr label / 10fr content) */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(36px,5vw,64px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.note{color:var(--ink-2)}
+
+/* home intro */
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;padding:clamp(32px,5vw,56px) 0 40px;align-items:end}
+.intro p{font:400 clamp(26px,3vw,42px)/1.18 var(--serif);margin:0;letter-spacing:-.005em}
+:root[data-lang="zh"] .intro p{line-height:1.35;letter-spacing:.02em}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.meta div{padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.meta b{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* selected strip */
+.sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.sel a{text-decoration:none;display:block;min-width:0}
+.sel img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--rule-2)}
+.sel span{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px}
+.sel b{font:400 17px var(--serif)}
+.sel i{font:11px var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.sel a:hover b{color:var(--accent)}
+
+/* index controls */
+.ix-wrap{margin:0 0 8px}
+.ctl{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);background:transparent;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.chip sup{font:10px var(--mono);color:var(--muted);margin-left:3px}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on sup{color:var(--rule)}
+.ctl-t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.count{font:11px var(--mono);color:var(--muted);letter-spacing:.06em}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:2px 0}
+.search input{border:0;background:transparent;font:15px var(--serif);width:220px;outline:none;color:var(--ink);padding:2px 0}
+.search input::placeholder{color:var(--muted)}
+.search kbd{font:10px var(--mono);border:1px solid var(--rule);padding:1px 5px;border-radius:2px;color:var(--muted)}
+
+/* the index table */
+.ix{width:100%;border-collapse:collapse}
+.ix thead th{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;padding:0;white-space:nowrap}
+.ix thead th button{all:unset;cursor:pointer;display:block;padding:12px 10px 8px 0}
+.ix thead th button:hover{color:var(--ink)}
+.ix thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ix thead th.s button::after{content:" \2193";color:var(--accent)}
+.ix thead th.s.r button::after{content:" \2191"}
+.ix tbody tr{border-top:1px solid var(--rule);cursor:pointer}
+.ix tbody tr:last-child{border-bottom:1px solid var(--rule)}
+.ix td{padding:13px 10px 13px 0;vertical-align:baseline}
+.ix td.no{font:11.5px var(--mono);color:var(--muted);width:64px;white-space:nowrap}
+.ix td.ti{font:400 23px/1.2 var(--serif)}
+.ix td.ti a{text-decoration:none}
+.ix .alt{font:400 14px var(--serif);color:var(--muted);margin-left:12px}
+.ix .sub{display:none}
+.ix td.ty,.ix td.pl{font-size:13.5px;color:var(--ink-2)}
+.ix td.ty{max-width:240px}
+.ix td.pl{white-space:nowrap}
+.ix td.yr{font:12.5px var(--mono);color:var(--ink-2);width:60px}
+.ix td.go{width:30px;text-align:right;color:var(--muted)}
+.ix .tag{margin-left:10px;vertical-align:middle}
+.ix tbody:hover tr td,.ix tbody:hover tr .alt{color:var(--muted)}
+.ix tbody tr:hover td,.ix tbody tr.kb td{color:var(--ink)!important}
+.ix tbody tr:hover td.go,.ix tbody tr.kb td.go,.ix tbody tr:hover td.ti a{color:var(--accent)!important}
+.ix tbody tr.kb{background:var(--card)}
+.ix .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0;max-width:42em}
+.ix .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:6px 0 0;max-width:42em}
+:root[data-lang="zh"] .ix .disc{font-style:normal}
+.ix tbody:hover tr .sum,.ix tbody:hover tr .disc{color:var(--muted)}
+.ix tbody tr:hover .sum{color:var(--ink-2)!important}
+.xp{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin:12px 0 4px;font:14px/1.5 var(--sans);cursor:default}
+.xp[hidden]{display:none}
+.xp img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--rule-2)}
+.xp p{margin:0 0 8px;color:var(--ink-2)}
+.xp .xd{font-size:13px;color:var(--muted)}
+.xp a.open{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.xp.noimg{grid-template-columns:1fr}
+.empty{padding:30px 0;color:var(--muted);font:400 18px var(--serif)}
+
+/* Work / Lab card grid (.gx): 3 / 2 / 1 columns, 4:3 thumbnail, calm hover */
+.gx{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 24px}
+.gc{min-width:0}
+.gc[hidden]{display:none}
+.gc-a{display:block;text-decoration:none;color:inherit}
+.gc-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:transform .2s ease,border-color .2s ease}
+.gc-im img{width:100%;height:100%;object-fit:cover}
+.gc-im.noimg{display:flex;align-items:flex-end;padding:14px;font:12px var(--mono);color:var(--muted)}
+.gc-no{display:inline-block;font:11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:14px 0 4px}
+.gc .tag{margin-left:10px;vertical-align:1px}
+.gc-ti{font:400 23px/1.2 var(--serif);margin:0}
+.gc-ti .alt{display:block;font:400 14px/1.4 var(--serif);color:var(--muted);margin-top:3px}
+.gc .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0}
+.gc-meta{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+:root[data-lang="zh"] .gc-meta{letter-spacing:.1em}
+.gc .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-2)}
+:root[data-lang="zh"] .gc .disc{font-style:normal}
+a.gc-a:hover .gc-im{transform:translateY(-2px);border-color:var(--ink)}
+a.gc-a:hover .gc-ti .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:var(--accent-ink)}
+a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media (max-width:960px){.gx{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}}
+@media (max-width:600px){.gx{grid-template-columns:1fr;gap:36px}.gc-ti{font-size:21px}}
+
+/* preview that follows the cursor */
+.pv{position:fixed;z-index:20;left:0;top:0;width:360px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .15s,transform .15s}
+.pv.on{opacity:1;transform:none}
+.pv img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;box-shadow:0 20px 40px -20px rgba(29,28,26,.5);background:#fff}
+.pv .cap{display:inline-block;margin-top:6px;background:var(--ink);color:var(--paper);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px}
+.pv .pd{margin:6px 0 0;background:var(--paper);border:1px solid var(--rule);padding:6px 8px;font-size:12px;line-height:1.45;color:var(--ink-2)}
+.pv .pd:empty{display:none}
+
+/* tags */
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:24px 26px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:"L" counter(l,decimal-leading-zero);font:12px var(--mono);color:var(--muted);padding-top:6px}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(28px,4vw,44px)}
+.facts div{padding:10px 16px 10px 0;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.facts b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+/* call block: ruled like the index controls, no dark band */
+.band{border-top:3px solid var(--ink);padding:clamp(32px,5vw,56px) 0;margin-top:clamp(28px,4vw,48px)}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band p{color:var(--ink-2);max-width:34em}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: 1px ink rule, one quiet line */
+.foot{margin-top:clamp(40px,6vw,64px)}
+.foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
+.foot p{margin:0;max-width:60em}
+.foot .sig{white-space:nowrap}
+.foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
+
+/* phone */
+@media (max-width:860px){
+  .top .wrap{padding-top:16px;padding-bottom:10px;row-gap:8px}
+  .nav{margin-left:0;width:100%;gap:8px 14px;font-size:12px}
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
+  .sel{gap:8px;margin-bottom:30px}
+  .sel b{font-size:13px}.sel i{display:none}
+  .search{margin-left:0;width:100%}.search input{width:100%}.search kbd{display:none}
+  .ix td.ty,.ix td.pl,.ix td.go,.ix th.ty,.ix th.pl,.ix th.go{display:none}
+  .ix td{padding:11px 8px 11px 0}
+  .ix td.no{width:44px;font-size:10.5px}
+  .ix td.ti{font-size:19px}
+  .ix .alt{display:block;margin:2px 0 0;font-size:13px}
+  .ix .sub{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:3px}
+  .ix td.yr{width:auto;text-align:right}
+  .ix th.yr button{text-align:right;padding-right:0}
+  .ix .tag{margin:4px 0 0}
+  .pv{display:none}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot .sig{white-space:normal}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+  .xp{grid-template-columns:96px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* journal (2026-10-18): index list + article pages. Same tokens and type as the rest of the site. */
+.jx-ctl2{position:static;border-top:0;border-bottom:1px solid var(--rule)}
+.jx-list{list-style:none;margin:0;padding:0}
+.jx a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.jx a:hover .jx-ti{color:var(--accent)}
+.jx-im{display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.jx-im img{width:100%;height:100%;object-fit:cover}
+.jx-im.noimg{display:flex;align-items:flex-end;padding:10px;font:10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.jx-tx{display:block;min-width:0}
+.jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.jx-ti{display:block;font:400 21px/1.3 var(--serif);margin:5px 0 6px}
+.jx-sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:14.5px/1.55 var(--sans);color:var(--ink-2)}
+.jx-lang{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--rule);border-radius:2px;text-transform:none;color:var(--ink-2)}
+.jx-mini .jx a{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px 0}
+.jx-mini .jx-ti{font-size:17px}
+.jx-mini .jx-sum{display:none}
+:root[data-lang="zh"] .jx-ti{letter-spacing:.02em}
+
+.j-head h1{font-size:clamp(30px,4.2vw,54px);line-height:1.12;max-width:20em}
+.j-meta{font:11.5px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin:18px 0 0}
+.j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:calc((100% - var(--gutter)) / 6 + var(--gutter))}
+.j-body{max-width:38em;padding-top:clamp(28px,4vw,44px);font:18px/1.72 var(--serif);color:var(--ink)}
+.j-body p{margin:0 0 1.1em}
+.j-body ul{margin:0 0 1.1em;padding-left:1.2em}
+.j-body li{margin:0 0 .4em}
+.j-body a{word-break:break-all}
+:root[data-lang="zh"] .j-body{font-size:17.5px;line-height:1.9;letter-spacing:.03em}
+.j-gal{display:grid;gap:18px;margin-top:clamp(20px,3vw,32px);max-width:60em}
+.j-gal.j-n2,.j-gal.j-n3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.j-fig{margin:0;padding:10px;background:var(--card);border:1px solid var(--rule);border-radius:3px;align-self:start}
+.j-fig img{width:100%;height:auto;margin:0 auto}
+.j-end{max-width:38em;margin-top:clamp(24px,3vw,36px);padding-top:18px;border-top:1px solid var(--ink)}
+.j-orig{display:inline-block;font:13px/1.4 var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--accent);color:var(--ink)}
+.j-pair{margin:14px 0 0;color:var(--ink-2)}
+.j-pn{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(28px,4vw,44px);max-width:60em}
+.j-pn a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid var(--rule)}
+.j-pn a small{display:block;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.j-pn a span{font:17px/1.35 var(--serif)}
+.j-pn .j-newer{text-align:right;grid-column:2}
+.j-rel{margin-top:clamp(28px,4vw,44px);max-width:60em}
+.j-rel .label{margin-bottom:6px}
+@media (max-width:860px){
+  .j-body,.j-gal,.j-end,.j-pn,.j-rel{margin-left:0}
+  .j-gal.j-n2,.j-gal.j-n3{grid-template-columns:1fr}
+  .jx a{grid-template-columns:84px minmax(0,1fr);gap:14px}
+  .jx-ti{font-size:18px}
+  .j-pn{grid-template-columns:1fr}
+  .j-pn .j-newer{text-align:left;grid-column:auto}
+}
+.j-body pre{font:13px/1.55 var(--mono);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;overflow-x:auto;white-space:pre;letter-spacing:0}
+
+</style>
+<script>
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
+(function(){
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
+})();
+
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../work/"><span class="en">Work</span></a>
+      <a href="../../lab/"><span class="en">Lab</span></a>
+      <a href="../../courses/"><span class="en">Courses</span></a>
+      <a href="../../journal/" aria-current="page"><span class="en">Journal</span></a>
+      <a href="../../about/"><span class="en">About</span></a>
+      <a href="../../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../../zh/journal/we-have-argued-about-gpus-two/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="j-art">
+<header class="head j-head">
+  <div class="label"><a href="../../journal/">Journal</a> / AI news</div>
+  <div>
+    <h1 lang="en">We have argued about GPUs for two years</h1>
+    <p class="j-meta"><time datetime="2026-08-07">7 August 2026</time> · AI news · First posted on Facebook</p>
+  </div>
+</header>
+<div class="j-body" lang="en">
+<p>This week the industry quietly conceded something else: what actually limits AI is often not compute. It is memory.</p>
+<p>On 4 August at FMS 2026, SK hynix and SanDisk published the first standard specification for High Bandwidth Flash (HBF), released through the Open Compute Project, so an open standard rather than a proprietary one. The figures in the spec: up to 512GB per stack, roughly 0.4 to 3.0 TB/s, across three grades.</p>
+<p>🧠 <strong>Why memory is the bottleneck</strong></p>
+<p>For every single token a model produces, the weights it needs have to be read out of memory. Not once per sentence, once per token.</p>
+<p>So during inference the GPU is frequently not calculating. It is waiting for numbers to arrive.</p>
+<p>Why not simply hold more? Because there have been two options and neither fits: HBM is fast but only tens of gigabytes per stack and extremely expensive; SSDs are cheap and large but hundreds of times slower. The middle was empty. HBF aims at exactly that gap, NAND capacity behind something close to an HBM-style interface.</p>
+<p>💡 <strong>You feel this already</strong></p>
+<p>Why is long context expensive? Why is "remembers the whole conversation" a selling point rather than an assumption? Why won't a big model run on your machine?</p>
+<p>Not because it isn't fast enough. Because it doesn't fit.</p>
+<p>My own laptop is the plain example, 6GB of video memory, and local vision models simply won't run. Not a shortage of compute. The model doesn't fit.</p>
+<p>🎓 <strong>The part worth teaching</strong></p>
+<p>When we discuss technology, attention lands on the number that is easiest to talk about. GPUs are glamorous, branded, ranked, so GPUs are what everyone argues about.</p>
+<p>But the constraint that actually decides whether you can do a thing is often the dull one nobody mentions, sitting one layer down.</p>
+<p>That isn't only AI. It's construction too: everyone debates the design, while the thing actually holding the project is a consent, or a trade you cannot hire. Learning to ask "what is genuinely the binding constraint here" is a skill you can practise.</p>
+<p>⚠️ <strong>What I won't overstate:</strong> this is a specification, not a product. Nothing is for sale, there are no benchmarks, and who adopts it and when is unknown. A new tier has been defined, not a problem solved. Standard to faster machine usually takes years.</p>
+<p>In your own field, is the thing everyone argues about the same as the thing actually holding you back?</p>
+</div>
+<div class="j-gal j-n1"><figure class="j-fig"><img src="../../journal/img/we-have-argued-about-gpus-two/01.webp" alt="" loading="eager" decoding="async" width="1080" height="1080" style="max-width:1080px"></figure></div>
+<div class="j-end">
+  <a class="j-orig" href="https://www.facebook.com/photo/?fbid=10174794851430702" rel="noopener">See the original post on Facebook &rarr;</a>
+  
+</div>
+<nav class="j-pn" aria-label="Older and newer articles"><a class="j-older" href="../../journal/ai-101-handbook-giveaway/"><small>Older</small><span>45 days, 45 concepts. That&#x27;s a wrap</span></a><a class="j-newer" href="../../zh/journal/ai-agent-equipment-01/"><small>Newer</small><span>AI Agent 裝備 01 · 交接檔</span></a></nav>
+<section class="j-rel"><div class="label">More in AI news</div><ol class="jx-list jx-mini"><li class="jx" data-c="ai-news" data-l="en zh" data-q="framing a house, going from a slab to something with the shape of a building on it,… 框架搭建⋯由地基到有個「屋嘅形狀」企喺度⋯通常以月計"><a href="../../journal/framing-house-going-from-slab-something/"><span class="jx-im noimg"><span>AI news</span></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-06">6 August 2026</time> · AI news · Facebook</span><b class="jx-ti">Framing a house, going from a slab to something with the shape of a building on it,…</b><span class="jx-sum">…usually takes months. On Tuesday, Autodesk and the University of Florida opened a lab suggesting it might come down to a weekend. The exact wording…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="on a site walk, your hands are already full 行地盤嗰陣,你隻手係佔住嘅"><a href="../../journal/site-walk-hands-are-already-full/"><span class="jx-im"><img src="../../journal/img/site-walk-hands-are-already-full/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-05">5 August 2026</time> · AI news · Facebook</span><b class="jx-ti">On a site walk, your hands are already full</b><span class="jx-sum">Drawings in one, phone in the other, maybe a pen as well. And the thing you actually need, which revision this detail is on, what the spec said, whether…</span></span></a></li><li class="jx" data-c="ai-news" data-l="en zh" data-q="thirty-four us states have issued ai guidance for schools 美國有 34 個州出咗學校用 ai 嘅指引"><a href="../../journal/thirty-four-us-states-have-issued/"><span class="jx-im"><img src="../../journal/img/thirty-four-us-states-have-issued/thumb.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></span><span class="jx-tx"><span class="jx-meta"><time datetime="2026-08-10">10 August 2026</time> · AI news · Facebook</span><b class="jx-ti">Thirty-four US states have issued AI guidance for schools</b><span class="jx-sum">, , Thirty-four US states have issued AI guidance for schools. This year alone, more than 70 bills on AI in the classroom were introduced across 27…</span></span></a></li></ol></section>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap"><div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
+  </div></div>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
