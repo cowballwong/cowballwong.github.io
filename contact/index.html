@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Anzon Wong</title>
-<meta name="description" content="How to reach Anzon Wong by email, where to book a lesson, and the site&#x27;s privacy note: no cookies, no forms.">
+<meta name="description" content="How to reach Anzon Wong: three short email forms for projects, practices and courses, the booking page, and the privacy note.">
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/contact/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anzon Wong">
 <meta property="og:title" content="Contact Anzon Wong">
-<meta property="og:description" content="How to reach Anzon Wong by email, where to book a lesson, and the site&#x27;s privacy note: no cookies, no forms.">
+<meta property="og:description" content="How to reach Anzon Wong: three short email forms for projects, practices and courses, the booking page, and the privacy note.">
 <meta property="og:url" content="https://anzonwong.com/contact/">
 <meta property="og:image" content="https://anzonwong.com/img/og/contact.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Contact Anzon Wong","item":"https://anzonwong.com/contact/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/contact/#page","url":"https://anzonwong.com/contact/","name":"Contact Anzon Wong","description":"How to reach Anzon Wong by email, where to book a lesson, and the site's privacy note: no cookies, no forms.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/contact.jpg"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Contact Anzon Wong","item":"https://anzonwong.com/contact/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/contact/#page","url":"https://anzonwong.com/contact/","name":"Contact Anzon Wong","description":"How to reach Anzon Wong: three short email forms for projects, practices and courses, the booking page, and the privacy note.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/contact.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -278,6 +278,23 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* Contact (phase 2, 2026-10-18): three doors, each a short form that only builds a mailto: link (static site, no backend) */
+.ct{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--rule);margin:clamp(28px,4vw,44px) 0 0}
+.ct-d{display:flex;flex-direction:column;gap:12px;padding:18px clamp(16px,1.8vw,24px) 22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0;scroll-margin-top:20px}
+.ct-d:target{background:var(--card)}
+.ct-no{margin:0;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ct-d h2{font:400 clamp(22px,2vw,27px)/1.2 var(--serif)}
+.ct-tx{margin:0 0 4px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.ct-d label{display:flex;flex-direction:column;gap:5px;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+:root[data-lang="zh"] .ct-d label{letter-spacing:.1em}
+.ct-d input,.ct-d textarea,.ct-d select{font:16px/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:9px 10px;min-height:44px;width:100%;box-sizing:border-box}
+.ct-d textarea{resize:vertical}
+.ct-d input:focus,.ct-d textarea:focus,.ct-d select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--ink)}
+.ct-go{margin-top:auto;align-self:flex-start;min-height:44px;padding:10px 16px;border:1px solid var(--ink);border-radius:3px;background:var(--ink);color:var(--paper);font:12.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.ct-go:hover{background:var(--accent);border-color:var(--accent)}
+.ct-alt{margin:0;font-size:12.5px;color:var(--muted)}
+@media (max-width:960px){ .ct{grid-template-columns:1fr} }
+
 </style>
 <script>
 // Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
@@ -311,18 +328,51 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   <div class="label">06 / <span class="en">Contact</span></div>
   <div>
     <h1><span class="en">Contact</span></h1>
-    <p class="lede en">Email is the simplest way to reach me.</p>
+    <p class="lede en">Pick the door that fits. Each short form opens your own email app with the message filled in; nothing is sent until you press send there.</p>
     
-    <p style="margin:36px 0 0"><a class="mail" href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="en" style="margin:22px 0 0;color:var(--ink-2)">For lessons, please use the <a href="https://anzonwong.com/teaching-booking/" rel="noopener">booking page</a>.</p>
-    
+    <p style="margin:26px 0 0"><a class="mail" href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div>
 </header>
+
+<section class="ct" aria-label="Three ways to get in touch">
+  <form class="ct-d" id="project" action="mailto:anzon@anzonwong.com?subject=Project%20enquiry" method="post" enctype="text/plain" data-subject="Project enquiry" data-subject-zh="項目查詢">
+    <p class="ct-no">A · <span class="en">Projects</span></p>
+    <h2><span class="en">A building or interior project</span></h2>
+    <p class="ct-tx"><span class="en">Tell me a little about the project, or ask about the work on this site.</span></p>
+    <label><span class="en">Your name</span><input name="Name" autocomplete="name" required></label>
+    <label><span class="en">Where is it?</span><input name="Place" autocomplete="off"></label>
+    <label><span class="en">What is it, and what would you like to ask?</span><textarea name="Message" rows="4" required></textarea></label>
+    <button type="submit" class="ct-go"><span class="en">Open in my email</span> &rarr;</button>
+  </form>
+
+  <form class="ct-d" id="practice" action="mailto:anzon@anzonwong.com?subject=AI%20agents%20for%20a%20practice" method="post" enctype="text/plain" data-subject="AI agents for a practice" data-subject-zh="事務所的 AI 代理人">
+    <p class="ct-no">B · <span class="en">Practices</span></p>
+    <h2><span class="en">AI agents for a practice</span></h2>
+    <p class="ct-tx"><span class="en">For people who run an office and want to talk through where to start. The <a href="../ai-agents-for-practices/">explainer</a> is a good first read.</span></p>
+    <label><span class="en">Your name</span><input name="Name" autocomplete="name" required></label>
+    <label><span class="en">Practice and where it is</span><input name="Practice" autocomplete="organization"></label>
+    <label><span class="en">How many people work there?</span>
+      <select name="Size"><option value=""></option><option>1-5</option><option>6-20</option><option>21-50</option><option>50+</option></select></label>
+    <label><span class="en">Which task would you try first?</span><textarea name="Message" rows="3"></textarea></label>
+    <button type="submit" class="ct-go"><span class="en">Open in my email</span> &rarr;</button>
+  </form>
+
+  <form class="ct-d" id="courses" action="mailto:anzon@anzonwong.com?subject=Class%200" method="post" enctype="text/plain" data-subject="Class 0" data-subject-zh="Class 0 查詢">
+    <p class="ct-no">C · <span class="en">Courses</span></p>
+    <h2><span class="en">Courses and Class 0</span></h2>
+    <p class="ct-tx"><span class="en">Questions about the one-to-one course. To book the free Class 0 straight away, use the <a href="https://anzonwong.com/teaching-booking/" rel="noopener">booking page</a>.</span></p>
+    <label><span class="en">Your name</span><input name="Name" autocomplete="name" required></label>
+    <label><span class="en">Where are you? (for lesson times)</span>
+      <select name="Where"><option value=""></option><option>UK 英國</option><option>Hong Kong 香港</option><option>Elsewhere 其他地方</option></select></label>
+    <label><span class="en">Your question</span><textarea name="Message" rows="3"></textarea></label>
+    <button type="submit" class="ct-go"><span class="en">Open in my email</span> &rarr;</button>
+  </form>
+</section>
 
 <section class="sec" id="privacy">
   <div class="label"><span class="en">Privacy</span></div>
   <div class="prose" style="color:var(--ink-2)">
-    <p class="en">This site sets no cookies and has no forms; it does not collect anything about you. Visits may be counted with Cloudflare Web Analytics, which uses no cookies and does not identify you.</p>
+    <p class="en">This site sets no cookies and collects nothing about you. The forms above send nothing to this site: they only open your own email app. Visits may be counted with Cloudflare Web Analytics, which uses no cookies and does not identify you.</p>
     <p class="en">The course booking page stores the name and email you enter, only to arrange your lessons. Email me if you would like yours deleted.</p>
     
     
@@ -335,6 +385,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
     <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
+<script>
+// Contact doors (phase 2, 2026-10-18): each form only builds a mailto: link with a subject and a plain body, then opens
+// the visitor's own email app. Nothing is sent to this site. Without this script the browser's own mailto form posting
+// (enctype text/plain) does the same, less tidily. Below each form a plain prefilled email link is added as a fallback.
+(function(){
+  var zh = document.documentElement.getAttribute('data-lang') === 'zh';
+  var TO = 'anzon@anzonwong.com';
+  [].forEach.call(document.querySelectorAll('form.ct-d'), function(f){
+    var subj = (zh && f.dataset.subjectZh) || f.dataset.subject;
+    var alt = document.createElement('p'); alt.className = 'ct-alt';
+    var a = document.createElement('a'); a.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subj);
+    a.textContent = zh ? '或直接寫電郵' : 'Or just write an email';
+    alt.appendChild(a); f.appendChild(alt);
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var lines = [], name = '';
+      [].forEach.call(f.querySelectorAll('input, textarea, select'), function(el){
+        var v = (el.value || '').trim(); if(!v) return;
+        var lab = el.closest('label'), t = lab ? lab.querySelector(zh ? '.zh' : '.en') : null;
+        var k = t ? t.textContent.trim() : el.name;
+        if(el.name === 'Name') name = v;
+        lines.push(el.tagName === 'TEXTAREA' ? '\n' + v : k + ': ' + v);
+      });
+      var s = subj + (name ? (zh ? '：' : ': ') + name : '');
+      location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+})();
+
+</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

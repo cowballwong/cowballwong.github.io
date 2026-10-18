@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"WebPage","@id":"https://anzonwong.com/#page","url":"https://anzonwong.com/","name":"Anzon Wong, architect · AI agents, free tools and courses","description":"Anzon Wong, architect in the UK from Hong Kong. Work, free tools for architects, and a one-to-one AI agent course.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/home.jpg","about":{"@id":"https://anzonwong.com/#person"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"WebPage","@id":"https://anzonwong.com/#page","url":"https://anzonwong.com/","name":"Anzon Wong, architect · AI agents, free tools and courses","description":"Anzon Wong, architect in the UK from Hong Kong. Work, free tools for architects, and a one-to-one AI agent course.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/home.jpg","about":{"@id":"https://anzonwong.com/#person"}}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -285,31 +285,6 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   --t-project:#f4ebe4; --t-tool:#e9efec; --t-course:#f3eddc; --t-page:#fbfaf7;
 }
 
-/* carousel */
-.hc{margin-bottom:46px;min-width:0}
-.hc-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-.hc-h .label{padding-top:0}
-.hc-ctl{display:flex;gap:4px;flex:none}
-.hc-ctl[hidden]{display:none}
-.hc-b{border:1px solid var(--rule);background:transparent;min-width:34px;min-height:32px;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
-.hc-b:hover{border-color:var(--ink)}
-.hc-pp[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.hc-track{list-style:none;margin:0;padding:0 0 12px;display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;
-  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
-.hc-track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.hc-track > li{flex:0 0 calc((100% - 40px) / 3);min-width:0;scroll-snap-align:start}
-.hc a{display:block;text-decoration:none;color:inherit;-webkit-user-drag:none}
-.hc-im{display:block;position:relative;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:border-color .2s ease}
-.hc-im img{width:100%;height:100%;object-fit:cover}
-.hc-tag{position:absolute;left:10px;top:10px;font:11px/1.4 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:3px 8px;border-radius:2px}
-.hc-tx{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:9px}
-.hc-tx b{font:400 17px/1.3 var(--serif);min-width:0}
-.hc-tx i{flex:none;font:11px/1.4 var(--mono);font-style:normal;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
-.hc a:hover b{color:var(--accent)}
-.hc a:hover .hc-im{border-color:var(--ink)}
-.hc a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-
 /* index: one tint per category, a 3px category bar on the number cell; the filter chips double as the legend */
 .ix tbody tr[data-t="project"]{background:var(--t-project)}
 .ix tbody tr[data-t="tool"]{background:var(--t-tool)}
@@ -341,22 +316,8 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   .hc-h .label{font-size:11px}
 }
 
-/* landing: the home page is one screen (100svh): header, intro, carousel, index bar. No page scroll.
-   The index waits in a full-screen overlay (#index) that slides up; without JS it opens through :target.
-   :has() keeps this to the home page; a browser without it shows the old scrolling page. */
-:root{--ixo-hh:60px}
-body:has(.ixo){display:flex;flex-direction:column;height:100svh;overflow:hidden}
-body:has(.ixo) > .top{flex:none}
-body:has(.ixo) > main{flex:1 1 auto;min-height:0;width:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow-y:auto}
-body:has(.ixo) .intro{padding:clamp(18px,5svh,56px) 0 clamp(14px,3.6svh,40px)}
-body:has(.ixo) .intro p{font-size:clamp(21px,min(3vw,4.4svh),42px)}
-body:has(.ixo) .hc{margin-bottom:clamp(12px,2.4svh,30px)}
-/* tiles never grow taller than the screen leaves room for (3:2 tiles, so width = 1.5 x the spare height) */
-body:has(.ixo) .hc-track > li{flex-basis:min(calc((100% - 40px) / 3), calc((100svh - var(--hc-rest)) * 1.5))}
-body:has(.ixo){--hc-rest:540px}
-
 /* the bar that opens the index */
-.ixo-bar{margin-top:auto;padding-bottom:clamp(12px,3svh,32px)}
+.ixo-bar{margin-top:clamp(28px,4vw,48px);padding-bottom:clamp(12px,3svh,32px)}
 .ixo-open{display:flex;align-items:center;gap:14px;min-height:48px;padding:10px 4px;box-sizing:border-box;
   border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);text-decoration:none;color:var(--ink)}
 .ixo-ic{font-size:18px;line-height:1}
@@ -386,30 +347,20 @@ html.ixo-on body{overflow:hidden}
 .ixo .foot{margin-top:clamp(28px,4vw,48px)}
 
 @media (max-width:860px){
-  body:has(.ixo) .hc-track > li{flex-basis:min(calc((100% - 12px) / 2), calc((100svh - var(--hc-rest)) * 1.5))}
 }
 @media (max-width:600px){
   :root{--ixo-hh:56px}
-  body:has(.ixo){--hc-rest:540px}
-  body:has(.ixo) .hc-track > li{flex-basis:min(80%, calc((100svh - var(--hc-rest)) * 1.5))}
-  body:has(.ixo) .intro .meta{display:none}
   .ixo-l{font-size:19px}
   .ixo-n{display:none}
   .ixo-ar{margin-left:auto}
   .ixo .ctl{position:static}   /* on a phone the chips and search take three lines; let them scroll away */
 }
 @media (max-width:600px) and (max-height:720px){   /* short phones: smaller intro so the tile keeps its size */
-  body:has(.ixo){--hc-rest:500px}
-  body:has(.ixo) .intro p{font-size:19px}
 }
 @media (max-width:380px){   /* narrow phones: keep the nav on one line so the landing still fits */
-  body:has(.ixo) .nav{gap:11px;letter-spacing:.05em;font-size:12.5px}
 }
 /* very short screens (landscape phones): one screen cannot hold it, so the page scrolls as before */
 @media (max-height:540px){
-  body:has(.ixo){height:auto;overflow:visible}
-  body:has(.ixo) > main{overflow:visible}
-  body:has(.ixo) .hc-track > li{flex-basis:calc((100% - 40px) / 3)}
   .ixo-bar{margin-top:8px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -419,7 +370,7 @@ html.ixo-on body{overflow:hidden}
 
 /* 2026-10-18: three doors (clients, practices, learners) in place of the carousel. Own drawing-sheet look:
    ruled panels, mono numbers, one image each; the practices door is a typeset diagram, not a photo. */
-.dd{min-width:0;margin-bottom:clamp(10px,2svh,24px)}
+.dd{min-width:0;margin-bottom:0}
 .dd-h{margin-bottom:10px}
 .dd-h .label{padding-top:0}
 .dd-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
@@ -429,7 +380,7 @@ html.ixo-on body{overflow:hidden}
 .dd-list a:hover .dd-ti,.dd-list a:hover .dd-go{color:var(--accent)}
 .dd-list a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .dd-no{font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.dd-im{display:block;position:relative;margin:10px 0 0;height:clamp(120px,calc(100svh - 690px),300px);overflow:hidden;border:1px solid var(--rule);border-radius:2px;background:var(--rule-2)}
+.dd-im{display:block;position:relative;margin:10px 0 0;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:2px;background:var(--rule-2)}
 .dd-im img{width:100%;height:100%;object-fit:cover}
 .dd-draw{background:var(--card)}
 .dd-svg{display:block;width:100%;height:100%}
@@ -453,7 +404,61 @@ html.ixo-on body{overflow:hidden}
   .dd-list{grid-template-columns:1fr}
   .dd-im{height:auto;aspect-ratio:16/9}
 }
-body:has(.ixo) .dd{--hc-rest:600px}
+
+/* ===== phase 2 (2026-10-18): image-first hero. Concept: a drawing sheet. The picture is the sheet, the caption is
+   its title block in a ruled column beside it (never text over the picture); sheet number "01 / 03" in mono. */
+body:has(.hx){overflow-x:clip}
+.hx{--hx-h:calc(100svh - 61px);position:relative;width:100vw;margin-left:calc(50% - 50vw);display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(280px,25vw,380px);height:var(--hx-h);min-height:480px;max-height:1200px;border-bottom:1px solid var(--ink)}
+.hx-stage{position:relative;overflow:hidden;background:var(--rule-2);touch-action:pan-y}
+.hx-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+.hx-slides{list-style:none;margin:0;padding:0;position:absolute;inset:0}
+.hx-s{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;visibility:hidden}
+.hx-s.on{opacity:1;visibility:visible}
+.hx-s a{display:block;width:100%;height:100%}
+.hx-s img{width:100%;height:100%;object-fit:cover}
+.hx-s .ai-tag{left:16px;bottom:16px;font-size:11px;padding:5px 8px}
+.hx-tb{display:flex;flex-direction:column;border-left:1px solid var(--ink);background:var(--paper);min-width:0}
+.hx-cap{padding:clamp(20px,3vw,36px) clamp(18px,2vw,28px) 18px;border-bottom:1px solid var(--rule)}
+.hx-c[hidden]{display:none}
+.hx-no{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.hx-no b{font:400 15px/1 var(--mono);letter-spacing:.06em;color:var(--accent-ink)}
+.hx-of{font:11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hx-ti{font:400 clamp(26px,2.4vw,38px)/1.1 var(--serif);margin:0}
+:root[data-lang="zh"] .hx-ti{letter-spacing:.04em;line-height:1.25}
+.hx-ti a{text-decoration:none}
+.hx-ti a:hover{color:var(--accent)}
+.hx-m{margin:12px 0 0;font:12px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.hx-ai{margin:12px 0 0;font-size:13px;line-height:1.45;color:var(--muted)}
+.hx-list{list-style:none;margin:auto 0 0;padding:0;border-top:1px solid var(--ink)}
+.hx-list li{border-bottom:1px solid var(--rule)}
+.hx-list a{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:11px clamp(18px,2vw,28px);text-decoration:none;color:var(--ink-2);font-size:14.5px;position:relative}
+.hx-list a:hover{color:var(--accent);background:var(--card)}
+.hx-list a[aria-current="true"]{color:var(--ink);background:var(--card)}
+.hx-list a[aria-current="true"]::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.hx-rn{font:11px var(--mono);color:var(--muted)}
+.hx-ry{font:11px var(--mono);color:var(--muted)}
+.hx-ctl{display:flex;gap:4px;padding:12px clamp(18px,2vw,28px) 16px}
+.hx-ctl[hidden]{display:none}
+.hx-b{border:1px solid var(--rule);background:transparent;min-width:44px;min-height:40px;padding:6px 12px;border-radius:3px;cursor:pointer;font:13px var(--sans);color:var(--ink)}
+.hx-b:hover{border-color:var(--ink)}
+.hx-pp{margin:0 auto 0 0}
+.hx-pp[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hx-ctl .hx-b[data-step="-1"]{margin-left:auto}
+.hx-intro{margin:0;padding:clamp(36px,6vw,72px) 0 clamp(22px,3vw,32px);max-width:44em;font:400 clamp(18px,1.7vw,22px)/1.5 var(--serif);color:var(--ink-2)}
+:root[data-lang="zh"] .hx-intro{line-height:1.8;letter-spacing:.03em}
+@media (max-width:860px){
+  .hx{grid-template-columns:1fr;height:auto;min-height:0;max-height:none}
+  .hx-stage{height:min(64svh,125vw);min-height:300px}
+  .hx-tb{border-left:0;border-top:1px solid var(--ink)}
+  .hx-cap{padding:18px var(--gutter) 14px}
+  .hx-no{margin-bottom:10px}
+  .hx-ti{font-size:26px}
+  .hx-list a{padding:10px var(--gutter)}
+  .hx-ctl{padding:10px var(--gutter) 14px}
+  .hx-s .ai-tag{left:10px;bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){ .hx-s{transition:none} }
 
 </style>
 <script>
@@ -485,27 +490,28 @@ body:has(.ixo) .dd{--hc-rest:600px}
 </header>
 <main class="wrap">
 <h1 class="vh">Anzon Wong</h1>
-<section class="intro">
-  <div>
-    <p class="en">Architect in the United Kingdom, from Hong Kong. I design buildings, make small tools and AI agents for architects, and teach people to build agents of their own.</p>
-    
-  </div>
-  <div class="meta">
-    <div><b><span class="en">Based</span></b><span class="en">United Kingdom</span></div>
-    <div><b><span class="en">From</span></b><span class="en">Hong Kong</span></div>
-    <div><b><span class="en">Practice label</span></b>AW Design</div>
-    <div><b><span class="en">Languages</span></b><span class="en">English · 中文</span></div>
+<section class="hx" id="hx" aria-roledescription="carousel" aria-label="Selected work">
+  <div class="hx-stage" tabindex="0"><ul class="hx-slides"><li class="hx-s on" data-i="0"><a href="work/upside-down-chalet/" tabindex="-1" aria-hidden="true"><img src="img/seq/upside-down-chalet/01-960.webp" srcset="img/seq/upside-down-chalet/01-480.webp 480w, img/seq/upside-down-chalet/01-960.webp 960w, work/upside-down-chalet/img/ai/hero_kitchen.webp 1600w" fetchpriority="high" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="1067" decoding="async"></a><em class="ai-tag"><span class="en">AI render</span></em></li><li class="hx-s" data-i="1" aria-hidden="true"><a href="work/cocotte/" tabindex="-1" aria-hidden="true"><img data-src="img/seq/cocotte/01-960.webp" data-srcset="img/seq/cocotte/01-480.webp 480w, img/seq/cocotte/01-960.webp 960w, work/cocotte/img/r2013/exterior.webp 1600w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="913" decoding="async"></a></li><li class="hx-s" data-i="2" aria-hidden="true"><a href="work/family-flat-hong-kong/" tabindex="-1" aria-hidden="true"><img data-src="img/seq/family-flat-hong-kong/01-960.webp" data-srcset="img/seq/family-flat-hong-kong/01-480.webp 480w, img/seq/family-flat-hong-kong/01-960.webp 960w, work/family-flat-hong-kong/img/ai/ai-1.webp 1536w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1536" height="1024" decoding="async"></a><em class="ai-tag"><span class="en">AI render</span></em></li></ul></div>
+  <div class="hx-tb">
+    <div class="hx-cap" aria-live="polite"><div class="hx-c on" data-i="0"><p class="hx-no"><b>P01</b><span class="en hx-of">1 of 3</span></p><h2 class="hx-ti"><a href="work/upside-down-chalet/"><span class="en">The Upside-Down Chalet</span></a></h2><p class="hx-m"><span class="en">2017</span></p><p class="en hx-ai">AI render based on the original model, 2026</p></div><div class="hx-c" data-i="1" hidden><p class="hx-no"><b>P02</b><span class="en hx-of">2 of 3</span></p><h2 class="hx-ti"><a href="work/cocotte/"><span class="en">Cocotte</span></a></h2><p class="hx-m"><span class="en">Hong Kong · 2013</span></p></div><div class="hx-c" data-i="2" hidden><p class="hx-no"><b>P03</b><span class="en hx-of">3 of 3</span></p><h2 class="hx-ti"><a href="work/family-flat-hong-kong/"><span class="en">Family flat, Hong Kong</span></a></h2><p class="hx-m"><span class="en">Hong Kong · 2015</span></p><p class="en hx-ai">AI render based on the original model, 2026</p></div></div>
+    <ol class="hx-list"><li><a href="work/upside-down-chalet/" data-go="0" aria-current="true"><span class="hx-rn">P01</span><span class="en hx-rt">The Upside-Down Chalet</span><span class="hx-ry">2017</span></a></li><li><a href="work/cocotte/" data-go="1"><span class="hx-rn">P02</span><span class="en hx-rt">Cocotte</span><span class="hx-ry">2013</span></a></li><li><a href="work/family-flat-hong-kong/" data-go="2"><span class="hx-rn">P03</span><span class="en hx-rt">Family flat, Hong Kong</span><span class="hx-ry">2015</span></a></li></ol>
+    <div class="hx-ctl" hidden>
+      <button type="button" class="hx-b" data-step="-1" aria-label="Previous project">&larr;</button>
+      <button type="button" class="hx-b hx-pp" data-pp aria-pressed="false"><span class="en">Pause</span></button>
+      <button type="button" class="hx-b" data-step="1" aria-label="Next project">&rarr;</button>
+    </div>
   </div>
 </section>
+<p class="hx-intro"><span class="en">Architect in the United Kingdom, from Hong Kong. I design buildings, make small tools and AI agents for architects, and teach people to build agents of their own.</span></p>
 
 <section class="dd" aria-label="Three ways in">
   <div class="dd-h"><span class="label"><span class="en">Start here</span></span></div>
   <ol class="dd-list">
     <li><a href="work/">
       <span class="dd-no">01 · <span class="en">Clients</span></span>
-      <span class="dd-im"><img src="work/upside-down-chalet/thumb_render.webp" alt="" width="1200" height="900" decoding="async"><em class="ai-tag"><span class="en">AI render</span></em></span>
+      <span class="dd-im"><img src="img/seq/upside-down-chalet/04-960.webp" alt="" width="960" height="968" loading="lazy" decoding="async"></span>
       <b class="dd-ti"><span class="en">See how I design</span></b>
-      <span class="dd-tx"><span class="en">Buildings and interiors, each shown as an interactive page. Three to start with.</span></span>
+      <span class="dd-tx"><span class="en">Buildings and interiors, each shown as an interactive page with its model, drawings and pictures.</span></span>
       <span class="dd-go"><span class="en">Work</span> &rarr;</span></a></li>
     <li><a href="ai-agents-for-practices/">
       <span class="dd-no">02 · <span class="en">Practices</span></span>
@@ -528,7 +534,7 @@ body:has(.ixo) .dd{--hc-rest:600px}
       <span class="dd-go"><span class="en">Read the explainer</span> &rarr;</span></a></li>
     <li><a href="courses/#basic">
       <span class="dd-no">03 · <span class="en">Learners</span></span>
-      <span class="dd-im"><img src="courses/img/l3.jpg" alt="" width="1400" height="844" decoding="async"></span>
+      <span class="dd-im"><img src="courses/img/l3.jpg" alt="" width="1400" height="844" loading="lazy" decoding="async"></span>
       <b class="dd-ti"><span class="en">Build your own AI agent</span></b>
       <span class="dd-tx"><span class="en">One-to-one online lessons, no coding. The Basic course starts with Class 0, a free first lesson.</span></span>
       <span class="dd-go"><span class="en">Courses</span> &rarr;</span></a></li>
@@ -941,61 +947,73 @@ body:has(.ixo) .dd{--hc-rest:600px}
 
 </script>
 <script>
-// Home carousel (走馬燈): steps one tile every 4 s, loops back to the start, pauses on hover, focus or touch
-// (resumes 8 s after the last touch), when off screen or the tab is hidden. prefers-reduced-motion: no auto-scroll.
-// Without this script the track is a plain swipeable, scroll-snapped row and the buttons stay hidden.
+// Home hero (phase 2, 2026-10-18): three featured projects, one picture each, caption in the title block beside it.
+// Steps every 6 s; pauses on hover, focus, touch, when off screen or the tab is hidden, and with the Pause button.
+// prefers-reduced-motion: no auto-advance and no fade. Keys: arrow left/right on the picture. Swipe on the picture.
+// A list row picks that project; picking the current one opens it. Without this script: picture 1 + three plain links.
 (function(){
-  var root = document.getElementById('hc'), tr = document.getElementById('hcTrack');
-  if(!root || !tr || !tr.children.length) return;
-  var ctl = root.querySelector('.hc-ctl'), pp = root.querySelector('[data-pp]');
+  var hx = document.getElementById('hx'); if(!hx) return;
+  var slides = [].slice.call(hx.querySelectorAll('.hx-s')), caps = [].slice.call(hx.querySelectorAll('.hx-c'));
+  var rows = [].slice.call(hx.querySelectorAll('.hx-list a')), stage = hx.querySelector('.hx-stage');
+  var ctl = hx.querySelector('.hx-ctl'), pp = hx.querySelector('[data-pp]');
+  var n = slides.length; if(n < 2) return;
   var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches: false};
-  var playing = !rm.matches, hover = false, focus = false, quietUntil = 0, onScreen = true;
+  var cur = 0, playing = !rm.matches, hover = false, focus = false, onScreen = true, quietUntil = 0, timer = null;
   ctl.hidden = false;
-
-  function beh(){ return rm.matches ? 'auto' : 'smooth'; }
-  function stepPx(){
-    var li = tr.children[0], gap = parseFloat(getComputedStyle(tr).columnGap) || 0;
-    return li.getBoundingClientRect().width + gap;
+  function load(s){
+    var im = s.querySelector('img');
+    if(im && im.dataset.srcset){ im.srcset = im.dataset.srcset; im.src = im.dataset.src; delete im.dataset.srcset; }
   }
-  function go(d){
-    var max = tr.scrollWidth - tr.clientWidth;
-    if(max <= 2) return;
-    if(d > 0 && tr.scrollLeft >= max - 4) tr.scrollTo({left: 0, behavior: beh()});
-    else if(d < 0 && tr.scrollLeft <= 4) tr.scrollTo({left: max, behavior: beh()});
-    else tr.scrollBy({left: d * stepPx(), behavior: beh()});
+  function go(i){
+    cur = (i + n) % n;
+    load(slides[cur]); load(slides[(cur + 1) % n]);
+    slides.forEach(function(s, k){ var on = k === cur; s.classList.toggle('on', on); if(on) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true'); });
+    caps.forEach(function(c, k){ c.hidden = k !== cur; c.classList.toggle('on', k === cur); });
+    rows.forEach(function(r, k){ if(k === cur) r.setAttribute('aria-current', 'true'); else r.removeAttribute('aria-current'); });
   }
+  function quiet(ms){ quietUntil = Date.now() + ms; }
   function setPP(){
     pp.setAttribute('aria-pressed', playing ? 'false' : 'true');
     pp.innerHTML = playing ? '<span class="en">Pause</span><span class="zh" lang="zh-Hant">暫停</span>'
                            : '<span class="en">Play</span><span class="zh" lang="zh-Hant">播放</span>';
-    tr.setAttribute('aria-live', playing ? 'off' : 'polite');
   }
-  function quiet(ms){ quietUntil = Date.now() + ms; }
-
-  setInterval(function(){
+  function tick(){
     if(playing && !hover && !focus && onScreen && !document.hidden && Date.now() > quietUntil &&
-       !document.documentElement.classList.contains('ixo-on')) go(1);
-  }, 4000);
-
-  root.addEventListener('mouseenter', function(){ hover = true; });
-  root.addEventListener('mouseleave', function(){ hover = false; });
-  root.addEventListener('focusin', function(){ focus = true; });
-  root.addEventListener('focusout', function(e){ if(!root.contains(e.relatedTarget)) focus = false; });
-  tr.addEventListener('touchstart', function(){ quiet(8000); }, {passive: true});
-  tr.addEventListener('pointerdown', function(){ quiet(8000); });
-  tr.addEventListener('wheel', function(){ quiet(8000); }, {passive: true});
-  tr.addEventListener('keydown', function(e){
-    if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
-    else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
-  });
+       !document.documentElement.classList.contains('ixo-on')) go(cur + 1);
+  }
+  timer = setInterval(tick, 6000);
+  window.addEventListener('load', function(){ setTimeout(function(){ load(slides[1 % n]); }, 300); });
+  hx.addEventListener('mouseenter', function(){ hover = true; });
+  hx.addEventListener('mouseleave', function(){ hover = false; });
+  hx.addEventListener('focusin', function(){ focus = true; });
+  hx.addEventListener('focusout', function(e){ if(!hx.contains(e.relatedTarget)) focus = false; });
+  rows.forEach(function(r, k){ r.addEventListener('click', function(e){
+    if(k === cur || e.metaKey || e.ctrlKey || e.shiftKey) return;   // the current one opens the project
+    e.preventDefault(); go(k); quiet(12000);
+  }); });
   ctl.addEventListener('click', function(e){
     var b = e.target.closest('button'); if(!b) return;
     if(b.hasAttribute('data-pp')){ playing = !playing; setPP(); return; }
-    go(+b.getAttribute('data-go')); quiet(8000);
+    go(cur + (+b.getAttribute('data-step'))); quiet(12000);
   });
+  stage.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ e.preventDefault(); go(cur + 1); quiet(12000); }
+    else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); quiet(12000); }
+    else if(e.key === 'Enter'){ var a = slides[cur].querySelector('a'); if(a) location.href = a.href; }
+  });
+  // swipe: a horizontal drag of 40 px or more changes the project; a tap still opens it
+  var x0 = null, y0 = 0, swiped = false;
+  stage.addEventListener('pointerdown', function(e){ x0 = e.clientX; y0 = e.clientY; swiped = false; quiet(12000); });
+  stage.addEventListener('pointerup', function(e){
+    if(x0 === null) return;
+    var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+    if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){ swiped = true; go(cur + (dx < 0 ? 1 : -1)); }
+  });
+  stage.addEventListener('click', function(e){ if(swiped){ e.preventDefault(); swiped = false; } }, true);
+  stage.addEventListener('dragstart', function(e){ e.preventDefault(); });
   if(rm.addEventListener) rm.addEventListener('change', function(){ if(rm.matches){ playing = false; setPP(); } });
   if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }, {threshold: 0.3}).observe(tr);
+    new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }, {threshold: 0.4}).observe(stage);
   }
   setPP();
 })();

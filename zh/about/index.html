@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"關於 Anzon Wong｜來自香港、現居英國的建築師","item":"https://anzonwong.com/zh/about/"}]},{"@type":"ProfilePage","@id":"https://anzonwong.com/zh/about/#page","url":"https://anzonwong.com/zh/about/","name":"關於 Anzon Wong｜來自香港、現居英國的建築師","description":"關於 Anzon Wong：來自香港、現居英國的建築師，工作著重建築規例及設計安全，業餘為建築師製作 AI 代理人及小工具。","inLanguage":"zh-Hant-HK","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/about.jpg","mainEntity":{"@id":"https://anzonwong.com/#person"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"關於 Anzon Wong｜來自香港、現居英國的建築師","item":"https://anzonwong.com/zh/about/"}]},{"@type":"ProfilePage","@id":"https://anzonwong.com/zh/about/#page","url":"https://anzonwong.com/zh/about/","name":"關於 Anzon Wong｜來自香港、現居英國的建築師","description":"關於 Anzon Wong：來自香港、現居英國的建築師，工作著重建築規例及設計安全，業餘為建築師製作 AI 代理人及小工具。","inLanguage":"zh-Hant-HK","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/about.jpg","mainEntity":{"@id":"https://anzonwong.com/#person"}}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -278,6 +278,26 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* About (phase 2, 2026-10-18): portrait beside the heading, a ruled timeline, regions and languages */
+.ab-top{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,24vw,300px);gap:clamp(20px,4vw,56px);align-items:end}
+.ab-pic{margin:0;border:1px solid var(--ink);padding:8px;background:var(--card)}
+.ab-pic img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;filter:saturate(.92)}
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:120px 170px minmax(0,1fr);gap:8px 22px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.tl-y{font:13px var(--mono);letter-spacing:.04em;color:var(--accent-ink)}
+.tl-p{font:11px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.tl p{margin:0;max-width:40em;font-size:15.5px;line-height:1.6}
+.ab-dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule);max-width:44em}
+.ab-dl div{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
+.ab-dl dt{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ab-dl dd{margin:4px 0 0;font:400 18px/1.35 var(--serif)}
+@media (max-width:860px){
+  .ab-top{grid-template-columns:1fr}
+  .ab-pic{width:min(56vw,260px);order:-1}
+  .tl li{grid-template-columns:1fr;gap:2px}
+  .ab-dl{grid-template-columns:1fr}
+}
+
 </style>
 <script>
 // Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
@@ -307,23 +327,45 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   </div>
 </header>
 <main class="wrap">
-<header class="head">
+<header class="head ab-head">
   <div class="label">05 / <span class="zh">關於</span></div>
-  <div>
-    <h1><span class="zh" lang="zh-Hant">關於我</span></h1>
-    
-    <p class="lede zh" lang="zh-Hant">我是 Anzon Wong，現居英國的建築師，來自香港。</p>
+  <div class="ab-top">
+    <div>
+      <h1><span class="zh" lang="zh-Hant">關於我</span></h1>
+      
+      <p class="lede zh" lang="zh-Hant">我是 Anzon Wong，現居英國的建築師，來自香港。</p>
+    </div>
+    <!-- Portrait: chosen by Anzon (18 Oct 2026). To change it, replace C:/anzonwong-revamp2/assets/portrait.jpg
+         (square, 800 px or larger; source copy on G: 00_Sandbox/qa/2026-10-18_site-revamp/portrait_anzon_800.jpg)
+         and rebuild; make_seq.py writes img/about/portrait-400.webp and -800.webp. -->
+    <figure class="ab-pic"><img src="../../img/about/portrait-400.webp" srcset="../../img/about/portrait-400.webp 400w, ../../img/about/portrait-800.webp 800w" sizes="(max-width:860px) 56vw, 300px" width="800" height="800" alt="Anzon Wong" fetchpriority="high" decoding="async"></figure>
   </div>
 </header>
 
 <section class="sec">
-  <div class="label"><span class="zh">建築</span></div>
-  <div class="prose">
-    
-    
-    <p class="zh" lang="zh-Hant">我曾參與香港、中國內地及倫敦的酒店、餐廳、零售店及住宅項目，由最初的草圖一直做到外牆及室內細部。</p>
-    <p class="zh" lang="zh-Hant">現時我的工作著重設計中的安全範疇：建築規例，以及《建築（設計及管理）規例》與《建築安全法》下主要設計師的職責。</p>
-  </div>
+  <div class="label"><span class="zh">年表</span></div>
+  <ol class="tl">
+    <li><span class="tl-y">2006-2017</span><span class="tl-p"><span class="zh" lang="zh-Hant">香港</span></span>
+      <p><span class="zh" lang="zh-Hant">建築及室內設計：零售店、餐廳及酒吧、住宅、公共工程及活動設計，由最初的草圖一直做到外牆及室內細部。項目載於<a href="../work/">作品</a>頁面。</span></p></li>
+    <li><span class="tl-y">2013-2017</span><span class="tl-p"><span class="zh" lang="zh-Hant">香港</span></span>
+      <p><span class="zh" lang="zh-Hant">為南華早報繪畫設計插圖：先閱讀訪問，再把內容設計成空間並製作效果圖。</span></p></li>
+    <li><span class="tl-y"><span class="zh" lang="zh-Hant">現時</span></span><span class="tl-p"><span class="zh" lang="zh-Hant">英國</span></span>
+      <p><span class="zh" lang="zh-Hant">設計中的安全範疇：建築規例，以及《建築（設計及管理）規例》與《建築安全法》下主要設計師的職責。</span></p></li>
+    <li><span class="tl-y"><span class="zh" lang="zh-Hant">2026 年 3 月</span></span><span class="tl-p">AW Design</span>
+      <p><span class="zh" lang="zh-Hant">AW Design 成立：我個人設計作品及工具所用的名稱，並非註冊公司。</span></p></li>
+    <li><span class="tl-y">2026</span><span class="tl-p"><span class="zh" lang="zh-Hant">實驗室、課程、文章</span></span>
+      <p><span class="zh" lang="zh-Hant"><a href="../lab/">實驗室</a>的免費興趣工具、一對一建立個人 AI 代理人的課程，以及由 8 月起的<a href="../journal/">文章</a>。</span></p></li>
+  </ol>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="zh">地區及語言</span></div>
+  <dl class="ab-dl">
+    <div><dt><span class="zh" lang="zh-Hant">項目地區</span></dt><dd><span class="zh" lang="zh-Hant">香港、中國內地及倫敦</span></dd></div>
+    <div><dt><span class="zh" lang="zh-Hant">現居</span></dt><dd><span class="zh" lang="zh-Hant">英國</span></dd></div>
+    <div><dt><span class="zh" lang="zh-Hant">口語</span></dt><dd><span class="zh" lang="zh-Hant">英語、粵語</span></dd></div>
+    <div><dt><span class="zh" lang="zh-Hant">書寫</span></dt><dd><span class="zh" lang="zh-Hant">英文、繁體中文</span></dd></div>
+  </dl>
 </section>
 
 <section class="sec">
@@ -331,16 +373,7 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   <div class="prose">
     
     <p class="zh" lang="zh-Hant">業餘時間，我為建築師製作 AI 代理人及小工具，並以一對一形式教人建立自己的代理人。<a href="../lab/">實驗室</a>內的工具均屬個人興趣項目，每頁都有清楚說明。</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label">AW Design</div>
-  <div class="prose">
-    
-    
-    <p class="zh" lang="zh-Hant">AW Design 是我個人設計作品及工具所用的名稱。</p>
-    <p class="zh" lang="zh-Hant">我以英語及粵語工作，以英文及繁體中文書寫。</p>
+    <p style="margin-top:22px"><a href="../contact/"><span class="zh" lang="zh-Hant">聯絡我</span> &rarr;</a></p>
   </div>
 </section>
 

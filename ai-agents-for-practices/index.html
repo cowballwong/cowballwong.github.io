@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"Article","@id":"https://anzonwong.com/ai-agents-for-practices/#article","headline":"AI agents for design practices, explained · Anzon Wong","description":"What an AI agent does in an architecture or design practice, where the practice's data stays, and what a person still signs off. An explainer by Anzon Wong.","inLanguage":"en-GB","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/ai-agents-for-practices/#page"},"image":["https://anzonwong.com/img/og/practices.jpg"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"AI agents for design practices, explained","item":"https://anzonwong.com/ai-agents-for-practices/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/ai-agents-for-practices/#page","url":"https://anzonwong.com/ai-agents-for-practices/","name":"AI agents for design practices, explained · Anzon Wong","description":"What an AI agent does in an architecture or design practice, where the practice's data stays, and what a person still signs off. An explainer by Anzon Wong.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/practices.jpg"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"Article","@id":"https://anzonwong.com/ai-agents-for-practices/#article","headline":"AI agents for design practices, explained · Anzon Wong","description":"What an AI agent does in an architecture or design practice, where the practice's data stays, and what a person still signs off. An explainer by Anzon Wong.","inLanguage":"en-GB","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/ai-agents-for-practices/#page"},"image":["https://anzonwong.com/img/og/practices.jpg"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"AI agents for design practices, explained","item":"https://anzonwong.com/ai-agents-for-practices/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/ai-agents-for-practices/#page","url":"https://anzonwong.com/ai-agents-for-practices/","name":"AI agents for design practices, explained · Anzon Wong","description":"What an AI agent does in an architecture or design practice, where the practice's data stays, and what a person still signs off. An explainer by Anzon Wong.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/practices.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -278,20 +278,44 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* practices explainer (2026-10-18) */
-.pr-t{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}
+/* practices explainer (2026-10-18; phase 2 order: answer, stages, limits table, talk) */
+.pr-q{font:400 clamp(20px,2vw,25px)/1.45 var(--serif);color:var(--ink);margin-bottom:1.1em!important}
+:root[data-lang="zh"] .pr-q{line-height:1.75}
+.pr-ans .prose{max-width:40em}
+/* stages: a numbered run down the page; the person's part sits in its own ruled column */
+.pr-st{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pr-st li{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:8px clamp(16px,2vw,28px);padding:16px 0;border-bottom:1px solid var(--rule)}
+.pr-h{display:grid;grid-template-columns:34px minmax(0,1fr);row-gap:4px}
+.pr-n{grid-row:span 2;font:22px/1.1 var(--mono);color:var(--accent-ink)}
+.pr-h b{font:400 20px/1.25 var(--serif)}
+.pr-h small{font:11px/1.5 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pr-a{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.pr-p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink);border-left:2px solid var(--accent);padding-left:12px}
+.pr-p::before{content:"A person: ";font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+:root[data-lang="zh"] .pr-p::before{content:"由人負責："}
+/* the limits table */
+.pr-t{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55}
 .pr-t th,.pr-t td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-bottom:1px solid var(--rule)}
-.pr-t thead th{font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink)}
-.pr-t tbody th{font:400 18px/1.3 var(--serif);width:18%}
-.pr-t td{color:var(--ink-2)}
-.pr-t td:last-child{width:32%;color:var(--ink);border-left:2px solid var(--accent);padding-left:14px}
+.pr-t thead th{font:10.5px/1.4 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);font-weight:400}
+.pr-t tbody th{font:400 18px/1.3 var(--serif);width:16%}
+.pr-t td{color:var(--ink-2);width:28%}
+.pr-t td:last-child{color:var(--ink);border-left:2px solid var(--accent);padding-left:14px}
 .pr-read{margin-top:18px!important;color:var(--ink-2)}
 .pr-note{margin-top:18px!important;font-size:13px;color:var(--muted)}
 .pr-talk .mail{font-size:clamp(22px,3.4vw,40px)}
+.pr-form{font-size:14.5px;color:var(--ink-2)}
 @media (max-width:860px){
+  .pr-st li{grid-template-columns:1fr}
   .pr-t thead{display:none}
   .pr-t tr{display:block;padding:12px 0;border-bottom:1px solid var(--rule)}
   .pr-t th,.pr-t td{display:block;width:auto!important;border:0;padding:4px 0}
+  .pr-t td:nth-of-type(1)::before{content:"AI helps with";}
+  .pr-t td:nth-of-type(2)::before{content:"Data limits";}
+  .pr-t td:nth-of-type(3)::before{content:"A professional checks";}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(1)::before{content:"AI 可以幫甚麼"}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(2)::before{content:"資料的限制"}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(3)::before{content:"專業人士仍須檢查"}
+  .pr-t td::before{display:block;font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
   .pr-t td:last-child{border-left:2px solid var(--accent);padding-left:12px;margin-top:6px}
 }
 
@@ -328,82 +352,95 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   <div class="label"><span class="en">For practices</span></div>
   <div>
     <h1><span class="en">AI agents in a design practice</span></h1>
-    <p class="lede en">A plain explanation for the people who run architecture and design offices: what an agent does, where your data stays, and what a person still signs off.</p>
+    <p class="lede en">For the people who run architecture and design offices. The short answer first, then the stages of a job, then where the limits are.</p>
     
   </div>
 </header>
 
-<section class="sec">
-  <div class="label"><span class="en">01 · What it is</span></div>
+<section class="sec pr-ans">
+  <div class="label"><span class="en">01 · How do I start?</span></div>
   <div class="prose">
-    <p class="en">An AI agent is a language model that can open files, use software and work through a series of steps towards a goal, then report back. It is not a chat window you paste text into. It works in your folders, with your tools, under rules you write down for it.</p>
-    <p class="en">One agent can hand parts of a job to helpers: one builds a model, another checks it. You still talk to one agent, and it tells you what each helper did.</p>
+    <p class="pr-q en">Pick one task that comes up on every job and that someone already checks, such as a tender compliance table or a set of meeting minutes. Write down how your office does it. Let an agent draft it on one live project, on a computer in the office, while the person who does it today checks every line. Carry on only if checking takes less time than doing it from scratch.</p>
     
+    <p class="en">An AI agent is a language model that can open files, use software and work through a series of steps, then report back. It is not a chat window you paste text into. It works in your folders, with your tools, under rules you write down for it. It drafts and checks; a person decides, and professional responsibility stays where it was.</p>
     
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">02 · What it does</span></div>
+  <div class="label"><span class="en">02 · Stage by stage</span></div>
   <div>
-    <p class="prose en" style="margin:0 0 18px">Across a project, from tender to handover, the work an agent can take on looks like this. The right-hand column does not move.</p>
+    <p class="prose en" style="margin:0 0 20px">The stages of a typical job. In the UK they follow the RIBA Plan of Work; in Hong Kong the same steps lead to Buildings Department approval and the occupation permit. At each stage the agent drafts and checks, and the right-hand side stays with a person.</p>
+    
+    <ol class="pr-st">
+      <li><div class="pr-h"><span class="pr-n">1</span><b><span class="en">Winning the work</span></b><small><span class="en">Fee proposal or tender</span></small></div>
+        <p class="pr-a"><span class="en">Reads the tender or enquiry documents and lists every requirement, deadline and returnable form; drafts the compliance table.</span></p>
+        <p class="pr-p"><span class="en">Whether to bid, what to promise, the fee.</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">2</span><b><span class="en">Brief and feasibility</span></b><small><span class="en">RIBA 0-1 · HK feasibility study</span></small></div>
+        <p class="pr-a"><span class="en">Collects site limits, areas and other figures from the brief, the survey and the drawings into a first schedule, each figure with its source.</span></p>
+        <p class="pr-p"><span class="en">Every figure and its statutory basis, before anyone relies on it.</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">3</span><b><span class="en">Concept and scheme design</span></b><small><span class="en">RIBA 2-3 · HK scheme design</span></small></div>
+        <p class="pr-a"><span class="en">Keeps the brief, the area schedule and the model in step; drafts option comparisons and a record of why each decision was made.</span></p>
+        <p class="pr-p"><span class="en">The design.</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">4</span><b><span class="en">Approvals</span></b><small><span class="en">UK planning and Building Regulations · HK building plans</span></small></div>
+        <p class="pr-a"><span class="en">Assembles the submission checklist, compares drawings with the regulation text it has been given, and drafts covering letters and replies to comments.</span></p>
+        <p class="pr-p"><span class="en">Every compliance judgement, and the signature on the submission.</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">5</span><b><span class="en">Technical design and tender</span></b><small><span class="en">RIBA 4 · HK detailed design and tender</span></small></div>
+        <p class="pr-a"><span class="en">Checks drawings, specification and schedules against each other for contradictions, and keeps the tender query log.</span></p>
+        <p class="pr-p"><span class="en">The issue of every drawing.</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">6</span><b><span class="en">Construction to handover</span></b><small><span class="en">RIBA 5-6 · HK construction to occupation permit</span></small></div>
+        <p class="pr-a"><span class="en">Keeps minutes, RFI logs and defect lists, so the handover information is written as the job goes.</span></p>
+        <p class="pr-p"><span class="en">What is accepted, what is certified, and what goes to the client.</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">03 · Where it stops</span></div>
+  <div>
+    <p class="prose en" style="margin:0 0 18px">The same few kinds of work come up at every stage. For each: what AI helps with, where the data runs out, and what a professional must still check.</p>
     
     <table class="pr-t">
-      <thead><tr><th scope="col"><span class="en">Stage</span></th><th scope="col"><span class="en">The agent drafts and checks</span></th><th scope="col"><span class="en">A person decides</span></th></tr></thead>
+      <thead><tr><th scope="col"><span class="en">Work</span></th><th scope="col"><span class="en">What AI helps with</span></th><th scope="col"><span class="en">Where the data limits are</span></th><th scope="col"><span class="en">What a professional must still check</span></th></tr></thead>
       <tbody>
-        <tr><th scope="row"><span class="en">Tender</span></th>
-          <td><span class="en">Reads the tender documents and lists every requirement, deadline and form; drafts the compliance table and the technical proposal.</span></td>
-          <td><span class="en">Whether to bid, what to promise, and the signature on the submission.</span></td></tr>
-        <tr><th scope="row"><span class="en">Feasibility</span></th>
-          <td><span class="en">Collects site limits, floor areas and massing figures from the brief and drawings into a first schedule, each figure with its source.</span></td>
-          <td><span class="en">Every figure and its statutory basis, before anyone relies on it.</span></td></tr>
-        <tr><th scope="row"><span class="en">Scheme and drawings</span></th>
-          <td><span class="en">Builds or updates a model from instructions, then checks drawings, specification and requirements against each other for contradictions.</span></td>
-          <td><span class="en">The design, and the issue of every drawing.</span></td></tr>
-        <tr><th scope="row"><span class="en">Construction to handover</span></th>
-          <td><span class="en">Keeps minutes, RFI logs and defect lists, and a record of why each decision was made, so the handover information is written as the job goes.</span></td>
-          <td><span class="en">What is accepted, what is certified, and what goes to the client.</span></td></tr>
+        <tr><th scope="row"><span class="en">Reading documents</span></th>
+          <td><span class="en">Finds every requirement, date and form, and says which page it came from.</span></td>
+          <td><span class="en">It knows only the documents it is given. Scans and pictures of text are read less reliably.</span></td>
+          <td><span class="en">Anything it says is missing, and the pages it quotes.</span></td></tr>
+        <tr><th scope="row"><span class="en">Figures and schedules</span></th>
+          <td><span class="en">Area, room and door schedules from the model or the drawings, each figure with its source.</span></td>
+          <td><span class="en">A figure is only as good as the drawing behind it. It cannot measure what was never drawn.</span></td>
+          <td><span class="en">Every figure someone will rely on, against its statutory basis.</span></td></tr>
+        <tr><th scope="row"><span class="en">Regulations</span></th>
+          <td><span class="en">Compares a design with the regulation text you give it and lists where they seem to differ.</span></td>
+          <td><span class="en">It does not know the current edition, local practice or an agreed waiver unless it is given them, and it can misread a clause.</span></td>
+          <td><span class="en">Every compliance call. That judgement stays with the professional.</span></td></tr>
+        <tr><th scope="row"><span class="en">Drawings and models</span></th>
+          <td><span class="en">Builds or updates a model from instructions, and finds clashes between drawings, specification and schedules.</span></td>
+          <td><span class="en">It works from what is in the files. Design intent that lives only in someone's head is invisible to it.</span></td>
+          <td><span class="en">The design, and every drawing before it is issued.</span></td></tr>
+        <tr><th scope="row"><span class="en">Writing</span></th>
+          <td><span class="en">First drafts of minutes, letters and reports in the office's own format, in English or Chinese.</span></td>
+          <td><span class="en">It can state something wrong with confidence, and it does not know what was agreed off the record.</span></td>
+          <td><span class="en">Every sentence that goes to a client or an authority.</span></td></tr>
+        <tr><th scope="row"><span class="en">Client data</span></th>
+          <td><span class="en">Works on the office's own folders, on a computer in the office. Files stay where they are.</span></td>
+          <td><span class="en">The text it sends to a cloud AI model leaves the building, under that provider's terms. A model run on the office's own machine keeps it in.</span></td>
+          <td><span class="en">Which model may be used on which project, decided before the agent touches client material.</span></td></tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="en">03 · Where the data stays</span></div>
-  <div class="prose">
-    <p class="en">The agent runs on a computer in the practice and works on the practice's own folders. Files stay where they are.</p>
-    <p class="en">What leaves the building is the text the agent sends to the AI model it uses. With a cloud model, that text goes to the model provider under the provider's data terms. With a model that runs on the practice's own machine, nothing leaves. Which model is used for which project is the practice's decision, made before the agent touches client material.</p>
-    
-    
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="en">04 · What a person signs off</span></div>
-  <div class="prose">
-    <p class="en">The agent drafts, checks and reports. A person decides. Anything that leaves the office, a submission, a drawing issue, an email to a client, goes out only after a named person has approved it. The agent asks before it deletes anything.</p>
-    <p class="en">Professional responsibility does not move. The architect, the principal designer and the person who signs are who they were before the agent arrived.</p>
-    
-    
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="en">05 · What it is not</span></div>
-  <div class="prose">
-    <p class="en">It is not a replacement for professional judgement, and it does not know your regulations unless it is given the source. Every figure it produces should name the file it came from, so a person can check it in a minute rather than redo it.</p>
-    
     <p class="en pr-read">Further reading in the Journal: <a href="../journal/drawing-shows-one-thing-specification-says/">checking a tender pack for contradictions</a> and <a href="../journal/59-construction-executives-say-their-technology/">AI-ready records</a>.</p>
     
   </div>
 </section>
 
 <section class="sec pr-talk">
-  <div class="label"><span class="en">06 · Talk</span></div>
+  <div class="label"><span class="en">04 · Talk</span></div>
   <div class="prose">
-    <p class="en">If you run a practice and would like to talk through what this could look like in your office, email me.</p>
+    <p class="en">If you run a practice and would like to talk through where to start in your office, email me.</p>
     
     <p style="margin:22px 0 0"><a class="mail" href="mailto:anzon@anzonwong.com?subject=AI%20agents%20in%20a%20practice">anzon@anzonwong.com</a></p>
+    <p style="margin:14px 0 0"><a class="pr-form" href="../contact/#practice"><span class="en">Or use the short form on the Contact page</span> &rarr;</a></p>
     <p class="en pr-note">This page explains how agents work. It is not an offer of services.</p>
     
   </div>

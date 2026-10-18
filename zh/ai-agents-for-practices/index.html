@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"Article","@id":"https://anzonwong.com/zh/ai-agents-for-practices/#article","headline":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","description":"AI 代理人在建築及設計事務所做甚麼、事務所的資料留在哪裡，以及哪些仍須由人簽批。Anzon Wong 的說明文章。","inLanguage":"zh-Hant-HK","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/zh/ai-agents-for-practices/#page"},"image":["https://anzonwong.com/img/og/practices.jpg"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","item":"https://anzonwong.com/zh/ai-agents-for-practices/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/zh/ai-agents-for-practices/#page","url":"https://anzonwong.com/zh/ai-agents-for-practices/","name":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","description":"AI 代理人在建築及設計事務所做甚麼、事務所的資料留在哪裡，以及哪些仍須由人簽批。Anzon Wong 的說明文章。","inLanguage":"zh-Hant-HK","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/practices.jpg"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"Article","@id":"https://anzonwong.com/zh/ai-agents-for-practices/#article","headline":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","description":"AI 代理人在建築及設計事務所做甚麼、事務所的資料留在哪裡，以及哪些仍須由人簽批。Anzon Wong 的說明文章。","inLanguage":"zh-Hant-HK","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/zh/ai-agents-for-practices/#page"},"image":["https://anzonwong.com/img/og/practices.jpg"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","item":"https://anzonwong.com/zh/ai-agents-for-practices/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/zh/ai-agents-for-practices/#page","url":"https://anzonwong.com/zh/ai-agents-for-practices/","name":"設計事務所的 AI 代理人：一篇說明｜Anzon Wong","description":"AI 代理人在建築及設計事務所做甚麼、事務所的資料留在哪裡，以及哪些仍須由人簽批。Anzon Wong 的說明文章。","inLanguage":"zh-Hant-HK","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/practices.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -278,20 +278,44 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* practices explainer (2026-10-18) */
-.pr-t{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}
+/* practices explainer (2026-10-18; phase 2 order: answer, stages, limits table, talk) */
+.pr-q{font:400 clamp(20px,2vw,25px)/1.45 var(--serif);color:var(--ink);margin-bottom:1.1em!important}
+:root[data-lang="zh"] .pr-q{line-height:1.75}
+.pr-ans .prose{max-width:40em}
+/* stages: a numbered run down the page; the person's part sits in its own ruled column */
+.pr-st{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pr-st li{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:8px clamp(16px,2vw,28px);padding:16px 0;border-bottom:1px solid var(--rule)}
+.pr-h{display:grid;grid-template-columns:34px minmax(0,1fr);row-gap:4px}
+.pr-n{grid-row:span 2;font:22px/1.1 var(--mono);color:var(--accent-ink)}
+.pr-h b{font:400 20px/1.25 var(--serif)}
+.pr-h small{font:11px/1.5 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pr-a{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.pr-p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink);border-left:2px solid var(--accent);padding-left:12px}
+.pr-p::before{content:"A person: ";font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+:root[data-lang="zh"] .pr-p::before{content:"由人負責："}
+/* the limits table */
+.pr-t{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55}
 .pr-t th,.pr-t td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-bottom:1px solid var(--rule)}
-.pr-t thead th{font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink)}
-.pr-t tbody th{font:400 18px/1.3 var(--serif);width:18%}
-.pr-t td{color:var(--ink-2)}
-.pr-t td:last-child{width:32%;color:var(--ink);border-left:2px solid var(--accent);padding-left:14px}
+.pr-t thead th{font:10.5px/1.4 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);font-weight:400}
+.pr-t tbody th{font:400 18px/1.3 var(--serif);width:16%}
+.pr-t td{color:var(--ink-2);width:28%}
+.pr-t td:last-child{color:var(--ink);border-left:2px solid var(--accent);padding-left:14px}
 .pr-read{margin-top:18px!important;color:var(--ink-2)}
 .pr-note{margin-top:18px!important;font-size:13px;color:var(--muted)}
 .pr-talk .mail{font-size:clamp(22px,3.4vw,40px)}
+.pr-form{font-size:14.5px;color:var(--ink-2)}
 @media (max-width:860px){
+  .pr-st li{grid-template-columns:1fr}
   .pr-t thead{display:none}
   .pr-t tr{display:block;padding:12px 0;border-bottom:1px solid var(--rule)}
   .pr-t th,.pr-t td{display:block;width:auto!important;border:0;padding:4px 0}
+  .pr-t td:nth-of-type(1)::before{content:"AI helps with";}
+  .pr-t td:nth-of-type(2)::before{content:"Data limits";}
+  .pr-t td:nth-of-type(3)::before{content:"A professional checks";}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(1)::before{content:"AI 可以幫甚麼"}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(2)::before{content:"資料的限制"}
+  :root[data-lang="zh"] .pr-t td:nth-of-type(3)::before{content:"專業人士仍須檢查"}
+  .pr-t td::before{display:block;font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
   .pr-t td:last-child{border-left:2px solid var(--accent);padding-left:12px;margin-top:6px}
 }
 
@@ -329,81 +353,94 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   <div>
     <h1><span class="zh" lang="zh-Hant">設計事務所裡的 AI 代理人</span></h1>
     
-    <p class="lede zh" lang="zh-Hant">寫給建築及設計事務所主理人的簡單說明：代理人做甚麼、你的資料留在哪裡，以及哪些仍須由人簽批。</p>
+    <p class="lede zh" lang="zh-Hant">寫給建築及設計事務所的主理人。先講簡短答案，再逐個階段說明，最後講清楚限制在哪裡。</p>
   </div>
 </header>
 
-<section class="sec">
-  <div class="label"><span class="zh">01 · 是甚麼</span></div>
+<section class="sec pr-ans">
+  <div class="label"><span class="zh">01 · 怎樣開始？</span></div>
   <div class="prose">
     
+    <p class="pr-q zh" lang="zh-Hant">選一項每個項目都會出現、而且本來就有人負責檢查的工作，例如投標合規對照表或會議紀錄。把事務所的做法寫下來。在一個進行中的項目上，用事務所內的一部電腦，讓代理人起草，再由現時負責這項工作的同事逐行檢查。只有當檢查所需的時間少於從頭做一次，才繼續擴展。</p>
     
-    <p class="zh" lang="zh-Hant">AI 代理人是一個能夠開啟檔案、使用軟件，並按步驟完成一項工作再向你匯報的語言模型。它不是一個讓你貼上文字的對話框。它在你的資料夾裡、用你的工具、按你寫下的規則工作。</p>
-    <p class="zh" lang="zh-Hant">一個代理人可以把工作的部分交給助手：一個建模型，另一個負責檢查。你仍然只需跟一個代理人說話，由它告訴你每個助手做了甚麼。</p>
+    <p class="zh" lang="zh-Hant">AI 代理人是一個能夠開啟檔案、使用軟件，並按步驟完成工作再向你匯報的語言模型。它不是一個讓你貼上文字的對話框。它在你的資料夾裡、用你的工具、按你寫下的規則工作。它負責起草及檢查，由人作決定，專業責任亦不會因此轉移。</p>
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="zh">02 · 做甚麼</span></div>
+  <div class="label"><span class="zh">02 · 逐個階段</span></div>
   <div>
     
-    <p class="prose zh" lang="zh-Hant" style="margin:0 0 18px">由投標到交樓，代理人在一個項目中可以承擔的工作大致如下。右欄的責任不會轉移。</p>
+    <p class="prose zh" lang="zh-Hant" style="margin:0 0 20px">以下是一個典型項目的各個階段。在英國，這些階段對應 RIBA Plan of Work；在香港，同樣的步驟通往屋宇署審批及佔用許可證。每個階段都由代理人起草及檢查，右邊的事則留給人負責。</p>
+    <ol class="pr-st">
+      <li><div class="pr-h"><span class="pr-n">1</span><b><span class="zh" lang="zh-Hant">爭取項目</span></b><small><span class="zh" lang="zh-Hant">收費建議或投標</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">閱讀招標或查詢文件，列出每項要求、期限及須交回的表格；起草合規對照表。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">是否投標、承諾甚麼、收費多少。</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">2</span><b><span class="zh" lang="zh-Hant">設計任務書及可行性研究</span></b><small><span class="zh" lang="zh-Hant">RIBA 0-1 · 香港可行性研究</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">從設計任務書、測量圖及圖則整理地盤限制、面積及其他數字，製成初步表格，每個數字註明出處。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">每個數字及其法定依據，在任何人依賴之前核實。</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">3</span><b><span class="zh" lang="zh-Hant">概念及方案設計</span></b><small><span class="zh" lang="zh-Hant">RIBA 2-3 · 香港方案設計</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">令設計任務書、面積表及模型保持一致；起草方案比較，並記下每個決定的理由。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">設計本身。</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">4</span><b><span class="zh" lang="zh-Hant">審批</span></b><small><span class="zh" lang="zh-Hant">英國規劃及建築規例 · 香港建築圖則</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">整理遞交清單，把圖則與提供給它的規例條文對照，並起草附信及回覆意見。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">每一項合規判斷，以及遞交文件上的簽署。</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">5</span><b><span class="zh" lang="zh-Hant">技術設計及招標</span></b><small><span class="zh" lang="zh-Hant">RIBA 4 · 香港詳細設計及招標</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">把圖則、規範及各類表格互相對照，找出矛盾，並整理招標查詢紀錄。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">每一張圖則的發出。</span></p></li>
+      <li><div class="pr-h"><span class="pr-n">6</span><b><span class="zh" lang="zh-Hant">施工至交付</span></b><small><span class="zh" lang="zh-Hant">RIBA 5-6 · 香港施工至佔用許可證</span></small></div>
+        <p class="pr-a"><span class="zh" lang="zh-Hant">整理會議紀錄、RFI 紀錄及缺陷清單，讓交付資料隨工程進度寫成。</span></p>
+        <p class="pr-p"><span class="zh" lang="zh-Hant">接受甚麼、證明甚麼，以及甚麼交給客戶。</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="zh">03 · 到哪裡為止</span></div>
+  <div>
+    
+    <p class="prose zh" lang="zh-Hant" style="margin:0 0 18px">每個階段都會出現同樣幾類工作。每一類都列出：AI 可以幫甚麼、資料的限制在哪裡，以及專業人士仍須檢查甚麼。</p>
     <table class="pr-t">
-      <thead><tr><th scope="col"><span class="zh">階段</span></th><th scope="col"><span class="zh">代理人起草及檢查</span></th><th scope="col"><span class="zh">由人決定</span></th></tr></thead>
+      <thead><tr><th scope="col"><span class="zh">工作</span></th><th scope="col"><span class="zh">AI 可以幫甚麼</span></th><th scope="col"><span class="zh">資料的限制</span></th><th scope="col"><span class="zh">專業人士仍須檢查</span></th></tr></thead>
       <tbody>
-        <tr><th scope="row"><span class="zh">投標</span></th>
-          <td><span class="zh">閱讀招標文件，列出每項要求、期限及表格；起草合規對照表及技術建議書。</span></td>
-          <td><span class="zh">是否投標、承諾甚麼，以及在遞交文件上簽署。</span></td></tr>
-        <tr><th scope="row"><span class="zh">可行性研究</span></th>
-          <td><span class="zh">從設計任務書及圖則整理地盤限制、樓面面積及體量數字，製成初步表格，每個數字註明出處。</span></td>
-          <td><span class="zh">每個數字及其法定依據，在任何人依賴之前核實。</span></td></tr>
-        <tr><th scope="row"><span class="zh">方案及圖則</span></th>
-          <td><span class="zh">按指示建立或更新模型，再把圖則、規範及要求互相對照，找出矛盾。</span></td>
-          <td><span class="zh">設計本身，以及每一張圖則的發出。</span></td></tr>
-        <tr><th scope="row"><span class="zh">施工至交樓</span></th>
-          <td><span class="zh">整理會議紀錄、RFI 紀錄及缺陷清單，並記下每個決定的理由，讓交樓資料隨工程進度寫成。</span></td>
-          <td><span class="zh">接受甚麼、證明甚麼，以及甚麼交給客戶。</span></td></tr>
+        <tr><th scope="row"><span class="zh">閱讀文件</span></th>
+          <td><span class="zh">找出每項要求、日期及表格，並註明出自哪一頁。</span></td>
+          <td><span class="zh">它只認識你提供的文件。掃描本及文字圖片的讀取較不可靠。</span></td>
+          <td><span class="zh">它指出缺少的項目，以及它引用的頁面。</span></td></tr>
+        <tr><th scope="row"><span class="zh">數字及表格</span></th>
+          <td><span class="zh">從模型或圖則製作面積、房間及門表，每個數字註明出處。</span></td>
+          <td><span class="zh">數字的準確程度取決於背後的圖則。沒有畫出來的東西，它無法量度。</span></td>
+          <td><span class="zh">任何人會依賴的數字，須按法定依據核實。</span></td></tr>
+        <tr><th scope="row"><span class="zh">規例</span></th>
+          <td><span class="zh">把設計與你提供的規例條文對照，列出看來不符的地方。</span></td>
+          <td><span class="zh">除非你提供，否則它不知道最新版本、地方慣例或已批准的豁免，亦可能誤讀條文。</span></td>
+          <td><span class="zh">每一項合規判斷。這個判斷由專業人士負責。</span></td></tr>
+        <tr><th scope="row"><span class="zh">圖則及模型</span></th>
+          <td><span class="zh">按指示建立或更新模型，並找出圖則、規範及表格之間的矛盾。</span></td>
+          <td><span class="zh">它只能根據檔案內容工作。只存在於某人腦海中的設計意圖，它看不見。</span></td>
+          <td><span class="zh">設計本身，以及每張圖則發出前的檢查。</span></td></tr>
+        <tr><th scope="row"><span class="zh">寫作</span></th>
+          <td><span class="zh">以事務所自己的格式，用中文或英文起草會議紀錄、信件及報告。</span></td>
+          <td><span class="zh">它可能很肯定地寫出錯誤的內容，亦不知道沒有記錄下來的協議。</span></td>
+          <td><span class="zh">每一句會發給客戶或政府部門的文字。</span></td></tr>
+        <tr><th scope="row"><span class="zh">客戶資料</span></th>
+          <td><span class="zh">在事務所內的電腦上處理事務所自己的資料夾，檔案留在原處。</span></td>
+          <td><span class="zh">它傳送給雲端 AI 模型的文字會離開事務所，並受該供應商的條款約束。在事務所自己電腦上運行的模型則不會有資料離開。</span></td>
+          <td><span class="zh">哪個項目可以用哪個模型，須在代理人接觸客戶資料之前決定。</span></td></tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="zh">03 · 資料留在哪裡</span></div>
-  <div class="prose">
-    
-    
-    <p class="zh" lang="zh-Hant">代理人在事務所內的一部電腦上運行，處理事務所自己的資料夾。檔案留在原處。</p>
-    <p class="zh" lang="zh-Hant">會離開事務所的，是代理人傳送給所用 AI 模型的文字。如使用雲端模型，這些文字會按模型供應商的資料條款傳送給供應商；如使用在事務所自己電腦上運行的模型，則不會有任何資料離開。哪個項目用哪個模型，由事務所在代理人接觸客戶資料之前決定。</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="zh">04 · 由人簽批的事</span></div>
-  <div class="prose">
-    
-    
-    <p class="zh" lang="zh-Hant">代理人負責起草、檢查及匯報，由人作決定。任何要離開事務所的東西，例如遞交文件、發出圖則、寄給客戶的電郵，都要經指定的人批准後才發出。代理人刪除任何東西之前會先問你。</p>
-    <p class="zh" lang="zh-Hant">專業責任不會轉移。建築師、主要設計師以及簽署的人，仍然是代理人出現之前的那些人。</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="label"><span class="zh">05 · 它不是甚麼</span></div>
-  <div class="prose">
-    
-    <p class="zh" lang="zh-Hant">它不能取代專業判斷，除非你提供出處，否則它並不認識你要遵守的規例。它得出的每個數字都應註明來自哪個檔案，讓人用一分鐘核實，而不必重做一次。</p>
     
     <p class="zh pr-read" lang="zh-Hant">延伸閱讀：<a href="../journal/drawing-shows-one-thing-specification-says/">檢查招標文件中的矛盾</a>，以及<a href="../journal/59-construction-executives-say-their-technology/">為 AI 準備好的紀錄</a>。</p>
   </div>
 </section>
 
 <section class="sec pr-talk">
-  <div class="label"><span class="zh">06 · 傾談</span></div>
+  <div class="label"><span class="zh">04 · 傾談</span></div>
   <div class="prose">
     
-    <p class="zh" lang="zh-Hant">如果你主理一間事務所，想傾談代理人在你的辦公室可以是怎樣，歡迎電郵給我。</p>
+    <p class="zh" lang="zh-Hant">如果你主理一間事務所，想傾談在你的辦公室可以從哪裡開始，歡迎電郵給我。</p>
     <p style="margin:22px 0 0"><a class="mail" href="mailto:anzon@anzonwong.com?subject=AI%20agents%20in%20a%20practice">anzon@anzonwong.com</a></p>
+    <p style="margin:14px 0 0"><a class="pr-form" href="../contact/#practice"><span class="zh" lang="zh-Hant">或使用聯絡頁面的簡短表格</span> &rarr;</a></p>
     
     <p class="zh pr-note" lang="zh-Hant">本頁旨在說明代理人如何運作，並非服務要約。</p>
   </div>
