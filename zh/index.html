@@ -460,6 +460,39 @@ body:has(.hx){overflow-x:clip}
 }
 @media (prefers-reduced-motion:reduce){ .hx-s{transition:none} }
 
+/* ===== 3 + 3 + 1 (Anzon TG 18 Oct 20:32): 3 featured projects, 3 newest (Work, Lab or Journal), 1 course.
+   Every slide carries a kind label, on the picture and in the title block. Journal cards and Lab screenshots carry
+   text, so they are shown whole on a paper ground (.fit), never cropped. */
+:root{--c-journal:#3d5470}
+.hx-tb{overflow:hidden}
+.hx-cap{flex:0 1 auto;min-height:0;overflow:hidden}
+.hx-s.fit{background:var(--card)}
+.hx-s.fit a{padding:clamp(48px,5vw,60px) clamp(14px,2.6vw,36px) clamp(14px,2.6vw,36px);box-sizing:border-box}
+.hx-s.fit img{object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.12))}
+.hx-noimg{display:flex;align-items:center;justify-content:center;height:100%;padding:24px;box-sizing:border-box;
+  font:400 clamp(22px,3vw,40px)/1.2 var(--serif);text-align:center;color:var(--ink);background:var(--card)}
+.hx-kind{position:absolute;left:16px;top:16px;z-index:2;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  font-style:normal;padding:6px 9px 6px 8px;background:var(--paper);color:var(--ink);border-left:3px solid var(--k);pointer-events:none}
+.k-project{--k:var(--c-project)} .k-lab{--k:var(--c-tool)} .k-journal{--k:var(--c-journal)} .k-course{--k:var(--c-course)}
+.hx-no{gap:10px;justify-content:flex-start}
+.hx-of{margin-left:auto}
+.hx-kl{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--k)}
+.hx-kl::before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;background:var(--k);vertical-align:0}
+.hx-ti{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.hx-sum{margin:12px 0 0;font-size:14px;line-height:1.5;color:var(--ink-2);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.hx-go{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 0}
+.hx-go a{font:12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--c-course)}
+.hx-go a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.hx-list a{grid-template-columns:64px minmax(0,1fr) auto;padding-top:9px;padding-bottom:9px}
+.hx-rt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-list li:not(.k-project) .hx-rn{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.hx-list li.k-project:not([data-new]) + li[data-new],.hx-list li[data-new] + li.k-course{box-shadow:inset 0 1px 0 var(--ink-2)}
+@media (max-width:860px){
+  .hx-kind{left:10px;top:10px}
+  .hx-s.fit a{padding:42px 12px 12px}
+  .hx-list a{padding-top:8px;padding-bottom:8px;font-size:14px}
+}
+
 </style>
 <script>
 // Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
@@ -490,15 +523,15 @@ body:has(.hx){overflow-x:clip}
 </header>
 <main class="wrap">
 <h1 class="vh">Anzon Wong</h1>
-<section class="hx" id="hx" aria-roledescription="carousel" aria-label="Selected work">
-  <div class="hx-stage" tabindex="0"><ul class="hx-slides"><li class="hx-s on" data-i="0"><a href="../work/upside-down-chalet/" tabindex="-1" aria-hidden="true"><img src="../img/seq/upside-down-chalet/01-960.webp" srcset="../img/seq/upside-down-chalet/01-480.webp 480w, ../img/seq/upside-down-chalet/01-960.webp 960w, ../work/upside-down-chalet/img/ai/hero_kitchen.webp 1600w" fetchpriority="high" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="1067" decoding="async"></a><em class="ai-tag"><span class="zh" lang="zh-Hant">AI 效果圖</span></em></li><li class="hx-s" data-i="1" aria-hidden="true"><a href="../work/cocotte/" tabindex="-1" aria-hidden="true"><img data-src="../img/seq/cocotte/01-960.webp" data-srcset="../img/seq/cocotte/01-480.webp 480w, ../img/seq/cocotte/01-960.webp 960w, ../work/cocotte/img/r2013/exterior.webp 1600w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="913" decoding="async"></a></li><li class="hx-s" data-i="2" aria-hidden="true"><a href="../work/family-flat-hong-kong/" tabindex="-1" aria-hidden="true"><img data-src="../img/seq/family-flat-hong-kong/01-960.webp" data-srcset="../img/seq/family-flat-hong-kong/01-480.webp 480w, ../img/seq/family-flat-hong-kong/01-960.webp 960w, ../work/family-flat-hong-kong/img/ai/ai-1.webp 1536w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1536" height="1024" decoding="async"></a><em class="ai-tag"><span class="zh" lang="zh-Hant">AI 效果圖</span></em></li></ul></div>
+<section class="hx" id="hx" aria-roledescription="carousel" aria-label="Selected work, newest and courses" data-new="journal:write-handover-information-person-who-will,journal:chinese-ai-lab-has-just-upgraded,journal:from-an-app-for-that-to-an-app-for-me" data-feed="../journal/home-new.json">
+  <div class="hx-stage" tabindex="0"><ul class="hx-slides"><li class="hx-s on k-project" data-i="0"><a href="../work/upside-down-chalet/" tabindex="-1" aria-hidden="true"><img src="../img/seq/upside-down-chalet/01-960.webp" srcset="../img/seq/upside-down-chalet/01-480.webp 480w, ../img/seq/upside-down-chalet/01-960.webp 960w, ../work/upside-down-chalet/img/ai/hero_kitchen.webp 1600w" fetchpriority="high" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="1067" decoding="async"></a><em class="hx-kind k-project"><span class="zh" lang="zh-Hant">項目</span></em><em class="ai-tag"><span class="zh" lang="zh-Hant">AI 效果圖</span></em></li><li class="hx-s k-project" data-i="1" aria-hidden="true"><a href="../work/cocotte/" tabindex="-1" aria-hidden="true"><img data-src="../img/seq/cocotte/01-960.webp" data-srcset="../img/seq/cocotte/01-480.webp 480w, ../img/seq/cocotte/01-960.webp 960w, ../work/cocotte/img/r2013/exterior.webp 1600w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1600" height="913" decoding="async"></a><em class="hx-kind k-project"><span class="zh" lang="zh-Hant">項目</span></em></li><li class="hx-s k-project" data-i="2" aria-hidden="true"><a href="../work/family-flat-hong-kong/" tabindex="-1" aria-hidden="true"><img data-src="../img/seq/family-flat-hong-kong/01-960.webp" data-srcset="../img/seq/family-flat-hong-kong/01-480.webp 480w, ../img/seq/family-flat-hong-kong/01-960.webp 960w, ../work/family-flat-hong-kong/img/ai/ai-1.webp 1536w" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1536" height="1024" decoding="async"></a><em class="hx-kind k-project"><span class="zh" lang="zh-Hant">項目</span></em><em class="ai-tag"><span class="zh" lang="zh-Hant">AI 效果圖</span></em></li><!--HXNEW:slides--><li class="hx-s fit k-journal" data-i="3" data-new="" aria-hidden="true"><a href="journal/write-handover-information-person-who-will/" tabindex="-1" aria-hidden="true"><img data-src="../journal/img/write-handover-information-person-who-will/01.webp" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1080" height="1350" decoding="async"></a><em class="hx-kind k-journal"><span class="zh" lang="zh-Hant">文章</span></em></li><li class="hx-s fit k-journal" data-i="4" data-new="" aria-hidden="true"><a href="journal/chinese-ai-lab-has-just-upgraded/" tabindex="-1" aria-hidden="true"><img data-src="../journal/img/chinese-ai-lab-has-just-upgraded/01.webp" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1080" height="1080" decoding="async"></a><em class="hx-kind k-journal"><span class="zh" lang="zh-Hant">文章</span></em></li><li class="hx-s fit k-journal" data-i="5" data-new="" aria-hidden="true"><a href="journal/from-an-app-for-that-to-an-app-for-me/" tabindex="-1" aria-hidden="true"><img data-src="../journal/img/from-an-app-for-that-to-an-app-for-me/01.webp" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1080" height="1080" decoding="async"></a><em class="hx-kind k-journal"><span class="zh" lang="zh-Hant">文章</span></em></li><!--/HXNEW:slides--><li class="hx-s fit k-course" data-i="6" aria-hidden="true"><a href="courses/#basic" tabindex="-1" aria-hidden="true"><img data-src="../courses/img/l3.jpg" sizes="(max-width:860px) 100vw, 72vw" alt="" width="1400" height="844" decoding="async"></a><em class="hx-kind k-course"><span class="zh" lang="zh-Hant">課程</span></em></li></ul></div>
   <div class="hx-tb">
-    <div class="hx-cap" aria-live="polite"><div class="hx-c on" data-i="0"><p class="hx-no"><b>P01</b><span class="zh hx-of" lang="zh-Hant">第 1 項，共 3 項</span></p><h2 class="hx-ti"><a href="../work/upside-down-chalet/"><span class="zh" lang="zh-Hant">倒置木屋</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">2017</span></p><p class="zh hx-ai" lang="zh-Hant">根據原有模型生成的 AI 效果圖（2026）</p></div><div class="hx-c" data-i="1" hidden><p class="hx-no"><b>P02</b><span class="zh hx-of" lang="zh-Hant">第 2 項，共 3 項</span></p><h2 class="hx-ti"><a href="../work/cocotte/"><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">香港 · 2013</span></p></div><div class="hx-c" data-i="2" hidden><p class="hx-no"><b>P03</b><span class="zh hx-of" lang="zh-Hant">第 3 項，共 3 項</span></p><h2 class="hx-ti"><a href="../work/family-flat-hong-kong/"><span class="zh" lang="zh-Hant">香港家庭住宅</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">香港 · 2015</span></p><p class="zh hx-ai" lang="zh-Hant">根據原有模型生成的 AI 效果圖（2026）</p></div></div>
-    <ol class="hx-list"><li><a href="../work/upside-down-chalet/" data-go="0" aria-current="true"><span class="hx-rn">P01</span><span class="zh hx-rt" lang="zh-Hant">倒置木屋</span><span class="hx-ry">2017</span></a></li><li><a href="../work/cocotte/" data-go="1"><span class="hx-rn">P02</span><span class="zh hx-rt" lang="zh-Hant">Cocotte 法式小館</span><span class="hx-ry">2013</span></a></li><li><a href="../work/family-flat-hong-kong/" data-go="2"><span class="hx-rn">P03</span><span class="zh hx-rt" lang="zh-Hant">香港家庭住宅</span><span class="hx-ry">2015</span></a></li></ol>
+    <div class="hx-cap" aria-live="polite"><div class="hx-c on" data-i="0"><p class="hx-no"><span class="hx-kl k-project"><span class="zh" lang="zh-Hant">項目</span></span><b>P01</b><span class="zh hx-of" lang="zh-Hant">第 1 項，共 7 項</span></p><h2 class="hx-ti"><a href="../work/upside-down-chalet/"><span class="zh" lang="zh-Hant">倒置木屋</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">2017</span></p><p class="zh hx-ai" lang="zh-Hant">根據原有模型生成的 AI 效果圖（2026）</p></div><div class="hx-c" data-i="1" hidden><p class="hx-no"><span class="hx-kl k-project"><span class="zh" lang="zh-Hant">項目</span></span><b>P02</b><span class="zh hx-of" lang="zh-Hant">第 2 項，共 7 項</span></p><h2 class="hx-ti"><a href="../work/cocotte/"><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">香港 · 2013</span></p></div><div class="hx-c" data-i="2" hidden><p class="hx-no"><span class="hx-kl k-project"><span class="zh" lang="zh-Hant">項目</span></span><b>P03</b><span class="zh hx-of" lang="zh-Hant">第 3 項，共 7 項</span></p><h2 class="hx-ti"><a href="../work/family-flat-hong-kong/"><span class="zh" lang="zh-Hant">香港家庭住宅</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">香港 · 2015</span></p><p class="zh hx-ai" lang="zh-Hant">根據原有模型生成的 AI 效果圖（2026）</p></div><!--HXNEW:caps--><div class="hx-c" data-i="3" data-new="" hidden><p class="hx-no"><span class="hx-kl k-journal"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-of" lang="zh-Hant">第 4 項，共 7 項</span></p><h2 class="hx-ti"><a href="journal/write-handover-information-person-who-will/"><span class="zh" lang="zh-Hant">請按「誰要簽字確認資料足夠」來編寫移交資料</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">2026 年 10 月 18 日 · 建築規例</span></p><p class="zh hx-sum" lang="zh-Hant">英國建築安全監管機構（BSR）本週推出免費網上工具包「Managing building safety」，對象是英格蘭逾 4,000 名主要負責人（prin…</p></div><div class="hx-c" data-i="4" data-new="" hidden><p class="hx-no"><span class="hx-kl k-journal"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-of" lang="zh-Hant">第 5 項，共 7 項</span></p><h2 class="hx-ti"><a href="journal/chinese-ai-lab-has-just-upgraded/"><span class="zh" lang="zh-Hant">一間中國 AI 公司</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">2026 年 10 月 18 日 · AI 新聞</span></p><p class="zh hx-sum" lang="zh-Hant">…啱啱將佢個「平價版」model 升級，喺一個寫 code 測試度，分數仲高過 Anthropic 嘅 Claude Opus 5。 DeepSeek 10…</p></div><div class="hx-c" data-i="5" data-new="" hidden><p class="hx-no"><span class="hx-kl k-journal"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-of" lang="zh-Hant">第 6 項，共 7 項</span></p><h2 class="hx-ti"><a href="journal/from-an-app-for-that-to-an-app-for-me/"><span class="zh" lang="zh-Hant">由「有個 app 做到」，變成「有個 app 係為我而整」</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">2026 年 10 月 16 日 · AI 新聞</span></p><p class="zh hx-sum" lang="zh-Hant">呢句係 Google 自己講嘅。 10 月 13 號，Google Play 宣布：喺 Google AI Studio 用講嘅方式 vibe code 一…</p></div><!--/HXNEW:caps--><div class="hx-c" data-i="6" hidden><p class="hx-no"><span class="hx-kl k-course"><span class="zh" lang="zh-Hant">課程</span></span><span class="zh hx-of" lang="zh-Hant">第 7 項，共 7 項</span></p><h2 class="hx-ti"><a href="courses/#basic"><span class="zh" lang="zh-Hant">建立你自己的 AI 代理人</span></a></h2><p class="hx-m"><span class="zh" lang="zh-Hant">基礎班 · 一對一網上授課</span></p><p class="zh hx-sum" lang="zh-Hant">一對一網上授課，毋須編程。基礎班由免費的第一堂 Class 0 開始。</p><p class="hx-go"><a href="courses/#basic"><span class="zh" lang="zh-Hant">課程</span> &rarr;</a><a href="https://anzonwong.com/teaching-booking/" rel="noopener"><span class="zh" lang="zh-Hant">學生 Portal · 報名</span> &rarr;</a></p></div></div>
+    <ol class="hx-list"><li class="k-project"><a href="../work/upside-down-chalet/" data-go="0" aria-current="true"><span class="hx-rn">P01</span><span class="zh hx-rt" lang="zh-Hant">倒置木屋</span><span class="hx-ry"><span class="zh" lang="zh-Hant">2017</span></span></a></li><li class="k-project"><a href="../work/cocotte/" data-go="1"><span class="hx-rn">P02</span><span class="zh hx-rt" lang="zh-Hant">Cocotte 法式小館</span><span class="hx-ry"><span class="zh" lang="zh-Hant">2013</span></span></a></li><li class="k-project"><a href="../work/family-flat-hong-kong/" data-go="2"><span class="hx-rn">P03</span><span class="zh hx-rt" lang="zh-Hant">香港家庭住宅</span><span class="hx-ry"><span class="zh" lang="zh-Hant">2015</span></span></a></li><!--HXNEW:rows--><li class="k-journal" data-new=""><a href="journal/write-handover-information-person-who-will/" data-go="3"><span class="hx-rn"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-rt" lang="zh-Hant">請按「誰要簽字確認資料足夠」來編寫移交資料</span><span class="hx-ry"><span class="zh" lang="zh-Hant">10月18日</span></span></a></li><li class="k-journal" data-new=""><a href="journal/chinese-ai-lab-has-just-upgraded/" data-go="4"><span class="hx-rn"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-rt" lang="zh-Hant">一間中國 AI 公司</span><span class="hx-ry"><span class="zh" lang="zh-Hant">10月18日</span></span></a></li><li class="k-journal" data-new=""><a href="journal/from-an-app-for-that-to-an-app-for-me/" data-go="5"><span class="hx-rn"><span class="zh" lang="zh-Hant">文章</span></span><span class="zh hx-rt" lang="zh-Hant">由「有個 app 做到」，變成「有個 app 係為我而整」</span><span class="hx-ry"><span class="zh" lang="zh-Hant">10月16日</span></span></a></li><!--/HXNEW:rows--><li class="k-course"><a href="courses/#basic" data-go="6"><span class="hx-rn"><span class="zh" lang="zh-Hant">課程</span></span><span class="zh hx-rt" lang="zh-Hant">建立你自己的 AI 代理人</span><span class="hx-ry"><span class="zh" lang="zh-Hant"></span></span></a></li></ol>
     <div class="hx-ctl" hidden>
-      <button type="button" class="hx-b" data-step="-1" aria-label="Previous project">&larr;</button>
+      <button type="button" class="hx-b" data-step="-1" aria-label="Previous">&larr;</button>
       <button type="button" class="hx-b hx-pp" data-pp aria-pressed="false"><span class="zh" lang="zh-Hant">暫停</span></button>
-      <button type="button" class="hx-b" data-step="1" aria-label="Next project">&rarr;</button>
+      <button type="button" class="hx-b" data-step="1" aria-label="Next">&rarr;</button>
     </div>
   </div>
 </section>
@@ -947,22 +980,31 @@ body:has(.hx){overflow-x:clip}
 
 </script>
 <script>
-// Home hero (phase 2, 2026-10-18): three featured projects, one picture each, caption in the title block beside it.
+// Home hero (phase 2, 2026-10-18; 3 + 3 + 1 from 18 Oct evening): three featured projects, the three newest items across
+// Work, Lab and Journal, and the course. One picture each, caption in the title block beside it, a kind label on each.
 // Steps every 6 s; pauses on hover, focus, touch, when off screen or the tab is hidden, and with the Pause button.
 // prefers-reduced-motion: no auto-advance and no fade. Keys: arrow left/right on the picture. Swipe on the picture.
-// A list row picks that project; picking the current one opens it. Without this script: picture 1 + three plain links.
+// A list row picks that slide; picking the current one opens it. Without this script: picture 1 + plain links.
+// Newest three: the page's own, built with it; journal/home-new.json (written by every build, committed by the journal
+// auto-publish) replaces them when its key differs, so a new post shows here without republishing the home page.
 (function(){
   var hx = document.getElementById('hx'); if(!hx) return;
-  var slides = [].slice.call(hx.querySelectorAll('.hx-s')), caps = [].slice.call(hx.querySelectorAll('.hx-c'));
-  var rows = [].slice.call(hx.querySelectorAll('.hx-list a')), stage = hx.querySelector('.hx-stage');
+  var stage = hx.querySelector('.hx-stage'), list = hx.querySelector('.hx-list');
   var ctl = hx.querySelector('.hx-ctl'), pp = hx.querySelector('[data-pp]');
-  var n = slides.length; if(n < 2) return;
+  var slides, caps, rows, n;
+  function collect(){
+    slides = [].slice.call(hx.querySelectorAll('.hx-s')); caps = [].slice.call(hx.querySelectorAll('.hx-c'));
+    rows = [].slice.call(hx.querySelectorAll('.hx-list a')); n = slides.length;
+  }
+  collect(); if(n < 2) return;
   var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches: false};
   var cur = 0, playing = !rm.matches, hover = false, focus = false, onScreen = true, quietUntil = 0, timer = null;
   ctl.hidden = false;
   function load(s){
-    var im = s.querySelector('img');
-    if(im && im.dataset.srcset){ im.srcset = im.dataset.srcset; im.src = im.dataset.src; delete im.dataset.srcset; }
+    var im = s && s.querySelector('img');
+    if(!im || !im.dataset.src) return;
+    if(im.dataset.srcset){ im.srcset = im.dataset.srcset; delete im.dataset.srcset; }
+    im.src = im.dataset.src; delete im.dataset.src;
   }
   function go(i){
     cur = (i + n) % n;
@@ -987,10 +1029,12 @@ body:has(.hx){overflow-x:clip}
   hx.addEventListener('mouseleave', function(){ hover = false; });
   hx.addEventListener('focusin', function(){ focus = true; });
   hx.addEventListener('focusout', function(e){ if(!hx.contains(e.relatedTarget)) focus = false; });
-  rows.forEach(function(r, k){ r.addEventListener('click', function(e){
-    if(k === cur || e.metaKey || e.ctrlKey || e.shiftKey) return;   // the current one opens the project
+  list.addEventListener('click', function(e){
+    var r = e.target.closest('a[data-go]'); if(!r) return;
+    var k = +r.getAttribute('data-go');
+    if(k === cur || e.metaKey || e.ctrlKey || e.shiftKey) return;   // the current one opens it
     e.preventDefault(); go(k); quiet(12000);
-  }); });
+  });
   ctl.addEventListener('click', function(e){
     var b = e.target.closest('button'); if(!b) return;
     if(b.hasAttribute('data-pp')){ playing = !playing; setPP(); return; }
@@ -1001,7 +1045,7 @@ body:has(.hx){overflow-x:clip}
     else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); quiet(12000); }
     else if(e.key === 'Enter'){ var a = slides[cur].querySelector('a'); if(a) location.href = a.href; }
   });
-  // swipe: a horizontal drag of 40 px or more changes the project; a tap still opens it
+  // swipe: a horizontal drag of 40 px or more changes the slide; a tap still opens it
   var x0 = null, y0 = 0, swiped = false;
   stage.addEventListener('pointerdown', function(e){ x0 = e.clientX; y0 = e.clientY; swiped = false; quiet(12000); });
   stage.addEventListener('pointerup', function(e){
@@ -1016,6 +1060,27 @@ body:has(.hx){overflow-x:clip}
     new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }, {threshold: 0.4}).observe(stage);
   }
   setPP();
+
+  // newer journal posts than this page was built with: swap the newest three in place (same count only)
+  var feed = hx.getAttribute('data-feed'), lang = document.documentElement.getAttribute('data-lang') || 'en';
+  if(!feed || !window.fetch) return;
+  fetch(feed, {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : null; }).then(function(j){
+    if(!j || !j.key || j.key === hx.getAttribute('data-new') || !j[lang]) return;
+    var parts = [['.hx-slides', 'slides'], ['.hx-cap', 'caps'], ['.hx-list', 'rows']], ok = true;
+    parts.forEach(function(p){
+      var box = hx.querySelector(p[0]), old = box.querySelectorAll(':scope > [data-new]');
+      var tmp = document.createElement(p[0] === '.hx-cap' ? 'div' : 'ul'); tmp.innerHTML = j[lang][p[1]] || '';
+      if(!old.length || tmp.children.length !== old.length) ok = false;
+    });
+    if(!ok) return;
+    parts.forEach(function(p){
+      var box = hx.querySelector(p[0]), old = [].slice.call(box.querySelectorAll(':scope > [data-new]'));
+      old[0].insertAdjacentHTML('beforebegin', j[lang][p[1]]);
+      old.forEach(function(el){ el.remove(); });
+    });
+    hx.setAttribute('data-new', j.key);
+    collect(); go(cur);
+  }).catch(function(){});
 })();
 
 // Index overlay: the bar (#ixoOpen) slides the full index up over the landing. Focus moves into the overlay and
