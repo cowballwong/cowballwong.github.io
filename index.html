@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en-GB" data-lang="en" data-title-en="Anzon Wong · Architect" data-title-zh="Anzon Wong · 建築師">
+<html lang="en-GB" data-lang="en" data-alt="zh/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anzon Wong · Architect</title>
+<title>Anzon Wong, architect · AI agents, free tools and courses</title>
 <meta name="description" content="Anzon Wong, architect in the UK from Hong Kong. Work, free tools for architects, and a one-to-one AI agent course.">
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/">
-<meta property="og:title" content="Anzon Wong · Architect">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="Anzon Wong, architect · AI agents, free tools and courses">
 <meta property="og:description" content="Anzon Wong, architect in the UK from Hong Kong. Work, free tools for architects, and a one-to-one AI agent course.">
 <meta property="og:url" content="https://anzonwong.com/">
+<meta property="og:image" content="https://anzonwong.com/img/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Anzon Wong, architect">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"WebPage","@id":"https://anzonwong.com/#page","url":"https://anzonwong.com/","name":"Anzon Wong, architect · AI agents, free tools and courses","description":"Anzon Wong, architect in the UK from Hong Kong. Work, free tools for architects, and a one-to-one AI agent course.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/home.jpg","about":{"@id":"https://anzonwong.com/#person"}}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -212,10 +225,27 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
-.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.foot .visits[hidden]{display:none}
-.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
@@ -389,30 +419,13 @@ html.ixo-on body{overflow:hidden}
 
 </style>
 <script>
-// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
 (function(){
-  var root = document.documentElement;
-  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
-  function apply(lang){
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
-    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
-    var b = document.getElementById('langBtn');
-    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
-    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
-  }
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
   var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
-  var lang = q || store('aw-lang') || 'en';
-  if(q) store('aw-lang', q);
-  apply(lang);
-  document.addEventListener('DOMContentLoaded', function(){
-    apply(root.getAttribute('data-lang'));
-    var b = document.getElementById('langBtn');
-    if(b) b.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-      store('aw-lang', next); apply(next);
-    });
-  });
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
 })();
 
 </script>
@@ -422,12 +435,12 @@ html.ixo-on body{overflow:hidden}
   <div class="wrap">
     <a class="brand" href="./">Anzon Wong<small>AW Design</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="courses/"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="work/"><span class="en">Work</span></a>
+      <a href="lab/"><span class="en">Lab</span></a>
+      <a href="courses/"><span class="en">Courses</span></a>
+      <a href="about/"><span class="en">About</span></a>
+      <a href="contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="zh/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
     </nav>
   </div>
 </header>
@@ -436,35 +449,35 @@ html.ixo-on body{overflow:hidden}
 <section class="intro">
   <div>
     <p class="en">Architect in the United Kingdom, from Hong Kong. I design buildings, make small tools and AI agents for architects, and teach people to build agents of their own.</p>
-    <p class="zh" lang="zh-Hant">來自香港、現居英國的建築師。我設計建築，為建築師製作小工具及 AI 代理人，亦教人建立屬於自己的代理人。</p>
+    
   </div>
   <div class="meta">
-    <div><b><span class="en">Based</span><span class="zh">現居</span></b><span class="en">United Kingdom</span><span class="zh">英國</span></div>
-    <div><b><span class="en">From</span><span class="zh">來自</span></b><span class="en">Hong Kong</span><span class="zh">香港</span></div>
-    <div><b><span class="en">Practice label</span><span class="zh">設計品牌</span></b>AW Design</div>
-    <div><b><span class="en">Languages</span><span class="zh">語言</span></b><span class="en">English · 中文</span><span class="zh">英文 · 中文</span></div>
+    <div><b><span class="en">Based</span></b><span class="en">United Kingdom</span></div>
+    <div><b><span class="en">From</span></b><span class="en">Hong Kong</span></div>
+    <div><b><span class="en">Practice label</span></b>AW Design</div>
+    <div><b><span class="en">Languages</span></b><span class="en">English · 中文</span></div>
   </div>
 </section>
 
 <section class="hc" id="hc" aria-roledescription="carousel" aria-label="Selected work, tools and courses">
   <div class="hc-h">
-    <span class="label"><span class="en">Selected · work, lab, courses</span><span class="zh" lang="zh-Hant">精選 · 作品、實驗室、課程</span></span>
+    <span class="label"><span class="en">Selected · work, lab, courses</span></span>
     <span class="hc-ctl" hidden>
       <button type="button" class="hc-b" data-go="-1" aria-label="Previous" aria-controls="hcTrack">&larr;</button>
-      <button type="button" class="hc-b hc-pp" data-pp aria-controls="hcTrack"><span class="en">Pause</span><span class="zh" lang="zh-Hant">暫停</span></button>
+      <button type="button" class="hc-b hc-pp" data-pp aria-controls="hcTrack"><span class="en">Pause</span></button>
       <button type="button" class="hc-b" data-go="1" aria-label="Next" aria-controls="hcTrack">&rarr;</button>
     </span>
   </div>
   <ul class="hc-track" id="hcTrack" tabindex="0" aria-label="Selected work, tools and courses">
-    <li><a href="work/upside-down-chalet/" draggable="false"><span class="hc-im"><img src="work/upside-down-chalet/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">The Upside-Down Chalet</span><span class="zh" lang="zh-Hant">倒置木屋</span></b><i class="en">Work · 2017</i><i class="zh" lang="zh-Hant">作品 · 2017</i></span></a></li>
-    <li><a href="https://anzonwong.com/hk-wind-sketch/" draggable="false"><span class="hc-im"><img src="img/lab/hk-wind-sketch.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Wind Sketch</span><span class="zh" lang="zh-Hant">香港風環境草圖</span></b><i class="en">Lab · Hong Kong</i><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
-    <li><a href="courses/#basic" draggable="false"><span class="hc-im"><img src="courses/img/l3.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></b><i class="en">Course · Basic</i><i class="zh" lang="zh-Hant">課程 · 基礎班</i></span></a></li>
-    <li><a href="work/cocotte/" draggable="false"><span class="hc-im"><img src="work/cocotte/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Cocotte</span><span class="zh" lang="zh-Hant">Cocotte 法式小館</span></b><i class="en">Work · 2013</i><i class="zh" lang="zh-Hant">作品 · 2013</i></span></a></li>
-    <li><a href="https://anzonwong.com/hk-regs-map/" draggable="false"><span class="hc-im"><img src="img/lab/hk-regs-map.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Building Regulations Map</span><span class="zh" lang="zh-Hant">香港建築規例關係地圖</span></b><i class="en">Lab · Hong Kong</i><i class="zh" lang="zh-Hant">實驗室 · 香港</i></span></a></li>
-    <li><a href="courses/#advanced" draggable="false"><span class="hc-im"><img src="courses/img/adv.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"><em class="hc-tag"><span class="en">Enrolling · from 24 Oct</span><span class="zh" lang="zh-Hant">接受報名 · 10 月 24 日起</span></em></span><span class="hc-tx"><b><span class="en">From tender to handover</span><span class="zh" lang="zh-Hant">由投標到交樓</span></b><i class="en">Course · Advanced</i><i class="zh" lang="zh-Hant">課程 · 進階班</i></span></a></li>
-    <li><a href="work/family-flat-hong-kong/" draggable="false"><span class="hc-im"><img src="work/family-flat-hong-kong/thumb.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Family flat, Hong Kong</span><span class="zh" lang="zh-Hant">香港家庭住宅</span></b><i class="en">Work · 2015</i><i class="zh" lang="zh-Hant">作品 · 2015</i></span></a></li>
-    <li><a href="https://anzonwong.com/uk-reg3-checker/" draggable="false"><span class="hc-im"><img src="img/lab/uk-reg3-checker.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Reg 3 Checker</span><span class="zh" lang="zh-Hant">Reg 3 檢查器</span></b><i class="en">Lab · United Kingdom</i><i class="zh" lang="zh-Hant">實驗室 · 英國</i></span></a></li>
-    <li><a href="courses/ai-101/" draggable="false"><span class="hc-im"><img src="courses/ai-101/cover.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">AI 101</span><span class="zh" lang="zh-Hant">AI 101</span></b><i class="en">Free handbook</i><i class="zh" lang="zh-Hant">免費手冊</i></span></a></li>
+    <li><a href="work/upside-down-chalet/" draggable="false"><span class="hc-im"><img src="work/upside-down-chalet/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">The Upside-Down Chalet</span></b><i class="en">Work · 2017</i></span></a></li>
+    <li><a href="https://anzonwong.com/hk-wind-sketch/" draggable="false"><span class="hc-im"><img src="img/lab/hk-wind-sketch.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Wind Sketch</span></b><i class="en">Lab · Hong Kong</i></span></a></li>
+    <li><a href="courses/#basic" draggable="false"><span class="hc-im"><img src="courses/img/l3.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Your own AI agent</span></b><i class="en">Course · Basic</i></span></a></li>
+    <li><a href="work/cocotte/" draggable="false"><span class="hc-im"><img src="work/cocotte/thumb_render.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Cocotte</span></b><i class="en">Work · 2013</i></span></a></li>
+    <li><a href="https://anzonwong.com/hk-regs-map/" draggable="false"><span class="hc-im"><img src="img/lab/hk-regs-map.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">HK Building Regulations Map</span></b><i class="en">Lab · Hong Kong</i></span></a></li>
+    <li><a href="courses/#advanced" draggable="false"><span class="hc-im"><img src="courses/img/adv.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"><em class="hc-tag"><span class="en">Enrolling · from 24 Oct</span></em></span><span class="hc-tx"><b><span class="en">From tender to handover</span></b><i class="en">Course · Advanced</i></span></a></li>
+    <li><a href="work/family-flat-hong-kong/" draggable="false"><span class="hc-im"><img src="work/family-flat-hong-kong/thumb.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Family flat, Hong Kong</span></b><i class="en">Work · 2015</i></span></a></li>
+    <li><a href="https://anzonwong.com/uk-reg3-checker/" draggable="false"><span class="hc-im"><img src="img/lab/uk-reg3-checker.webp" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">Reg 3 Checker</span></b><i class="en">Lab · United Kingdom</i></span></a></li>
+    <li><a href="courses/ai-101/" draggable="false"><span class="hc-im"><img src="courses/ai-101/cover.jpg" alt="" loading="lazy" decoding="async" width="1200" height="800"></span><span class="hc-tx"><b><span class="en">AI 101</span></b><i class="en">Free handbook</i></span></a></li>
   </ul>
 </section>
 
@@ -473,7 +486,7 @@ html.ixo-on body{overflow:hidden}
   <a class="ixo-open" id="ixoOpen" href="#index" aria-controls="index">
     <span class="ixo-ic" aria-hidden="true">&#9776;</span>
     <span class="ixo-l">Index · <span lang="zh-Hant">全部作品</span></span>
-    <span class="ixo-n"><span class="en">Every project, tool and course</span><span class="zh" lang="zh-Hant">所有項目、工具及課程</span></span>
+    <span class="ixo-n"><span class="en">Every project, tool and course</span></span>
     <span class="ixo-ar" aria-hidden="true">&uarr;</span>
   </a>
 </div>
@@ -481,320 +494,253 @@ html.ixo-on body{overflow:hidden}
 <section id="index" class="ixo" aria-labelledby="ixoT" tabindex="-1">
   <div class="ixo-h"><div class="wrap">
     <h2 class="ixo-t" id="ixoT">Index · <span lang="zh-Hant">全部作品</span></h2>
-    <a class="ixo-x" id="ixoClose" href="#"><span class="en">Close</span><span class="zh" lang="zh-Hant">關閉</span><span class="ixo-xi" aria-hidden="true">&times;</span></a>
+    <a class="ixo-x" id="ixoClose" href="#"><span class="en">Close</span><span class="ixo-xi" aria-hidden="true">&times;</span></a>
   </div></div>
   <div class="wrap ixo-b">
 <div class="ix-wrap" data-ix>
-  <div class="ctl"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="en">All</span><span class="zh" lang="zh-Hant">全部</span><sup>28</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="en">Projects</span><span class="zh" lang="zh-Hant">項目</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="en">Tools</span><span class="zh" lang="zh-Hant">工具</span><sup>6</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="en">Pages</span><span class="zh" lang="zh-Hant">頁面</span><sup>2</sup></button></div><span class="count" data-count><span class="en">28 entries</span><span class="zh" lang="zh-Hant">28 項</span></span><label class="search"><input type="search" data-q placeholder="Search the index" aria-label="Search the index"><kbd>/</kbd></label></div>
+  <div class="ctl"><div class="chips" role="group" aria-label="Filter"><button class="chip on" type="button" data-f="all" aria-pressed="true"><span class="en">All</span><sup>28</sup></button><button class="chip" type="button" data-f="project" aria-pressed="false"><span class="en">Projects</span><sup>17</sup></button><button class="chip" type="button" data-f="tool" aria-pressed="false"><span class="en">Tools</span><sup>6</sup></button><button class="chip" type="button" data-f="course" aria-pressed="false"><span class="en">Courses</span><sup>3</sup></button><button class="chip" type="button" data-f="page" aria-pressed="false"><span class="en">Pages</span><sup>2</sup></button></div><span class="count" data-count><span class="en">28 entries</span></span><label class="search"><input type="search" data-q placeholder="Search the index" aria-label="Search the index"><kbd>/</kbd></label></div>
   <table class="ix">
-    <thead><tr><th class="no s" data-k="no" scope="col"><button type="button"><span class="en">No.</span><span class="zh" lang="zh-Hant">編號</span></button></th><th class="ti" data-k="ti" scope="col"><button type="button"><span class="en">Title</span><span class="zh" lang="zh-Hant">名稱</span></button></th><th class="ty" data-k="ty" scope="col"><button type="button"><span class="en">Type</span><span class="zh" lang="zh-Hant">類別</span></button></th><th class="pl" data-k="pl" scope="col"><button type="button"><span class="en">Place</span><span class="zh" lang="zh-Hant">地點</span></button></th><th class="yr" data-k="yr" scope="col"><button type="button"><span class="en">Year</span><span class="zh" lang="zh-Hant">年份</span></button></th><th class="go" aria-hidden="true"></th></tr></thead>
+    <thead><tr><th class="no s" data-k="no" scope="col"><button type="button"><span class="en">No.</span></button></th><th class="ti" data-k="ti" scope="col"><button type="button"><span class="en">Title</span></button></th><th class="ty" data-k="ty" scope="col"><button type="button"><span class="en">Type</span></button></th><th class="pl" data-k="pl" scope="col"><button type="button"><span class="en">Place</span></button></th><th class="yr" data-k="yr" scope="col"><button type="button"><span class="en">Year</span></button></th><th class="go" aria-hidden="true"></th></tr></thead>
     <tbody>
       <tr data-t="project" data-no="P01" data-yr="2017" data-href="work/upside-down-chalet/" data-img="work/upside-down-chalet/thumb_render.webp" data-ti-en="The Upside-Down Chalet" data-ti-zh="倒置木屋" data-ty-en="Residential · interior" data-ty-zh="住宅 · 室內" data-pl-en="" data-pl-zh="" data-d-en="" data-d-zh="" data-q="p01 the upside-down chalet 倒置木屋 residential · interior 住宅 · 室內   2017 a chalet conversion with the bedrooms below and the living space under the roof. walk through it in 3d and compare the original drawings with ai renders. 木屋改建項目：睡房在下，起居空間在屋頂之下。可於立體模型中漫遊，並以原有圖則對照 ai 效果圖。">
         <td class="no">P01</td>
-        <td class="ti"><a href="work/upside-down-chalet/"><span class="en">The Upside-Down Chalet<span class="alt" lang="zh-Hant">倒置木屋</span></span><span class="zh" lang="zh-Hant">倒置木屋<span class="alt" lang="en">The Upside-Down Chalet</span></span></a><span class="en sub">Residential · interior</span><span class="zh sub" lang="zh-Hant">住宅 · 室內</span><div class="xp" hidden><img data-src="work/upside-down-chalet/thumb_render.webp" alt="" width="1200" height="750"><div><p class="en">A chalet conversion with the bedrooms below and the living space under the roof. Walk through it in 3D and compare the original drawings with AI renders.</p><p class="zh" lang="zh-Hant">木屋改建項目：睡房在下，起居空間在屋頂之下。可於立體模型中漫遊，並以原有圖則對照 AI 效果圖。</p><a class="open" href="work/upside-down-chalet/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Residential · interior</span><span class="zh" lang="zh-Hant">住宅 · 室內</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="work/upside-down-chalet/"><span class="en">The Upside-Down Chalet<span class="alt" lang="zh-Hant">倒置木屋</span></span></a><span class="en sub">Residential · interior</span><div class="xp" hidden><img data-src="work/upside-down-chalet/thumb_render.webp" alt="" width="1200" height="750"><div><p class="en">A chalet conversion with the bedrooms below and the living space under the roof. Walk through it in 3D and compare the original drawings with AI renders.</p><a class="open" href="work/upside-down-chalet/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Residential · interior</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2017</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P02" data-yr="2013" data-href="work/cocotte/" data-img="work/cocotte/thumb_render.webp" data-ti-en="Cocotte" data-ti-zh="Cocotte 法式小館" data-ty-en="Hospitality · interior · own design" data-ty-zh="餐飲 · 室內 · 個人設計" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="" data-d-zh="" data-q="p02 cocotte cocotte 法式小館 hospitality · interior · own design 餐飲 · 室內 · 個人設計 hong kong 香港 2013 a small french bistro in hong kong, my own interior design from 2013, revisited as a working 3d model with the options, materials and drawings behind it. 2013 年由本人設計的香港法式小館。以可操作的立體模型重溫方案，並展示設計選項、物料及背後的圖則。">
         <td class="no">P02</td>
-        <td class="ti"><a href="work/cocotte/"><span class="en">Cocotte<span class="alt" lang="zh-Hant">Cocotte 法式小館</span></span><span class="zh" lang="zh-Hant">Cocotte 法式小館<span class="alt" lang="en">Cocotte</span></span></a><span class="en sub">Hospitality · interior · own design</span><span class="zh sub" lang="zh-Hant">餐飲 · 室內 · 個人設計</span><div class="xp" hidden><img data-src="work/cocotte/thumb_render.webp" alt="" width="1200" height="750"><div><p class="en">A small French bistro in Hong Kong, my own interior design from 2013, revisited as a working 3D model with the options, materials and drawings behind it.</p><p class="zh" lang="zh-Hant">2013 年由本人設計的香港法式小館。以可操作的立體模型重溫方案，並展示設計選項、物料及背後的圖則。</p><a class="open" href="work/cocotte/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Hospitality · interior · own design</span><span class="zh" lang="zh-Hant">餐飲 · 室內 · 個人設計</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/cocotte/"><span class="en">Cocotte<span class="alt" lang="zh-Hant">Cocotte 法式小館</span></span></a><span class="en sub">Hospitality · interior · own design</span><div class="xp" hidden><img data-src="work/cocotte/thumb_render.webp" alt="" width="1200" height="750"><div><p class="en">A small French bistro in Hong Kong, my own interior design from 2013, revisited as a working 3D model with the options, materials and drawings behind it.</p><a class="open" href="work/cocotte/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Hospitality · interior · own design</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2013</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P03" data-yr="2015" data-href="work/family-flat-hong-kong/" data-img="work/family-flat-hong-kong/thumb.webp" data-ti-en="Family flat, Hong Kong" data-ti-zh="香港家庭住宅" data-ty-en="Residential · interior · own design" data-ty-zh="住宅 · 室內 · 個人設計" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p03 family flat, hong kong 香港家庭住宅 residential · interior · own design 住宅 · 室內 · 個人設計 hong kong 香港 2015 a family flat refitted in 2015 to my own design. explore the sketchup model in 3d, the renders made from it and the construction drawings. 2015 年按本人設計翻新的家庭單位。可於立體模型中瀏覽，並查看由此導出的效果圖及施工圖則。">
         <td class="no">P03</td>
-        <td class="ti"><a href="work/family-flat-hong-kong/"><span class="en">Family flat, Hong Kong<span class="alt" lang="zh-Hant">香港家庭住宅</span></span><span class="zh" lang="zh-Hant">香港家庭住宅<span class="alt" lang="en">Family flat, Hong Kong</span></span></a><span class="en sub">Residential · interior · own design</span><span class="zh sub" lang="zh-Hant">住宅 · 室內 · 個人設計</span><div class="xp" hidden><img data-src="work/family-flat-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family flat refitted in 2015 to my own design. Explore the SketchUp model in 3D, the renders made from it and the construction drawings.</p><p class="zh" lang="zh-Hant">2015 年按本人設計翻新的家庭單位。可於立體模型中瀏覽，並查看由此導出的效果圖及施工圖則。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/family-flat-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Residential · interior · own design</span><span class="zh" lang="zh-Hant">住宅 · 室內 · 個人設計</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/family-flat-hong-kong/"><span class="en">Family flat, Hong Kong<span class="alt" lang="zh-Hant">香港家庭住宅</span></span></a><span class="en sub">Residential · interior · own design</span><div class="xp" hidden><img data-src="work/family-flat-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family flat refitted in 2015 to my own design. Explore the SketchUp model in 3D, the renders made from it and the construction drawings.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/family-flat-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Residential · interior · own design</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2015</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P04" data-yr="2013-2017" data-href="work/imagined-rooms/" data-img="work/imagined-rooms/thumb.webp" data-ti-en="Design illustrations for the South China Morning Post" data-ti-zh="南華早報設計插圖" data-ty-en="Design illustration · series" data-ty-zh="設計插圖 · 系列" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p04 design illustrations for the south china morning post 南華早報設計插圖 design illustration · series 設計插圖 · 系列 hong kong 香港 2013-2017 thirteen rooms for the newspaper&#x27;s style pages, 2013-2017. for each i read the interview, interpreted it as a room, then designed and rendered it. 2013 至 2017 年為報章生活版繪畫的十三個空間。每次先閱讀訪問，再自行理解，設計成空間並製作效果圖。">
         <td class="no">P04</td>
-        <td class="ti"><a href="work/imagined-rooms/"><span class="en">Design illustrations for the South China Morning Post<span class="alt" lang="zh-Hant">南華早報設計插圖</span></span><span class="zh" lang="zh-Hant">南華早報設計插圖<span class="alt" lang="en">Design illustrations for the South China Morning Post</span></span></a><span class="en sub">Design illustration · series</span><span class="zh sub" lang="zh-Hant">設計插圖 · 系列</span><div class="xp" hidden><img data-src="work/imagined-rooms/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Thirteen rooms for the newspaper&#x27;s style pages, 2013-2017. For each I read the interview, interpreted it as a room, then designed and rendered it.</p><p class="zh" lang="zh-Hant">2013 至 2017 年為報章生活版繪畫的十三個空間。每次先閱讀訪問，再自行理解，設計成空間並製作效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/imagined-rooms/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Design illustration · series</span><span class="zh" lang="zh-Hant">設計插圖 · 系列</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/imagined-rooms/"><span class="en">Design illustrations for the South China Morning Post<span class="alt" lang="zh-Hant">南華早報設計插圖</span></span></a><span class="en sub">Design illustration · series</span><div class="xp" hidden><img data-src="work/imagined-rooms/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Thirteen rooms for the newspaper&#x27;s style pages, 2013-2017. For each I read the interview, interpreted it as a room, then designed and rendered it.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/imagined-rooms/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Design illustration · series</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2013-2017</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P05" data-yr="2010" data-href="work/island-sewage-treatment-works/" data-img="work/island-sewage-treatment-works/thumb.webp" data-ti-en="Island sewage treatment works, exterior and landscape" data-ti-zh="離島污水處理廠外觀及園景" data-ty-en="Infrastructure · exterior and landscape" data-ty-zh="基建 · 外觀及園景" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p05 island sewage treatment works, exterior and landscape 離島污水處理廠外觀及園景 infrastructure · exterior and landscape 基建 · 外觀及園景 hong kong 香港 2010 architectural massing, green roofs and renders for two sewage treatment works on hong kong&#x27;s outlying islands, with the massing-to-render studies. 為香港兩座離島污水處理廠所作的建築體量、綠化屋頂及效果圖，並附由體量到渲染的研究。">
         <td class="no">P05</td>
-        <td class="ti"><a href="work/island-sewage-treatment-works/"><span class="en">Island sewage treatment works, exterior and landscape<span class="alt" lang="zh-Hant">離島污水處理廠外觀及園景</span></span><span class="zh" lang="zh-Hant">離島污水處理廠外觀及園景<span class="alt" lang="en">Island sewage treatment works, exterior and landscape</span></span></a><span class="en sub">Infrastructure · exterior and landscape</span><span class="zh sub" lang="zh-Hant">基建 · 外觀及園景</span><div class="xp" hidden><img data-src="work/island-sewage-treatment-works/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Architectural massing, green roofs and renders for two sewage treatment works on Hong Kong&#x27;s outlying islands, with the massing-to-render studies.</p><p class="zh" lang="zh-Hant">為香港兩座離島污水處理廠所作的建築體量、綠化屋頂及效果圖，並附由體量到渲染的研究。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/island-sewage-treatment-works/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Infrastructure · exterior and landscape</span><span class="zh" lang="zh-Hant">基建 · 外觀及園景</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/island-sewage-treatment-works/"><span class="en">Island sewage treatment works, exterior and landscape<span class="alt" lang="zh-Hant">離島污水處理廠外觀及園景</span></span></a><span class="en sub">Infrastructure · exterior and landscape</span><div class="xp" hidden><img data-src="work/island-sewage-treatment-works/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Architectural massing, green roofs and renders for two sewage treatment works on Hong Kong&#x27;s outlying islands, with the massing-to-render studies.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/island-sewage-treatment-works/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Infrastructure · exterior and landscape</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2010</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P06" data-yr="2015" data-href="work/hillside-apartment-hong-kong/" data-img="work/hillside-apartment-hong-kong/thumb.webp" data-ti-en="Hillside apartment, Hong Kong" data-ti-zh="香港山邊住宅單位" data-ty-en="Residential · interior · collaboration" data-ty-zh="住宅 · 室內 · 合作項目" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p06 hillside apartment, hong kong 香港山邊住宅單位 residential · interior · collaboration 住宅 · 室內 · 合作項目 hong kong 香港 2015 a family apartment, 2015: explore the sketchup model in 3d, fly through its saved scenes and see three new ai renders. 2015 年的家庭住宅單位：於立體模型中瀏覽，飛越已存場景，並查看三張新 ai 效果圖。">
         <td class="no">P06</td>
-        <td class="ti"><a href="work/hillside-apartment-hong-kong/"><span class="en">Hillside apartment, Hong Kong<span class="alt" lang="zh-Hant">香港山邊住宅單位</span></span><span class="zh" lang="zh-Hant">香港山邊住宅單位<span class="alt" lang="en">Hillside apartment, Hong Kong</span></span></a><span class="en sub">Residential · interior · collaboration</span><span class="zh sub" lang="zh-Hant">住宅 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/hillside-apartment-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family apartment, 2015: explore the SketchUp model in 3D, fly through its saved scenes and see three new AI renders.</p><p class="zh" lang="zh-Hant">2015 年的家庭住宅單位：於立體模型中瀏覽，飛越已存場景，並查看三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/hillside-apartment-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Residential · interior · collaboration</span><span class="zh" lang="zh-Hant">住宅 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/hillside-apartment-hong-kong/"><span class="en">Hillside apartment, Hong Kong<span class="alt" lang="zh-Hant">香港山邊住宅單位</span></span></a><span class="en sub">Residential · interior · collaboration</span><div class="xp" hidden><img data-src="work/hillside-apartment-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family apartment, 2015: explore the SketchUp model in 3D, fly through its saved scenes and see three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/hillside-apartment-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Residential · interior · collaboration</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2015</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P07" data-yr="2014-2016" data-href="work/split-level-house-hong-kong/" data-img="work/split-level-house-hong-kong/thumb.webp" data-ti-en="Split-level house, Hong Kong" data-ti-zh="香港錯層獨立屋" data-ty-en="Residential · interior · collaboration" data-ty-zh="住宅 · 室內 · 合作項目" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p07 split-level house, hong kong 香港錯層獨立屋 residential · interior · collaboration 住宅 · 室內 · 合作項目 hong kong 香港 2014-2016 a family house on five split levels: cut through the sketchup model level by level, fly through its scenes and see three new ai renders. 五個錯層的家庭住宅：於立體模型中逐層剖切，飛越已存場景，並查看三張新 ai 效果圖。">
         <td class="no">P07</td>
-        <td class="ti"><a href="work/split-level-house-hong-kong/"><span class="en">Split-level house, Hong Kong<span class="alt" lang="zh-Hant">香港錯層獨立屋</span></span><span class="zh" lang="zh-Hant">香港錯層獨立屋<span class="alt" lang="en">Split-level house, Hong Kong</span></span></a><span class="en sub">Residential · interior · collaboration</span><span class="zh sub" lang="zh-Hant">住宅 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/split-level-house-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family house on five split levels: cut through the SketchUp model level by level, fly through its scenes and see three new AI renders.</p><p class="zh" lang="zh-Hant">五個錯層的家庭住宅：於立體模型中逐層剖切，飛越已存場景，並查看三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/split-level-house-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Residential · interior · collaboration</span><span class="zh" lang="zh-Hant">住宅 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/split-level-house-hong-kong/"><span class="en">Split-level house, Hong Kong<span class="alt" lang="zh-Hant">香港錯層獨立屋</span></span></a><span class="en sub">Residential · interior · collaboration</span><div class="xp" hidden><img data-src="work/split-level-house-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A family house on five split levels: cut through the SketchUp model level by level, fly through its scenes and see three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/split-level-house-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Residential · interior · collaboration</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2014-2016</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P08" data-yr="2016" data-href="work/menswear-stores/" data-img="work/menswear-stores/thumb.webp" data-ti-en="Menswear stores and barbershops" data-ti-zh="男裝店及理髮店" data-ty-en="Retail · interior · collaboration" data-ty-zh="零售 · 室內 · 合作項目" data-pl-en="" data-pl-zh="" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p08 menswear stores and barbershops 男裝店及理髮店 retail · interior · collaboration 零售 · 室內 · 合作項目   2016 five tailoring and menswear stores with barber areas, 2016: the models, view sets and fixture drawings, with three new ai renders. 2016 年五間設有理髮區的男裝及訂製西服店：模型、視圖及陳列裝置圖則，另附三張新 ai 效果圖。">
         <td class="no">P08</td>
-        <td class="ti"><a href="work/menswear-stores/"><span class="en">Menswear stores and barbershops<span class="alt" lang="zh-Hant">男裝店及理髮店</span></span><span class="zh" lang="zh-Hant">男裝店及理髮店<span class="alt" lang="en">Menswear stores and barbershops</span></span></a><span class="en sub">Retail · interior · collaboration</span><span class="zh sub" lang="zh-Hant">零售 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/menswear-stores/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Five tailoring and menswear stores with barber areas, 2016: the models, view sets and fixture drawings, with three new AI renders.</p><p class="zh" lang="zh-Hant">2016 年五間設有理髮區的男裝及訂製西服店：模型、視圖及陳列裝置圖則，另附三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/menswear-stores/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Retail · interior · collaboration</span><span class="zh" lang="zh-Hant">零售 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="work/menswear-stores/"><span class="en">Menswear stores and barbershops<span class="alt" lang="zh-Hant">男裝店及理髮店</span></span></a><span class="en sub">Retail · interior · collaboration</span><div class="xp" hidden><img data-src="work/menswear-stores/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Five tailoring and menswear stores with barber areas, 2016: the models, view sets and fixture drawings, with three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/menswear-stores/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Retail · interior · collaboration</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2016</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P09" data-yr="2013-2016" data-href="work/custom-furniture/" data-img="work/custom-furniture/thumb.webp" data-ti-en="Custom furniture pieces" data-ti-zh="訂製家具系列" data-ty-en="Furniture · collaboration" data-ty-zh="家具 · 合作項目" data-pl-en="" data-pl-zh="" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p09 custom furniture pieces 訂製家具系列 furniture · collaboration 家具 · 合作項目   2013-2016 banquettes, bar stools, chairs and a high table drawn for restaurant and bar interiors, 2013-2016, with three new ai renders. 2013 至 2016 年為餐廳及酒吧繪畫的卡座、吧椅、餐椅及高枱，另附三張新 ai 效果圖。">
         <td class="no">P09</td>
-        <td class="ti"><a href="work/custom-furniture/"><span class="en">Custom furniture pieces<span class="alt" lang="zh-Hant">訂製家具系列</span></span><span class="zh" lang="zh-Hant">訂製家具系列<span class="alt" lang="en">Custom furniture pieces</span></span></a><span class="en sub">Furniture · collaboration</span><span class="zh sub" lang="zh-Hant">家具 · 合作項目</span><div class="xp" hidden><img data-src="work/custom-furniture/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Banquettes, bar stools, chairs and a high table drawn for restaurant and bar interiors, 2013-2016, with three new AI renders.</p><p class="zh" lang="zh-Hant">2013 至 2016 年為餐廳及酒吧繪畫的卡座、吧椅、餐椅及高枱，另附三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/custom-furniture/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Furniture · collaboration</span><span class="zh" lang="zh-Hant">家具 · 合作項目</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="work/custom-furniture/"><span class="en">Custom furniture pieces<span class="alt" lang="zh-Hant">訂製家具系列</span></span></a><span class="en sub">Furniture · collaboration</span><div class="xp" hidden><img data-src="work/custom-furniture/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Banquettes, bar stools, chairs and a high table drawn for restaurant and bar interiors, 2013-2016, with three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/custom-furniture/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Furniture · collaboration</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2013-2016</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P10" data-yr="2013-2016" data-href="work/restaurants-and-bars/" data-img="work/restaurants-and-bars/thumb.webp" data-ti-en="Restaurants and bars, Hong Kong" data-ti-zh="香港餐廳及酒吧" data-ty-en="Hospitality · interior · collaboration" data-ty-zh="餐飲 · 室內 · 合作項目" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p10 restaurants and bars, hong kong 香港餐廳及酒吧 hospitality · interior · collaboration 餐飲 · 室內 · 合作項目 hong kong 香港 2013-2016 eleven restaurants, bars and cafes, 2013-2016: sketchup views, plans and option studies, with three new ai renders. 2013 至 2016 年十一間餐廳、酒吧及咖啡店：sketchup 視圖、平面及方案研究，另附三張新 ai 效果圖。">
         <td class="no">P10</td>
-        <td class="ti"><a href="work/restaurants-and-bars/"><span class="en">Restaurants and bars, Hong Kong<span class="alt" lang="zh-Hant">香港餐廳及酒吧</span></span><span class="zh" lang="zh-Hant">香港餐廳及酒吧<span class="alt" lang="en">Restaurants and bars, Hong Kong</span></span></a><span class="en sub">Hospitality · interior · collaboration</span><span class="zh sub" lang="zh-Hant">餐飲 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/restaurants-and-bars/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Eleven restaurants, bars and cafes, 2013-2016: SketchUp views, plans and option studies, with three new AI renders.</p><p class="zh" lang="zh-Hant">2013 至 2016 年十一間餐廳、酒吧及咖啡店：SketchUp 視圖、平面及方案研究，另附三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/restaurants-and-bars/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Hospitality · interior · collaboration</span><span class="zh" lang="zh-Hant">餐飲 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/restaurants-and-bars/"><span class="en">Restaurants and bars, Hong Kong<span class="alt" lang="zh-Hant">香港餐廳及酒吧</span></span></a><span class="en sub">Hospitality · interior · collaboration</span><div class="xp" hidden><img data-src="work/restaurants-and-bars/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Eleven restaurants, bars and cafes, 2013-2016: SketchUp views, plans and option studies, with three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/restaurants-and-bars/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Hospitality · interior · collaboration</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2013-2016</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P11" data-yr="2016-2017" data-href="work/members-clubs-and-hotel-dining/" data-img="work/members-clubs-and-hotel-dining/thumb.webp" data-ti-en="Members&#x27; clubs and hotel dining" data-ti-zh="會所及酒店餐飲空間" data-ty-en="Hospitality · interior · collaboration" data-ty-zh="會所及餐飲 · 室內 · 合作項目" data-pl-en="" data-pl-zh="" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p11 members&#x27; clubs and hotel dining 會所及酒店餐飲空間 hospitality · interior · collaboration 會所及餐飲 · 室內 · 合作項目   2016-2017 four members&#x27; clubs and a hotel rooftop restaurant, 2016-2017: views, plans and layout options, with three new ai renders. 2016 至 2017 年四個會所及一間酒店天台餐廳：視圖、平面及佈局方案，另附三張新 ai 效果圖。">
         <td class="no">P11</td>
-        <td class="ti"><a href="work/members-clubs-and-hotel-dining/"><span class="en">Members&#x27; clubs and hotel dining<span class="alt" lang="zh-Hant">會所及酒店餐飲空間</span></span><span class="zh" lang="zh-Hant">會所及酒店餐飲空間<span class="alt" lang="en">Members&#x27; clubs and hotel dining</span></span></a><span class="en sub">Hospitality · interior · collaboration</span><span class="zh sub" lang="zh-Hant">會所及餐飲 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/members-clubs-and-hotel-dining/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Four members&#x27; clubs and a hotel rooftop restaurant, 2016-2017: views, plans and layout options, with three new AI renders.</p><p class="zh" lang="zh-Hant">2016 至 2017 年四個會所及一間酒店天台餐廳：視圖、平面及佈局方案，另附三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/members-clubs-and-hotel-dining/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Hospitality · interior · collaboration</span><span class="zh" lang="zh-Hant">會所及餐飲 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="work/members-clubs-and-hotel-dining/"><span class="en">Members&#x27; clubs and hotel dining<span class="alt" lang="zh-Hant">會所及酒店餐飲空間</span></span></a><span class="en sub">Hospitality · interior · collaboration</span><div class="xp" hidden><img data-src="work/members-clubs-and-hotel-dining/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Four members&#x27; clubs and a hotel rooftop restaurant, 2016-2017: views, plans and layout options, with three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/members-clubs-and-hotel-dining/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Hospitality · interior · collaboration</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2016-2017</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P12" data-yr="2015-2017" data-href="work/apartment-interiors/" data-img="work/apartment-interiors/thumb.webp" data-ti-en="Apartment interiors" data-ti-zh="住宅單位室內設計" data-ty-en="Residential · interior · collaboration" data-ty-zh="住宅 · 室內 · 合作項目" data-pl-en="" data-pl-zh="" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p12 apartment interiors 住宅單位室內設計 residential · interior · collaboration 住宅 · 室內 · 合作項目   2015-2017 three apartments, 2015-2017: sketchup views, sections and plans, with three new ai renders. 2015 至 2017 年三個住宅單位：sketchup 視圖、剖面及平面，另附三張新 ai 效果圖。">
         <td class="no">P12</td>
-        <td class="ti"><a href="work/apartment-interiors/"><span class="en">Apartment interiors<span class="alt" lang="zh-Hant">住宅單位室內設計</span></span><span class="zh" lang="zh-Hant">住宅單位室內設計<span class="alt" lang="en">Apartment interiors</span></span></a><span class="en sub">Residential · interior · collaboration</span><span class="zh sub" lang="zh-Hant">住宅 · 室內 · 合作項目</span><div class="xp" hidden><img data-src="work/apartment-interiors/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Three apartments, 2015-2017: SketchUp views, sections and plans, with three new AI renders.</p><p class="zh" lang="zh-Hant">2015 至 2017 年三個住宅單位：SketchUp 視圖、剖面及平面，另附三張新 AI 效果圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/apartment-interiors/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Residential · interior · collaboration</span><span class="zh" lang="zh-Hant">住宅 · 室內 · 合作項目</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="work/apartment-interiors/"><span class="en">Apartment interiors<span class="alt" lang="zh-Hant">住宅單位室內設計</span></span></a><span class="en sub">Residential · interior · collaboration</span><div class="xp" hidden><img data-src="work/apartment-interiors/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Three apartments, 2015-2017: SketchUp views, sections and plans, with three new AI renders.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/apartment-interiors/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Residential · interior · collaboration</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2015-2017</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P13" data-yr="2011" data-href="work/wedding-banquet-setting-hong-kong/" data-img="work/wedding-banquet-setting-hong-kong/thumb.webp" data-ti-en="Wedding banquet setting, Hong Kong" data-ti-zh="香港婚宴佈置" data-ty-en="Event design · banquet setting" data-ty-zh="活動設計 · 婚宴佈置" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p13 wedding banquet setting, hong kong 香港婚宴佈置 event design · banquet setting 活動設計 · 婚宴佈置 hong kong 香港 2011 seating layouts from march to june and two 3d schemes in july for a private wedding banquet in one large hall. 一個大型禮堂內的私人婚宴：3 月至 6 月的座位佈局，以及 7 月的兩個立體方案。">
         <td class="no">P13</td>
-        <td class="ti"><a href="work/wedding-banquet-setting-hong-kong/"><span class="en">Wedding banquet setting, Hong Kong<span class="alt" lang="zh-Hant">香港婚宴佈置</span></span><span class="zh" lang="zh-Hant">香港婚宴佈置<span class="alt" lang="en">Wedding banquet setting, Hong Kong</span></span></a><span class="en sub">Event design · banquet setting</span><span class="zh sub" lang="zh-Hant">活動設計 · 婚宴佈置</span><div class="xp" hidden><img data-src="work/wedding-banquet-setting-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Seating layouts from March to June and two 3D schemes in July for a private wedding banquet in one large hall.</p><p class="zh" lang="zh-Hant">一個大型禮堂內的私人婚宴：3 月至 6 月的座位佈局，以及 7 月的兩個立體方案。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/wedding-banquet-setting-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Event design · banquet setting</span><span class="zh" lang="zh-Hant">活動設計 · 婚宴佈置</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/wedding-banquet-setting-hong-kong/"><span class="en">Wedding banquet setting, Hong Kong<span class="alt" lang="zh-Hant">香港婚宴佈置</span></span></a><span class="en sub">Event design · banquet setting</span><div class="xp" hidden><img data-src="work/wedding-banquet-setting-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Seating layouts from March to June and two 3D schemes in July for a private wedding banquet in one large hall.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/wedding-banquet-setting-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Event design · banquet setting</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2011</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P14" data-yr="2011" data-href="work/timber-pavilion-concept/" data-img="work/timber-pavilion-concept/thumb.webp" data-ti-en="Timber gridshell pavilion concept" data-ti-zh="木網殼展亭概念設計" data-ty-en="Pavilion · concept" data-ty-zh="展亭 · 概念設計" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p14 timber gridshell pavilion concept 木網殼展亭概念設計 pavilion · concept 展亭 · 概念設計 hong kong 香港 2011 a four-day concept for a glazed timber gridshell vault rising out of a shallow pool, with a linked corridor study. 四日內完成的概念：由淺水池升起的玻璃木網殼拱頂，並附連接走廊研究。">
         <td class="no">P14</td>
-        <td class="ti"><a href="work/timber-pavilion-concept/"><span class="en">Timber gridshell pavilion concept<span class="alt" lang="zh-Hant">木網殼展亭概念設計</span></span><span class="zh" lang="zh-Hant">木網殼展亭概念設計<span class="alt" lang="en">Timber gridshell pavilion concept</span></span></a><span class="en sub">Pavilion · concept</span><span class="zh sub" lang="zh-Hant">展亭 · 概念設計</span><div class="xp" hidden><img data-src="work/timber-pavilion-concept/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A four-day concept for a glazed timber gridshell vault rising out of a shallow pool, with a linked corridor study.</p><p class="zh" lang="zh-Hant">四日內完成的概念：由淺水池升起的玻璃木網殼拱頂，並附連接走廊研究。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/timber-pavilion-concept/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Pavilion · concept</span><span class="zh" lang="zh-Hant">展亭 · 概念設計</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/timber-pavilion-concept/"><span class="en">Timber gridshell pavilion concept<span class="alt" lang="zh-Hant">木網殼展亭概念設計</span></span></a><span class="en sub">Pavilion · concept</span><div class="xp" hidden><img data-src="work/timber-pavilion-concept/thumb.webp" alt="" width="1200" height="750"><div><p class="en">A four-day concept for a glazed timber gridshell vault rising out of a shallow pool, with a linked corridor study.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/timber-pavilion-concept/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Pavilion · concept</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2011</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P15" data-yr="2013" data-href="work/juice-bar-cafe-hong-kong/" data-img="work/juice-bar-cafe-hong-kong/thumb.webp" data-ti-en="Juice bar and cafe, Hong Kong" data-ti-zh="香港果汁吧及餐廳" data-ty-en="Interior · food and beverage" data-ty-zh="室內設計 · 餐飲" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p15 juice bar and cafe, hong kong 香港果汁吧及餐廳 interior · food and beverage 室內設計 · 餐飲 hong kong 香港 2013 three material options inside and out, then lighting and final renders over three weeks for a narrow glazed cafe and juice bar. 一間狹長玻璃餐廳及果汁吧：室內外各三個物料方案，再到燈光及最終效果圖，歷時三星期。">
         <td class="no">P15</td>
-        <td class="ti"><a href="work/juice-bar-cafe-hong-kong/"><span class="en">Juice bar and cafe, Hong Kong<span class="alt" lang="zh-Hant">香港果汁吧及餐廳</span></span><span class="zh" lang="zh-Hant">香港果汁吧及餐廳<span class="alt" lang="en">Juice bar and cafe, Hong Kong</span></span></a><span class="en sub">Interior · food and beverage</span><span class="zh sub" lang="zh-Hant">室內設計 · 餐飲</span><div class="xp" hidden><img data-src="work/juice-bar-cafe-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Three material options inside and out, then lighting and final renders over three weeks for a narrow glazed cafe and juice bar.</p><p class="zh" lang="zh-Hant">一間狹長玻璃餐廳及果汁吧：室內外各三個物料方案，再到燈光及最終效果圖，歷時三星期。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/juice-bar-cafe-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Interior · food and beverage</span><span class="zh" lang="zh-Hant">室內設計 · 餐飲</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/juice-bar-cafe-hong-kong/"><span class="en">Juice bar and cafe, Hong Kong<span class="alt" lang="zh-Hant">香港果汁吧及餐廳</span></span></a><span class="en sub">Interior · food and beverage</span><div class="xp" hidden><img data-src="work/juice-bar-cafe-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Three material options inside and out, then lighting and final renders over three weeks for a narrow glazed cafe and juice bar.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/juice-bar-cafe-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Interior · food and beverage</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2013</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P16" data-yr="2013" data-href="work/mall-green-walls-hong-kong/" data-img="work/mall-green-walls-hong-kong/thumb.webp" data-ti-en="Mall green walls, Hong Kong" data-ti-zh="香港商場綠化牆" data-ty-en="Landscape · photomontage" data-ty-zh="園景 · 合成效果圖" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p16 mall green walls, hong kong 香港商場綠化牆 landscape · photomontage 園景 · 合成效果圖 hong kong 香港 2013 living green walls drawn into site photos of a mall&#x27;s car park entrance, main entrance and taxi drop-off, shown before and after. 把綠化牆繪入商場停車場入口、正門及落客區的現場照片，以前後對比呈現。">
         <td class="no">P16</td>
-        <td class="ti"><a href="work/mall-green-walls-hong-kong/"><span class="en">Mall green walls, Hong Kong<span class="alt" lang="zh-Hant">香港商場綠化牆</span></span><span class="zh" lang="zh-Hant">香港商場綠化牆<span class="alt" lang="en">Mall green walls, Hong Kong</span></span></a><span class="en sub">Landscape · photomontage</span><span class="zh sub" lang="zh-Hant">園景 · 合成效果圖</span><div class="xp" hidden><img data-src="work/mall-green-walls-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Living green walls drawn into site photos of a mall&#x27;s car park entrance, main entrance and taxi drop-off, shown before and after.</p><p class="zh" lang="zh-Hant">把綠化牆繪入商場停車場入口、正門及落客區的現場照片，以前後對比呈現。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/mall-green-walls-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Landscape · photomontage</span><span class="zh" lang="zh-Hant">園景 · 合成效果圖</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/mall-green-walls-hong-kong/"><span class="en">Mall green walls, Hong Kong<span class="alt" lang="zh-Hant">香港商場綠化牆</span></span></a><span class="en sub">Landscape · photomontage</span><div class="xp" hidden><img data-src="work/mall-green-walls-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Living green walls drawn into site photos of a mall&#x27;s car park entrance, main entrance and taxi drop-off, shown before and after.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/mall-green-walls-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Landscape · photomontage</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2013</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="project" data-no="P17" data-yr="2006" data-href="work/airport-shop-bamboo-planters-hong-kong/" data-img="work/airport-shop-bamboo-planters-hong-kong/thumb.webp" data-ti-en="Airport shop with bamboo planters, Hong Kong" data-ti-zh="香港機場竹景零售店" data-ty-en="Retail interior · concept" data-ty-zh="零售室內 · 概念設計" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Card image: AI render based on the original model, 2026." data-d-zh="卡片圖片：根據原有模型生成的 AI 效果圖（2026）。" data-q="p17 airport shop with bamboo planters, hong kong 香港機場竹景零售店 retail interior · concept 零售室內 · 概念設計 hong kong 香港 2006 early work: three concept options for a small airport shop built round a bamboo planter seat, with display furniture sketches. 早期作品：以竹景座椅為中心的機場小店，三個概念方案及展示家具草圖。">
         <td class="no">P17</td>
-        <td class="ti"><a href="work/airport-shop-bamboo-planters-hong-kong/"><span class="en">Airport shop with bamboo planters, Hong Kong<span class="alt" lang="zh-Hant">香港機場竹景零售店</span></span><span class="zh" lang="zh-Hant">香港機場竹景零售店<span class="alt" lang="en">Airport shop with bamboo planters, Hong Kong</span></span></a><span class="en sub">Retail interior · concept</span><span class="zh sub" lang="zh-Hant">零售室內 · 概念設計</span><div class="xp" hidden><img data-src="work/airport-shop-bamboo-planters-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Early work: three concept options for a small airport shop built round a bamboo planter seat, with display furniture sketches.</p><p class="zh" lang="zh-Hant">早期作品：以竹景座椅為中心的機場小店，三個概念方案及展示家具草圖。</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><p class="zh xd" lang="zh-Hant">卡片圖片：根據原有模型生成的 AI 效果圖（2026）。</p><a class="open" href="work/airport-shop-bamboo-planters-hong-kong/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Retail interior · concept</span><span class="zh" lang="zh-Hant">零售室內 · 概念設計</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="work/airport-shop-bamboo-planters-hong-kong/"><span class="en">Airport shop with bamboo planters, Hong Kong<span class="alt" lang="zh-Hant">香港機場竹景零售店</span></span></a><span class="en sub">Retail interior · concept</span><div class="xp" hidden><img data-src="work/airport-shop-bamboo-planters-hong-kong/thumb.webp" alt="" width="1200" height="750"><div><p class="en">Early work: three concept options for a small airport shop built round a bamboo planter seat, with display furniture sketches.</p><p class="en xd">Card image: AI render based on the original model, 2026.</p><a class="open" href="work/airport-shop-bamboo-planters-hong-kong/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Retail interior · concept</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr">2006</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T01" data-yr="" data-href="https://anzonwong.com/hk-landscape-sheets/" data-img="img/lab/hk-landscape-sheets.webp" data-ti-en="HK Landscape Sheets" data-ti-zh="香港園境圖則" data-ty-en="Design tool · Hong Kong" data-ty-zh="設計工具 · 香港" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Personal hobby project, first version. Not official guidance and not legal or professional advice." data-d-zh="個人興趣作品（第一版），並非官方指引，亦非法律或專業意見。" data-q="t01 hk landscape sheets 香港園境圖則 design tool · hong kong 設計工具 · 香港 hong kong 香港  draw a podium garden and get a set of a1 landscape sheets: site analysis, planting plan, tree schedule and growth studies. 繪畫一個平台花園，即可得到一套 a1 園境圖則：地盤分析、種植平面、樹種表及生長研究。">
         <td class="no">T01</td>
-        <td class="ti"><a href="https://anzonwong.com/hk-landscape-sheets/"><span class="en">HK Landscape Sheets<span class="alt" lang="zh-Hant">香港園境圖則</span></span><span class="zh" lang="zh-Hant">香港園境圖則<span class="alt" lang="en">HK Landscape Sheets</span></span></a><span class="en sub">Design tool · Hong Kong</span><span class="zh sub" lang="zh-Hant">設計工具 · 香港</span><div class="xp" hidden><img data-src="img/lab/hk-landscape-sheets.webp" alt="" width="1200" height="750"><div><p class="en">Draw a podium garden and get a set of A1 landscape sheets: site analysis, planting plan, tree schedule and growth studies.</p><p class="zh" lang="zh-Hant">繪畫一個平台花園，即可得到一套 A1 園境圖則：地盤分析、種植平面、樹種表及生長研究。</p><p class="en xd">Personal hobby project, first version. Not official guidance and not legal or professional advice.</p><p class="zh xd" lang="zh-Hant">個人興趣作品（第一版），並非官方指引，亦非法律或專業意見。</p><a class="open" href="https://anzonwong.com/hk-landscape-sheets/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Design tool · Hong Kong</span><span class="zh" lang="zh-Hant">設計工具 · 香港</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="https://anzonwong.com/hk-landscape-sheets/"><span class="en">HK Landscape Sheets<span class="alt" lang="zh-Hant">香港園境圖則</span></span></a><span class="en sub">Design tool · Hong Kong</span><div class="xp" hidden><img data-src="img/lab/hk-landscape-sheets.webp" alt="" width="1200" height="750"><div><p class="en">Draw a podium garden and get a set of A1 landscape sheets: site analysis, planting plan, tree schedule and growth studies.</p><p class="en xd">Personal hobby project, first version. Not official guidance and not legal or professional advice.</p><a class="open" href="https://anzonwong.com/hk-landscape-sheets/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Design tool · Hong Kong</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T02" data-yr="" data-href="https://anzonwong.com/hk-regs-map/" data-img="img/lab/hk-regs-map.webp" data-ti-en="HK Building Regulations Map" data-ti-zh="香港建築規例關係地圖" data-ty-en="Interactive map · Hong Kong" data-ty-zh="互動地圖 · 香港" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="Personal hobby project, not a government website. Navigation aid, not legal advice." data-d-zh="個人興趣項目，並非政府網站；僅供導航，並非法律意見。" data-q="t02 hk building regulations map 香港建築規例關係地圖 interactive map · hong kong 互動地圖 · 香港 hong kong 香港  a 3d bilingual map of hong kong building control documents and the links between them: ordinance, regulations, practice notes, codes and guidance. 以立體雙語地圖展示香港建築管制文件及其相互關係：條例、規例、作業備考、守則及指引。">
         <td class="no">T02</td>
-        <td class="ti"><a href="https://anzonwong.com/hk-regs-map/"><span class="en">HK Building Regulations Map<span class="alt" lang="zh-Hant">香港建築規例關係地圖</span></span><span class="zh" lang="zh-Hant">香港建築規例關係地圖<span class="alt" lang="en">HK Building Regulations Map</span></span></a><span class="en sub">Interactive map · Hong Kong</span><span class="zh sub" lang="zh-Hant">互動地圖 · 香港</span><div class="xp" hidden><img data-src="img/lab/hk-regs-map.webp" alt="" width="1200" height="750"><div><p class="en">A 3D bilingual map of Hong Kong building control documents and the links between them: ordinance, regulations, practice notes, codes and guidance.</p><p class="zh" lang="zh-Hant">以立體雙語地圖展示香港建築管制文件及其相互關係：條例、規例、作業備考、守則及指引。</p><p class="en xd">Personal hobby project, not a government website. Navigation aid, not legal advice.</p><p class="zh xd" lang="zh-Hant">個人興趣項目，並非政府網站；僅供導航，並非法律意見。</p><a class="open" href="https://anzonwong.com/hk-regs-map/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Interactive map · Hong Kong</span><span class="zh" lang="zh-Hant">互動地圖 · 香港</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="https://anzonwong.com/hk-regs-map/"><span class="en">HK Building Regulations Map<span class="alt" lang="zh-Hant">香港建築規例關係地圖</span></span></a><span class="en sub">Interactive map · Hong Kong</span><div class="xp" hidden><img data-src="img/lab/hk-regs-map.webp" alt="" width="1200" height="750"><div><p class="en">A 3D bilingual map of Hong Kong building control documents and the links between them: ordinance, regulations, practice notes, codes and guidance.</p><p class="en xd">Personal hobby project, not a government website. Navigation aid, not legal advice.</p><a class="open" href="https://anzonwong.com/hk-regs-map/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Interactive map · Hong Kong</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T03" data-yr="" data-href="https://anzonwong.com/uk-reg3-checker/" data-img="img/lab/uk-reg3-checker.webp" data-ti-en="Is it Building Work? Reg 3 Checker" data-ti-zh="是否屬建築工程？Reg 3 檢查器" data-ty-en="Checker · United Kingdom" data-ty-zh="檢查工具 · 英國" data-pl-en="United Kingdom" data-pl-zh="英國" data-d-en="General guidance, not legal advice. The final decision rests with the Building Control Body." data-d-zh="一般指引，並非法律意見。最終決定權在建築管制機構。" data-q="t03 is it building work? reg 3 checker 是否屬建築工程？reg 3 檢查器 checker · united kingdom 檢查工具 · 英國 united kingdom 英國  a step-by-step check against regulation 3 of the building regulations 2010: does the planned work need building control, and which approved documents apply. 按《2010 年建築規例》第 3 條逐步檢查：計劃中的工程是否需要建築管制審批，以及適用哪些核准文件。">
         <td class="no">T03</td>
-        <td class="ti"><a href="https://anzonwong.com/uk-reg3-checker/"><span class="en">Is it Building Work? Reg 3 Checker<span class="alt" lang="zh-Hant">是否屬建築工程？Reg 3 檢查器</span></span><span class="zh" lang="zh-Hant">是否屬建築工程？Reg 3 檢查器<span class="alt" lang="en">Is it Building Work? Reg 3 Checker</span></span></a><span class="en sub">Checker · United Kingdom</span><span class="zh sub" lang="zh-Hant">檢查工具 · 英國</span><div class="xp" hidden><img data-src="img/lab/uk-reg3-checker.webp" alt="" width="1200" height="750"><div><p class="en">A step-by-step check against Regulation 3 of the Building Regulations 2010: does the planned work need Building Control, and which Approved Documents apply.</p><p class="zh" lang="zh-Hant">按《2010 年建築規例》第 3 條逐步檢查：計劃中的工程是否需要建築管制審批，以及適用哪些核准文件。</p><p class="en xd">General guidance, not legal advice. The final decision rests with the Building Control Body.</p><p class="zh xd" lang="zh-Hant">一般指引，並非法律意見。最終決定權在建築管制機構。</p><a class="open" href="https://anzonwong.com/uk-reg3-checker/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Checker · United Kingdom</span><span class="zh" lang="zh-Hant">檢查工具 · 英國</span></td>
-        <td class="pl"><span class="en">United Kingdom</span><span class="zh" lang="zh-Hant">英國</span></td>
+        <td class="ti"><a href="https://anzonwong.com/uk-reg3-checker/"><span class="en">Is it Building Work? Reg 3 Checker<span class="alt" lang="zh-Hant">是否屬建築工程？Reg 3 檢查器</span></span></a><span class="en sub">Checker · United Kingdom</span><div class="xp" hidden><img data-src="img/lab/uk-reg3-checker.webp" alt="" width="1200" height="750"><div><p class="en">A step-by-step check against Regulation 3 of the Building Regulations 2010: does the planned work need Building Control, and which Approved Documents apply.</p><p class="en xd">General guidance, not legal advice. The final decision rests with the Building Control Body.</p><a class="open" href="https://anzonwong.com/uk-reg3-checker/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Checker · United Kingdom</span></td>
+        <td class="pl"><span class="en">United Kingdom</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T04" data-yr="" data-href="https://anzonwong.com/uk-cps-checker/" data-img="img/lab/uk-cps-checker.webp" data-ti-en="CPS Checker" data-ti-zh="CPS 自我認證檢查器" data-ty-en="Checker · United Kingdom" data-ty-zh="檢查工具 · 英國" data-pl-en="United Kingdom" data-pl-zh="英國" data-d-en="Indicative only, not legal advice. Scheme scope can change; check the official register." data-d-zh="僅供參考，並非法律意見。計劃範圍可能改變，請查閱官方登記冊。" data-q="t04 cps checker cps 自我認證檢查器 checker · united kingdom 檢查工具 · 英國 united kingdom 英國  can your installer self-certify the work under a competent person scheme, or do you need building control? 你的安裝商能否透過「合資格人士計劃」自我認證工程，還是需要申請建築管制？">
         <td class="no">T04</td>
-        <td class="ti"><a href="https://anzonwong.com/uk-cps-checker/"><span class="en">CPS Checker<span class="alt" lang="zh-Hant">CPS 自我認證檢查器</span></span><span class="zh" lang="zh-Hant">CPS 自我認證檢查器<span class="alt" lang="en">CPS Checker</span></span></a><span class="en sub">Checker · United Kingdom</span><span class="zh sub" lang="zh-Hant">檢查工具 · 英國</span><div class="xp" hidden><img data-src="img/lab/uk-cps-checker.webp" alt="" width="1200" height="750"><div><p class="en">Can your installer self-certify the work under a Competent Person Scheme, or do you need Building Control?</p><p class="zh" lang="zh-Hant">你的安裝商能否透過「合資格人士計劃」自我認證工程，還是需要申請建築管制？</p><p class="en xd">Indicative only, not legal advice. Scheme scope can change; check the official register.</p><p class="zh xd" lang="zh-Hant">僅供參考，並非法律意見。計劃範圍可能改變，請查閱官方登記冊。</p><a class="open" href="https://anzonwong.com/uk-cps-checker/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Checker · United Kingdom</span><span class="zh" lang="zh-Hant">檢查工具 · 英國</span></td>
-        <td class="pl"><span class="en">United Kingdom</span><span class="zh" lang="zh-Hant">英國</span></td>
+        <td class="ti"><a href="https://anzonwong.com/uk-cps-checker/"><span class="en">CPS Checker<span class="alt" lang="zh-Hant">CPS 自我認證檢查器</span></span></a><span class="en sub">Checker · United Kingdom</span><div class="xp" hidden><img data-src="img/lab/uk-cps-checker.webp" alt="" width="1200" height="750"><div><p class="en">Can your installer self-certify the work under a Competent Person Scheme, or do you need Building Control?</p><p class="en xd">Indicative only, not legal advice. Scheme scope can change; check the official register.</p><a class="open" href="https://anzonwong.com/uk-cps-checker/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Checker · United Kingdom</span></td>
+        <td class="pl"><span class="en">United Kingdom</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T05" data-yr="" data-href="https://anzonwong.com/hk-wind-sketch/" data-img="img/lab/hk-wind-sketch.webp" data-ti-en="HK Wind Sketch" data-ti-zh="香港風環境草圖" data-ty-en="Simulation sketch · Hong Kong" data-ty-zh="模擬草圖 · 香港" data-pl-en="Hong Kong" data-pl-zh="香港" data-d-en="A qualitative 2D sketch for teaching and early design feel. Not an Air Ventilation Assessment: no velocity ratio figures, no pass or fail." data-d-zh="供教學及早期設計參考的定性二維草圖。並非空氣流通評估：沒有風速比數字，亦無合格與否之分。" data-q="t05 hk wind sketch 香港風環境草圖 simulation sketch · hong kong 模擬草圖 · 香港 hong kong 香港  pick a hong kong area and a wind direction, drag in a building, and watch a qualitative 2d wind field react at pedestrian level. runs in the browser. 選一個香港地區及風向，拖入一座建築，即可看到行人高度的二維風場如何變化。全部在瀏覽器內運行。">
         <td class="no">T05</td>
-        <td class="ti"><a href="https://anzonwong.com/hk-wind-sketch/"><span class="en">HK Wind Sketch<span class="alt" lang="zh-Hant">香港風環境草圖</span></span><span class="zh" lang="zh-Hant">香港風環境草圖<span class="alt" lang="en">HK Wind Sketch</span></span></a><span class="en sub">Simulation sketch · Hong Kong</span><span class="zh sub" lang="zh-Hant">模擬草圖 · 香港</span><div class="xp" hidden><img data-src="img/lab/hk-wind-sketch.webp" alt="" width="1200" height="750"><div><p class="en">Pick a Hong Kong area and a wind direction, drag in a building, and watch a qualitative 2D wind field react at pedestrian level. Runs in the browser.</p><p class="zh" lang="zh-Hant">選一個香港地區及風向，拖入一座建築，即可看到行人高度的二維風場如何變化。全部在瀏覽器內運行。</p><p class="en xd">A qualitative 2D sketch for teaching and early design feel. Not an Air Ventilation Assessment: no velocity ratio figures, no pass or fail.</p><p class="zh xd" lang="zh-Hant">供教學及早期設計參考的定性二維草圖。並非空氣流通評估：沒有風速比數字，亦無合格與否之分。</p><a class="open" href="https://anzonwong.com/hk-wind-sketch/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Simulation sketch · Hong Kong</span><span class="zh" lang="zh-Hant">模擬草圖 · 香港</span></td>
-        <td class="pl"><span class="en">Hong Kong</span><span class="zh" lang="zh-Hant">香港</span></td>
+        <td class="ti"><a href="https://anzonwong.com/hk-wind-sketch/"><span class="en">HK Wind Sketch<span class="alt" lang="zh-Hant">香港風環境草圖</span></span></a><span class="en sub">Simulation sketch · Hong Kong</span><div class="xp" hidden><img data-src="img/lab/hk-wind-sketch.webp" alt="" width="1200" height="750"><div><p class="en">Pick a Hong Kong area and a wind direction, drag in a building, and watch a qualitative 2D wind field react at pedestrian level. Runs in the browser.</p><p class="en xd">A qualitative 2D sketch for teaching and early design feel. Not an Air Ventilation Assessment: no velocity ratio figures, no pass or fail.</p><a class="open" href="https://anzonwong.com/hk-wind-sketch/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Simulation sketch · Hong Kong</span></td>
+        <td class="pl"><span class="en">Hong Kong</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="tool" data-no="T07" data-yr="" data-href="lab/st-albans-live/" data-img="img/lab/st-albans-live.webp" data-ti-en="St Albans Live" data-ti-zh="St Albans 實時地圖" data-ty-en="Live map · United Kingdom" data-ty-zh="實時地圖 · 英國" data-pl-en="United Kingdom" data-pl-zh="英國" data-d-en="Personal hobby project, not an official service. For reference only, not for navigation or travel decisions." data-d-zh="個人興趣項目，並非官方服務。僅供參考，不應用作導航或出行決定。" data-q="t07 st albans live st albans 實時地圖 live map · united kingdom 實時地圖 · 英國 united kingdom 英國  buses in their real liveries, trains as carriages, road speeds, parking, ev chargers and fuel prices on one live 3d map. runs in the browser, in english or chinese. 巴士以真實塗裝顯示，火車以車卡顯示，連同車速、泊車、電動車充電及油價，盡在一張立體實時地圖。在瀏覽器內運行，提供英文及中文。">
         <td class="no">T07</td>
-        <td class="ti"><a href="lab/st-albans-live/"><span class="en">St Albans Live<span class="alt" lang="zh-Hant">St Albans 實時地圖</span></span><span class="zh" lang="zh-Hant">St Albans 實時地圖<span class="alt" lang="en">St Albans Live</span></span></a><span class="en sub">Live map · United Kingdom</span><span class="zh sub" lang="zh-Hant">實時地圖 · 英國</span><div class="xp" hidden><img data-src="img/lab/st-albans-live.webp" alt="" width="1200" height="750"><div><p class="en">Buses in their real liveries, trains as carriages, road speeds, parking, EV chargers and fuel prices on one live 3D map. Runs in the browser, in English or Chinese.</p><p class="zh" lang="zh-Hant">巴士以真實塗裝顯示，火車以車卡顯示，連同車速、泊車、電動車充電及油價，盡在一張立體實時地圖。在瀏覽器內運行，提供英文及中文。</p><p class="en xd">Personal hobby project, not an official service. For reference only, not for navigation or travel decisions.</p><p class="zh xd" lang="zh-Hant">個人興趣項目，並非官方服務。僅供參考，不應用作導航或出行決定。</p><a class="open" href="lab/st-albans-live/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Live map · United Kingdom</span><span class="zh" lang="zh-Hant">實時地圖 · 英國</span></td>
-        <td class="pl"><span class="en">United Kingdom</span><span class="zh" lang="zh-Hant">英國</span></td>
+        <td class="ti"><a href="lab/st-albans-live/"><span class="en">St Albans Live<span class="alt" lang="zh-Hant">St Albans 實時地圖</span></span></a><span class="en sub">Live map · United Kingdom</span><div class="xp" hidden><img data-src="img/lab/st-albans-live.webp" alt="" width="1200" height="750"><div><p class="en">Buses in their real liveries, trains as carriages, road speeds, parking, EV chargers and fuel prices on one live 3D map. Runs in the browser, in English or Chinese.</p><p class="en xd">Personal hobby project, not an official service. For reference only, not for navigation or travel decisions.</p><a class="open" href="lab/st-albans-live/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Live map · United Kingdom</span></td>
+        <td class="pl"><span class="en">United Kingdom</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="course" data-no="C01" data-yr="" data-href="courses/" data-img="" data-ti-en="Your own AI agent" data-ti-zh="你的私人 AI 代理人" data-ty-en="One to one, online" data-ty-zh="一對一，網上授課" data-pl-en="Online" data-pl-zh="網上" data-d-en="" data-d-zh="" data-q="c01 your own ai agent 你的私人 ai 代理人 one to one, online 一對一，網上授課 online 網上  five one-to-one lessons online. we start from an agent that already works, open it up to see how it runs, then reshape it step by step into an assistant that is yours alone. very little code. 五堂一對一網上課。由一個已經能運作的代理人開始，拆開來看清它的原理，再一步步改造成只屬於你的助理。所需編程極少。">
         <td class="no">C01</td>
-        <td class="ti"><a href="courses/"><span class="en">Your own AI agent<span class="alt" lang="zh-Hant">你的私人 AI 代理人</span></span><span class="zh" lang="zh-Hant">你的私人 AI 代理人<span class="alt" lang="en">Your own AI agent</span></span></a><span class="en sub">One to one, online</span><span class="zh sub" lang="zh-Hant">一對一，網上授課</span><div class="xp noimg" hidden><div><p class="en">Five one-to-one lessons online. We start from an agent that already works, open it up to see how it runs, then reshape it step by step into an assistant that is yours alone. Very little code.</p><p class="zh" lang="zh-Hant">五堂一對一網上課。由一個已經能運作的代理人開始，拆開來看清它的原理，再一步步改造成只屬於你的助理。所需編程極少。</p><a class="open" href="courses/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">One to one, online</span><span class="zh" lang="zh-Hant">一對一，網上授課</span></td>
-        <td class="pl"><span class="en">Online</span><span class="zh" lang="zh-Hant">網上</span></td>
+        <td class="ti"><a href="courses/"><span class="en">Your own AI agent<span class="alt" lang="zh-Hant">你的私人 AI 代理人</span></span></a><span class="en sub">One to one, online</span><div class="xp noimg" hidden><div><p class="en">Five one-to-one lessons online. We start from an agent that already works, open it up to see how it runs, then reshape it step by step into an assistant that is yours alone. Very little code.</p><a class="open" href="courses/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">One to one, online</span></td>
+        <td class="pl"><span class="en">Online</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="course" data-no="C02" data-yr="" data-href="https://anzonwong.com/teaching-booking/" data-img="" data-ti-en="Book a lesson" data-ti-zh="預約課堂" data-ty-en="Booking page" data-ty-zh="報名頁面" data-pl-en="Online" data-pl-zh="網上" data-d-en="" data-d-zh="" data-q="c02 book a lesson 預約課堂 booking page 報名頁面 online 網上  the booking page shows open times in uk and hong kong time, with course details. returning students can look up their progress there too. 報名頁面以英國及香港時間列出可預約的時段及課程詳情。現有學生亦可在該頁查閱進度。">
         <td class="no">C02</td>
-        <td class="ti"><a href="https://anzonwong.com/teaching-booking/"><span class="en">Book a lesson<span class="alt" lang="zh-Hant">預約課堂</span></span><span class="zh" lang="zh-Hant">預約課堂<span class="alt" lang="en">Book a lesson</span></span></a><span class="en sub">Booking page</span><span class="zh sub" lang="zh-Hant">報名頁面</span><div class="xp noimg" hidden><div><p class="en">The booking page shows open times in UK and Hong Kong time, with course details. Returning students can look up their progress there too.</p><p class="zh" lang="zh-Hant">報名頁面以英國及香港時間列出可預約的時段及課程詳情。現有學生亦可在該頁查閱進度。</p><a class="open" href="https://anzonwong.com/teaching-booking/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Booking page</span><span class="zh" lang="zh-Hant">報名頁面</span></td>
-        <td class="pl"><span class="en">Online</span><span class="zh" lang="zh-Hant">網上</span></td>
+        <td class="ti"><a href="https://anzonwong.com/teaching-booking/"><span class="en">Book a lesson<span class="alt" lang="zh-Hant">預約課堂</span></span></a><span class="en sub">Booking page</span><div class="xp noimg" hidden><div><p class="en">The booking page shows open times in UK and Hong Kong time, with course details. Returning students can look up their progress there too.</p><a class="open" href="https://anzonwong.com/teaching-booking/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Booking page</span></td>
+        <td class="pl"><span class="en">Online</span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="course" data-no="C03" data-yr="2026" data-href="courses/ai-101/" data-img="courses/ai-101/cover.jpg" data-ti-en="AI 101" data-ti-zh="AI 101" data-ty-en="Free handbook" data-ty-zh="免費手冊" data-pl-en="" data-pl-zh="" data-d-en="" data-d-zh="" data-q="c03 ai 101 ai 101 free handbook 免費手冊   2026 forty-five ideas behind today&#x27;s ai, from the basics to the advanced, one per page in chinese and english. flip through it online or download the pdf. 當今 ai 背後的 45 個概念，由淺入深，一頁一個，中英對照。可在網上逐頁翻閱，或下載 pdf。">
         <td class="no">C03</td>
-        <td class="ti"><a href="courses/ai-101/"><span class="en">AI 101</span><span class="zh" lang="zh-Hant">AI 101</span></a><span class="en sub">Free handbook</span><span class="zh sub" lang="zh-Hant">免費手冊</span><div class="xp" hidden><img data-src="courses/ai-101/cover.jpg" alt="" width="1200" height="750"><div><p class="en">Forty-five ideas behind today&#x27;s AI, from the basics to the advanced, one per page in Chinese and English. Flip through it online or download the PDF.</p><p class="zh" lang="zh-Hant">當今 AI 背後的 45 個概念，由淺入深，一頁一個，中英對照。可在網上逐頁翻閱，或下載 PDF。</p><a class="open" href="courses/ai-101/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Free handbook</span><span class="zh" lang="zh-Hant">免費手冊</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="courses/ai-101/"><span class="en">AI 101</span></a><span class="en sub">Free handbook</span><div class="xp" hidden><img data-src="courses/ai-101/cover.jpg" alt="" width="1200" height="750"><div><p class="en">Forty-five ideas behind today&#x27;s AI, from the basics to the advanced, one per page in Chinese and English. Flip through it online or download the PDF.</p><a class="open" href="courses/ai-101/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Free handbook</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr">2026</td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="page" data-no="A01" data-yr="" data-href="about/" data-img="" data-ti-en="About" data-ti-zh="關於" data-ty-en="Page" data-ty-zh="頁面" data-pl-en="" data-pl-zh="" data-d-en="" data-d-zh="" data-q="a01 about 關於 page 頁面    i am anzon wong, an architect based in the united kingdom. i am from hong kong. 我是 anzon wong，現居英國的建築師，來自香港。">
         <td class="no">A01</td>
-        <td class="ti"><a href="about/"><span class="en">About<span class="alt" lang="zh-Hant">關於</span></span><span class="zh" lang="zh-Hant">關於<span class="alt" lang="en">About</span></span></a><span class="en sub">Page</span><span class="zh sub" lang="zh-Hant">頁面</span><div class="xp noimg" hidden><div><p class="en">I am Anzon Wong, an architect based in the United Kingdom. I am from Hong Kong.</p><p class="zh" lang="zh-Hant">我是 Anzon Wong，現居英國的建築師，來自香港。</p><a class="open" href="about/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Page</span><span class="zh" lang="zh-Hant">頁面</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="about/"><span class="en">About<span class="alt" lang="zh-Hant">關於</span></span></a><span class="en sub">Page</span><div class="xp noimg" hidden><div><p class="en">I am Anzon Wong, an architect based in the United Kingdom. I am from Hong Kong.</p><a class="open" href="about/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Page</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
       <tr data-t="page" data-no="A02" data-yr="" data-href="contact/" data-img="" data-ti-en="Contact" data-ti-zh="聯絡" data-ty-en="Page" data-ty-zh="頁面" data-pl-en="" data-pl-zh="" data-d-en="" data-d-zh="" data-q="a02 contact 聯絡 page 頁面    email is the simplest way to reach me. 電郵是聯絡我最直接的方法。">
         <td class="no">A02</td>
-        <td class="ti"><a href="contact/"><span class="en">Contact<span class="alt" lang="zh-Hant">聯絡</span></span><span class="zh" lang="zh-Hant">聯絡<span class="alt" lang="en">Contact</span></span></a><span class="en sub">Page</span><span class="zh sub" lang="zh-Hant">頁面</span><div class="xp noimg" hidden><div><p class="en">Email is the simplest way to reach me.</p><p class="zh" lang="zh-Hant">電郵是聯絡我最直接的方法。</p><a class="open" href="contact/"><span class="en">Open</span><span class="zh" lang="zh-Hant">開啟</span> &rarr;</a></div></div></td>
-        <td class="ty"><span class="en">Page</span><span class="zh" lang="zh-Hant">頁面</span></td>
-        <td class="pl"><span class="en"></span><span class="zh" lang="zh-Hant"></span></td>
+        <td class="ti"><a href="contact/"><span class="en">Contact<span class="alt" lang="zh-Hant">聯絡</span></span></a><span class="en sub">Page</span><div class="xp noimg" hidden><div><p class="en">Email is the simplest way to reach me.</p><a class="open" href="contact/"><span class="en">Open</span> &rarr;</a></div></div></td>
+        <td class="ty"><span class="en">Page</span></td>
+        <td class="pl"><span class="en"></span></td>
         <td class="yr"></td>
         <td class="go" aria-hidden="true">&rarr;</td>
       </tr>
     </tbody>
   </table>
-  <div class="empty" data-empty hidden><span class="en">Nothing in the index matches that.</span><span class="zh" lang="zh-Hant">目錄中沒有相符的項目。</span></div>
+  <div class="empty" data-empty hidden><span class="en">Nothing in the index matches that.</span></div>
   <div class="pv" aria-hidden="true"><img alt=""><span class="cap"></span><p class="pd"></p></div>
 </div>
   </div>
 <footer class="foot">
   <div class="wrap"><div>
-    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
 </section>
 
 
 </main>
-<script>
-// Visitor counter, shown in the footer (added 2026-10-05).
-// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
-// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
-// Counts once per browser per day (localStorage date flag); later loads that day only read.
-// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
-// Runs after page load, so it never delays the page. Not counted from file:// previews.
-(function(){
-  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
-  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
-  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
-  var DOC = PATH + '/site_counters/anzonwong-com';
-  var FLAG = 'aw-visit-day';
-
-  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-
-  function show(n){
-    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
-    if(!el || !num || !isFinite(n) || n < 0) return;
-    num.textContent = Number(n).toLocaleString('en-GB');
-    el.hidden = false;
-  }
-
-  function call(url, opts){
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
-    if(ctl) opts.signal = ctl.signal;
-    return fetch(url, opts).then(function(r){
-      clearTimeout(t);
-      if(!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    });
-  }
-
-  function read(){
-    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
-      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
-  }
-
-  function count(){
-    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
-      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
-    return call(BASE + ':commit?key=' + KEY, {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
-    }).then(function(d){
-      try{ localStorage.setItem(FLAG, today()); }catch(e){}
-      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
-      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
-    });
-  }
-
-  function run(){
-    try{
-      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
-      var counted = true;  // storage blocked: read only, never recount
-      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
-      (counted ? read() : count()).then(show).catch(function(){});
-    }catch(e){}
-  }
-
-  if(document.readyState === 'complete') setTimeout(run, 300);
-  else window.addEventListener('load', function(){ setTimeout(run, 300); });
-})();
-
-</script>
 <script>
 // Option D index: filter chips, search, sortable columns, keyboard, hover preview (desktop), tap to open (phone).
 (function(){

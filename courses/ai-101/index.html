@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en-GB" data-lang="en" data-title-en="AI 101 · Anzon Wong" data-title-zh="AI 101 · Anzon Wong">
+<html lang="en-GB" data-lang="en" data-alt="../../zh/courses/ai-101/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 101 · Anzon Wong</title>
+<title>AI 101: 45 AI ideas in Chinese and English, free · Anzon Wong</title>
 <meta name="description" content="AI 101: a free bilingual handbook of 45 AI concepts, from the basics to the advanced, by Anzon Wong. Read it as a book or download the PDF.">
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/courses/ai-101/">
-<meta property="og:title" content="AI 101 · Anzon Wong">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/courses/ai-101/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/ai-101/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/ai-101/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="AI 101: 45 AI ideas in Chinese and English, free · Anzon Wong">
 <meta property="og:description" content="AI 101: a free bilingual handbook of 45 AI concepts, from the basics to the advanced, by Anzon Wong. Read it as a book or download the PDF.">
 <meta property="og:url" content="https://anzonwong.com/courses/ai-101/">
+<meta property="og:image" content="https://anzonwong.com/img/og/ai-101.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI 101: 45 AI ideas in Chinese and English, free">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":["Book","LearningResource"],"@id":"https://anzonwong.com/courses/ai-101/#book","name":"AI 101","author":{"@id":"https://anzonwong.com/#person"},"inLanguage":["zh-Hant","en"],"isAccessibleForFree":true,"learningResourceType":"Handbook","numberOfPages":45,"url":"https://anzonwong.com/courses/ai-101/","image":"https://anzonwong.com/img/og/ai-101.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://anzonwong.com/courses/"},{"@type":"ListItem","position":3,"name":"AI 101: 45 AI ideas in Chinese and English, free","item":"https://anzonwong.com/courses/ai-101/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/courses/ai-101/#page","url":"https://anzonwong.com/courses/ai-101/","name":"AI 101: 45 AI ideas in Chinese and English, free · Anzon Wong","description":"AI 101: a free bilingual handbook of 45 AI concepts, from the basics to the advanced, by Anzon Wong. Read it as a book or download the PDF.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/ai-101.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -212,10 +225,27 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
-.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.foot .visits[hidden]{display:none}
-.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
@@ -275,30 +305,13 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 
 </style>
 <script>
-// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
 (function(){
-  var root = document.documentElement;
-  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
-  function apply(lang){
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
-    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
-    var b = document.getElementById('langBtn');
-    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
-    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
-  }
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
   var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
-  var lang = q || store('aw-lang') || 'en';
-  if(q) store('aw-lang', q);
-  apply(lang);
-  document.addEventListener('DOMContentLoaded', function(){
-    apply(root.getAttribute('data-lang'));
-    var b = document.getElementById('langBtn');
-    if(b) b.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-      store('aw-lang', next); apply(next);
-    });
-  });
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
 })();
 
 </script>
@@ -308,32 +321,32 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   <div class="wrap">
     <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="../../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="../../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="../../courses/" aria-current="page"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="../../about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="../../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="../../work/"><span class="en">Work</span></a>
+      <a href="../../lab/"><span class="en">Lab</span></a>
+      <a href="../../courses/" aria-current="page"><span class="en">Courses</span></a>
+      <a href="../../about/"><span class="en">About</span></a>
+      <a href="../../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../../zh/courses/ai-101/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
     </nav>
   </div>
 </header>
 <main class="wrap">
 <header class="head">
-  <div class="label"><a href="../../courses/" style="text-decoration:none">03 / <span class="en">Courses</span><span class="zh">課程</span></a></div>
+  <div class="label"><a href="../../courses/" style="text-decoration:none">03 / <span class="en">Courses</span></a></div>
   <div>
     <h1>AI 101</h1>
     <p class="lede en">Forty-five ideas behind today's AI, from the basics to the advanced, one per page. Read it here as a book or download the PDF. Free, in Chinese and English side by side.</p>
-    <p class="lede zh" lang="zh-Hant">當今 AI 背後的 45 個概念，由淺入深，一頁一個。可在此逐頁翻閱，或下載 PDF。免費閱讀，中英對照。</p>
+    
     <div class="dl">
-      <a class="btn" href="https://drive.google.com/file/d/1Z-068mm_iYaWlJf-qiKOQlUkFrfQ4pgq/view" rel="noopener"><span class="en">Download PDF</span><span class="zh">下載 PDF</span></a>
-      <a class="btn btn-2" href="https://drive.google.com/file/d/1VDFHOO5L87ZSZbFeKIGDEw34VcDowRwl/view" rel="noopener"><span class="en">Print version</span><span class="zh">印刷版</span></a>
+      <a class="btn" href="https://drive.google.com/file/d/1Z-068mm_iYaWlJf-qiKOQlUkFrfQ4pgq/view" rel="noopener"><span class="en">Download PDF</span></a>
+      <a class="btn btn-2" href="https://drive.google.com/file/d/1VDFHOO5L87ZSZbFeKIGDEw34VcDowRwl/view" rel="noopener"><span class="en">Print version</span></a>
     </div>
     <p class="dl-note en">Both open on Google Drive. PDF, 10 MB; the print version is high resolution, 47 MB.</p>
-    <p class="dl-note zh" lang="zh-Hant">兩者均存於 Google Drive。PDF 為 10 MB；印刷版為高解像度，47 MB。</p>
+    
     <div class="facts">
-      <div><b><span class="en">Author</span><span class="zh">作者</span></b>Anzon Wong</div>
-      <div><b><span class="en">Pages</span><span class="zh">頁數</span></b><span class="en">55, A4</span><span class="zh">共 55 頁，A4</span></div>
-      <div><b><span class="en">Language</span><span class="zh">語言</span></b><span class="en">Chinese and English</span><span class="zh">中英對照</span></div>
+      <div><b><span class="en">Author</span></b>Anzon Wong</div>
+      <div><b><span class="en">Pages</span></b><span class="en">55, A4</span></div>
+      <div><b><span class="en">Language</span></b><span class="en">Chinese and English</span></div>
     </div>
   </div>
 </header>
@@ -341,30 +354,30 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 <section class="fb" aria-label="AI 101 handbook">
   <div class="fb-stage" id="fbStage">
     <div class="fb-bar">
-      <label class="fb-toc"><span class="en">Contents</span><span class="zh">目錄</span>
+      <label class="fb-toc"><span class="en">Contents</span>
         <select id="fbToc"></select>
       </label>
-      <button class="fb-btn" id="fbFull" type="button"><span class="en">Full screen</span><span class="zh">全螢幕</span></button>
+      <button class="fb-btn" id="fbFull" type="button"><span class="en">Full screen</span></button>
     </div>
     <div id="fbBook"></div>
-    <noscript><p class="fb-hint"><span class="en">The page turner needs JavaScript. The PDF above has every page.</span><span class="zh">翻頁功能需要 JavaScript。上方的 PDF 收錄全書。</span></p></noscript>
+    <noscript><p class="fb-hint"><span class="en">The page turner needs JavaScript. The PDF above has every page.</span></p></noscript>
     <div class="fb-nav">
-      <button class="fb-btn" id="fbPrev" type="button" aria-label="Previous page">&larr; <span class="en">Prev</span><span class="zh">上一頁</span></button>
+      <button class="fb-btn" id="fbPrev" type="button" aria-label="Previous page">&larr; <span class="en">Prev</span></button>
       <span class="fb-count" id="fbCount" aria-live="polite">1 / 55</span>
-      <button class="fb-btn" id="fbNext" type="button" aria-label="Next page"><span class="en">Next</span><span class="zh">下一頁</span> &rarr;</button>
+      <button class="fb-btn" id="fbNext" type="button" aria-label="Next page"><span class="en">Next</span> &rarr;</button>
     </div>
     <p class="fb-hint en">Drag a corner, swipe, click a page or use the arrow keys.</p>
-    <p class="fb-hint zh" lang="zh-Hant">可拖動書角、滑動、點擊書頁或使用方向鍵翻頁。</p>
+    
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">About the book</span><span class="zh">關於本書</span></div>
+  <div class="label"><span class="en">About the book</span></div>
   <div class="prose">
     <p class="en">It began as a daily series of short posts. Here they are rebuilt into one book, in an order that teaches: what AI is, how to talk to it, what happens inside, how to give it your own knowledge, how to make it act, how to run it well, and whether to trust it.</p>
-    <p class="zh" lang="zh-Hant">本書原是一系列每日短文，現按學習次序重新編排成書：AI 是甚麼、如何與它溝通、內部如何運作、如何把你的知識交給它、如何讓它動手做事、如何運行得順暢而划算，以及可否信任它。</p>
+    
     <p class="en">If you would rather build an agent of your own, the <a href="../../courses/">one-to-one course</a> starts where this book ends.</p>
-    <p class="zh" lang="zh-Hant">如想親手建立自己的代理人，<a href="../../courses/">一對一課程</a>正好由本書的終點開始。</p>
+    
   </div>
 </section>
 
@@ -373,76 +386,9 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 </main>
 <footer class="foot">
   <div class="wrap"><div>
-    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
-<script>
-// Visitor counter, shown in the footer (added 2026-10-05).
-// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
-// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
-// Counts once per browser per day (localStorage date flag); later loads that day only read.
-// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
-// Runs after page load, so it never delays the page. Not counted from file:// previews.
-(function(){
-  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
-  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
-  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
-  var DOC = PATH + '/site_counters/anzonwong-com';
-  var FLAG = 'aw-visit-day';
-
-  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-
-  function show(n){
-    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
-    if(!el || !num || !isFinite(n) || n < 0) return;
-    num.textContent = Number(n).toLocaleString('en-GB');
-    el.hidden = false;
-  }
-
-  function call(url, opts){
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
-    if(ctl) opts.signal = ctl.signal;
-    return fetch(url, opts).then(function(r){
-      clearTimeout(t);
-      if(!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    });
-  }
-
-  function read(){
-    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
-      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
-  }
-
-  function count(){
-    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
-      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
-    return call(BASE + ':commit?key=' + KEY, {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
-    }).then(function(d){
-      try{ localStorage.setItem(FLAG, today()); }catch(e){}
-      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
-      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
-    });
-  }
-
-  function run(){
-    try{
-      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
-      var counted = true;  // storage blocked: read only, never recount
-      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
-      (counted ? read() : count()).then(show).catch(function(){});
-    }catch(e){}
-  }
-
-  if(document.readyState === 'complete') setTimeout(run, 300);
-  else window.addEventListener('load', function(){ setTimeout(run, 300); });
-})();
-
-</script>
 <script>
 // AI 101 flip-through book. StPageFlip (page-flip 2.0.7) does the page turn; images upgrade from thumbnail to full size near the open page.
 (function(){
@@ -462,8 +408,9 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
     pg.className = 'fb-page';
     if(i === 1 || i === N) pg.setAttribute('data-density', 'hard');
     var im = document.createElement('img');
-    im.src = 'pages/t' + pad(i) + '.webp';
-    im.setAttribute('data-full', 'pages/p' + pad(i) + '.webp');
+    var AB = document.documentElement.getAttribute('data-assets') || '';  // the Chinese page reads the English folder's pages/
+    im.src = AB + 'pages/t' + pad(i) + '.webp';
+    im.setAttribute('data-full', AB + 'pages/p' + pad(i) + '.webp');
     im.width = W; im.height = H; im.alt = 'Page ' + i; im.decoding = 'async'; im.draggable = false;
     pg.appendChild(im); book.appendChild(pg); imgs.push(im);
   }
@@ -554,8 +501,9 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   });
   function onFs(){
     var on = !!(document.fullscreenElement || document.webkitFullscreenElement);
-    full.querySelector('.en').textContent = on ? 'Exit full screen' : 'Full screen';
-    full.querySelector('.zh').textContent = on ? '離開全螢幕' : '全螢幕';
+    var fe = full.querySelector('.en'), fz = full.querySelector('.zh');  // one language per page since 2026-10-18
+    if(fe) fe.textContent = on ? 'Exit full screen' : 'Full screen';
+    if(fz) fz.textContent = on ? '離開全螢幕' : '全螢幕';
     window.dispatchEvent(new Event('resize'));
   }
   document.addEventListener('fullscreenchange', onFs);

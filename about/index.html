@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en-GB" data-lang="en" data-title-en="About · Anzon Wong" data-title-zh="關於 · Anzon Wong">
+<html lang="en-GB" data-lang="en" data-alt="../zh/about/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About · Anzon Wong</title>
-<meta name="description" content="About Anzon Wong, architect in the UK from Hong Kong.">
+<title>About Anzon Wong, architect in the UK from Hong Kong</title>
+<meta name="description" content="About Anzon Wong: architect in the UK from Hong Kong, working on Building Regulations and design safety, who builds AI agents and small tools for architects in his own time.">
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/about/">
-<meta property="og:title" content="About · Anzon Wong">
-<meta property="og:description" content="About Anzon Wong, architect in the UK from Hong Kong.">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/about/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/about/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/about/">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="About Anzon Wong, architect in the UK from Hong Kong">
+<meta property="og:description" content="About Anzon Wong: architect in the UK from Hong Kong, working on Building Regulations and design safety, who builds AI agents and small tools for architects in his own time.">
 <meta property="og:url" content="https://anzonwong.com/about/">
+<meta property="og:image" content="https://anzonwong.com/img/og/about.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="About Anzon Wong, architect in the UK from Hong Kong">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"About Anzon Wong, architect in the UK from Hong Kong","item":"https://anzonwong.com/about/"}]},{"@type":"ProfilePage","@id":"https://anzonwong.com/about/#page","url":"https://anzonwong.com/about/","name":"About Anzon Wong, architect in the UK from Hong Kong","description":"About Anzon Wong: architect in the UK from Hong Kong, working on Building Regulations and design safety, who builds AI agents and small tools for architects in his own time.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/about.jpg","mainEntity":{"@id":"https://anzonwong.com/#person"}}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -212,10 +225,27 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
-.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.foot .visits[hidden]{display:none}
-.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
@@ -250,30 +280,13 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 
 </style>
 <script>
-// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
 (function(){
-  var root = document.documentElement;
-  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
-  function apply(lang){
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
-    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
-    var b = document.getElementById('langBtn');
-    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
-    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
-  }
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
   var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
-  var lang = q || store('aw-lang') || 'en';
-  if(q) store('aw-lang', q);
-  apply(lang);
-  document.addEventListener('DOMContentLoaded', function(){
-    apply(root.getAttribute('data-lang'));
-    var b = document.getElementById('langBtn');
-    if(b) b.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-      store('aw-lang', next); apply(next);
-    });
-  });
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
 })();
 
 </script>
@@ -283,40 +296,40 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   <div class="wrap">
     <a class="brand" href="../">Anzon Wong<small>AW Design</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="../courses/"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="../about/" aria-current="page"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="../work/"><span class="en">Work</span></a>
+      <a href="../lab/"><span class="en">Lab</span></a>
+      <a href="../courses/"><span class="en">Courses</span></a>
+      <a href="../about/" aria-current="page"><span class="en">About</span></a>
+      <a href="../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../zh/about/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
     </nav>
   </div>
 </header>
 <main class="wrap">
 <header class="head">
-  <div class="label">04 / <span class="en">About</span><span class="zh">關於</span></div>
+  <div class="label">04 / <span class="en">About</span></div>
   <div>
-    <h1><span class="en">About</span><span class="zh" lang="zh-Hant">關於我</span></h1>
+    <h1><span class="en">About</span></h1>
     <p class="lede en">I am Anzon Wong, an architect based in the United Kingdom. I am from Hong Kong.</p>
-    <p class="lede zh" lang="zh-Hant">我是 Anzon Wong，現居英國的建築師，來自香港。</p>
+    
   </div>
 </header>
 
 <section class="sec">
-  <div class="label"><span class="en">Architecture</span><span class="zh">建築</span></div>
+  <div class="label"><span class="en">Architecture</span></div>
   <div class="prose">
     <p class="en">I have worked on hotels, restaurants, shops and homes in Hong Kong, mainland China and London, from the first sketch through to facade and interior detail.</p>
     <p class="en">Today my work sits on the safety side of design: Building Regulations, and the Principal Designer duties under the CDM Regulations and the Building Safety Act.</p>
-    <p class="zh" lang="zh-Hant">我曾參與香港、中國內地及倫敦的酒店、餐廳、零售店及住宅項目，由最初的草圖一直做到外牆及室內細部。</p>
-    <p class="zh" lang="zh-Hant">現時我的工作著重設計中的安全範疇：建築規例，以及《建築（設計及管理）規例》與《建築安全法》下主要設計師的職責。</p>
+    
+    
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">Agents and teaching</span><span class="zh">代理人與教學</span></div>
+  <div class="label"><span class="en">Agents and teaching</span></div>
   <div class="prose">
     <p class="en">In my own time I build AI agents and small tools for architects, and I teach people to build agents of their own, one to one. The tools in the <a href="../lab/">Lab</a> are hobby projects and say so on every page.</p>
-    <p class="zh" lang="zh-Hant">業餘時間，我為建築師製作 AI 代理人及小工具，並以一對一形式教人建立自己的代理人。<a href="../lab/">實驗室</a>內的工具均屬個人興趣項目，每頁都有清楚說明。</p>
+    
   </div>
 </section>
 
@@ -325,84 +338,17 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   <div class="prose">
     <p class="en">AW Design is the label I put on my own design work and tools.</p>
     <p class="en">I work in English and Cantonese, and write in English and Traditional Chinese.</p>
-    <p class="zh" lang="zh-Hant">AW Design 是我個人設計作品及工具所用的名稱。</p>
-    <p class="zh" lang="zh-Hant">我以英語及粵語工作，以英文及繁體中文書寫。</p>
+    
+    
   </div>
 </section>
 
 </main>
 <footer class="foot">
   <div class="wrap"><div>
-    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
-<script>
-// Visitor counter, shown in the footer (added 2026-10-05).
-// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
-// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
-// Counts once per browser per day (localStorage date flag); later loads that day only read.
-// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
-// Runs after page load, so it never delays the page. Not counted from file:// previews.
-(function(){
-  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
-  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
-  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
-  var DOC = PATH + '/site_counters/anzonwong-com';
-  var FLAG = 'aw-visit-day';
-
-  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-
-  function show(n){
-    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
-    if(!el || !num || !isFinite(n) || n < 0) return;
-    num.textContent = Number(n).toLocaleString('en-GB');
-    el.hidden = false;
-  }
-
-  function call(url, opts){
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
-    if(ctl) opts.signal = ctl.signal;
-    return fetch(url, opts).then(function(r){
-      clearTimeout(t);
-      if(!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    });
-  }
-
-  function read(){
-    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
-      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
-  }
-
-  function count(){
-    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
-      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
-    return call(BASE + ':commit?key=' + KEY, {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
-    }).then(function(d){
-      try{ localStorage.setItem(FLAG, today()); }catch(e){}
-      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
-      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
-    });
-  }
-
-  function run(){
-    try{
-      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
-      var counted = true;  // storage blocked: read only, never recount
-      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
-      (counted ? read() : count()).then(show).catch(function(){});
-    }catch(e){}
-  }
-
-  if(document.readyState === 'complete') setTimeout(run, 300);
-  else window.addEventListener('load', function(){ setTimeout(run, 300); });
-})();
-
-</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

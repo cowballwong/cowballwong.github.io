@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" data-lang="en" data-title-en="St Albans Live · Anzon Wong" data-title-zh="St Albans 實時地圖 · Anzon Wong">
+<html lang="en-GB" data-lang="en" data-alt="../../zh/lab/st-albans-live/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +8,24 @@
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/lab/st-albans-live/">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/st-albans-live/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/st-albans-live/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/st-albans-live/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
 <meta property="og:title" content="St Albans Live · Anzon Wong">
 <meta property="og:description" content="St Albans Live: a hobby live 3D map of buses, trains, roads, parking, EV chargers and fuel prices, by Anzon Wong.">
 <meta property="og:url" content="https://anzonwong.com/lab/st-albans-live/">
 <meta property="og:image" content="https://anzonwong.com/lab/st-albans-live/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="St Albans Live">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Lab","item":"https://anzonwong.com/lab/"},{"@type":"ListItem","position":3,"name":"St Albans Live","item":"https://anzonwong.com/lab/st-albans-live/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/lab/st-albans-live/#page","url":"https://anzonwong.com/lab/st-albans-live/","name":"St Albans Live · Anzon Wong","description":"St Albans Live: a hobby live 3D map of buses, trains, roads, parking, EV chargers and fuel prices, by Anzon Wong.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/lab/st-albans-live/img/og.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -216,10 +225,27 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
-.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.foot .visits[hidden]{display:none}
-.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
@@ -278,30 +304,13 @@ figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:upperca
 
 </style>
 <script>
-// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
 (function(){
-  var root = document.documentElement;
-  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
-  function apply(lang){
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
-    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
-    var b = document.getElementById('langBtn');
-    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
-    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
-  }
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
   var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
-  var lang = q || store('aw-lang') || 'en';
-  if(q) store('aw-lang', q);
-  apply(lang);
-  document.addEventListener('DOMContentLoaded', function(){
-    apply(root.getAttribute('data-lang'));
-    var b = document.getElementById('langBtn');
-    if(b) b.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-      store('aw-lang', next); apply(next);
-    });
-  });
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
 })();
 
 </script>
@@ -311,188 +320,121 @@ figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:upperca
   <div class="wrap">
     <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="../../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="../../lab/" aria-current="page"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="../../courses/"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="../../about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="../../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="../../work/"><span class="en">Work</span></a>
+      <a href="../../lab/" aria-current="page"><span class="en">Lab</span></a>
+      <a href="../../courses/"><span class="en">Courses</span></a>
+      <a href="../../about/"><span class="en">About</span></a>
+      <a href="../../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../../zh/lab/st-albans-live/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
     </nav>
   </div>
 </header>
 <main class="wrap">
 <header class="head">
-  <div class="label"><a href="../../lab/" style="text-decoration:none">02 / <span class="en">Lab</span><span class="zh">實驗室</span></a></div>
+  <div class="label"><a href="../../lab/" style="text-decoration:none">02 / <span class="en">Lab</span></a></div>
   <div>
-    <span class="kind"><span class="en">Live map · Hobby project</span><span class="zh" lang="zh-Hant">實時地圖 · 個人興趣項目</span></span>
-    <h1><span class="en">St Albans Live</span><span class="zh" lang="zh-Hant">St Albans 實時地圖</span></h1>
+    <span class="kind"><span class="en">Live map · Hobby project</span></span>
+    <h1><span class="en">St Albans Live</span></h1>
     <p class="lede en">A live 3D map of St Albans. Buses, trains, road speeds, parking, EV chargers and fuel prices, on one screen, in English or Traditional Chinese.</p>
-    <p class="lede zh" lang="zh-Hant">St Albans 的立體實時地圖。巴士、火車、車速、泊車、電動車充電及油價，盡在同一畫面，提供英文及繁體中文。</p>
+    
     <div class="dl">
-      <a class="btn" href="https://stalbans-live.pages.dev" rel="noopener"><span class="en">Try the map</span><span class="zh">開啟地圖</span></a>
-      <a class="btn btn-2" href="#video"><span class="en">Watch how to use it</span><span class="zh">觀看使用示範</span></a>
+      <a class="btn" href="https://stalbans-live.pages.dev" rel="noopener"><span class="en">Try the map</span></a>
+      <a class="btn btn-2" href="#video"><span class="en">Watch how to use it</span></a>
     </div>
     <div class="facts">
-      <div><b><span class="en">Built</span><span class="zh">製作</span></b><span class="en">13 to 14 Oct 2026</span><span class="zh">2026 年 10 月 13 至 14 日</span></div>
-      <div><b><span class="en">Runs in</span><span class="zh">使用</span></b><span class="en">Any browser, no sign-in</span><span class="zh">任何瀏覽器，毋須登入</span></div>
-      <div><b><span class="en">Languages</span><span class="zh">語言</span></b><span class="en">English, 繁體中文</span><span class="zh">英文、繁體中文</span></div>
+      <div><b><span class="en">Built</span></b><span class="en">13 to 14 Oct 2026</span></div>
+      <div><b><span class="en">Runs in</span></b><span class="en">Any browser, no sign-in</span></div>
+      <div><b><span class="en">Languages</span></b><span class="en">English, 繁體中文</span></div>
     </div>
   </div>
 </header>
 
 <figure class="sl-hero">
   <img src="img/hero.webp" width="1280" height="800" alt="The map by day: buses in their liveries, a Thameslink train, car parks, pay and display streets and fuel prices over 3D buildings" fetchpriority="high">
-  <figcaption><span class="en">By day, with the top bar showing network speed and drive times. Screenshot of the live map, 14 Oct 2026.</span><span class="zh" lang="zh-Hant">日間畫面，頂欄顯示路網車速及車程。實時地圖截圖，2026 年 10 月 14 日。</span></figcaption>
+  <figcaption><span class="en">By day, with the top bar showing network speed and drive times. Screenshot of the live map, 14 Oct 2026.</span></figcaption>
 </figure>
 
 <section class="sec" id="video">
-  <div class="label"><span class="en">How to use it</span><span class="zh">使用示範</span></div>
+  <div class="label"><span class="en">How to use it</span></div>
   <div class="sl-video">
     <video controls preload="metadata" playsinline width="1080" height="1350" poster="img/poster.webp">
       <source src="howto.mp4" type="video/mp4">
     </video>
     <p class="note en">88 seconds, music only. Desktop first, then a phone.</p>
-    <p class="note zh" lang="zh-Hant">片長 88 秒，只有背景音樂。先示範電腦版，再示範手機版。</p>
+    
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">What it shows</span><span class="zh">地圖內容</span></div>
+  <div class="label"><span class="en">What it shows</span></div>
   <div>
     <ul class="sl-list">
-      <li><b><span class="en">Buses</span><span class="zh">巴士</span></b><span class="en">Every bus in the area, drawn in its operator's real livery and moving smoothly along the road between updates. Tap one for its route in both directions and its next stop.</span><span class="zh" lang="zh-Hant">區內每一輛巴士，按營運商真實塗裝繪畫，兩次更新之間沿道路平滑移動。點選巴士可看雙向路線及下一站。</span></li>
-      <li><b><span class="en">Trains</span><span class="zh">火車</span></b><span class="en">Thameslink and Abbey Line trains as carriages on the real track. Tap one for every stop with booked and expected times and platforms. Positions are estimated from the live departure board, not GPS.</span><span class="zh" lang="zh-Hant">Thameslink 及 Abbey Line 列車以車卡形式顯示於真實路軌上。點選列車可看每個停靠站的預定及預計時間和月台。列車位置按實時班次表推算，並非 GPS。</span></li>
-      <li><b><span class="en">Roads</span><span class="zh">道路</span></b><span class="en">Live road speeds, drive times to the M25, the M1, Hatfield and Harpenden, and a ranking of the slowest roads.</span><span class="zh" lang="zh-Hant">實時車速、往 M25、M1、Hatfield 及 Harpenden 的車程，以及最擠塞路段排行。</span></li>
-      <li><b><span class="en">Incidents and roadworks</span><span class="zh">事故及道路工程</span></b><span class="en">Closures, accidents, queues and roadworks, including the motorways.</span><span class="zh" lang="zh-Hant">封路、交通意外、車龍及道路工程，包括高速公路。</span></li>
-      <li><b><span class="en">Parking</span><span class="zh">泊車</span></b><span class="en">Car parks and pay and display streets with their published tariffs and PayByPhone location codes. There are no live space counts: none are published.</span><span class="zh" lang="zh-Hant">停車場及咪錶街道，附官方收費及 PayByPhone 位置編號。沒有實時空位數字，因為並無公開資料。</span></li>
-      <li><b><span class="en">EV chargers</span><span class="zh">電動車充電</span></b><span class="en">Live status and price per kWh where the operator publishes an open feed. Where it does not, the card says the price is not published.</span><span class="zh" lang="zh-Hant">營運商有公開數據的充電樁，顯示即時狀態及每度電價錢；沒有公開數據的，則註明價錢未公開。</span></li>
-      <li><b><span class="en">Fuel</span><span class="zh">油價</span></b><span class="en">Pump prices from the retailers' open price data, with the cheapest E10 marked.</span><span class="zh" lang="zh-Hant">按油站公開價格數據顯示油價，並標示最便宜的 E10。</span></li>
-      <li><b><span class="en">Day and night, 繁/EN</span><span class="zh">日夜模式、繁/EN</span></b><span class="en">The map turns dark at sunset, or by hand, and every label switches between English and Traditional Chinese.</span><span class="zh" lang="zh-Hant">日落後自動轉為夜間地圖，亦可手動切換；所有文字均可在英文及繁體中文之間轉換。</span></li>
+      <li><b><span class="en">Buses</span></b><span class="en">Every bus in the area, drawn in its operator's real livery and moving smoothly along the road between updates. Tap one for its route in both directions and its next stop.</span></li>
+      <li><b><span class="en">Trains</span></b><span class="en">Thameslink and Abbey Line trains as carriages on the real track. Tap one for every stop with booked and expected times and platforms. Positions are estimated from the live departure board, not GPS.</span></li>
+      <li><b><span class="en">Roads</span></b><span class="en">Live road speeds, drive times to the M25, the M1, Hatfield and Harpenden, and a ranking of the slowest roads.</span></li>
+      <li><b><span class="en">Incidents and roadworks</span></b><span class="en">Closures, accidents, queues and roadworks, including the motorways.</span></li>
+      <li><b><span class="en">Parking</span></b><span class="en">Car parks and pay and display streets with their published tariffs and PayByPhone location codes. There are no live space counts: none are published.</span></li>
+      <li><b><span class="en">EV chargers</span></b><span class="en">Live status and price per kWh where the operator publishes an open feed. Where it does not, the card says the price is not published.</span></li>
+      <li><b><span class="en">Fuel</span></b><span class="en">Pump prices from the retailers' open price data, with the cheapest E10 marked.</span></li>
+      <li><b><span class="en">Day and night, 繁/EN</span></b><span class="en">The map turns dark at sunset, or by hand, and every label switches between English and Traditional Chinese.</span></li>
     </ul>
     <div class="sl-grid">
-      <figure><img src="img/trains.webp" width="1280" height="800" alt="Thameslink train drawn as carriages on the track" loading="lazy"><figcaption><span class="en">Trains as carriages</span><span class="zh">以車卡顯示的列車</span></figcaption></figure>
-      <figure><img src="img/train-card.webp" width="1280" height="800" alt="Train card listing every stop with times" loading="lazy"><figcaption><span class="en">Every stop, booked and expected</span><span class="zh">每個停靠站的預定及預計時間</span></figcaption></figure>
-      <figure><img src="img/roads.webp" width="1280" height="800" alt="Road tab with drive times and the slowest roads" loading="lazy"><figcaption><span class="en">Drive times and slowest roads</span><span class="zh">車程及擠塞路段</span></figcaption></figure>
-      <figure><img src="img/meters.webp" width="1280" height="800" alt="Pay and display street card with tariff and PayByPhone code" loading="lazy"><figcaption><span class="en">Pay and display: tariff and PayByPhone code</span><span class="zh">咪錶位：收費及 PayByPhone 編號</span></figcaption></figure>
-      <figure><img src="img/ev.webp" width="1280" height="800" alt="EV charger card with live status and price" loading="lazy"><figcaption><span class="en">EV charger: live status and price</span><span class="zh">充電樁：即時狀態及價錢</span></figcaption></figure>
-      <figure><img src="img/fuel.webp" width="1280" height="800" alt="Fuel station card with E10, E5 and diesel prices" loading="lazy"><figcaption><span class="en">Fuel prices</span><span class="zh">油價</span></figcaption></figure>
-      <figure class="wide"><img src="img/night.webp" width="1280" height="800" alt="The map at night" loading="lazy"><figcaption><span class="en">At night</span><span class="zh">夜間地圖</span></figcaption></figure>
+      <figure><img src="img/trains.webp" width="1280" height="800" alt="Thameslink train drawn as carriages on the track" loading="lazy"><figcaption><span class="en">Trains as carriages</span></figcaption></figure>
+      <figure><img src="img/train-card.webp" width="1280" height="800" alt="Train card listing every stop with times" loading="lazy"><figcaption><span class="en">Every stop, booked and expected</span></figcaption></figure>
+      <figure><img src="img/roads.webp" width="1280" height="800" alt="Road tab with drive times and the slowest roads" loading="lazy"><figcaption><span class="en">Drive times and slowest roads</span></figcaption></figure>
+      <figure><img src="img/meters.webp" width="1280" height="800" alt="Pay and display street card with tariff and PayByPhone code" loading="lazy"><figcaption><span class="en">Pay and display: tariff and PayByPhone code</span></figcaption></figure>
+      <figure><img src="img/ev.webp" width="1280" height="800" alt="EV charger card with live status and price" loading="lazy"><figcaption><span class="en">EV charger: live status and price</span></figcaption></figure>
+      <figure><img src="img/fuel.webp" width="1280" height="800" alt="Fuel station card with E10, E5 and diesel prices" loading="lazy"><figcaption><span class="en">Fuel prices</span></figcaption></figure>
+      <figure class="wide"><img src="img/night.webp" width="1280" height="800" alt="The map at night" loading="lazy"><figcaption><span class="en">At night</span></figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">How it was built</span><span class="zh">製作過程</span></div>
+  <div class="label"><span class="en">How it was built</span></div>
   <div class="prose">
     <p class="en">I built it in about a day, on 13 and 14 October 2026, by directing an AI agent and checking every version on screen.</p>
     <p class="en">It is plain HTML and JavaScript, with MapLibre GL JS for the 3D map. Small Cloudflare Pages Functions fetch the live feeds, cache them and keep every API key on the server, so no key reaches the browser.</p>
     <p class="en">Six versions in two days, shaped by four rounds of my own comments: smaller buses with legible route numbers, trains as carriages, parking meters you can see at night, and a layer drawer that suits a phone.</p>
-    <p class="zh" lang="zh-Hant">我在 2026 年 10 月 13 及 14 日，用大約一天時間指揮 AI 代理人完成，每個版本都在螢幕上逐一檢查。</p>
-    <p class="zh" lang="zh-Hant">網頁以純 HTML 及 JavaScript 編寫，立體地圖使用 MapLibre GL JS。實時數據由 Cloudflare Pages Functions 擷取及快取，所有 API 金鑰只存於伺服器，不會傳到瀏覽器。</p>
-    <p class="zh" lang="zh-Hant">兩天內共六個版本，按我四輪意見修改：縮小巴士並令路線號碼清晰可讀、以車卡顯示列車、咪錶位在夜間亦清楚可見，以及適合手機使用的圖層抽屜。</p>
+    
+    
+    
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">Data</span><span class="zh">資料來源</span></div>
+  <div class="label"><span class="en">Data</span></div>
   <div>
     <ul class="sl-credits">
-      <li><b><span class="en">Buses</span><span class="zh">巴士</span></b>bustimes.org (Bus Open Data)</li>
-      <li><b><span class="en">Trains</span><span class="zh">火車</span></b><a href="https://www.realtimetrains.co.uk/" rel="noopener">Realtime Trains</a></li>
-      <li><b><span class="en">Speeds, drive times, incidents</span><span class="zh">車速、車程、事故</span></b>TomTom</li>
-      <li><b><span class="en">Motorway closures and roadworks</span><span class="zh">高速公路封路及工程</span></b><span class="en">Powered by National Highways' Transport Data Feeds</span><span class="zh">Powered by National Highways' Transport Data Feeds</span></li>
-      <li><b><span class="en">Parking tariffs</span><span class="zh">泊車收費</span></b>St Albans City and District Council, APCOA, SABA</li>
-      <li><b><span class="en">EV chargers</span><span class="zh">充電樁</span></b><span class="en">Open data from Evolt (Swarco), MFG EV Power and GeniePoint; locations from OpenStreetMap</span><span class="zh">Evolt（Swarco）、MFG EV Power 及 GeniePoint 公開數據；位置來自 OpenStreetMap</span></li>
-      <li><b><span class="en">Fuel prices</span><span class="zh">油價</span></b><span class="en">Open price data from Asda, MFG and Esso</span><span class="zh">Asda、MFG 及 Esso 公開價格數據</span></li>
-      <li><b><span class="en">Map</span><span class="zh">地圖</span></b>MapLibre, OpenFreeMap, © OpenStreetMap contributors, Esri World Imagery</li>
-      <li><b><span class="en">Routes, weather, search</span><span class="zh">路線、天氣、搜尋</span></b>OSRM, Open-Meteo, Photon (Komoot)</li>
+      <li><b><span class="en">Buses</span></b>bustimes.org (Bus Open Data)</li>
+      <li><b><span class="en">Trains</span></b><a href="https://www.realtimetrains.co.uk/" rel="noopener">Realtime Trains</a></li>
+      <li><b><span class="en">Speeds, drive times, incidents</span></b>TomTom</li>
+      <li><b><span class="en">Motorway closures and roadworks</span></b><span class="en">Powered by National Highways' Transport Data Feeds</span></li>
+      <li><b><span class="en">Parking tariffs</span></b>St Albans City and District Council, APCOA, SABA</li>
+      <li><b><span class="en">EV chargers</span></b><span class="en">Open data from Evolt (Swarco), MFG EV Power and GeniePoint; locations from OpenStreetMap</span></li>
+      <li><b><span class="en">Fuel prices</span></b><span class="en">Open price data from Asda, MFG and Esso</span></li>
+      <li><b><span class="en">Map</span></b>MapLibre, OpenFreeMap, © OpenStreetMap contributors, Esri World Imagery</li>
+      <li><b><span class="en">Routes, weather, search</span></b>OSRM, Open-Meteo, Photon (Komoot)</li>
     </ul>
   </div>
 </section>
 
 <section class="sec">
-  <div class="label"><span class="en">Please note</span><span class="zh">請注意</span></div>
+  <div class="label"><span class="en">Please note</span></div>
   <div class="prose">
     <p class="en sl-disc">A personal hobby project, not an official service of the council, the bus or train operators or any data provider. For reference only: do not rely on it for navigation, safety or travel decisions. Live data can be late, wrong or missing, and train positions are estimates.</p>
-    <p class="zh sl-disc" lang="zh-Hant">此為個人興趣項目，並非地方議會、巴士或鐵路營運商，或任何資料提供者的官方服務。僅供參考，請勿用作導航、安全或出行決定的依據。實時數據可能延誤、出錯或缺漏，列車位置亦只屬推算。</p>
+    
     <p class="en"><a class="btn" href="https://stalbans-live.pages.dev" rel="noopener">Try the map</a></p>
-    <p class="zh" lang="zh-Hant"><a class="btn" href="https://stalbans-live.pages.dev" rel="noopener">開啟地圖</a></p>
+    
   </div>
 </section>
 
 </main>
 <footer class="foot">
   <div class="wrap"><div>
-    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
-<script>
-// Visitor counter, shown in the footer (added 2026-10-05).
-// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
-// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
-// Counts once per browser per day (localStorage date flag); later loads that day only read.
-// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
-// Runs after page load, so it never delays the page. Not counted from file:// previews.
-(function(){
-  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
-  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
-  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
-  var DOC = PATH + '/site_counters/anzonwong-com';
-  var FLAG = 'aw-visit-day';
-
-  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-
-  function show(n){
-    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
-    if(!el || !num || !isFinite(n) || n < 0) return;
-    num.textContent = Number(n).toLocaleString('en-GB');
-    el.hidden = false;
-  }
-
-  function call(url, opts){
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
-    if(ctl) opts.signal = ctl.signal;
-    return fetch(url, opts).then(function(r){
-      clearTimeout(t);
-      if(!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    });
-  }
-
-  function read(){
-    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
-      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
-  }
-
-  function count(){
-    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
-      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
-    return call(BASE + ':commit?key=' + KEY, {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
-    }).then(function(d){
-      try{ localStorage.setItem(FLAG, today()); }catch(e){}
-      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
-      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
-    });
-  }
-
-  function run(){
-    try{
-      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
-      var counted = true;  // storage blocked: read only, never recount
-      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
-      (counted ? read() : count()).then(show).catch(function(){});
-    }catch(e){}
-  }
-
-  if(document.readyState === 'complete') setTimeout(run, 300);
-  else window.addEventListener('load', function(){ setTimeout(run, 300); });
-})();
-
-</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

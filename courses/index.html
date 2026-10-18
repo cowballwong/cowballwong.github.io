@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en-GB" data-lang="en" data-title-en="Courses · Anzon Wong" data-title-zh="課程 · Anzon Wong">
+<html lang="en-GB" data-lang="en" data-alt="../zh/courses/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Courses · Anzon Wong</title>
-<meta name="description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
+<title>AI agent course, one to one online · Anzon Wong</title>
+<meta name="description" content="Build an AI agent of your own: one-to-one online lessons, no coding. Basic starts with a free Class 0; Advanced is for the building industry.">
 <meta name="author" content="Anzon Wong">
 
 <link rel="canonical" href="https://anzonwong.com/courses/">
-<meta property="og:title" content="Courses · Anzon Wong">
-<meta property="og:description" content="Build your own AI agent: five one-to-one online lessons, in two tracks.">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/courses/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="AI agent course, one to one online · Anzon Wong">
+<meta property="og:description" content="Build an AI agent of your own: one-to-one online lessons, no coding. Basic starts with a free Class 0; Advanced is for the building industry.">
 <meta property="og:url" content="https://anzonwong.com/courses/">
+<meta property="og:image" content="https://anzonwong.com/img/og/courses.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI agent course, one to one online">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"AI agent course, one to one online","item":"https://anzonwong.com/courses/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/courses/#page","url":"https://anzonwong.com/courses/","name":"AI agent course, one to one online · Anzon Wong","description":"Build an AI agent of your own: one-to-one online lessons, no coding. Basic starts with a free Class 0; Advanced is for the building industry.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/courses.jpg"}]}</script>
 <style>
 /* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
 :root{
@@ -203,31 +216,6 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
 .band p{color:var(--ink-2);max-width:34em}
 
-/* courses: two classes, basic then advanced */
-.path{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;margin-top:clamp(28px,4vw,44px);border:1px solid var(--rule);background:var(--card)}
-.path a{display:block;padding:18px 22px;text-decoration:none;color:var(--ink)}
-.path a:hover{background:var(--paper)}
-.path b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.25;margin:2px 0 8px}
-.path .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 18px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);font:11px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-align:center}
-.path .arrow i{font-style:normal;font-family:var(--sans);font-size:26px;line-height:1;color:var(--accent)}
-.state{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--rule);color:var(--ink-2);border-radius:2px}
-.state.open{border-color:var(--ink);color:var(--ink)}
-.badge{display:inline-block;font:12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;background:var(--accent);color:#fff;border-radius:2px;font-weight:600}
-.cls{padding:clamp(32px,5vw,56px) 0 clamp(20px,3vw,32px);border-bottom:1px solid var(--rule);border-top:3px solid var(--ink);margin-top:clamp(28px,4vw,48px)}
-.cls .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
-.cls h2{margin:12px 0 0}
-.cls .lede{margin-top:16px}
-.cls.soon{border-top-color:var(--accent)}
-.step{display:flex;align-items:center;justify-content:center;gap:14px;padding:clamp(26px,4vw,40px) 0 0;font:13px/1.4 var(--mono);letter-spacing:.06em;color:var(--ink-2);text-align:center;flex-wrap:wrap}
-.step i{font-style:normal;font-family:var(--sans);font-size:24px;color:var(--accent)}
-.step span.box{border:1px solid var(--rule);background:var(--card);padding:8px 14px}
-.soonband{border:1px dashed var(--accent);background:var(--card);padding:22px 24px;max-width:40em}
-.soonband p{margin:12px 0 0;color:var(--ink-2)}
-.needs{list-style:none;margin:0;padding:0;max-width:40em}
-.needs li{padding:12px 0;border-top:1px solid var(--rule);color:var(--ink-2)}
-.needs li:last-child{border-bottom:1px solid var(--rule)}
-.needs b{color:var(--ink);font-weight:600}
-
 /* contact */
 .mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
 .mail:hover{border-color:var(--accent)}
@@ -237,10 +225,27 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
 .foot p{margin:0;max-width:60em}
 .foot .sig{white-space:nowrap}
-.foot .visits{margin-top:6px;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.foot .visits[hidden]{display:none}
-.foot .visits #visitsn{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
@@ -265,12 +270,6 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
   .tracks{grid-template-columns:1fr}
   .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cls .grid{grid-template-columns:1fr}
-  .path{grid-template-columns:1fr}
-  .path .arrow{flex-direction:row;padding:10px 22px;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-  .path .arrow i{transform:rotate(90deg)}
-  .step{flex-direction:column;gap:6px}
-  .step i{transform:rotate(90deg)}
   .foot .sig{white-space:normal}
 }
 @media (max-width:420px){
@@ -279,6 +278,38 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* courses: two classes, basic then advanced */
+.path{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;margin-top:clamp(28px,4vw,44px);border:1px solid var(--rule);background:var(--card)}
+.path a{display:block;padding:18px 22px;text-decoration:none;color:var(--ink)}
+.path a:hover{background:var(--paper)}
+.path b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.25;margin:2px 0 8px}
+.path .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 18px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);font:11px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-align:center}
+.path .arrow i{font-style:normal;font-family:var(--sans);font-size:26px;line-height:1;color:var(--accent)}
+.state{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--rule);color:var(--ink-2);border-radius:2px}
+.state.open{border-color:var(--ink);color:var(--ink)}
+.badge{display:inline-block;font:12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;background:var(--accent);color:#fff;border-radius:2px;font-weight:600}
+.cls{padding:clamp(32px,5vw,56px) 0 clamp(20px,3vw,32px);border-bottom:1px solid var(--rule);border-top:3px solid var(--ink);margin-top:clamp(28px,4vw,48px)}
+.cls .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.cls h2{margin:12px 0 0}
+.cls .lede{margin-top:16px}
+.cls.soon{border-top-color:var(--accent)}
+.step{display:flex;align-items:center;justify-content:center;gap:14px;padding:clamp(26px,4vw,40px) 0 0;font:13px/1.4 var(--mono);letter-spacing:.06em;color:var(--ink-2);text-align:center;flex-wrap:wrap}
+.step i{font-style:normal;font-family:var(--sans);font-size:24px;color:var(--accent)}
+.step span.box{border:1px solid var(--rule);background:var(--card);padding:8px 14px}
+.soonband{border:1px dashed var(--accent);background:var(--card);padding:22px 24px;max-width:40em}
+.soonband p{margin:12px 0 0;color:var(--ink-2)}
+.needs{list-style:none;margin:0;padding:0;max-width:40em}
+.needs li{padding:12px 0;border-top:1px solid var(--rule);color:var(--ink-2)}
+.needs li:last-child{border-bottom:1px solid var(--rule)}
+.needs b{color:var(--ink);font-weight:600}
+@media (max-width:860px){
+  .cls .grid{grid-template-columns:1fr}
+  .path{grid-template-columns:1fr}
+  .path .arrow{flex-direction:row;padding:10px 22px;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .path .arrow i{transform:rotate(90deg)}
+  .step{flex-direction:column;gap:6px}
+  .step i{transform:rotate(90deg)}
+}
 /* courses page (2026-10-09 v3): short top, then tabs Basic / Advanced / AI 101 */
 .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:22px}
 .ctop{padding-bottom:clamp(20px,3vw,32px)}
@@ -345,30 +376,13 @@ a.cover:hover .cap{color:var(--accent)}
 
 </style>
 <script>
-// Language switch: ?lang=zh|en overrides, then the remembered choice, then English.
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
 (function(){
-  var root = document.documentElement;
-  function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
-  function apply(lang){
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en-GB');
-    var t = root.getAttribute('data-title-' + lang); if(t) document.title = t;
-    var b = document.getElementById('langBtn');
-    if(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; b.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切換至中文'); }
-    try{ document.dispatchEvent(new CustomEvent('awlang', {detail: lang})); }catch(e){}  // the index re-sorts and re-labels
-  }
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
   var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
-  var lang = q || store('aw-lang') || 'en';
-  if(q) store('aw-lang', q);
-  apply(lang);
-  document.addEventListener('DOMContentLoaded', function(){
-    apply(root.getAttribute('data-lang'));
-    var b = document.getElementById('langBtn');
-    if(b) b.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-      store('aw-lang', next); apply(next);
-    });
-  });
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
 })();
 
 </script>
@@ -378,25 +392,25 @@ a.cover:hover .cap{color:var(--accent)}
   <div class="wrap">
     <a class="brand" href="../">Anzon Wong<small>AW Design</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="../work/"><span class="en">Work</span><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="../lab/"><span class="en">Lab</span><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="../courses/" aria-current="page"><span class="en">Courses</span><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="../about/"><span class="en">About</span><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="../contact/"><span class="en">Contact</span><span class="zh" lang="zh-Hant">聯絡</span></a>
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="../work/"><span class="en">Work</span></a>
+      <a href="../lab/"><span class="en">Lab</span></a>
+      <a href="../courses/" aria-current="page"><span class="en">Courses</span></a>
+      <a href="../about/"><span class="en">About</span></a>
+      <a href="../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../zh/courses/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
     </nav>
   </div>
 </header>
 <main class="wrap">
 <header class="head ctop">
-  <div class="label">03 / <span class="en">Courses</span><span class="zh">課程</span></div>
+  <div class="label">03 / <span class="en">Courses</span></div>
   <div>
-    <h1><span class="en">Build an AI agent of your own</span><span class="zh" lang="zh-Hant">建立只屬於你的 AI 代理人</span></h1>
+    <h1><span class="en">Build an AI agent of your own</span></h1>
     <p class="lede en">One-to-one online lessons, no coding: you leave with an agent that knows your work.</p>
-    <p class="lede zh" lang="zh-Hant">一對一網上課，毋須編程：完成後，你會擁有一個熟悉你工作的代理人。</p>
+    
     <figure class="shot hero">
       <img src="img/hero.jpg" width="1152" height="812" alt="An agent's control panel listing issues, client requests and next week's work for a fictional office refit, each with its source file">
-      <figcaption><span class="en">An agent's control panel for a fictional office refit: every item names its source file.</span><span class="zh">代理人的控制面板（虛構辦公室翻新項目）：每一項都註明出處文件。</span></figcaption>
+      <figcaption><span class="en">An agent's control panel for a fictional office refit: every item names its source file.</span></figcaption>
     </figure>
     <div class="cta-row">
       <a class="btn portal" id="portal-top" href="https://anzonwong.com/teaching-booking/" rel="noopener">學生 Portal · 報名 / Student portal</a>
@@ -413,33 +427,33 @@ a.cover:hover .cap{color:var(--accent)}
 
   <section class="tp" id="basic" role="tabpanel" aria-labelledby="tab-basic">
     <div class="sumcard">
-      <span class="kind"><span class="en">Class 1 · Basic</span><span class="zh">第一步 · 基礎班</span></span>
-      <h2><span class="en">Your own AI agent</span><span class="zh" lang="zh-Hant">你的私人 AI 代理人</span></h2>
+      <span class="kind"><span class="en">Class 1 · Basic</span></span>
+      <h2><span class="en">Your own AI agent</span></h2>
       <dl>
-        <div><dt><span class="en">Format</span><span class="zh">形式</span></dt><dd><span class="en">One to one on Google Meet, times shown in UK and HK time</span><span class="zh">一對一，Google Meet 網上授課，同時顯示英國及香港時間</span></dd></div>
-        <div><dt><span class="en">Length</span><span class="zh">堂數</span></dt><dd><span class="en">Class 0 (first lesson, free, 60 minutes) + Classes 1–5, 1 hour each</span><span class="zh">Class 0（第一堂，免費，60 分鐘）+ Class 1–5，每堂 1 小時</span></dd></div>
-        <div><dt><span class="en">Class 0</span><span class="zh">Class 0</span></dt><dd><span class="en">A free consultation: I get to know your work and what you need, so Classes 1–5 fit you. Classes 1–5 are booked after Class 0.</span><span class="zh">免費諮詢：了解你的工作和需要，令 Class 1–5 切合你的情況。上完 Class 0 才可預約 Class 1–5。</span></dd></div>
-        <div><dt><span class="en">Fee</span><span class="zh">學費</span></dt><dd><span class="en">HK$2,400 (HK) / £250 (UK), paid after Class 1</span><span class="zh"><span class="nw">HK$2,400（香港）</span>/ <span class="nw">£250（英國）</span>，Class 1 後付款</span></dd></div>
-        <div><dt><span class="en">For</span><span class="zh">對象</span></dt><dd><span class="en">Anyone, no coding. Nothing to install first: we do it together in Class 1</span><span class="zh">任何人，毋須編程。事前不用安裝，Class 1 一同安裝</span></dd></div>
+        <div><dt><span class="en">Format</span></dt><dd><span class="en">One to one on Google Meet, times shown in UK and HK time</span></dd></div>
+        <div><dt><span class="en">Length</span></dt><dd><span class="en">Class 0 (first lesson, free, 60 minutes) + Classes 1–5, 1 hour each</span></dd></div>
+        <div><dt><span class="en">Class 0</span></dt><dd><span class="en">A free consultation: I get to know your work and what you need, so Classes 1–5 fit you. Classes 1–5 are booked after Class 0.</span></dd></div>
+        <div><dt><span class="en">Fee</span></dt><dd><span class="en">HK$2,400 (HK) / £250 (UK), paid after Class 1</span></dd></div>
+        <div><dt><span class="en">For</span></dt><dd><span class="en">Anyone, no coding. Nothing to install first: we do it together in Class 1</span></dd></div>
       </dl>
     </div>
     <ol class="one">
-      <li><b><span class="en">Boot it up</span><span class="zh">開機</span></b> <span class="en">Your own agent on your PC and phone. It reads your project folder and asks before deleting anything.</span><span class="zh">你自己的 AI 代理人，電腦及手機都用得；它會讀你的項目資料夾，刪除任何東西前先問你。</span></li>
-      <li><b><span class="en">Anatomy</span><span class="zh">拆解原理</span></b> <span class="en">Teach it to follow a handbook: it opens a real project and reads your hand sketches into a design brief.</span><span class="zh">教它按手冊做事：開好一個真項目，把你的手稿讀成設計表。</span></li>
-      <li><b><span class="en">Rebuild it</span><span class="zh">一齊改造</span></b> <span class="en">One helper builds the SketchUp model, a second one checks it. You only talk to your agent.</span><span class="zh">一個助手起 SketchUp 模型，另一個負責檢查；你只需跟你的代理人說。</span></li>
-      <li><b><span class="en">From reading to doing</span><span class="zh">由讀到做</span></b> <span class="en">Helpers make three renders, a Word write-up and a first draft of a web page, each one checked.</span><span class="zh">多個助手同時出三張效果圖、Word 說明及網頁初稿，每份都經檢查。</span></li>
-      <li><b><span class="en">One of a kind</span><span class="zh">獨一無二</span></b> <span class="en">A one-page project website that goes out only after you approve it on your phone.</span><span class="zh">一頁項目網頁，你在手機批准後才正式發出。</span></li>
+      <li><b><span class="en">Boot it up</span></b> <span class="en">Your own agent on your PC and phone. It reads your project folder and asks before deleting anything.</span></li>
+      <li><b><span class="en">Anatomy</span></b> <span class="en">Teach it to follow a handbook: it opens a real project and reads your hand sketches into a design brief.</span></li>
+      <li><b><span class="en">Rebuild it</span></b> <span class="en">One helper builds the SketchUp model, a second one checks it. You only talk to your agent.</span></li>
+      <li><b><span class="en">From reading to doing</span></b> <span class="en">Helpers make three renders, a Word write-up and a first draft of a web page, each one checked.</span></li>
+      <li><b><span class="en">One of a kind</span></b> <span class="en">A one-page project website that goes out only after you approve it on your phone.</span></li>
     </ol>
     <p class="small-note en">Two versions, same five lessons: <b>Hermes Agent</b> + Ollama, no Claude account (Hong Kong, mainland China) · <b>Track B</b> Claude app with Claude Pro (UK). Not sure? Choose "not sure" when you book.</p>
-    <p class="small-note zh" lang="zh-Hant">兩個版本，五堂內容相同：<b>Hermes Agent</b> + Ollama，毋須 Claude 帳戶（香港、中國內地）· <b>Track B</b> Claude 應用程式，需 Claude Pro（英國）。未能決定？報名時選「未知」便可。</p>
+    
     <div class="pair">
       <figure class="shot">
         <img src="img/l3.jpg" width="1400" height="844" alt="Eleven pencil sketches of a fictional chalet: plans, elevations, sections and perspectives" loading="lazy">
-        <figcaption><span class="en">L03 · Your material: eleven hand sketches of a fictional chalet.</span><span class="zh">L03 · 你的資料：虛構山屋的十一張手稿。</span></figcaption>
+        <figcaption><span class="en">L03 · Your material: eleven hand sketches of a fictional chalet.</span></figcaption>
       </figure>
       <figure class="shot">
         <img src="img/l5.jpg" width="1168" height="1280" alt="Two phones showing the fictional chalet design site the student's agent published, one with an AI render open" loading="lazy">
-        <figcaption><span class="en">L05 · The site the agent made from them.</span><span class="zh">L05 · 據此做成的網頁。</span></figcaption>
+        <figcaption><span class="en">L05 · The site the agent made from them.</span></figcaption>
       </figure>
     </div>
     <p class="tp-cta"><a class="btn portal" href="https://anzonwong.com/teaching-booking/" rel="noopener">學生 Portal · 報名 / Student portal</a></p>
@@ -447,124 +461,60 @@ a.cover:hover .cap{color:var(--accent)}
 
   <section class="tp soon" id="advanced" role="tabpanel" aria-labelledby="tab-advanced">
     <div class="sumcard">
-      <span class="kind"><span class="en">Class 2 · Advanced, building industry</span><span class="zh">第二步 · 進階班（建築行業）</span></span>
-      <h2><span class="en">From tender to handover</span><span class="zh" lang="zh-Hant">由投標到交樓</span></h2>
-      <p class="badgeline"><span class="badge"><span class="en">Enrolling · from Sat 24 Oct, Saturdays</span><span class="zh" lang="zh-Hant">接受報名 · 10 月 24 日起，逢星期六</span></span></p>
+      <span class="kind"><span class="en">Class 2 · Advanced, building industry</span></span>
+      <h2><span class="en">From tender to handover</span></h2>
+      <p class="badgeline"><span class="badge"><span class="en">Enrolling · from Sat 24 Oct, Saturdays</span></span></p>
       <dl>
-        <div><dt><span class="en">Format</span><span class="zh">形式</span></dt><dd><span class="en">One project, tender to handover, with your agent and Revit</span><span class="zh">用你的代理人配合 Revit，把一個項目由投標做到交樓</span></dd></div>
-        <div><dt><span class="en">Length</span><span class="zh">堂數</span></dt><dd><span class="en">5 lessons, homework due the day before each</span><span class="zh">共 5 堂，功課須於上堂前一天交回</span></dd></div>
-        <div><dt><span class="en">Fee</span><span class="zh">學費</span></dt><dd><span class="en">HK$3,400 (HK) / £350 (UK) for the whole course</span><span class="zh">全期 <span class="nw">HK$3,400（香港）</span>/ <span class="nw">£350（英國）</span></span></dd></div>
-        <div><dt><span class="en">For</span><span class="zh">對象</span></dt><dd><span class="en">Building industry, after the basic class (exemption on application); own Windows PC with Revit</span><span class="zh">建築業界，須先完成基礎班（可申請豁免）；自備已安裝 Revit 的 Windows 電腦</span></dd></div>
+        <div><dt><span class="en">Format</span></dt><dd><span class="en">One project, tender to handover, with your agent and Revit</span></dd></div>
+        <div><dt><span class="en">Length</span></dt><dd><span class="en">5 lessons, homework due the day before each</span></dd></div>
+        <div><dt><span class="en">Fee</span></dt><dd><span class="en">HK$3,400 (HK) / £350 (UK) for the whole course</span></dd></div>
+        <div><dt><span class="en">For</span></dt><dd><span class="en">Building industry, after the basic class (exemption on application); own Windows PC with Revit</span></dd></div>
       </dl>
     </div>
     <ol class="one">
-      <li><b><span class="en">Tender</span><span class="zh">投標</span></b> <span class="en">Compliance, technical proposal, fee forms.</span><span class="zh">合規核對、技術建議書、收費表格。</span></li>
-      <li><b><span class="en">Feasibility</span><span class="zh">可行性研究</span></b> <span class="en">Site, floor area, massing, statement.</span><span class="zh">地盤限制、樓面面積、體量、報告。</span></li>
-      <li><b><span class="en">Scheme and submission</span><span class="zh">方案及法定審批</span></b> <span class="en">Revit scheme, general building plans, replies.</span><span class="zh">Revit 方案、一般建築圖則、回覆意見。</span></li>
-      <li><b><span class="en">Detailed design</span><span class="zh">詳細設計</span></b> <span class="en">LOD 300 drawings, tender pack and report.</span><span class="zh">LOD 300 圖則、招標文件、回標報告。</span></li>
-      <li><b><span class="en">Construction to handover</span><span class="zh">施工至交樓</span></b> <span class="en">Minutes, RFIs, defects, handover pack.</span><span class="zh">會議紀錄、RFI、缺陷清單、交樓文件。</span></li>
+      <li><b><span class="en">Tender</span></b> <span class="en">Compliance, technical proposal, fee forms.</span></li>
+      <li><b><span class="en">Feasibility</span></b> <span class="en">Site, floor area, massing, statement.</span></li>
+      <li><b><span class="en">Scheme and submission</span></b> <span class="en">Revit scheme, general building plans, replies.</span></li>
+      <li><b><span class="en">Detailed design</span></b> <span class="en">LOD 300 drawings, tender pack and report.</span></li>
+      <li><b><span class="en">Construction to handover</span></b> <span class="en">Minutes, RFIs, defects, handover pack.</span></li>
     </ol>
     <figure class="shot">
       <picture><source srcset="img/adv-desk.webp" type="image/webp"><img src="img/adv-desk.jpg" width="1600" height="960" alt="The Class 1 tender technical proposal, open and half open, beside a stack of A3 drawing sheets on an oak desk. A Blender still life textured with the real pages." loading="lazy"></picture>
-      <figcaption><span class="en">Class 1 output: the tender proposal and drawings an agent helped produce.</span><span class="zh">第一堂成果：由 AI agent 協助完成的投標技術建議書及圖則。</span></figcaption>
+      <figcaption><span class="en">Class 1 output: the tender proposal and drawings an agent helped produce.</span></figcaption>
     </figure>
     <p class="small-note en">Book in the student portal. Finished the basic class? Pick your times straight away. Not taken it? Apply for an exemption in the portal.</p>
-    <p class="small-note zh" lang="zh-Hant">在學生 Portal 預約。已完成基礎班可直接揀時間；未讀基礎班，可在 Portal 申請豁免。</p>
+    
     <p class="tp-cta"><a class="btn portal" href="https://anzonwong.com/teaching-booking/" rel="noopener">學生 Portal · 報名 / Student portal</a></p>
   </section>
 
   <section class="tp" id="ai-101" role="tabpanel" aria-labelledby="tab-ai-101">
     <div class="sumcard">
-      <span class="kind"><span class="en">Free reading</span><span class="zh">免費閱讀</span></span>
+      <span class="kind"><span class="en">Free reading</span></span>
       <h2>AI 101</h2>
       <dl>
-        <div><dt><span class="en">Format</span><span class="zh">形式</span></dt><dd><span class="en">Free handbook: flip through it online or download the PDF</span><span class="zh">免費手冊：網上逐頁翻閱，或下載&nbsp;PDF</span></dd></div>
-        <div><dt><span class="en">Length</span><span class="zh">內容</span></dt><dd><span class="en">45 ideas behind today's AI, one per page</span><span class="zh">當今 AI 背後的 45 個概念，一頁一個</span></dd></div>
-        <div><dt><span class="en">Language</span><span class="zh">語言</span></dt><dd><span class="en">Chinese and English, side by side</span><span class="zh">中英對照</span></dd></div>
-        <div><dt><span class="en">For</span><span class="zh">對象</span></dt><dd><span class="en">Anyone, from the basics to the advanced</span><span class="zh">任何人，由淺入深</span></dd></div>
+        <div><dt><span class="en">Format</span></dt><dd><span class="en">Free handbook: flip through it online or download the PDF</span></dd></div>
+        <div><dt><span class="en">Length</span></dt><dd><span class="en">45 ideas behind today's AI, one per page</span></dd></div>
+        <div><dt><span class="en">Language</span></dt><dd><span class="en">Chinese and English, side by side</span></dd></div>
+        <div><dt><span class="en">For</span></dt><dd><span class="en">Anyone, from the basics to the advanced</span></dd></div>
       </dl>
     </div>
     <a class="shot cover" href="ai-101/">
       <img src="ai-101/cover.jpg" width="1200" height="750" alt="Cover of the AI 101 handbook" loading="lazy">
-      <span class="cap"><span class="en">Open AI 101 &rarr;</span><span class="zh">打開 AI 101 &rarr;</span></span>
+      <span class="cap"><span class="en">Open AI 101 &rarr;</span></span>
     </a>
     <p class="tp-cta"><a class="btn portal" href="https://anzonwong.com/teaching-booking/" rel="noopener">學生 Portal · 報名 / Student portal</a></p>
   </section>
 </div>
 
+<!-- Course facts for search engines (2026-10-18). Keep in step with the fee and length lines above. -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","@id":"https://anzonwong.com/courses/#basic","name":"Your own AI agent (Basic)","alternateName":"你的私人 AI 代理人（基礎班）","description":"One-to-one online lessons, no coding: you leave with an AI agent of your own that knows your work. Class 0 (first lesson, free, 60 minutes) and Classes 1 to 5, 1 hour each.","provider":{"@id":"https://anzonwong.com/#person"},"inLanguage":["yue","zh-Hant","en"],"isAccessibleForFree":false,"offers":[{"@type":"Offer","category":"Paid","price":2400,"priceCurrency":"HKD"},{"@type":"Offer","category":"Paid","price":250,"priceCurrency":"GBP"}],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","courseWorkload":"PT6H","instructor":{"@id":"https://anzonwong.com/#person"}}},{"@type":"Course","@id":"https://anzonwong.com/courses/#advanced","name":"From tender to handover (Advanced, building industry)","alternateName":"由投標到交樓（進階班，建築行業）","description":"One project, tender to handover, with your AI agent and Revit. 5 lessons, Saturdays from 24 October 2026. For the building industry, after the basic class (exemption on application).","provider":{"@id":"https://anzonwong.com/#person"},"inLanguage":["yue","zh-Hant","en"],"coursePrerequisites":"The basic class, or an exemption on application","offers":[{"@type":"Offer","category":"Paid","price":3400,"priceCurrency":"HKD"},{"@type":"Offer","category":"Paid","price":350,"priceCurrency":"GBP"}],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","startDate":"2026-10-24","instructor":{"@id":"https://anzonwong.com/#person"}}}]}</script>
+
 </main>
 <footer class="foot">
   <div class="wrap"><div>
-    <p class="en">© 2026 Anzon Wong. AW Design is a practice label, not a registered company. The tools on this site are personal hobby projects and are not professional advice.</p><p class="zh" lang="zh-Hant">© 2026 Anzon Wong。AW Design 為個人設計品牌，並非註冊公司。本網站的工具均屬個人興趣項目，並非專業意見。</p>
-    <div class="sig"><p>Anzon Wong · AW Design · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-    <p class="visits" id="visits" hidden><span class="en">Visitors</span><span class="zh" lang="zh-Hant">訪客</span> <span id="visitsn"></span></p></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
   </div></div>
 </footer>
-<script>
-// Visitor counter, shown in the footer (added 2026-10-05).
-// One Firestore integer: project worldcup-bet-2026, site_counters/anzonwong-com, field visits.
-// The existing rules allow public read and "+1 on visits" only (no create, delete or jumps).
-// Counts once per browser per day (localStorage date flag); later loads that day only read.
-// If storage is blocked it only reads. Any failure or a 3 s timeout keeps the line hidden.
-// Runs after page load, so it never delays the page. Not counted from file:// previews.
-(function(){
-  var KEY = 'AIzaSyCNwMFWLo2WP6la9bx2rdwIoeEsv-6uNEM';  // public Firebase web key (not a secret)
-  var PATH = 'projects/worldcup-bet-2026/databases/(default)/documents';
-  var BASE = 'https://firestore.googleapis.com/v1/' + PATH;
-  var DOC = PATH + '/site_counters/anzonwong-com';
-  var FLAG = 'aw-visit-day';
-
-  function today(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
-
-  function show(n){
-    var el = document.getElementById('visits'), num = document.getElementById('visitsn');
-    if(!el || !num || !isFinite(n) || n < 0) return;
-    num.textContent = Number(n).toLocaleString('en-GB');
-    el.hidden = false;
-  }
-
-  function call(url, opts){
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var t = ctl ? setTimeout(function(){ ctl.abort(); }, 3000) : 0;
-    if(ctl) opts.signal = ctl.signal;
-    return fetch(url, opts).then(function(r){
-      clearTimeout(t);
-      if(!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    });
-  }
-
-  function read(){
-    return call(BASE + '/site_counters/anzonwong-com?key=' + KEY, {method: 'GET'})
-      .then(function(d){ return parseInt(d.fields.visits.integerValue, 10); });
-  }
-
-  function count(){
-    var body = {writes: [{transform: {document: DOC, fieldTransforms: [
-      {fieldPath: 'visits', increment: {integerValue: '1'}}]}}]};
-    return call(BASE + ':commit?key=' + KEY, {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
-    }).then(function(d){
-      try{ localStorage.setItem(FLAG, today()); }catch(e){}
-      var v = d && d.writeResults && d.writeResults[0] && d.writeResults[0].transformResults;
-      return v && v[0] && v[0].integerValue ? parseInt(v[0].integerValue, 10) : read();
-    });
-  }
-
-  function run(){
-    try{
-      if(typeof fetch !== 'function' || !/^https?:$/.test(location.protocol)) return;
-      var counted = true;  // storage blocked: read only, never recount
-      try{ counted = localStorage.getItem(FLAG) === today(); }catch(e){}
-      (counted ? read() : count()).then(show).catch(function(){});
-    }catch(e){}
-  }
-
-  if(document.readyState === 'complete') setTimeout(run, 300);
-  else window.addEventListener('load', function(){ setTimeout(run, 300); });
-})();
-
-</script>
 <script>
 // Courses tabs: buttons with roving tabindex, arrow / Home / End keys, and the open tab in the URL hash
 // (#basic, #advanced, #ai-101). Without this script the tab bar stays hidden and all three panels show.
