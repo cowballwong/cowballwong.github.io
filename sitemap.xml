@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-19</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-19</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -99,6 +99,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/st-albans-live/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/st-albans-live/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/st-albans-live/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/not-yet-known-expected-by-date/</loc><lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/not-yet-known-expected-by-date/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/not-yet-known-expected-by-date/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/not-yet-known-expected-by-date/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/not-yet-known-expected-by-date/</loc><lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/not-yet-known-expected-by-date/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/not-yet-known-expected-by-date/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/not-yet-known-expected-by-date/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/look-at-output-yourself/</loc><lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/look-at-output-yourself/"/>
