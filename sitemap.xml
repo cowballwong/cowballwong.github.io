@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-22</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-22</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -109,6 +109,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/hk-site-model/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/hk-site-model/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-site-model/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/had-ai-agent-draw-new-open/</loc><lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/had-ai-agent-draw-new-open/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/had-ai-agent-draw-new-open/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/had-ai-agent-draw-new-open/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/had-ai-agent-draw-new-open/</loc><lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/had-ai-agent-draw-new-open/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/had-ai-agent-draw-new-open/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/had-ai-agent-draw-new-open/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/hong-kong-project-first-thing-usually/</loc><lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/hong-kong-project-first-thing-usually/"/>
