@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://anzonwong.com/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/</loc><lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/zh/</loc><lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/"/>
@@ -20,12 +20,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/work/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/work/"/>
   </url>
-  <url><loc>https://anzonwong.com/lab/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/lab/</loc><lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/lab/</loc><lastmod>2026-10-21</lastmod>
+  <url><loc>https://anzonwong.com/zh/lab/</loc><lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/"/>
@@ -110,15 +110,15 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/hk-site-model/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-site-model/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/three-ai-stories-week-plus-one/</loc><lastmod>2026-10-23</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
+  <url><loc>https://anzonwong.com/lab/st-albans-abbey/</loc><lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/st-albans-abbey/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/st-albans-abbey/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/st-albans-abbey/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/</loc><lastmod>2026-10-23</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
+  <url><loc>https://anzonwong.com/zh/lab/st-albans-abbey/</loc><lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/st-albans-abbey/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/st-albans-abbey/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/st-albans-abbey/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/approved-document-k-has-not-had/</loc><lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/approved-document-k-has-not-had/"/>
@@ -129,6 +129,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/approved-document-k-has-not-had/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/approved-document-k-has-not-had/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/approved-document-k-has-not-had/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/three-ai-stories-week-plus-one/</loc><lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/</loc><lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/three-ai-stories-week-plus-one/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/three-ai-stories-week-plus-one/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/had-ai-agent-draw-new-open/</loc><lastmod>2026-10-22</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/had-ai-agent-draw-new-open/"/>
