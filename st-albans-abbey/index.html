@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>St Albans Abbey</title>
+<meta name="author" content="Anzon Wong">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%231d1e20%22/%3E%3Cpath d=%22M16 4l10 7v17H6V11z%22 fill=%22%23c0583a%22/%3E%3C/svg%3E">
+<meta name="description" content="Seventeen centuries on one hill: an interactive model of St Albans Cathedral and the town and Roman city around it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+"three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<canvas id="view" tabindex="0" aria-label="3D model of St Albans Cathedral and its setting"></canvas>
+<div id="pins" class="pins hidden"></div>
+
+<header class="bar">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <div><b>St Albans Abbey</b><small>Cathedral and Abbey Church of St Alban</small></div>
+  </div>
+  <nav class="modes" role="tablist">
+    <button data-mode="explore" class="on">Explore</button>
+    <button data-mode="tour">Tour</button>
+    <button data-mode="places">Places</button>
+  </nav>
+  <div class="tools">
+    <button id="t-inside" aria-pressed="false" title="Stand in the nave, looking towards the altar">Inside</button>
+    <button id="t-section" aria-pressed="false" title="Cut the building open">Section</button>
+    <button id="t-life" aria-pressed="true" title="People and traffic">Life</button>
+    <button id="t-reset" title="Back to the overview">Overview</button>
+    <button id="t-about" class="about-btn" title="About this site">ⓘ About</button>
+  </div>
+</header>
+
+<aside id="places" class="places" hidden>
+  <div class="places-head">
+    <b>Places</b>
+    <div class="filters">
+      <button data-f="all" class="on">All</button><button data-f="interior">Inside</button><button data-f="exterior">Outside</button><button data-f="site">Town &amp; Verulamium</button>
+    </div>
+  </div>
+  <ol id="place-list"></ol>
+</aside>
+
+<article id="card" class="card" hidden>
+  <button class="close" aria-label="Close">×</button>
+  <div id="card-body"></div>
+</article>
+
+<section id="tour" class="tour" hidden>
+  <div class="tour-n" id="tour-n"></div>
+  <h2 id="tour-title"></h2>
+  <p id="tour-text"></p>
+  <div class="tour-nav"><button id="tour-prev">Previous</button><button id="tour-next">Next</button></div>
+</section>
+
+<footer class="timeline">
+  <button id="play" class="play" aria-label="Play the timeline">▶</button>
+  <div class="year"><b id="year">2026</b><small id="era">Today</small></div>
+  <div class="track" id="track">
+    <div class="eras" id="eras"></div>
+    <div class="ticks" id="ticks"></div>
+    <input id="slider" type="range" min="0" max="1000" value="1000" aria-label="Year">
+  </div>
+</footer>
+<div id="event" class="event" hidden></div>
+
+<div class="modal-back" id="about" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-h">
+    <button class="close" aria-label="Close">×</button>
+    <p class="maker">Made by <a href="https://anzonwong.com" target="_blank" rel="noopener">Anzon Wong</a></p>
+    <h2 id="about-h">About</h2>
+    <p>Seventeen centuries on one hill, from Roman Verulamium to today's cathedral, as an interactive model. Drag the timeline or press play to watch the abbey being built, rebuilt and surrounded by its town.</p>
+    <div class="aw">
+      <b>anzonwong.com</b>
+      <p>Anzon Wong is an architect living in St Albans. His website gathers his architecture portfolio, interactive project showcases, hobby tools such as <a href="https://stalbans-live.pages.dev" target="_blank" rel="noopener">St Albans Live</a>, and his AI course.</p>
+      <a class="visit" href="https://anzonwong.com" target="_blank" rel="noopener">Visit anzonwong.com</a>
+    </div>
+    <p class="hobby">Hobby project, not official. Not affiliated with St Albans Cathedral. For interest only.</p>
+    <details><summary>How it was made and sources</summary>
+      <p>The cathedral is modelled from the 1908 Victoria County History ground plan (measured to its scale bar) and John Carter's c.1813 sections, with heights from Grimthorpe's published figures; some heights are estimates. Town buildings come from OpenStreetMap and appear on the timeline at estimated dates. The Roman street grid is schematic; only the surviving wall segments are real.</p>
+      <ul>
+        <li>Map data © OpenStreetMap contributors, ODbL</li>
+        <li>Terrain: Copernicus EU-DEM v1.1 via OpenTopoData</li>
+        <li>History: Victoria County History (British History Online), RCHME 1910, stalbanscathedral.org, Historic England, Wikipedia</li>
+        <li>Photographs: Wikimedia Commons contributors, credited on each place card (CC BY / CC BY-SA / CC0)</li>
+        <li>3D: three.js</li>
+      </ul>
+    </details>
+    <div class="bmc"><a href="https://buymeacoffee.com/anzonn" target="_blank" rel="noopener">☕ Buy me a coffee</a><small>Optional, helps cover hosting and data costs</small></div>
+  </div>
+</div>
+
+<div class="intro" id="intro">
+  <div class="intro-text"><i>Drawing the abbey</i><span id="intro-pct">0%</span></div>
+</div>
+<script type="module" src="main.js?v=2"></script>
+</body>
+</html>

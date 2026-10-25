@@ -1,0 +1,750 @@
+[
+ {
+  "id": "shrine-of-st-alban",
+  "name": "Shrine of St Alban",
+  "kind": "interior",
+  "period": "1302-1308; reassembled 1872; restored 1993",
+  "text": "The Purbeck marble pedestal that held the saint's relics, carved with niches and scenes including his martyrdom. Smashed at the Dissolution, it was rebuilt from fragments found in 1872 and restored again in 1993 with an embroidered canopy. It remains a place of pilgrimage and prayer.",
+  "where": "Saints' Chapel (feretory), the bay directly east of the Wallingford Screen behind the high altar",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/shrine-of-st-alban.jpg",
+   "author": "Tilman2007",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbey_Church_of_St_Alban,_Shrine_of_St_Alban_St_Albans_1103163_20230926_0112.jpg"
+  },
+  "source": "https://www.stalbanscathedral.org/Pages/FAQs/Category/visitor-highlights/"
+ },
+ {
+  "id": "watching-loft",
+  "name": "Watching Loft",
+  "kind": "interior",
+  "period": "c.1400-1420",
+  "text": "A two-storey carved oak structure with traceried cupboards below and a gallery above, from which monastic officials watched over pilgrims at the shrine. The beam between the stages is carved with the martyrdom of St Alban and the seasons. The cathedral says it is the only surviving watching loft of its kind in England.",
+  "where": "North side of the Saints' Chapel, filling the lower part of the easternmost arch of the north arcade, facing the shrine",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/watching-loft.jpg",
+   "author": "David Kemp",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Watching_Loft,_St_Albans_Cathedral_-_geograph.org.uk_-_7432769.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "shrine-of-st-amphibalus",
+  "name": "Shrine of St Amphibalus",
+  "kind": "interior",
+  "period": "mid 14th century; re-erected 19th century; restored 2019-2021",
+  "text": "The clunch pedestal of the shrine of the priest whom Alban sheltered, decorated with the letters R and W. Rediscovered in pieces in 1872, it was restored in 2019-2021 with new carvings, including a figure in a face mask marking the pandemic. St Albans is the only English cathedral with two medieval pedestal shrines.",
+  "where": "North aisle of the presbytery, east end, beside the Saints' Chapel",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/shrine-of-st-amphibalus.jpg",
+   "author": "Tilman2007",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbey_Church_of_St_Alban,_Shrine_of_Saint_Amphibalus_St_Albans_1103163_20230926_0187.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "nave-wall-paintings",
+  "name": "Medieval wall paintings on the nave piers",
+  "kind": "interior",
+  "period": "13th-14th century",
+  "text": "The west faces of the Norman piers on the north side of the nave carry a series of 13th-century paintings, each a Crucifixion above a scene from the life of the Virgin. The south faces have 14th-century figures including St Thomas and St Christopher. The cathedral calls this the best-preserved set of medieval wall paintings in any English cathedral.",
+  "where": "Nave, west faces of the Norman piers of the north arcade",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/nave-wall-paintings.jpg",
+   "author": "Richard Croft",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Medieval_wall_painting_-_geograph.org.uk_-_3709284.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "nave-screen",
+  "name": "Nave screen and the seven martyrs",
+  "kind": "interior",
+  "period": "c.1350-1396; statues 2015",
+  "text": "A stone screen of clunch across the nave, probably built under Abbot Thomas de la Mare, with two doorways and rows of empty image niches. In 2015 seven painted statues of martyrs by Rory Young were set in the niches, among them Alban, Amphibalus and Oscar Romero.",
+  "where": "Across the nave at the east side of the fourth bay from the crossing, west face",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/nave-screen.jpg",
+   "author": "Giogo",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:D%C3%A9tail_jub%C3%A9_statues_7_martyrs_cath%C3%A9drale_Saint-Alban.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "norman-nave-arcade",
+  "name": "Norman arcade of the nave",
+  "kind": "interior",
+  "period": "1077-1088",
+  "text": "The plain round arches on the north side of the nave are Paul of Caen's original work, built of flint and Roman brick and then plastered. At about 85 m the nave is the longest in England.",
+  "where": "Nave, north arcade, eastern bays",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/norman-nave-arcade.jpg",
+   "author": "Peter Jeffery",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:The_Nave,_St_Albans_Cathedral_-_geograph.org.uk_-_6285655.jpg"
+  },
+  "source": "https://www.stalbanscathedral.org/Pages/FAQs/Category/visitor-highlights/"
+ },
+ {
+  "id": "decorated-south-arcade",
+  "name": "The rebuilt south nave bays",
+  "kind": "interior",
+  "period": "1323-1343",
+  "text": "On 10 October 1323 two south piers collapsed and brought down five bays. Mason Henry Wy rebuilt them to match the older Early English bays but with 14th-century detail, so the two sides of the nave no longer match.",
+  "where": "Nave, south arcade, five bays east of the Early English west bays",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/decorated-south-arcade.jpg",
+   "author": "Stephen Craven",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral,_south_aisle_-_geograph.org.uk_-_3880663.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+ },
+ {
+  "id": "early-english-west-bays",
+  "name": "Early English west bays",
+  "kind": "interior",
+  "period": "1195-1235",
+  "text": "The three westernmost bays of the nave were added by Abbots John de Cella and William de Trumpington with pointed arches and clustered shafts. The shafts show a stone vault was planned, but the vault there now is 19th century.",
+  "where": "Nave, the three western bays inside the west front",
+  "lat": null,
+  "lon": null,
+  "photo": null,
+  "source": "https://britishlistedbuildings.co.uk/101103163-abbey-church-of-st-alban-st-albans-verulam-ward"
+ },
+ {
+  "id": "wallingford-screen",
+  "name": "Wallingford Screen (high altar screen)",
+  "kind": "interior",
+  "period": "1476-1484; statues 1880s-90s",
+  "text": "A great three-tier stone reredos built by Abbot William Wallingford for 1,100 marks. Its medieval statues were destroyed at the Reformation and replaced with Victorian figures paid for by Henry Hucks Gibbs, Lord Aldenham.",
+  "where": "East end of the presbytery, behind the high altar; doors on either side lead to the Saints' Chapel",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/wallingford-screen.jpg",
+   "author": "Diliff",
+   "licence": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Wallingford_Screen_1,_Hertfordshire,_UK_-_Diliff.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "presbytery-ceiling",
+  "name": "Presbytery vault",
+  "kind": "interior",
+  "period": "late 13th century; shields 1681-1683",
+  "text": "A wooden vault painted to look like stone, with moulded ribs and carved bosses, made after a stone vault was planned and abandoned. Around the springers are painted shields commemorating donors to the roof repair of 1681-1683.",
+  "where": "Over the presbytery, east of the crossing",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/presbytery-ceiling.jpg",
+   "author": "Rob Farrow",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_-_Cathedral_-_Presbytery_ceiling_-_geograph.org.uk_-_7569603.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "quire-ceiling",
+  "name": "Painted ceiling over the monks' quire",
+  "kind": "interior",
+  "period": "medieval",
+  "text": "Rows of painted panels with the sacred monogram alternating with angels holding shields, with a large Coronation of the Virgin in the middle.",
+  "where": "Over the quire, at the east end of the nave just west of the crossing",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/quire-ceiling.jpg",
+   "author": "Tilman2007",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbey_Church_of_St_Alban,_The_Choir_Ceiling_St_Albans_1103163_20230926_0138.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "tower-crossing",
+  "name": "Norman crossing and tower ceiling",
+  "kind": "interior",
+  "period": "1077-1088; ceiling 15th century, reproduced c.1950",
+  "text": "Four massive Norman arches of Roman brick carry the 5,000-tonne tower. The flat wooden ceiling above has panels of red and white roses and shields of England, St George, St Alban and St Edward; the painting was reproduced in the mid-20th century over the original.",
+  "where": "Crossing, looking up into the central tower",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/tower-crossing.jpg",
+   "author": "Chris Downer",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St._Albans,_upward_view_at_the_cathedral_crossing_-_geograph.org.uk_-_3807053.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "duke-humphrey-tomb",
+  "name": "Tomb of Humphrey, Duke of Gloucester",
+  "kind": "interior",
+  "period": "1447",
+  "text": "The richly carved tomb of the youngest son of Henry IV, a patron of learning remembered in Duke Humfrey's Library at Oxford's Bodleian. He is the only royal buried in the cathedral, and a small memorial chapel lies beneath. A rare wrought-iron grille, possibly 13th century, stands against the tomb's south side.",
+  "where": "South side of the Saints' Chapel, filling the lower part of the easternmost arch of the south arcade, opposite the Watching Loft",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/duke-humphrey-tomb.jpg",
+   "author": "No Swan So Fine",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Site_of_the_burial_of_Humphrey,_Duke_of_Gloucester,_St_Albans_Cathedral,_August_2021.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "ramryge-chantry",
+  "name": "Abbot Ramryge's chantry",
+  "kind": "interior",
+  "period": "c.1520",
+  "text": "A delicately carved stone chantry chapel with a fan vault, built for Abbot Thomas Ramryge (abbot 1492-1520). It is the last major work in the abbey before the Dissolution.",
+  "where": "North arcade of the presbytery, the third bay counted from the east, just west of the Wallingford Screen",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/ramryge-chantry.jpg",
+   "author": "David Kemp",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Abbot_Ramryge_Chantry,_St_Albans_Cathedral_-_geograph.org.uk_-_7432637.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "wheathampstead-chantry",
+  "name": "Wheathampstead tomb chapel",
+  "kind": "interior",
+  "period": "15th century",
+  "text": "The tomb chapel traditionally attributed to Abbot John of Wheathampstead, who ruled the abbey twice and was the builder of a great west window. The 1910 Royal Commission noted it may in fact be the work of Abbot William Wallingford.",
+  "where": "South arcade of the presbytery, the third bay counted from the east, opposite the Ramryge chantry",
+  "lat": null,
+  "lon": null,
+  "photo": null,
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "north-transept",
+  "name": "North transept and rose window",
+  "kind": "interior",
+  "period": "1077-1088; window 1880s, glass 1989",
+  "text": "Grimthorpe replaced the Perpendicular window with a rose of sixty-four lights in five rings; its stained glass by Alan Younger was unveiled by Diana, Princess of Wales in 1989. The east wall has an early 15th-century painting of the Incredulity of St Thomas, and the floor keeps medieval tiles.",
+  "where": "North transept, north wall (window) and east wall (painting)",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/north-transept.jpg",
+   "author": "Robert Lamb",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_the_Rose_Window_of_St._Alban%27s_Cathedral_-_geograph.org.uk_-_5958208.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+ },
+ {
+  "id": "south-transept-slype",
+  "name": "South transept and slype arcading",
+  "kind": "interior",
+  "period": "11th-12th century",
+  "text": "The triforium keeps six turned baluster shafts, thought to be Saxon, reused from the earlier abbey. The south wall has a rich late-12th-century arch and interlaced arcading from the slype, the passage that led from the cloister to the monks' cemetery.",
+  "where": "South transept, triforium and south wall",
+  "lat": null,
+  "lon": null,
+  "photo": null,
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "lady-chapel",
+  "name": "Lady Chapel",
+  "kind": "interior",
+  "period": "1308-1326; restored 1890s",
+  "text": "The Decorated-style chapel at the far east end, completed by Abbot Hugh of Eversdon. From 1553 to 1871 it was walled off and used as the town's grammar school; Grimthorpe then restored it with a stone vault and a black and white marble floor (1893).",
+  "where": "Far east end of the cathedral, beyond the retrochoir",
+  "lat": null,
+  "lon": null,
+  "photo": {
+   "src": "assets/spots/lady-chapel.jpg",
+   "author": "Tiger",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Lady_Chapel_in_St_Albans_Cathedral_-_geograph.org.uk_-_8091105.jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+ },
+ {
+  "id": "wallingford-clock-replica",
+  "name": "Replica of Richard of Wallingford's clock",
+  "kind": "interior",
+  "period": "original c.1356; replica 1988",
+  "text": "A full-size reconstruction of the astronomical clock designed by Abbot Richard of Wallingford, which showed the sun, moon phases and the tide at London Bridge. The original stood in the south transept and was lost at the Dissolution.",
+  "where": "In a side aisle of the cathedral; exact position not verified",
+  "lat": null,
+  "lon": null,
+  "photo": null,
+  "source": "https://en.wikipedia.org/wiki/Richard_of_Wallingford",
+  "confidence": "low"
+ },
+ {
+  "id": "norman-tower",
+  "name": "Norman crossing tower",
+  "kind": "exterior",
+  "period": "1077-1088",
+  "text": "The only 11th-century great crossing tower still standing in England, built almost entirely of Roman brick from Verulamium. It is 144 ft high and holds 23 bells, including a ring of twelve cast in 2010; the oldest bell, of about 1290, is still used.",
+  "where": "Over the crossing, centre of the cathedral",
+  "lat": 51.7504,
+  "lon": -0.3423,
+  "photo": {
+   "src": "assets/spots/norman-tower.jpg",
+   "author": "JackPeasePhotography",
+   "licence": "CC BY 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral_(The_Tower_and_South_Transept).jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "west-front",
+  "name": "West front",
+  "kind": "exterior",
+  "period": "1880-1883",
+  "text": "Lord Grimthorpe's own design, which replaced the medieval front and Abbot Wheathampstead's great window. It cost him £20,000 and has been criticised ever since; Pevsner called Grimthorpe a 'pompous, righteous bully'.",
+  "where": "West end of the nave, facing the green towards Romeland",
+  "lat": 51.7508,
+  "lon": -0.3435,
+  "photo": {
+   "src": "assets/spots/west-front.jpg",
+   "author": "Diliff",
+   "licence": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral_Exterior_from_west,_Herfordshire,_UK_-_Diliff.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "south-transept-front",
+  "name": "South transept front",
+  "kind": "exterior",
+  "period": "1885",
+  "text": "Grimthorpe rebuilt the south face with a tall group of lancet windows and flanking turrets, which he considered his finest work. The east wall of this transept is among the oldest Norman fabric in the building.",
+  "where": "South end of the south transept",
+  "lat": 51.7503,
+  "lon": -0.3421,
+  "photo": {
+   "src": "assets/spots/south-transept-front.jpg",
+   "author": "Ian Capper",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Tower_and_South_Transept_of_St_Albans_Abbey_(geograph_3185668).jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "cloister-remains",
+  "name": "Cloister remains",
+  "kind": "exterior",
+  "period": "c.1325-1350",
+  "text": "The cloister lay against the south side of the nave. All that survives above ground are weathered vaulting shafts, springers and wall panelling on the outside of the south aisle wall, partly hidden by Victorian buttresses.",
+  "where": "Outside face of the south nave aisle wall, west of the south transept",
+  "lat": 51.7504,
+  "lon": -0.3429,
+  "photo": {
+   "src": "assets/spots/cloister-remains.jpg",
+   "author": "Peter O'Connor aka anemoneprojectors",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral_-_cloisters_(11008641274).jpg"
+  },
+  "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "chapter-house",
+  "name": "Chapter House",
+  "kind": "exterior",
+  "period": "1982",
+  "text": "A modern building close to the site of the medieval chapter house, opened by Queen Elizabeth II on 8 June 1982 after a public inquiry. It is built of about 500,000 replica Roman bricks to echo the tower.",
+  "where": "South of the south transept",
+  "lat": 51.7501,
+  "lon": -0.3423,
+  "photo": {
+   "src": "assets/spots/chapter-house.jpg",
+   "author": "Stephen Craven",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral,_south_transept_and_Chapter_House_-_geograph.org.uk_-_3880651.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+ },
+ {
+  "id": "welcome-centre",
+  "name": "Welcome Centre",
+  "kind": "exterior",
+  "period": "2019",
+  "text": "Designed by Simpson & Brown and opened in 2019, it links the Norman church to the 1982 Chapter House and gives level access for the first time. It stands on the archaeologically sensitive Monks' Graveyard in Sumpter Yard, and its form follows the old graveyard boundary wall.",
+  "where": "South side, between the south transept and presbytery and the Chapter House, off Sumpter Yard",
+  "lat": 51.7502,
+  "lon": -0.3419,
+  "photo": null,
+  "source": "https://www.e-architect.com/england/st-albans-cathedral-welcome-centre",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "lady-chapel-exterior",
+  "name": "Lady Chapel (east end)",
+  "kind": "exterior",
+  "period": "1308-1326; refaced 1890s",
+  "text": "The eastern tip of the cathedral. Grimthorpe enlarged the buttresses to carry the new stone vault and refaced the walls.",
+  "where": "East end of the cathedral, facing Sumpter Yard",
+  "lat": 51.7502,
+  "lon": -0.3414,
+  "photo": {
+   "src": "assets/spots/lady-chapel-exterior.jpg",
+   "author": "Amandajm",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Cathedral_Lady_Chapel_exterior.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral",
+  "coord_note": "approximate, derived from the OpenStreetMap outline of the cathedral"
+ },
+ {
+  "id": "abbey-gateway",
+  "name": "Abbey Gateway",
+  "kind": "site",
+  "period": "1365",
+  "text": "The great gatehouse of the abbey and the only monastic building besides the church to survive the Dissolution. It served as the town jail for about 300 years and since 1871 has been part of St Albans School, whose West Gate Room is claimed as the oldest room in the world still used as a classroom.",
+  "where": "West of the cathedral on Abbey Mill Lane, by Romeland",
+  "lat": 51.751018,
+  "lon": -0.344186,
+  "photo": {
+   "src": "assets/spots/abbey-gateway.jpg",
+   "author": "Des Blenkinsopp",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Abbey_Gateway_-_geograph.org.uk_-_7861638.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_School,_Hertfordshire"
+ },
+ {
+  "id": "waxhouse-gate",
+  "name": "Waxhouse Gate",
+  "kind": "site",
+  "period": "c.1427; arches 18th century",
+  "text": "A passage from the High Street through the old abbey wall, probably built under Abbot John of Wheathampstead. Its name is believed to come from candles sold to pilgrims; until 1878 the path continued through the church between the shrine and the Lady Chapel.",
+  "where": "15 High Street, opposite the Clock Tower; path leads south to the cathedral",
+  "lat": 51.751089,
+  "lon": -0.340718,
+  "photo": {
+   "src": "assets/spots/waxhouse-gate.jpg",
+   "author": "Stephen McKay",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Waxhouse_Gate,_St_Albans_-_geograph.org.uk_-_7995897.jpg"
+  },
+  "source": "https://www.stalbanscivicsociety.com/city-matters/waxhouse-gate/"
+ },
+ {
+  "id": "clock-tower",
+  "name": "Clock Tower",
+  "kind": "site",
+  "period": "1403-1412",
+  "text": "A five-stage flint belfry 19.6 m high, claimed as the only medieval town belfry left in England. It was built near the site of the Eleanor Cross that marked a resting place of Queen Eleanor's funeral procession in 1290, and has 93 steps to the roof.",
+  "where": "Market Place at the top of the High Street",
+  "lat": 51.751314,
+  "lon": -0.340494,
+  "photo": {
+   "src": "assets/spots/clock-tower.jpg",
+   "author": "Stephen McKay",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_Clock_Tower_-_geograph.org.uk_-_7995615.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Clock_Tower,_St_Albans"
+ },
+ {
+  "id": "holywell-hill",
+  "name": "Holywell Hill",
+  "kind": "site",
+  "period": "medieval",
+  "text": "The street climbing to the abbey, named since at least the 13th century after the holy well that legend says sprang up where Alban died. The river below was called Halywell in the Middle Ages; a well structure found at the foot of the hill is thought to be 19th century.",
+  "where": "Road running south from the High Street down to the River Ver",
+  "lat": 51.7478,
+  "lon": -0.3416,
+  "photo": {
+   "src": "assets/spots/holywell-hill.jpg",
+   "author": "Ian Capper",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Holywell_Hill_-_geograph.org.uk_-_2735653.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+ },
+ {
+  "id": "ye-olde-fighting-cocks",
+  "name": "Ye Olde Fighting Cocks",
+  "kind": "site",
+  "period": "building 16th-17th century",
+  "text": "A pub by the river that claims to be England's oldest, though Guinness withdrew the record in 2000. It is first recorded in 1622, when an old pigeon house was rebuilt here as the Round House.",
+  "where": "End of Abbey Mill Lane, beside the River Ver below the cathedral",
+  "lat": 51.748977,
+  "lon": -0.34689,
+  "photo": {
+   "src": "assets/spots/ye-olde-fighting-cocks.jpg",
+   "author": "Neil Theasby",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:%22Ye_Olde_Fighting_Cocks%22,_St_Albans_-_geograph.org.uk_-_3983486.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Ye_Olde_Fighting_Cocks"
+ },
+ {
+  "id": "verulamium-lake",
+  "name": "Verulamium Park lake",
+  "kind": "site",
+  "period": "1929-1930s",
+  "text": "An ornamental lake fed by the River Ver, dug from 1929 to give work to unemployed men during the Depression. It lies inside the 100-acre park the city bought from the Earl of Verulam that year.",
+  "where": "Verulamium Park, west of the cathedral",
+  "lat": 51.750573,
+  "lon": -0.349864,
+  "photo": {
+   "src": "assets/spots/verulamium-lake.jpg",
+   "author": "Stephen Craven",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Lake_in_Verulamium_Park_-_geograph.org.uk_-_3881998.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium_Park"
+ },
+ {
+  "id": "river-ver",
+  "name": "River Ver",
+  "kind": "site",
+  "period": "",
+  "text": "The chalk stream that separated Roman Verulamium from the hill of the abbey; Bede's account has Alban crossing a river on the way to his execution. It was canalised in the 1930s when the park lakes were made.",
+  "where": "Valley floor below the cathedral, by Abbey Mill Lane",
+  "lat": 51.7489,
+  "lon": -0.3466,
+  "photo": {
+   "src": "assets/spots/river-ver.jpg",
+   "author": "Gary Houston",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:River-Ver-St-Albans-20050424-001.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/River_Ver",
+  "coord_note": "approximate, on the river beside Ye Olde Fighting Cocks"
+ },
+ {
+  "id": "roman-city-wall",
+  "name": "Roman city wall",
+  "kind": "site",
+  "period": "Roman, by the early 3rd century",
+  "text": "Stretches of the flint and tile wall that enclosed about 125 acres of Verulamium survive in the park. The abbey builders later quarried the ruined city for brick and stone.",
+  "where": "South-east side of Verulamium Park",
+  "lat": 51.747599,
+  "lon": -0.354439,
+  "photo": {
+   "src": "assets/spots/roman-city-wall.jpg",
+   "author": "Marathon",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Remains_of_Roman_wall_in_Verulamium_Park_-_geograph.org.uk_-_7203159.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium"
+ },
+ {
+  "id": "london-gate",
+  "name": "London Gate",
+  "kind": "site",
+  "period": "Roman",
+  "text": "Foundations of the main gate where Watling Street left Verulamium towards London. Its outline can still be traced in the park.",
+  "where": "South corner of Verulamium Park",
+  "lat": 51.74742,
+  "lon": -0.352038,
+  "photo": {
+   "src": "assets/spots/london-gate.jpg",
+   "author": "Carole Raddato from FRANKFURT, Germany",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Surviving_foundations_of_the_London_Gate,_Verulamium,_St_Albans_(16232214517).jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium_Park"
+ },
+ {
+  "id": "hypocaust",
+  "name": "Roman hypocaust and mosaic",
+  "kind": "site",
+  "period": "Roman, about 1,800 years old",
+  "text": "A mosaic floor over its underfloor heating system, uncovered by Mortimer and Tessa Wheeler in the 1930s excavations and shown in its original position inside a cover building.",
+  "where": "Middle of Verulamium Park",
+  "lat": 51.749182,
+  "lon": -0.356293,
+  "photo": {
+   "src": "assets/spots/hypocaust.jpg",
+   "author": "Bryn Holmes",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Hypocaust_and_Roman_mosaic,_Verulamium_Park_-_geograph.org.uk_-_7398540.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium_Park"
+ },
+ {
+  "id": "verulamium-museum",
+  "name": "Verulamium Museum",
+  "kind": "site",
+  "period": "",
+  "text": "The museum of everyday life in Roman Verulamium, built on the site of the Roman forum. One of the few surviving Roman inscriptions in Britain was found in the forum remains.",
+  "where": "North-west edge of Verulamium Park",
+  "lat": 51.752834,
+  "lon": -0.355023,
+  "photo": {
+   "src": "assets/spots/verulamium-museum.jpg",
+   "author": "Christine Matthews",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Verulamium_Museum,_St._Alban%27s,_Hertfordshire_-_geograph.org.uk_-_3596379.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium"
+ },
+ {
+  "id": "roman-theatre",
+  "name": "Roman Theatre of Verulamium",
+  "kind": "site",
+  "period": "Roman",
+  "text": "A Roman theatre with a stage rather than an amphitheatre, claimed as the only fully excavated example of its kind in Britain. It is on the Gorhambury Estate, about 1.1 km from the cathedral.",
+  "where": "West of St Michael's, outside the park on the Gorhambury Estate",
+  "lat": 51.753819,
+  "lon": -0.35855,
+  "photo": {
+   "src": "assets/spots/roman-theatre.jpg",
+   "author": "Carole Raddato from FRANKFURT, Germany",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:The_Roman_Theatre_at_Verulamium,_St_Albans_(14211548852).jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Verulamium"
+ },
+ {
+  "id": "st-michaels-church",
+  "name": "St Michael's Church",
+  "kind": "site",
+  "period": "late Anglo-Saxon onward",
+  "text": "One of three churches said by Matthew Paris to have been founded around 948 by Abbot Ulsinus to receive pilgrims on the roads into town. It stands within the old Roman city and holds the seated monument of Francis Bacon, Viscount St Alban (d.1626).",
+  "where": "St Michael's village, beside Verulamium Museum",
+  "lat": 51.7527,
+  "lon": -0.3569,
+  "photo": {
+   "src": "assets/spots/st-michaels-church.jpg",
+   "author": "Przemysław Sakrajda",
+   "licence": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_-_St_Michael%27s_Church.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Michael%27s_Church,_St_Albans"
+ },
+ {
+  "id": "st-peters-church",
+  "name": "St Peter's Church",
+  "kind": "site",
+  "period": "founded c.948 (tradition)",
+  "text": "Another of the three pilgrim churches traditionally founded by Abbot Ulsinus, at the northern end of the town centre.",
+  "where": "St Peter's Street, north end of the town centre",
+  "lat": 51.7554,
+  "lon": -0.335,
+  "photo": {
+   "src": "assets/spots/st-peters-church.jpg",
+   "author": "No Swan So Fine",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Peter%E2%80%99s_Church,_St_Albans,_February_2025_01.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Church_of_St_Peter,_St_Albans"
+ },
+ {
+  "id": "st-stephens-church",
+  "name": "St Stephen's Church",
+  "kind": "site",
+  "period": "founded c.948 (tradition)",
+  "text": "The third pilgrim church, south of the river on the road up St Stephen's Hill. A small window by the Parish Centre door has been dated to about 950.",
+  "where": "Top of St Stephen's Hill, about 1 km south-west of the cathedral",
+  "lat": 51.7418,
+  "lon": -0.3484,
+  "photo": {
+   "src": "assets/spots/st-stephens-church.jpg",
+   "author": "Bikeboy",
+   "licence": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Stephen%27s_church,_St_Albans_-_geograph.org.uk_-_3877861.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Stephen%27s_Church,_St_Albans"
+ },
+ {
+  "id": "sopwell-nunnery",
+  "name": "Sopwell Priory ruins",
+  "kind": "site",
+  "period": "c.1140; Tudor house 1540s-1560s",
+  "text": "Founded about 1140 by Abbot Geoffrey de Gorham as a Benedictine nunnery. After the Dissolution Sir Richard Lee pulled it down and built a Tudor mansion, whose ruins survive; prioress Juliana Berners is believed to have written part of the Book of St Albans.",
+  "where": "South-east of the cathedral across the River Ver",
+  "lat": 51.74423,
+  "lon": -0.33463,
+  "photo": {
+   "src": "assets/spots/sopwell-nunnery.jpg",
+   "author": "Bongo50",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St_Albans_-_Sopwell_Priory_-_20220903133502.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Sopwell_Priory"
+ },
+ {
+  "id": "kingsbury-watermill",
+  "name": "Kingsbury Watermill",
+  "kind": "site",
+  "period": "probably Elizabethan; Georgian front",
+  "text": "A former mill on the River Ver on land owned by the abbey at the Dissolution, later part of Francis Bacon's Gorhambury estate. Its machinery was restored in 1972.",
+  "where": "On the River Ver north of Verulamium Park",
+  "lat": 51.754587,
+  "lon": -0.352386,
+  "photo": {
+   "src": "assets/spots/kingsbury-watermill.jpg",
+   "author": "Gary Houston",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Kingsbury_Water_Mill_20031012-007.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Kingsbury_Watermill"
+ },
+ {
+  "id": "museum-gallery",
+  "name": "St Albans Museum + Gallery (Old Town Hall)",
+  "kind": "site",
+  "period": "opened 2018",
+  "text": "The city museum, opened in 2018 in the Grade II listed Old Town Hall, telling the story of St Albans from the Romans onward.",
+  "where": "St Peter's Street / Market Place",
+  "lat": 51.752319,
+  "lon": -0.338781,
+  "photo": {
+   "src": "assets/spots/museum-gallery.jpg",
+   "author": "Acediscovery",
+   "licence": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:St-Albans-Museum-and-Gallery.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/St_Albans_Museums"
+ },
+ {
+  "id": "fleur-de-lys",
+  "name": "Fleur de Lys, French Row",
+  "kind": "site",
+  "period": "medieval; 18th-century front",
+  "text": "A medieval building with an 18th-century brick front on French Row, one of the inns believed to have traded in late medieval St Albans. It has traded as The Snug since 2007.",
+  "where": "French Row, beside the Clock Tower",
+  "lat": 51.751382,
+  "lon": -0.340644,
+  "photo": {
+   "src": "assets/spots/fleur-de-lys.jpg",
+   "author": "Gary Houston",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Fleur-de-Lys-St-Albans-20040913-001.jpg"
+  },
+  "source": "https://en.wikipedia.org/wiki/Fleur_de_Lys,_St_Albans"
+ }
+]

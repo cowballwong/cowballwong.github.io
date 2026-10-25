@@ -1,0 +1,419 @@
+[
+  {
+    "year": 255,
+    "date_label": "c.251-259 (Bede: 305)",
+    "title": "Alban is martyred",
+    "text": "Alban, a Romano-British citizen of Verulamium, sheltered a fleeing Christian priest, took his cloak and was beheaded in his place on the hill across the River Ver. Bede dates the martyrdom to 305 and the Anglo-Saxon Chronicle to 283; modern historians such as W.H.C. Frend and Charles Thomas favour the persecutions of 251-259.",
+    "phase": "roman",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral",
+    "confidence": "low"
+  },
+  {
+    "year": 429,
+    "date_label": "429",
+    "title": "Germanus of Auxerre visits the shrine",
+    "text": "Bishop Germanus of Auxerre came to the martyr's shrine, which shows a Christian cult surviving at the site after Roman rule ended. A memoria over the place of execution is thought to have stood here from the 4th century.",
+    "phase": "roman",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 793,
+    "date_label": "793",
+    "title": "King Offa founds the monastery",
+    "text": "King Offa of Mercia is said to have founded a Benedictine monastery on Holmhurst Hill, across the river from the ruins of Verulamium. Nothing of the Saxon buildings survives above ground.",
+    "phase": "saxon",
+    "building_parts": [],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190",
+    "confidence": "low"
+  },
+  {
+    "year": 1077,
+    "date_label": "1077",
+    "title": "Paul of Caen begins the Norman abbey",
+    "text": "The first Norman abbot, Paul of Caen, began a huge new church the year he arrived, built by Robert the Mason largely from Roman brick and tile salvaged from Verulamium. It was the largest church built in England at the time, with a crossing tower that still stands.",
+    "phase": "norman",
+    "building_parts": [
+      "nave-norman",
+      "tower",
+      "transepts",
+      "presbytery"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1115,
+    "date_label": "28 Dec 1115",
+    "title": "The abbey church is consecrated",
+    "text": "The Norman church, structurally complete by about 1089, was consecrated on Holy Innocents' Day 1115 by the Archbishop of Rouen in the presence of King Henry I.",
+    "phase": "norman",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1140,
+    "date_label": "c.1140",
+    "title": "Sopwell Priory founded",
+    "text": "Abbot Geoffrey de Gorham founded a Benedictine nunnery at Sopwell, south-east of the abbey, as a dependency of St Albans.",
+    "phase": "norman",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Sopwell_Priory"
+  },
+  {
+    "year": 1154,
+    "date_label": "1154",
+    "title": "A local man becomes Pope Adrian IV",
+    "text": "Nicholas Breakspear, born near St Albans, was elected Pope Adrian IV, the only English pope. He showered the abbey with privileges, and its abbot was confirmed as the premier abbot in England. Matthew Paris's story that the abbey turned him away as a novice is doubted by historians.",
+    "phase": "norman",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Pope_Adrian_IV"
+  },
+  {
+    "year": 1195,
+    "date_label": "1195-1235",
+    "title": "The nave is extended west in Early English style",
+    "text": "Abbots John de Cella and William de Trumpington added three bays to the west end of the nave and built a new west front, as the community grew from about fifty to over a hundred monks. A tall lead-covered spire was raised on the tower.",
+    "phase": "early-english",
+    "building_parts": [
+      "nave-ee-west",
+      "west-front"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1213,
+    "date_label": "Aug 1213",
+    "title": "Barons meet at the abbey on the road to Magna Carta",
+    "text": "Churchmen and nobles met at the abbey in 1213, and the cathedral describes their discussions as leading to Magna Carta, sealed at Runnymede in 1215. Local sources date the meeting to 4 August 1213.",
+    "phase": "early-english",
+    "building_parts": [],
+    "source": "https://www.stalbanscathedral.org/our-history-new"
+  },
+  {
+    "year": 1217,
+    "date_label": "1217-1259",
+    "title": "Matthew Paris, chronicler and artist",
+    "text": "Matthew Paris was a monk here from 1217 until his death in 1259; his illustrated chronicles are a major source for 13th-century history. The abbey scriptorium had earlier produced the St Albans Psalter (c.1130-1145).",
+    "phase": "early-english",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1250,
+    "date_label": "1250-1290",
+    "title": "Earthquake, then a new presbytery and east end",
+    "text": "An earthquake in 1250 damaged the east end, and in 1257 the cracked eastern bays and apses were pulled down. The presbytery was remodelled and extended east towards a new Lady Chapel, with a wooden vault in place of a planned stone one.",
+    "phase": "early-english",
+    "building_parts": [
+      "presbytery",
+      "saints-chapel",
+      "retrochoir"
+    ],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1308,
+    "date_label": "1302-1308",
+    "title": "A new marble shrine for St Alban",
+    "text": "A new shrine pedestal of Purbeck marble, carved with scenes including the martyrdom, was made for the saint's relics in the feretory east of the high altar. The cathedral dates it to 1308.",
+    "phase": "decorated",
+    "building_parts": [
+      "saints-chapel"
+    ],
+    "source": "https://www.stalbanscathedral.org/Pages/FAQs/Category/visitor-highlights/"
+  },
+  {
+    "year": 1310,
+    "date_label": "1308-1326",
+    "title": "The Lady Chapel is completed",
+    "text": "Abbot Hugh of Eversdon completed the Lady Chapel at the far east end in the Decorated style, again with a wooden vault instead of the stone one first planned.",
+    "phase": "decorated",
+    "building_parts": [
+      "lady-chapel"
+    ],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1323,
+    "date_label": "10 Oct 1323",
+    "title": "Part of the nave collapses",
+    "text": "Two piers on the south side of the nave fell, bringing down part of the roof, the south aisle and the adjoining cloister. Mason Henry Wy rebuilt the five bays to match the Early English work but with 14th-century detail; the aisle was re-roofed and vaulted by 1343.",
+    "phase": "decorated",
+    "building_parts": [
+      "nave-south-decorated",
+      "cloister"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1327,
+    "date_label": "1327-c.1356",
+    "title": "Richard of Wallingford's astronomical clock",
+    "text": "Abbot Richard of Wallingford, a mathematician, designed one of the most complex clocks of medieval Europe, showing the sun, moon phases and the tide at London Bridge. It was finished about 20 years after his death and placed in the south transept, but was lost at the Dissolution.",
+    "phase": "decorated",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Richard_of_Wallingford"
+  },
+  {
+    "year": 1361,
+    "date_label": "1361",
+    "title": "The first Alban buns",
+    "text": "According to the cathedral, Brother Thomas Rocliffe began giving spiced buns to the poor on Good Friday in 1361.",
+    "phase": "decorated",
+    "building_parts": [],
+    "source": "https://www.stalbanscathedral.org/our-history-new"
+  },
+  {
+    "year": 1365,
+    "date_label": "1365",
+    "title": "The Great Gateway is built",
+    "text": "A new gatehouse to the abbey precinct was built, now called the Abbey Gateway. It is the only monastic building besides the church to survive the Dissolution.",
+    "phase": "decorated",
+    "building_parts": [
+      "abbey-gateway"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1370,
+    "date_label": "1349-1396",
+    "title": "Abbot de la Mare's stone rood screen",
+    "text": "The clunch screen across the nave, with doorways and niches for two tiers of images on its west face, was probably built under Abbot Thomas de la Mare.",
+    "phase": "decorated",
+    "building_parts": [],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1381,
+    "date_label": "15 June 1381",
+    "title": "The Peasants' Revolt reaches the abbey",
+    "text": "Townspeople led by William Grindcobbe rose against Abbot Thomas de la Mare, forced him to hand over the abbey's charters and destroyed them along with part of the abbey. Grindcobbe was executed later that year.",
+    "phase": "decorated",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/William_Grindecobbe"
+  },
+  {
+    "year": 1400,
+    "date_label": "c.1400-1420",
+    "title": "The Watching Loft is built",
+    "text": "A two-storey carved oak gallery was set up beside the shrine from which monastic officials kept watch over pilgrims visiting the shrine. It is the only surviving medieval watching loft of its kind in England.",
+    "phase": "perpendicular",
+    "building_parts": [
+      "saints-chapel"
+    ],
+    "source": "https://www.stalbanscathedral.org/Pages/FAQs/Category/visitor-highlights/"
+  },
+  {
+    "year": 1405,
+    "date_label": "1403-1412",
+    "title": "The town builds its Clock Tower",
+    "text": "The townspeople built a belfry in the Market Place, completed by about 1405. It has been seen as a challenge to the abbey's control of time-keeping and is claimed as the only medieval town belfry left in England.",
+    "phase": "perpendicular",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Clock_Tower,_St_Albans"
+  },
+  {
+    "year": 1420,
+    "date_label": "1420-1440",
+    "title": "Abbot John of Wheathampstead's works",
+    "text": "In his first abbacy John of Wheathampstead built his own tomb chapel (consecrated 1430), altered the screen and inserted a great nine-light west window. The spire was cut down to a small 'Hertfordshire spike' and the roofs were lowered behind battlements in this century.",
+    "phase": "perpendicular",
+    "building_parts": [
+      "west-front"
+    ],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1447,
+    "date_label": "1447",
+    "title": "Duke Humphrey of Gloucester is buried",
+    "text": "Humphrey, Duke of Gloucester, son of Henry IV and a great patron of learning, died under arrest at Bury St Edmunds and was buried next to St Alban's shrine. He is the only royal buried in the cathedral.",
+    "phase": "perpendicular",
+    "building_parts": [
+      "saints-chapel"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Humphrey,_Duke_of_Gloucester"
+  },
+  {
+    "year": 1455,
+    "date_label": "22 May 1455",
+    "title": "First Battle of St Albans",
+    "text": "The traditional opening battle of the Wars of the Roses was fought in the streets of the town. The Duke of Somerset was killed and Henry VI captured; Somerset, the Earl of Northumberland and Lord Clifford were buried in the abbey.",
+    "phase": "perpendicular",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/First_Battle_of_St_Albans"
+  },
+  {
+    "year": 1461,
+    "date_label": "17 Feb 1461",
+    "title": "Second Battle of St Albans",
+    "text": "A Lancastrian army outflanked the Earl of Warwick's Yorkists north of the town and freed Henry VI, but failed to follow up the victory.",
+    "phase": "perpendicular",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Second_Battle_of_St_Albans"
+  },
+  {
+    "year": 1479,
+    "date_label": "1479-1486",
+    "title": "The St Albans printing press",
+    "text": "A press run by the so-called Schoolmaster Printer worked at St Albans from 1479, one of the earliest in England. Its last book, the Book of St Albans (1486), on hawking, hunting and heraldry, contains the first colour printing in England.",
+    "phase": "perpendicular",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/Book_of_Saint_Albans"
+  },
+  {
+    "year": 1484,
+    "date_label": "1476-1484",
+    "title": "The Wallingford Screen",
+    "text": "Abbot William Wallingford built the great stone screen behind the high altar, at a cost of 1,100 marks, and put new windows into both transepts.",
+    "phase": "perpendicular",
+    "building_parts": [
+      "presbytery",
+      "transepts"
+    ],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1500,
+    "date_label": "1492-1520",
+    "title": "Abbot Ramryge's chantry",
+    "text": "The last major medieval addition was the richly carved chantry chapel of Abbot Thomas Ramryge on the north side of the presbytery.",
+    "phase": "perpendicular",
+    "building_parts": [
+      "presbytery"
+    ],
+    "source": "https://www.british-history.ac.uk/rchme/herts/pp177-190"
+  },
+  {
+    "year": 1539,
+    "date_label": "5 Dec 1539",
+    "title": "The abbey is dissolved",
+    "text": "The abbey was surrendered to Henry VIII; the monks were pensioned off, valuables were carted away and both shrines were smashed. From 1549 Sir Richard Lee demolished the monastic buildings for their stone.",
+    "phase": "post-dissolution",
+    "building_parts": [
+      "monastic-buildings",
+      "cloister"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1553,
+    "date_label": "1553",
+    "title": "The town buys the church for £400",
+    "text": "Edward VI sold the abbey church to the new borough for £400 to be its parish church. The Lady Chapel was walled off for the grammar school, which stayed there for over 300 years, and the gateway became the town jail.",
+    "phase": "post-dissolution",
+    "building_parts": [
+      "lady-chapel"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1860,
+    "date_label": "1832-1878",
+    "title": "Rescue: Cottingham and George Gilbert Scott",
+    "text": "After part of the clerestory fell in 1832, L.N. Cottingham carried out repairs, and from 1860 George Gilbert Scott led a long restoration. In 1870-71 he saved the failing tower piers and jacked the leaning south nave wall upright in under three hours.",
+    "phase": "victorian",
+    "building_parts": [
+      "tower",
+      "nave-south-decorated"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1872,
+    "date_label": "1872-1873",
+    "title": "The shrines are pieced back together",
+    "text": "Fragments of the smashed shrine pedestals of St Alban and St Amphibalus, many reused as rubble in the wall that had cut the Lady Chapel off for the school, were found and pieced back together.",
+    "phase": "victorian",
+    "building_parts": [
+      "saints-chapel"
+    ],
+    "source": "https://www.stalbanscathedral.org/Pages/FAQs/Category/visitor-highlights/"
+  },
+  {
+    "year": 1877,
+    "date_label": "1877",
+    "title": "The abbey becomes a cathedral",
+    "text": "The Diocese of St Albans was created on 30 April 1877 and Thomas Legh Claughton was enthroned as first bishop on 12 June. In 1871 the grammar school had moved out of the Lady Chapel into the Abbey Gateway.",
+    "phase": "victorian",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1880,
+    "date_label": "1879-1883",
+    "title": "Grimthorpe's roof and new west front",
+    "text": "Lord Grimthorpe, a wealthy lawyer and amateur architect who had designed the clock mechanism behind Big Ben, restored the steep nave roof (1879) and then replaced the medieval west front with his own design (1880-1883), a work criticised then and since.",
+    "phase": "victorian",
+    "building_parts": [
+      "west-front",
+      "nave-ee-west"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1885,
+    "date_label": "c.1885-1893",
+    "title": "Grimthorpe remakes the transepts and Lady Chapel",
+    "text": "He rebuilt the south transept front with tall lancets (1885), replaced the north transept's Perpendicular window with a large rose window, and restored the Lady Chapel with a stone vault and marble floor (1893).",
+    "phase": "victorian",
+    "building_parts": [
+      "south-transept-front",
+      "north-transept-rose",
+      "lady-chapel"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1982,
+    "date_label": "8 June 1982",
+    "title": "The new Chapter House opens",
+    "text": "A visitor and meeting building on the south side, close to the site of the medieval chapter house, was opened by Queen Elizabeth II. It is built of about 500,000 replica Roman bricks.",
+    "phase": "modern",
+    "building_parts": [
+      "chapter-house-1982"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 1989,
+    "date_label": "1989",
+    "title": "New glass in the rose window",
+    "text": "Alan Younger's stained glass for Grimthorpe's north transept rose window was unveiled by Diana, Princess of Wales, replacing plain Victorian glazing.",
+    "phase": "modern",
+    "building_parts": [
+      "north-transept-rose"
+    ],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 2015,
+    "date_label": "2015",
+    "title": "Seven martyrs return to the nave screen",
+    "text": "Seven painted stone statues of martyrs by Rory Young were installed in the medieval niches of the nave screen, a rare case of new painted figures placed in an English church screen since the Reformation.",
+    "phase": "modern",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  },
+  {
+    "year": 2019,
+    "date_label": "June 2019",
+    "title": "The Welcome Centre opens",
+    "text": "A new entrance building designed by Simpson & Brown opened as part of the Heritage Lottery-funded 'Alban, Britain's First Saint' project, giving the cathedral level access for the first time.",
+    "phase": "modern",
+    "building_parts": [
+      "welcome-centre-2019"
+    ],
+    "source": "https://www.e-architect.com/england/st-albans-cathedral-welcome-centre"
+  },
+  {
+    "year": 2021,
+    "date_label": "2019-2021",
+    "title": "St Amphibalus's shrine restored",
+    "text": "The shrine of St Amphibalus was restored with new carvings, funded by a grant and over a thousand donors. Delayed by the COVID-19 pandemic, it gained a carved figure wearing a face mask.",
+    "phase": "modern",
+    "building_parts": [],
+    "source": "https://en.wikipedia.org/wiki/St_Albans_Cathedral"
+  }
+]
