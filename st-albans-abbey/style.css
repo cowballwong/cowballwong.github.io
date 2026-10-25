@@ -145,3 +145,5 @@ button:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid 
 .modal ul{padding-left:18px;margin:6px 0 0;line-height:1.55}
 .modal .bmc a{display:inline-block;background:#FFDD00;color:#1b1b1b;padding:8px 14px;border-radius:8px;font-weight:600;text-decoration:none;font-size:13px}
 .modal .bmc small{display:block;color:#857d70;font-size:11px;margin-top:5px}
+
+.clean .bar,.clean .timeline,.clean .pins,.clean .event{display:none!important}

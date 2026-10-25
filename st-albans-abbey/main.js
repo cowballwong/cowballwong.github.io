@@ -207,6 +207,7 @@ window.__sa = {scene, camera, controls, parts, tl, flyTo, setSection, setInterio
     if (q.has('cam')) { tween = null; camera.position.set(...q.get('cam').split(',').map(Number)); controls.target.set(...q.get('look').split(',').map(Number)); }
     if (q.has('mode')) mode(q.get('mode'));
     if (q.has('about')) document.getElementById('t-about').click();
+    if (q.has('clean')) document.body.classList.add('clean'); // share-image renders: no chrome, no pins
     if (q.has('tour')) { mode('tour'); for (let i = 1; i < +q.get('tour'); i++) document.getElementById('tour-next').click(); tween && (tween.t = 1); }
     if (q.has('inside')) goInside(true);
     if (q.has('calls')) setTimeout(() => console.log('drawcalls', renderer.info.render.calls, 'tris', renderer.info.render.triangles, 'interior meshes', interiorStats.meshes), 3000);
