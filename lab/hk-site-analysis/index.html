@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-alt="../../zh/lab/hk-site-analysis/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HK Site Analysis · Anzon Wong</title>
+<meta name="description" content="HK Site Analysis: pick a site anywhere in Hong Kong and get twelve site analysis diagrams at one frame and scale (walking distance wider), from building heights and winter shadows to sunlight hours, walking distance and sky view factor, plus a 3D exploded view and DXF/SVG in HK1980 Grid. From Hong Kong Government open data. A free hobby tool by Anzon Wong.">
+<meta name="author" content="Anzon Wong">
+
+<link rel="canonical" href="https://anzonwong.com/lab/hk-site-analysis/">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/hk-site-analysis/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/hk-site-analysis/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-site-analysis/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="HK Site Analysis · Anzon Wong">
+<meta property="og:description" content="HK Site Analysis: pick a site anywhere in Hong Kong and get twelve site analysis diagrams at one frame and scale (walking distance wider), from building heights and winter shadows to sunlight hours, walking distance and sky view factor, plus a 3D exploded view and DXF/SVG in HK1980 Grid. From Hong Kong Government open data. A free hobby tool by Anzon Wong.">
+<meta property="og:url" content="https://anzonwong.com/lab/hk-site-analysis/">
+<meta property="og:image" content="https://anzonwong.com/img/og/hk-site-analysis.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HK Site Analysis">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Lab","item":"https://anzonwong.com/lab/"},{"@type":"ListItem","position":3,"name":"HK Site Analysis","item":"https://anzonwong.com/lab/hk-site-analysis/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/lab/hk-site-analysis/#page","url":"https://anzonwong.com/lab/hk-site-analysis/","name":"HK Site Analysis · Anzon Wong","description":"HK Site Analysis: pick a site anywhere in Hong Kong and get twelve site analysis diagrams at one frame and scale (walking distance wider), from building heights and winter shadows to sunlight hours, walking distance and sky view factor, plus a 3D exploded view and DXF/SVG in HK1980 Grid. From Hong Kong Government open data. A free hobby tool by Anzon Wong.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/hk-site-analysis.jpg"}]}</script>
+<style>
+/* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* header: one line, 1px ink rule */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:22px;padding-bottom:14px;flex-wrap:wrap}
+.brand{font:400 22px var(--serif);text-decoration:none;white-space:nowrap}
+.brand small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:12px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);flex-wrap:wrap;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:3px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+.lang{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--ink);background:transparent;padding:5px 9px;border-radius:3px;cursor:pointer;color:var(--ink)}
+.lang:hover{background:var(--ink);color:var(--paper)}
+
+/* type */
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.015em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(24px,3vw,36px);line-height:1.15}
+h3{font-size:21px;line-height:1.2}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:24px 0 0}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* page head + ruled sections (2fr label / 10fr content) */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(36px,5vw,64px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.note{color:var(--ink-2)}
+
+/* home intro */
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;padding:clamp(32px,5vw,56px) 0 40px;align-items:end}
+.intro p{font:400 clamp(26px,3vw,42px)/1.18 var(--serif);margin:0;letter-spacing:-.005em}
+:root[data-lang="zh"] .intro p{line-height:1.35;letter-spacing:.02em}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.meta div{padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.meta b{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* selected strip */
+.sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.sel a{text-decoration:none;display:block;min-width:0}
+.sel img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--rule-2)}
+.sel span{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px}
+.sel b{font:400 17px var(--serif)}
+.sel i{font:11px var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.sel a:hover b{color:var(--accent)}
+
+/* index controls */
+.ix-wrap{margin:0 0 8px}
+.ctl{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);background:transparent;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.chip sup{font:10px var(--mono);color:var(--muted);margin-left:3px}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on sup{color:var(--rule)}
+.ctl-t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.count{font:11px var(--mono);color:var(--muted);letter-spacing:.06em}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:2px 0}
+.search input{border:0;background:transparent;font:15px var(--serif);width:220px;outline:none;color:var(--ink);padding:2px 0}
+.search input::placeholder{color:var(--muted)}
+.search kbd{font:10px var(--mono);border:1px solid var(--rule);padding:1px 5px;border-radius:2px;color:var(--muted)}
+
+/* the index table */
+.ix{width:100%;border-collapse:collapse}
+.ix thead th{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;padding:0;white-space:nowrap}
+.ix thead th button{all:unset;cursor:pointer;display:block;padding:12px 10px 8px 0}
+.ix thead th button:hover{color:var(--ink)}
+.ix thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ix thead th.s button::after{content:" \2193";color:var(--accent)}
+.ix thead th.s.r button::after{content:" \2191"}
+.ix tbody tr{border-top:1px solid var(--rule);cursor:pointer}
+.ix tbody tr:last-child{border-bottom:1px solid var(--rule)}
+.ix td{padding:13px 10px 13px 0;vertical-align:baseline}
+.ix td.no{font:11.5px var(--mono);color:var(--muted);width:64px;white-space:nowrap}
+.ix td.ti{font:400 23px/1.2 var(--serif)}
+.ix td.ti a{text-decoration:none}
+.ix .alt{font:400 14px var(--serif);color:var(--muted);margin-left:12px}
+.ix .sub{display:none}
+.ix td.ty,.ix td.pl{font-size:13.5px;color:var(--ink-2)}
+.ix td.ty{max-width:240px}
+.ix td.pl{white-space:nowrap}
+.ix td.yr{font:12.5px var(--mono);color:var(--ink-2);width:60px}
+.ix td.go{width:30px;text-align:right;color:var(--muted)}
+.ix .tag{margin-left:10px;vertical-align:middle}
+.ix tbody:hover tr td,.ix tbody:hover tr .alt{color:var(--muted)}
+.ix tbody tr:hover td,.ix tbody tr.kb td{color:var(--ink)!important}
+.ix tbody tr:hover td.go,.ix tbody tr.kb td.go,.ix tbody tr:hover td.ti a{color:var(--accent)!important}
+.ix tbody tr.kb{background:var(--card)}
+.ix .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0;max-width:42em}
+.ix .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:6px 0 0;max-width:42em}
+:root[data-lang="zh"] .ix .disc{font-style:normal}
+.ix tbody:hover tr .sum,.ix tbody:hover tr .disc{color:var(--muted)}
+.ix tbody tr:hover .sum{color:var(--ink-2)!important}
+.xp{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin:12px 0 4px;font:14px/1.5 var(--sans);cursor:default}
+.xp[hidden]{display:none}
+.xp img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--rule-2)}
+.xp p{margin:0 0 8px;color:var(--ink-2)}
+.xp .xd{font-size:13px;color:var(--muted)}
+.xp a.open{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.xp.noimg{grid-template-columns:1fr}
+.empty{padding:30px 0;color:var(--muted);font:400 18px var(--serif)}
+
+/* Work / Lab card grid (.gx): 3 / 2 / 1 columns, 4:3 thumbnail, calm hover */
+.gx{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 24px}
+.gc{min-width:0}
+.gc[hidden]{display:none}
+.gc-a{display:block;text-decoration:none;color:inherit}
+.gc-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:transform .2s ease,border-color .2s ease}
+.gc-im img{width:100%;height:100%;object-fit:cover}
+.gc-im.noimg{display:flex;align-items:flex-end;padding:14px;font:12px var(--mono);color:var(--muted)}
+.gc-no{display:inline-block;font:11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:14px 0 4px}
+.gc .tag{margin-left:10px;vertical-align:1px}
+.gc-ti{font:400 23px/1.2 var(--serif);margin:0}
+.gc-ti .alt{display:block;font:400 14px/1.4 var(--serif);color:var(--muted);margin-top:3px}
+.gc .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0}
+.gc-meta{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+:root[data-lang="zh"] .gc-meta{letter-spacing:.1em}
+.gc .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-2)}
+:root[data-lang="zh"] .gc .disc{font-style:normal}
+a.gc-a:hover .gc-im{transform:translateY(-2px);border-color:var(--ink)}
+a.gc-a:hover .gc-ti .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:var(--accent-ink)}
+a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media (max-width:960px){.gx{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}}
+@media (max-width:600px){.gx{grid-template-columns:1fr;gap:36px}.gc-ti{font-size:21px}}
+
+/* preview that follows the cursor */
+.pv{position:fixed;z-index:20;left:0;top:0;width:360px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .15s,transform .15s}
+.pv.on{opacity:1;transform:none}
+.pv img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;box-shadow:0 20px 40px -20px rgba(29,28,26,.5);background:#fff}
+.pv .cap{display:inline-block;margin-top:6px;background:var(--ink);color:var(--paper);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px}
+.pv .pd{margin:6px 0 0;background:var(--paper);border:1px solid var(--rule);padding:6px 8px;font-size:12px;line-height:1.45;color:var(--ink-2)}
+.pv .pd:empty{display:none}
+
+/* tags */
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:24px 26px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:"L" counter(l,decimal-leading-zero);font:12px var(--mono);color:var(--muted);padding-top:6px}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(28px,4vw,44px)}
+.facts div{padding:10px 16px 10px 0;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.facts b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+/* call block: ruled like the index controls, no dark band */
+.band{border-top:3px solid var(--ink);padding:clamp(32px,5vw,56px) 0;margin-top:clamp(28px,4vw,48px)}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band p{color:var(--ink-2);max-width:34em}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: 1px ink rule, one quiet line */
+.foot{margin-top:clamp(40px,6vw,64px)}
+.foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
+.foot p{margin:0;max-width:60em}
+.foot .sig{white-space:nowrap}
+.foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
+
+/* phone */
+@media (max-width:860px){
+  .top .wrap{padding-top:16px;padding-bottom:10px;row-gap:8px}
+  .nav{margin-left:0;width:100%;gap:8px 14px;font-size:12px}
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
+  .sel{gap:8px;margin-bottom:30px}
+  .sel b{font-size:13px}.sel i{display:none}
+  .search{margin-left:0;width:100%}.search input{width:100%}.search kbd{display:none}
+  .ix td.ty,.ix td.pl,.ix td.go,.ix th.ty,.ix th.pl,.ix th.go{display:none}
+  .ix td{padding:11px 8px 11px 0}
+  .ix td.no{width:44px;font-size:10.5px}
+  .ix td.ti{font-size:19px}
+  .ix .alt{display:block;margin:2px 0 0;font-size:13px}
+  .ix .sub{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:3px}
+  .ix td.yr{width:auto;text-align:right}
+  .ix th.yr button{text-align:right;padding-right:0}
+  .ix .tag{margin:4px 0 0}
+  .pv{display:none}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot .sig{white-space:normal}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+  .xp{grid-template-columns:96px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Lab tool: HK Site Analysis. Tokens from styles.css only; layout follows hk-site-model.css. */
+.sl-list,.sl-credits{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);max-width:46em}
+.sl-list li,.sl-credits li{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:4px 20px;padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+.sl-list b,.sl-credits b{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.sl-credits li{font-size:15px;padding:9px 0}
+.sl-disc{font-style:italic;color:var(--ink-2)}
+:root[data-lang="zh"] .sl-disc{font-style:normal}
+
+.hsa{padding:clamp(24px,4vw,44px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.hsa-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(16px,2.4vw,28px)}
+.hsa-col{min-width:0;display:flex;flex-direction:column;position:relative}
+.hsa-search{display:flex;gap:6px;margin-bottom:10px;min-width:0}
+.hsa-search input{flex:1;min-width:0;font:14px var(--sans);padding:9px 10px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink)}
+.hsa-search button,.hsa-tbtn{font:12px var(--mono);letter-spacing:.06em;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:3px;padding:8px 11px;cursor:pointer}
+.hsa-search button:hover,.hsa-tbtn:hover,.hsa-seg button:hover{color:var(--accent)}
+.hsa-tbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.hsa-tbtn:disabled{opacity:.4;cursor:default}
+.hsa-results{position:absolute;z-index:500;top:46px;left:0;right:0;list-style:none;margin:0;padding:4px 0;background:var(--paper);border:1px solid var(--ink);border-radius:3px;max-height:300px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.hsa-results button{display:block;width:100%;text-align:left;font:14px/1.4 var(--sans);color:var(--ink);background:none;border:0;padding:8px 12px;cursor:pointer}
+.hsa-results button:hover,.hsa-results button:focus{background:var(--rule-2);color:var(--accent)}
+.hsa-map{position:relative;z-index:0;height:clamp(360px,56vh,600px);border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);overflow:hidden}
+.hsa-coords{font:11.5px/1.5 var(--mono);color:var(--muted);margin:8px 0 0;letter-spacing:.02em}
+.hsa-ctl fieldset{border:0;border-top:1px solid var(--ink);margin:0 0 14px;padding:10px 0 0}
+.hsa-ctl legend{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 8px 0 0}
+.hsa-seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.hsa-seg button{font:12px var(--mono);letter-spacing:.04em;background:transparent;color:var(--ink);border:0;border-right:1px solid var(--ink);padding:9px 11px;cursor:pointer}
+.hsa-seg button:last-child{border-right:0}
+.hsa-seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.hsa-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hsa-field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink-2);margin-bottom:10px}
+.hsa-field input,.hsa-field select{font:14px var(--sans);padding:8px 9px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink);max-width:100%}
+.hsa-hint{font-size:13px;color:var(--muted);margin:0}
+.hsa-actions{margin-top:4px}
+.hsa-btn{padding:11px 18px;font-size:13px}
+.hsa-btn:disabled{opacity:.4;cursor:default}
+.hsa-btn:disabled:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+#hsa-run:disabled:hover{background:var(--ink);color:var(--paper)}
+.hsa-status{font-size:14px;color:var(--ink-2);margin:12px 0 0;min-height:1.6em}
+.hsa-status[data-kind="ok"]{color:var(--ink)}
+.hsa-status[data-kind="err"]{color:var(--accent-ink)}
+.hsa-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:12px 0 0;border-top:1px solid var(--ink)}
+.hsa-stats div{padding:8px 12px 8px 0;border-bottom:1px solid var(--rule)}
+.hsa-stats dt{font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hsa-stats dd{margin:0;font-size:15px;color:var(--ink)}
+.hsa-stats small{color:var(--muted);font-size:12.5px}
+.hsa-out{margin-top:clamp(18px,2.6vw,30px)}
+.hsa-outbar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink);padding:10px 0}
+.hsa-outlabel{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hsa-sheetwrap{border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);overflow:auto;-webkit-overflow-scrolling:touch}
+.hsa-sheet{position:relative;aspect-ratio:420/297;background:#fff}
+.hsa-sheet svg{display:block;width:100%;height:auto}
+.hsa-out.zoomed .hsa-sheet{width:260%}
+.hsa-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;margin:0;color:var(--muted);font-size:14px;background:var(--rule-2)}
+.hsa-out.has-sheet .hsa-ph{display:none}
+.hsa-attr{font:11px/1.6 var(--mono);letter-spacing:.04em;color:var(--muted);margin:18px 0 0;max-width:62em}
+.hsa-steps{margin:0;padding-left:1.3em;max-width:40em;color:var(--ink-2)}
+.hsa-steps li{padding:4px 0 8px}
+.hsa-lic{font-size:13.5px;color:var(--muted);max-width:46em;margin:16px 0 0}
+/* Leaflet bits */
+.hsa-pin{width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid #d0021b;box-shadow:0 0 0 3px rgba(208,2,27,.18);cursor:grab}
+.leaflet-container{font:12px var(--sans);background:var(--rule-2)}
+.leaflet-control-attribution{font-size:10.5px}
+@media (max-width:860px){
+  .hsa-grid{grid-template-columns:1fr}
+  .hsa-map{height:min(80vw,440px)}
+}
+@media (max-width:600px){
+  .sl-list li,.sl-credits li{grid-template-columns:1fr}
+  .hsa-stats{grid-template-columns:1fr}
+  .hsa-out.zoomed .hsa-sheet{width:400%}
+}
+/* tool page: a shorter header so the map shows sooner */
+.head{padding:clamp(32px,4.5vw,64px) 0 clamp(22px,3vw,36px)}
+.head .lede{font-size:clamp(17px,1.6vw,21px);margin-top:16px}
+.head .facts{margin-top:clamp(18px,2.4vw,28px)}
+.hsa-ex{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.hsa-ex figure{margin:0}
+.hsa-ex figure.wide{grid-column:1/-1}
+.hsa-ex img{width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:#fff}
+.hsa-ex figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:600px){.hsa-ex{grid-template-columns:1fr}}
+.hsa-sq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,22px);margin-top:clamp(16px,2.4vw,28px)}
+.hsa-sq figure{margin:0}
+.hsa-sq img{width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:#fff}
+.hsa-sq figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:860px){.hsa-sq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v3: colour / frame selects, 3D panel */
+.hsa-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.hsa-3dwrap { margin-top: 18px; }
+.hsa-3d { position: relative; width: 100%; aspect-ratio: 16 / 10; max-height: 78vh; background: #f2efe8; border: 1px solid var(--rule, #d9d3c7); overflow: hidden; touch-action: none; }
+.hsa-3d > canvas:first-child { display: block; width: 100% !important; height: 100% !important; }
+@media (max-width: 640px) { .hsa-3d { aspect-ratio: 1 / 1; } }
+
+</style>
+<script>
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
+(function(){
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
+})();
+
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../work/"><span class="en">Work</span></a>
+      <a href="../../lab/" aria-current="page"><span class="en">Lab</span></a>
+      <a href="../../courses/"><span class="en">Courses</span></a>
+      <a href="../../journal/"><span class="en">Journal</span></a>
+      <a href="../../about/"><span class="en">About</span></a>
+      <a href="../../contact/"><span class="en">Contact</span></a>
+      <a class="lang" id="langBtn" href="../../zh/lab/hk-site-analysis/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<header class="head">
+  <div class="label"><a href="../../lab/" style="text-decoration:none">02 / <span class="en">Lab</span></a></div>
+  <div>
+    <span class="kind"><span class="en">Site analysis diagrams · Hobby project</span></span>
+    <h1><span class="en">HK Site Analysis</span></h1>
+    <p class="lede en">Pick a site anywhere in Hong Kong and get twelve site analysis diagrams, drawn to the same frame and scale (walking distance uses a wider one): figure-ground, building heights, topography, winter shadows, sunlight hours, prevailing wind, access, walking distance, road noise, green space, views and sky view factor. Turn the site in 3D, pull the diagrams apart into an exploded axonometric, pick a colour style, and download an A3 or A2 board, square images, or DXF and SVG drawings in HK1980 Grid for your CAD.</p>
+    
+    <div class="facts">
+      <div><b><span class="en">Site</span></b><span class="en">Address search, a radius or your own boundary</span></div>
+      <div><b><span class="en">Output</span></b><span class="en">A3 or A2 board (PDF) · PNG · 12 squares (ZIP) · exploded 3D view · DXF and SVG</span></div>
+      <div><b><span class="en">Cost</span></b><span class="en">Free, no sign-in, runs in your browser</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="hsa" id="tool" aria-label="HK Site Analysis tool">
+  <div class="hsa-grid">
+    <div class="hsa-col">
+      <form id="hsa-search" class="hsa-search" autocomplete="off">
+        <label class="vh" for="hsa-q"><span class="en">Search an address or building</span></label>
+        <input id="hsa-q" type="search" placeholder="Address, building, or lat, lon / E, N" aria-describedby="hsa-coords">
+        <button type="submit"><span class="en">Search</span></button>
+      </form>
+      <ul id="hsa-results" class="hsa-results" hidden></ul>
+      <div id="hsa-map" class="hsa-map"></div>
+      <p class="hsa-coords"><span class="en">Site</span> <span id="hsa-coords"></span></p>
+    </div>
+    <div class="hsa-col hsa-ctl">
+      <fieldset>
+        <legend><span class="en">1. The site</span></legend>
+        <div class="hsa-seg" role="group" aria-label="Site radius">
+          <button type="button" data-r="25" aria-pressed="false">r 25 m</button>
+          <button type="button" data-r="50" aria-pressed="true">r 50 m</button>
+          <button type="button" data-r="100" aria-pressed="false">r 100 m</button>
+          <button type="button" data-r="200" aria-pressed="false">r 200 m</button>
+        </div>
+        <div class="hsa-row">
+          <button type="button" id="hsa-draw" class="hsa-tbtn" aria-pressed="false"><span class="en">Draw boundary</span></button>
+          <button type="button" id="hsa-finish" class="hsa-tbtn" hidden disabled><span class="en">Finish</span></button>
+          <button type="button" id="hsa-clear" class="hsa-tbtn" hidden><span class="en">Clear</span></button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="en">2. The board</span></legend>
+        <label class="hsa-field"><span class="en">Title on the board (optional)</span>
+          <input id="hsa-name" type="text" maxlength="60" placeholder="e.g. Corner site, Mong Kok"></label>
+        <label class="hsa-field"><span class="en">Frame (every diagram)</span>
+          <select id="hsa-scale">
+            <option value="auto" selected>Auto</option>
+            <option value="200">200 m</option>
+            <option value="300">300 m</option>
+            <option value="400">400 m</option>
+            <option value="600">600 m</option>
+            <option value="800">800 m</option>
+            <option value="1200">1200 m</option>
+          </select></label>
+        <div class="hsa-row2">
+          <label class="hsa-field"><span class="en">Colours</span>
+            <select id="hsa-style">
+              <option value="paper" selected>Paper</option>
+              <option value="mono">Line</option>
+              <option value="vivid">Vivid</option>
+              <option value="night">Night</option>
+            </select></label>
+          <label class="hsa-field"><span class="en">Frame shape</span>
+            <select id="hsa-shape">
+              <option value="square" selected>Square</option>
+              <option value="circle">Round</option>
+            </select></label>
+        </div>
+        <p class="hsa-hint"><span class="en">The dashed square on the map is what every diagram will show.</span></p>
+      </fieldset>
+      <div class="hsa-row hsa-actions">
+        <button type="button" id="hsa-run" class="btn hsa-btn"><span class="en">Analyse site</span></button>
+        <button type="button" id="hsa-pdf" class="btn btn-2 hsa-btn" disabled>A3 PDF</button>
+        <button type="button" id="hsa-pdf2" class="btn btn-2 hsa-btn" disabled>A2 PDF</button>
+        <button type="button" id="hsa-png" class="btn btn-2 hsa-btn" disabled>PNG</button>
+        <button type="button" id="hsa-zip" class="btn btn-2 hsa-btn" disabled><span class="en">12 squares (ZIP)</span></button>
+        <button type="button" id="hsa-explode" class="btn btn-2 hsa-btn" disabled><span class="en">Exploded view (PNG)</span></button>
+        <button type="button" id="hsa-dxf" class="btn btn-2 hsa-btn" disabled>DXF</button>
+        <button type="button" id="hsa-svg" class="btn btn-2 hsa-btn" disabled>SVG</button>
+      </div>
+      <p id="hsa-status" class="hsa-status" role="status" aria-live="polite"></p>
+      <dl id="hsa-stats" class="hsa-stats" hidden></dl>
+    </div>
+  </div>
+  <div id="hsa-3dwrap" class="hsa-3dwrap">
+    <div class="hsa-outbar">
+      <span class="hsa-outlabel"><span class="en">3D</span></span>
+      <button type="button" data-v3="massing" class="hsa-tbtn" aria-pressed="false"><span class="en">3D model</span></button>
+      <button type="button" data-v3="explode" class="hsa-tbtn" aria-pressed="false"><span class="en">Exploded layers</span></button>
+    </div>
+    <div id="hsa-3d" class="hsa-3d" hidden></div>
+  </div>
+  <div id="hsa-out" class="hsa-out">
+    <div class="hsa-outbar">
+      <span class="hsa-outlabel"><span class="en">The board</span></span>
+      <button type="button" id="hsa-zoom" class="hsa-tbtn" aria-pressed="false"><span class="en">Zoom</span></button>
+    </div>
+    <div class="hsa-sheetwrap"><div id="hsa-sheet" class="hsa-sheet"><p class="hsa-ph"><span class="en">Your board of twelve diagrams appears here after Analyse site.</span></p></div></div>
+  </div>
+  <p class="hsa-attr"><span class="en">Data: Lands Department, Planning Department, Transport Department, Agriculture, Fisheries and Conservation Department and Leisure and Cultural Services Department, The Government of the Hong Kong SAR, via CSDI Portal and DATA.GOV.HK; MTR exits and Light Rail stops © OpenStreetMap contributors. Hobby project, not official, for reference only. Not a substitute for a survey or professional advice.</span></p>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Examples</span></div>
+  <div>
+    <div class="hsa-ex">
+      <figure class="wide"><img src="../../../lab/hk-site-analysis/img/midlevels.webp" width="1680" height="1188" alt="A3 board of twelve site analysis diagrams for a slope site in the Mid-Levels, from figure-ground and building heights to sunlight hours, walking distance and sky view" loading="lazy"><figcaption><span class="en">Mid-Levels, a slope site, A3 board</span></figcaption></figure>
+      <figure class="wide"><img src="../../../lab/hk-site-analysis/img/exploded.webp" width="1680" height="1188" alt="Exploded axonometric of the Mid-Levels site: the buildings and terrain in 3D at the base, with the analysis diagrams floating above as labelled plates" loading="lazy"><figcaption><span class="en">Mid-Levels, exploded view, A3 sheet</span></figcaption></figure>
+      <figure class="wide"><img src="../../../lab/hk-site-analysis/img/mongkok.webp" width="1680" height="1188" alt="A3 board of twelve site analysis diagrams for a city block in Mong Kok, with dense towers, short winter sun and a dense walking network" loading="lazy"><figcaption><span class="en">Mong Kok, a city block, A3 board</span></figcaption></figure>
+    </div>
+    <div class="hsa-sq">
+      <figure><img src="../../../lab/hk-site-analysis/img/sq-hgt.webp" width="900" height="900" alt="Square diagram: building heights round the Mid-Levels site drawn as a plan-oblique, the tallest labelled in mPD" loading="lazy"><figcaption><span class="en">02 Building heights, Mid-Levels</span></figcaption></figure>
+      <figure><img src="../../../lab/hk-site-analysis/img/sq-sunh.webp" width="900" height="900" alt="Square diagram: hours of direct sun on the ground on 21 March round the Mid-Levels site, as a colour map" loading="lazy"><figcaption><span class="en">05 Sunlight hours, Mid-Levels</span></figcaption></figure>
+      <figure><img src="../../../lab/hk-site-analysis/img/sq-walk.webp" width="900" height="900" alt="Square diagram: the footpaths reached in 5 and 10 minutes on foot from the Mong Kok block, with MTR exits" loading="lazy"><figcaption><span class="en">08 Walking distance, Mong Kok</span></figcaption></figure>
+      <figure><img src="../../../lab/hk-site-analysis/img/sq-svf.webp" width="900" height="900" alt="Square diagram: sky view factor at head height across the Mong Kok frame, as a colour map" loading="lazy"><figcaption><span class="en">12 Sky view factor, Mong Kok</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">How to use it</span></div>
+  <div>
+    <ol class="hsa-steps">
+      <li><span class="en">Search an address or a building name, or click the map. You can also type coordinates (lat, lon or HK1980 E, N).</span></li>
+      <li><span class="en">Set the site: a circle of 25 to 200 m radius, or Draw boundary and click the corners of your site. Drag the dot to move it.</span></li>
+      <li><span class="en">Give the board a title if you like. Leave the frame on Auto or pick a size; the dashed square on the map is what the diagrams cover. Pick a colour style (Paper, Line, Vivid or Night) and a square or round frame; you can change both after the analysis.</span></li>
+      <li><span class="en">Press Analyse site. The data loads live from Government servers, usually in about ten seconds. Then download the A3 or A2 PDF, the PNG board, or the twelve squares as a ZIP.</span></li>
+      <li><span class="en">Open 3D model to turn the site round, or Exploded layers to see the diagrams stacked over it; drag to orbit, pinch or scroll to zoom. Exploded view (PNG) saves an A3 sheet of it. DXF and SVG give the 2D layers in HK1980 Grid metres, on named layers.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">The twelve diagrams</span></div>
+  <div>
+    <ul class="sl-list">
+      <li><b><span class="en">01 Figure-ground</span></b><span class="en">Buildings in black on white, and how much of the ground within the frame's radius they cover.</span></li>
+      <li><b><span class="en">02 Building heights</span></b><span class="en">Every block raised as a plan-oblique and shaded in six classes of height above the ground, with the three tallest labelled in mPD. Heights are drawn at half scale so tall towers do not hide the street.</span></li>
+      <li><b><span class="en">03 Topography</span></b><span class="en">Ground levels in colour bands with hill shading, contours in mPD, spot levels on the site, and an arrow showing how steeply and which way the site falls.</span></li>
+      <li><b><span class="en">04 Winter shadows</span></b><span class="en">Shadows on 21 December, the lowest sun of the year, at 9 am, noon and 3 pm, overlaid so the ground that stays in shade longest reads darkest. The sun path for 21 December and 21 June, and the share of the site in shade at each hour.</span></li>
+      <li><b><span class="en">05 Sunlight hours</span></b><span class="en">How many hours of direct sun each patch of ground gets on 21 March (the equinox), as a colour map, with the site's average and the share under two hours, and the same for 21 December. Every building and the hills can cast shade; the site itself is taken as cleared.</span></li>
+      <li><b><span class="en">06 Prevailing wind</span></b><span class="en">Wind roses for the year and for summer (June to August) from the Planning Department's simulated data for the grid cell that holds the site, at the data's 200 m level.</span></li>
+      <li><b><span class="en">07 Access and movement</span></b><span class="en">Footpaths, footbridges, escalators and stairs, bus stops, MTR exits and Light Rail stops, with the nearest exit and stop by straight-line distance and the share of mapped walkways that are covered.</span></li>
+      <li><b><span class="en">08 Walking distance</span></b><span class="en">Where you can walk from the site in 5 and 10 minutes along the Lands Department's 3D Pedestrian Network, including footbridges, subways, stairs and escalators, at an average 80 m a minute, with the MTR exits and bus stops inside that reach.</span></li>
+      <li><b><span class="en">09 Road noise (proxy)</span></b><span class="en">Bands at 25, 50 and 100 m from highways and main roads. A distance proxy for where traffic noise is likely to matter, not a noise measurement.</span></li>
+      <li><b><span class="en">10 Green and open space</span></b><span class="en">Woodland, shrubland, grassland, farmland and green urban areas from the habitat map, public parks nearby, and how much of the ground round the site is green.</span></li>
+      <li><b><span class="en">11 Views and openness</span></b><span class="en">How far you can see from the middle of the site at street level and from 30 m up, the directions that stay open, and the sky view factor at street level (1 is open sky, 0 is fully enclosed).</span></li>
+      <li><b><span class="en">12 Sky view factor</span></b><span class="en">The sky view factor at head height over the whole frame, as a colour map: how much of the sky you would see standing at each spot, from 0 (fully enclosed) to 1 (open sky), with the average over the site.</span></li>
+      <li><b><span class="en">3D and exploded view</span></b><span class="en">The buildings (Lands Department heights) on the terrain model in 3D, and eight of the diagrams (topography, shadows, sunlight hours, wind, access, noise, green and sky view factor) lifted off as floating plates above the site, like an exploded axonometric; you can switch plates on and off. Save it as an A3 sheet with each layer labelled and its finding.</span></li>
+      <li><b><span class="en">DXF and SVG</span></b><span class="en">The 2D layers (site, buildings with heights, roads, contours, shadows, walkways, transport, green, views and walking reach) as real HK1980 Grid coordinates in metres, one named layer each, ready to drop into AutoCAD, Rhino or Illustrator.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Limits</span></div>
+  <div class="prose">
+    <p class="en">Every diagram is drawn only from data the tool loaded. If a Government server does not answer, or a layer has nothing near the site, the diagram says so in words instead of guessing.</p>
+    <p class="en">Building heights are the base and top levels Lands Department records for each block. Where a block has no recorded height it is estimated from its storeys, and when a fifth or more of the blocks in view are estimated the heights caption says how many. Roof features and setbacks are not included. In diagram 02 heights are drawn at half scale.</p>
+    <p class="en">Sun positions use the NOAA solar equations, Hong Kong time. Drawn shadows fall on a level plane at the site's mean ground level, so shadows on sloping ground further away are approximate. The share of the site in shade is worked out separately, with a 3D sun-ray test from points across the site against every building and the terrain.</p>
+    <p class="en">Wind is the Planning Department's Site Wind Availability Data: simulated, hourly figures for 2009, at the 200 m level of the data, for a grid cell of several hundred metres. It describes the wind arriving over the area, not the wind at street level, and it is not an air ventilation assessment.</p>
+    <p class="en">Road noise is a distance proxy only: it knows the road class, not the traffic, barriers, building facades or measured levels. MTR exits and Light Rail stops come from an OpenStreetMap snapshot of 25 October 2026; a few exits are missing there or have no letter. The nearest exit in the facts and in diagram 07 is a straight-line distance; diagram 08 gives walking times along the network.</p>
+    <p class="en">Views treat the site as cleared, ignore trees, and look from the middle of the site. The terrain is the 5 m Digital Terrain Model, accurate to about plus or minus 5 m; it carries some flyovers, embankments and tree canopy, so a view or a contour can stop or wobble early there. Every diagram has grid north up; in Hong Kong grid north and true north differ by less than a tenth of a degree.</p>
+    <p class="en">Sunlight hours count the sun in 10-minute steps while it is more than 2 degrees above the horizon, on 21 March and 21 December, at ground level, against every building block and the terrain. It is direct sun only, with no allowance for cloud, trees, balconies or reflected light, and it is not a daylight or sunlight assessment to any standard. The sky view map uses the same buildings and terrain at 1.5 m above the ground, looking in 36 directions.</p>
+    <p class="en">Walking distance assumes 80 m a minute along the mapped network, measured in 3D; stairs count double and escalators one and a half times, and each lift or signalled crossing adds 30 seconds. Paid MTR concourses are left out. Escalators and travelators that the Lands Department data codes as one-way are walked only that way, with times measured from the site outward; the Central to Mid-Levels escalator, which reverses at 10 am, is counted both ways. It does not know real waiting times, opening hours of malls and footbridges, or paths missing from the data. Where the network has no paths near the site, roads are used instead and the diagram says so.</p>
+    <p class="en">The 3D view and the DXF and SVG files carry the same data and the same limits as the diagrams. Buildings are simple prisms from base to top level, without roof features.</p>
+    <p class="en sl-disc">Hobby project, not official, for reference only. Not a substitute for a survey or professional advice.</p>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Data and licence</span></div>
+  <div>
+    <ul class="sl-credits">
+      <li><b><span class="en">Buildings</span></b><span><a href="https://data.gov.hk/en-data/dataset/hk-landsd-openmap-landsd-building" rel="noopener">Building</a>, <span class="en">Lands Department, loaded live from the CSDI Portal; dataset page on DATA.GOV.HK</span></span></li>
+      <li><b><span class="en">Roads</span></b><span><a href="https://data.gov.hk/en-data/dataset/hk-landsd-openmap-road-centreline" rel="noopener">Road Centreline</a>, <span class="en">Lands Department, loaded live from the CSDI Portal; dataset page on DATA.GOV.HK</span></span></li>
+      <li><b><span class="en">Terrain</span></b><span><a href="https://data.gov.hk/en-data/dataset/hk-landsd-openmap-5m-grid-dtm" rel="noopener">5m Grid DTM</a>, <span class="en">Lands Department, via DATA.GOV.HK (tiled 18 Oct 2026 for <a href="../../lab/hk-site-model/">HK Site Model</a>)</span></span></li>
+      <li><b><span class="en">Walkways</span></b><span><a href="https://portal.csdi.gov.hk/geoportal/?datasetId=landsd_rcd_1637222018065_52265" rel="noopener"><span class="en">3D Pedestrian Network</span></a>, <span class="en">Lands Department, via CSDI Portal (live)</span></span></li>
+      <li><b><span class="en">Bus stops</span></b><span><a href="https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638874475129_49745" rel="noopener"><span class="en">Coordinate of Bus Stop Location</span></a>, <span class="en">Transport Department, via CSDI Portal (live)</span></span></li>
+      <li><b><span class="en">Wind</span></b><span><a href="https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281652589_43389" rel="noopener"><span class="en">Site Wind Availability Data</span></a>, <span class="en">Planning Department, via CSDI Portal and pland.gov.hk (live)</span></span></li>
+      <li><b><span class="en">Habitats</span></b><span><a href="https://data.gov.hk/en-data/dataset/hk-afcd-afcdlist-habitatmap" rel="noopener"><span class="en">Territory-wide Terrestrial Habitat Map of Hong Kong</span></a>, <span class="en">Agriculture, Fisheries and Conservation Department, loaded live from the CSDI Portal (dataset page on DATA.GOV.HK; mapped from satellite images of September to December 2019)</span></span></li>
+      <li><b><span class="en">Parks</span></b><span><a href="https://portal.csdi.gov.hk/geoportal/?datasetId=lcsd_rcd_1629267205215_19292" rel="noopener"><span class="en">Parks, Zoos and Gardens</span></a>, <span class="en">Leisure and Cultural Services Department, via CSDI Portal (live)</span></span></li>
+      <li><b><span class="en">MTR</span></b><span><span class="en">MTR stations, exits and Light Rail stops</span>, <a href="https://www.openstreetmap.org/copyright" rel="noopener">© OpenStreetMap contributors</a>, <span class="en">ODbL, snapshot 25 Oct 2026 shipped with the tool</span></span></li>
+      <li><b><span class="en">Address search</span></b><span><a href="https://www.als.gov.hk/" rel="noopener">Address Lookup Service (ALS)</a>, <span class="en">HKSAR Government, via DATA.GOV.HK</span></span></li>
+      <li><b><span class="en">Sun</span></b><span><span class="en">NOAA solar position equations, computed in your browser</span></span></li>
+      <li><b><span class="en">3D</span></b><span><a href="https://threejs.org/" rel="noopener">three.js</a>, <span class="en">MIT licence, loaded from jsDelivr</span></span></li>
+      <li><b><span class="en">Map</span></b><span><span class="en">Map information from Lands Department</span></span></li>
+    </ul>
+    <p class="hsa-lic"><span class="en">Government data: source Lands Department, Planning Department, Transport Department, Agriculture, Fisheries and Conservation Department and Leisure and Cultural Services Department, The Government of the Hong Kong SAR, via CSDI Portal (portal.csdi.gov.hk) and DATA.GOV.HK, used under the DATA.GOV.HK Terms and Conditions. Intellectual property rights in the data belong to the Government of the HKSAR. MTR stations, exits and Light Rail stops: © OpenStreetMap contributors, available under the Open Database Licence. Derived drawings, provided as is.</span></p>
+    <p class="hsa-lic"><span class="en">Every board and exploded sheet prints the full data credits and the disclaimer, every square carries a short credit line and the disclaimer, and the DXF and SVG files hold the credits as text. A free hobby tool, not professional advice, and not affiliated with the Government, the MTR Corporation or OpenStreetMap.</span></p>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.1/proj4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module" src="../../../lab/hk-site-analysis/app.js"></script>
+
+</main>
+<footer class="foot">
+  <div class="wrap"><div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
+  </div></div>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
