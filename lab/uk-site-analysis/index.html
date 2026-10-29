@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Site Analysis · Anzon Wong</title>
+<meta name="description" content="UK Site Analysis: pick a site anywhere in England and get fourteen site analysis diagrams at one frame and scale, from LiDAR building heights, sun and shadows on 21 March, June and December, and sunlight hours to planning constraints, flood zones, modelled road and rail noise and a BRE 25 degree screening check, plus a 3D exploded view and DXF/SVG in British National Grid. From open government data. A free hobby tool by Anzon Wong.">
+<meta name="author" content="Anzon Wong">
+
+<link rel="canonical" href="https://anzonwong.com/lab/uk-site-analysis/">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/uk-site-analysis/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/uk-site-analysis/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="UK Site Analysis · Anzon Wong">
+<meta property="og:description" content="UK Site Analysis: pick a site anywhere in England and get fourteen site analysis diagrams at one frame and scale, from LiDAR building heights, sun and shadows on 21 March, June and December, and sunlight hours to planning constraints, flood zones, modelled road and rail noise and a BRE 25 degree screening check, plus a 3D exploded view and DXF/SVG in British National Grid. From open government data. A free hobby tool by Anzon Wong.">
+<meta property="og:url" content="https://anzonwong.com/lab/uk-site-analysis/">
+<meta property="og:image" content="https://anzonwong.com/img/og/uk-site-analysis.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="UK Site Analysis">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Lab","item":"https://anzonwong.com/lab/"},{"@type":"ListItem","position":3,"name":"UK Site Analysis","item":"https://anzonwong.com/lab/uk-site-analysis/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/lab/uk-site-analysis/#page","url":"https://anzonwong.com/lab/uk-site-analysis/","name":"UK Site Analysis · Anzon Wong","description":"UK Site Analysis: pick a site anywhere in England and get fourteen site analysis diagrams at one frame and scale, from LiDAR building heights, sun and shadows on 21 March, June and December, and sunlight hours to planning constraints, flood zones, modelled road and rail noise and a BRE 25 degree screening check, plus a 3D exploded view and DXF/SVG in British National Grid. From open government data. A free hobby tool by Anzon Wong.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/uk-site-analysis.jpg"}]}</script>
+<style>
+/* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
+:root{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* header: one line, 1px ink rule */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:22px;padding-bottom:14px;flex-wrap:wrap}
+.brand{font:400 22px var(--serif);text-decoration:none;white-space:nowrap}
+.brand small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:12px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);flex-wrap:wrap;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav a{text-decoration:none;color:var(--ink-2);padding:3px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+:root[data-lang="zh"] .nav{letter-spacing:.2em}
+.lang{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--ink);background:transparent;padding:5px 9px;border-radius:3px;cursor:pointer;color:var(--ink)}
+.lang:hover{background:var(--ink);color:var(--paper)}
+
+/* type */
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.015em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(24px,3vw,36px);line-height:1.15}
+h3{font-size:21px;line-height:1.2}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:24px 0 0}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* page head + ruled sections (2fr label / 10fr content) */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(36px,5vw,64px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.note{color:var(--ink-2)}
+
+/* home intro */
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;padding:clamp(32px,5vw,56px) 0 40px;align-items:end}
+.intro p{font:400 clamp(26px,3vw,42px)/1.18 var(--serif);margin:0;letter-spacing:-.005em}
+:root[data-lang="zh"] .intro p{line-height:1.35;letter-spacing:.02em}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.meta div{padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.meta b{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* selected strip */
+.sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.sel a{text-decoration:none;display:block;min-width:0}
+.sel img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--rule-2)}
+.sel span{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px}
+.sel b{font:400 17px var(--serif)}
+.sel i{font:11px var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.sel a:hover b{color:var(--accent)}
+
+/* index controls */
+.ix-wrap{margin:0 0 8px}
+.ctl{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);background:transparent;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.chip sup{font:10px var(--mono);color:var(--muted);margin-left:3px}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on sup{color:var(--rule)}
+.ctl-t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.count{font:11px var(--mono);color:var(--muted);letter-spacing:.06em}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:2px 0}
+.search input{border:0;background:transparent;font:15px var(--serif);width:220px;outline:none;color:var(--ink);padding:2px 0}
+.search input::placeholder{color:var(--muted)}
+.search kbd{font:10px var(--mono);border:1px solid var(--rule);padding:1px 5px;border-radius:2px;color:var(--muted)}
+
+/* the index table */
+.ix{width:100%;border-collapse:collapse}
+.ix thead th{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;padding:0;white-space:nowrap}
+.ix thead th button{all:unset;cursor:pointer;display:block;padding:12px 10px 8px 0}
+.ix thead th button:hover{color:var(--ink)}
+.ix thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ix thead th.s button::after{content:" \2193";color:var(--accent)}
+.ix thead th.s.r button::after{content:" \2191"}
+.ix tbody tr{border-top:1px solid var(--rule);cursor:pointer}
+.ix tbody tr:last-child{border-bottom:1px solid var(--rule)}
+.ix td{padding:13px 10px 13px 0;vertical-align:baseline}
+.ix td.no{font:11.5px var(--mono);color:var(--muted);width:64px;white-space:nowrap}
+.ix td.ti{font:400 23px/1.2 var(--serif)}
+.ix td.ti a{text-decoration:none}
+.ix .alt{font:400 14px var(--serif);color:var(--muted);margin-left:12px}
+.ix .sub{display:none}
+.ix td.ty,.ix td.pl{font-size:13.5px;color:var(--ink-2)}
+.ix td.ty{max-width:240px}
+.ix td.pl{white-space:nowrap}
+.ix td.yr{font:12.5px var(--mono);color:var(--ink-2);width:60px}
+.ix td.go{width:30px;text-align:right;color:var(--muted)}
+.ix .tag{margin-left:10px;vertical-align:middle}
+.ix tbody:hover tr td,.ix tbody:hover tr .alt{color:var(--muted)}
+.ix tbody tr:hover td,.ix tbody tr.kb td{color:var(--ink)!important}
+.ix tbody tr:hover td.go,.ix tbody tr.kb td.go,.ix tbody tr:hover td.ti a{color:var(--accent)!important}
+.ix tbody tr.kb{background:var(--card)}
+.ix .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0;max-width:42em}
+.ix .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:6px 0 0;max-width:42em}
+:root[data-lang="zh"] .ix .disc{font-style:normal}
+.ix tbody:hover tr .sum,.ix tbody:hover tr .disc{color:var(--muted)}
+.ix tbody tr:hover .sum{color:var(--ink-2)!important}
+.xp{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin:12px 0 4px;font:14px/1.5 var(--sans);cursor:default}
+.xp[hidden]{display:none}
+.xp img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--rule-2)}
+.xp p{margin:0 0 8px;color:var(--ink-2)}
+.xp .xd{font-size:13px;color:var(--muted)}
+.xp a.open{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.xp.noimg{grid-template-columns:1fr}
+.empty{padding:30px 0;color:var(--muted);font:400 18px var(--serif)}
+
+/* Work / Lab card grid (.gx): 3 / 2 / 1 columns, 4:3 thumbnail, calm hover */
+.gx{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 24px}
+.gc{min-width:0}
+.gc[hidden]{display:none}
+.gc-a{display:block;text-decoration:none;color:inherit}
+.gc-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:transform .2s ease,border-color .2s ease}
+.gc-im img{width:100%;height:100%;object-fit:cover}
+.gc-im.noimg{display:flex;align-items:flex-end;padding:14px;font:12px var(--mono);color:var(--muted)}
+.gc-no{display:inline-block;font:11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:14px 0 4px}
+.gc .tag{margin-left:10px;vertical-align:1px}
+.gc-ti{font:400 23px/1.2 var(--serif);margin:0}
+.gc-ti .alt{display:block;font:400 14px/1.4 var(--serif);color:var(--muted);margin-top:3px}
+.gc .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0}
+.gc-meta{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+:root[data-lang="zh"] .gc-meta{letter-spacing:.1em}
+.gc .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-2)}
+:root[data-lang="zh"] .gc .disc{font-style:normal}
+a.gc-a:hover .gc-im{transform:translateY(-2px);border-color:var(--ink)}
+a.gc-a:hover .gc-ti .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:var(--accent-ink)}
+a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media (max-width:960px){.gx{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}}
+@media (max-width:600px){.gx{grid-template-columns:1fr;gap:36px}.gc-ti{font-size:21px}}
+
+/* preview that follows the cursor */
+.pv{position:fixed;z-index:20;left:0;top:0;width:360px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .15s,transform .15s}
+.pv.on{opacity:1;transform:none}
+.pv img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;box-shadow:0 20px 40px -20px rgba(29,28,26,.5);background:#fff}
+.pv .cap{display:inline-block;margin-top:6px;background:var(--ink);color:var(--paper);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px}
+.pv .pd{margin:6px 0 0;background:var(--paper);border:1px solid var(--rule);padding:6px 8px;font-size:12px;line-height:1.45;color:var(--ink-2)}
+.pv .pd:empty{display:none}
+
+/* tags */
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:24px 26px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:"L" counter(l,decimal-leading-zero);font:12px var(--mono);color:var(--muted);padding-top:6px}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(28px,4vw,44px)}
+.facts div{padding:10px 16px 10px 0;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.facts b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+/* call block: ruled like the index controls, no dark band */
+.band{border-top:3px solid var(--ink);padding:clamp(32px,5vw,56px) 0;margin-top:clamp(28px,4vw,48px)}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band p{color:var(--ink-2);max-width:34em}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer: 1px ink rule, one quiet line */
+.foot{margin-top:clamp(40px,6vw,64px)}
+.foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
+.foot p{margin:0;max-width:60em}
+.foot .sig{white-space:nowrap}
+.foot a{color:var(--ink)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
+.nav a.lang:hover{background:var(--ink);color:var(--paper)}
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
+
+/* phone */
+@media (max-width:860px){
+  .top .wrap{padding-top:16px;padding-bottom:10px;row-gap:8px}
+  .nav{margin-left:0;width:100%;gap:8px 14px;font-size:12px}
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
+  .sel{gap:8px;margin-bottom:30px}
+  .sel b{font-size:13px}.sel i{display:none}
+  .search{margin-left:0;width:100%}.search input{width:100%}.search kbd{display:none}
+  .ix td.ty,.ix td.pl,.ix td.go,.ix th.ty,.ix th.pl,.ix th.go{display:none}
+  .ix td{padding:11px 8px 11px 0}
+  .ix td.no{width:44px;font-size:10.5px}
+  .ix td.ti{font-size:19px}
+  .ix .alt{display:block;margin:2px 0 0;font-size:13px}
+  .ix .sub{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:3px}
+  .ix td.yr{width:auto;text-align:right}
+  .ix th.yr button{text-align:right;padding-right:0}
+  .ix .tag{margin:4px 0 0}
+  .pv{display:none}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot .sig{white-space:normal}
+}
+@media (max-width:420px){
+  .brand small{display:none}
+  .xp{grid-template-columns:96px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Lab tool: HK Site Analysis. Tokens from styles.css only; layout follows hk-site-model.css. */
+.sl-list,.sl-credits{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);max-width:46em}
+.sl-list li,.sl-credits li{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:4px 20px;padding:12px 0;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+.sl-list b,.sl-credits b{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.sl-credits li{font-size:15px;padding:9px 0}
+.sl-disc{font-style:italic;color:var(--ink-2)}
+
+.uksa{padding:clamp(24px,4vw,44px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.uksa-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(16px,2.4vw,28px)}
+.uksa-col{min-width:0;display:flex;flex-direction:column;position:relative}
+.uksa-search{display:flex;gap:6px;margin-bottom:10px;min-width:0}
+.uksa-search input{flex:1;min-width:0;font:14px var(--sans);padding:9px 10px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink)}
+.uksa-search button,.uksa-tbtn{font:12px var(--mono);letter-spacing:.06em;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:3px;padding:8px 11px;cursor:pointer}
+.uksa-search button:hover,.uksa-tbtn:hover,.uksa-seg button:hover{color:var(--accent)}
+.uksa-tbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.uksa-tbtn:disabled{opacity:.4;cursor:default}
+.uksa-results{position:absolute;z-index:500;top:46px;left:0;right:0;list-style:none;margin:0;padding:4px 0;background:var(--paper);border:1px solid var(--ink);border-radius:3px;max-height:300px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.uksa-results button{display:block;width:100%;text-align:left;font:14px/1.4 var(--sans);color:var(--ink);background:none;border:0;padding:8px 12px;cursor:pointer}
+.uksa-results button:hover,.uksa-results button:focus{background:var(--rule-2);color:var(--accent)}
+.uksa-map{position:relative;z-index:0;height:clamp(360px,56vh,600px);border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);overflow:hidden}
+.uksa-coords{font:11.5px/1.5 var(--mono);color:var(--muted);margin:8px 0 0;letter-spacing:.02em}
+.uksa-ctl fieldset{border:0;border-top:1px solid var(--ink);margin:0 0 14px;padding:10px 0 0}
+.uksa-ctl legend{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 8px 0 0}
+.uksa-seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.uksa-seg button{font:12px var(--mono);letter-spacing:.04em;background:transparent;color:var(--ink);border:0;border-right:1px solid var(--ink);padding:9px 11px;cursor:pointer}
+.uksa-seg button:last-child{border-right:0}
+.uksa-seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.uksa-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.uksa-field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink-2);margin-bottom:10px}
+.uksa-field input,.uksa-field select{font:14px var(--sans);padding:8px 9px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink);max-width:100%}
+.uksa-hint{font-size:13px;color:var(--muted);margin:0}
+.uksa-actions{margin-top:4px}
+.uksa-btn{padding:11px 18px;font-size:13px}
+.uksa-btn:disabled{opacity:.4;cursor:default}
+.uksa-btn:disabled:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+#uksa-run:disabled:hover{background:var(--ink);color:var(--paper)}
+.uksa-status{font-size:14px;color:var(--ink-2);margin:12px 0 0;min-height:1.6em}
+.uksa-status[data-kind="ok"]{color:var(--ink)}
+.uksa-status[data-kind="err"]{color:var(--accent-ink)}
+.uksa-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:12px 0 0;border-top:1px solid var(--ink)}
+.uksa-stats div{padding:8px 12px 8px 0;border-bottom:1px solid var(--rule)}
+.uksa-stats dt{font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.uksa-stats dd{margin:0;font-size:15px;color:var(--ink)}
+.uksa-stats small{color:var(--muted);font-size:12.5px}
+.uksa-out{margin-top:clamp(18px,2.6vw,30px)}
+.uksa-outbar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink);padding:10px 0}
+.uksa-outlabel{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.uksa-sheetwrap{border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);overflow:auto;-webkit-overflow-scrolling:touch}
+.uksa-sheet{position:relative;aspect-ratio:420/297;background:#fff}
+.uksa-sheet svg{display:block;width:100%;height:auto}
+.uksa-out.zoomed .uksa-sheet{width:260%}
+.uksa-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;margin:0;color:var(--muted);font-size:14px;background:var(--rule-2)}
+.uksa-out.has-sheet .uksa-ph{display:none}
+.uksa-attr{font:11px/1.6 var(--mono);letter-spacing:.04em;color:var(--muted);margin:18px 0 0;max-width:62em}
+.uksa-steps{margin:0;padding-left:1.3em;max-width:40em;color:var(--ink-2)}
+.uksa-steps li{padding:4px 0 8px}
+.uksa-lic{font-size:13.5px;color:var(--muted);max-width:46em;margin:16px 0 0}
+/* Leaflet bits */
+.uksa-pin{width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid #d0021b;box-shadow:0 0 0 3px rgba(208,2,27,.18);cursor:grab}
+.leaflet-container{font:12px var(--sans);background:var(--rule-2)}
+.leaflet-control-attribution{font-size:10.5px}
+@media (max-width:860px){
+  .uksa-grid{grid-template-columns:1fr}
+  .uksa-map{height:min(80vw,440px)}
+}
+@media (max-width:600px){
+  .sl-list li,.sl-credits li{grid-template-columns:1fr}
+  .uksa-stats{grid-template-columns:1fr}
+  .uksa-out.zoomed .uksa-sheet{width:400%}
+}
+/* tool page: a shorter header so the map shows sooner */
+.head{padding:clamp(32px,4.5vw,64px) 0 clamp(22px,3vw,36px)}
+.head .lede{font-size:clamp(17px,1.6vw,21px);margin-top:16px}
+.head .facts{margin-top:clamp(18px,2.4vw,28px)}
+.uksa-ex{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.uksa-ex figure{margin:0}
+.uksa-ex figure.wide{grid-column:1/-1}
+.uksa-ex img{width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:#fff}
+.uksa-ex figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:600px){.uksa-ex{grid-template-columns:1fr}}
+.uksa-sq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,22px);margin-top:clamp(16px,2.4vw,28px)}
+.uksa-sq figure{margin:0}
+.uksa-sq img{width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:#fff}
+.uksa-sq figcaption{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:860px){.uksa-sq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v3: colour / frame selects, 3D panel */
+.uksa-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.uksa-3dwrap { margin-top: 18px; }
+.uksa-3d { position: relative; width: 100%; aspect-ratio: 16 / 10; max-height: 78vh; background: #f2efe8; border: 1px solid var(--rule, #d9d3c7); overflow: hidden; touch-action: none; }
+.uksa-3d > canvas:first-child { display: block; width: 100% !important; height: 100% !important; }
+@media (max-width: 640px) { .uksa-3d { aspect-ratio: 1 / 1; } }
+
+/* 29 Oct: site shape choice (Draw site boundary | Circle), draw tools, live measure, boundary handles */
+.uksa-mode{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.uksa-mode button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-height:56px;text-align:left;background:transparent;color:var(--ink);border:0;padding:10px 12px;cursor:pointer;font:inherit;min-width:0}
+.uksa-mode button+button{border-left:1px solid var(--ink)}
+.uksa-mode b{font:600 14px/1.25 var(--sans)}
+.uksa-mode small{font-size:12px;line-height:1.3;color:var(--muted)}
+.uksa-mode button[aria-checked="true"]{background:var(--ink);color:var(--paper)}
+.uksa-mode button[aria-checked="true"] small{color:var(--paper);opacity:.8}
+.uksa-mode button:hover b{color:var(--accent)}
+.uksa-mode button[aria-checked="true"]:hover b{color:var(--paper)}
+.uksa-mode button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.uksa-panel{margin-bottom:6px}
+.uksa-panel .uksa-hint{margin:0 0 10px;color:var(--ink-2)}
+.uksa-panel .uksa-row{margin-bottom:6px}
+.uksa-measure{display:grid;grid-template-columns:1fr 1fr;margin:8px 0 0;border-top:1px solid var(--rule)}
+.uksa-measure div{padding:6px 10px 0 0}
+.uksa-measure dt{font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.uksa-measure dd{margin:0;font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+.uksa-vh,.uksa-mh{background:transparent;border:0}
+.uksa-vh::after,.uksa-mh::after{content:"";position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%)}
+.uksa-vh::after{width:11px;height:11px;border-radius:1px;background:#fff;border:2px solid #d0021b;box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+.uksa-mh::after{width:8px;height:8px;background:rgba(255,255,255,.9);border:1.5px solid #d0021b}
+.uksa-vh{cursor:move}.uksa-mh{cursor:copy}
+.uksa-vh:hover::after{background:#d0021b}
+@media (pointer:coarse){.uksa-vh::after{width:18px;height:18px}.uksa-mh::after{width:13px;height:13px}}
+.uksa-map.is-drawing .leaflet-container,.uksa-map.is-drawing{cursor:crosshair}
+@media (max-width:600px){.uksa-panel .uksa-row .uksa-tbtn{flex:1 1 auto;padding:11px 10px}.uksa-seg{display:flex}.uksa-seg button{flex:1 1 25%;padding:11px 4px}}
+
+</style>
+<script>
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
+(function(){
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
+})();
+
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../work/"><span class="en">Work</span></a>
+      <a href="../../lab/" aria-current="page"><span class="en">Lab</span></a>
+      <a href="../../courses/"><span class="en">Courses</span></a>
+      <a href="../../journal/"><span class="en">Journal</span></a>
+      <a href="../../about/"><span class="en">About</span></a>
+      <a href="../../contact/"><span class="en">Contact</span></a>
+      
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<header class="head">
+  <div class="label"><a href="../../lab/" style="text-decoration:none">02 / <span class="en">Lab</span></a></div>
+  <div>
+    <span class="kind"><span class="en">Site analysis diagrams, England · Hobby project</span></span>
+    <h1><span class="en">UK Site Analysis</span></h1>
+    <p class="lede en">Pick a site anywhere in England and get fourteen site analysis diagrams, drawn to the same frame and scale: figure-ground, building heights, topography, sun and shadows on 21 March, June and December, sunlight hours, sky view factor, prevailing wind, access, road and rail noise, green and habitats, planning constraints, flood zones, a BRE 25° screening check and views. Buildings and heights come from Environment Agency LiDAR. Turn the site in 3D, pull the diagrams apart into an exploded axonometric, pick a colour style, and download an A3 or A2 board, square images, or DXF and SVG drawings in British National Grid for your CAD.</p>
+    
+    <div class="facts">
+      <div><b><span class="en">Site</span></b><span class="en">Postcode or place search, then your own drawn boundary or a radius</span></div>
+      <div><b><span class="en">Output</span></b><span class="en">A3 or A2 board (PDF) · PNG · 14 squares (ZIP) · exploded 3D view · DXF and SVG</span></div>
+      <div><b><span class="en">Cost</span></b><span class="en">Free, no sign-in, runs in your browser</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="uksa" id="tool" aria-label="UK Site Analysis tool">
+  <div class="uksa-grid">
+    <div class="uksa-col">
+      <form id="uksa-search" class="uksa-search" autocomplete="off">
+        <label class="vh" for="uksa-q"><span class="en">Search a postcode or place</span></label>
+        <input id="uksa-q" type="search" placeholder="Postcode, town or village, or lat, lon / E, N" aria-describedby="uksa-coords">
+        <button type="submit"><span class="en">Search</span></button>
+      </form>
+      <ul id="uksa-results" class="uksa-results" hidden></ul>
+      <div id="uksa-map" class="uksa-map"></div>
+      <p class="uksa-coords"><span class="en">Site</span> <span id="uksa-coords"></span></p>
+    </div>
+    <div class="uksa-col uksa-ctl">
+      <fieldset>
+        <legend><span class="en">1. The site</span></legend>
+        <div class="uksa-mode" role="radiogroup" aria-label="Site shape">
+          <button type="button" role="radio" id="uksa-draw" data-mode="draw" aria-checked="false"><b>Draw site boundary</b><small>Your own shape, corner by corner</small></button>
+          <button type="button" role="radio" id="uksa-circle" data-mode="circle" aria-checked="true"><b>Circle</b><small>A quick radius round a point</small></button>
+        </div>
+        <div id="uksa-drawpanel" class="uksa-panel" hidden>
+          <p id="uksa-drawhint" class="uksa-hint">Click each corner of the site on the map. Click the first corner, or press Finish, to close it.</p>
+          <p id="uksa-edithint" class="uksa-hint" hidden>Drag a corner to reshape the site. Click a small dot on an edge to add a corner; right-click a corner to remove it.</p>
+          <div class="uksa-row">
+            <button type="button" id="uksa-finish" class="uksa-tbtn" disabled>Finish</button>
+            <button type="button" id="uksa-undo" class="uksa-tbtn" disabled title="Backspace or Ctrl+Z">Undo corner</button>
+            <button type="button" id="uksa-cancel" class="uksa-tbtn" title="Esc">Cancel</button>
+            <button type="button" id="uksa-clear" class="uksa-tbtn" hidden>Redraw</button>
+          </div>
+        </div>
+        <div id="uksa-circlepanel" class="uksa-panel">
+          <div class="uksa-seg" role="group" aria-label="Site radius">
+            <button type="button" data-r="25" aria-pressed="false">r 25 m</button>
+            <button type="button" data-r="50" aria-pressed="true">r 50 m</button>
+            <button type="button" data-r="100" aria-pressed="false">r 100 m</button>
+            <button type="button" data-r="200" aria-pressed="false">r 200 m</button>
+          </div>
+        </div>
+        <dl class="uksa-measure" aria-live="polite">
+          <div><dt>Site area</dt><dd id="uksa-area">-</dd></div>
+          <div><dt>Perimeter</dt><dd id="uksa-perim">-</dd></div>
+        </dl>
+      </fieldset>
+      <fieldset>
+        <legend><span class="en">2. The board</span></legend>
+        <label class="uksa-field"><span class="en">Title on the board (optional)</span>
+          <input id="uksa-name" type="text" maxlength="60" placeholder="e.g. Corner site, Bath"></label>
+        <label class="uksa-field"><span class="en">Frame (every diagram)</span>
+          <select id="uksa-scale">
+            <option value="auto" selected>Auto</option>
+            <option value="200">200 m</option>
+            <option value="300">300 m</option>
+            <option value="400">400 m</option>
+            <option value="600">600 m</option>
+            <option value="800">800 m</option>
+          </select></label>
+        <div class="uksa-row2">
+          <label class="uksa-field"><span class="en">Colours</span>
+            <select id="uksa-style">
+              <option value="paper" selected>Paper</option>
+              <option value="mono">Line</option>
+              <option value="vivid">Vivid</option>
+              <option value="night">Night</option>
+            </select></label>
+          <label class="uksa-field"><span class="en">Frame shape</span>
+            <select id="uksa-shape">
+              <option value="square" selected>Square</option>
+              <option value="circle">Round</option>
+            </select></label>
+        </div>
+        <p class="uksa-hint"><span class="en">The dashed square on the map is what every diagram will show.</span></p>
+      </fieldset>
+      <div class="uksa-row uksa-actions">
+        <button type="button" id="uksa-run" class="btn uksa-btn"><span class="en">Analyse site</span></button>
+        <button type="button" id="uksa-pdf" class="btn btn-2 uksa-btn" disabled>A3 PDF</button>
+        <button type="button" id="uksa-pdf2" class="btn btn-2 uksa-btn" disabled>A2 PDF</button>
+        <button type="button" id="uksa-png" class="btn btn-2 uksa-btn" disabled>PNG</button>
+        <button type="button" id="uksa-zip" class="btn btn-2 uksa-btn" disabled><span class="en">14 squares (ZIP)</span></button>
+        <button type="button" id="uksa-explode" class="btn btn-2 uksa-btn" disabled><span class="en">Exploded view (PNG)</span></button>
+        <button type="button" id="uksa-dxf" class="btn btn-2 uksa-btn" disabled>DXF</button>
+        <button type="button" id="uksa-svg" class="btn btn-2 uksa-btn" disabled>SVG</button>
+      </div>
+      <p id="uksa-status" class="uksa-status" role="status" aria-live="polite"></p>
+      <dl id="uksa-stats" class="uksa-stats" hidden></dl>
+    </div>
+  </div>
+  <div id="uksa-3dwrap" class="uksa-3dwrap">
+    <div class="uksa-outbar">
+      <span class="uksa-outlabel"><span class="en">3D</span></span>
+      <button type="button" data-v3="massing" class="uksa-tbtn" aria-pressed="false"><span class="en">3D model</span></button>
+      <button type="button" data-v3="explode" class="uksa-tbtn" aria-pressed="false"><span class="en">Exploded layers</span></button>
+    </div>
+    <div id="uksa-3d" class="uksa-3d" hidden></div>
+  </div>
+  <div id="uksa-out" class="uksa-out">
+    <div class="uksa-outbar">
+      <span class="uksa-outlabel"><span class="en">The board</span></span>
+      <button type="button" id="uksa-zoom" class="uksa-tbtn" aria-pressed="false"><span class="en">Zoom</span></button>
+    </div>
+    <div class="uksa-sheetwrap"><div id="uksa-sheet" class="uksa-sheet"><p class="uksa-ph"><span class="en">Your board of fourteen diagrams appears here after Analyse site.</span></p></div></div>
+  </div>
+  <p class="uksa-attr"><span class="en">Data: Environment Agency, MHCLG (planning.data.gov.uk), Defra, Natural England and DfT under the Open Government Licence v3.0; ERA5 wind via Open-Meteo (CC BY 4.0); search by postcodes.io (contains OS data © Crown copyright and database right); roads from OS Open Roads (contains OS data © Crown copyright and database right 2026); map and paths © OpenStreetMap contributors. Hobby project, not official, for reference only. Not a substitute for a survey or professional advice.</span></p>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">How to use it</span></div>
+  <div>
+    <ol class="uksa-steps">
+      <li><span class="en">Search a postcode, a town or a village, or click the map. You can also type coordinates (lat, lon or British National Grid E, N).</span></li>
+      <li><span class="en">Set the site: pick Draw site boundary and click each corner of your site (click the first corner to close it, then drag corners to adjust), or pick Circle for a quick 25 to 200 m radius. Drag the dot to move the whole site.</span></li>
+      <li><span class="en">Give the board a title if you like, leave the frame on Auto or pick a size, and pick a colour style and a square or round frame; both can change after the analysis.</span></li>
+      <li><span class="en">Press Analyse site. The data loads live from government servers, usually in under half a minute. Then download the PDF, the PNG board, the fourteen squares, the exploded view, or DXF and SVG in British National Grid metres.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">The fourteen diagrams</span></div>
+  <div>
+    <ul class="sl-list">
+      <li><b><span class="en">01 Figure-ground</span></b><span class="en">Buildings in black on white, and how much of the ground within the frame's radius they cover.</span></li>
+      <li><b><span class="en">02 Building heights</span></b><span class="en">Every LiDAR block raised as a plan-oblique, shaded by height above ground, the three tallest labelled. Heights at half scale.</span></li>
+      <li><b><span class="en">03 Topography</span></b><span class="en">Ground levels from the LiDAR terrain model with hill shading, contours in metres above Ordnance Datum, spot levels and the fall of the site.</span></li>
+      <li><b><span class="en">04 Sun and shadows</span></b><span class="en">Shadows at 12:00 on 21 March, 21 June and 21 December, the three sun paths, and the share of the site in shade on each date.</span></li>
+      <li><b><span class="en">05 Sunlight hours</span></b><span class="en">Hours of direct sun on open ground on 21 March as a colour map, with the site averages for March, June and December and the share of the site with two hours or more on 21 March.</span></li>
+      <li><b><span class="en">06 Sky view factor</span></b><span class="en">How much sky you see at head height across the frame, from 0 (enclosed) to 1 (open sky).</span></li>
+      <li><b><span class="en">07 Prevailing wind</span></b><span class="en">Wind roses for the year and for summer from ten years of ERA5 reanalysis at 10 m.</span></li>
+      <li><b><span class="en">08 Access and movement</span></b><span class="en">Bus stops and rail, Underground, metro and tram entrances from NaPTAN, roads and street names from OS Open Roads, footpaths from OpenStreetMap when it answers, and 5 and 10 minute walks along those roads; if no road data loads, straight-line distances, labelled as such.</span></li>
+      <li><b><span class="en">09 Road and rail noise</span></b><span class="en">Defra's modelled noise, LAeq,16h by day and Lnight, road and rail combined, on a 10 m grid.</span></li>
+      <li><b><span class="en">10 Green and habitats</span></b><span class="en">Tree canopy found in the LiDAR, and Natural England's priority habitats.</span></li>
+      <li><b><span class="en">11 Planning constraints</span></b><span class="en">Conservation areas, listed buildings, scheduled monuments, registered parks and gardens, World Heritage Sites, green belt, National Landscapes and national parks, Article 4 directions and tree preservation orders. Where a council publishes nothing on planning.data.gov.uk, the diagram says so instead of reporting none.</span></li>
+      <li><b><span class="en">12 Flood zones</span></b><span class="en">Flood Zones 2 and 3 for rivers and the sea, and the share of the site in each.</span></li>
+      <li><b><span class="en">13 BRE 25° screening</span></b><span class="en">The height above the site at which a new building would cut the 25° line from neighbouring facades that face the site, with windows assumed 2 m above ground. A screening check, not a daylight assessment.</span></li>
+      <li><b><span class="en">14 Views and openness</span></b><span class="en">How far you see from the middle of the site at street level and from 30 m up, and the directions that stay open.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Limits</span></div>
+  <div class="prose">
+    <p class="en">Every diagram is drawn only from data the tool loaded. If a server does not answer, or a layer has nothing near the site, the diagram says so in words instead of guessing. The tool covers England only, where the Environment Agency LiDAR exists.</p>
+    <p class="en">Buildings are found in the LiDAR, not taken from a map: ground 2.5 m or more above the terrain model where the laser's first and last returns agree (a roof, not a tree). Joined buildings become one block; sheds, dense evergreen trees or vehicles can slip in, and small buildings or glass roofs can be missed. Checked against OS OpenMap Local buildings on 28 October 2026, the outlines overlap with an intersection over union of 0.77 in a Hertfordshire city centre and 0.62 in the village of Ashwell, where small and tree-covered buildings are harder to find. Heights are the 85th percentile of the roof surface, with a taller part such as a tower kept as its own block; roofs are drawn flat. The LiDAR survey dates vary from place to place, so recent buildings may be missing or demolished ones still shown.</p>
+    <p class="en">Coordinates are British National Grid. Points from latitude and longitude (search results, planning data, the map) are converted with the standard Helmert transformation, good to a few metres, not the OSTN15 grid. Every diagram has grid north up; true north differs from grid north by up to about 3° across England and the board states it.</p>
+    <p class="en">Sun positions use the NOAA equations at clock time (GMT, or BST in summer). Drawn shadows fall on a level plane at the site's mean ground; the share of the site in shade is a separate 3D sun-ray test. Sunlight hours and sky view count buildings and terrain, not trees, and treat the site as cleared. They are not a daylight or sunlight assessment to BRE BR 209 or any other standard.</p>
+    <p class="en">The BRE 25° check assumes a window centre 2 m above ground on every neighbouring facade that faces the site square on, within 60 m. Real window positions, room uses and the rest of the BRE tests (vertical sky component, daylight distribution, sunlight) are not known or not run. It is a screening check only.</p>
+    <p class="en">Wind is ERA5 reanalysis at 10 m on a grid of about 25 km, for open ground: not street-level wind and not a wind microclimate study. Noise is Defra's Round 4 strategic noise model for 2022, not a measurement, and levels below its mapped range show as blank. Flood zones are the copy on planning.data.gov.uk, which carries its own date; it covers rivers and the sea, not surface water or groundwater. Check the Environment Agency's current Flood Map for Planning before relying on it.</p>
+    <p class="en">Planning data comes from planning.data.gov.uk, which collects it from Historic England, Natural England, the Environment Agency and each council. Coverage of council datasets (conservation areas, Article 4 directions, tree preservation orders, listed building outlines) varies; the diagram tells "none found here" apart from "this council publishes none" where it can. Always check with the local planning authority.</p>
+    <p class="en">Transport stops come from a NaPTAN snapshot of 28 October 2026. Roads, street names and the walking network come from OS Open Roads (October 2026 release, shipped with the tool). Open Roads holds roads only, not footpaths, alleys or cut-throughs, and walks follow road centre lines, so real walks can be shorter. Footpaths and building names are added from OpenStreetMap through the public Overpass API only when it answers, which it often does not.</p>
+    <p class="en sl-disc">Hobby project, not official, for reference only. Not a substitute for a survey or professional advice.</p>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label"><span class="en">Data and licence</span></div>
+  <div>
+    <ul class="sl-credits">
+      <li><b><span class="en">Buildings, terrain</span></b><span>LiDAR Composite DTM and First Return / Last Return DSM, 1 m, <span class="en">Environment Agency, Open Government Licence v3.0, loaded live by WCS</span></span></li>
+      <li><b><span class="en">Planning, flood</span></b><span><a href="https://www.planning.data.gov.uk/" rel="noopener">planning.data.gov.uk</a>, <span class="en">Ministry of Housing, Communities and Local Government, with data from Historic England, Natural England, the Environment Agency and local planning authorities; Open Government Licence v3.0</span></span></li>
+      <li><b><span class="en">Noise</span></b><span><span class="en">Strategic noise mapping Round 4 (2022), road and rail</span>, <span class="en">Defra, Open Government Licence v3.0</span></span></li>
+      <li><b><span class="en">Habitats</span></b><span><span class="en">Priority Habitats Inventory (England)</span>, <span class="en">© Natural England, Open Government Licence v3.0</span></span></li>
+      <li><b><span class="en">Transport</span></b><span>NaPTAN, <span class="en">Department for Transport, Open Government Licence v3.0, snapshot 28 Oct 2026 shipped with the tool</span></span></li>
+      <li><b><span class="en">Wind</span></b><span><a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a> <span class="en">historical weather API, ERA5 reanalysis (Copernicus Climate Change Service), CC BY 4.0</span></span></li>
+      <li><b><span class="en">Search</span></b><span><a href="https://postcodes.io/" rel="noopener">postcodes.io</a>, <span class="en">ONS Postcode Directory and OS Open Names: contains OS data © Crown copyright and database right; Royal Mail data © Royal Mail copyright and database right; ONS data © Crown copyright and database right (OS OpenData, Open Government Licence)</span></span></li>
+      <li><b><span class="en">Roads</span></b><span>OS Open Roads, <span class="en">Ordnance Survey, October 2026 release shipped with the tool: contains OS data © Crown copyright and database right 2026 (OS OpenData, Open Government Licence v3.0)</span></span></li>
+      <li><b><span class="en">Map, paths, names</span></b><span><a href="https://www.openstreetmap.org/copyright" rel="noopener">© OpenStreetMap contributors</a>, <span class="en">ODbL; map tiles from openstreetmap.org</span></span></li>
+      <li><b><span class="en">Sun</span></b><span><span class="en">NOAA solar position equations, computed in your browser</span></span></li>
+      <li><b><span class="en">3D</span></b><span><a href="https://threejs.org/" rel="noopener">three.js</a>, <span class="en">MIT licence, loaded from jsDelivr</span></span></li>
+    </ul>
+    <p class="uksa-lic"><span class="en">Contains public sector information licensed under the Open Government Licence v3.0. © Environment Agency copyright and/or database right 2026. Contains Natural England data © Natural England. Every board prints the full credits and the disclaimer, and the DXF and SVG files hold them as text. A free hobby tool, not professional advice, and not affiliated with any government body, Ordnance Survey, the BRE or OpenStreetMap.</span></p>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.1/proj4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module" src="../../../lab/uk-site-analysis/app.js"></script>
+
+</main>
+<footer class="foot">
+  <div class="wrap"><div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
+  </div></div>
+</footer>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
