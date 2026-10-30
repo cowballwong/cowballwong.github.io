@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-29</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-10-30</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-29</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-10-30</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -131,6 +131,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-site-analysis/"/>
   </url>
   <url><loc>https://anzonwong.com/lab/uk-site-analysis/</loc><lastmod>2026-10-29</lastmod>
+  </url>
+  <url><loc>https://anzonwong.com/journal/missing-north-arrow-scale-bar-left/</loc><lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/missing-north-arrow-scale-bar-left/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/missing-north-arrow-scale-bar-left/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/missing-north-arrow-scale-bar-left/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/missing-north-arrow-scale-bar-left/</loc><lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/missing-north-arrow-scale-bar-left/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/missing-north-arrow-scale-bar-left/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/missing-north-arrow-scale-bar-left/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/tried-cadcraft-free-open-source-autocad/</loc><lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/tried-cadcraft-free-open-source-autocad/"/>
