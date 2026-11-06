@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-05</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-05</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -141,6 +141,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/hk-swept-path/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/hk-swept-path/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-swept-path/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/building-safety-regulator-recruiting-members-its/</loc><lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/building-safety-regulator-recruiting-members-its/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/building-safety-regulator-recruiting-members-its/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/building-safety-regulator-recruiting-members-its/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/building-safety-regulator-recruiting-members-its/</loc><lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/building-safety-regulator-recruiting-members-its/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/building-safety-regulator-recruiting-members-its/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/building-safety-regulator-recruiting-members-its/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/product-lead-behind-claude-code-tool/</loc><lastmod>2026-11-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/product-lead-behind-claude-code-tool/"/>
