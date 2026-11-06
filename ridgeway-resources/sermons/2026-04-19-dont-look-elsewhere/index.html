@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Look Elsewhere 不要看別處 — Hebrews 希伯來書 3:1-6</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-04-19 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Don't Look Elsewhere 不要看別處<br>(Hebrews 希伯來書 3:1-6)</span></h1>
+  <table class="sermon-table"><tbody>
+
+<tr><td class="en">Ernest Shackleton was a famous Antarctic explorer. He went there many times. But his legacy is not just as a great explorer. He's also seen as one of the great leaders. No finer example of that than the famous "Endurance" expedition — an attempt to make the first land crossing of the Antarctic continent. As often happened — the ship got stuck in ice. Marooned for months. Completely stuck. Freezing temperatures. 28 men to care for. Many of these guys were not at all experienced in survival skills or exploring.</td>
+<td class="zh">厄內斯特・沙克爾頓（Ernest Shackleton）是一位著名的南極探險家。他多次前往南極，但他所留下的不單是偉大探險家的名聲，更被視為最偉大的領袖之一。最佳的例證莫過於著名的「堅忍號」（Endurance）遠征——那是一次嘗試首次橫越南極大陸的行動。如常發生的一樣——船隻被冰困住，被迫滯留數個月之久，完全動彈不得，天氣極度嚴寒，而他要照顧二十八個人。當中許多成員完全沒有野外求生或探險的經驗。</td></tr>
+
+<tr><td class="en">All 28 of them made it home. And if you'd asked them how? They'd all reply — because of Shackleton. His own example and his decisions made the difference.</td>
+<td class="zh">最終這二十八人全數平安回家。若你問他們是如何做到的，他們都會回答：是因為沙克爾頓。他以身作則，他所作的決定,改變了一切。</td></tr>
+
+<tr><td class="en">He was extremely loyal to his men.</td>
+<td class="zh">他對手下極其忠心。</td></tr>
+
+<tr><td class="en">He made sure everyone was treated equally. He took special care of those who were struggling to cope. He gave out supplies to others ahead of himself.</td>
+<td class="zh">他確保每個人都得到平等對待。他特別照顧那些難以支撐下去的人，自己的物資也先分給別人。</td></tr>
+
+<tr><td class="en">Following him got them home.</td>
+<td class="zh">跟隨他，他們就能平安回家。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en">Similar story in our passage this morning. As Christian believers we are on a journey — we need to get home. And we have in Jesus someone who is as invested as we are in getting us there and who makes sure it happens.</td>
+<td class="zh">今早我們要看的經文也是同樣的情景。作為基督徒，我們正走在一段旅程上——我們要回家。而在耶穌裡，我們擁有一位比我們自己更投入帶我們到終點、並保證我們必定抵達的那一位。</td></tr>
+
+<tr><td class="en">But we need to play our role. We need to stick with him.</td>
+<td class="zh">但我們也有自己的本分要盡。我們要緊緊跟隨祂。</td></tr>
+
+<tr><td class="en">There's a slight change of focus in Ch's 3-4 of Hebrews. In Ch's 1-2 the writer gives us a glorious picture of Jesus. He is God in human form. He is qualified in every way to purify us from our sin, to change death and to bring us back to God.</td>
+<td class="zh">希伯來書第三、四章的焦點稍有轉變。在一、二章，作者向我們展示了一幅榮耀的耶穌的圖畫：祂是成了人身的神，祂在各方面都完全配得潔淨我們的罪、勝過死亡、並把我們帶回神面前。</td></tr>
+
+<tr><td class="en">As we enter Ch's 3-4, there's now an emphasis on our response to Jesus.</td>
+<td class="zh">進入第三、四章後，重點現在轉到我們要如何回應耶穌。</td></tr>
+
+<tr><td class="en">Look at 3:1: <span class="verse">"Therefore, holy brothers and sisters, who share in the heavenly calling, fix your thoughts on Jesus, whom we acknowledge as our apostle and high priest"</span> That verse is a good summary of the whole passage. And a good way to break down where we're heading. First we'll look at who we are and where we're heading / how Jesus helps in that and then the call to fix our thoughts on him.</td>
+<td class="zh">請看 3:1：<span class="verse">「同蒙天召的聖潔弟兄啊，你們應當思想我們所認為使者、為大祭司的耶穌。」</span>這節經文正好總結整段信息，也是我們信息結構的好指引。我們先看「我們是誰、要去哪裡」；然後看「耶穌如何幫助我們走這條路」；最後是「要將思念專注於祂」的呼召。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">1. We are God's household headed for heaven (vv.1, 6)</span></td>
+<td class="zh"><span class="highlight">一、我們是神的家，正邁向天家（第 1、6 節）</span></td></tr>
+
+<tr><td class="en">Where are we heading? Crucial question.</td>
+<td class="zh">我們要去哪裡？這是一個至關重要的問題。</td></tr>
+
+<tr><td class="en">The writer refers to Christian believers as those v.1: <span class="verse">"who share in the heavenly calling"</span>. Can they have a calling from heaven; can mean they're called to heaven. Probably both. Called from heaven to heaven. Heaven of course is where God dwells.</td>
+<td class="zh">作者稱基督徒為 1 節所說：<span class="verse">「同蒙天召」</span>的人。這可以指「從天上來的呼召」，也可以指「呼召我們進入天上」，很可能兩者皆是——從天而來的呼召，召我們進入天家。而天家當然就是神所居住的地方。</td></tr>
+
+<tr><td class="en">So we have a destination.</td>
+<td class="zh">所以我們有一個目的地。</td></tr>
+
+<tr><td class="en">But we're not there yet.</td>
+<td class="zh">但我們尚未到達。</td></tr>
+
+<tr><td class="en">We're on the way.</td>
+<td class="zh">我們正在路上。</td></tr>
+
+<tr><td class="en">In the Bible, salvation is past, present and future.
+Jesus paid for my sin at the cross back then.
+When I trust Jesus now I am purified from sin and saved from its penalty.
+But there's a future — we will be fully saved at the end when the old world as we know it goes and God brings about his new world.</td>
+<td class="zh">在聖經中，救恩有過去、現在、將來三個層面：
+耶穌昔日在十字架上已為我的罪付上代價。
+當我現在信靠耶穌時，我已從罪中得以潔淨，並從罪的刑罰中得救。
+但還有將來——當我們所知的舊世界過去、神帶來祂的新天新地時，我們才會得著完全的拯救。</td></tr>
+
+<tr><td class="en">Hence v.6: Who will be with Jesus in heaven? Those who persevere to the end. Those who stay on track and journey on.</td>
+<td class="zh">因此第 6 節問：誰會在天家與耶穌同在？就是那些堅持到底的人，那些不偏離正路、繼續行走的人。</td></tr>
+
+<tr><td class="en">And that's also why in this section of Ch. 3-4, the writer uses the OT wilderness wandering as a template for our own journey.</td>
+<td class="zh">這也是為何在第三、四章這部分，作者以舊約中神的子民在曠野漂流的故事，作為我們這段旅程的原型。</td></tr>
+
+<tr><td class="en">Remember: there was that period of time between the people of God being rescued from Egypt and them entering the promised land. They had a journey to get there.</td>
+<td class="zh">記得嗎：在神的子民從埃及得贖，到他們進入應許之地的中間，有一段漫長的路程。他們要經歷這段旅程才能抵達。</td></tr>
+
+<tr><td class="en">And not only do we have a similar journey but we are the one same people of God.</td>
+<td class="zh">我們不但走著類似的旅程，我們更是與他們同屬神的同一群子民。</td></tr>
+
+<tr><td class="en">All through the Bible there has been one people of God. In OT made up of Jews. Now since Jesus its both Jews and non-Jews.</td>
+<td class="zh">整本聖經中，神的子民只有一群。在舊約時代是由猶太人組成；自從耶穌以後，猶太人和外邦人都同屬這一群。</td></tr>
+
+<tr><td class="en">We see that in the passage. The writer uses the language of "house".</td>
+<td class="zh">我們在經文中可以看見這一點。作者使用了「家」這個字。</td></tr>
+
+<tr><td class="en">v.2: <span class="verse">Moses was faithful in all God's house.</span>
+v.6: <span class="verse">we are God's house</span>…(incl. us today)</td>
+<td class="zh">第 2 節：<span class="verse">「摩西在神的全家盡忠。」</span>
+第 6 節：<span class="verse">「便是他的家了」</span>（包括今天的我們在內）。</td></tr>
+
+<tr><td class="en">"house" there is nothing to do with the Temple.</td>
+<td class="zh">這裡的「家」並非指聖殿這座建築物。</td></tr>
+
+<tr><td class="en">"Household"</td>
+<td class="zh">而是指「家族、家眷」。</td></tr>
+
+<tr><td class="en">Family. After all we're "brothers and sisters" in v.1.</td>
+<td class="zh">一個家庭。畢竟第 1 節稱我們為「弟兄姊妹」。</td></tr>
+
+<tr><td class="en">We are part of the same family as that generation back then. And we're on the same journey.</td>
+<td class="zh">我們與當年那一代人同屬一個家，走著同一段旅程。</td></tr>
+
+<tr><td class="en">Side note: great encouragement to us that the OT is incredibly relevant for us. They were as we are the household of God. They could look back to being rescued by the blood of the Lamb; they could look ahead to the Promised Land to come. They were following their leader and trusting in God's promises as they journeyed there.</td>
+<td class="zh">順帶一提：這對我們是極大的鼓勵——舊約與我們息息相關。他們和我們一樣，都是神的家。他們可以回望：被羔羊的血所救贖；也可以前望：將要進入的應許之地。他們跟隨自己的領袖、信靠神的應許，一路走向那地。</td></tr>
+
+<tr><td class="en">Same true for us.
+Yes Jesus has come. All the promises are fulfilled in him.
+But we share the same testimony and need the same encouragements and warnings as they did.
+Don't ignore your OT!</td>
+<td class="zh">我們今天也是一樣。
+的確，耶穌已經來到，一切應許都在祂裡面得以成就。
+但我們與他們同有一樣的見證，同樣需要這些鼓勵與警告。
+不要忽略舊約！</td></tr>
+
+<tr><td class="en">Why is knowing we're on a journey — that the destination still lies ahead — important? So we keep going!</td>
+<td class="zh">為何知道「我們仍在旅途中、目的地尚在前方」這件事如此重要？因為這樣我們才會繼續前行！</td></tr>
+
+<tr><td class="en">Probably didn't hear of this story: in quite a big cross-country race in Spain a decade ago — Abel Mutai — a Kenyan athlete (bronze medallist in the Olympics — steeplechase) was leading by quite a way. Mutai though couldn't understand the Spanish signs. And he ended up stopping during the last lap because he thought he'd already crossed the finishing line.</td>
+<td class="zh">你可能未聽過這個故事：大約十年前在西班牙一場頗大規模的越野賽中——肯亞運動員亞比・慕泰（Abel Mutai，奧運三千米障礙賽銅牌得主）大幅領先。但慕泰看不懂西班牙文的指示牌，他在最後一圈中途停了下來，以為自己已經衝過終點線。</td></tr>
+
+<tr><td class="en">Are we still moving forward in our Christian life?</td>
+<td class="zh">在我們的基督徒生命中，我們仍在向前行嗎？</td></tr>
+
+<tr><td class="en">We had a warning about not drifting in Ch.2: the image of a boat that's stopped on the water but is being pulled away by the current.</td>
+<td class="zh">第二章已經警告我們不要隨流漂去：就像一艘停在水面上的船，表面上沒有動，卻被暗流一點一點拉走。</td></tr>
+
+<tr><td class="en">But in pushing forward we have a great encouragement. We have someone to push forward with and towards!</td>
+<td class="zh">但在我們奮力前行時，有一個莫大的鼓勵：我們有一位與我們同行、並且是我們奔向的目標！</td></tr>
+
+<tr><td class="en">*picture on screen*
+You see in that race I just talked about: something amazing happened. A spanish runner behind Mutai saw him stop; realised he's misread the signs. He knew where the finishing line was. And instead of running past him and out of sight, he stopped and used sign language and hand gestures to encourage the guy to keep running and even let the guy cross first.</td>
+<td class="zh">（畫面顯示）
+在剛才那場賽事中，發生了一件奇妙的事。排在慕泰後面的一位西班牙跑手見他停了下來，明白他是看錯了指示牌。那位西班牙跑手知道終點在哪裡，但他沒有從慕泰身邊跑過去贏得比賽，反而停下來用手勢和肢體動作鼓勵他繼續跑，甚至讓慕泰先衝過終點。</td></tr>
+
+<tr><td class="en">The writer wants us to press forward yes. But by looking to Jesus.</td>
+<td class="zh">作者確實要我們奮力向前，但方法是——仰望耶穌。</td></tr>
+
+<tr><td class="en">Why Jesus?</td>
+<td class="zh">為何是耶穌？</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">2. Jesus is faithful over God's house (v.1b-6a)</span></td>
+<td class="zh"><span class="highlight">二、耶穌在神的全家盡忠、作元首（第 1b-6a 節）</span></td></tr>
+
+<tr><td class="en">To run the race well we need to know that we have someone who has not just run the race himself but who is totally committed to making sure we run and finish the race too.</td>
+<td class="zh">要把這場賽程跑好，我們需要知道，有一位不單自己跑過這路，更完全委身要確保我們跑完、抵達終點。</td></tr>
+
+<tr><td class="en">A few ways the writer shows us that.</td>
+<td class="zh">作者用幾個方法向我們顯明這一點。</td></tr>
+
+<tr><td class="en">v.1b: <span class="verse">Jesus is our apostle and high priest.</span>
+In other words Jesus is sent by God and Jesus is the way back to God. He's run the race, he knows the way and he is the way we run.</td>
+<td class="zh">第 1 節下：<span class="verse">「耶穌是我們所認為使者、為大祭司的。」</span>
+換言之，耶穌是神所差遣的，祂也是我們回到神面前的路。祂已跑完這賽程，祂知道路怎麼走，而祂自己就是我們所走的道路。</td></tr>
+
+<tr><td class="en">And the writer then does something we're used to by now: compares Jesus with an OT figure.</td>
+<td class="zh">接著作者做了我們已經熟悉的事：把耶穌與一位舊約人物比較。</td></tr>
+
+<tr><td class="en">This time its Moses.</td>
+<td class="zh">今次是摩西。</td></tr>
+
+<tr><td class="en">Why Moses?</td>
+<td class="zh">為何是摩西？</td></tr>
+
+<tr><td class="en">Fits with that theme of a journey.</td>
+<td class="zh">因為他正好配合「旅程」這個主題。</td></tr>
+
+<tr><td class="en">Moses is the great leader of God's people: from slavery in Egypt right up to the edge of the promised land. He was there in front: leading the way.</td>
+<td class="zh">摩西是神子民的偉大領袖，從埃及為奴之地一直帶領他們到應許之地的邊緣。他一直走在前方，帶領道路。</td></tr>
+
+<tr><td class="en">And Moses was held in the highest esteem.</td>
+<td class="zh">摩西一直備受尊崇。</td></tr>
+
+<tr><td class="en">Every 20 years or so there's a poll done to find who the public think is the greatest British person.</td>
+<td class="zh">英國大約每二十年會做一次民調，選出公眾心目中最偉大的英國人。</td></tr>
+
+<tr><td class="en">Greatest Israelite? Moses!</td>
+<td class="zh">最偉大的以色列人？摩西！</td></tr>
+
+<tr><td class="en">And not just the opinion of the Israelites. Here what God says about Moses:</td>
+<td class="zh">這不單是以色列人的看法。請看神親自對摩西的評價：</td></tr>
+
+<tr><td class="en"><span class="verse">Numbers 12:6-8
+[God] said, "Listen to my words:
+When there is a prophet among you,
+I, the Lord, reveal myself to them in visions,
+I speak to them in dreams.
+But this is not true of my servant Moses;
+he is faithful in all my house.
+With him I speak face to face,
+clearly and not in riddles;
+he sees the form of the Lord.
+Why then were you not afraid
+to speak against my servant Moses?"</span></td>
+<td class="zh"><span class="verse">民數記 12:6-8
+耶和華說：「你們且聽我的話：
+你們中間若有先知，
+我─耶和華必在異象中向他顯現，
+在夢中與他說話。
+我的僕人摩西不是這樣；
+他是在我全家盡忠的。
+我與他面對面說話，
+乃是明說，不用謎語，
+並且他必見我的形像。
+你們毀謗我的僕人摩西，
+為何不懼怕呢？」</span></td></tr>
+
+<tr><td class="en">The context is a challenge being brought against Moses during their journey. Is he all that special?!</td>
+<td class="zh">背景是他們旅程中，有人質疑摩西：他真的那麼特別嗎？</td></tr>
+
+<tr><td class="en">God says, Yes. Only with Moses does God speak face to face. Only through Moses is God's word clear.</td>
+<td class="zh">神說：是的。唯獨與摩西，神是面對面說話的；唯獨藉著摩西，神的話才是明明白白、不用謎語的。</td></tr>
+
+<tr><td class="en">So when Moses is compared to Jesus its not to put Moses down at all. Rather it's to make Jesus all the greater and more important.</td>
+<td class="zh">所以當摩西被拿來與耶穌比較，並非要貶低摩西；而是要顯明耶穌更加偉大、更加重要。</td></tr>
+
+<tr><td class="en">Notice, both are faithful (v.2). Faithful to God. Implied = on behalf of the people.</td>
+<td class="zh">留意，兩位都是「盡忠」（第 2 節）——忠於神，隱含的意思也包括忠於祂所帶領的子民。</td></tr>
+
+<tr><td class="en">The people owed so much to Moses acting for them.</td>
+<td class="zh">神的子民欠了摩西很多——他一直為他們而行事。</td></tr>
+
+<tr><td class="en">Moses challenged Pharaoh for them. He negotiate their release. He led them out. His staff parted the Red Sea. He pleaded with God to spare the people when they rebelled — on more than one occasion! He even asked to be struck down in their place.</td>
+<td class="zh">摩西為他們挑戰法老，為他們談判爭取釋放，帶領他們出埃及，他的杖使紅海分開。當百姓悖逆時，他一次又一次向神懇求，求神憐憫他們——甚至願意代替他們受神的擊打。</td></tr>
+
+<tr><td class="en">What a great leader.</td>
+<td class="zh">多麼偉大的領袖！</td></tr>
+
+<tr><td class="en">But Jesus is even greater.
+And he notes this with 2 differences between Jesus and Moses:</td>
+<td class="zh">但耶穌更加偉大。
+作者指出耶穌與摩西之間有兩個分別：</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">Moses is part of the house whereas Jesus builds the house (vv.3-4)</span></td>
+<td class="zh"><span class="highlight">A. 摩西是家中的一員；耶穌卻是建造這家的那一位（第 3-4 節）</span></td></tr>
+
+<tr><td class="en">What's this mean?
+Behind me is St Paul's. After the great fire of London it was rebuilt by Christopher Wren. Mind behind it.
+Let's say you want to build an incredible new church building. Which would be better. To have a picture of St Paul's to inspire you? OR to have Christopher Wren himself with you to oversee the project.</td>
+<td class="zh">這是甚麼意思？
+我身後是聖保羅大教堂。在倫敦大火之後，它由建築師克里斯多福・雷恩（Christopher Wren）重建——整個構思出自他的思想。
+假設你想建一座很出色的教堂建築，兩個選項哪個更好：有一幅聖保羅大教堂的照片給你作靈感？還是——克里斯多福・雷恩本人親自在場督導整個工程？</td></tr>
+
+<tr><td class="en">Moses was great for his people. But he was one of them.</td>
+<td class="zh">摩西對他的子民而言是偉大的，但他是他們當中的一員。</td></tr>
+
+<tr><td class="en">With Jesus they have the one who made all things including the people of God themselves.</td>
+<td class="zh">在耶穌裡，他們擁有的卻是創造萬有——包括神子民本身——的那一位。</td></tr>
+
+<tr><td class="en">v.4: <span class="verse">The builder of all things is God.</span> Implied in the context is that Jesus is God. Something we've already been told from 1:2!</td>
+<td class="zh">第 4 節：<span class="verse">「建造萬物的就是神。」</span>上下文暗示的是：耶穌就是神。這是 1:2 已經告訴我們的！</td></tr>
+
+<tr><td class="en">The people of God exists because of Jesus. Through Jesus. Jesus builds his church. It's his body. It's his project. He knows what it needs more than anyone.</td>
+<td class="zh">神的子民因著耶穌而存在、藉著耶穌而有。耶穌建造祂的教會——這是祂的身體，這是祂的工程，祂比任何人更知道這群人需要甚麼。</td></tr>
+
+<tr><td class="en">That's who we can look to now.</td>
+<td class="zh">這就是我們今天可以仰望的那一位。</td></tr>
+
+<tr><td class="en">And that's linked with the 2nd difference:</td>
+<td class="zh">這也與第二個分別相連：</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">Moses is just a servant in the house whereas Jesus is Son over the house (vv.5-6a)</span></td>
+<td class="zh"><span class="highlight">B. 摩西只是家中的僕人；耶穌卻是治理這家的兒子（第 5-6a 節）</span></td></tr>
+
+<tr><td class="en">Embarrassing moments as a kid was a family dinner out. Issue with the bill — waiter wasn't dealing with the issue.</td>
+<td class="zh">小時候最尷尬的情景之一，就是全家出外吃飯，結帳時賬單出了問題，侍應一直沒能處理好。</td></tr>
+
+<tr><td class="en">"I'd like to see the manager".</td>
+<td class="zh">「我想見經理。」</td></tr>
+
+<tr><td class="en">Got sorted.</td>
+<td class="zh">問題立刻解決。</td></tr>
+
+<tr><td class="en">Moses is a servant. And note v.5b- he's a signpost to the greater one to come! Jesus the Son.</td>
+<td class="zh">摩西是僕人。並且請留意第 5 節下——他是指向將來那位更偉大者的路標！耶穌，神的兒子。</td></tr>
+
+<tr><td class="en">When we follow Jesus we follow the one who's got this. Because he's got everything. As Son he is the King — all enemies will one day be crushed before him.</td>
+<td class="zh">當我們跟隨耶穌，我們跟隨的是那一切都在掌握之中的那一位。因為祂擁有一切。作為兒子，祂就是王——一切仇敵有一天都要在祂面前被踐踏。</td></tr>
+
+<tr><td class="en">And so with him we are following the one who protects and shields his church.</td>
+<td class="zh">所以跟隨祂，就是跟隨那位保護並蔭庇祂教會的主。</td></tr>
+
+<tr><td class="en">He is the one who prays for us constantly that we would keep going.</td>
+<td class="zh">祂是那位常常為我們代禱、使我們能繼續奔跑的主。</td></tr>
+
+<tr><td class="en">So as we journey towards our heaven, we don't do it alone. We look to the one who is right now in heaven; who is Lord of all;
+And its his task assigned to him by the Father to care for and make sure we keep going and he will carry it out.</td>
+<td class="zh">所以當我們走向天家，我們並非獨自前行。我們仰望那位如今坐在天上、萬有的主；
+父神已將這任務交付給祂：要看顧我們、確保我們繼續前行——而祂必定完成這個任務。</td></tr>
+
+<tr><td class="en">So…sit back and relax? No…</td>
+<td class="zh">那麼……我們是否可以坐下來放鬆？不是……</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">3. So look and hold on to Jesus (vv.1, 6)</span></td>
+<td class="zh"><span class="highlight">三、所以要仰望並緊握耶穌(第 1、6 節)</span></td></tr>
+
+<tr><td class="en">"Touch the Truck" was a Channel 5 game show where people had to touch a truck. The last person left touching the truck won the truck. Someone from Winchester managed to keep touching the vehicle for 81 hours.</td>
+<td class="zh">《Touch the Truck》是英國第五台的一個遊戲節目，參賽者要把手按住一輛貨車，最後一個仍然按著車的人就可以贏得那輛貨車。一位溫徹斯特的參賽者成功按了整整 81 小時。</td></tr>
+
+<tr><td class="en">More recently there was a similar thing done with a Lamborghini.</td>
+<td class="zh">最近也有類似的活動，不過那次是用林寶堅尼（Lamborghini）。</td></tr>
+
+<tr><td class="en">Key thing was to not lose your grasp of the car.</td>
+<td class="zh">關鍵是——絕不能鬆開你的手。</td></tr>
+
+<tr><td class="en">Key application for us this morning from Hebrews 3:1-6 is this: <span class="highlight">"Don't let go of Jesus".</span> Keep him in the centre of your vision. In so doing we give him the greater honour he is due.</td>
+<td class="zh">今早從希伯來書 3:1-6 學到的關鍵應用就是：<span class="highlight">「不要鬆手離開耶穌。」</span>要把祂放在你視線的中心。這樣做，我們就把祂配得的那更大的尊榮獻給祂。</td></tr>
+
+<tr><td class="en">Why is that important? Because if we're holding firm to Jesus — v.6: <span class="verse">"we hold firmly to our confidence and the hope in which we glory"</span></td>
+<td class="zh">為何這如此重要？因為若我們緊握耶穌——第 6 節：<span class="verse">「我們若將可誇的盼望和膽量堅持到底，便是他的家了。」</span></td></tr>
+
+<tr><td class="en">What's that confidence and hope? That we will reach our heavenly home. That we'll make it to the destination.</td>
+<td class="zh">這份「膽量與盼望」是甚麼？就是——我們必定到達天家，我們必定抵達那個終點。</td></tr>
+
+<tr><td class="en">In other words, Jesus is the only who gives us such confidence and hope. Why? Because Jesus is over us. He is faithful to God to win us, to keep us and to sustain us. He's got us.
+And so we need to keep hold of him.</td>
+<td class="zh">換句話說，唯有耶穌能賜給我們這份膽量與盼望。為甚麼？因為耶穌在我們之上掌管。祂向神盡忠，要得著我們、保守我們、扶持我們。祂牢牢地抓住我們。
+所以我們要牢牢地抓住祂。</td></tr>
+
+<tr><td class="en">Let me close with a warning, an encouragement and a challenge.</td>
+<td class="zh">讓我以一個警告、一個鼓勵、一個挑戰作結。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">Warning 警告</span></td>
+<td class="zh"><span class="highlight">警告</span></td></tr>
+
+<tr><td class="en">The writer says: we can be confident we are in God's family if… v.6: we are holding firm to our confidence and hope. Both of which are found in Jesus.</td>
+<td class="zh">作者說：我們若要確信自己是神家中的一員，條件就是第 6 節所講——堅持到底、牢牢持守那份膽量與盼望。而這兩者都只在耶穌裡面找到。</td></tr>
+
+<tr><td class="en">We don't need anything more than or other than Jesus.</td>
+<td class="zh">我們不需要耶穌以外、或耶穌以上的任何東西。</td></tr>
+
+<tr><td class="en">Hard?</td>
+<td class="zh">這很難嗎？</td></tr>
+
+<tr><td class="en">We live in a world where we're meant to be dissatisfied. Tech products like phones or cars — they're only built to last a certain time and then we're meant to look for a newer model. Every TV advert shows us something more snazzy; gives us different itch to scratch. And things are changing constantly.</td>
+<td class="zh">我們活在一個「必須不滿足」的世界。科技產品如電話、汽車——它們都被設計成用一段時間之後就要被新款取代。每一則電視廣告都展示更炫目的東西，挑動不同的慾望。一切都在不斷變化。</td></tr>
+
+<tr><td class="en">Our tagline for this sermon series is "Jesus is better".
+That can be harder to believe in this kind of culture.</td>
+<td class="zh">我們這個系列講道的主題是——「耶穌更美」。
+但在這種文化氛圍中，這句話變得越來越難相信。</td></tr>
+
+<tr><td class="en">We're programmed to be dissatisfied. Find the latest craze…
+Are we tempted to think something other than Jesus is what we need to help us? Does Jesus seem a bit out-dated? Other experiences? Other practices? Don't let go of Jesus.</td>
+<td class="zh">我們從小被訓練去不滿足、去追逐最新的熱潮……
+我們是否會被引誘，以為除了耶穌以外，還需要別的東西來幫助我們？耶穌會否好像變得「過時」了？我們是否想尋求其他體驗、其他屬靈操練？——不要鬆手離開耶穌。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">Encouragement 鼓勵</span></td>
+<td class="zh"><span class="highlight">鼓勵</span></td></tr>
+
+<tr><td class="en">But here's the encouragement: The greater Jesus is to you (the more honour we give him), the greater your hold on your confidence and hope.</td>
+<td class="zh">但這裡有一份鼓勵：耶穌在你心中越大（我們越是尊榮祂），你對那份膽量與盼望的把握就越穩固。</td></tr>
+
+<tr><td class="en">When we become Christians, its with that sudden grasp of the depths of who Jesus is and why we need him. And that never changes. What gets us into the Christian life is the same thing that keeps us going. It's not a new method or a new practice. It's grasping how great and important Jesus is.</td>
+<td class="zh">我們成為基督徒的那一刻，正是忽然看見耶穌的身份有多深邃、我們為何這樣需要祂的那一刻。這從不改變。帶我們進入信仰生命的那件事，也正是使我們持續走下去的那件事。不是甚麼新方法、新操練——而是不斷抓住「耶穌何等偉大、何等重要」的真理。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="highlight">Challenge 挑戰</span></td>
+<td class="zh"><span class="highlight">挑戰</span></td></tr>
+
+<tr><td class="en">Implied here and made explicit elsewhere in Hebrews — especially with this language of household and Jesus being over the household — the Christian walk we're each on is a walk we're on together.
+Hebrews does not know of "Just me and Jesus" style of Christian life.</td>
+<td class="zh">這段經文暗含、希伯來書其他地方則明明指出——尤其是「家」這個字、以及「耶穌治理這家」的講法——每一個基督徒所走的路，其實是我們一起走的路。
+希伯來書裡面沒有「只要我與耶穌」這種個人主義式的基督徒生活。</td></tr>
+
+<tr><td class="en">The Christian life is not "go it alone" or "do it yourself".</td>
+<td class="zh">基督徒生命從來不是「單獨行動」、也不是「靠自己」。</td></tr>
+
+<tr><td class="en">We walk as a family together.
+Jesus is the head of our family.
+Jesus nourishes us as his family.</td>
+<td class="zh">我們是一家人一同走這條路。
+耶穌是我們這個家的元首。
+耶穌滋養我們這個家。</td></tr>
+
+<tr><td class="en">There's a strong connection between being with God's people and beholding Jesus.
+Jesus is found and enjoyed supremely when his people gather together.</td>
+<td class="zh">「與神的子民一同」和「仰望耶穌」之間有非常緊密的連結。
+耶穌最完全地被看見、被享受——就是在祂的子民一同聚集的時候。</td></tr>
+
+<tr><td class="en">If its just about me and Jesus and not the household — we make it much much harder to fix our thoughts on him and to keep hold of our confidence.</td>
+<td class="zh">若我們只講「我和耶穌」，而忽略了這個家——我們就把「將思念專注在祂身上、緊握我們的膽量」這件事變得極其困難。</td></tr>
+
+<tr><td class="en">We need Jesus and because we need Jesus we need each other. We need our church. We need his promises heard and believed by others around us to encourage us; we need to see others pressing on as they marvel at Jesus; we need to sit together under his life-giving word.</td>
+<td class="zh">我們需要耶穌——正因為我們需要耶穌，我們也需要彼此。我們需要我們的教會。我們需要聽到身邊的人同樣聽信祂的應許，以此鼓勵我們；我們需要看見別人因仰望耶穌而繼續奔跑；我們需要一同坐在祂賜生命的話語之下。</td></tr>
+
+<tr><td class="en">If your journey is going sideways or backwards — are you seeking to be with your spiritual family? To walk with your spiritual family?</td>
+<td class="zh">若你的旅程正在橫向偏離，甚或倒退——你是否主動尋求與你的屬靈家人在一起？與你的屬靈家人一同前行？</td></tr>
+
+<tr><td class="en">Repeat v.6.</td>
+<td class="zh">一同誦讀第 6 節。</td></tr>
+
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+
+<tr><td class="en"><span class="verse">Hebrews 3:6 "But Christ is faithful as the Son over God's house. And we are his house, if indeed we hold firmly to our confidence and the hope in which we glory."</span></td>
+<td class="zh"><span class="verse">希伯來書 3:6 「但基督為兒子，治理神的家；我們若將可誇的盼望和膽量堅持到底，便是他的家了。」</span></td></tr>
+
+  </tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Don't Look Elsewhere</h1>
+    <h1 class="zh">不要看別處</h1>
+    <div class="subtitle">Hebrews 希伯來書 3:1-6 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"Fix your thoughts on Jesus." · 「你們應當思想耶穌。」(Hebrews 希伯來書 3:1)</div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+    <div class="bilingual">
+      <div class="lang-en">
+        <div class="lang-label">English</div>
+        <p>As believers, we are God's household on a journey to our heavenly home. We are not there yet — we're still on the way. The wilderness generation pictures our path: rescued, travelling, needing to persevere.</p><br>
+        <p>Jesus is faithful over this household — our apostle and high priest. He is greater than Moses in two ways: Moses was part of the house, but Jesus <strong>built</strong> the house; Moses was a servant in the house, but Jesus is the <strong>Son</strong> over it.</p><br>
+        <p>Because Jesus is so great, our one response is to hold on tightly — to fix our thoughts on him, not drift, not look elsewhere. And we do this together as his family. "Just me and Jesus" is not a biblical option. We hold firm by looking to him together, under his word, in his church.</p>
+      </div>
+      <div class="lang-zh">
+        <div class="lang-label">繁體中文</div>
+        <p>作為信徒，我們是神的家，正走在通往天家的旅程上。我們尚未到達——仍在路上。舊約曠野一代的經歷正是我們旅程的寫照：得蒙拯救、仍在途中、需要堅忍到底。</p><br>
+        <p>耶穌在神的家中盡忠——祂是我們的使者與大祭司。祂比摩西更大，表現在兩方面：摩西是家中的一員，耶穌卻是<strong>建造</strong>這家的那一位；摩西是家中的僕人，耶穌卻是治理這家的<strong>兒子</strong>。</p><br>
+        <p>因耶穌如此偉大，我們唯一的回應就是緊緊握住祂——把思念專注在祂身上，不要隨流漂去，不要轉眼看別處。我們要作為一家人一同這樣做。「只要我與耶穌」並非聖經容許的選項。我們能堅持到底，靠的是一同仰望祂、一同坐在祂話語之下、在祂的教會中彼此同行。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">✝️</span> Key Scriptures 重要經文</div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Hebrews 希伯來書 3:1-6 (NIV / 和合本)</div>
+      <div class="verse-text">"Therefore, holy brothers and sisters, who share in the heavenly calling, fix your thoughts on Jesus, whom we acknowledge as our apostle and high priest. He was faithful to the one who appointed him, just as Moses was faithful in all God's house. Jesus has been found worthy of greater honor than Moses, just as the builder of a house has greater honor than the house itself. For every house is built by someone, but God is the builder of everything. 'Moses was faithful as a servant in all God's house,' bearing witness to what would be spoken by God in the future. But Christ is faithful as the Son over God's house. And we are his house, if indeed we hold firmly to our confidence and the hope in which we glory."</div><br>
+      <div class="verse-text zh">「同蒙天召的聖潔弟兄啊，你們應當思想我們所認為使者、為大祭司的耶穌。他為那設立他的盡忠，如同摩西在神的全家盡忠一樣。他比摩西算是更配多得榮耀，好像建造房屋的比房屋更尊榮；因為房屋都必有人建造，但建造萬物的就是神。摩西為僕人，在神的全家誠然盡忠，為要證明將來必傳說的事。但基督為兒子，治理神的家；我們若將可誇的盼望和膽量堅持到底，便是他的家了。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Numbers 民數記 12:6-8 — God's own testimony about Moses 神親自評價摩西</div>
+      <div class="verse-text">"When there is a prophet among you, I, the Lord, reveal myself to them in visions, I speak to them in dreams. But this is not true of my servant Moses; he is faithful in all my house. With him I speak face to face, clearly and not in riddles; he sees the form of the Lord."</div><br>
+      <div class="verse-text zh">「你們中間若有先知，我─耶和華必在異象中向他顯現，在夢中與他說話。我的僕人摩西不是這樣；他是在我全家盡忠的。我與他面對面說話，乃是明說，不用謎語，並且他必見我的形像。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Hebrews 希伯來書 2:1 — Warning against drifting 警告不可隨流漂去</div>
+      <div class="verse-text">"We must pay the most careful attention, therefore, to what we have heard, so that we do not drift away."</div><br>
+      <div class="verse-text zh">「所以，我們當越發鄭重所聽見的道理，恐怕我們隨流失去。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Hebrews 希伯來書 1:2 — Jesus the builder of all 耶穌是創造萬物的</div>
+      <div class="verse-text">"In these last days [God] has spoken to us by his Son, whom he appointed heir of all things, and through whom also he made the universe."</div><br>
+      <div class="verse-text zh">「就在這末世藉著他兒子曉諭我們；又早已立他為承受萬有的，也曾藉著他創造諸世界。」</div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">💡</span> Key Themes 主要主題</div>
+
+    <div class="summary-point"><strong>1. We are on a journey 我們正在旅途中</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Christian life is not a moment of arrival but a journey home. Salvation has past, present, and future dimensions; the wilderness generation is a picture of us.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>基督徒生命不是一次性到達的事件，而是一段回家的旅程。救恩有過去、現在、將來三個層面。曠野中的以色列人，正是我們的寫照。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>2. Jesus is greater than Moses 耶穌比摩西更大</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Moses is a great and faithful leader — but Moses is part of the house and a servant in it. Jesus built the house and is the Son over it. The comparison is not to diminish Moses but to elevate Jesus.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>摩西是偉大、盡忠的領袖，然而他只是家中的一員、家中的僕人。耶穌卻是建造這家的那一位，是治理這家的兒子。這個對比不是要貶低摩西，而是要高舉耶穌。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>3. Hold firm to the end 堅持到底</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Verse 6 conditions the promise on perseverance: "if indeed we hold firmly to our confidence and hope." This is not earning salvation but evidencing it — those who belong to Jesus keep holding on.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>第 6 節的應許有一個條件：「我們若將可誇的盼望和膽量堅持到底，便是他的家了。」這不是靠表現換取救恩，而是真信徒的記號——屬耶穌的人必會堅持下去。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>4. Don't look elsewhere 不要看別處</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>We live in a culture that trains us to be dissatisfied and always chase the next thing. Jesus can feel "dated." The sermon warns: don't add to Jesus, don't replace Jesus, don't supplement Jesus. He is enough.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>我們身處的文化訓練我們永遠不滿足、總是追逐新事物，以致耶穌看似「過時」。這篇講道警告我們：不要在耶穌之上加添、不要用別的取代耶穌、不要在祂以外尋求補充。祂已經足夠。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>5. We walk together as family 我們作為一家人同行</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Hebrews knows nothing of "just me and Jesus." Beholding Jesus and being with God's people are deeply tied. We need church — to hear his promises echoed, to see others persevering, to sit under his word together.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>希伯來書裡面沒有「只要我與耶穌」這回事。仰望耶穌和與神的子民同在，是緊密相連的兩件事。我們需要教會——需要聽別人回響祂的應許、看見別人仍在奔跑、一同坐在祂的話語之下。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🤔</span> Thinking Questions 思考問題</div>
+    <div class="questions-container">
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The sermon describes the Christian life as a journey — "called from heaven to heaven." Where do you see yourself on that journey right now? Moving forward, standing still, or drifting?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>講道形容基督徒生命是一段旅程——「從天而來的呼召、呼召進入天家」。你今天在這段旅程中處於怎樣的位置？是在前進？停滯不前？還是隨流漂去？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Read Hebrews 3:3-4 slowly. Why does the writer compare Jesus to a builder rather than to another great servant? What does this tell us about Jesus' role in our lives — not just our Saviour but also our Maker?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>慢慢讀希伯來書 3:3-4。作者為何用「建造者」來比喻耶穌，而不是另一位偉大的僕人？這告訴我們耶穌在我們生命中的角色是怎樣的——祂不單是救主，更是我們的創造者？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The story of Abel Mutai stopping before the finish line is a picture of drifting. What are the "misread signs" in your own life that might make you stop or turn aside before the race is done?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>慕泰在終點前停下來的故事，正是「隨流漂去」的寫照。在你自己的生命中，有哪些「看錯了的指示牌」，可能令你在賽程未完之前就停下腳步或偏離方向？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>"We're programmed to be dissatisfied… Does Jesus seem a bit out-dated?" Honestly — what "other experiences or practices" are you most tempted to add to, or substitute for, your trust in Jesus?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>「我們從小被訓練去不滿足……耶穌看來是否有點過時？」誠實自問——你最容易想加在耶穌身上、或用來取代對耶穌的信靠的，是哪一種「別的體驗」或「別的屬靈操練」？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The sermon says "the greater Jesus is to you, the greater your hold on your confidence and hope." How have you seen that truth in practice — a season when a bigger view of Jesus produced deeper assurance?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>講道說：「耶穌在你心中越大，你對那份膽量與盼望的把握就越穩固。」你可曾在實際生活中經驗過這句話——在某段日子，你對耶穌有更深認識，結果產生更深的把握？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>"Hebrews does not know of 'just me and Jesus' style of Christian life." Where in your walk have you been trying to "go it alone"? Who in your church family could you walk more intentionally with this week?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>「希伯來書裡面沒有『只要我與耶穌』這種個人主義式的基督徒生活。」你在哪些方面一直嘗試「單打獨鬥」？這個禮拜，你可以更刻意地與教會家中哪一位弟兄姊妹同行？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Jesus "prays for us constantly that we would keep going." How does knowing that Jesus is actively, personally interceding for you right now change the way you face tomorrow?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>耶穌「常常為我們代禱，使我們能繼續奔跑」。知道耶穌此刻正積極地、親自地為你代求，這如何改變你面對明天的態度？</div>
+      </div></div>
+
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🎯</span> Application 生活應用</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="application-item"><strong>Fix, don't flick.</strong> Spend five unhurried minutes daily fixing your thoughts on Jesus — who he is, what he has done, where he has gone. Don't just skim.</div>
+        <div class="application-item"><strong>Name what's competing.</strong> This week, name one thing you are tempted to look to instead of Jesus (a relationship, a screen, a practice, a plan). Confess it and re-fix.</div>
+        <div class="application-item"><strong>Show up to the family.</strong> Don't skip gathered worship this week or next. Arrive ready to encourage one other believer by naming Jesus out loud to them.</div>
+        <div class="application-item"><strong>Hold on visibly.</strong> Tell one trusted person what you're struggling to persevere in. Let the household help you hold on.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="application-item"><strong>專注，不要掠過。</strong>每天用五分鐘、不趕時間地思想耶穌——祂是誰、祂做了甚麼、祂現在在哪裡。不要只是匆匆帶過。</div>
+        <div class="application-item"><strong>指名那些與耶穌競爭的事物。</strong>本週請指出一件你常想轉而仰賴、而非仰望耶穌的事（可能是某段關係、某個屏幕、某種操練、某個計劃）。認罪，再把焦點放回耶穌身上。</div>
+        <div class="application-item"><strong>出席你的家。</strong>本週和下週不要缺席聚會。帶著一個心志到場——用口親自對另一位弟兄姊妹說出耶穌的名，鼓勵他 / 她。</div>
+        <div class="application-item"><strong>讓人看見你怎樣緊握。</strong>找一位可信的弟兄姊妹，說出你目前最難堅持下去的事，讓神的家一同幫你抓住耶穌。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prayer-section">
+    <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="prayer-text">Heavenly Father, thank you that you have called us from heaven to heaven, and made us part of your household. Thank you for Jesus — faithful over your house, the builder of all things, the Son who reigns.<br><br>Forgive us for the times we have looked elsewhere, settled for substitutes, drifted with the current, or tried to walk this road alone. Forgive us for imagining we need more than Jesus, when you have given us Jesus.<br><br>By your Spirit, help us fix our thoughts on him today. Give us a firmer grip on our confidence and our hope. Give us eyes to see our brothers and sisters — and courage to walk with them. And bring us home — together — to the heaven where Jesus reigns. In his name we pray, Amen.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="prayer-text">天父，謝謝祢從天而來的呼召，召我們進入天家，並使我們成為祢家中的一員。謝謝祢賜下耶穌——在祢全家盡忠的那一位、建造萬物的那一位、治理這家的兒子。<br><br>求祢赦免我們——赦免我們時常轉眼看別處、以次等的代替品為滿足、隨著暗流漂去、或企圖獨自走這條路。赦免我們妄想需要耶穌以外的東西，而祢其實已經把耶穌賜給我們。<br><br>求祢藉祢的聖靈，今日幫助我們將思念專注在祂身上，使我們更牢牢抓住那膽量與盼望。求祢開我們的眼，看見身邊的弟兄姊妹，也賜我們勇氣與他們同行。並求祢帶領我們——一同——回到耶穌掌權的天家。奉耶穌的名祈求，阿們。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <ul class="further-list">
+          <li><strong>Hebrews 2:1-4</strong> — The warning not to drift; the anchor behind today's call to hold firm.</li>
+          <li><strong>Hebrews 3:7-19</strong> — The wilderness warning continued: unbelief, hardened hearts, and the danger of not entering God's rest.</li>
+          <li><strong>Hebrews 4:14-16</strong> — Our great high priest: holding firmly to what we profess, approaching the throne with confidence.</li>
+          <li><strong>Hebrews 12:1-2</strong> — Run the race fixing our eyes on Jesus, the pioneer and perfecter.</li>
+          <li><strong>Numbers 12</strong> — The full account of God's testimony about Moses.</li>
+          <li><strong>Exodus 33:7-23</strong> — Moses speaking with God face to face; Moses asking to see God's glory.</li>
+          <li><strong>Psalm 84</strong> — The pilgrim's song of a heart set on God's house and God's presence.</li>
+          <li><strong>1 Peter 2:4-10</strong> — The church as a living, spiritual household being built on Christ the cornerstone.</li>
+        </ul>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <ul class="further-list">
+          <li><strong>希伯來書 2:1-4</strong>——「不可隨流漂去」的警告，是今日「堅持到底」呼召背後的根基。</li>
+          <li><strong>希伯來書 3:7-19</strong>——曠野警告的延續：不信、心硬、以及不得進入神安息的危險。</li>
+          <li><strong>希伯來書 4:14-16</strong>——我們有偉大的大祭司；要堅守所承認的道、坦然無懼來到施恩寶座前。</li>
+          <li><strong>希伯來書 12:1-2</strong>——奔那擺在我們前頭的路程，仰望為我們信心創始成終的耶穌。</li>
+          <li><strong>民數記 12</strong>——神親自為摩西作見證的完整記載。</li>
+          <li><strong>出埃及記 33:7-23</strong>——摩西與神面對面說話；摩西求看神的榮耀。</li>
+          <li><strong>詩篇 84 篇</strong>——朝聖者的詩歌，一顆嚮往神的家、神的同在的心。</li>
+          <li><strong>彼得前書 2:4-10</strong>——教會是靈宮，是一個活的屬靈家，建造在基督這塊房角石之上。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-04-19 · Source: Hebrews 3 Sermon.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>

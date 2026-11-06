@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Granted 進入主前的通道已開 — Hebrews 4:14-16 希伯來書 4 章 14 至 16 節</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-05-17 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Access Granted 進入主前的通道已開<br>(Hebrews 4:14-16 希伯來書 4 章 14 至 16 節)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Intro 引言：Access Granted — Hebrews 4:14-16</span></td><td class="zh"><span class="highlight">引言：進入主前的通道已開——希伯來書 4 章 14 至 16 節</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">There are 2 places in the world that, if you tried to go in, you wouldn't have access.</td><td class="zh">世上有兩個地方，你即使想去，也是無法進入的。</td></tr>
+<tr><td class="en">One is <span class="highlight">North Sentinel Island</span>, in the Bay of Bengal. You can't just rock up. Why? It is home to a tiny tribe of people who have never had contact with the outside world. If we went there, we could bring disease that would wreck the island. So it is off-limits.</td><td class="zh">其中一個是位於孟加拉灣的「<span class="highlight">北森提奈島</span>」。你不能說來就來。為甚麼？因為島上住著一個從未與外界接觸的小族群。如果我們進入該島，我們有可能把疾病帶進去，足以摧毀整個島嶼，所以該島是不准外人進入的。</td></tr>
+<tr><td class="en">The other picture is <span class="highlight">Mt Kailash</span> — a mountain in Tibet. If you managed to get to Tibet (which isn't easy), you wouldn't be allowed onto the mountain. Why? Both Buddhism and Hinduism see it as a sacred mountain — the home of gods. Mere humans have no right to be there.</td><td class="zh">另一個地方是位於西藏的「<span class="highlight">岡仁波齊峰</span>」。即使你能夠去到西藏（這本身已不容易），你仍不能踏足這座山。為甚麼？因為佛教與印度教都視這座山為聖山，是諸神所居住的地方。卑微如人類，沒有資格踏足其上。</td></tr>
+<tr><td class="en">Not being able to access those places will be a problem for globe-trotters and mountaineers — but for most people, not a problem.</td><td class="zh">對環遊世界的旅行家和登山者來說，不能進入這些地方確實是個問題；但對大多數人而言，這並沒有甚麼影響。</td></tr>
+<tr><td class="en">But what affects everyone is this: <span class="highlight">do we have access to God?</span> Or is God off-limits to us?</td><td class="zh">可是，有一件事卻關乎每一個人，就是：<span class="highlight">我們能不能進到神面前？</span>還是說，神對我們而言，是禁區？</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">Our passage is the introduction to a new section of the letter — a section that runs all the way to the end of Chapter 10. This section is all about <span class="highlight">Jesus as our Great High Priest</span>.</td><td class="zh">我們今日所讀的這段經文，是希伯來書一個新段落的引言——這個段落一直延伸到第 10 章末。整個段落的中心，就是「<span class="highlight">耶穌作我們的大祭司</span>」。</td></tr>
+<tr><td class="en">When we hear "high priest", different images may come to mind — Old Testament: elaborate robes, the ephod, the jewels, the sacrifices… We may ask: <span class="highlight">what relevance does this have for me today?</span></td><td class="zh">聽到「大祭司」這幾個字，每個人腦海裡浮現的畫面可能都不同——舊約裡華麗的祭司袍、以弗得、寶石、祭物……我們或許會問：「<span class="highlight">這些跟我今日的生活，有甚麼關係？</span>」</td></tr>
+<tr><td class="en">All this talk of high priests is about one question: <span class="verse">"Is access to God possible?"</span> The wonderful answer Hebrews gives is <span class="highlight">YES</span>. Jesus is our Priest, who by a single sacrifice has dealt with sin (Chapter 1). We'll come back to that idea in Chapter 5.</td><td class="zh">整段關於「大祭司」的討論，其實只圍繞著一個問題：<span class="verse">「人能否進到神面前？」</span>希伯來書給我們極美好的答案——「<span class="highlight">能</span>」。耶穌是我們的祭司，祂藉著一次的獻祭，已經徹底解決了罪的問題（第 1 章）。這個觀念，我們在第 5 章還會再次提到。</td></tr>
+<tr><td class="en">And here the writer wants us to see <span class="highlight">where</span> our Great High Priest is, and <span class="highlight">what he is like</span> — and if we grasp these things, that will help us keep going as Christians.</td><td class="zh">在這裡，作者要我們看清楚兩件事——我們的大祭司「<span class="highlight">在哪裡</span>」，以及祂「<span class="highlight">是怎樣的一位</span>」。我們若把握住這兩點，就能在基督徒的道路上堅持下去。</td></tr>
+<tr><td class="en">That call to keep going has been ever-present in Hebrews, especially in the last two chapters — but the tone here is slightly different.</td><td class="zh">「要堅持下去」這個呼籲，在整本希伯來書、尤其在前兩章裡反覆出現；不過這一段的語調，跟前兩章稍有不同。</td></tr>
+<tr><td class="en">I said last week that one of the jobs of a pastor is to <span class="verse">"comfort the disturbed and disturb the comfortable"</span>. We need warnings to wake us up — to keep us from being complacent on our journey: <span class="verse">"Today, if you hear his voice, do not harden your hearts."</span></td><td class="zh">我上禮拜講過，牧者其中一個職分，就是「<span class="verse">安慰那受困擾的人，並擾動那安逸的人</span>」。我們需要警告，使我們從昏睡中清醒，叫我們不要在屬靈旅程中變得自滿——<span class="verse">「你們今日若聽他的話，就不可硬著心。」</span></td></tr>
+<tr><td class="en"><span class="highlight">Today, however, it is all about comforting the disturbed.</span> If you are feeling weak or unsteady in your walk with Jesus — what we hear today encourages us to keep going.</td><td class="zh"><span class="highlight">今日這段經文，重點完全在於「安慰那受困擾的人」。</span>若你在跟隨耶穌的路上覺得軟弱、覺得不穩，今日所聽見的，正是要鼓勵你繼續走下去。</td></tr>
+<tr><td class="en"><span class="highlight">Access to God is open. AND we can come whenever we want — especially when we are feeling weak.</span></td><td class="zh"><span class="highlight">通往神的道路已經開啟。而我們隨時可以前來——尤其是當我們覺得軟弱的時候。</span></td></tr>
+<tr><td class="en">The writer gives us <span class="highlight">two commands</span> and <span class="highlight">two reasons</span> for them: (1) <span class="verse">Hold fast to Jesus</span> … because Jesus is our Great High Priest at God's right hand. (2) <span class="verse">Draw near</span> … because our High Priest is gracious and merciful.</td><td class="zh">作者給我們「<span class="highlight">兩個命令</span>」並「<span class="highlight">兩個原因</span>」：（一）「<span class="verse">持守我們所信奉的耶穌</span>」——因為耶穌是我們的大祭司，現今就在神的右邊；（二）「<span class="verse">坦然來到祂面前</span>」——因為我們的大祭司滿有恩慈、滿有憐憫。</td></tr>
+<tr><td class="en">If you are feeling weak or useless in your Christian walk — as I often do — <span class="highlight">this is for us.</span></td><td class="zh">若你在跟隨基督的路上覺得軟弱、覺得自己沒有用——我自己也常常如此——<span class="highlight">這段經文，就是為我們而寫的。</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Point 1: Our High Priest is at God's right hand — so HOLD FAST (v.14)</span></td><td class="zh"><span class="highlight">第一點：我們的大祭司在神的右邊——所以要「持守」（第 14 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"Therefore, since we have a great high priest who has gone through the heavens, Jesus the Son of God, let us hold firmly to the faith we profess." (Hebrews 4:14)</span></td><td class="zh"><span class="verse">「我們既然有一位已經升入高天尊榮的大祭司，就是神的兒子耶穌，便當持定所承認的道。」（希伯來書 4 章 14 節）</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">We love roadworks in St Albans — or at least we learn to love them — because they're everywhere. Some have been (and still are) on Marshalswick Lane, the road heading from the King William traffic lights down to the Quadrant.</td><td class="zh">我們聖奧爾本斯區的居民都「很愛」道路工程——至少都學會了去接受它，因為到處都在挖路。Marshalswick Lane 那條路，從 King William 紅綠燈一直通往 The Quadrant 商場，過去與現在都一直在施工。</td></tr>
+<tr><td class="en">For us, coming from the King William direction, you can't just drive freely down to the Quadrant. There have been roadworks blocking the way. At one point last week I got excited because the roadworks around the interchange had gone, and I thought: <span class="verse">"Yes! The way to the Quadrant is clear!"</span> Turns out — the roadworks had just moved further down the road. The way wasn't totally clear.</td><td class="zh">由 King William 的方向開過去，你不能順暢地一路駛到 The Quadrant，因為路上一直有工程攔著。上禮拜，我有一刻很興奮，因為交界處附近的圍封終於拆走了，我心想：「<span class="verse">好了！通往 The Quadrant 的路終於暢通了！</span>」豈料——工程不過是搬到再前面去而已。道路其實還未完全打通。</td></tr>
+<tr><td class="en">The writer wants us to be sure that the way back to God — or in the language of earlier in Chapter 4, <span class="verse">the way to eternal rest</span> — is <span class="highlight">fully open. The way is clear. No blockages.</span></td><td class="zh">作者要我們確信：回到神面前的路——也就是第 4 章前面所講的「<span class="verse">進入永遠安息的路</span>」——是「<span class="highlight">完全暢通，毫無攔阻</span>」的。</td></tr>
+<tr><td class="en">How do we know? <span class="highlight">Location.</span></td><td class="zh">我們怎樣知道？就看「<span class="highlight">位置</span>」。</td></tr>
+<tr><td class="en">Where is Jesus our High Priest? Where is our representative? <span class="verse">He has gone through the heavens</span> — in other words, he is with God at his right hand.</td><td class="zh">我們的大祭司耶穌如今在哪裡？我們的代表如今在哪裡？「<span class="verse">祂已經升入高天</span>」——換句話說，祂如今與神同在，坐在神的右邊。</td></tr>
+<tr><td class="en">The image of <span class="verse">going through the heavens</span> recalls the Old Testament High Priest on the <span class="highlight">Day of Atonement</span> going through the Temple. He went in as the representative of the people. He went into <span class="highlight">the most sacred part — the Holy of Holies</span> — the place where God was present on earth in the most intense way. The High Priest went in there, taking the sacrificial blood, to make the people clean in God's sight again.</td><td class="zh">「<span class="verse">升入高天</span>」這幅圖畫，使人聯想到舊約「<span class="highlight">贖罪日</span>」那一天，大祭司穿越聖殿層層的院子。他作為百姓的代表進入，並進入「<span class="highlight">最神聖的至聖所</span>」——那是神在地上臨在最強烈的地方。大祭司在那裡獻上贖罪的血，使百姓在神面前再得潔淨。</td></tr>
+<tr><td class="en">The High Priest didn't stay there long. And it needed repeating every year. Like those roadworks — it didn't clear the way fully. But it granted some level of access. It meant the people could continue to live around God's temple, and God could, in a qualified way, be in their midst.</td><td class="zh">大祭司不能在至聖所久留，而且每一年都要重新獻祭。就像那些道路工程——它沒有把路完全打通。然而，它畢竟開了一道「有限的通道」，使百姓能繼續在神的殿四圍生活，神也得以「有條件地」在他們中間。</td></tr>
+<tr><td class="en">That was the Temple — an <span class="verse">earthly sign</span> of a <span class="verse">heavenly reality</span>.</td><td class="zh">舊約的聖殿，只是「<span class="verse">天上實體</span>」的一個「<span class="verse">地上影兒</span>」。</td></tr>
+<tr><td class="en">Where is Jesus, our high priest? He is in the <span class="highlight">true temple</span>. He is at <span class="highlight">God's right hand</span>. He has <span class="highlight">blazed a trail right into God's own presence.</span></td><td class="zh">我們的大祭司耶穌，如今在哪裡？祂在那「<span class="highlight">真聖殿</span>」中，祂在「<span class="highlight">神的右邊</span>」，祂已經「<span class="highlight">為我們開出一條直通神面前的路</span>」。</td></tr>
+<tr><td class="en">He has gone there for two reasons. First, as we know from Chapter 1, he sits at his Father's right hand because his sacrifice is <span class="highlight">finished</span>. He has fully dealt with sin. <span class="verse">Sin can no longer bar Jesus' followers from getting to God.</span></td><td class="zh">祂之所以升上去，有兩個原因。第一，我們從第 1 章已經知道，祂坐在父神的右邊，是因為祂的贖罪祭已經「<span class="highlight">完成</span>」。祂已經徹底解決了罪的問題。「<span class="verse">罪，再不能攔阻凡屬耶穌的人來到神面前。</span>」</td></tr>
+<tr><td class="en">Second, he goes to be at his Father's right hand because this High Priest is <span class="verse">the Son of God</span> (v.14). "Son of God" in Hebrews often means <span class="highlight">God's promised King</span> — the King whose kingdom is the whole universe, and so he goes to take his seat on his heavenly throne.</td><td class="zh">第二，這位大祭司之所以坐在父神的右邊，是因為祂就是「<span class="verse">神的兒子</span>」（第 14 節）。在希伯來書中，「神的兒子」往往指的是「<span class="highlight">神所應許的君王</span>」——這位君王統管整個宇宙，所以祂得以坐上天上的寶座。</td></tr>
+<tr><td class="en">That has huge implications for us. Because of <span class="highlight">where Jesus is</span>: <span class="highlight">rest is open. There is no hidden blockage; no roadwork around the bend to impede you.</span></td><td class="zh">這對我們影響重大。因為「<span class="highlight">耶穌所在的位置</span>」，所以「<span class="highlight">安息之門已經敞開——沒有暗藏的攔阻，沒有在轉角處意想不到的路障</span>」。</td></tr>
+<tr><td class="en">Jesus isn't here pointing us to the way to go. <span class="highlight">He is at our destination, beckoning us on.</span> He has blazed the trail. And as King, he won't let anything stop us from getting there.</td><td class="zh">耶穌不是站在我們這邊，向遠方指路而已。「<span class="highlight">祂已經到達了我們將要抵達的目的地，並且向我們招手，叫我們繼續走過去</span>」。祂已經為我們開出道路；身為君王，祂也不容許任何東西攔阻我們抵達祂那裡。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">So — <span class="highlight">hold fast to Jesus.</span></td><td class="zh">所以——要「<span class="highlight">持守耶穌</span>」。</td></tr>
+<tr><td class="en">The image of <span class="verse">holding fast</span> uses the same word used when Jesus meets the women after he rises from the grave: <span class="verse">"They came to him and clasped his feet and worshiped him"</span> (Matt 28:9). Literally clinging on to him. They didn't want him to leave them behind.</td><td class="zh">「<span class="verse">持守</span>」這個字，跟耶穌復活之後在路上遇見婦女時所用的字一樣：「<span class="verse">她們就上前抱住他的腳拜他</span>」（馬太福音 28 章 9 節）。她們是緊緊地抓住祂，不肯讓祂離開她們。</td></tr>
+<tr><td class="en">Picture clinging to a rope that can lift you to safety from a raging sea. You cling to the rope because <span class="highlight">that rope guarantees you will make it out.</span></td><td class="zh">你可以想像自己置身於洶湧的大海中，抓住一條能把你救起來的繩。你為甚麼要緊緊抓住？因為「<span class="highlight">那條繩擔保你能脫險</span>」。</td></tr>
+<tr><td class="en"><span class="highlight">Cling to Jesus.</span></td><td class="zh"><span class="highlight">緊緊抓住耶穌。</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">Obviously, in the background, there are some who are close to slipping — close to loosening their grip on Jesus. Certainly back then, and probably here today too.</td><td class="zh">當然，作者寫這段話的背景，是有人快要鬆手——快要鬆開抓住耶穌的手。那個年代如此，今天恐怕也是。</td></tr>
+<tr><td class="en">The original audience would have felt daunted. As they gathered together, they would have felt very outnumbered, very much going against the grain — while everyone else around them either headed to the Jewish synagogue or to a pagan temple, or simply went about their day.</td><td class="zh">當時的讀者，內心應該滿是膽怯。每當他們聚集在一起時，會覺得自己人單勢孤，與整個社會背道而馳——周圍的人，不是去猶太會堂，就是去異教神廟，或者根本不理會這些，只顧自己的生活。</td></tr>
+<tr><td class="en"><span class="highlight">What in your life is making you doubt that Jesus is worth holding on to?</span></td><td class="zh"><span class="highlight">在你目前的生活中，有甚麼事情，使你懷疑耶穌是否值得緊緊抓住？</span></td></tr>
+<tr><td class="en">Is Jesus the only way back to God? If so, why aren't there more people clinging to him too? Why are most people not here on a Sunday?</td><td class="zh">耶穌真是通往神的唯一道路嗎？若是，為甚麼沒有更多人緊緊抓住祂？為甚麼大多數人，主日都不在教會裡？</td></tr>
+<tr><td class="en">There is often a cost to believing and confessing that Jesus is the way. We <span class="highlight">stand out</span>. We may <span class="highlight">provoke anger or annoyance or mockery</span>.</td><td class="zh">若要相信並承認耶穌是唯一的道路，往往是要付代價的。我們會「<span class="highlight">顯得跟人不一樣</span>」，可能會「<span class="highlight">惹來別人的憤怒、不滿或譏笑</span>」。</td></tr>
+<tr><td class="en"><span class="highlight">We hold fast to Jesus not because it is popular, but because he is the guaranteed way to eternal rest with our Maker.</span></td><td class="zh"><span class="highlight">我們持守耶穌，不是因為這條路很受歡迎，而是因為祂是通往那「與造我們的主同享永遠安息」的可靠保證。</span></td></tr>
+<tr><td class="en">He is <span class="verse">the Way</span>. Only through him are there no roadworks.</td><td class="zh">祂就是「<span class="verse">道路</span>」。唯有藉著祂，前頭再沒有任何阻路的工程。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">But maybe we feel like our grip on him is weak. Maybe we feel battered and bruised for following Jesus. We may feel silly. We may feel a bit rubbish… <span class="highlight">But that is precisely why there is such good news — and such encouragement to keep going.</span></td><td class="zh">或許我們覺得，自己抓住祂的手已經很無力。或許我們因為跟隨耶穌而傷痕纍纍，覺得自己很傻，覺得自己很差勁……「<span class="highlight">但正因為如此，今日的好消息才特別寶貴；也正因為如此，我們才被鼓勵要繼續走下去</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Point 2: Our High Priest knows our weaknesses — so DRAW NEAR (vv.15-16)</span></td><td class="zh"><span class="highlight">第二點：我們的大祭司明白我們的軟弱——所以要「坦然來到祂面前」（第 15 至 16 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"For we do not have a high priest who is unable to empathize with our weaknesses, but we have one who has been tempted in every way, just as we are — yet he did not sin. Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need." (Hebrews 4:15-16)</span></td><td class="zh"><span class="verse">「因我們的大祭司並非不能體恤我們的軟弱；他也曾凡事受過試探，與我們一樣，只是他沒有犯罪。所以，我們只管坦然無懼的，來到施恩的寶座前，為要得憐恤，蒙恩惠，作隨時的幫助。」（希伯來書 4 章 15 至 16 節）</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Nelson Mandela's story</span></td><td class="zh"><span class="highlight">一個故事——南非曼德拉</span></td></tr>
+<tr><td class="en">Nelson Mandela famously spent 27 years in jail under apartheid South Africa before being released and going on to become president. There was a powerful moment when Mandela, after being elected, arrived for his first day of work. As he arrived, one of the chief officials under the previous two presidents was packing away his stuff. Not surprisingly, he assumed he wasn't welcome any more. He had been active in previous apartheid governments while Mandela was in prison. He was expecting Mandela to be angry — and certainly to fire him.</td><td class="zh">南非的曼德拉，在種族隔離政策下，被監禁了 27 年，後來才被釋放，並成為南非總統。他當選後第一天上班，發生了一件令人深刻的事。當曼德拉抵達總統府時，看見前兩任總統手下的一位高官，正在收拾自己的物品。他理所當然以為自己已被視為不受歡迎，因為他曾經在種族隔離政府裡擔任要職，而那時曼德拉還在獄中。他預期曼德拉會發怒，當然也會把他撤職。</td></tr>
+<tr><td class="en">But Mandela asked him <span class="verse">why he was packing away</span> — and persuaded him to stay in his position, because <span class="highlight">Mandela wanted him to stay</span>. By his own account, from that day he received nothing but kindness from Mandela. Mandela often greeted those who had been against him with great kindness and warmth. <span class="highlight">Massive impact.</span></td><td class="zh">可是，曼德拉竟問他「<span class="verse">為甚麼要收拾東西</span>」，並請他留下，繼續擔任原職——因為「<span class="highlight">曼德拉想他留下來</span>」。據這位高官自己描述，由那日起，他從曼德拉那裡所得的，只有恩慈。曼德拉常常以極大的溫暖和善意，迎接那些曾與他為敵的人。「<span class="highlight">這對人心的震撼是巨大的</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">As we journey on — <span class="highlight">draw near as much as you can</span>. Why? Because when we do, we find we have a high priest who is <span class="highlight">incredibly gracious and kind</span> — even when we have felt tempted to abandon him, or feel like we have let him down.</td><td class="zh">在這條旅程上，「<span class="highlight">能來到祂面前多少，就來多少</span>」。為甚麼？因為當我們來到祂面前時，我們會發現——我們的大祭司是「<span class="highlight">極其有恩慈、極其溫柔</span>」的——即使我們曾經想要放棄祂，或覺得自己讓祂失望。</td></tr>
+<tr><td class="en">This is important — because we often feel like we have let Jesus down. We often feel weak in our Christian lives, or useless. In fact, the writer assumes it here: <span class="verse">v.15 — "Jesus sympathises with us in our weaknesses."</span></td><td class="zh">這非常重要——因為我們常常覺得自己讓耶穌失望了。我們常常覺得在基督徒的生命中很軟弱、很沒用。事實上，作者在這裡也是這樣假設的：「<span class="verse">第 15 節——耶穌體恤我們的軟弱</span>」。</td></tr>
+<tr><td class="en">Maybe we feel outnumbered. 10 million people watched the FA Cup Final yesterday. How many people would watch a church service? Maybe we feel weak — "can't I just compromise this once? Can't I do what others are doing, just this once?" Maybe we look at a non-Christian's life and think it looks easier.</td><td class="zh">也許我們覺得自己人微力弱。昨天有一千萬人收看英格蘭足總盃決賽。又有多少人會收看一場主日崇拜？也許我們覺得很軟弱——「就這一次妥協吧，不行嗎？就這一次和別人一樣，可以嗎？」也許我們望著不信主的人，心想他們的生活好像比較輕鬆。</td></tr>
+<tr><td class="en">Maybe we feel weak because family members or friends think we are silly to follow Jesus. Maybe we feel guilty for moral failings — we have done that sin, again. <span class="verse">"Why would Jesus keep going with me when I let him down so much?"</span></td><td class="zh">或許我們覺得軟弱，是因為家人朋友覺得我們跟隨耶穌很愚蠢。或許我們因為自己道德上的失敗而感到內疚——同一個罪，我又犯了一次。「<span class="verse">我這樣三番四次讓耶穌失望，祂為甚麼還會繼續跟我同行？</span>」</td></tr>
+<tr><td class="en"><span class="highlight">Notice: all the more reason to keep going with Jesus. And to draw near. Because Jesus' throne oozes grace for the weak.</span></td><td class="zh"><span class="highlight">請留意：正因為這樣，我們更要繼續跟著耶穌走下去；更要坦然來到祂面前。因為耶穌的寶座，為著軟弱的人不斷湧出恩典。</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">How do we know this?</span> Because Jesus himself knows what weakness is and what it feels like.</td><td class="zh"><span class="highlight">我們怎樣知道這事？</span>因為耶穌自己親身明白「軟弱」是甚麼，以及它的感受。</td></tr>
+<tr><td class="en">When John sees Jesus in glory in Revelation, he doesn't just see <span class="verse">the Lion</span> — the victor and ruler. He also sees <span class="verse">the Lamb</span> — the one who suffered greatly, the one who bears the scars.</td><td class="zh">當約翰在《啟示錄》中看見榮耀中的耶穌時，他看見的不只是「<span class="verse">獅子</span>」——那位得勝的君王；他也看見「<span class="verse">羔羊</span>」——那位受盡苦難、身上仍帶著傷痕的主。</td></tr>
+<tr><td class="en">Jesus still bears the scars of the torture device that killed him. He knows the emotional scars of rejection. He knows the scars of living in a world that is tempting us away from God at every moment. He knows, especially here in context, the temptation <span class="highlight">to give in in the face of suffering</span> — to seek an easier life than the life of following God.</td><td class="zh">耶穌身上至今仍帶著祂在十字架上受刑的傷痕。祂明白被人拒絕所帶來的情感創傷。祂明白活在這個無時無刻引誘我們遠離神的世界裡，是怎樣的滋味。尤其在這段經文的上下文中，祂明白那種「<span class="highlight">在苦難前想要妥協</span>」的試探——想尋找一條比跟隨神更輕鬆的路。</td></tr>
+<tr><td class="en">Jesus' first episode of ministry after his baptism is <span class="verse">being tempted by Satan</span>. Tempted to take the easy way to glory. To win his kingdom NOT through sacrifice and death. To avoid suffering. And that wasn't the last time he was tempted to do so.</td><td class="zh">耶穌受洗之後的第一個事件，就是「<span class="verse">被撒但試探</span>」——被引誘去走一條輕鬆的路、得榮耀的捷徑；被引誘以不經過犧牲和死亡的方式，建立祂的國度；被引誘逃避受苦。而那絕對不是祂最後一次受這種試探。</td></tr>
+<tr><td class="en">Jesus knows what it means to be tempted. He knows what it means to undergo pain. And he knows what it means to want another way.</td><td class="zh">耶穌真知道「受試探」是怎麼一回事。祂真知道「經歷痛苦」是怎麼一回事。祂也真知道，「巴不得有另一條路可以走」的心情是怎麼一回事。</td></tr>
+<tr><td class="en">When we want to share our struggles with someone, we often want to do so with someone who knows those same struggles. <span class="highlight">And that is what we find in Jesus our High Priest.</span></td><td class="zh">當我們想把心中的掙扎告訴一個人時，往往會渴望那個人是同樣經歷過這種掙扎的。「<span class="highlight">這份了解，正是我們在大祭司耶穌身上所找到的</span>」。</td></tr>
+<tr><td class="en">Jesus doesn't stand ahead of us with his arms crossed and a judgmental look on his face. <span class="highlight">Our High Priest knows what it is like to find life hard — and he wants to help.</span></td><td class="zh">耶穌不是抱著雙手、面帶責備地站在我們前面。「<span class="highlight">我們的大祭司明白「生活很艱難」是甚麼感覺，而祂想要幫助我們</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">Now, Jesus didn't ever give in to temptation — important to say. If he had, then he couldn't be the perfect sacrifice that opened the way back to God.</td><td class="zh">當然，耶穌從未在試探中跌倒——這一點必須說清楚。否則祂就不能成為那為我們開通往神之路的完全祭物。</td></tr>
+<tr><td class="en">Some people argue: <span class="verse">"Does Jesus truly understand temptation if he has never actually sinned?"</span> C.S. Lewis gives this brilliant answer:</td><td class="zh">有人質疑：「<span class="verse">耶穌既然從未犯過罪，祂能真正明白甚麼叫『試探』嗎？</span>」 C.S. 路易斯給了一個非常精彩的回答：</td></tr>
+<tr><td class="en"><span class="verse">"A silly idea is current that good people do not know what temptation means. This is an obvious lie. Only those who try to resist temptation know how strong it is. After all, you find out the strength of the German army by fighting against it, not by giving in. You find out the strength of a wind by trying to walk against it, not by lying down… We never find out the strength of the evil impulse inside us until we try to fight it: and Christ, because He was the only man who never yielded to temptation, is also the only man who knows to the full what temptation means."</span></td><td class="zh"><span class="verse">「現今流行一種很愚昧的看法，以為好人不明白試探是甚麼。這顯然是謊話。唯有那些嘗試抵擋試探的人，才知道試探的力量有多強。畢竟，要知道德軍的實力，不是投降，而是與他們交戰；要知道風的力量，不是躺下，而是逆風而行……除非我們嘗試與自己裡面那邪惡的衝動搏鬥，否則我們永遠不會知道它的力量有多大。基督，正因為祂是唯一從未屈服於試探的人，所以也是唯一完全明白『試探』為何物的人。」</span></td></tr>
+<tr><td class="en"><span class="highlight">The fact that Jesus never gave in to temptation actually means Jesus felt — more than we ever could — the full force of temptation. All that pressure building up; but Jesus never gave in.</span></td><td class="zh"><span class="highlight">耶穌從未在試探前妥協，正好說明：祂比我們任何人都更切身地感受到試探的全部力量。所有壓力都不停地累積——但耶穌從未屈服。</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Draw near — because Jesus gets it. And Jesus is grace upon grace upon grace.</span></td><td class="zh"><span class="highlight">坦然來到祂面前——因為耶穌真明白。耶穌是「恩上加恩，恩上加恩」。</span></td></tr>
+<tr><td class="en">Jesus doesn't just listen. He doesn't just sympathise. <span class="highlight">He helps.</span></td><td class="zh">耶穌不只是聆聽，祂不只是同情——「<span class="highlight">祂施以幫助</span>」。</td></tr>
+<tr><td class="en">Are you close to giving up? <span class="verse">Jesus knows that feeling, and will strengthen you if you bring that to him.</span></td><td class="zh">你是否快要放棄？「<span class="verse">耶穌深知那種感覺，並且當你把這帶到祂面前時，祂會堅固你</span>」。</td></tr>
+<tr><td class="en">Are you feeling inadequate? <span class="verse">Jesus will pour out grace to remind you it's not about your performance, but about looking to him.</span></td><td class="zh">你是否覺得自己不夠好？「<span class="verse">耶穌會傾倒恩典在你身上，提醒你重點不是你的表現，而是定睛仰望祂</span>」。</td></tr>
+<tr><td class="en">Do you feel guilty for something you've done? <span class="verse">Jesus will point to his finished sacrifice and say: "It's forgiven."</span></td><td class="zh">你是否因為自己所做的事而感到內疚？「<span class="verse">耶穌會指著祂已完成的贖罪祭，對你說：『已經得赦免了。』</span>」</td></tr>
+<tr><td class="en"><span class="highlight">Drawing near is good for us.</span> That can mean prayer, of course. It can mean coming to worship. It can mean finding time to think on Jesus and his work — in a lunch-break, when outside, while driving.</td><td class="zh"><span class="highlight">「坦然來到祂面前」對我們是大有益處的。</span>當然，這可以是禱告。可以是來到崇拜中。也可以是在午飯時間、在戶外、或在開車途中，花一點時間默想耶穌和祂為我們所成就的工作。</td></tr>
+<tr><td class="en"><span class="highlight">Are you feeling weak? Draw near.</span></td><td class="zh"><span class="highlight">你是否覺得軟弱？來到祂面前。</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">And if you are not yet a Christian…</span></td><td class="zh"><span class="highlight">如果你還未信主……</span></td></tr>
+<tr><td class="en">To not follow Jesus means we are following something else. <span class="verse">That thing you live for instead of Jesus — I can promise you this: it won't be as gracious as Jesus.</span> Our idols don't know what we've been through. Our idols don't make sacrifices themselves. <span class="highlight">Our idols demand.</span> Yes, they offer reward. But they are harsh masters who never let us rest.</td><td class="zh">不跟隨耶穌，就等於在跟隨別的東西。「<span class="verse">那個你選擇代替耶穌去為它而活的東西——我可以向你保證：它絕不會像耶穌那樣有恩慈</span>」。我們的偶像，並不明白我們所經歷的；我們的偶像，並不會為我們犧牲自己。「<span class="highlight">我們的偶像，只向我們索取</span>」。是的，它們也會給予獎賞，但它們是嚴酷的主人，永遠不讓我們安歇。</td></tr>
+<tr><td class="en">Jesus is our High Priest. <span class="highlight">He is at the finishing line — and he makes sure we join him there.</span> And he invites us to <span class="verse">draw near now</span>.</td><td class="zh">耶穌是我們的大祭司——「<span class="highlight">祂已在終點線上，而祂要親自確保我們也能一同抵達那裡</span>」。祂今天就邀請我們「<span class="verse">坦然來到祂面前</span>」。</td></tr>
+<tr><td class="en"><span class="highlight">God never tires of us or our weakness.</span> His throne is always a throne of mercy and grace. <span class="highlight">If you are feeling weak — draw near. And keep going with Jesus. He is the Way. And he knows what we need.</span></td><td class="zh"><span class="highlight">神永遠不會因我們或我們的軟弱而生厭。</span>祂的寶座，永遠是憐憫與恩典的寶座。「<span class="highlight">若你覺得軟弱——就坦然來到祂面前。與耶穌繼續同行下去。祂就是道路，祂也知道我們所需要的</span>」。</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Access Granted</h1>
+    <h1 class="zh">進入主前的通道已開</h1>
+    <div class="subtitle">Hebrews 4:14-16 希伯來書 4 章 14 至 16 節 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need." · 「所以，我們只管坦然無懼的，來到施恩的寶座前，為要得憐恤，蒙恩惠，作隨時的幫助。」(Hebrews 希伯來書 4 章 16 節)</div>
+  </div>
+
+  
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <p>The writer of Hebrews opens a new section of the letter — running all the way to Chapter 10 — about Jesus as our <strong>Great High Priest</strong>. The big question behind all this talk of priests and temples is a question everyone faces: <em>Do we have access to God? Or is God off-limits to us?</em></p><br>
+      <p>The wonderful answer of Hebrews 4:14-16 is <strong>yes — access is fully open</strong>. The preacher unfolds this through two commands, each anchored to who Jesus is and where he is now.</p><br>
+      <p><strong>Hold fast</strong> — because Jesus, our High Priest, has gone through the heavens and is at God's right hand. He has finished the work of dealing with sin; he reigns as the Son of God. He is not pointing us to a way; he is at our destination, beckoning us on.</p><br>
+      <p><strong>Draw near</strong> — because this same High Priest knows our weaknesses from the inside. He has been tempted in every way; he bears the scars of suffering and rejection. His throne is a throne of grace that overflows with mercy for the weak. If you feel battered, useless, or close to giving up — that is precisely the moment to come closer, not stay away.</p>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">繁體中文</div>
+      <p>希伯來書的作者，在這裡開始整卷書一個新的段落——一直延伸到第 10 章——主題是耶穌作我們的<strong>大祭司</strong>。整段關於祭司與聖殿的討論，背後其實是每一個人都要面對的問題：「<em>我們能不能進到神面前？還是說，神對我們而言是禁區？</em>」</p><br>
+      <p>希伯來書 4 章 14 至 16 節給出極美好的答案——「<strong>是的，通往神的道路已經完全敞開</strong>」。講道者透過兩個命令把這真理展開，每一個命令都建基於耶穌「是誰」、以及祂「現今在哪裡」。</p><br>
+      <p><strong>持守</strong>——因為我們的大祭司耶穌已升入高天，如今坐在神的右邊。祂已經完成對付罪的工作；祂作為神的兒子掌權作王。祂不是站在我們這邊指著遠方說「該那邊走」；祂已經在目的地，向我們招手，叫我們繼續走過去。</p><br>
+      <p><strong>坦然來到祂面前</strong>——因為這位大祭司，是從內心深處明白我們軟弱的那一位。祂曾凡事受過試探；祂身上帶著苦難與被棄的傷痕。祂的寶座是施恩的寶座，為著軟弱的人不斷湧出憐憫。若你覺得遍體鱗傷、覺得自己無用、覺得快要放棄——那正是要更靠近祂的時刻，而不是退後遠離祂。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">✝️</span> Key Scriptures 重要經文</div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 4 章 14 節 (NIV / 和合本)</div>
+    <div class="verse-text">"Therefore, since we have a great high priest who has gone through the heavens, Jesus the Son of God, let us hold firmly to the faith we profess."</div><br>
+    <div class="verse-text zh">「我們既然有一位已經升入高天尊榮的大祭司，就是神的兒子耶穌，便當持定所承認的道。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 4 章 15 節 — Tempted, yet without sin 凡事受過試探，與我們一樣，只是沒有犯罪</div>
+    <div class="verse-text">"For we do not have a high priest who is unable to empathize with our weaknesses, but we have one who has been tempted in every way, just as we are — yet he did not sin."</div><br>
+    <div class="verse-text zh">「因我們的大祭司並非不能體恤我們的軟弱；他也曾凡事受過試探，與我們一樣，只是他沒有犯罪。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 4 章 16 節 — Approach the throne of grace 來到施恩的寶座前</div>
+    <div class="verse-text">"Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need."</div><br>
+    <div class="verse-text zh">「所以，我們只管坦然無懼的，來到施恩的寶座前，為要得憐恤，蒙恩惠，作隨時的幫助。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Matthew 馬太福音 28 章 9 節 — Holding on to Jesus 抱住耶穌</div>
+    <div class="verse-text">"They came to him and clasped his feet and worshiped him."</div><br>
+    <div class="verse-text zh">「她們就上前抱住他的腳拜他。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 10 章 19 至 22 節 — Same theme, fuller picture 同一主題的更完整描繪</div>
+    <div class="verse-text">"Therefore, brothers and sisters, since we have confidence to enter the Most Holy Place by the blood of Jesus, by a new and living way opened for us through the curtain… let us draw near to God with a sincere heart and with the full assurance that faith brings."</div><br>
+    <div class="verse-text zh">「弟兄們，我們既因耶穌的血得以坦然進入至聖所，是藉著他給我們開了一條又新又活的路，從幔子經過……並我們心中天良的虧欠已經灑去……就當存著誠心和充足的信心來到神面前。」</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">💡</span> Key Themes 主要主題</div>
+
+  <div class="summary-point"><strong>1. The question of access 「能不能進到神面前」這個問題</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Mt Kailash and North Sentinel Island are off-limits to outsiders. They are pictures of the deeper question every human faces: is God off-limits to me? Hebrews answers with a definite "no" — through Jesus, access is open.</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>岡仁波齊峰和北森提奈島，都是禁止外人進入的地方。它們是一幅圖畫，代表著每個人都要面對的更深問題：「神對我而言，是否禁區？」希伯來書的回答非常肯定——「不是」。藉著耶穌，通往神的道路已經敞開。</div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>2. Location matters — Jesus is at God's right hand 「位置」很重要——耶穌在神的右邊</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Where Jesus is now tells us that the way is fully clear. He has finished dealing with sin; he reigns as Son of God; he is not pointing to a way — he is at our destination beckoning us on.</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>耶穌如今所在的位置，告訴我們道路已經完全打通。祂已完成對付罪的工作；祂作為神的兒子掌權作王。祂不是站在這邊指著遠方說「向那邊走」，祂已經在我們的目的地，向我們招手，叫我們繼續走過去。</div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>3. Hold fast like clinging to a lifeline 持守耶穌——像緊緊抓住救命繩</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>"Holding fast" is the same word for the women clasping the risen Jesus' feet — clinging on. Like gripping a rope that pulls you out of a raging sea, we cling to Jesus because he is the guaranteed way to eternal rest.</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>「持守」這個動詞，正是當婦女抓住復活的耶穌腳的同一個字——緊緊地抓住。就像在洶湧大海中抓住一條能把你救起的繩，我們緊緊抓住耶穌，因為祂是通往永遠安息的可靠保證。</div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>4. Jesus knows our weakness from the inside 耶穌親身明白我們的軟弱</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Our High Priest has been tempted in every way as we are. He bears the scars of suffering and rejection. C.S. Lewis: only the one who never yielded knows the full strength of temptation. Jesus is not unmoved by our weakness — he gets it.</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>我們的大祭司，曾凡事受過試探，與我們一樣。祂身上帶著苦難與被棄的傷痕。 C.S. 路易斯說：唯有從未屈服的那一位，才完全明白試探的力量。耶穌不是對我們的軟弱無動於衷——祂真明白。</div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>5. The throne of grace oozes mercy for the weak 施恩的寶座向軟弱的人湧出憐憫</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Mandela's grace to those who had once opposed him is a small picture of Jesus' kindness to us. When we draw near, we don't find a judge with folded arms; we find a High Priest who listens, sympathises, and actively helps.</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>曼德拉對曾經與他為敵的人所顯出的恩慈，是耶穌對我們溫柔的一個小小縮影。當我們坦然來到祂面前時，我們所遇見的不是一位抱著雙手的審判官，而是一位願意聆聽、體恤、並親自伸手幫助我們的大祭司。</div>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">❓</span> Thinking Questions 思考問題</div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>1.</strong> The preacher asks: "Do we have access to God? Or is God off-limits?" Before hearing this passage, how would you have answered? What in your life makes God feel either accessible or off-limits today?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>一、</strong>講道者問：「我們能進到神面前嗎？還是說，神是我們的禁區？」未聽這段經文之前，你會怎樣回答？在你目前的生命中，有甚麼事，讓你覺得神「可親近」或「不可親近」？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>2.</strong> The writer says the way is fully clear because of <em>where</em> Jesus is now. Why does Jesus' <em>location</em> at God's right hand matter so much for our confidence as Christians?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>二、</strong>作者說，因為耶穌「現今所在的位置」，所以道路是完全打通的。為甚麼耶穌「坐在神的右邊」這個「位置」，對基督徒的信心如此重要？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>3.</strong> What in your life right now is tempting you to <em>loosen your grip</em> on Jesus — to compromise, blend in, or quietly drift? Be honest. What would "clinging like a rope from a raging sea" look like this week?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>三、</strong>在你目前的生活中，有甚麼事情，引誘你「鬆開抓住耶穌的手」——妥協、隨波逐流、或悄悄地遠離祂？請誠實面對。對你而言，這個禮拜「像抓住救命繩般緊緊抓住耶穌」會是怎樣的具體樣式？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>4.</strong> Verse 15 says Jesus "sympathises with our weaknesses." Is there a particular weakness you have struggled to bring to Jesus because you assume he is annoyed, disappointed, or tired of it? How does this verse change the picture?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>四、</strong>第 15 節說耶穌「體恤我們的軟弱」。你心裡有沒有某個軟弱，是你一直不敢帶到耶穌面前——因為你覺得祂已經厭煩、已經失望、已經受夠了？這節經文如何改變這幅圖畫？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>5.</strong> Verse 16 invites us to come <em>"with confidence"</em>. What is the difference between coming to God with confidence and coming with arrogance? And what is the difference between coming with confidence and coming with shame?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>五、</strong>第 16 節邀請我們「坦然無懼」地來到神面前。「坦然無懼」與「自高自大」有何分別？「坦然無懼」與「羞愧不敢來」又有何分別？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>6.</strong> Idols "demand" while Jesus "helps". Name one thing other than Jesus that you have been treating as a "small idol" recently. How has it demanded from you? What would it look like to bring that area to the throne of grace this week?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>六、</strong>偶像只會「索取」，耶穌卻會「幫助」。請說出一樣最近被你當作「小偶像」的東西（不是耶穌的某種事物）。它怎樣向你索取？這個禮拜，把這個範疇帶到「施恩的寶座前」會是怎樣的具體樣子？</div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><strong>7.</strong> If you would say you are <em>not yet a Christian</em> — what is the "something else" you currently live for? Honestly: has it been as gracious to you as the picture of Jesus in this passage? What would it mean for you to "draw near" today?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>七、</strong>如果你會說你「目前還未信主」——那麼，你現在是為甚麼東西而活？請誠實地問自己：那樣東西，有沒有像今日這段經文所描繪的耶穌一樣，對你滿有恩慈？對你來說，今日就「坦然來到祂面前」會是甚麼意思？</div>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🌱</span> Application 生活應用</div>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <p><strong>Draw near, especially when you feel weak.</strong> Don't wait until you "feel better" or "have your act together" to come to Jesus. The verse is most precious precisely when we feel most useless. Set a daily rhythm — morning, lunch, bedtime — to simply turn your heart toward the throne of grace and say, "Lord, I'm coming."</p><br>
+      <p><strong>Name the rope.</strong> Identify, in writing if you can, one concrete way you will "hold fast" this week — a Bible passage to keep returning to, a friend who'll pray with you, a moment of worship you'll guard, a temptation you'll refuse with Jesus' help.</p><br>
+      <p><strong>Bring the weakness you've been hiding.</strong> Is there one area you've kept from Jesus because you assumed he was disappointed? Bring it this week, with verse 15 in mind. He sympathises. He has been there. He helps.</p><br>
+      <p><strong>Remember location.</strong> When the day feels heavy and the way ahead feels blocked, picture Jesus where he is — at God's right hand, at your destination, beckoning you on. The roadworks may still be visible — but the way is clear in Christ.</p><br>
+      <p><strong>If you are not yet a Christian — draw near today.</strong> Whatever you have been living for, give it a sober look. Then come to the High Priest who has already paid your way in. A simple, honest prayer is enough: "Jesus, I come — have mercy on me, and help me."</p>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">繁體中文</div>
+      <p><strong>越是覺得軟弱，就越要坦然來到祂面前。</strong>不要等到自己「感覺好一點」或「把生活打理得整齊」才來到耶穌面前。這節經文，正正是在我們覺得自己最沒有用的時候，最為寶貴。請為自己訂立一個每日的節奏——早上、午飯時、臨睡前——簡單地把心轉向施恩的寶座，說：「主啊，我來了。」</p><br>
+      <p><strong>替自己的「繩」起個名字。</strong>如果可以的話，請寫下這個禮拜你會用甚麼具體方式去「持守」——一段聖經反覆默想、一位代禱的同行者、一段你會守住的崇拜時刻、一個你要在耶穌幫助下拒絕的試探。</p><br>
+      <p><strong>把你一直藏起的軟弱帶到祂面前。</strong>有沒有一個範疇，你一直不敢帶到耶穌面前，因為你以為祂已經失望了？這個禮拜，請帶著第 15 節的話來到祂面前。祂體恤你，祂走過同樣的路，祂會幫助你。</p><br>
+      <p><strong>記得耶穌「現今的位置」。</strong>當你覺得日子很沉重、前路被堵塞時，請在心中刻意定睛——耶穌現今在神的右邊，在你將要抵達的目的地上，向你招手。路上的工程或許仍清晰可見，但在基督裡，道路其實已經暢通。</p><br>
+      <p><strong>若你還未信主——今日就坦然來吧。</strong>無論你過去為甚麼而活，請冷靜地審視它一下。然後，就來到這位已經替你開好通路的大祭司面前。一個簡單而誠實的禱告就足夠了：「耶穌，我來了——求祢憐憫我，求祢幫助我。」</p>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <p>Father in heaven, thank you that you are not off-limits to us. Thank you for sending your Son, Jesus, our Great High Priest, who has gone through the heavens and is at your right hand. Thank you that he has finished the work of dealing with our sin; that the way back to you is fully and gloriously open.</p><br>
+      <p>Lord Jesus, we so often feel weak. We feel battered by the world's pressure to give in. We feel guilty over sins repeated. We feel small and outnumbered. We confess that we have sometimes loosened our grip on you, looked for an easier way, and tried to manage on our own.</p><br>
+      <p>Help us today, by your Spirit, to hold fast. Like the women clasping your risen feet, like a drowning sailor gripping a rope — we cling to you. You are the Way. Through you alone is there no blockage on the road home.</p><br>
+      <p>And so, with confidence — not because of who <em>we</em> are, but because of who <em>you</em> are — we draw near. To the throne of grace. With our weakness. With our temptation. With our shame. With our questions. We come, knowing that you have been there, you sympathise, and you actively help.</p><br>
+      <p>Receive us, gracious High Priest. Pour out mercy. Pour out grace. And help us, this week, to keep going with you — until at last we see you face to face. In your strong and tender name we pray, Amen.</p>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">繁體中文</div>
+      <p>天父，感謝祢——祢對我們而言不再是禁區。感謝祢差遣祢的兒子耶穌，作我們的大祭司，祂已經升入高天，如今坐在祢的右邊。感謝祂已經完成了為我們贖罪的工作，使通往祢面前的道路，完全地、榮耀地敞開。</p><br>
+      <p>主耶穌啊，我們常常覺得軟弱。我們被世界要我們妥協的壓力壓得很重；我們因屢屢犯同一個罪而感到內疚；我們覺得自己渺小、孤單、與身邊的人格格不入。我們承認，自己有時鬆開了抓住祢的手，去尋找一條較輕鬆的路，又嘗試靠自己撐下去。</p><br>
+      <p>求祢今日藉著聖靈幫助我們持守。像那些抱住祢復活之腳的婦女，像那快要沉沒的船員緊抓著繩——我們緊緊抓住祢。祢就是道路。唯有藉著祢，回家的路上才沒有任何攔阻。</p><br>
+      <p>所以，我們坦然無懼——不是因為「我們」是誰，而是因為「祢」是誰——我們來到施恩的寶座前。帶著我們的軟弱、我們的試探、我們的羞愧、我們的疑問前來。我們確信祢曾走過同樣的路、祢體恤我們、祢親自施以幫助。</p><br>
+      <p>滿有恩慈的大祭司啊，求祢接納我們。求祢傾倒憐憫，傾倒恩典。求祢幫助我們，在這個禮拜繼續與祢同行——直到那日，我們可以面對面見祢。奉祢大有能力、滿有溫柔的名禱告，阿們。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <ul>
+        <li><strong>Hebrews 5:1-10</strong> — The next paragraph: more on Jesus as High Priest, "able to deal gently with the ignorant and wayward".</li>
+        <li><strong>Hebrews 10:19-25</strong> — The same theme returns in full: confidence to enter the Most Holy Place by the blood of Jesus; <em>draw near</em>, <em>hold fast</em>, <em>spur one another on</em>.</li>
+        <li><strong>Hebrews 12:1-3</strong> — Run with perseverance, looking to Jesus who endured the cross for the joy set before him.</li>
+        <li><strong>Matthew 4:1-11</strong> — Jesus tempted in the wilderness: he knows from the inside what temptation feels like.</li>
+        <li><strong>Romans 8:31-39</strong> — Nothing can separate us from the love of God in Christ Jesus our Lord.</li>
+        <li><strong>Psalm 34</strong> — "Taste and see that the LORD is good": an Old Testament invitation to draw near.</li>
+      </ul>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">繁體中文</div>
+      <ul>
+        <li><strong>希伯來書 5 章 1 至 10 節</strong>——下一段：繼續論到耶穌作大祭司，「能體諒那愚蒙的和失迷的人」。</li>
+        <li><strong>希伯來書 10 章 19 至 25 節</strong>——同一主題的完整重述：因耶穌的血得以坦然進入至聖所，要「坦然來到祂面前」、「持守所承認的指望」、「彼此相顧，激發愛心，勉勵行善」。</li>
+        <li><strong>希伯來書 12 章 1 至 3 節</strong>——存心忍耐地奔跑前面的路程，仰望那為我們忍受十字架、輕看羞辱的耶穌。</li>
+        <li><strong>馬太福音 4 章 1 至 11 節</strong>——耶穌在曠野受試探：祂親身明白受試探的感受。</li>
+        <li><strong>羅馬書 8 章 31 至 39 節</strong>——沒有任何事可以使我們與基督耶穌裡的神的愛隔絕。</li>
+        <li><strong>詩篇 34 篇</strong>——「你們要嘗嘗主恩的滋味，便知道祂是美善的。」這是舊約裡邀請我們「坦然來到祂面前」的呼聲。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-05-16 · Source: Hebrews 4 14-16 SERMON OFFICIALLL.docx</p>
+  </div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-05-17 · Source: Hebrews 4 14-16 SERMON OFFICIALLL.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>

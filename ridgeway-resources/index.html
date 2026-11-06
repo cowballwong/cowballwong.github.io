@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeway · 教會資源庫</title>
+<meta name="description" content="Sunday sermon transcripts, study notes and special-event materials for the Cantonese ministry at Ridgeway Church, St Albans.">
+<script>
+try { var t = localStorage.getItem('ridgeway-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+document.documentElement.classList.add('js');
+</script>
+<style>
+:root {
+  --fs: 17px;
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --ink: #2d2a25;
+  --muted: #6f6a62;
+  --accent: #b25530;
+  --accent-soft: #e8d8cf;
+  --rule: #e6dfd5;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(45,42,37,.05);
+}
+[data-theme="night"] {
+  --bg: #15171a;
+  --card: #1d2024;
+  --ink: #ebe7df;
+  --muted: #9a9590;
+  --accent: #e9956a;
+  --accent-soft: #3a2a22;
+  --rule: #2a2d31;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--fs);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  transition: background .25s, color .25s;
+  overflow-x: hidden;
+}
+.wrap { max-width: 980px; margin: 0 auto; padding: 22px 22px 100px; }
+
+/* ---------- sticky header: brand row + category bar ---------- */
+.sitebar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+.topbar {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 22px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.topbar .brand { font-size: 14px; color: var(--muted); }
+.topbar .brand b { color: var(--ink); }
+.controls button {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s, border .15s;
+}
+.controls button:hover { border-color: var(--accent); color: var(--accent); }
+
+.cats {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.cat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 8px 4px 10px;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.25;
+  transition: color .15s, border-color .15s;
+}
+.cat .en { font-size: 14px; font-weight: 600; letter-spacing: 0.02em; }
+.cat .zh { font-size: 12px; }
+.cat:hover { color: var(--accent); }
+.cat[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.cat .ext { font-size: 11px; margin-left: 2px; }
+.cat .en { position: relative; }
+.cat .dot {
+  position: absolute;
+  top: 1px;
+  right: -9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.cat:focus-visible, .srow:focus-visible, .card:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- hero (compact) ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 0 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-logo { flex-shrink: 0; width: 72px; height: auto; transition: filter .25s; }
+[data-theme="night"] .hero-logo { filter: brightness(0) invert(1) opacity(0.92); }
+.hero-text { min-width: 0; }
+.hero .eyebrow { color: var(--accent); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+.hero h1 { font-size: clamp(20px, 3vw, 24px); margin: 2px 0; line-height: 1.2; font-weight: 600; }
+.hero h1 .zh { color: var(--muted); font-size: 0.85em; font-weight: 500; margin-left: 8px; letter-spacing: 0.04em; }
+.hero .lead { font-size: 13px; color: var(--muted); margin: 2px 0 0; line-height: 1.5; }
+
+/* ---------- panels ---------- */
+.js .panel { display: none; }
+.js .panel.active { display: block; }
+.panel + .panel { margin-top: 40px; }
+.js .panel + .panel { margin-top: 0; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 4px 0 14px;
+  padding: 0 4px;
+}
+.section-head h2 { font-size: 22px; margin: 0; font-weight: 600; }
+.section-head h2 .zh { color: var(--muted); font-weight: 400; font-size: 0.85em; margin-left: 8px; }
+.section-head .count { font-size: 13px; color: var(--muted); letter-spacing: 0.05em; }
+.sub-head { font-size: 13px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin: 26px 4px 10px; }
+
+/* ---------- featured card ---------- */
+.featured { margin-bottom: 8px; }
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card.is-special { border-color: var(--accent); background: linear-gradient(180deg, var(--accent-soft) 0%, var(--card) 60%); }
+.card .special-badge {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--accent); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  padding: 5px 11px; border-radius: 999px; text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(178,85,48,.35);
+}
+[data-theme="night"] .card .special-badge { color: #1d2024; }
+.card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 24px rgba(178,85,48,.10); }
+.card .tag {
+  display: inline-block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft);
+  padding: 4px 10px; border-radius: 999px; align-self: flex-start; margin-bottom: 12px; font-weight: 600;
+}
+.card .date { font-size: 13px; color: var(--muted); margin-bottom: 4px; letter-spacing: 0.04em; }
+.card h3 { font-size: 20px; margin: 0 0 4px; line-height: 1.35; font-weight: 600; padding-right: 110px; }
+.card .zh-title { font-size: 15px; color: var(--muted); margin: 0 0 10px; font-weight: 500; }
+.card .desc { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 12px; }
+.card .features {
+  display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted);
+  padding-top: 10px; border-top: 1px dashed var(--rule);
+}
+
+/* ---------- search ---------- */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 6px 4px 14px;
+  margin: 0 0 14px;
+  box-shadow: var(--shadow);
+}
+.search:focus-within { border-color: var(--accent); }
+.search svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--muted); fill: none; stroke-width: 2; }
+.search input {
+  flex: 1; min-width: 0;
+  border: 0; outline: 0; background: transparent; color: var(--ink);
+  font: inherit; font-size: 16px; padding: 8px 0;
+}
+.search input::-webkit-search-cancel-button { display: none; }
+.search input::placeholder { color: var(--muted); opacity: .85; }
+.search button {
+  border: 0; background: var(--accent-soft); color: var(--accent);
+  border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.search-note { font-size: 13px; color: var(--muted); margin: -6px 6px 12px; min-height: 1em; }
+
+/* ---------- collapsible groups ---------- */
+details.grp { border-bottom: 1px solid var(--rule); }
+details.grp > summary {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 6px;
+  cursor: pointer;
+  user-select: none;
+}
+details.grp > summary::-webkit-details-marker { display: none; }
+details.grp > summary::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+  transition: transform .15s;
+  flex-shrink: 0;
+  align-self: center;
+}
+details.grp[open] > summary::before { transform: rotate(45deg); }
+details.grp > summary .lbl { font-weight: 600; }
+details.grp > summary .lbl .zh { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: .92em; }
+details.grp > summary .n { margin-left: auto; font-size: 13px; color: var(--muted); }
+details.yr > summary { font-size: 20px; border-bottom: 1px solid var(--rule); }
+details.yr { border-bottom: 0; margin-bottom: 6px; }
+details.mo { margin-left: 10px; }
+details.mo > summary { font-size: 16px; }
+.grp-body { padding: 0 0 10px; }
+
+/* ---------- compact rows ---------- */
+.srow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: start;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.srow:hover { border-color: var(--accent); transform: translateY(-1px); }
+.srow-date { font-size: 13px; color: var(--accent); letter-spacing: 0.03em; padding-top: 3px; font-weight: 600; }
+.srow-body { min-width: 0; }
+.srow h3 { font-size: 17px; margin: 0; line-height: 1.35; font-weight: 600; }
+.srow .zh-title { font-size: 14px; color: var(--muted); margin: 1px 0 0; }
+.srow .desc {
+  font-size: 13px; color: var(--muted); margin: 4px 0 0; line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.srow-tag {
+  display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 999px;
+  margin-bottom: 4px; font-weight: 600;
+}
+.card-watch {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; background: #ff0000; color: #fff;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  border-radius: 999px; text-decoration: none; align-self: center; white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(255,0,0,.25);
+}
+.card-watch svg { width: 14px; height: 14px; fill: #fff; }
+.srow.hit h3, .srow.hit .zh-title { color: var(--ink); }
+mark { background: var(--accent-soft); color: inherit; border-radius: 3px; padding: 0 1px; }
+
+footer {
+  margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule);
+  text-align: center; font-size: 13px; color: var(--muted); line-height: 1.7;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .wrap { padding: 14px 16px 80px; }
+  .topbar { padding: 8px 16px 4px; }
+  .cats { padding: 0 8px; gap: 0; }
+  .cat .en { font-size: 13px; }
+  .cat .zh { font-size: 11px; }
+  .hero { gap: 12px; padding: 4px 0 14px; margin-bottom: 14px; }
+  .hero-logo { width: 52px; }
+  .hero h1 { font-size: 18px; }
+  .hero h1 .zh { margin-left: 6px; }
+  .hero .lead { display: none; }
+  .card { padding: 16px; }
+  .card h3 { font-size: 18px; padding-right: 0; margin-top: 4px; }
+  .card .special-badge { position: static; align-self: flex-start; margin-bottom: 10px; }
+  .srow { grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px; gap: 2px 10px; }
+  .srow-date { grid-column: 1 / -1; padding-top: 0; font-size: 12px; }
+  .srow .desc { display: none; }
+  .card-watch { padding: 3px 8px; }
+  details.mo { margin-left: 4px; }
+}
+</style>
+</head>
+<body>
+
+<header class="sitebar">
+  <div class="topbar">
+    <div class="brand"><b>Ridgeway</b> · 教會資源庫</div>
+    <div class="controls">
+      <button id="themeBtn" type="button" aria-label="Toggle day / night theme">☾ Night</button>
+    </div>
+  </div>
+  <nav class="cats" role="tablist" aria-label="Categories · 分類">
+    <a class="cat" role="tab" href="#sermons" data-tab="sermons" aria-selected="true"><span class="en">Sermon</span><span class="zh">主日講道</span></a>
+    <a class="cat" role="tab" href="#studies" data-tab="studies" aria-selected="false"><span class="en">Bible Study</span><span class="zh">查經</span></a>
+    <a class="cat" href="https://anzonwong.com/worship-music/"><span class="en">Music<span class="ext" aria-hidden="true">↗</span></span><span class="zh">敬拜樂譜</span></a>
+    <a class="cat" role="tab" href="#special" data-tab="special" aria-selected="false"><span class="en">Special</span><span class="zh">特別聚會</span></a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+<div class="hero">
+  <img class="hero-logo" src="assets/ridgeway-logo.png" alt="Ridgeway Church, St Albans">
+  <div class="hero-text">
+    <div class="eyebrow">Cantonese Ministry · 廣東話團契</div>
+    <h1>Resources<span class="zh">教會資源庫</span></h1>
+    <p class="lead">Sunday sermons, Bible studies and special-event materials · 主日講道、查經、特別聚會。</p>
+  </div>
+</div>
+
+<!-- ======================= SERMONS ======================= -->
+<section id="sermons" class="panel active" role="tabpanel" aria-label="Sermons · 主日講道">
+  <div class="section-head">
+    <h2>Sunday Sermons <span class="zh">主日講道</span></h2>
+    <span class="count" data-count-for="sermon-rows"></span>
+  </div>
+
+  <div class="featured" id="sermon-featured">
+    <article class="card is-special" data-href="sermons/2026-11-08-saved-to-judge-saved-from-sin/" tabindex="0">
+      <span class="special-badge">★ This Sunday</span>
+      <span class="tag">Sermon · 主日</span>
+      <div class="date">8 November 2026</div>
+      <h3>Saved to Judge, Saved from Sin</h3>
+      <div class="zh-title">蒙拯救與主同審，蒙拯救脫離罪惡 · 1 Corinthians 6:1-11</div>
+      <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      <div class="features">
+        <span>📖 Bilingual</span>
+        <span>🎧 Cantonese audio</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="sub-head">Archive · 講道庫</div>
+  <label class="search" for="sermonSearch">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <input id="sermonSearch" type="search" autocomplete="off" placeholder="Search title, passage, date · 搜尋標題、經文、日期">
+    <button type="button" id="sermonClear" hidden>Clear · 清除</button>
+  </label>
+  <div class="search-note" id="sermonNote" aria-live="polite"></div>
+
+  <div class="rows" id="sermon-rows" data-groupby="month">
+<!-- SERMON-ROWS: one <article class="srow"> per sermon, any order (the page sorts by data-date).
+     sermon_watcher.py inserts each new sermon's row directly below this line. -->
+    <article class="srow" data-href="sermons/2026-11-08-saved-to-judge-saved-from-sin/" data-date="2026-11-08" tabindex="0">
+      <div class="srow-date">8 Nov 2026</div>
+      <div class="srow-body">
+        <h3>Saved to Judge, Saved from Sin</h3>
+        <div class="zh-title">蒙拯救與主同審，蒙拯救脫離罪惡 · 1 Corinthians 6:1-11</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-11-01-church-discipline-what-when-why/" data-date="2026-11-01" tabindex="0">
+      <div class="srow-date">1 Nov 2026</div>
+      <div class="srow-body">
+        <h3>Church discipline: what, when, why?</h3>
+        <div class="zh-title">教會紀律：是甚麼？何時？為何？ · 1 Corinthians 5:1-13</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-10-25-marks-of-maturity/" data-date="2026-10-25" tabindex="0">
+      <div class="srow-date">25 Oct 2026</div>
+      <div class="srow-body">
+        <h3>Marks of maturity</h3>
+        <div class="zh-title">成熟的標記 · 1 Corinthians 4:1-21</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-10-18-farewell-to-division/" data-date="2026-10-18" tabindex="0">
+      <div class="srow-date">18 Oct 2026</div>
+      <div class="srow-body">
+        <h3>Farewell to Division</h3>
+        <div class="zh-title">告別分裂 · 1 Corinthians 3:18–4:5 哥林多前書 3:18–4:5</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-10-11-the-church-is-gods/" data-date="2026-10-11" tabindex="0">
+      <div class="srow-date">11 Oct 2026</div>
+      <div class="srow-body">
+        <h3>The Church Is God's</h3>
+        <div class="zh-title">教會是屬神的 · 1 Corinthians 3:1-17</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-10-04-seeing-clearly/" data-date="2026-10-04" tabindex="0">
+      <div class="srow-date">4 Oct 2026</div>
+      <div class="srow-body">
+        <h3>Seeing Clearly!</h3>
+        <div class="zh-title">看得清楚！ · 1 Corinthians</div>
+        <p class="desc">"Knowledge is power" is often true in life: good schools and access to information open doors. But natural, acquired knowledge cannot open the door to God. The gospel is not withheld from the uneducated or handed to the clever; it is received by those in whom the Spirit is at work.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-09-20-strange-power/" data-date="2026-09-20" tabindex="0">
+      <div class="srow-date">20 Sep 2026</div>
+      <div class="srow-body">
+        <h3>Strange Power</h3>
+        <div class="zh-title">奇異的大能 · 1 Corinthians</div>
+        <p class="desc">To the ancient world a crucified saviour was both weak and stupid — worth a mocking graffito of a man worshipping a donkey-headed figure on a cross. Yet "the foolishness of God is wiser than human wisdom".</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-09-13-christ-not-conflict/" data-date="2026-09-13" tabindex="0">
+      <div class="srow-date">13 Sep 2026</div>
+      <div class="srow-body">
+        <h3>Christ, not conflict</h3>
+        <div class="zh-title">是基督，不是紛爭 · 1 Corinthians 1:10-17</div>
+        <p class="desc">This Sunday's bilingual sermon and study guide.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-09-06-the-lord-jesus-and-his-gifts/" data-date="2026-09-06" tabindex="0">
+      <div class="srow-date">6 Sep 2026</div>
+      <div class="srow-body">
+        <h3>The Lord Jesus and His Gifts</h3>
+        <div class="zh-title">主耶穌和祂的恩賜 · 1 Corinthians</div>
+        <p class="desc">Corinth's conflict and compromise are symptoms; the disease is a gospel that has drifted to the edge of the frame. Paul's remedy is not more rules but a re-centring on what God has done in Jesus. Jesus is the operating system, not an app.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-08-30-dont-waste-your-pain/" data-date="2026-08-30" tabindex="0">
+      <div class="srow-date">30 Aug 2026</div>
+      <div class="srow-body">
+        <h3>Don't waste your pain</h3>
+        <div class="zh-title">不要浪費你的痛苦 · Lamentations</div>
+        <p class="desc">The great temptation in a season of suffering is to put life on hold until it passes — to treat the whole stretch as dead ground. The sermon says that is a mistake: the potential for progress is huge precisely here. "The future is created by what you do today, not tomorrow."</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-08-23-inescapable/" data-date="2026-08-23" tabindex="0">
+      <div class="srow-date">23 Aug 2026</div>
+      <div class="srow-body">
+        <h3>Inescapable</h3>
+        <div class="zh-title">無處可逃 · Lamentations</div>
+        <p class="desc">Chapter 4 is a democracy of degradation. Princes once brighter than snow are unrecognisable in the streets; the wealthy who ate delicacies now sit on ash heaps; infants beg for bread. When God's judgement falls, position and possessions give no exemption.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-08-16-hurt-and-hope/" data-date="2026-08-16" tabindex="0">
+      <div class="srow-date">16 Aug 2026</div>
+      <div class="srow-body">
+        <h3>Hurt and hope</h3>
+        <div class="zh-title">傷痛與盼望 · Lamentations</div>
+        <p class="desc">Read verses 18-20. What images does the prophet use for his suffering, and what does he say has happened to his hope in the LORD? Why does it matter that God allows such raw words into Scripture?</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-08-09-good-grief/" data-date="2026-08-09" tabindex="0">
+      <div class="srow-date">9 Aug 2026</div>
+      <div class="srow-body">
+        <h3>Good grief</h3>
+        <div class="zh-title">合宜的哀慟 · Lamentations</div>
+        <p class="desc">In v.1-8 the Lord is the subject of every verb; the Babylonians only appear at v.16. This is not history running its course but God acting in judgement — and it is richly deserved, after idolatry, immorality, injustice and corruption.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-08-02-a-groaning-city/" data-date="2026-08-02" tabindex="0">
+      <div class="srow-date">2 Aug 2026</div>
+      <div class="srow-body">
+        <h3>A groaning city</h3>
+        <div class="zh-title">一座呻吟的城 · Lamentations</div>
+        <p class="desc">Jerusalem in 587 BC: once full of people, now full of groaning. Six times we are told there is no one to comfort her, and God does not speak once in the whole book. Heartbreaking to watch &mdash; and entirely self-inflicted. Yet verse 12 finds its answer six hundred years later, on a hill outside the same city.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-07-26-the-value-of-physical-training/" data-date="2026-07-26" tabindex="0">
+      <div class="srow-date">26 Jul 2026</div>
+      <div class="srow-body">
+        <h3>The Value of Physical Training</h3>
+        <div class="zh-title">操練身體的價值 · 1 Timothy</div>
+        <p class="desc">We have never been more fitness-conscious &mdash; Park Run went from 13 runners in 2004 to its millionth event last month &mdash; and never more sedentary. So what does the Bible say? 1 Timothy 4:8 walks a path between two ditches.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-07-19-our-forever-priest/" data-date="2026-07-19" tabindex="0">
+      <div class="srow-date">19 Jul 2026</div>
+      <div class="srow-body">
+        <h3>Jesus: Our ‘Forever’ Priest</h3>
+        <div class="zh-title">耶穌——我們永遠的祭司 · Hebrews 7:11-28</div>
+        <p class="desc">Every change of leader breeds uncertainty &mdash; and ancient Israel felt it with all eighty-three of its High Priests, because so much hinged on that one critical role: providing access to God through sacrifice and prayer. Hebrews 7:11-28 announces that the anxious search is over.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-07-12-melchizedek-who/" data-date="2026-07-12" tabindex="0">
+      <div class="srow-date">12 Jul 2026</div>
+      <div class="srow-body">
+        <h3>Melchizedek Who?</h3>
+        <div class="zh-title">麥基洗德是誰？ · Hebrews 7:1-10</div>
+        <p class="desc">Hebrews series — a man named in just a few verses of Genesis, yet he shines a light on the greatness of Jesus. Three ways Melchizedek points to Christ: he resembles the Son of God, he outranks Abraham and the Levites, and he combines king and priest in one — the better, forever high priest we have in Jesus.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-06-21-the-anchor-for-our-soul/" data-date="2026-06-21" tabindex="0">
+      <div class="srow-date">21 Jun 2026</div>
+      <div class="srow-body">
+        <h3>The Anchor for our Soul</h3>
+        <div class="zh-title">靈魂的錨 · Hebrews 6:13-20</div>
+        <p class="desc">Hebrews series — how certain is your hope? In a world that says look within, to technology or to government, this passage anchors the soul outside us: in God's unfailing promises, his unchanging character, and in Jesus our forerunner who has already entered God's presence to prepare our place.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-06-14-no-rest-for-the-righteous/" data-date="2026-06-14" tabindex="0">
+      <div class="srow-date">14 Jun 2026</div>
+      <div class="srow-body">
+        <h3>No Rest for the Righteous!</h3>
+        <div class="zh-title">義人不得安歇！ · Hebrews 6:4-12</div>
+        <p class="desc">Hebrews series — salvation is for those who persevere in obedient faith to the end, not those who have merely shared in a community where God is at work. A blunt warning against falling away, and a warm assurance for those whose faith is real.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-06-07-faith-makes-a-difference/" data-date="2026-06-07" tabindex="0">
+      <div class="srow-date">7 Jun 2026</div>
+      <div class="srow-body">
+        <h3>Faith Makes a Difference</h3>
+        <div class="zh-title">信心使人不一樣 · Hebrews 11:23-31</div>
+        <p class="desc">Hebrews series — Moses, our mentor in the school of faith. Real faith is never merely intellectual; it acts. It chooses God's plan and God's people even when that feels foolish or frightening — and it saves us from God's judgment.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-05-31-growing-up/" data-date="2026-05-31" tabindex="0">
+      <div class="srow-date">31 May 2026</div>
+      <div class="srow-body">
+        <h3>Growing Up</h3>
+        <div class="zh-title">成長 · Hebrews 5:11-6:3</div>
+        <p class="desc">Hebrews series — the writer presses pause on his sermon about Jesus the High Priest because his hearers are still on milk. A diagnosis of spiritual immaturity, and a call to build on the foundations rather than relay them.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-05-24-our-perfect-priest/" data-date="2026-05-24" tabindex="0">
+      <div class="srow-date">24 May 2026</div>
+      <div class="srow-body">
+        <h3>Our Perfect Priest</h3>
+        <div class="zh-title">我們完美的大祭司 · Hebrews 5:1-10</div>
+        <p class="desc">Hebrews series — the kind of High Priest sinners and sufferers actually need: one who deals gently because he knows weakness, and who learned obedience the way we have to learn it.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-05-17-access-granted/" data-date="2026-05-17" tabindex="0">
+      <div class="srow-date">17 May 2026</div>
+      <div class="srow-body">
+        <h3>Access Granted</h3>
+        <div class="zh-title">進入主前的通道已開 · Hebrews 4:14-16</div>
+        <p class="desc">Hebrews series — two commands for the weak: hold fast to Jesus our High Priest at God's right hand, and draw near to the throne of grace.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-05-10-pharisee-and-tax-collector/" data-date="2026-05-10" tabindex="0">
+      <div class="srow-date">10 May 2026</div>
+      <div class="srow-body">
+        <h3>The Pharisee and the Tax Collector</h3>
+        <div class="zh-title">法利賽人與稅吏 · Luke 18:9-14</div>
+        <p class="desc">Stories Jesus told — comparing ourselves with others is silly and dangerous; the Kingdom of God belongs to those who come empty-handed.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=kDN4h-Gmwmk" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-05-03-rest-is-coming/" data-date="2026-05-03" tabindex="0">
+      <div class="srow-date">3 May 2026</div>
+      <div class="srow-body">
+        <h3>Rest is Coming</h3>
+        <div class="zh-title">安息將至 · Hebrews 4:1-13</div>
+        <p class="desc">Hebrews series — the rest that remains for the people of God, and the warning of unbelief that keeps a generation from entering it.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=qpr88h-mLHM" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-04-26-finishing-well/" data-date="2026-04-26" tabindex="0">
+      <div class="srow-date">26 Apr 2026</div>
+      <div class="srow-body">
+        <h3>Finishing Well</h3>
+        <div class="zh-title">善始善終 · Hebrews 3:7-19</div>
+        <p class="desc">Hebrews series — daily exhortation, hardened hearts, and what it takes to hold firm to the end.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=ZridVWYBeVs" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-04-19-dont-look-elsewhere/" data-date="2026-04-19" tabindex="0">
+      <div class="srow-date">19 Apr 2026</div>
+      <div class="srow-body">
+        <h3>Don't Look Elsewhere</h3>
+        <div class="zh-title">不要看別處 · Hebrews 3:1-6</div>
+        <p class="desc">Hebrews series — Jesus, greater than Moses, the apostle and high priest of our confession.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=W1rydub6En4" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-04-02-value-of-the-cross/" data-date="2026-04-02" tabindex="0">
+      <div class="srow-date">2 Apr 2026</div>
+      <div class="srow-body">
+        <span class="srow-tag">Good Friday · 受難日</span>
+        <h3>The Value of the Cross</h3>
+        <div class="zh-title">十字架的價值</div>
+        <p class="desc">Good Friday — looking past the appearance of an unjust death to see why the cross is the most treasured symbol of the Christian faith.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-03-29-one-of-us-part-1/" data-date="2026-03-29" tabindex="0">
+      <div class="srow-date">29 Mar 2026</div>
+      <div class="srow-body">
+        <h3>One of Us (Part 1)</h3>
+        <div class="zh-title">我們當中的一位（上）· Hebrews 2:5-9</div>
+        <p class="desc">Hebrews series — salvation as God's restoration of humanity, begun in the One who became one of us.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=3qITsqfHqso" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+
+    <article class="srow" data-href="sermons/2026-01-04-psalm-16/" data-date="2026-01-04" tabindex="0">
+      <div class="srow-date">4 Jan 2026</div>
+      <div class="srow-body">
+        <h3>The LORD our refuge</h3>
+        <div class="zh-title">耶和華是我們的避難所 · Psalm 16</div>
+        <p class="desc">A psalm for an age of insecurity — David's prayer of trust and the surer way of life he points us toward.</p>
+      </div>
+      <a class="card-watch" href="https://www.youtube.com/watch?v=8Jt3veGzhs8" target="_blank" rel="noopener" aria-label="Watch on YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>YouTube</a>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= BIBLE STUDY ======================= -->
+<section id="studies" class="panel" role="tabpanel" aria-label="Bible Study · 查經">
+  <div class="section-head">
+    <h2>Bible Study <span class="zh">查經</span></h2>
+    <span class="count" data-count-for="study-rows"></span>
+  </div>
+
+  <div class="featured">
+    <article class="card is-special" data-href="studies/2026-10-27-philippians-1-1-11/" tabindex="0">
+      <span class="special-badge">★ New</span>
+      <span class="tag">Bible Study · 查經</span>
+      <div class="date">27 October 2026</div>
+      <h3>Philippians 1:1-11: Thanksgiving and Prayer</h3>
+      <div class="zh-title">腓立比書 1 章 1-11 節：感恩與禱告</div>
+      <p class="desc">Partnership in the gospel, God's good work, and what Paul prays for: passage, key words, questions, prayer points.</p>
+      <div class="features">
+        <span>📖 Bilingual</span>
+        <span>🎧 Cantonese audio</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="sub-head">By topic · 按主題</div>
+  <div class="rows" id="study-rows" data-groupby="attr">
+    <article class="srow" data-href="studies/2026-10-27-philippians-1-1-11/" data-date="2026-10-27" data-group="philippians" data-group-label="Philippians · 腓立比書" tabindex="0">
+      <div class="srow-date">27 Oct 2026</div>
+      <div class="srow-body">
+        <h3>Philippians 1:1-11: Thanksgiving and Prayer</h3>
+        <div class="zh-title">腓立比書 1 章 1-11 節：感恩與禱告</div>
+        <p class="desc">Partnership in the gospel, God's good work, and what Paul prays for: passage, key words, questions, prayer points.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-10-13-philippians-overview/" data-date="2026-10-13" data-group="philippians" data-group-label="Philippians · 腓立比書" tabindex="0">
+      <div class="srow-date">13 Oct 2026</div>
+      <div class="srow-body">
+        <h3>Philippians: Overview</h3>
+        <div class="zh-title">腓立比書：概覽 · Philippians 1-4</div>
+        <p class="desc">Seven main themes, where Paul was when he wrote, why he wrote, the BibleProject video's key points, and questions for discussion.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-09-29-philippians-intro-acts16/" data-date="2026-09-29" data-group="philippians" data-group-label="Philippians · 腓立比書" tabindex="0">
+      <div class="srow-date">29 Sep 2026</div>
+      <div class="srow-body">
+        <h3>Philippians Introduction: Acts 16</h3>
+        <div class="zh-title">腓立比書引言 · 使徒行傳 16 章</div>
+        <p class="desc">How the church in Philippi began: Lydia, the jailer and midnight songs. Map, questions and answers.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-02-28-giving/" data-date="2026-02-28" data-group="giving" data-group-label="Giving · 奉獻" tabindex="0">
+      <div class="srow-date">28 Feb 2026</div>
+      <div class="srow-body">
+        <h3>The Grace of Giving</h3>
+        <div class="zh-title">奉獻的恩典 · Matthew 6; 2 Corinthians 8-9</div>
+        <p class="desc">Money's dangers and opportunities, and giving as an overflow of God's grace: summary, key scriptures, questions and prayer.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-03-22-faith-how-can-i-be-sure/" data-date="2026-03-22" data-group="faith" data-group-label="Faith · 信心" tabindex="0">
+      <div class="srow-date">22 Mar 2026</div>
+      <div class="srow-body">
+        <h3>Faith: How Can I Be Sure?</h3>
+        <div class="zh-title">信心：我如何確信？ · John 20:24-31</div>
+        <p class="desc">Thomas, everyday faith and honest doubts: key scriptures, reading aids, discussion questions and prayer.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-03-26-grace-of-giving/" data-date="2026-03-26" data-group="giving" data-group-label="Giving · 奉獻" tabindex="0">
+      <div class="srow-date">26 Mar 2026</div>
+      <div class="srow-body">
+        <h3>The Grace of Giving: Discussion Guide</h3>
+        <div class="zh-title">奉獻的恩典：討論指南 · 2 Corinthians 8:1-9; 9:6-11</div>
+        <p class="desc">What we give to, how we give and why we give: discussion questions with reading aids, key scriptures and prayer.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-05-02-character-of-a-disciple-love/" data-date="2026-05-02" data-group="discipleship" data-group-label="Discipleship · 門徒" tabindex="0">
+      <div class="srow-date">2 May 2026</div>
+      <div class="srow-body">
+        <h3>Character of a Disciple: Love</h3>
+        <div class="zh-title">門徒的生命：愛 · John 13:34</div>
+        <p class="desc">Romans 12, 1 Corinthians 13 and 1 John on Christlike love: key themes, questions, application and prayer.</p>
+      </div>
+    </article>
+
+    <article class="srow" data-href="studies/2026-05-28-enemy-within-ch1/" data-date="2026-05-28" data-group="enemy-within" data-group-label="The Enemy Within · 敵在內心" tabindex="0">
+      <div class="srow-date">28 May 2026</div>
+      <div class="srow-body">
+        <h3>The Enemy Within, Ch 1: Evil at My Elbow</h3>
+        <div class="zh-title">敵在內心 第一章：危機就在身旁 · Romans 7:21</div>
+        <p class="desc">Indwelling sin in the believer, from Kris Lundgaard's book: chapter summary, key scriptures, questions and prayer.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= SPECIAL ======================= -->
+<section id="special" class="panel" role="tabpanel" aria-label="Special events · 特別聚會">
+  <div class="section-head">
+    <h2>Special Events <span class="zh">特別聚會</span></h2>
+    <span class="count" data-count-for="special-rows"></span>
+  </div>
+  <div class="rows" id="special-rows" data-groupby="attr">
+    <article class="srow" data-href="away-day-2026/" data-date="2026-05" data-group="away-day-2026" data-group-label="Away Day 2026 · 2026 退修日" tabindex="0">
+      <div class="srow-date">May 2026</div>
+      <div class="srow-body">
+        <span class="srow-tag">Away Day · 退修日</span>
+        <h3>Thematic Bible Overview: REST</h3>
+        <div class="zh-title">主題聖經導覽：安息</div>
+        <p class="desc">A four-part journey through Scripture's teaching on rest — from creation, through Israel's sabbath, into Christ's invitation, and on to our daily life today.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <p>For the Cantonese-speaking community at <a href="https://ridgewaychurch.net" target="_blank" rel="noopener">Ridgeway Church</a>, St Albans.</p>
+  <p style="margin-top: 12px; font-size: 12px;">All Scripture quotations from public-domain or properly licensed translations.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+
+  /* ---------- day / night ---------- */
+  const themeBtn = document.getElementById('themeBtn');
+  function syncBtn() { themeBtn.textContent = root.getAttribute('data-theme') === 'night' ? '☼ Day' : '☾ Night'; }
+  syncBtn();
+  themeBtn.addEventListener('click', () => {
+    const t = root.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem('ridgeway-theme', t); } catch (e) {}
+    syncBtn();
+  });
+
+  /* ---------- whole card / row is a link ---------- */
+  function go(el) {
+    if (el.dataset.external) window.open(el.dataset.href, '_blank', 'noopener');
+    else window.location.href = el.dataset.href;
+  }
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    const el = e.target.closest('[data-href]');
+    if (el) go(el);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const el = e.target.closest && e.target.closest('[data-href]');
+    if (!el || e.target.closest('a')) return;
+    e.preventDefault();
+    go(el);
+  });
+
+  /* ---------- grouping ---------- */
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const MON = MONTHS.map(m => m.slice(0, 3));
+  const ZH_NUM = ['一','二','三','四','五','六','七','八','九','十','十一','十二'];
+
+  function el(tag, cls, html) { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
+  function group(cls, key, labelHtml, rows, open) {
+    const d = el('details', 'grp ' + cls);
+    d.dataset.key = key;
+    if (open) d.open = true;
+    d.dataset.defaultOpen = open ? '1' : '';
+    const s = el('summary', null, '<span class="lbl">' + labelHtml + '</span><span class="n">' + rows.length + '</span>');
+    d.appendChild(s);
+    const body = el('div', 'grp-body');
+    rows.forEach(r => body.appendChild(r));
+    d.appendChild(body);
+    return d;
+  }
+  function rowsOf(box) {
+    return Array.from(box.querySelectorAll(':scope > .srow'))
+      .sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''));
+  }
+  function setCount(box, n) {
+    const c = document.querySelector('[data-count-for="' + box.id + '"]');
+    if (c) c.textContent = n + (n === 1 ? ' entry · 1 篇' : ' entries · ' + n + ' 篇');
+  }
+
+  function groupByMonth(box) {
+    const rows = rowsOf(box);
+    setCount(box, rows.length);
+    const years = new Map();
+    rows.forEach(r => {
+      const [y, m] = r.dataset.date.split('-');
+      if (!years.has(y)) years.set(y, new Map());
+      const months = years.get(y);
+      if (!months.has(m)) months.set(m, []);
+      months.get(m).push(r);
+    });
+    box.textContent = '';
+    let first = true;
+    years.forEach((months, y) => {
+      const yRows = [].concat(...months.values());
+      const monthEls = [];
+      months.forEach((mRows, m) => {
+        const mi = parseInt(m, 10) - 1;
+        monthEls.push(group('mo', y + '-' + m, MONTHS[mi] + '<span class="zh">' + ZH_NUM[mi] + '月</span>', mRows, first));
+        first = false;
+      });
+      const yd = group('yr', y, y + '<span class="zh">' + y + '年</span>', [], years.keys().next().value === y);
+      yd.querySelector('.n').textContent = yRows.length;
+      const body = yd.querySelector('.grp-body');
+      monthEls.forEach(m => body.appendChild(m));
+      box.appendChild(yd);
+    });
+  }
+
+  function groupByAttr(box) {
+    const rows = rowsOf(box);
+    setCount(box, rows.length);
+    const groups = new Map();
+    rows.forEach(r => {
+      const k = r.dataset.group || 'other';
+      if (!groups.has(k)) groups.set(k, { label: r.dataset.groupLabel || k, rows: [] });
+      groups.get(k).rows.push(r);
+    });
+    box.textContent = '';
+    groups.forEach((g, k) => {
+      const [en, zh] = g.label.split(' · ');
+      box.appendChild(group('topic', k, en + (zh ? '<span class="zh">' + zh + '</span>' : ''), g.rows, true));
+    });
+  }
+
+  document.querySelectorAll('.rows[data-groupby]').forEach(box => {
+    if (box.dataset.groupby === 'month') groupByMonth(box); else groupByAttr(box);
+  });
+
+  /* ---------- sermon search (English + 中文) ---------- */
+  const BOOKS = {
+    'genesis': '創世記', 'exodus': '出埃及記', 'psalm': '詩篇', 'psalms': '詩篇', 'proverbs': '箴言',
+    'isaiah': '以賽亞書', 'jeremiah': '耶利米書', 'lamentations': '耶利米哀歌', 'daniel': '但以理書',
+    'matthew': '馬太福音', 'mark': '馬可福音', 'luke': '路加福音', 'john': '約翰福音', 'acts': '使徒行傳',
+    'romans': '羅馬書', '1 corinthians': '哥林多前書', '2 corinthians': '哥林多後書', 'galatians': '加拉太書',
+    'ephesians': '以弗所書', 'philippians': '腓立比書', 'colossians': '歌羅西書', '1 timothy': '提摩太前書',
+    '2 timothy': '提摩太後書', 'hebrews': '希伯來書', 'james': '雅各書', '1 peter': '彼得前書', 'revelation': '啟示錄',
+    'good friday': '受難日'
+  };
+  const sBox = document.getElementById('sermon-rows');
+  const sRows = Array.from(sBox.querySelectorAll('.srow'));
+  sRows.forEach(r => {
+    let hay = r.textContent.replace(/\s+/g, ' ').toLowerCase();
+    const low = hay;
+    Object.keys(BOOKS).forEach(k => { if (low.includes(k) || hay.includes(BOOKS[k])) hay += ' ' + k + ' ' + BOOKS[k]; });
+    const [y, m, d] = (r.dataset.date || '').split('-');
+    const mi = parseInt(m, 10) - 1, di = parseInt(d, 10);
+    hay += ' ' + r.dataset.date + ' ' + di + ' ' + MONTHS[mi] + ' ' + y + ' ' + di + ' ' + MON[mi] + ' ' + y +
+           ' ' + MONTHS[mi] + ' ' + di + ' ' + di + '/' + (mi + 1) + '/' + y + ' ' +
+           y + '年' + (mi + 1) + '月' + di + '日 ' + (mi + 1) + '月' + di + '日 ' + ZH_NUM[mi] + '月';
+    r.dataset.hay = hay.toLowerCase();
+  });
+  const input = document.getElementById('sermonSearch');
+  const clearBtn = document.getElementById('sermonClear');
+  const note = document.getElementById('sermonNote');
+
+  function applySearch() {
+    const q = input.value.trim().toLowerCase();
+    clearBtn.hidden = !q;
+    const terms = q.split(/\s+/).filter(Boolean);
+    let hits = 0;
+    sRows.forEach(r => {
+      const ok = !terms.length || terms.every(t => r.dataset.hay.includes(t));
+      r.hidden = !ok;
+      if (ok) hits++;
+    });
+    sBox.querySelectorAll('details.grp').forEach(g => {
+      const visible = g.querySelectorAll('.srow:not([hidden])').length;
+      g.hidden = !!terms.length && !visible;
+      g.open = terms.length ? visible > 0 : !!g.dataset.defaultOpen;
+      g.querySelector(':scope > summary .n').textContent = terms.length ? visible : g.querySelectorAll('.srow').length;
+    });
+    note.textContent = terms.length
+      ? (hits ? hits + ' found · 找到 ' + hits + ' 篇' : 'No match · 找不到相關講道')
+      : '';
+  }
+  input.addEventListener('input', applySearch);
+  clearBtn.addEventListener('click', e => { e.preventDefault(); input.value = ''; applySearch(); input.focus(); });
+
+  /* ---------- tabs ---------- */
+  const tabs = Array.from(document.querySelectorAll('.cat[data-tab]'));
+  function show(name) {
+    if (!document.getElementById(name)) name = 'sermons';
+    tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === name));
+  }
+  tabs.forEach(t => t.addEventListener('click', e => {
+    e.preventDefault();
+    history.replaceState(null, '', '#' + t.dataset.tab);
+    show(t.dataset.tab);
+    window.scrollTo({ top: 0 });
+  }));
+  window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+  show(location.hash.slice(1));
+
+  /* small dot on Bible Study when the newest study is under 10 days old */
+  const latest = Array.from(document.querySelectorAll('#studies .srow')).map(r => r.dataset.date).sort().pop();
+  if (latest && (Date.now() - new Date(latest + 'T00:00:00').getTime()) < 10 * 864e5) {
+    const t = document.querySelector('.cat[data-tab="studies"] .en');
+    if (t) { const d = el('span', 'dot'); d.title = 'New · 新'; t.appendChild(d); }
+  }
+})();
+</script>
+
+</body>
+</html>

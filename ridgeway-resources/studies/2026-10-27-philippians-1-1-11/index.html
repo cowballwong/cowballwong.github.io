@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippians 1:1-11: Thanksgiving and Prayer 腓立比書 1 章 1-11 節：感恩與禱告 · Bible Study 查經</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+
+/* ---------- Study-only page additions ---------- */
+.sg-sub { font-family:'Merriweather','Noto Serif TC',serif; font-size:1.05em; color:var(--accent); margin:22px 0 10px; }
+.sg-sub:first-child { margin-top:0; }
+.sg-sub .zh { font-family:'Noto Serif TC',serif; }
+.sg-sub .opt-date { font-family:'Inter',sans-serif; font-size:0.8em; color:var(--text-soft); font-weight:400; }
+.sg-note { color:var(--text-soft); font-size:0.9em; font-style:italic; margin-bottom:14px; }
+.sg-list { padding-left:1.3em; }
+.sg-list li { margin-bottom:8px; }
+.lang-en p + p, .lang-zh p + p { margin-top:10px; }
+.option-card { background:var(--bg-soft); border-radius:8px; padding:4px 16px 2px; margin-bottom:14px; }
+.option-card .sg-sub { margin-top:14px; }
+.question-card .zh { font-family:'Noto Serif TC',serif; }
+.bilingual + .bilingual, .bilingual + .verse-card, .verse-card + .bilingual { margin-top:12px; }
+.passage-table { width:100%; border-collapse:collapse; font-size:0.95em; }
+.passage-table th { text-align:left; color:var(--text-soft); font-weight:600; font-size:0.8em; padding:6px 8px; border-bottom:2px solid var(--border); }
+.passage-table td { vertical-align:top; padding:8px; border-bottom:1px solid var(--border); }
+.passage-table td.zh { font-family:'Noto Serif TC',serif; }
+.passage-table .pt-v { color:var(--accent); font-weight:700; width:2.2em; white-space:nowrap; }
+.passage-table .pt-head td { background:var(--bg-soft); color:var(--accent); padding-top:10px; }
+.prayer-box { background:var(--bg-prayer); border-radius:8px; padding:14px 16px; margin-top:16px; font-style:italic; }
+.bilingual>*{min-width:0} body{overflow-wrap:anywhere}
+.bb-title { font-size:12px; color:var(--text-soft); letter-spacing:0.5px; }
+@media (max-width:600px) { .bb-title { display:none; }
+  .passage-table, .passage-table tbody, .passage-table tr, .passage-table td { display:block; width:auto; }
+  .passage-table .pt-cols { display:none; }
+  .passage-table tr { border-bottom:1px solid var(--border); padding:6px 0; }
+  .passage-table td { border:0; padding:2px 4px; }
+  .passage-table .pt-head td:first-child { display:none; } }
+</style>
+<style>body{padding-top:56px}@media print{.rg-home-btn{display:none}body{padding-top:20px}}</style>
+<style>.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+</head>
+<body>
+
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-10-27 · Bible Study 查經</div>
+</div>
+
+<!-- =================== STUDY VIEW =================== -->
+<section id="view-study" class="view active">
+  <div class="sg-header">
+    <h1>Philippians 1:1-11: Thanksgiving and Prayer</h1>
+    <h1 class="zh">腓立比書 1 章 1-11 節：感恩與禱告</h1>
+    <div class="subtitle">Philippians 1:1-11 腓立比書 1 章 1-11 節 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">“And I am sure of this, that he who began a good work in you will bring it to completion at the day of Jesus Christ.” (Philippians 1:6, ESV)<br>「我深信那在你們心裡動了善工的必成全這工，直到耶穌基督的日子。」（腓立比書 1 章 6 節，和合本）</div>
+  </div>
+
+  <div class="sg-section" style="padding:16px 20px"><div class="lang-label">廣東話導讀 Cantonese audio</div><audio controls preload="metadata" style="width:100%" src="audio/philippians-1-1-11-cantonese.mp3"></audio></div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">📝</span>This week&#x27;s questions 本週題目</h2>
+    <p class="sg-note">This week's 5 questions, each answered in the section shown. 本週五條題目，答案見所示部分。</p>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Before you begin review your memory verse from Philippians (see section 1)</div>
+          <div class="zh">開始之前，先溫習你在腓立比書中所背的經文。（見第 1 部分）</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Observe and interpret about partnership (see section 4)</div>
+          <div class="zh">觀察並解釋經文中有關同工夥伴關係的內容。（見第 4 部分）</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Apply the idea of partnership in the gospel in your life (see section 5)</div>
+          <div class="zh">把在福音上同心合意的觀念應用在自己的生活中。（見第 5 部分）</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Observe, interpret about God’s good work and its implication for your life (see section 6)</div>
+          <div class="zh">觀察並解釋神的善工，以及這對你生活的意義。（見第 6 部分）</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Observe and interpret about what Paul prays for. How can you apply these observations of Paul’s prayer (see section 7)</div>
+          <div class="zh">觀察並解釋保羅為甚麼事禱告。你可以怎樣應用從保羅的禱告中觀察到的？（見第 7 部分）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">🧠</span>1. Memory verse 背誦經文</h2>
+    <p class="sg-note">Answers question 1: "Before you begin review your memory verse from Philippians" 回應第 1 題</p>
+    <div class="bilingual">
+      <div class="lang-en"><p>The first question asks us to begin by reviewing our memory verse from Philippians. If you have not chosen one yet, here is a short suggestion from this week's passage, and a longer option.</p></div>
+      <div class="lang-zh"><p>第一條題目請大家開始前先溫習所背的腓立比書經文。若還未選定，以下是從今次經文中建議的一節，以及一段較長的選擇。</p></div>
+    </div>
+    <h3 class="sg-sub">Suggested <span class="zh">建議</span></h3>
+    <div class="verse-card">
+      <div class="verse-ref">Philippians 1:6 (ESV) · 腓立比書 1 章 6 節（和合本）</div>
+      <div class="bilingual">
+        <div class="verse-text">And I am sure of this, that he who began a good work in you will bring it to completion at the day of Jesus Christ.</div>
+        <div class="verse-text zh">我深信那在你們心裡動了善工的必成全這工，直到耶穌基督的日子。</div>
+      </div>
+    </div>
+    <h3 class="sg-sub">Longer option <span class="zh">較長的選擇</span></h3>
+    <div class="verse-card">
+      <div class="verse-ref">Philippians 1:9-10 (ESV) · 腓立比書 1 章 9-10 節（和合本）</div>
+      <div class="bilingual">
+        <div class="verse-text">And it is my prayer that your love may abound more and more, with knowledge and all discernment, so that you may approve what is excellent, and so be pure and blameless for the day of Christ,</div>
+        <div class="verse-text zh">我所禱告的，就是要你們的愛心在知識和各樣見識上多而又多，使你們能分別是非，做誠實無過的人，直到基督的日子；</div>
+      </div>
+    </div>
+    <div class="bilingual">
+      <div class="lang-en"><p>How to memorise: Read the verse aloud three times. Then learn it in the three phrases below: say the first, add the second, add the third. Write it on a card or your phone lock screen, cover it, say it, check it. Say it once a day, in English and in Chinese. For the longer option, learn v. 9 first, then add v. 10.</p></div>
+      <div class="lang-zh"><p>背誦方法：先把經文朗讀三遍，再按下面三個短句記：先背第一句，再加第二句，然後加第三句。把經文寫在卡片或手機鎖屏上，蓋住，背出來，再核對。每天用英文和中文各背一次。若選較長的一段，先背 9 節，熟了再加 10 節。</p></div>
+    </div>
+    <div class="bilingual">
+      <div class="lang-en"><p>Phrases 短句: And I am sure of this, / that he who began a good work in you / will bring it to completion at the day of Jesus Christ.</p></div>
+      <div class="lang-zh"><p>我深信 / 那在你們心裡動了善工的 / 必成全這工，直到耶穌基督的日子。</p></div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">📖</span>2. The passage 經文（ESV／和合本）</h2>
+    <table class="passage-table">
+      <tr class="pt-cols"><th>v.</th><th>ESV</th><th>和合本</th></tr>
+      <tr class="pt-head"><td></td><td><strong>1-2 Greeting</strong></td><td class="zh"><strong>1-2 節 問安</strong></td></tr>
+      <tr><td class="pt-v">1</td><td>Paul and Timothy, servants of Christ Jesus, To all the saints in Christ Jesus who are at Philippi, with the overseers and deacons:</td><td class="zh">基督耶穌的僕人保羅和提摩太，寫信給凡住腓立比，在基督耶穌裡的眾聖徒和諸位監督、諸位執事。</td></tr>
+      <tr><td class="pt-v">2</td><td>Grace to you and peace from God our Father and the Lord Jesus Christ.</td><td class="zh">願恩惠、平安從神我們的父並主耶穌基督歸於你們！</td></tr>
+      <tr class="pt-head"><td></td><td><strong>3-8 Thanksgiving</strong></td><td class="zh"><strong>3-8 節 感恩</strong></td></tr>
+      <tr><td class="pt-v">3</td><td>I thank my God in all my remembrance of you,</td><td class="zh">我每逢想念你們，就感謝我的神；</td></tr>
+      <tr><td class="pt-v">4</td><td>always in every prayer of mine for you all making my prayer with joy,</td><td class="zh">每逢為你們眾人祈求的時候，常是歡歡喜喜地祈求。</td></tr>
+      <tr><td class="pt-v">5</td><td>because of your partnership in the gospel from the first day until now.</td><td class="zh">因為從頭一天直到如今，你們是同心合意地興旺福音。</td></tr>
+      <tr><td class="pt-v">6</td><td>And I am sure of this, that he who began a good work in you will bring it to completion at the day of Jesus Christ.</td><td class="zh">我深信那在你們心裡動了善工的必成全這工，直到耶穌基督的日子。</td></tr>
+      <tr><td class="pt-v">7</td><td>It is right for me to feel this way about you all, because I hold you in my heart, for you are all partakers with me of grace, both in my imprisonment and in the defense and confirmation of the gospel.</td><td class="zh">我為你們眾人有這樣的意念原是應當的，因你們常在我心裡，無論我是在捆鎖之中，是辯明證實福音的時候，你們都與我一同得恩。</td></tr>
+      <tr><td class="pt-v">8</td><td>For God is my witness, how I yearn for you all with the affection of Christ Jesus.</td><td class="zh">我體會基督耶穌的心腸，切切地想念你們眾人，這是神可以給我作見證的。</td></tr>
+      <tr class="pt-head"><td></td><td><strong>9-11 Prayer</strong></td><td class="zh"><strong>9-11 節 禱告</strong></td></tr>
+      <tr><td class="pt-v">9</td><td>And it is my prayer that your love may abound more and more, with knowledge and all discernment,</td><td class="zh">我所禱告的，就是要你們的愛心在知識和各樣見識上多而又多，</td></tr>
+      <tr><td class="pt-v">10</td><td>so that you may approve what is excellent, and so be pure and blameless for the day of Christ,</td><td class="zh">使你們能分別是非，做誠實無過的人，直到基督的日子；</td></tr>
+      <tr><td class="pt-v">11</td><td>filled with the fruit of righteousness that comes through Jesus Christ, to the glory and praise of God.</td><td class="zh">並靠著耶穌基督結滿了仁義的果子，叫榮耀稱讚歸於神。</td></tr>
+    </table>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">🧭</span>3. Context and structure 背景與結構</h2>
+    <div class="bilingual">
+      <div class="lang-en"><p>Paul writes from prison (1:7, 13), most likely in Rome; the options are set out in our 13 October overview notes. Philippi was a Roman colony in Macedonia, and the church began on Paul's first visit (Acts 16:12-40): Lydia and her household were baptised, and later the jailer and his household. They have shared in Paul's work “from the first day until now” (1:5). This week's passage is the opening of the letter: a greeting, a thanksgiving and a prayer.</p></div>
+      <div class="lang-zh"><p>保羅在捆鎖中寫這封信（1 章 7、13 節），地點多數認為是羅馬；各種看法見 10 月 13 日的概覽筆記。腓立比是馬其頓的羅馬殖民地，教會始於保羅第一次到訪（使徒行傳 16 章 12-40 節）：呂底亞和她一家領洗，後來禁卒和他全家也信了主。他們「從頭一天直到如今」都與保羅同工（1 章 5 節）。今次的經文是全信的開頭：問安、感恩和禱告。</p></div>
+    </div>
+    <h3 class="sg-sub">1:1-2 Greeting <span class="zh">問安</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>From Paul and Timothy, servants of Christ Jesus, to all the saints at Philippi, with the overseers and deacons. Grace and peace from the Father and the Lord Jesus Christ.</p></div>
+      <div class="lang-zh"><p>基督耶穌的僕人保羅和提摩太，問候腓立比全體聖徒，以及監督和執事。願恩惠、平安從父神和主耶穌基督歸給他們。</p></div>
+    </div>
+    <h3 class="sg-sub">1:3-8 Thanksgiving <span class="zh">感恩</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Paul thanks God with joy for their partnership in the gospel (vv. 3-5); he is sure God will complete the good work he began in them (v. 6); they share God's grace with him in prison and in defending the gospel (v. 7); he longs for them with the affection of Christ (v. 8).</p></div>
+      <div class="lang-zh"><p>保羅為他們同心興旺福音而歡喜感恩（3-5 節）；深信神必成全在他們心裡所動的善工（6 節）；無論保羅在捆鎖中，或辯明證實福音，他們都與他一同得恩（7 節）；他以基督的心腸想念他們（8 節）。</p></div>
+    </div>
+    <h3 class="sg-sub">1:9-11 Prayer <span class="zh">禱告</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>That their love may abound with knowledge and discernment (v. 9), so that they approve what is excellent and are pure and blameless for the day of Christ (v. 10), filled with the fruit of righteousness through Jesus Christ, to the glory and praise of God (v. 11).</p></div>
+      <div class="lang-zh"><p>求他們的愛心在知識和見識上多而又多（9 節），使他們能分辨甚麼是美好的，到基督的日子誠實無過（10 節），靠著耶穌基督結滿仁義的果子，叫榮耀稱讚歸於神（11 節）。</p></div>
+    </div>
+    <h3 class="sg-sub">Key words in vv. 1-2 <span class="zh">第 1-2 節字詞</span></h3>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 1 servants <span class="zh">僕人</span> <span class="opt-date">(<em>doulos</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Literally bondservants, people owned by a master (the ESV footnote refers to the Greek doulos). In most of his letters Paul opens by calling himself an apostle; here he and Timothy stand together simply as men who belong to Christ Jesus.</p></div>
+      <div class="lang-zh"><p>原文 doulos，字面是屬於主人的奴僕（ESV 註腳亦有說明）。保羅在大部分書信的開頭自稱使徒，這裡卻沒有；他與提摩太一同以屬於基督耶穌的人自居。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 1 saints <span class="zh">聖徒</span> <span class="opt-date">(<em>hagioi</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Not a special group of very holy Christians, but every believer: “all the saints in Christ Jesus”. They are set apart for God because they are in Christ Jesus, while they still live “at Philippi”.</p></div>
+      <div class="lang-zh"><p>不是指一群特別屬靈的人，而是全體信徒：「在基督耶穌裡的眾聖徒」。他們被分別為聖，是因為在基督耶穌裡；同時他們仍然「住腓立比」，在日常生活之中。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 1 overseers and deacons <span class="zh">監督、執事</span> <span class="opt-date">(<em>episkopoi, diakonoi</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The leaders are greeted with the whole church, not before it: “with the overseers and deacons”. ESV footnotes: overseers, “Or bishops; Greek episkopoi”; deacons, “Or servants, or ministers; Greek diakonoi”.</p></div>
+      <div class="lang-zh"><p>保羅先問候全體聖徒，然後才提「諸位監督、諸位執事」，領袖與會眾一同被問安。監督原文 episkopoi，即看顧者；執事原文 diakonoi，即服侍者。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 2 grace and peace <span class="zh">恩惠、平安</span> <span class="opt-date">(<em>charis, eirēnē</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Paul's usual greeting. Both come “from God our Father and the Lord Jesus Christ”: the Father and Jesus are named together as one source.</p></div>
+      <div class="lang-zh"><p>保羅慣用的問安。兩者都「從神我們的父並主耶穌基督」而來，父與主耶穌同被列為恩惠和平安的源頭。</p></div>
+    </div>
+    </div>
+    <h3 class="sg-sub">For discussion <span class="zh">討論</span></h3>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Paul calls himself and Timothy “servants” and the believers “all the saints”. What do these two words tell us about how Paul sees himself and the church?</div>
+          <div class="zh">保羅稱自己和提摩太為「僕人」，又稱信徒為「眾聖徒」。這兩個稱呼反映保羅怎樣看自己和教會？</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">🤝</span>4. Partnership: observe and interpret 同工夥伴：觀察與解釋</h2>
+    <p class="sg-note">Answers question 2: "Observe and interpret about partnership" 回應第 2 題</p>
+    <h3 class="sg-sub">Observe <span class="zh">觀察</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ul class="sg-list"><li>Paul's response to them: he thanks God whenever he remembers them, and prays “with joy”. (vv. 3-4)</li><li>What the partnership is about: it is “in the gospel”. How long it has lasted: “from the first day until now”. (v. 5)</li><li>Where it was tested: “in my imprisonment” and in “the defense and confirmation of the gospel”. What they share: they are “partakers with me of grace”. (v. 7)</li><li>The bond it creates: “I hold you in my heart”; “I yearn for you all with the affection of Christ Jesus”. (vv. 7-8)</li></ul></div>
+      <div class="lang-zh"><ul class="sg-list"><li>保羅的回應：他每逢想念他們，就感謝神，並且「常是歡歡喜喜地祈求」。（3-4 節）</li><li>夥伴關係在乎甚麼：「同心合意地興旺福音」。維持了多久：「從頭一天直到如今」。（5 節）</li><li>在哪裡經過考驗：「在捆鎖之中」，以及「辯明證實福音的時候」。他們一同有分的是甚麼：「與我一同得恩」。（7 節）</li><li>建立了怎樣的感情：「你們常在我心裡」；「切切地想念你們眾人」。（7-8 節）</li></ul></div>
+    </div>
+    <h3 class="sg-sub">Interpret <span class="zh">解釋</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Partnership in the gospel is more than friendship or a donation. It is a shared stake in the spread of the gospel, it costs something (Paul is in prison), it shares in the same grace of God, and it binds hearts together with Christ's own affection.</p></div>
+      <div class="lang-zh"><p>在福音上的夥伴關係，不只是友誼或捐獻。這是為福音廣傳一同承擔，要付上代價（保羅正在捆鎖之中），一同領受神的恩典，並以基督的心腸把彼此的心連在一起。</p></div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 4 joy <span class="zh">喜樂</span> <span class="opt-date">(<em>chara</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The first mention of joy in a letter full of it. Paul is in chains (v. 7), yet he prays “with joy”.</p></div>
+      <div class="lang-zh"><p>這是全書第一次提到喜樂。保羅身在捆鎖之中（7 節），仍然「常是歡歡喜喜地祈求」。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 5 partnership <span class="zh">同心合意</span> <span class="opt-date">(<em>koinōnia</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Sharing, fellowship, partnership: a common stake, not only friendship. Their partnership is “in the gospel”, and it has lasted “from the first day until now”. Later Paul thanks them for their gifts (4:15-16).</p></div>
+      <div class="lang-zh"><p>原文 koinōnia，指相交、夥伴、共同參與；不只是友誼，而是一同承擔。和合本譯作「同心合意地興旺福音」，而且是「從頭一天直到如今」。保羅在信末也感謝他們的供給（4 章 15-16 節）。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 7 partakers with me of grace <span class="zh">與我一同得恩</span> <span class="opt-date">(<em>synkoinōnous</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The same root as partnership in v. 5: co-sharers. ESV footnote: “Or you all have fellowship with me in grace”. By standing with Paul “in my imprisonment” and in “the defense and confirmation of the gospel”, they share the same grace.</p></div>
+      <div class="lang-zh"><p>與 5 節的 koinōnia 同一字根，意思是一同有分的人。無論保羅「在捆鎖之中」，或在「辯明證實福音的時候」，他們都與他同行，所以也「與我一同得恩」。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 8 the affection of Christ Jesus <span class="zh">基督耶穌的心腸</span> <span class="opt-date">(<em>splanchna</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Literally the inward parts, which the ancients took as the seat of deep feeling. Paul longs for them not only with his own fondness but with Christ's own compassion, and calls God as witness.</p></div>
+      <div class="lang-zh"><p>原文 splanchna，字面指臟腑，古人視為深情所在。保羅不只憑個人感情，而是「體會基督耶穌的心腸」去想念他們，並請神作見證。</p></div>
+    </div>
+    </div>
+    <h3 class="sg-sub">For discussion <span class="zh">討論</span></h3>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>In vv. 3-8, what reasons does Paul give for his thanks and joy? Find each one in the text.</div>
+          <div class="zh">在 3-8 節，保羅為甚麼感恩和喜樂？請在經文中逐一找出來。</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Why does Paul say they share his grace even “in my imprisonment”? What does that tell us about the cost of partnership?</div>
+          <div class="zh">保羅為甚麼說，連他「在捆鎖之中」，他們也與他一同得恩？這對夥伴關係的代價有甚麼啟示？</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">🌱</span>5. Partnership in my life 在生活中同心興旺福音</h2>
+    <p class="sg-note">Answers question 3: "Apply the idea of partnership in the gospel in your life" 回應第 3 題</p>
+    <h3 class="sg-sub">Apply <span class="zh">應用</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ol class="sg-list"><li>Pray: Paul prays for them with joy (v. 4). Who could I pray for regularly as a partner in the gospel: a mission worker, a church leader, someone in our group?</li><li>Give: their partnership included practical gifts (4:15-16). Is there a gospel work I could support with time, skills or money?</li><li>Stand with: they stood with Paul in prison (v. 7). Who is going through a hard time for their faith, and how can I stand with them?</li><li>Give thanks: think of one person who has been a partner with you in the gospel. Thank God for them (v. 3), and consider telling them this week.</li></ol></div>
+      <div class="lang-zh"><ol class="sg-list"><li>禱告：保羅歡歡喜喜地為他們祈求（4 節）。我可以恆常為誰禱告，作他在福音上的夥伴？例如宣教士、教會領袖或小組的肢體。</li><li>供給：他們的同工包括實際的供給（4 章 15-16 節）。有沒有福音事工是我可以用時間、技能或金錢支持的？</li><li>同行：他們在保羅坐監時與他同行（7 節）。有誰正為信仰經歷困難？我可以怎樣與他同行？</li><li>感恩：想一位曾與你在福音上同工的人。為他感謝神（3 節），也考慮在這星期告訴他。</li></ol></div>
+    </div>
+    <h3 class="sg-sub">For discussion <span class="zh">討論</span></h3>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>The Philippians shared in Paul's work by prayer, by giving and by standing with him in prison. What could “partnership in the gospel” look like for our group and our church today?</div>
+          <div class="zh">腓立比信徒以禱告、供給和在患難中支持保羅，與他同工。「同心合意地興旺福音」在今天對我們小組和教會可以是甚麼樣子？</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">✨</span>6. God&#x27;s good work 神的善工</h2>
+    <p class="sg-note">Answers question 4: "Observe, interpret about God’s good work and its implication for your life" 回應第 4 題</p>
+    <h3 class="sg-sub">Observe <span class="zh">觀察</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ul class="sg-list"><li>Who acts: “he who began”, that is God. Paul does not say the Philippians began it. (v. 6)</li><li>Where: “in you”. The Greek is plural: God's work in the whole church, and in each person. (v. 6)</li><li>What God will do: he “will bring it to completion”. Until when: “at the day of Jesus Christ”. (v. 6)</li><li>Paul's attitude: “I am sure of this”. (v. 6)</li></ul></div>
+      <div class="lang-zh"><ul class="sg-list"><li>誰在做工：開始的是神，不是腓立比信徒自己。（6 節）</li><li>在哪裡做工：「在你們心裡」。原文是複數，指神在整個教會和每一個人身上的工作。（6 節）</li><li>神要做甚麼：「必成全這工」。到甚麼時候：「直到耶穌基督的日子」。（6 節）</li><li>保羅的態度：「我深信」。（6 節）</li></ul></div>
+    </div>
+    <h3 class="sg-sub">Interpret <span class="zh">解釋</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The good work is God's from start to finish. Paul's confidence rests on God's faithfulness, not on how well the Philippians are doing.</p></div>
+      <div class="lang-zh"><p>善工由始至終都是神的工作。保羅的信心建基於神的信實，而不是腓立比信徒的表現。</p></div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 6 he who began a good work ... will bring it to completion <span class="zh">動了善工的必成全這工</span> <span class="opt-date">(<em>ergon agathon, epitelesei</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>God is the one acting: he began the work and he will finish it. The “good work” is most naturally God's saving work in them, seen in their partnership (v. 5). To bring “to completion” (epiteleō) means to carry through to the end. Paul is “sure” (pepoithōs, confident) because he trusts God, not because of them.</p></div>
+      <div class="lang-zh"><p>做工的是神：開始的是他，完成的也是他。「善工」最自然的理解是神在他們身上的救恩工作，並在他們同心興旺福音（5 節）之中顯明出來。「成全」原文 epiteleō，指一直做到完成。保羅「深信」，是因為信靠神，不是因為信靠他們。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">vv. 6, 10 the day of Jesus Christ / the day of Christ <span class="zh">耶穌基督的日子／基督的日子</span> <span class="opt-date">(<em>hēmera Christou</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The day Christ returns. God's work continues until that day (v. 6), and Paul prays that they will be ready for it (v. 10).</p></div>
+      <div class="lang-zh"><p>指基督再來的日子。神的工作一直延續到那日（6 節）；保羅求他們到那日能夠誠實無過（10 節）。</p></div>
+    </div>
+    </div>
+    <h3 class="sg-sub">Implications for my life <span class="zh">對生活的意義</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ol class="sg-list"><li>Assurance: my standing with God rests on his faithfulness, not on how I did this week.</li><li>Patience: God has not finished with me, or with the people around me. Slow growth is not the end of the story.</li><li>Not passive: Paul is sure God will finish the work, yet he still prays for their growth (vv. 9-11). God's work and our effort go together (compare 2:12-13).</li><li>Perspective: the finish line is the day of Jesus Christ, so present struggles are not the final word.</li></ol></div>
+      <div class="lang-zh"><ol class="sg-list"><li>確據：我與神的關係建基於他的信實，而不是我這星期的表現。</li><li>忍耐：神在我和身邊的人身上的工作還未完成；成長緩慢並不是故事的結局。</li><li>不是被動等候：保羅深信神必成全，卻仍然為他們的成長禱告（9-11 節）。神的工作與我們的努力並行（參 2 章 12-13 節）。</li><li>眼光：終點是耶穌基督的日子，所以眼前的掙扎不是最後的定局。</li></ol></div>
+    </div>
+    <h3 class="sg-sub">For discussion <span class="zh">討論</span></h3>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>God began the good work and God will complete it. How does this promise help when change in ourselves or in others seems slow? When are we tempted to think it all depends on us?</div>
+          <div class="zh">開始善工的是神，成全這工的也是神。當我們看見自己或別人的改變很慢時，這應許怎樣幫助我們？甚麼時候我們會以為一切都靠自己？</div>
+        </div>
+      </div>
+    </div>
+    <h3 class="sg-sub">Apply <span class="zh">應用</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ol class="sg-list"><li>Name one area where you are discouraged by slow change, in yourself or in someone you love. Pray v. 6 over it each day this week.</li></ol></div>
+      <div class="lang-zh"><ol class="sg-list"><li>說出一個令你因改變緩慢而灰心的範疇，無論是自己或所愛的人。這星期每天用 6 節為此禱告。</li></ol></div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">🙏</span>7. What Paul prays for 保羅為甚麼禱告</h2>
+    <p class="sg-note">Answers question 5: "Observe and interpret about what Paul prays for. How can you apply these observations of Paul’s prayer" 回應第 5 題</p>
+    <h3 class="sg-sub">Observe <span class="zh">觀察</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ul class="sg-list"><li>What he asks for: “that your love may abound more and more”. (v. 9)</li><li>In what way: “with knowledge and all discernment”. (v. 9)</li><li>For what purpose: “so that you may approve what is excellent”. (v. 10)</li><li>With what result: to “be pure and blameless for the day of Christ”. (v. 10)</li><li>What fills them: “the fruit of righteousness that comes through Jesus Christ”. (v. 11)</li><li>The final goal: “to the glory and praise of God”. (v. 11)</li></ul></div>
+      <div class="lang-zh"><ul class="sg-list"><li>他求甚麼：要他們的愛心「多而又多」。（9 節）</li><li>怎樣增長：「在知識和各樣見識上」。（9 節）</li><li>為了甚麼：「使你們能分別是非」。（10 節）</li><li>結果是甚麼：「做誠實無過的人，直到基督的日子」。（10 節）</li><li>充滿他們的是甚麼：「靠著耶穌基督結滿了仁義的果子」。（11 節）</li><li>最終目的：「叫榮耀稱讚歸於神」。（11 節）</li></ul></div>
+    </div>
+    <h3 class="sg-sub">Interpret <span class="zh">解釋</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>The prayer is a chain: love that grows in knowledge and discernment leads to wise choices; wise choices lead to a pure and blameless life; that life is filled with fruit that comes through Jesus Christ; and all of it is for the glory and praise of God. Paul writes from prison, yet he asks for their character, not for easier circumstances.</p></div>
+      <div class="lang-zh"><p>這禱告像一條鏈：愛心在知識和見識上增長，帶來明智的選擇；明智的選擇帶來誠實無過的生命；這生命靠著耶穌基督結滿果子；一切都是為了叫榮耀稱讚歸於神。保羅身在監中，所求的卻是他們的品格，而不是更順利的環境。</p></div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 9 knowledge and discernment <span class="zh">知識和見識</span> <span class="opt-date">(<em>epignōsis, aisthēsis</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>Paul does not pray simply for more love, but for love that grows “with knowledge and all discernment”: love that knows God truly (epignōsis) and has the practical sense (aisthēsis) to judge well in real situations.</p></div>
+      <div class="lang-zh"><p>保羅不只求他們的愛心增加，更求愛心「在知識和各樣見識上多而又多」：真切認識神（epignōsis），並在實際處境中有敏銳的分辨力（aisthēsis）。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 10 approve what is excellent <span class="zh">分別是非</span> <span class="opt-date">(<em>dokimazein ta diapheronta</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>dokimazō means to test and then approve; ta diapheronta are the things that differ, the things that really matter. So this is not only right against wrong, but the best against the merely good.</p></div>
+      <div class="lang-zh"><p>dokimazō 指經過試驗而認可；ta diapheronta 指與眾不同、真正重要的事。所以不單是分辨對錯，也是在好與更好之間作出選擇。和合本譯作「分別是非」，小字註：或作「喜愛那美好的事」。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 10 pure and blameless <span class="zh">誠實無過</span> <span class="opt-date">(<em>eilikrineis, aproskopoi</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>eilikrinēs: pure, unmixed, without hidden motives. aproskopos: without offence, neither stumbling nor making others stumble. Paul wants them “pure and blameless for the day of Christ”.</p></div>
+      <div class="lang-zh"><p>eilikrinēs 指純淨、沒有摻雜、心無二意；aproskopos 指無可指摘，自己不跌倒，也不叫人跌倒。和合本譯作「做誠實無過的人，直到基督的日子」。</p></div>
+    </div>
+    </div>
+    <div class="option-card">
+    <h3 class="sg-sub">v. 11 the fruit of righteousness <span class="zh">仁義的果子</span> <span class="opt-date">(<em>karpos dikaiosynēs</em>)</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><p>A life full of right living, the visible result of love that discerns. This fruit “comes through Jesus Christ”, not from our own effort alone, and its goal is “the glory and praise of God”.</p></div>
+      <div class="lang-zh"><p>指公義生命所結的果子，是有分辨力的愛心的具體結果。這果子是「靠著耶穌基督」結出來的，不單靠自己努力；目的是「叫榮耀稱讚歸於神」。</p></div>
+    </div>
+    </div>
+    <h3 class="sg-sub">For discussion <span class="zh">討論</span></h3>
+    <div class="questions-container">
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Why does love need “knowledge and all discernment”? What can go wrong when love has no discernment?</div>
+          <div class="zh">為甚麼愛心需要「知識和各樣見識」？愛心若沒有分辨力，會出現甚麼問題？</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="bilingual">
+          <div>Paul's prayer is about character more than circumstances. How does it compare with the way we usually pray for one another? What would change if we prayed vv. 9-11 for each other?</div>
+          <div class="zh">保羅的禱告著重品格多於環境。這與我們平日彼此代禱的內容有甚麼不同？如果我們用 9-11 節彼此代禱，會帶來甚麼改變？</div>
+        </div>
+      </div>
+    </div>
+    <h3 class="sg-sub">Apply <span class="zh">應用</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ol class="sg-list"><li>Choose one person in the group and pray vv. 9-11 for them by name this week, using the prayer points below.</li></ol></div>
+      <div class="lang-zh"><ol class="sg-list"><li>在小組中選一位肢體，這星期按著他的名字，用 9-11 節和下面的代禱事項為他禱告。</li></ol></div>
+    </div>
+    <h3 class="sg-sub">Prayer points from 1:9-11 <span class="zh">代禱事項</span></h3>
+    <div class="bilingual">
+      <div class="lang-en"><ol class="sg-list"><li>Thanks: for the people God has given us as partners in the gospel. (vv. 3, 5)</li><li>Confidence: that God will complete the good work he began in each of us. (v. 6)</li><li>That our love may abound more and more. (v. 9)</li><li>With knowledge of God and all discernment. (v. 9)</li><li>That we may approve what is excellent, and be pure and blameless for the day of Christ. (v. 10)</li><li>That we may be filled with the fruit of righteousness that comes through Jesus Christ, to the glory and praise of God. (v. 11)</li></ol></div>
+      <div class="lang-zh"><ol class="sg-list"><li>感恩：為神賜給我們在福音上同工的肢體感謝神。（3、5 節）</li><li>信心：求神成全他在我們每一個人心裡所動的善工。（6 節）</li><li>求神使我們的愛心多而又多。（9 節）</li><li>求神使我們的愛心有真知識和各樣見識。（9 節）</li><li>求神使我們能分辨甚麼是美好的，做誠實無過的人，直到基督的日子。（10 節）</li><li>求神使我們靠著耶穌基督結滿仁義的果子，叫榮耀稱讚歸於神。（11 節）</li></ol></div>
+    </div>
+    <div class="prayer-box">
+    <div class="bilingual">
+      <div class="lang-en"><p>Father, thank you for the brothers and sisters you have given us to share the gospel with. Thank you that you finish what you begin. Make our love grow with knowledge and discernment, so that we choose what is best and are found pure and blameless on the day of Christ, full of the fruit of righteousness that comes through Jesus, for your glory and praise. Amen.</p></div>
+      <div class="lang-zh"><p>天父，感謝你賜給我們一同興旺福音的弟兄姊妹。感謝你，你所開始的，你必成全。求你使我們的愛心在知識和見識上不斷增長，叫我們能選擇最美好的事，到基督的日子誠實無過，靠著耶穌結滿仁義的果子，使榮耀稱讚歸於你。阿們。</p></div>
+    </div>
+    </div>
+  </div>
+  <div class="sg-section">
+    <h2 class="sg-section-title"><span class="icon">📚</span>Further Reading 延伸閱讀</h2>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div><ul class="further-list"><li>Acts 16:12-40 (the church at Philippi begins)</li><li>Philippians 4:10-20 (their gifts to Paul)</li><li>1 Thessalonians 5:23-24 (he who calls you is faithful)</li><li>Psalm 138:8 (the Lord will fulfill his purpose for me)</li></ul></div>
+      <div class="lang-zh"><div class="lang-label">中文</div><ul class="further-list"><li>使徒行傳 16 章 12-40 節（腓立比教會的開始）</li><li>腓立比書 4 章 10-20 節（他們對保羅的供給）</li><li>帖撒羅尼迦前書 5 章 23-24 節（那召你們的本是信實的）</li><li>詩篇 138 篇 8 節（耶和華必成全關乎我的事）</li></ul></div>
+    </div>
+  </div>
+
+  <div class="sg-footer">
+    <p>Bible study guide 查經指南</p>
+    <p>English: ESV · 中文：和合本（新標點）</p>
+    <p>Sources 參考資料: ESV and 和合本（新標點）via BibleGateway, 27 Oct 2026 · Greek: SBLGNT via BibleGateway · Background: our 13 Oct Philippians overview notes.</p>
+    <p>Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group"><span class="bb-title">Bible Study 查經 · Philippians 腓立比書</span></div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+  const state = { theme: 'day', fs: 17 };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    if (saved.theme) state.theme = saved.theme;
+    if (saved.fs) state.fs = saved.fs;
+  } catch(e){}
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+  function save() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+      saved.theme = state.theme; saved.fs = state.fs;
+      localStorage.setItem(STORAGE, JSON.stringify(saved));
+    } catch(e){}
+  }
+  document.querySelector('.fs-slider').addEventListener('input', ev => {
+    state.fs = parseInt(ev.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+  apply();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grace of Giving 奉獻的恩典 · Bible Study 查經</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+
+/* ---------- Study-only page additions ---------- */
+.sg-sub { font-family:'Merriweather','Noto Serif TC',serif; font-size:1.05em; color:var(--accent); margin:22px 0 10px; }
+.sg-sub:first-child { margin-top:0; }
+.sg-sub .zh { font-family:'Noto Serif TC',serif; }
+.sg-sub .opt-date { font-family:'Inter',sans-serif; font-size:0.8em; color:var(--text-soft); font-weight:400; }
+.sg-note { color:var(--text-soft); font-size:0.9em; font-style:italic; margin-bottom:14px; }
+.sg-list { padding-left:1.3em; }
+.sg-list li { margin-bottom:8px; }
+.lang-en p + p, .lang-zh p + p { margin-top:10px; }
+.option-card { background:var(--bg-soft); border-radius:8px; padding:4px 16px 2px; margin-bottom:14px; }
+.option-card .sg-sub { margin-top:14px; }
+.question-card .zh { font-family:'Noto Serif TC',serif; }
+.bilingual + .bilingual, .bilingual + .verse-card, .verse-card + .bilingual { margin-top:12px; }
+.passage-table { width:100%; border-collapse:collapse; font-size:0.95em; }
+.passage-table th { text-align:left; color:var(--text-soft); font-weight:600; font-size:0.8em; padding:6px 8px; border-bottom:2px solid var(--border); }
+.passage-table td { vertical-align:top; padding:8px; border-bottom:1px solid var(--border); }
+.passage-table td.zh { font-family:'Noto Serif TC',serif; }
+.passage-table .pt-v { color:var(--accent); font-weight:700; width:2.2em; white-space:nowrap; }
+.passage-table .pt-head td { background:var(--bg-soft); color:var(--accent); padding-top:10px; }
+.prayer-box { background:var(--bg-prayer); border-radius:8px; padding:14px 16px; margin-top:16px; font-style:italic; }
+.bilingual>*{min-width:0} body{overflow-wrap:anywhere}
+.bb-title { font-size:12px; color:var(--text-soft); letter-spacing:0.5px; }
+@media (max-width:600px) { .bb-title { display:none; }
+  .passage-table, .passage-table tbody, .passage-table tr, .passage-table td { display:block; width:auto; }
+  .passage-table .pt-cols { display:none; }
+  .passage-table tr { border-bottom:1px solid var(--border); padding:6px 0; }
+  .passage-table td { border:0; padding:2px 4px; }
+  .passage-table .pt-head td:first-child { display:none; } }
+</style>
+<style>body{padding-top:56px}@media print{.rg-home-btn{display:none}body{padding-top:20px}}</style>
+<style>.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<style>
+/* ---------- Earlier topical studies (Feb-May 2026): source-template classes ---------- */
+:root { --verse-bg:var(--bg-soft); --question-bg:var(--bg-question); --prayer-bg:var(--bg-prayer); --text-light:var(--text-soft);
+  --aid:#4a7c59; --aid-bg:#f1f6f2; --note-bg:#fbf6ec; --quote-bg:#fdf8f0; --key-bg:#f0f4f8; }
+[data-theme="night"] { --aid:#8cc59c; --aid-bg:#18221b; --note-bg:#221e16; --quote-bg:#1f1c16; --key-bg:#1a2230; }
+.sg-header .meta { color:var(--text-soft); font-size:0.88em; margin-top:8px; }
+.hint { color:var(--text-soft); font-size:0.9em; margin-top:5px; }
+.question-text { font-weight:600; font-size:1.05em; margin-bottom:15px; }
+.reading-aid { background:var(--aid-bg); border-radius:8px; padding:16px 18px; margin-top:15px; border-left:4px solid var(--aid); }
+.reading-aid-title { font-weight:700; color:var(--aid); font-size:0.85em; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+.reading-aid ul { padding-left:20px; margin-bottom:8px; }
+.reading-aid li { margin-bottom:8px; line-height:1.7; }
+.reading-aid .sermon-note { background:var(--note-bg); border-radius:6px; padding:12px 15px; margin-top:10px; font-size:0.92em; border-left:3px solid var(--accent-light); }
+.reading-aid .sermon-note strong { color:var(--accent); }
+.inline-verse { background:var(--verse-bg); padding:10px 15px; border-radius:6px; margin:8px 0; font-style:italic; font-size:0.93em; line-height:1.7; }
+.inline-verse .ref { font-style:normal; font-weight:600; color:var(--accent); }
+.summary-table { width:100%; border-collapse:collapse; margin:15px 0; font-size:0.9em; }
+.summary-table th { background:var(--primary); color:var(--bg-section); padding:10px 12px; text-align:left; }
+.summary-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+.summary-table tr:nth-child(even) { background:var(--bg-soft); }
+.scripture { background:var(--verse-bg); border-radius:8px; padding:18px; margin-bottom:15px; border-left:4px solid var(--accent); }
+.scripture h3 { font-family:'Merriweather','Noto Serif TC',serif; color:var(--accent); font-size:1.05em; margin-bottom:10px; }
+.scripture p { margin-bottom:8px; }
+.scripture .en { font-style:italic; }
+.scripture .zh { font-family:'Noto Serif TC',serif; }
+.scripture.key { border-left-color:var(--primary); background:var(--key-bg); }
+.themes { padding-left:1.5em; }
+.themes li { padding:14px 0; border-bottom:1px dashed var(--border); }
+.themes li:last-child { border-bottom:none; }
+.themes li strong { color:var(--accent); }
+.themes li p { margin-top:5px; line-height:1.7; }
+.question { background:var(--question-bg); border-radius:8px; padding:18px; margin-bottom:14px; }
+.question strong { color:var(--accent); }
+.application, .further-reading { padding-left:20px; }
+.application li, .further-reading li { margin-bottom:8px; line-height:1.7; }
+.further-reading-item { padding:12px 0; border-bottom:1px dashed var(--border); }
+.further-reading-item:last-child { border-bottom:none; }
+.further-reading-item strong { color:var(--accent); }
+.quote-block { border-left:4px solid var(--accent-light); padding:10px 18px; margin:15px 0; background:var(--quote-bg); font-style:italic; color:var(--text-soft); border-radius:4px; }
+@media (max-width:600px) { .summary-table { display:block; overflow-x:auto; } }
+</style>
+</head>
+<body>
+
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-02-28 · Bible Study 查經</div>
+</div>
+
+<!-- =================== STUDY VIEW =================== -->
+<section id="view-study" class="view active">
+<div class="sg-header">
+        <h1>The Grace of Giving</h1>
+        <h1 class="zh">奉獻的恩典</h1>
+        <div class="subtitle">Bible Study Guide 聖經學習指南</div>
+        <div class="key-verse">
+            "For where your treasure is, there your heart will be also." — Matthew 6:21<br>
+            「因為你的財寶在哪裏，你的心也在那裏。」——馬太福音 6:21
+        </div>
+    </div>
+
+
+    <!-- SECTION 1: SUMMARY 摘要 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">📖</span> Summary 摘要
+        </h2>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <p>This study explores the biblical perspective on money and giving, drawing from the Navigators' study on 2 Corinthians 8-9, a teaching on money's spiritual dangers and opportunities, and the broader framework of Christian discipleship training.</p>
+
+                <p>Money holds a powerful place in human hearts. Scripture warns that it can <strong>deceive</strong> us into a false sense of security (Proverbs 18:11), <strong>dominate</strong> us as a rival master to God (Matthew 6:24), <strong>disappoint</strong> us because it is fleeting (Proverbs 23:5), and even <strong>destroy</strong> us through the love of it (1 Timothy 6:10). Yet rather than condemning wealth itself, the Bible calls us to a transformed relationship with money — one rooted in loving the right God rather than serving the "money-god."</p>
+
+                <p>The Apostle Paul in 2 Corinthians 8-9 presents giving as an overflow of God's grace. The Macedonian churches gave generously out of extreme poverty, demonstrating that cheerful, purposeful giving reflects a heart transformed by the gospel. We are called to give thoughtfully, regularly, purposefully, and with humility — supporting family, the work of the gospel (through the local church), and those in genuine need.</p>
+
+                <p>Importantly, the study challenges several wrong views about money: the "prosperity gospel" that equates faith with wealth, the "poverty gospel" that romanticises material lack, and the assumption that God approves of financial independence or is impressed by large gifts. Instead, Jesus highlights the widow's mite (Mark 12:41-44) as the model of sacrificial giving, and invites us to "invest in eternity" by building treasure in heaven through generous, kingdom-focused living.</p>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <p>本研習探討聖經對金錢與奉獻的觀點，取材自領航員團契對哥林多後書第八至九章的查經、關於金錢的屬靈危機與機遇的教導，以及基督徒門徒訓練的整體框架。</p>
+
+                <p>金錢在人心中佔據著強大的位置。聖經警告我們，金錢會<strong>欺騙</strong>我們，使我們產生虛假的安全感（箴言18:11）；會<strong>轄制</strong>我們，成為與上帝對立的主人（馬太福音6:24）；會<strong>令我們失望</strong>，因為財富轉瞬即逝（箴言23:5）；甚至會因貪財而<strong>毀滅</strong>我們（提摩太前書6:10）。然而，聖經並非譴責財富本身，而是呼召我們與金錢建立一種被更新的關係——以愛真正的上帝為根基，而非事奉「金錢之神」。</p>
+
+                <p>使徒保羅在哥林多後書第八至九章中，將奉獻呈現為上帝恩典的流溢。馬其頓眾教會在極度貧窮中慷慨奉獻，表明甘心樂意、有目標的奉獻反映出一顆被福音改變的心。我們蒙召以深思熟慮、恆常、有目的及謙卑的態度奉獻——支持家庭、福音事工（透過本地教會）以及真正有需要的人。</p>
+
+                <p>值得注意的是，本研習挑戰了幾種對金錢的錯誤觀念：將信心等同於財富的「成功神學」、將物質缺乏浪漫化的「貧窮神學」，以及認為上帝贊同經濟獨立或對大額奉獻印象深刻的假設。相反，耶穌以寡婦的兩個小錢（馬可福音12:41-44）作為犧牲式奉獻的典範，並邀請我們透過慷慨的、以天國為中心的生活，「投資在永恆中」，積攢財寶在天上。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: KEY SCRIPTURES 重要經文 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">✝️</span> Key Scriptures 重要經文
+        </h2>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">Matthew 6:24</div>
+                    <div class="verse-text">"No one can serve two masters, for either he will hate the one and love the other, or he will be devoted to the one and despise the other. You cannot serve God and money."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">馬太福音 6:24</div>
+                    <div class="verse-text">「一個人不能事奉兩個主；不是惡這個、愛那個，就是重這個、輕那個。你們不能又事奉神，又事奉瑪門。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">2 Corinthians 9:7</div>
+                    <div class="verse-text">"Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a cheerful giver."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">哥林多後書 9:7</div>
+                    <div class="verse-text">「各人要隨本心所酌定的，不要作難，不要勉強，因為捐得樂意的人是神所喜愛的。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">Matthew 6:19-21</div>
+                    <div class="verse-text">"Do not lay up for yourselves treasures on earth, where moth and rust destroy and where thieves break in and steal, but lay up for yourselves treasures in heaven... For where your treasure is, there your heart will be also."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">馬太福音 6:19-21</div>
+                    <div class="verse-text">「不要為自己積攢財寶在地上；地上有蟲子咬，能銹壞，也有賊挖窟窿來偷。只要積攢財寶在天上……因為你的財寶在哪裏，你的心也在那裏。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">1 Timothy 6:10</div>
+                    <div class="verse-text">"For the love of money is a root of all kinds of evils. It is through this craving that some have wandered away from the faith and pierced themselves with many pangs."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">提摩太前書 6:10</div>
+                    <div class="verse-text">「貪財是萬惡之根。有人貪戀錢財，就被引誘離了真道，用許多愁苦把自己刺透了。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">2 Corinthians 8:9</div>
+                    <div class="verse-text">"For you know the grace of our Lord Jesus Christ, that though he was rich, yet for your sake he became poor, so that you by his poverty might become rich."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">哥林多後書 8:9</div>
+                    <div class="verse-text">「你們知道我們主耶穌基督的恩典：他本來富足，卻為你們成了貧窮，叫你們因他的貧窮，可以成為富足。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">Romans 12:1-2</div>
+                    <div class="verse-text">"I appeal to you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship. Do not be conformed to this world, but be transformed by the renewal of your mind."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">羅馬書 12:1-2</div>
+                    <div class="verse-text">「所以，弟兄們，我以神的慈悲勸你們，將身體獻上，當作活祭，是聖潔的，是神所喜悅的；你們如此事奉乃是理所當然的。不要效法這個世界，只要心意更新而變化。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">Luke 12:16-21</div>
+                    <div class="verse-text">"And he told them a parable, saying, 'The land of a rich man produced plentifully...' But God said to him, 'Fool! This night your soul is required of you, and the things you have prepared, whose will they be?' So is the one who lays up treasure for himself and is not rich toward God."</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">路加福音 12:16-21</div>
+                    <div class="verse-text">「就用比喻對他們說：『有一個財主田產豐盛……』神卻對他說：『無知的人哪，今夜必要你的靈魂；你所預備的要歸誰呢？』凡為自己積財，在神面前卻不富足的，也是這樣。」</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verse-card">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <div class="verse-ref">Mark 12:41-44</div>
+                    <div class="verse-text">"And he sat down opposite the treasury and watched the people putting money into the offering box... And a poor widow came and put in two small copper coins... And he called his disciples to him and said, 'Truly, I say to you, this poor widow has put in more than all those who are contributing to the offering box.'"</div>
+                </div>
+                <div class="lang-zh">
+                    <div class="verse-ref">馬可福音 12:41-44</div>
+                    <div class="verse-text">「耶穌對銀庫坐著，看眾人怎樣投錢入庫……有一個窮寡婦來，往裏投了兩個小錢……耶穌叫門徒來，說：『我實在告訴你們，這窮寡婦投入庫裏的，比眾人所投的更多。』」</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: KEY THEMES 主要主題 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">💡</span> Key Themes 主要主題
+        </h2>
+
+        <div class="summary-point">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <strong>1. The Danger of the "Money-God"</strong>
+                    <p>Money has the power to deceive, dominate, disappoint, and destroy. It promises security and satisfaction but cannot deliver lasting fulfilment. The Bible warns that the love of money — not money itself — is the root of all kinds of evil. We must recognise money's seductive power and guard our hearts against making it an idol.</p>
+                </div>
+                <div class="lang-zh">
+                    <strong>1. 「金錢之神」的危險</strong>
+                    <p>金錢有欺騙、轄制、令人失望和毀滅的能力。它承諾安全感和滿足，卻無法帶來持久的滿足。聖經警告，貪財——而非金錢本身——是萬惡之根。我們必須認識金錢的誘惑力量，守護自己的心免於將其偶像化。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-point">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <strong>2. Transformed Hearts, Transformed Giving</strong>
+                    <p>True generosity flows from a heart transformed by God's mercy (Romans 12:1-2). When we love the right God rather than the money-god, our giving becomes an act of worship rather than obligation. The Macedonian churches exemplified this — giving joyfully and beyond their means because they first gave themselves to the Lord.</p>
+                </div>
+                <div class="lang-zh">
+                    <strong>2. 心意更新，奉獻更新</strong>
+                    <p>真正的慷慨源於被上帝的慈悲所更新的心（羅馬書12:1-2）。當我們愛的是真正的上帝而非金錢之神時，我們的奉獻便成為敬拜的行動，而非責任。馬其頓眾教會正是如此——他們歡喜快樂地奉獻，超過了自己的能力，因為他們先把自己獻給了主。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-point">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <strong>3. Correcting Wrong Views About Money</strong>
+                    <p>The study challenges several distorted theologies: the prosperity gospel (God wants you rich), the poverty gospel (God wants you poor), financial independence as a virtue, and the belief that God is impressed by large gifts. The biblical view calls for stewardship, dependence on God, and sacrificial generosity regardless of amount.</p>
+                </div>
+                <div class="lang-zh">
+                    <strong>3. 糾正對金錢的錯誤觀念</strong>
+                    <p>本研習挑戰了幾種扭曲的神學觀點：成功神學（上帝希望你富有）、貧窮神學（上帝希望你貧窮）、將經濟獨立視為美德，以及認為上帝對大額奉獻印象深刻的想法。聖經的觀點呼召我們作忠心的管家、依靠上帝，並不論數額多寡地犧牲式慷慨奉獻。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-point">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <strong>4. Investing in Eternity</strong>
+                    <p>Jesus teaches us to store up treasures in heaven, not on earth (Matthew 6:19-21). The parable of the rich fool (Luke 12:16-21) warns against hoarding for ourselves while being poor toward God. Our giving is an investment in God's eternal kingdom — the "kingdom bank" that moths, rust, and thieves cannot touch.</p>
+                </div>
+                <div class="lang-zh">
+                    <strong>4. 投資在永恆中</strong>
+                    <p>耶穌教導我們積攢財寶在天上，而非在地上（馬太福音6:19-21）。無知財主的比喻（路加福音12:16-21）警告我們不要為自己積財，在上帝面前卻不富足。我們的奉獻是對上帝永恆國度的投資——是蟲子、銹和賊都不能損壞的「天國銀行」。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-point">
+            <div class="bilingual">
+                <div class="lang-en">
+                    <strong>5. The Practice of Generous Giving</strong>
+                    <p>Giving is not merely a spiritual concept but a practical discipline. The materials outline how to give: thoughtfully, regularly, purposefully, and "secretly" (without seeking recognition). The scope of giving includes three areas: family, gospel work (through the local church and beyond), and those in need. This is part of the broader discipleship journey that shapes every area of a believer's life.</p>
+                </div>
+                <div class="lang-zh">
+                    <strong>5. 慷慨奉獻的實踐</strong>
+                    <p>奉獻不僅是屬靈概念，更是實際的操練。研習材料概述了如何奉獻：深思熟慮地、有規律地、有目的地，以及「隱秘地」（不求人的認可）。奉獻的範圍包括三個領域：家庭、福音事工（透過本地教會及更廣範圍），以及有需要的人。這是塑造信徒生命每個層面的門徒訓練旅程的一部分。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: THINKING QUESTIONS 思考問題 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">🤔</span> Thinking Questions 思考問題
+        </h2>
+        <div class="questions-container">
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>In what ways might money be "deceiving" you into a false sense of security? How does your sense of financial security compare with your trust in God?</strong></p>
+                        <p class="hint"><em>Consider Proverbs 18:11 — "The wealth of the rich is their fortified city; they imagine it a wall too high to scale."</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>金錢可能以哪些方式「欺騙」你，讓你產生虛假的安全感？你的經濟安全感與你對上帝的信靠相比如何？</strong></p>
+                        <p class="hint"><em>思考箴言18:11——「富足人的財物是他的堅城，在他心想，猶如高牆。」</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>Jesus said "You cannot serve God and money" (Matthew 6:24). What are some practical signs that money has become a "master" in someone's life? Can you identify any of these signs in your own life?</strong></p>
+                        <p class="hint"><em>Think about what occupies your thoughts, drives your decisions, and causes you the most anxiety.</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>耶穌說「你們不能又事奉神，又事奉瑪門」（馬太福音6:24）。金錢在一個人的生命中成為「主人」會有哪些實際的表現？你能否在自己的生活中辨認出這些跡象？</strong></p>
+                        <p class="hint"><em>想想甚麼佔據你的思想、驅動你的決定、使你最焦慮。</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>The study identifies several "wrong views" about money (prosperity gospel, poverty gospel, financial independence, etc.). Which of these distorted views do you think is most prevalent in your community or culture? Why?</strong></p>
+                        <p class="hint"><em>Reflect on the messages about money you hear from media, culture, church, or family.</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>本研習指出了幾種對金錢的「錯誤觀念」（成功神學、貧窮神學、經濟獨立等）。你認為哪一種扭曲的觀點在你的群體或文化中最為普遍？為甚麼？</strong></p>
+                        <p class="hint"><em>反思你從媒體、文化、教會或家庭中聽到的關於金錢的訊息。</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>Read 2 Corinthians 8:1-9. The Macedonian churches gave "beyond their ability" and "out of their extreme poverty." What motivated them? How does this challenge your own approach to giving?</strong></p>
+                        <p class="hint"><em>Notice that Paul says they "first gave themselves to the Lord" (v.5) — how is this the key to generous giving?</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>閱讀哥林多後書8:1-9。馬其頓眾教會「超過了力量」且「在極窮之間」慷慨奉獻。是甚麼激勵了他們？這如何挑戰你自己的奉獻態度？</strong></p>
+                        <p class="hint"><em>留意保羅說他們「先把自己獻給主」（第5節）——這如何成為慷慨奉獻的關鍵？</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>What are the biggest obstacles that make it harder for you to give generously and cheerfully? How might the truths in this study help you overcome them?</strong></p>
+                        <p class="hint"><em>Consider practical barriers (debt, cost of living) as well as heart barriers (fear, greed, comparison).</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>甚麼是令你難以慷慨且甘心樂意奉獻的最大障礙？本研習中的真理如何幫助你克服這些障礙？</strong></p>
+                        <p class="hint"><em>既考慮實際障礙（債務、生活成本），也考慮內心障礙（恐懼、貪婪、比較心態）。</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>The materials mention three areas of giving: family, gospel work, and those in need. How do you currently balance your giving across these areas? Is there an area you feel God is calling you to grow in?</strong></p>
+                        <p class="hint"><em>Be specific — what gospel work outside your local church are you supporting or could you support?</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>材料提到奉獻的三個範疇：家庭、福音事工和有需要的人。你目前如何在這些範疇之間平衡奉獻？你感到上帝呼召你在哪個範疇中成長？</strong></p>
+                        <p class="hint"><em>具體思考——你正在支持或可以支持哪些本地教會以外的福音事工？</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="bilingual">
+                    <div class="lang-en">
+                        <p><strong>What does it mean practically to "invest in eternity" (Matthew 6:19-21)? How can you begin to shift your financial priorities from earthly treasures to heavenly ones this week?</strong></p>
+                        <p class="hint"><em>Think of one concrete step you could take — this is not about guilt but about the joy of kingdom investment.</em></p>
+                    </div>
+                    <div class="lang-zh">
+                        <p><strong>「投資在永恆中」（馬太福音6:19-21）實際上意味著甚麼？你這週可以如何開始將經濟優先次序從地上的財寶轉向天上的財寶？</strong></p>
+                        <p class="hint"><em>想一個具體的步驟——這不是關於內疚，而是關於天國投資的喜樂。</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: APPLICATION 生活應用 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">🎯</span> Application 生活應用
+        </h2>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <p><strong>This Week's Challenge:</strong></p>
+                <ul>
+                    <li><strong>Heart Check:</strong> Spend time this week honestly examining your relationship with money. Where does it sit on the "master" spectrum — is it a useful tool or a competing lord?</li>
+                    <li><strong>Give Thoughtfully:</strong> If you don't already have a regular giving plan, prayerfully decide on an amount and a schedule. Begin with your local church and consider one additional gospel or mercy ministry.</li>
+                    <li><strong>Guard Against Greed:</strong> Identify one area where you tend to hoard or spend selfishly. Ask God for the grace to redirect that towards generosity.</li>
+                    <li><strong>Share Your Story:</strong> Talk with a trusted fellow believer about your giving journey — not amounts, but attitudes. Encourage one another.</li>
+                    <li><strong>Memorise:</strong> Commit 2 Corinthians 9:7 to memory this week as a reminder that God loves a cheerful giver.</li>
+                </ul>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <p><strong>本週挑戰：</strong></p>
+                <ul>
+                    <li><strong>內心省察：</strong>本週花時間誠實地審視你與金錢的關係。金錢在你的「主人」光譜上處於甚麼位置——它是有用的工具，還是與上帝競爭的主？</li>
+                    <li><strong>有計劃地奉獻：</strong>如果你還沒有固定的奉獻計劃，請禱告後決定金額和時間安排。從本地教會開始，並考慮額外支持一個福音或慈惠事工。</li>
+                    <li><strong>提防貪心：</strong>找出一個你傾向囤積或自私消費的領域。求上帝賜恩典，將其轉向慷慨。</li>
+                    <li><strong>分享你的故事：</strong>與一位信任的主內弟兄姊妹談論你的奉獻歷程——不是金額，而是態度。彼此鼓勵。</li>
+                    <li><strong>背誦經文：</strong>本週將哥林多後書9:7背下來，提醒自己「捐得樂意的人是神所喜愛的」。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: PRAYER 禱告 -->
+    <div class="prayer-section">
+        <h2 class="sg-section-title">
+            <span class="icon">🙏</span> Prayer 禱告
+        </h2>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <div class="prayer-text">
+                    <p>Heavenly Father, we thank You that everything we have comes from Your generous hand. Forgive us for the times we have served money rather than You — when we have trusted in our bank accounts more than in Your promises, and when we have hoarded rather than given.</p>
+                    <p>Lord, transform our hearts by Your mercy. Help us to see money as a tool for Your kingdom, not a master over our lives. Give us the grace of the Macedonian churches — to give joyfully, sacrificially, and beyond what seems possible, because we have first given ourselves to You.</p>
+                    <p>Protect us from the deceptions of the prosperity gospel and the poverty gospel alike. Teach us to be faithful stewards who invest in eternity, who give thoughtfully to our families, generously to Your gospel work, and compassionately to those in need.</p>
+                    <p>May our giving reflect the grace of our Lord Jesus Christ, who though He was rich, became poor for our sake. May we find our true treasure in You alone.</p>
+                    <p>In Jesus' name, Amen.</p>
+                </div>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <div class="prayer-text">
+                    <p>天父，我們感謝祢，我們所擁有的一切都來自祢慷慨的手。求祢赦免我們事奉金錢多於事奉祢的時刻——當我們信靠銀行存款多於祢的應許，當我們囤積而非施予的時候。</p>
+                    <p>主啊，以祢的慈悲更新我們的心。幫助我們將金錢視為祢國度的工具，而非生命的主人。賜給我們馬其頓眾教會的恩典——歡喜快樂地、犧牲地、超過看似可能地奉獻，因為我們先把自己獻給了祢。</p>
+                    <p>保護我們免受成功神學和貧窮神學的欺騙。教導我們成為忠心的管家，投資在永恆中；有計劃地奉獻給家人，慷慨地奉獻給祢的福音事工，憐憫地幫助有需要的人。</p>
+                    <p>願我們的奉獻反映我們主耶穌基督的恩典，祂本來富足，卻為我們的緣故成了貧窮。願我們唯獨在祢裏面找到真正的財寶。</p>
+                    <p>奉耶穌基督的名禱告，阿們。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 7: FURTHER READING 延伸閱讀 -->
+    <div class="sg-section">
+        <h2 class="sg-section-title">
+            <span class="icon">📚</span> Further Reading 延伸閱讀
+        </h2>
+        <ul>
+            <li>Deuteronomy 8:10-18 — 申命記 8:10-18 (Remembering God as the source of wealth 記念上帝是財富的源頭)</li>
+            <li>Psalm 24:1 — 詩篇 24:1 (The earth is the Lord's 全地都是耶和華的)</li>
+            <li>Proverbs 3:9-10 — 箴言 3:9-10 (Honour the Lord with your wealth 你要以財物尊榮耶和華)</li>
+            <li>Malachi 3:8-12 — 瑪拉基書 3:8-12 (Tithing and God's blessing 十一奉獻和上帝的祝福)</li>
+            <li>Luke 16:1-13 — 路加福音 16:1-13 (The Parable of the Shrewd Manager 不義管家的比喻)</li>
+            <li>Acts 2:42-47 — 使徒行傳 2:42-47 (The generosity of the early church 初期教會的慷慨)</li>
+            <li>Acts 20:35 — 使徒行傳 20:35 (It is more blessed to give than to receive 施比受更為有福)</li>
+            <li>Philippians 4:10-19 — 腓立比書 4:10-19 (Contentment and God's provision 知足與上帝的供應)</li>
+        </ul>
+    </div>
+
+    <!-- FOOTER -->
+
+  <div class="sg-footer">
+    <p>Bible study guide 查經指南</p>
+    <p>Sources 參考資料: small-group study notes on money and discipleship, and the Navigators' Bible study on 2 Corinthians 8-9 · 小組查經資料</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group"><span class="bb-title">Bible Study 查經 · Giving 奉獻</span></div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+  const state = { theme: 'day', fs: 17 };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    if (saved.theme) state.theme = saved.theme;
+    if (saved.fs) state.fs = saved.fs;
+  } catch(e){}
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+  function save() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+      saved.theme = state.theme; saved.fs = state.fs;
+      localStorage.setItem(STORAGE, JSON.stringify(saved));
+    } catch(e){}
+  }
+  document.querySelector('.fs-slider').addEventListener('input', ev => {
+    state.fs = parseInt(ev.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+  apply();
+})();
+</script>
+
+</body>
+</html>

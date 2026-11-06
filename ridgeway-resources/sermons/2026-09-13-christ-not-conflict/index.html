@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christ, not conflict 是基督，不是紛爭 — 1 Corinthians 1:10-17 哥林多前書 1:10-17</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-09-13 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Christ, not conflict 是基督，不是紛爭<br>(1 Corinthians 1:10-17 哥林多前書 1:10-17)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">1 Corinthians 1:10-17 · 13th September 2026</span>
+<span class="highlight">Christ, not conflict.</span></td><td class="zh"><span class="highlight">哥林多前書 1 章 10-17 節 · 2026 年 9 月 13 日</span>
+<span class="highlight">是基督，不是紛爭。</span></td></tr>
+<tr><td class="en">Western world = very divided place!?
+Politically – many moving to far left or far right.
+Social media world = more about ‘tribalism’ than good faith discussion.
+In UK – all now about ‘flags’!</td><td class="zh">西方世界＝一個非常分裂的地方！？
+政治上——許多人走向極左或極右。
+社交媒體的世界＝更多是「部落主義」，而非真誠善意的討論。
+在英國——現在一切都圍繞着「旗幟」！</td></tr>
+<tr><td class="en">Sadly – often churches = not much different!
+Even when = agreement about basics…
+Can still be split by class, politics, education, taste or ethnicity.</td><td class="zh">可惜——教會往往＝也沒有多大分別！
+即使在基本信仰上＝意見一致……
+仍然可能因階級、政治、教育、品味或種族而分裂。</td></tr>
+<tr><td class="en">Corinth!
+Last time = church in mess.
+NB fav word = “spiritual”.
+Lots of ways = opposite.</td><td class="zh">哥林多！
+上一次＝看到教會一團糟。
+注意：他們最愛用的詞＝「屬靈」。
+但在很多方面＝恰恰相反。</td></tr>
+<tr><td class="en">Problem?
+Compromise and conflict.
+Compromise with pagan values.
+Community shot through with rivalry + division.
+NB Church = only 3-4 years old.
+Ugly and corrosive cliques – undermining peace + unity.
+Paul = denial of who they are in Christ!</td><td class="zh">問題何在？
+妥協與紛爭。
+向異教的價值觀妥協。
+群體中充斥着較勁＋分裂。
+注意：這教會＝只有三、四年歷史。
+醜陋而具腐蝕性的小圈子——破壞和平＋合一。
+在保羅看來＝這是否認他們在基督裏的身份！</td></tr>
+<tr><td class="en">No coincidence that – Corinth = thrusting, competitive culture.
+‘Get ahead’ culture.
+Everybody wanted to be somebody.
+Great rewards for those – made a name for themselves.
+Many of these young believers = bringing all that into church!
+Result = cracks beginning to appear.
+If not addressed = building might collapse!</td><td class="zh">這並非巧合——哥林多＝一個進取、競爭激烈的文化。
+「力爭上游」的文化。
+人人都想出人頭地。
+那些——闖出名堂的人，得到豐厚的回報。
+這些年輕信徒中許多人＝把這一切帶進了教會！
+結果＝裂痕開始出現。
+若不處理＝整座建築可能倒塌！</td></tr>
+<tr><td class="en">Last time – Paul gave thanks for them!?
+Coz their giftedness = evidence God had begun a good work!
+BUT = not naïve!
+Concerned about them.
+Wants to see ‘Christ’ formed in them – not conflict!</td><td class="zh">上一次——保羅為他們感恩！？
+因為他們的恩賜＝證明神已在他們心裏動了善工！
+但是＝保羅並不天真！
+他為他們擔憂。
+他想看見「基督」成形在他們心裏——而不是紛爭！</td></tr>
+<tr><td class="en">Q. Us?
+Give thanks for remarkable unity!
+Given 20+ nationalities (+ other age and stage)
+But as look to future – keep working hard at this.
+Things can change very quickly
+and <span class="verse">pride comes before a fall.</span></td><td class="zh">問：我們呢？
+為我們難得的合一感恩！
+我們有二十多個國籍（＋不同年齡和人生階段）
+但展望將來——要繼續在這方面努力。
+情況可以很快改變，
+而且<span class="verse">「驕傲在敗壞以先，狂心在跌倒之前。」</span></td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">1. A plea for unity (v.10-11)</span></td><td class="zh"><span class="highlight">一、合一的懇求（10-11 節）</span></td></tr>
+<tr><td class="en">READ v.10-11
+<span class="verse">“I appeal to you, brothers, by the name of our Lord Jesus Christ, that all of you agree, and that there be no divisions among you, but that you be united in the same mind and the same judgment. For it has been reported to me by Chloe’s people that there is quarreling among you, my brothers.” (1 Corinthians 1:10-11, ESV)</span></td><td class="zh">讀 10-11 節
+<span class="verse">「弟兄們，我藉我們主耶穌基督的名勸你們都說一樣的話。你們中間也不可分黨，只要一心一意，彼此相合。因為革來氏家裏的人曾對我提起弟兄們來，說你們中間有紛爭。」（哥林多前書 1 章 10-11 節，和合本）</span></td></tr>
+<tr><td class="en">Q. Chloe?
+Whoever – her + her people = obviously trusted.
+Believes – worrying report.
+Splits forming!
+All sorts – cliques/factions.</td><td class="zh">問：革來氏是誰？
+無論她是誰——她＋她家裏的人＝顯然深受信任。
+保羅相信——這份令人憂慮的報告。
+分裂正在形成！
+各式各樣——小圈子／派系。</td></tr>
+<tr><td class="en">Rather than one body of Christ…
+Working together
+Sharing life
+Pulling in same direction
+Bearing burdens…
+= Dividing up!</td><td class="zh">不是作為基督的一個身體……
+同工合作
+分享生命
+朝同一方向努力
+互相擔當重擔……
+＝反而四分五裂！</td></tr>
+<tr><td class="en">‘Divisions’ (v.10) = lit. schismata
+Elsewhere = tearing of fabric.
+Church = being torn apart.</td><td class="zh">「分黨」（10 節）＝原文 schismata
+在別處＝指布料被撕裂。
+教會＝正被撕裂。</td></tr>
+<tr><td class="en">NB NOT primarily “doctrinal/theological”.
+NO ‘right’ or ‘wrong’ group – in that sense.
+Problems = not what they “believed” but how they behaved.
+Esp how treated one another!
+Seems let the divisions of the world – into the church!</td><td class="zh">注意：主要並非「教義／神學」上的問題。
+在這個意義上——沒有「對」或「錯」的一派。
+問題＝不在於他們「信」甚麼，而在於他們如何行事。
+尤其是他們如何對待彼此！
+看來他們讓世界的分裂——進入了教會！</td></tr>
+<tr><td class="en">e.g…
+Social… well-connected elites v great unwashed
+Economic… rich and poor, in different neighbourhoods!?
+Political… Today = ‘Left’ and ‘Right’. Then = ‘for’ or ‘against’ Rome.
+Educational… Even more then. Either highly educated or illiterate!
+Sporting divisions… City v United!?
+Ethnic! NB Corinth = cosmopolitan cultural mix.</td><td class="zh">例如……
+社會上……人脈廣闊的精英 對 平民百姓
+經濟上……富人與窮人，住在不同的社區！？
+政治上……今天＝「左派」與「右派」。當年＝「擁護」或「反對」羅馬。
+教育上……當年更甚。要麼受過高深教育，要麼目不識丁！
+體育上的分歧……曼城 對 曼聯！？
+種族上！注意：哥林多＝多元文化交匯的國際都會。</td></tr>
+<tr><td class="en">Rather than church being…
+beautiful tapestry of difference
+cross-section of city life
+unity within diversity
+Brought with them all old tribal loyalties.</td><td class="zh">教會本應是……
+由各種差異織成的美麗掛毯
+城市生活的縮影
+多元中的合一
+他們卻把所有舊有的部落忠誠都帶了進來。</td></tr>
+<tr><td class="en">‘Divisions’ (schismata) = only x2 more in NT letters.
+Esp evident in…
+Lord’s Supper (11:18). Sticking to own kind. Separate!?
+Spiritual gifts (12:25). Looking down on each other!</td><td class="zh">「分裂」（schismata）＝在新約書信中只再出現兩次。
+尤其明顯在……
+主的晚餐（11 章 18 節）。只跟同類人在一起。各自分開！？
+屬靈恩賜（12 章 25 節）。互相輕看！</td></tr>
+<tr><td class="en">Paul = dismayed!
+NOT bland uniformity/sameness!?
+ie Obliterate all cultural distinctives!?
+NB cultural mix = rich/beautiful!
+BUT = whatever else, = all ‘one in Christ’!</td><td class="zh">保羅＝深感沮喪！
+並非要平淡的劃一／千篇一律！？
+即是抹殺所有文化特色！？
+注意：文化交融＝豐富而美麗！
+但是＝無論如何，＝眾人都「在基督裏成為一」！</td></tr>
+<tr><td class="en">But where might we need to be careful?
+Bound to be those “click” with!
+Can be helpful to meet (sometimes) in smaller groups along gender or language lines.
+But need to always remember = one church!
+Nobody = more or less ‘in Christ’!
+Q. Play your part in guarding our unity?</td><td class="zh">但我們在哪些地方需要小心？
+總會有些人跟我們特別「投緣」！
+（有時）按性別或語言分成小組聚會，可以有幫助。
+但必須時刻記住＝我們是一個教會！
+沒有人＝比別人更多或更少「在基督裏」！
+問：你有盡自己的本分，守護我們的合一嗎？</td></tr>
+<tr><td class="en">In Corinth = interesting spin…</td><td class="zh">在哥林多＝還有一個耐人尋味的轉折……</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">2. A cult of celebrity (v.12)</span></td><td class="zh"><span class="highlight">二、名人崇拜（12 節）</span></td></tr>
+<tr><td class="en">READ v.12
+<span class="verse">“What I mean is that each one of you says, ‘I follow Paul,’ or ‘I follow Apollos,’ or ‘I follow Cephas,’ or ‘I follow Christ.’” (1 Corinthians 1:12, ESV)</span></td><td class="zh">讀 12 節
+<span class="verse">「我的意思就是你們各人說：『我是屬保羅的』，『我是屬亞波羅的』，『我是屬磯法的』，『我是屬基督的』。」（哥林多前書 1 章 12 節，和合本）</span></td></tr>
+<tr><td class="en">‘Cult of celebrity’ = nothing new!
+Although – social media = made it worse!
+Anybody can become famous + massive following – if right connections and savvy enough!
+Fascinated by lives of rich + famous.
+“Celebrity” version of everything (e.g. Masterchef; Race across the World; Traitors – 13 million!)
+Big business + appeals to human ego – yet = lap it up!</td><td class="zh">「名人崇拜」＝並不新鮮！
+不過——社交媒體＝令情況更嚴重！
+任何人都可以成名＋擁有龐大的追隨者——只要人脈對、夠精明！
+我們着迷於富人＋名人的生活。
+凡事都有「名人」版（例如《MasterChef》、《Race Across the World》、《The Traitors》——1,300 萬人收看！）
+這是大生意＋迎合人的自我——但我們＝照單全收！</td></tr>
+<tr><td class="en">Same in Corinth.
+Own identity = who you knew/attached to.
+And reflected glory.
+In Church = Christian version!</td><td class="zh">哥林多也一樣。
+自己的身份＝取決於你認識誰／依附誰。
+並藉此沾光。
+在教會裏＝就是基督徒版本！</td></tr>
+<tr><td class="en">NB Names…
+Paul – co-founder.
+Apollos = impressive/powerful speaker (Acts 18:24-19:1)
+Cephas/Peter = one of the original 12 and Jerusalem connection.
+These = heroes!
+Become “groupies” – to one or other!</td><td class="zh">注意這些名字……
+保羅——教會的創始人之一。
+亞波羅＝令人印象深刻、極具能力的講員（使徒行傳 18 章 24 節至 19 章 1 節）
+磯法／彼得＝最初十二使徒之一，與耶路撒冷有聯繫。
+這些人＝都是英雄！
+他們成了某一位的「追隨粉絲」！</td></tr>
+<tr><td class="en">Ill. Follow on X/TikTok.
+Download talks
+Buy books.
+Front of queue to shake hand – when visited!</td><td class="zh">例子：在 X／TikTok 上追蹤。
+下載講道
+購買書籍。
+他們來訪時——排在最前頭握手！</td></tr>
+<tr><td class="en">Not clear why takes a pop at ‘I follow Christ’!?
+Perhaps simply – lack of allegiance to any of others – made them feel smug/superior.
+But basic point clear – idolizing prominent Christian leaders.</td><td class="zh">不清楚保羅為何連「我是屬基督的」也批評！？
+也許只是——他們不效忠於其他任何人——因而自鳴得意／自覺高人一等。
+但基本重點很清楚——把著名的基督徒領袖偶像化。</td></tr>
+<tr><td class="en">NB Not only – stupid/immature.
+But – allegiances of this kind = carving up!
+Respect + example = good.
+But not hero-worship!</td><td class="zh">注意：這不僅是——愚蠢／不成熟。
+而且——這類效忠＝把教會瓜分！
+尊重＋以之為榜樣＝是好的。
+但不是英雄崇拜！</td></tr>
+<tr><td class="en">Q. All prone!
+E.g. Big names from past…
+“Calvinism”?
+Body of theology – with certain emphases like sovereignty of God – in all things.
+NB Agree with most (!) – but not “Calvinist”
+Don’t follow
+Nor – infallible!
+He would be horrified!</td><td class="zh">問：我們都容易犯這毛病！
+例如：歷史上的大人物……
+「加爾文主義」？
+一套神學體系——有某些重點，例如神在萬事上——的主權。
+注意：我同意其中大部分（！）——但我不是「加爾文主義者」
+我不跟隨他
+他也不是——無誤的！
+他本人會大為震驚！</td></tr>
+<tr><td class="en">Ill. Friend – more charismatic.
+Raving about speaker at conference =
+Shocked – “never heard”!
+Worried!</td><td class="zh">例子：一位朋友——較傾向靈恩派。
+對某個大會的講員讚不絕口＝
+對方大感震驚——我竟然「從未聽過」！
+我很擔心！</td></tr>
+<tr><td class="en">No cult of celebrity!
+Only worship Jesus!
+Whoever – believer or unbeliever – want you to go away with him…</td><td class="zh">不要名人崇拜！
+只敬拜耶穌！
+無論是誰——信徒或非信徒——我都盼望你離開時帶走的是祂……</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">3. A godly humility (v.13-17)</span></td><td class="zh"><span class="highlight">三、敬虔的謙卑（13-17 節）</span></td></tr>
+<tr><td class="en">Get a grip!
+READ v.13
+<span class="verse">“Is Christ divided? Was Paul crucified for you? Or were you baptized in the name of Paul?” (1 Corinthians 1:13, ESV)</span></td><td class="zh">清醒過來吧！
+讀 13 節
+<span class="verse">「基督是分開的嗎？保羅為你們釘了十字架嗎？你們是奉保羅的名受了洗嗎？」（哥林多前書 1 章 13 節，和合本）</span></td></tr>
+<tr><td class="en">x3 rhetorical questions…
+No!
+1. Christ divided? No. Then why are you!?
+2. Paul crucified? No. I’m not your saviour!
+3. Baptised into name of Paul? No. Name of Christ (v.10).
+No, no, no – get a grip!</td><td class="zh">三個反問句……
+不！
+1. 基督是分開的嗎？不是。那你們為何分裂！？
+2. 保羅為你們釘十字架嗎？不是。我不是你們的救主！
+3. 奉保羅的名受洗嗎？不是。是奉基督的名（10 節）。
+不，不，不——清醒過來吧！</td></tr>
+<tr><td class="en">Ill. – 500 years since Protestant Reformation in Europe.
+Reportedly when Martin Luther heard his followers = “Lutherans”…
+“What is Luther? The teaching is not mine… how did I, poor stinking bag of maggots that I am, come to the point where people call the children of Christ by my evil name?”
+Disgusted at how some pastors encourage it… ‘Hearers should say, “I do not believe in my pastor, but he tells me of another Lord whose name is Christ.”’ (Vang, p.26)</td><td class="zh">例子——歐洲基督教宗教改革至今已有 500 年。
+據說馬丁路德聽到他的跟隨者被稱為「路德派」時……
+「路德算甚麼？這教訓不是我的……我這個可憐、發臭的蛆蟲皮囊，怎會落到讓人用我這邪惡的名字來稱呼基督兒女的地步？」
+他厭惡一些牧者竟然鼓勵這種做法……「聽道的人應當說：『我不是信我的牧師，而是他向我講述另一位主，祂的名字是基督。』」（Vang，第 26 頁）</td></tr>
+<tr><td class="en">Paul = ‘not about me/us’!
+Him!</td><td class="zh">保羅＝「重點不在於我／我們」！
+而在於祂！</td></tr>
+<tr><td class="en">READ v.14-17
+<span class="verse">“I thank God that I baptized none of you except Crispus and Gaius, so that no one may say that you were baptized in my name. (I did baptize also the household of Stephanas. Beyond that, I do not know whether I baptized anyone else.) For Christ did not send me to baptize but to preach the gospel, and not with words of eloquent wisdom, lest the cross of Christ be emptied of its power.” (1 Corinthians 1:14-17, ESV)</span></td><td class="zh">讀 14-17 節
+<span class="verse">「我感謝神，除了基利司布並該猶以外，我沒有給你們一個人施洗，免得有人說，你們是奉我的名受洗。我也給司提反家施過洗；此外給別人施洗沒有，我記不清。基督差遣我，原不是為施洗，乃是為傳福音，並不用智慧的言語，免得基督的十字架落了空。」（哥林多前書 1 章 14-17 節，和合本）</span></td></tr>
+<tr><td class="en">Q. Paul “preach”?
+Not himself – Christ crucified!</td><td class="zh">問：保羅「傳」甚麼？
+不是傳自己——而是傳釘十字架的基督！</td></tr>
+<tr><td class="en">Q. Why ‘baptism’?
+Seems like = big deal to them! (15:29-30)
+So felt like = special bond with whoever baptised them!
+Can see why…</td><td class="zh">問：為何提到「洗禮」？
+看來＝對他們來說是件大事！（15 章 29-30 節）
+所以他們覺得＝與替自己施洗的人有特殊的聯繫！
+不難理解為何如此……</td></tr>
+<tr><td class="en">Ill. – Friend became pastor of Baptist Church in Tring.
+Previous pastor left suddenly (and in disgrace) after walking out on wife/children – to get married to a man.
+NB Now ‘LGBT Humanists Co-ordinator’
+Shattering for church – but especially to those baptised by him!?</td><td class="zh">例子——一位朋友成為 Tring 一間浸信會的牧師。
+前任牧師拋下妻兒後突然（並不光彩地）離開——與一名男子結婚。
+注意：他現在是「LGBT 人文主義者協調員」
+這對教會是沉重的打擊——尤其是對那些由他施洗的人！？</td></tr>
+<tr><td class="en">NB Is something special!
+Can see how twisted in prideful way!
+In hindsight = relieved didn’t do more!
+Never wanted it to be about him!</td><td class="zh">注意：洗禮確實是特別的！
+但也可見它如何被驕傲扭曲！
+事後回想＝保羅慶幸自己沒有給更多人施洗！
+他從不希望焦點落在自己身上！</td></tr>
+<tr><td class="en">Also clear in WAY he preached!
+<span class="verse">‘not with wisdom and eloquence.’</span>
+Trend in Corinth – philosophers/teachers to display rhetorical brilliance – gain a following.
+Flashy and performative – to get applause/acclaim.
+NB Really = preaching themselves!?</td><td class="zh">從他講道的「方式」也清楚可見！
+<span class="verse">「並不用智慧的言語」</span>
+哥林多的風氣——哲學家／教師炫耀出色的修辭技巧——以吸引追隨者。
+浮誇而富表演性——為要博取掌聲／讚譽。
+注意：其實＝是在傳揚自己！？</td></tr>
+<tr><td class="en">Ill. – Charles Dickens (popular Victorian novelist).
+d. 1870 (58)
+Oliver Twist
+A Christmas Carol.
+Famous…
+Reading tours.
+Packed audiences.
+Theatre and oratory.
+Promoting himself!</td><td class="zh">例子——查爾斯·狄更斯（Charles Dickens，維多利亞時代的暢銷小說家）。
+卒於 1870 年（享年 58 歲）
+《孤雛淚》
+《聖誕頌歌》。
+名聞遐邇……
+舉辦朗讀巡迴。
+座無虛席。
+戲劇表演與演說技巧。
+在推銷自己！</td></tr>
+<tr><td class="en">Could tell by way Paul spoke = never that!
+No-one = “wow what a speaker!”
+Glad!
+Meant all focus = on Jesus + not him!</td><td class="zh">從保羅說話的方式可知＝他從來不是這樣！
+沒有人＝會說「哇，好出色的講員！」
+保羅為此高興！
+這意味着所有焦點＝都在耶穌身上＋而不在他身上！</td></tr>
+<tr><td class="en">Beware the performative preacher.
+Super-confident
+Loves the attention
+Talks about themselves
+Wants the applause.
+Churches will usually be large – coz people want to be entertained.
+But – are they preaching themselves or Christ?</td><td class="zh">要提防表演型的傳道人。
+過度自信
+喜愛受人注目
+總在談論自己
+渴望掌聲。
+這類教會通常規模很大——因為人們想被娛樂。
+但——他們傳的是自己，還是基督？</td></tr>
+<tr><td class="en">Ill. – Pastor friend = discouraged.
+Young enthusiastic believer left for church down the road.
+5* celebrity preacher.
+Wander around stage, telling jokes and moving stories.
+“He doesn’t even use notes!?”</td><td class="zh">例子——一位牧師朋友＝很灰心。
+一位年輕熱心的信徒轉到附近另一間教會。
+那裏有一位五星級的名人傳道人。
+在台上走來走去，講笑話和感人的故事。
+「他連講稿都不用！？」</td></tr>
+<tr><td class="en">Good preacher = not nec. a “natural” at front.
+Preach Christ.
+Good pastor = wants to gain a following for Jesus, not themselves.</td><td class="zh">好的傳道人＝不一定是「天生」的台上人物。
+而是傳揚基督。
+好的牧者＝要為耶穌贏得跟隨者，而不是為自己。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">We live in a divided world.
+Let’s not be a divided people!</span></td><td class="zh"><span class="highlight">我們活在一個分裂的世界。
+願我們不要成為一群分裂的人！</span></td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Christ, not conflict</h1>
+    <h1 class="zh">是基督，不是紛爭</h1>
+    <div class="subtitle">1 Corinthians 1:10-17 哥林多前書 1:10-17 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">“I appeal to you, brothers, by the name of our Lord Jesus Christ, that all of you agree, and that there be no divisions among you, but that you be united in the same mind and the same judgment.” (1 Corinthians 1:10, ESV)<br>「弟兄們，我藉我們主耶穌基督的名勸你們都說一樣的話。你們中間也不可分黨，只要一心一意，彼此相合。」（哥林多前書 1:10，和合本）</div>
+  </div>
+
+
+<!-- Summary -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">📖</span>Summary 摘要</h2>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <div class="summary-point"><strong>A divided world, a tempted church.</strong> Our culture is increasingly tribal – politically, online and nationally. Sadly, churches can be split the same way, by class, politics, education, taste or ethnicity, even when they agree on the basics.</div>
+      <div class="summary-point"><strong>Corinth’s problem.</strong> A young church (only 3-4 years old) in a thrusting, “get ahead” city had brought the world’s rivalries inside. Paul thanks God for their gifts, yet is not naïve: he wants to see Christ formed in them, not conflict.</div>
+      <div class="summary-point"><strong>1. A plea for unity (v.10-11).</strong> Chloe’s people report quarrels. The word “divisions” (schismata) pictures fabric being torn. The issue was not doctrine but behaviour – social, economic, political, educational and ethnic divisions imported into the body of Christ. Unity is not bland uniformity; cultural variety is beautiful, but all are one in Christ, and nobody is more or less “in Christ”.</div>
+      <div class="summary-point"><strong>2. A cult of celebrity (v.12).</strong> The Corinthians defined themselves by the leader they attached to – Paul, Apollos, Cephas, or even a smug “I follow Christ”. Respecting and imitating godly leaders is good; hero-worship carves up the church. We too can idolise big names, past or present.</div>
+      <div class="summary-point"><strong>3. A godly humility (v.13-17).</strong> Three rhetorical questions demand a “No”: Christ is not divided, Paul was not crucified for them, and they were not baptised into Paul’s name. Paul is relieved he baptised few, and refuses to preach with performative eloquence, so that the cross is not emptied of its power. Like Luther, he points away from himself to Christ. Good preachers and pastors gain a following for Jesus, not themselves.</div>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">中文</div>
+      <div class="summary-point"><strong>分裂的世界，受試探的教會。</strong>我們的文化日益部落化——無論在政治、網絡或國家層面。可惜教會也可能以同樣方式分裂：因階級、政治、教育、品味或種族而分門別類，即使在基本信仰上意見一致。</div>
+      <div class="summary-point"><strong>哥林多的問題。</strong>一個只有三、四年歷史的年輕教會，身處進取、「力爭上游」的城市，把世界的較勁帶進了教會。保羅為他們的恩賜感謝神，卻並不天真：他渴望看見基督成形在他們心裏，而不是紛爭。</div>
+      <div class="summary-point"><strong>一、合一的懇求（10-11 節）。</strong>革來氏家裏的人報告了紛爭。「分黨」（schismata）一詞描繪布料被撕裂的景象。問題不在教義，而在行為——社會、經濟、政治、教育及種族的分歧被帶進了基督的身體。合一不是平淡的劃一；文化多元是美麗的，但眾人都在基督裏成為一，沒有人比別人更多或更少「在基督裏」。</div>
+      <div class="summary-point"><strong>二、名人崇拜（12 節）。</strong>哥林多人以自己所依附的領袖來界定身份——保羅、亞波羅、磯法，甚至是自鳴得意的「我是屬基督的」。尊重並效法敬虔的領袖是好的；英雄崇拜卻會把教會瓜分。我們同樣可能把古今的大人物偶像化。</div>
+      <div class="summary-point"><strong>三、敬虔的謙卑（13-17 節）。</strong>三個反問句都要求回答「不」：基督沒有分開，保羅沒有為他們釘十字架，他們也不是奉保羅的名受洗。保羅慶幸自己只給少數人施洗，也拒絕用表演式的雄辯講道，免得基督的十字架落了空。他像路德一樣，把人的目光從自己引向基督。好的傳道人和牧者，是為耶穌贏得跟隨者，而不是為自己。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Key Scriptures -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">✝️</span>Key Scriptures 重要經文</h2>
+
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 1:10-11 · 哥林多前書 1:10-11</div>
+    <div class="bilingual">
+      <div class="verse-text">“I appeal to you, brothers, by the name of our Lord Jesus Christ, that all of you agree, and that there be no divisions among you, but that you be united in the same mind and the same judgment. For it has been reported to me by Chloe’s people that there is quarreling among you, my brothers.” (ESV)</div>
+      <div class="verse-text zh">「弟兄們，我藉我們主耶穌基督的名勸你們都說一樣的話。你們中間也不可分黨，只要一心一意，彼此相合。因為革來氏家裏的人曾對我提起弟兄們來，說你們中間有紛爭。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 1:12-13 · 哥林多前書 1:12-13</div>
+    <div class="bilingual">
+      <div class="verse-text">“What I mean is that each one of you says, ‘I follow Paul,’ or ‘I follow Apollos,’ or ‘I follow Cephas,’ or ‘I follow Christ.’ Is Christ divided? Was Paul crucified for you? Or were you baptized in the name of Paul?” (ESV)</div>
+      <div class="verse-text zh">「我的意思就是你們各人說：『我是屬保羅的』，『我是屬亞波羅的』，『我是屬磯法的』，『我是屬基督的』。基督是分開的嗎？保羅為你們釘了十字架嗎？你們是奉保羅的名受了洗嗎？」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 1:17 · 哥林多前書 1:17</div>
+    <div class="bilingual">
+      <div class="verse-text">“For Christ did not send me to baptize but to preach the gospel, and not with words of eloquent wisdom, lest the cross of Christ be emptied of its power.” (ESV)</div>
+      <div class="verse-text zh">「基督差遣我，原不是為施洗，乃是為傳福音，並不用智慧的言語，免得基督的十字架落了空。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 12:25 · 哥林多前書 12:25</div>
+    <div class="bilingual">
+      <div class="verse-text">“that there may be no division in the body, but that the members may have the same care for one another.” (ESV)</div>
+      <div class="verse-text zh">「免得身上分門別類，總要肢體彼此相顧。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 3:5-7 · 哥林多前書 3:5-7</div>
+    <div class="bilingual">
+      <div class="verse-text">“What then is Apollos? What is Paul? Servants through whom you believed, as the Lord assigned to each. I planted, Apollos watered, but God gave the growth. So neither he who plants nor he who waters is anything, but only God who gives the growth.” (ESV)</div>
+      <div class="verse-text zh">「亞波羅算甚麼？保羅算甚麼？無非是執事，照主所賜給他們各人的，引導你們相信。我栽種了，亞波羅澆灌了，惟有神叫他生長。可見栽種的算不得甚麼，澆灌的也算不得甚麼；只在那叫他生長的神。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Galatians 3:28 · 加拉太書 3:28</div>
+    <div class="bilingual">
+      <div class="verse-text">“There is neither Jew nor Greek, there is neither slave nor free, there is no male and female, for you are all one in Christ Jesus.” (ESV)</div>
+      <div class="verse-text zh">「並不分猶太人、希臘人，自主的、為奴的，或男或女，因為你們在基督耶穌裏都成為一了。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">2 Corinthians 4:5 · 哥林多後書 4:5</div>
+    <div class="bilingual">
+      <div class="verse-text">“For what we proclaim is not ourselves, but Jesus Christ as Lord, with ourselves as your servants for Jesus’ sake.” (ESV)</div>
+      <div class="verse-text zh">「我們原不是傳自己，乃是傳基督耶穌為主，並且自己因耶穌作你們的僕人。」（和合本）</div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Proverbs 16:18 · 箴言 16:18</div>
+    <div class="bilingual">
+      <div class="verse-text">“Pride goes before destruction, and a haughty spirit before a fall.” (ESV)</div>
+      <div class="verse-text zh">「驕傲在敗壞以先；狂心在跌倒之前。」（和合本）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Key Themes -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">💡</span>Key Themes 主要主題</h2>
+
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">Theme 1</div>
+      <strong>Unity, not uniformity.</strong> The church is meant to be a “beautiful tapestry of difference” – a cross-section of city life, one body in Christ. Unity does not erase cultural distinctives; it refuses to let them rank or separate believers, because nobody is more or less “in Christ”.
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">主題一</div>
+      <strong>合一，而非劃一。</strong>教會本應是「由各種差異織成的美麗掛毯」——城市生活的縮影，在基督裏的一個身體。合一並不抹殺文化特色，而是拒絕讓這些差異把信徒分出高低或彼此隔離，因為沒有人比別人更多或更少「在基督裏」。
+    </div>
+  </div>
+
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">Theme 2</div>
+      <strong>When the world’s divisions enter the church.</strong> Corinth’s schisms were about behaviour, not belief: social status, wealth, politics, education and ethnicity. A competitive, “get ahead” culture cracks the building from within if it is not addressed – and pride comes before a fall.
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">主題二</div>
+      <strong>當世界的分裂進入教會。</strong>哥林多的分黨關乎行為，而非信仰：社會地位、財富、政治、教育及種族。競爭激烈、「力爭上游」的文化若不處理，便會從內部令建築出現裂痕——而且驕傲在敗壞以先。
+    </div>
+  </div>
+
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">Theme 3</div>
+      <strong>The cult of celebrity.</strong> Finding our identity in the leader we follow, the speaker we download or the tradition we name ourselves after is an old temptation, magnified by social media. Respect and example are good; hero-worship divides and distracts from Christ.
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">主題三</div>
+      <strong>名人崇拜。</strong>以我們所跟隨的領袖、所下載的講員，或所自稱的傳統來建立身份，是古老的試探，並被社交媒體放大。尊重和效法是好的；英雄崇拜卻會造成分裂，並使人偏離基督。
+    </div>
+  </div>
+
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">Theme 4</div>
+      <strong>Preaching Christ, not ourselves.</strong> Paul refuses to be anyone’s saviour or the centre of attention. He preaches Christ crucified without flashy eloquence, so that the cross keeps its power. Godly ministry gains a following for Jesus, not for the minister.
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">主題四</div>
+      <strong>傳揚基督，而非自己。</strong>保羅拒絕成為任何人的救主或眾人注目的中心。他傳揚釘十字架的基督，不用浮誇的雄辯，免得十字架落了空。敬虔的事奉是為耶穌贏得跟隨者，而不是為事奉者自己。
+    </div>
+  </div>
+</div>
+
+<!-- Thinking Questions -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">❓</span>Thinking Questions 思考問題</h2>
+  <div class="questions-container">
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Observation</div>In verse 10, what three things does Paul appeal for, and on what authority does he make his appeal? What had Chloe’s people reported (v.11)?</div>
+        <div class="lang-zh"><div class="lang-label">觀察</div>在第 10 節，保羅懇求哥林多人做到哪三件事？他憑甚麼權柄提出這懇求？革來氏家裏的人報告了甚麼（11 節）？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Observation</div>Look at the three rhetorical questions in verse 13. What does each one reveal about Christ, about Paul, and about what baptism means?</div>
+        <div class="lang-zh"><div class="lang-label">觀察</div>細看第 13 節的三個反問句。每一個問題分別揭示了關於基督、關於保羅，以及關於洗禮意義的甚麼真理？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Interpretation</div>The sermon says Corinth’s divisions were “not what they believed but how they behaved”. Why is it significant that the problem was not primarily doctrinal? How might a church that agrees on the basics still be torn apart?</div>
+        <div class="lang-zh"><div class="lang-label">詮釋</div>講道指出，哥林多的分裂「不在於他們信甚麼，而在於他們如何行事」。問題主要不是教義上的，這有何重要意義？一個在基本信仰上一致的教會，怎樣仍可能被撕裂？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Interpretation</div>Why does Paul say he was sent “not with words of eloquent wisdom, lest the cross of Christ be emptied of its power” (v.17)? How can impressive, performative preaching actually work against the gospel?</div>
+        <div class="lang-zh"><div class="lang-label">詮釋</div>保羅為何說自己「並不用智慧的言語，免得基督的十字架落了空」（17 節）？令人印象深刻、富表演性的講道，怎樣反而可能與福音背道而馳？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Reflection (personal)</div>Which of the world’s divisions – social, economic, political, educational, cultural or even sporting – do you find hardest to leave at the church door? Who in our church family do you rarely spend time with?</div>
+        <div class="lang-zh"><div class="lang-label">反思（個人）</div>在社會、經濟、政治、教育、文化甚至體育上的各種分歧中，哪一種你最難在進入教會時放下？在我們的教會大家庭中，有哪些人你很少與他們相處？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Reflection (personal)</div>Are there Christian leaders, speakers or traditions whose name you attach yourself to? How can you tell the difference between healthy respect and the kind of hero-worship Paul warns against?</div>
+        <div class="lang-zh"><div class="lang-label">反思（個人）</div>有沒有一些基督徒領袖、講員或傳統，是你常以其名自居的？你怎樣分辨健康的尊重，與保羅所警告的英雄崇拜？</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">Application (group)</div>Our church brings together 20+ nationalities and people of every age and stage. What practical steps could our group take to guard this unity, while still valuing smaller gatherings by language or gender?</div>
+        <div class="lang-zh"><div class="lang-label">應用（小組）</div>我們的教會匯聚了二十多個國籍、不同年齡和人生階段的人。我們的小組可以採取哪些實際行動來守護這份合一，同時仍重視按語言或性別舉行的小組聚會？</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Application -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">🌱</span>Application 生活應用</h2>
+
+  <div class="application-item">
+    <div class="bilingual">
+      <div class="lang-en"><strong>Give thanks, then keep working.</strong> Thank God for the unity He has given our church family – and do not take it for granted. Things can change quickly, and pride comes before a fall.</div>
+      <div class="lang-zh"><strong>先感恩，再努力。</strong>為神賜給我們教會大家庭的合一感恩——但不要視之為理所當然。情況可以很快改變，而且驕傲在敗壞以先。</div>
+    </div>
+  </div>
+
+  <div class="application-item">
+    <div class="bilingual">
+      <div class="lang-en"><strong>Cross a line this week.</strong> Deliberately sit with, speak to or invite someone from a different nationality, generation, background or language group. Remember: nobody is more or less “in Christ”.</div>
+      <div class="lang-zh"><strong>本週跨出界線。</strong>刻意與一位不同國籍、世代、背景或語言群體的弟兄姊妹同坐、交談或邀請對方。要記住：沒有人比別人更多或更少「在基督裏」。</div>
+    </div>
+  </div>
+
+  <div class="application-item">
+    <div class="bilingual">
+      <div class="lang-en"><strong>Guard your words.</strong> Refuse gossip, factional talk and “us and them” language about others in the church. Speak of fellow believers as members of the one body.</div>
+      <div class="lang-zh"><strong>謹守你的言語。</strong>拒絕在教會中說閒話、結黨的言論，以及「我們與他們」的說法。談及其他信徒時，要視他們為同一身體的肢體。</div>
+    </div>
+  </div>
+
+  <div class="application-item">
+    <div class="bilingual">
+      <div class="lang-en"><strong>Check your allegiances.</strong> Review who you follow online and whose talks and books you consume. Keep learning from gifted teachers, but test whether they point you to themselves or to Christ – and make sure your worship belongs to Jesus alone.</div>
+      <div class="lang-zh"><strong>檢視你的效忠對象。</strong>檢視你在網上追蹤誰，以及你收聽誰的講道、閱讀誰的書。繼續向有恩賜的教師學習，但要分辨他們是把你引向自己還是引向基督——並確保你的敬拜只歸給耶穌。</div>
+    </div>
+  </div>
+
+  <div class="application-item">
+    <div class="bilingual">
+      <div class="lang-en"><strong>Value faithful, not flashy.</strong> Pray for and encourage those who preach and lead among us, not for their performance but for their faithfulness in preaching Christ crucified. If you serve in any way, aim to gain a following for Jesus, not yourself.</div>
+      <div class="lang-zh"><strong>重視忠心，而非浮華。</strong>為在我們中間講道和帶領的人禱告並鼓勵他們——不是因為他們的表現，而是因為他們忠心地傳揚釘十字架的基督。若你在任何崗位上事奉，要立志為耶穌贏得跟隨者，而不是為自己。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Prayer -->
+<div class="prayer-section">
+  <h2 class="sg-section-title"><span class="icon">🙏</span>Prayer 禱告</h2>
+  <div class="bilingual">
+    <div class="lang-en prayer-text">
+      Lord Jesus Christ, You are not divided, and You alone were crucified for us. Thank You for the remarkable unity You have given our church family – people from many nations, ages and stages, made one in You. Forgive us when we bring the world’s tribalism into Your church: when we stick to our own kind, look down on others, or boast in the leaders we admire. Guard us from pride and from the cult of celebrity. Form Christ in us, not conflict. Make us of one mind and one judgment, caring for one another as members of one body. Raise up preachers and pastors who proclaim not themselves but You, and give each of us the humility to point others to the cross. In a divided world, let us not be a divided people. In Your name we pray. Amen.
+    </div>
+    <div class="lang-zh prayer-text">
+      主耶穌基督，祢沒有分開，惟有祢為我們釘了十字架。感謝祢賜給我們教會大家庭難得的合一——來自許多國家、不同年齡和人生階段的人，在祢裏面成為一。當我們把世界的部落主義帶進祢的教會時，求祢赦免：當我們只與同類人在一起、輕看別人，或以我們所仰慕的領袖自誇時，求祢饒恕。求祢保守我們脫離驕傲和名人崇拜。求祢使基督成形在我們心裏，而不是紛爭。使我們一心一意，彼此相合，作為同一身體的肢體彼此相顧。求祢興起不傳自己、只傳揚祢的傳道人和牧者，也賜我們各人謙卑的心，把人引到十字架前。在這分裂的世界裏，願我們不成為分裂的群體。奉祢的名求，阿們。
+    </div>
+  </div>
+</div>
+
+<!-- Further Reading -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">📚</span>Further Reading 延伸閱讀</h2>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <ul class="further-list">
+        <li>1 Corinthians 2:1-5 – Paul’s preaching: Christ crucified, not eloquence</li>
+        <li>1 Corinthians 3:1-23 – Paul and Apollos as servants; God gives the growth</li>
+        <li>1 Corinthians 11:17-34 – Divisions at the Lord’s Supper</li>
+        <li>1 Corinthians 12:12-27 – One body, many members</li>
+        <li>Acts 18:24-28 – Apollos, the eloquent teacher</li>
+        <li>Galatians 3:26-29 – All one in Christ Jesus</li>
+        <li>Ephesians 4:1-6 – Maintaining the unity of the Spirit</li>
+        <li>Philippians 2:1-11 – The humble mind of Christ</li>
+        <li>John 17:20-23 – Jesus prays that His people may be one</li>
+        <li>Psalm 133 – How good and pleasant when brothers dwell in unity</li>
+      </ul>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">中文</div>
+      <ul class="further-list">
+        <li>哥林多前書 2:1-5 —— 保羅的講道：釘十字架的基督，而非高言大智</li>
+        <li>哥林多前書 3:1-23 —— 保羅與亞波羅都是執事；惟有神叫他生長</li>
+        <li>哥林多前書 11:17-34 —— 主的晚餐中的分門別類</li>
+        <li>哥林多前書 12:12-27 —— 一個身體，許多肢體</li>
+        <li>使徒行傳 18:24-28 —— 能講解聖經的亞波羅</li>
+        <li>加拉太書 3:26-29 —— 在基督耶穌裏都成為一</li>
+        <li>以弗所書 4:1-6 —— 竭力保守聖靈所賜合而為一的心</li>
+        <li>腓立比書 2:1-11 —— 基督謙卑的心</li>
+        <li>約翰福音 17:20-23 —— 耶穌祈求祂的子民合而為一</li>
+        <li>詩篇 133 篇 —— 弟兄和睦同居是何等地善，何等地美</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-09-13 · Source: 1 Corinthians 1.10-17 Christ - not conflict. For printing.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>

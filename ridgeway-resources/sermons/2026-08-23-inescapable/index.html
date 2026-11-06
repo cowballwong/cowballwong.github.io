@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inescapable 無處可逃 — Lamentations 耶利米哀歌 4:1-22</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQkAAAB7CAYAAABn9XUaAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAACDeUlEQVR4nO29B5icZ3kufH9l+s7O9qZt2qK6q16s5go2NiamBNNzSMKBH2JaSOBPCAQCJ1xAQuKQg6/wB0KLHQimHLAdGxdJVrF612ql3ZW29zY7fb7yX/c7864+jVcFkqDVufYxw6xmvvnq+z7vU+7nfhTMA1FVFbZtixf/lqLrOtLpNNxuN1KpFBRFmf3e5XIhlbRgWxo0xQUdNkw7CQUpKLBhq4CtALYNpG1AUxVouh8wdaQMGwr4GwVpTANI38SrX5AFmd+i3OwT4GSnIpCiaRpM05xVEoZhXPEZFQb/5ktVdcDSM78DFQigKBZM/mcZQkG4PIBlAYYJKLYCBW5o8MK2VaoVmIgBMG7S1S/Igsx/ycywmygWZ7BDYUilwc89Ho94pwUhP6fSkKJpCkwrCUXRYKs6TFWFBU0oBSgKoBpImTYUFVA1wDJsgNaGwn1qMGxuePn4C7IgCzIPLQm6D7QOqAzoUlxNpMKgoqBlIX6r2IBpQdE1GIoblsHLcQOaDmgKoJhAKgooBnTVgkqXxsxYFkIUFZZtwf4tXeuCLMitKPPCkmAsQrocxcXFqK6uhtfrFZ+Nj4+ju7sbyWRSfEZLgr+hojAME24dMCwLFme66geCFfAWlYbcbneJlU4Ox6eGImZkBEYyDJdG1wWgASEUgyL/WJAFWZB5a0k4ZdGiRbj99tvffdttt32/sLBQKITz58/vfO655+46evSoUAy0PKg86H7QLKCDkTRUQAvBvWg5aps3fq9s0eL3aLobZmImNjFw4Sv9F058fqa/DUAMPv4MFui1CGdjQUksyILMb0uCbgSthLy8PKxfv37LPffc8/2lS5dmlACAhoaGO0Oh0OTY2FhhT0+PCGZKUTUXzDRjFG6ooSo0Ltv0r/Urb3+nJ78STG+4kfIXhSo+p6ZVd2c4/OnkTD/SZhouzQbUNCxzQUMsyIJcTy7nG2+S0NWQbkZra+vfLVu2TCiOaDQqlAfjFevXry+or693czsqCb7ocvD7zDzXkF9YUVZW1fhOb6gK4biGibCFhOlDcUkDyioXf6ikpLpM0/NgWCpStCJsbZ7ZUQuyIPNTbrqSkNmK/Px8FBQUrI/FYpienhaWhMRJhEIh+Hy+Gm7H4CZ/w/jErJLx+eAJBBoV3QXDpDOhQtO94hVPm/AG8gs8geByGwx4qmAy1aKG0FwLimJBFmS+KwmZqZiamqJyOEG3o6ioSFgKkUhEWBWTk5NUFlPcTuIlhHJRmea0gWQM4ZnJg0YqBq/Lgs9tQ1GSMM0YgkEXjHQc8UTkvEU8BDMivGr+bkEWZEHmv5IgBoLS29uLPXv23Hn27FlhLQQCAWFB0O3YuXPnzjNnzoxzO7oflIwrosPjdwFqEvGpfnOo7+znpsc64LbHEXSH4cYkpscvYqCv7TOjYz2DMGOAwiwKrRcDsBeQlguyIPM+cOkMXp46dSryq1/96m3pdPqHDQ0NQoE89dRT33/22Wd/b3h4WGwrodm0NPgyUybBFkBiEj2dJz6v6+7i+uaVH/b78pBKxdB27JWP9Zw/8agRHsooCGIn1CxQYgFHtSALcl256aE7OemlG0EpKSkRLgfdDb5mZmaEIqGFQcXAeAS3Z7xCZVhBU2FabsB0A+4QtPziTOwhMg2FKc+ZMYG0ZAjCNpOMZEBVFRhEYC4oigVZkPktsmCLbgTdC/lvKgWnMFYhXRN+x+35T35C2DUVBTQvoORxa4ZCATUfgA/QPNC9Pri9mX3yN2Jz/nBBFmRB5r8lIdOgzGgIF8I0s0pAEQohHA5f8Rvpbng9LiiWPZshyRR8KTDE/hS4NB0pkyhLJVMRatJsYHloxnxQocKAIcBVC7IgCzKPlURBQYFwK4T74Cgbp0jLQhaCUZFQiQhoNi0BmwlPhlYy6U1N1TK1HKYtgFMai79sgbGEAgsBjxemkRL70FQXElZyQUksyILM58AlJ7DEQ0hQFa0HuhfETCQSCYyMjIjvysvLIQOYVB4uWhu2imTKhmUHANWDtMuNYFERfF4XZsJRWGkTViQMWDGoWhqWnRJxCWpH2zJEeudyNGRBFmRB5qUlwRfxEuvWrcOOHTv+T01NzRtoXVB5DA4O4uWXX96xd+/ePWNjY0I5+P1+kQ1Jp00oige27YM7rwqLGle8uaKm/v35JcU7FF3zx2KxS5Hx8Kmxgb4nhnrOPpGa7gMQhkc1oNsqTNtCJoy5IAuyIPPekrj99tvL7r///uGWlhahBGhZ0JpYvHgx6zdebmho+OF3vvOdtxNYdTkTosFGAFp+BWoa1z2ypHXj14uqawGXF2nLRD7UeqXaqi8qu/QGlzfQeKnd+qIZtpCyEmABWNqIZ+2IhZjEgizIvFUSlKamJjz00EPDmzZtmiWXYYyCwUtaDFQUpaWlb5uZmWn73ve+9/l4nJOb3kUQlu1FdXPLOxpbNn89VFmPhOrDdCQJw1YQ8AXgcuvIr3KhUVe/kEyHT/WdGf+5nU4LSjtGM8hOtSALsiBXl5ueA6S1sGzZsrsbGxtFMJJ1G7QsWMtBheHz+QSnBN2RBx544HPkmpCpUFV3A34fSuvq319YU4uEy4cZuGH6CmEFipH0hjCasGB4gsivqkZ53eIPaoX5gGbBUNILCmJBFuRWUBIMUi5ZsuTPGbCk1UAYNi0FpjWZ+qTCyMQf0oKMpqqqSoCpqCgMI41ASSnyi4u3m5qGqUQahu6BO1QCy5OHiKmK9wQp7XQ3vPnBFb5gHuBmBoQ1HAuuxoIsyLxXEgxEVlRU3EPXgvUaRFvyMyoHWhJUGsFgUHzHbEdFRcWDVCDCmiBWwuevVN0eXSQ4bQWGoiOSNjEdTyFhAG5/HojcThJ74fGUefw+wUhlWSloC0VeC7Igt4aSYCCShDITExPiM0mfL5GVfFFBDA0Nkb3qYUmUSy66WCw2mE6Sw9IFvzcAXdWRiMYF6W1hfhE0aKK+Q7VV+Dx+j0d3hZA2gbQlCkIXZEEWZJ4rCdZldHV1fb20tFRYDCwZ5zsVA90OWhSMUzALQpwEi734mQBZWQqQshCZCLe70oBf98KOJRHQ3CjNC8GIxJAKR1Hkz4OWAoZ7h49HJ6LTZLJSbB2qTSL+BVmQBZnXSoKK4OTJkx9hiTgtBxZ2MVBJ0BT/TQuCyoFKY9++fcN9fX0iXiFo7FJJxMPTmBkdfiY2NQaPlYBfMaDFw7BmRqElphCwkwioBqz4NCYGer4zPToiGLY9mluisxdkQRZkPisJBiHb2trw4osvvoes2BJtSawE4xB8MXB5+PBhPPnkkxVMjdIVyXBdWkB4BIOXznyqr/PkvuR0H0J6BMXuCIo9UVQE4ggq40hNXsRo95mzI33tjyI2AcVKiQtnp68FWZAFmec4CSoAWhM7d+78gW3b5vbt2x8nLoLKgnBsgqdOnTp14Pnnn7+NjNmSVp+/ywBGE5gZupC6YCuvsdKRb1TVLX6vOxCAzeyHqmJ6bApDvV3f6Ok49fHoRDdtF6hqGqajKdCCLMiCXF3mjUvOGANLxWtqagie2l5YWLgpkUgMTkxM7Gtra+smcxWFFgZdEIrm0gmWgJniZQTgLa5AUUVZsS8v0GjbZsw2bDMRSQwM9/dNW5FRoSB0dyrDks24p6ojbS60+FuQBZnXSoKTnpYBMxrOnp8EUUn2KVn8xe9FRWe2OY8QlY2CNcAgV4QOuNXMi1qA+0pSIdBqSEJVTSgq95lpJCwqR9nSa0EWZEHmr5KQ3BAUuhhUAlQYEp4tC8D4Hd0SqSjkvylkxbbhy1gI5K10sTswlQRfGly6C6rKSlEybRNpyaIRX/YMJOflgizIgszLmAQVBDMXshkwLQkqBfmZk5RGWhiSeyIjKiyTpDLZrsCqOxOOtRmzMAE32wWmACPTKFhVWRRGchq3UFCGRQVBq4R9ONTsLcnqTgIpLFoa3CaLzrSvpVmdt1P2GH117MP5+4XQ6YLMdxGjmpkCTk5ORjkpJRZBohu5gsuGvgwekueBq738XloD/M2GDRsYV3hY1/W87u7ubzO9KbkhKNKt4DEMw4LPF0AqRSyEgoqKKjQ3N/uWLVv2udHR0RcuXLjw3IULFxCPJxEIBJFM0i3hcU24XB4YRgq2mHa+bC/QQlTU1z6Ul+evn54a3zM+OHjECo8CqQnQK1EVA1aaCkSFW/HA7fMgFk8A7iCgBuAqXITquqYPmraVnJwYfmZmrHcQEXJkRgAzBU0RKka4LAGvC5FEGjq9HZMKxgWvFoBhGkgjDgsmVDYuziI7LSOjZAQ9TlZTsNDsWoqC95jPQ7JvzdatZEFo8lk4mcRlv1S5PX8v77nMDEm3ztnV/Xoij+1U2k6SoMzzJBOYNrtf57Zzify9U673m2udH/cnr1l2pJf7/E33+9sWaT1TnPNKivNa5HZXk/+Ka1bkA6X5Lm+uhEWzdkIyWXM7J1O1xCrwb/mg77777urXvva1HU1NTR728iSkmqv+2bNnT+3atWvzyy+/HJdEthzYmQvP7I/4iHvuuefhbdu2/bC+vl6wVRFoxezGmTNnXn7mmWduP3nyZIZsxuXKZjdIVOkGLB8CFcvRsGLTjysalrwlUFAERVdhpuOYGh4yBi+d+3zP+SNfTI5eFOQzHpcLmulC0jJgcqV3eVHZtLa4bum6fwmVN7zBl18iSDDduo32UwefHu4+86nx/gun02N9wp3x6gpMKkfY0NwKDJMT0AsVAVjQBQuWijRUneR4cSiMhVgKbE5MO6OZqSiIBbuekqBIhS0HvnxGUkHLASQnvnx+/E6yfXFbWmEspFu0aFHj6Oho56lTpxwW2VUGSHYQOgeuHHhO5UAsS1lZGYhjIc5FjovrKSHn4J9LbuT3udvkWp//N4vyW1ASunzQztVITuCVK1eK76gsONmJfORgo+KQK5lcpdasWcMqzd4tW7bMPnh+zqKs6urq1tLS0phlWfqhQ4dMaUVkfm8JLMRrXvOad7zhDW94XFLpUwkQhclsR3Nz8w6v13tB1/VmpkFnB4WiA0oQ7pI61Dat/17jio1v8ZdWIpoyEU0moGs+1DbX60UF1V8I+gs3nT+593cig+1IsuEwsyKcqq4QKhuWtyxbfdsvKhavqDc9BYikANOwkEyZaFl/7wOh/PIHutWC93bH1O8iOoq0CHamYMKASw8gnbYApQB6sBygRWHxHqUQJ42/bsO2UrDZ3FjQ7VG10Mbgfb/+A6Ky5D1YtGjREl3Xg2xSZNu2MCtM06TSTSqKoofD4fHR0VExQfmsaPVJxSKVR11dHbZs2fJXhLYPDAw8mUgkPk0r71ritC7l31Lk5xwzjY2N7iVLlvyZZVmf5zlQLivza+9/rr9/HclVCtfaz1zW0HwQ5SrndTWFdz3l8F8ps060DAjy4CzTvuuuu7a/4x3veJmYBSqJEydO4N///d+VAwcOiAdPRSEHHwfyu9/9bpt8EAwmSiXDQUKsA1ewzZs3c+Aa/f39SldXlwBM0dKgkGjmwQcffJyNgjm4ubrRiuA+CNNmheiWLVuaiouL7aNHjyqyq7ipMAPiRe2S1X+1dM2m93gKKzBjaIganKt5UN1uTCdV+II1qG3EG2Lh6b86Nzn4WSQnkFYMwaINVz7ql236cVntyvqUmodYWoft9sPl9yA8OYFCvQCFpUuAZuU7sWi0c7Q9tsc0Z0TdCE2BdMoFf00TWlu2P7V6zdYHdN2P8fFBdFw4/viR53/6LuFXMK4h4J00hTkS2Gowa45fx47gPeLzWLFixV/7fL7qVCo1TmWhKIpI72ia5qeiSCaTI/F4vHd4ePiZM2fO/JL3WE5QqZCpjPPy8pZ4PJ7yYDC4gvv9TSagtCqk68L3UCi0pry8/H6v1/v5GzWFnfKbTtq5rIhr/Xu+KYfrWVZzuUu/jrvxXyG6dDc4YLgCcWC98Y1vfPi9733vD2kFEJ9AJcBJnkwmhyKRSAVjBNL94MkuX748b9WqVSKdSYXCCSwp8bmdNHWbm5tJMFPX1dXVLf3jYDCfn32wsrJy1pemUuDg4765T04UKpXVq1dzRUV/f7+4mWlmM4IhlNQu/qC/tALTKRsxTrpAELpG90lDLJwCLBWqOx/B4so3eguLP5sYHQf0TDdyf3n16oKqhqWGO4iwAaR4XaobAX8+tLSC4XAMfk8BShY1oGSo+w9He8/vQZxKwswoioJKlNWt+rKnePEDowk3LMYcvGWoWbbunRMzkwcvntr1KGMZsOmeZCYWFYNtq7CZgREP27peYDfk8XjK2AaRFgAtCcuyUqqquoklcbvdxeyjWllZ+caKioo3lJSU3OnxeP7k9OnTs31TeQ95306dOvXxqqqqt4TD4VN8jr/JCpdrUWSDzjM8p9kKXcLcstbpteR6g/1GJ7Xz9/NdEVxLrhafkUr5ZlybcDcoDCzyYXO1YVyAk5b+JU1+fsfJ3tjYWF5VVVV95syZPolr4CDetGnTj/nOKk45uSm0Kji5uR0HKSc8uSP27t37Af6b2/L7urq6P5S8lRxYGa6ITACMnzMuIf3sjRs33js6Ovqc8KVtDQUVlY3uQKBkJpnEdAKwA+zdoSMaSYjsZkjPE7GHAm8QhSWlrcGCUHFiUh2HzQFsoL6p+ZP+glJE0jZsdwC25sXw+CQCyYyZ5bY1eFU3XN4APHl5S+B2ZbKm7AImsqcq6hpWfrJ+yRqoWgjT0ThsK4lAyIOGpSu/fPHcwUeRDgs3gzxYgtqf0QyOaWZjrgPmkngQTmpO8CNHjqRkk6IMND1jKfj9/j2VlZWPtrS0/I/Fixd/cM2aNX8cjUa/RkXAe8lnwudz/PjxwXPnzv0jfy/dgt8kJiA/l2MgqyBmZIxCxq1uVOYys38TudEg6HxxO5QbPI+beZ46V3QZnOQJUykwAMWByAnMB03Tn5YAqzO5Snm93h8ISnpNE4qltLT0HrlDbifNIZmu5EQXB9N1rorFzgHA/RQXF6+nXyt9aCoXrn78PZWJVBDZOAWP9ZwYpKoNt9dVoHl0EWjUXC64/PkwFS80NQmP3w0rkTHzPR4X/H52GufEpoJIC9IZ07ZSRG5aCRO6ywN3oADRtI78YAFcCmDMTAkrgLET/gt0U5gapRWgAO5AnrDCopE4JiJRJE1F6BGvGygsKfZougqLGQ7Rx9wW9P8iOSq7Ct2AuFyuAq/XW8WJyHsg3TzeRz4nSdbDmMT09PR3/X5/PS2KlStXHunr69sl3Q7eW7pvcvLynsuM1bWE91++5DNzdlzLfuemC5Qb6Lze4JbZm7lev47kZlw4Np3tIGXQ91YQNZuhcbaTkNcg5bdpWajy5slBcOnSJboYhowJcBBxEtDl4N9jY2M7udo7g53j4+N7OGi4vYRMSyyDZJHidxysQ0NDv+A7FQ6Py+1TqVSMXBHSraBykPEIvvPflCy9/rOSbwKMOUyNHaE579FdgjsiHTURDydhpwC/2w+v7oZuWUgmokjGIzATqXHGBDJBTx3h6cmDHrdOvwvRqRlEp2JQDFW8JkYnBNWuaiWzLyMCM80cIxSLAUoVZjwCOxVDOjGDgFfF4ppKlBTlIRqZwmD/peOaynwHQ6Rk1KSi4EDNPtgbWCzlJKa7wReVpYwf8T5K9CnvM4Xs4t3d3d9KJBIDjDvQMpQKWGYyqLSdKe1rSVaxi2fA3/Gdx+Lklqnv7IAVJg/HAfdLRcRtrieyiI/75WLF38yiaX8DkQsK98Xz5Ttf8r7Nt5SonRNf4DnK8+eL91qe//XiLf9dIuxVPhg5iXlSL7744qri4uKzzFTQj2V6i3T2u3bteryzs7NP5sOl7Nu3775t27Yl+aBpBfChc58SNUnh5Gd8g4E1/pvKgd9z4l+4cOEr69at+xyVEZUTB6W8KTwvKhw5CY4fP/7i7IEFSMrA5NDQC6H85nt8WjGiSSDky4Oi64hPRGDFIlhU6IKSSGC459L3I1PTIhYBQwdsHbGp6eO9F9pRUd8iENrRqIGQLx9a0kax14/kzCCKggqSk+OYHhv8GQTWwQXVYP9RC+bEEDpP7v/Q2tvu/YbL60N4qhtujyZ+d6nj1MdS44NQrAg8MGd7fSgC+HW5k9i1JBsgjjP2wInoxEzwO05STkq5svPvycnJPm5LC0SuSlJaW1tpDVZzG1bW8js+N6ncndYFqQKZESkrK9tOhcMAKT/n+fT09Pyovb1duDB8xgym8sUxxOfId2dmQ67u3FamYuvr69cTS8N90xJh8JWLUHt7+yBdXY4B1vPs2LHj7osXL754/Pjx2ViX3DfHmgyA00Xmq6ysbAmDqCwYpPXF78bHx1/u6upqu3jxorg+OValFc1FcPv27eunp6ePv/LKK6a0QtLZILmcH7w/0pLiNfD65YLI65M8KDwviQjmfngvmdr3+Xxle/bsGZHzgt9xbnAfvF7G3GpqajS64C6XK8R7zYwWY1FDQ0NxLqbMMjJux5hhKBTynTlzJs75yWe5YsUKcS2MY7300kvTPB/pbsr+NlSePDd+Ju/f+vXrOc9buru7T/O5SneW90rnHxwgvAmyKe/u3bvbEolEQU9Pz4Gqqqql586dQ3t7+7defPHF9zFqnqtYLl26lDpz5szMPffcE+SJ8wRkCo7Ck6Iy6Ozs7O3t7R2RN5S/Zfzg9OnTn1++fPnn7rjjDnHxvGDnjab7Q6vixRdffIHl5HKf0aSJ5OAlzIwOPKkvjt+T53dBjVmIhseFVRHUFXiDGvL0BCYjI5gc7flOfJJ8EgZcqhdpW8F0/8X9E4Ndz1ZW1NxX7CsRyiGVjIi1XkcC1UVe2PFhjAx3HQmP9v4A8WkoNq0DHTYMWHYaPe3HHoOlaOV1S/9C9wfLU6l4rLfnxIf6zx3dJWpGRPewjOFwRUtB8WEGYHU14T3K+voGB70TqyItOblKSgsr2+UszkwI/z3b8UzTeC8ba2tr/4eu609omtbG73gMqfi5D973JUuWMAX+/tLS0ruZYuVAzWZW8pgdqaysfKi1tfXSnj17Ps0M1sTExH5+zzFERc8BKC0J2bqRwmzZ+vXrH6ypqXk3z9Hr9VbGYrFuZmboijKounz58qljx469b9++fcL9LSws3ByNRjvz8/O53RWoXA5wLiBME2/evPn93C+tKCocqSR4zszqUOE1Nzc/cejQoSOyyZNE9XKiBgKBxqampj8eGhp6Fy1qqYwNx4IoFQRpFpuamhonJyc7mUaWbGkylibjRnKScl6sWbPmH8idIoP5sp0lr4k4oa1bt65ftmzZX1LZmqYZ44LK+8Nzr62tfW8qlRo7f/78lw4ePHiC97e5ufkhupVdXV3v4z2QC+p9993346mpqSOjo6NfYvBaDLVsnE8uJFJp8P5Rsba2tv4x3dRLly59ROJq5GIxG7iUwgvjD/fv3z998eLFZXLwSGCTHJRyAHOHpJ574okn8g3D6F+1alUVbzjdCXkiDJAdOXJk6qmnnqqVEXVnuz5iHzwej9/n88WYDpWrnzQ9aYHs3r37hZ/85CevkecpLoADT7XR23H0MV3JW9K47LaPFZY3IuT3wjJisMwU3FYKo32X0NW292ODl069CCMMl67Qz8rEJWIjuHh27+vcGv6jenHrfcHQIqj+PIFrMFJTsKLTGOlrO9tz4dDbJkY7ADsqUJdkttJgwqeriE5cQtvBqX+81Hn2H23dC8NOw0hNAPFJwEoJPWBldQKnirjnTIvegLXIQcSHx5iEpmk+J6pQ+qnS9aDQ6qurq3sHfzMyMvIcB6CzQC4YDC4vLi7ewUFk23abHPjSxKeC4Gq0Zs2av+IA7Onp+c7Q0NAvBwcHO+VqR6BcdXX1/eQb3bhx40c5mDmoaQ1QeTtbNMoByc+pINasWfMHixcv/lA2u/KVgYEBLkizFk15efkS4i02b97807KysseoHHjOeXl5S71eb7fsCyvjV3xfu3YtJ8wjrBzmdbW3t3+xr69vXFotnIDFxcXbly5d+hfbtm17PhAIfGDv3r0/GhgYmO1SzzHKZk4+n69m5cqVd3R0dOySk8vOXo/TgubEamxs/CjPr7u7+1HeG+nSSbCg/C3Poba29kFmn5577rmP5CodWhlr167dsmbNmn/i+Z88efLDkUikm4slhftobGxcQgW4dOnSz3g8nm92dnY+x/Q3LUZpIXCscBGlNVZdXf2OxsbGl8+dO7fHiYqWCkBeG2Xp0qV5VM4cL7RUcgF2InAp/Uu5+vNg3CG1qVPkxHUeUA4u4ihUVV3U19f3N+vWrfsEBxqVCif42bNnv7l79+4PUKvJByuLtFIpQ5w0Taaf/vSnNUNDQ0+3tLS0SoYqWjEHDx78w5deeunbvABpXcgLcXuA1OgltE8lPz4zObG/acW6fykoKvGzn4ZlJDE9MvByd+fpP+nvOnHQSoxC103Ylok0zx9uWKqBmf42nErGXzcxNvjB8kXNnywur6rndcVmRmKDPWf/fGzowqNjAx0wYxNQVfrgBJIx/GgJiLeHkQs1geTUICw+AAY3WWSmprO1H5eTnBkIeeavGxHea66ykUjkPFdqPi/5kKUSdbZIXLduXUtTU9MnaDa3t7c/wcHrzK9zHzJdKeMJcmXj+7Jlywir/zuuZhyshw4d2kMrTroj8pwuXLjwTElJyTNbt27945UrV355cnLyoKqqHpke5bPlecljcyJs2bLlLxl4bm9v/8Lx48d/TleWk0laOfzdqVOnzre1tf3++vXr7+WqTguFbhMtGXmdcvxwvHKF3rRp0/doBRw+fPidFy5c6KaV4DzfbPPpPadPn37d1q1bP1hfX/9+KrXdu3f/UraQ5Ji6cOHCwfLy8hdo6ldUVOxifEfNxupkzE0qi/Ly8kq6SXyVlpY+ygntXPikMue/6ULwuhkr4j5lZpDfU6GsW7duO3EwLEPYtWvXx2mZSLdGKp6Ojo7zpaWln928efOm5cuX/xUtOVpKvO9076R1RfnVr371jx/60Ic+yWNWVVXt4SIun5u0QuW4oTtHK4Vj7Pjx45+XPLNXwO2lNpM3Q5qxMgAkSV6kuSj9G2nucQWTPtWxY8f4kP+kpKTkT4ic5APg7xl1lw9DujTSv5ODlCf3wgsv9O3atWsVVxz6VXzQ9L+4esgVRGrozMNXYYsuXDyxMQxcPPCjoaGzP3J5GbTyaUG/u3h0cGAkPjkGpiE1LVOoxeJQYhV8XjcMi+CtGJJTXeg6N/bYpa7jj+UVFLoZJEwnpvvCE/2wopOAQZcM0FXeL0tMeqpH4ZYofACEPwNpF7OdzHykYIksSgZ+TT5NAUHPOh2KLatRr60keG8SiUSEA6KmpuY969ate4z3xYl8zQLghKlOV4Kxg7a2ts9QKTuD0lkfe4oTxDnh5f2kFbJq1ao/5Yp89OjR3z948OB5Knqp2OUk4LGlL67r+tfuuOOOGq72PO4s10fmvMU7B2JjY2Mj99vX1/fE/v37fy5jDlxlsy7VbByKq2E6nX6Oq3RLS8vfUGFx33LyyRWd17969erVXP1plRw8eLCbCk0qBrk//o5KoLOzk9fx2F133VXNNDFX3HA4HOF58jzoSq9Zs+Z8WVnZvWvXrm0ZHBw87QwqOq0I3mueE5VTXV3d6u7u7hPS/ZPXIq2K5cuXb+d2zz333O9IRSeRqhs2bPA1Nzd/kqv4/v37v9jR0TH7vUQmyznDObR79+6DiUTifVTMVJ6c3M46D24rg9d8Jk1NTcXDw8PjMnvpTF1LBVZUVLSFyobHdlqpUkRMwrk6OQ/IE6XrIZUCdyx3LjW5syCML94orvgymOMMXs0S2GYlo5wykXrneXCQ0BSUDFRyIHOQZgMpmYGSTolspCY4cZnRGIeVHEVSZY9P25zUtBEkqRE4UYh6NAXYiXF4BRqSaW6VcZksJIBYClZsAuGZXu6YZJoZqyDbYJiZTOpKYrj4gerSoVg8Zwu2ERV1GxlolAFFM+D1MDCbhiVyJPTP9Wx2w4BiE1p1RYRiTpHaP+smbC8pKbmDKzZ97qzGd9Mq4PdUJHQNLl68+I22trZpZxWt4/mKgCYnnlwt+B0ttKVLl4bKy8sf6Onp+e6JEyfOUxHIe8/xkAux5vMi9WBVVdVXONDp4sixIbeVAT5+T+vmxIkTj/HZyoHK8SXHHLflZOX5cGE5f/58Z21t7aksOKxcHleuxLW1tQKjwyLCgwcP/pwKQrrC3MaZvZGKkoHLvLy8T2/atOnLNN3PnTv3KR5LWtIXLlx4goqWSqSsrOyP+J2zWI2Tvrm5uZjnRCXDe8+VuKqq6uPnz5+f3U4K42lU7lR4nIQyMCzdnFWrVn2dz+Ls2bNf5L2Uc00eU7r0cu5w0Tx48GCfx+P5GuMXdEOpyKkcpJLi37t27fr8Qw89xL6676alQ6XszKRIhdLU1LSFbgvHDRdinhOPKcstxByVK41zUMoUlww+SY0sLQqpLKTG5oPmd85VnkpCVinKB8dtqNGdZo8MasmVQeIsuB1Plm6HM5cuzzVj0WSqwkXsj5PANqD6AD1PgeIxACMqvtQIWrJ4vGysw+2FpbphZSs3VUsD0lQIFlSfCtVDTZLBURD1pKte6IoPtuWBadFUcAGKG2lbR8LIAKuF6ejS4XPrIOiaiQvxQJjJUHTYCis0My8FLmhUujeQBZVKmm4CI9y9vb0/YGCOEG2/31/HlYRxAwKt9uzZc9evfvWrLzGeREUtA4c5+XXx4LKozdl0Klf76urqdyaTyeH29vZvcjWS38kJLceCEy/B77u6ugapAKR/LKuD5TgpKytbzZWUA5GmrxxzMmAq0318NrREuE8qOK6cVFhUiIzHOK+D+12yZMl6tn4k2zonM8cirVq+y8C6dI/lcXjOvDYynuXn57fQKpDZHe6Tpv7AwMBPGERtaWkpdiKHs/BzSGvt7NmzXz19+vSfMLC4YsWKu+X9lm4Gf7t48WIfsxS0dGTTKbkNj02F3d/f/yO6Xs46GTkPZQZLUinIhXJ0dPQILSh5P+T9k+dKZchYEZG42azK7HHl/OHndL14Ly5cuHBeBl5zK091+cFsaXgqjSQnO3iSmaxE5gZllIKIuRHHlK115irKFZKIxHQiBVtzwZMXQDKeECwMRsoALF3Y5KpiwjazxU5cR8UkErWoUDQvEgZrri1Ad0P1usVEmpiMZAx78kQozMCoSFDRQIXPlVl1iFwU/TUUG1YiBYvWg0uDK5CP9EzGveA5kq7Osg0k2bVH1Gy7wP8yIz4toorkphDmApWDPwgjHBM1nSofnsW/SJlHC8CGnc5kLVifkbYMgexkERfBWbbB+8iAUca6yJDuZo8reCmoPK6fAuWgKCwsbOEk6ezsfLSjo2N86dKlxxsaGj7MwXn48OHPMm4jV1feD+dAkIrfAb4xDcOI0O2Qg0vC5ql4wuHwaRkw4/6kO8BBmgugkn41JzOVhLRu+BtpxTBOwgnHQOXIyMh+6TbKQkKJt5FKSCoO/s2JOzw83NnU1DTMFVuubnJBYaEaFVMWsfsCYy3yHFhLwmvldXIbfkcLLHvNZXR9uE+mgzs6OthuXgjvY29v7/cZlK2rq/uDI0eOfFXSIlAYkM/Pz2/lfeLKHwgEOlmSkLWkXpRxPenvM4DIc+rs7ByULhi/ZyC3tra2kec2PDz8NONvUpnJWI6TWkHCBbgN3/nMly1b9h0qGd5vZ9aP9437OXv27GN33333g1VVVW8+d+7cT2TKV6Zma2trq2mBdnR0/C2Vt8yE5XoXuqpr0IXJbyLNgSYUBldLFckEzTV+wiAKf6DCpWtIk8PBsuDS3UgZJHbxi0InVlS6SisRLC1dX5kfWh0MhtZMjkzsHxnofSI1MwYrOiKQyD63IhroiDQiXQWbUO4AoORBKS1BbUPzBwuLC9bHYpH26YnxPcMX2/cjMYq0wcqMtOBxSCXSSHP1JzkNx67GNn4h1NYvDq1eu/ZboVDhpt5L3d8aHhx+5mJnx8Hp4X5ReenzexCPhQErDS/9Vs2LSCQGxZOPitpaVNc1PLy8pfXvdI+36syZUx/r7770zf7ui3FrZgqKyw23asNIxkV0QeeKQYsoi76kzhPYCYvmoQeGKNNWYJlpaDCERXMZfKQizfLx6wQlOFimp6dPc0BzQGWbGPWl0+kv7Nix4+WWlhb61o9xJXL6uxzMzEg53YWsy+iniyL3P9t8OcMxuoa+MZWEnIy5Jrvcl3zJ1YvmNFc2mQKVgzub3tvK49JUlkFxOQGcCE25YEkrRKbossd2y/SjCCrHYqJYjd8xC0NXRyoAplapIGgt0YKR6VueAxUWYzL8Nycvt5WTUN6/I0eOxBcvXryT2YjVq1c/unv37pRMV65evfp+7nPv3r2/z/Pk5Gb8hlmTLVu2LH/mmWfa5PnT36crwnQuLWupwCV6OOs6uicnJ7vldTrdfQl5dyJcpUVNK4PBbOJBnONFxoR4HFIBrFu37gitiYaGhp/wXOXzZJNufs59tLe3n3bygMj7IM9Fp4KQsQXCkhmMFwstV0zFl6lY1D2AYtIsEJAgIhSNdCJDGJNXiHjcBvzlLGr64LI1G79RVFkl8IWJRAoNy9QPjw/1PT7ae+6vO07v+7Q5dQkxMWm4IrtgCNPEC1dRLZat3vZv1c0r3pZfXCosAeHXJlPov9h2fKjn5Id7zx/ZY0SHkdYVaKoPpqUgZRMUZWPx8pV401setteu2wSfP18oMMuyPjc2OvK548cO4VfPPlV1/sThwXgkAc3jgaaYSCR4Q6nk8nDbjjve/Ka3vvPJmrompCwbnkAe3vjWd/392dMn/v7E0QMdu559unng/BkkbBM+VYdt8RoYYaAFw5trc4TC6/EjEQ4Lg8gfyEeCGBRuxQmqZqwRtiOkVSTYtK7DsZn1pTUOJpkC5UDo7++PnD179s+5gq1du/Z4OBzeL/EpHECcqE7yl2spIU4QbscBw8+k+e10R5xKwZmGlYOLkzIajXZIq0DGk2hJZCeosHelcriSF+SySyTjJPLzrFsqFKQ8F7na8TOCzBikvXjx4qB0W+R5Swi7dD0kEtTJtyGLGrOAsNnzvnTp0jcZnCwpKbnT5XKJMgBOesaFmHFh/ENOuHA4PMLAH/3/kpKSTzOWw+PX19ffzXs6OTl53pltkfeMyovX5vP53G63W9TkOO+tvC9UTs7r5nvWHRdYkLmeq3zudHNaW1v/ftGiRXefO3fuRYkrIf6ElhjdOdn8Sj5jp4IQmkBlzl+cjMbyxUy9keKGVlCOksrqJaGC4u0i1TIx+sJYf3efFRlHSrOhKxoM20I8kgb0AlQ3rv4fLat2fCOvdBFs1Q+LhV6WgTx/PgKBchQEC/48Hplp62mL/sBOhUXIzqaVYmpAsAL1Szb+78aVm97mKypHNG0iESf/ghclxYWo95SsCeWXvByPpFvHzh84nbIMeDUdaQIATWDlpq1LHnjwofY77nyN6P05OjKJpJGJhyxuWo6i4hIO/IGfpFOerpNHU+TC9HjcSPH+ahruvf+BP77/wTf97ZKVq2GpHszQnVFdSCQNtK5eg5KiwiY7FX/pl5Ojd0VGBjOuBv+z2EBMF8qhuKoCq9eueUdlxaKH6QuePXPqmwNdjFRnKPHE5MpWcNCioQ3B53A9ZLBjpWXFrl9OQFoOlmU9Q/+YuIJkMvnxZ599lqv5Fem/64kT9MRBS/PVmX5zpvNyz0kOKN7nbE2OCD45g9tZ5OUwI+i0bqRId0NOYLlaOuMOsj9sFmlqOgPn2clCjpJkf3//IDMXsrjwMuuZMWu5yO+kWyaVCEVev/wNFca5c+cira2tbVQUZWVlz3HiL168uJGuBuM/XJXlZKep39zc/DItmjVr1lQ+//zzgwRbMWDJtCbjQ3wmUsHK86MC4TUQMOXz+bplQNOZgXCSPFHkO5+zTIM6n4szMMm/z5w5E1m2bNkUz6W0tPRFunvEuVRWVt7La+no6HiOSmKuMSdFtWeBExrSJp+xH67KJizZcNc/r739ofYNd7/pWy1b7//O8vV3HChvWHEHvKHs4scVLsMNWVzbWLZm/dbvVC9eiqTpxsiMgXBcw3TShcGpNGbSLvgKKlDf3Pp3JYvq8uAiSFmDyYChHkD9klUfXNq64UPe/BJMJkxMpRQkVD+SWj56x1NIKYUoWbQS9c3rv68VVcM2FaQ4oMRI8mPbjjsPb75tuwhGDg1PIp62oeg+ROIGOnsG4PLlY8OmbdiydcfuQFEZbINQZoKZdAQKinHHPff87ap1GxGNpzE6PgVV80HVvRibCGNsPIxAMB+bNm+7s3X12vs1jw8pK8MGkea0d+WheeXG6ne/94P2hx75fx9/+N3ve+P//H8++k+/9/v/j11W0wDVzeI2DYZlCxaq2coNWhU3AKbKmpck6ok5BzQHHQNwe/fufTuVx4oVK/4XfWNJFnwjrFBSJOqSfjtNaRnkcgaMnS6GnNBOAmP+joPdqSA4Qbni0hWhG5Cfn18pJ4oMCMqVW6bWJXJQgqsIseb1ZVfdWWXFbekaMbpPa4W/c8ZMclOXEo8hlYgz9ZtbOEUh1oIB0WAmjeijFUHTnoCrjo4OASyTk5Exma6uru/yGRGjwoAk8Rt0vxhspoJxBt3lcUZGRk4za0OgmLPOxXmNTopIafFRCBGguyVTw7nnL58bA7qMsfDZ1NXViUAs7xcxFKyjcoKncrksZq07jloPSRpVksO6AHcIdUs3/HND6/Y/LKxbhYS7AsirQln96qqmltt+UVBRFxKUcfKEfF4UlJXc6c3PQ5SDTdHhKyiBFipGDDoMlx8xS4Pl8qKoqrKkoLR4B7MQZHYSKA1vAAWllQ/5QiFETAtRxhMLQnAVFCPtzoPpLUBcC0DxF6OivnlNceWiFi7OJlOWGtDQvMRXXdMYZFwjGkvB4w+hsGwR8osr4ckrgidQiJSpwhMoQF390s3llVWZSctAhqpj7cbb3lFcsQgJwwIVQGFJORTNDUX1oLy8Bl5PHnTNj0XVtairb3hE0RiIVKBrLlHT6fIXY+v21/Xec++bUL6oCcmUDl9eKTZvvRNveuu7woFgIRQXJx2VYqY8XGHO9gYlO2HESspJLINbFA58gtiOHz/+gUAg0LR169a/4eB0RslvRDhJOZBZqMfJTHQfVxt+LgFbUvHIySXrFCgM0NG/ZWBwtpmzY5ANDg6eIBcG8QcEVUkLQwYo5cCWRV5SuH+axAyoSq4K5zm3tbV9m5YPA4zMgsnrZobDCfrjuTpJkngOVKgkSaKlIgOiTnZ2ftbW1kbswwAttZaWlju48g4ODv6ME0sqGnmNzIpIbo/t27c/VF1dfS8zT/39/XEZb5DKVv6OaUk+WyofKhYKz0EWdjmtCgYkpdKmgshSOHRLUNy15Ny5cycYaKVrSvxSY2NjCzM7Z86c+bSMH8kxJUXeSzEG+S7SmSKfqAGBECqqG//QX1iByZiFiYgheBrcgUKUVdQEA6HCzdQtXBnFTTdSyAvlLSGAaSYWQziRQNy0wQptxe2H6gkgZStIMaWTF4Qn4K8XxLCKCYUoJLcG1aP5bU2HqSkwGZRKW5hKpDGdNKB48xBlU+BkWvw+v6hwE1gazpCJZolgW2FhEXS3V8Q4oLgwNR3B8PgUZuIpBPKLkGTWAgqKS0tRWlJ2L8QNoaaxsXL16m8Uk/IumUI8kRLuVngmjsnpKGKxFGzFhRRxBMECFJaU3KmzDpwrCC0BqCivWFS2bOUaqC4/evtHMD0Tw0w8CU33YPWadcFAXggeD4vTsopBBhJFsdf1V/psAC+Pgyl3oshVff/+/YQGf4uTcPv27e/gpL2RCky5f2mZXLp06SBXfebfSV0oB21u6luuxvycWIXGxsbVki7AES+YjdITucs0H03eLVu2PEhTnAqOv3fydPIzmr7S/1+/fv0SruRcbWWxWuYWZgYvXQwWbhHb0djYyLiN2B9XeZk5kRNfpvY4uTZu3HjHpk2b/qm5ufn9TuXhLMGngiJauLe39weEsXOCcdXu6el5kdaajJ3I1CjNeGYJGDvitlRuvGaJs5D3zYl+ZYCYMQNaBKtXr34/FTxF1qdQnPUW0o0k7oSoS8ZHrhaTmJ3gqiowRwSxcfs1a9a8m5kxKjQne5kcT87fzu5DsLCRVl7455cPYKYtpBNpuF0eEbyUWjBppKcY3czEFEzCDFBUVLA+GArC4yU5iwuJdAqJZBr5oRBSRlrQPoqBZXGVMWag2aKBjo2kwCOQ48Ht1x1l4jpUzYVgfgHSpoVkOoUUgU/EMSg8UZqd3KdF6PdBjTlwnx86J4amwrQVaLoLgbwgIrEoEkmmpXTxPdGPMrtAiUbiveSh0BiDSKWRMiz4fUGEQgXQNWJAYkjTNREaVfe7PG5xDF4X3wP5weUSFsvUZ1W1gOBeAWt1ruhX/PsGSn3lIKHJ/arfZwcBB+iuXbseI7iHimLbtm2bJNnPjYicfJwUZ86c+RQHHgchmcAYR5D7cXIaZF0BRs/v4CSlAqNL4CTtlSs5wT4dHR1HeH4M7m3cuHE5c/Q0e534F1kSQMTtunXrtrDWgs+XMQ0CjuREk+fLVfDo0aOf5WpPWPPGjRsFrkYqM+f1828er6WlJURlFYlE2lkuIAOpUgk6Sw6oYM6fP/9LKk4qKcYXJM7DORnlOZ0+fXokG2eIU1m0t7c/48jOXPEun+3BgwefoTKhNbFx48a7qXR5D6TlJv/OomqFBdTc3PwOujKydiM3hiDHiXzntXV1dR2RwVW6HlRoEoKdO65ylYTOFKTNyDzXNqbyUhEkZibbFSOytMAfRNpKIWHGwRhhOkk6hcQAoYduTUcqSb63NGamJw8O9g+80XCVIL+wClHLgzBxEroXbp1IBC90xJCMxTMRdK421PpMsXoSsFLx3rSI1hIm7YatMmNgQDET8Os+KD6XYKhGPIF4dPo4qP10RaAtvT5PGVOyk+NjSEFBqKgCbg+DWgZiMdLd2xDEL5aBqelJsfIwDuN2qUilDYyODT8zOTnZGswvRTCQB5fXi8kpma5SUJgfgpGaQTwexdT0xAFx82j2JdKCLr+ro33XQP9FlJUXi+xFLBoWVZ/pVBxDQwNIJsmXQW2doaoT5DWKBYWmu4gbXDu7keWMENF9mbp0msQyws5A5r59+z7y4IMPHqZ53N/f/yZOoutxRjhp9hk/OHXqVKSwsPA7ZBDbtGkTi7y+OzAw0EkfXUbfaQpzMC9evPgdXJ1oyjJYy+CkDEJKRSJz+1y1LMv64pYtWz66bt26f1m0aNEzzCBMTk4OSsAYTf+KiooWYgsYBOX3BEvRBZK+t8xOSIg43a1FixY9Qfj2+vXr/8Hr9X6qt7c3LiH9WV5PoTzq6+vv5b1h7IBpSZYRyAkuKzalfy6vYWBgQBRMZfEMz9AykJPKmd3h9px0XLEZn6HrRnfCCUyS2BInxR8Vc1tb23dpTaxcufIrwWDwO6dPn/7HLIHQrBvAa1i6dGk1MxVUmpzkdG24KDgnda6LKWukGL8i6I5FZMzOXLhwoU26fE4LIjezIpQEoQaZNjLMfc6Q9RJtx3Zt1jXl8LLW9U3RVBr5fg0TY/1oO/7KxyZHiO9MipVdkLyqLgz3jTy3qMb86+KSAgyHIzAVE8XBYpiGCSPOSjwNHkvD8EQYqVhymJRv7JfhCwQRTyUQnRrbZcxE3ukOFsBnEY3oQsCVMdFTM1MIeSz4FQODA70zUyOjJ2gOKGm6SAomx8YHT544MvPae8uDHl8Qk+PDUN0+uLx+8cDj8RgqSgoxQ96HjnO98Wg4zkmaIheF6sKpUyc/df9M+JPVi+pxqWcQgYCN4lCB6PPhdmuCPKasOA/dXd0Y6h94UvhwhMq6XbDSCVjhIeze+dTHKitDf1+/uBG2SfyIitMX2vHcMz/bMTU6KEKcMouUEa60WWTadYSDir4wV2n6/HzgsuJQPkiZ4ycseM+ePXdu3rz5Z9u2bftnv9//vv37988+7KxPa3JVzEKzZy0VOVAYtd+9e/eLrEZcvnz5Fzihly1bdon/ZtCOv+P5cDXi9vv27XsXV9eNGzdu4uSWhV0SyyBRmlQWPL+ZmRlS7D1J2PP69eu/T79dDERdD3LfskT6zJkzj9GdoMXR2toqajOcLGrOle+VV17ZPzY2tq25ufmj3Ofq1atnCN6iBcDVlsqLMRPeQwYj29vbf0IXyJkJcGJGKFJZTE1NUVE8yfMaHR2d1bjO9K3M1MhCrLq6usH+/v4fyjoSihOmTnEqb8K1k8nkp5ctW7aroaHhkQceeOC9REFK2DddlyxOJM5Fbv/+/Y9yHDL2wTFBRSgVlVR0zlIHbpttcdHJtCktCllLJZ+/M+grZRZoyYi7UByigQxJXMKIDHZMnzlkLBvqbnu4sLj8/rRpzEyODjw50NvxIsLceabnhOBMSSXR29l+JJhf+/WVgeIPl+SXI2oSLDOBdNyAT/fCa+tIhkcw1H3hG+ODA910V5gZScZjYoG9eO7UN/3+qje3blh0X0FhPgYnIohOReHxe+B3AQUeG7GJflxqP/a+mf4Mn0WeN4BoPIHhSxdx8uihtzU3Nz+9et0mBIOlmI7EkDRJYOtCiMxMmoHBvos4fuzQ2wYvXhD0cwGSw8aTGGhvw87nn322MC903+KaxaLGYmJqSigJTfGjtDAPk6NDOHH0ENrPnfkqEnFhSXhdjJ1EQa7MPbv/49GZ8Mhz69ZteJygnomx8ZfPnj754eNHDnWTIkt4SLOsVFLDCx13XeHD6+npOZhOpz/FFd35MHPrMjgpz58/z7D7G+nHyyCYTK3xt319fUdM0/zAyMiIAP1IkSuIXBFPnTpFaPdHqqurqwmGYsyB4CJOFq6S5DVgOTYtDK54XV1dB23b/hP62c7KSZ6DjAtw0HKF3L9/f9/58+c/nSVO2SInwMzMzNnh4eGI3KeMb/B7WWHqcL9m4wwc8Fk6g0erqqp+yXNlYI6xBJ4v/W8qmZ6enp8zXclzmGtSzCWGYfDaSPbyE8lBIe+TFGeNDLc5fPjwp+S2NyKcxERvkru1t7f3ubq6ugd57rzfnNTEmTDm1Nvbe5r3hRYKlcHg4ODPqUh4/blgKylO95BuIS35c+fOPSGRrzciIrMt0dH0203iFpj7Z7CBKMaCYhgMUiVjQIqaNi2Kl1Q7JeIWzCYkYwrcpU1oXX/HU1WNyx7wh4qhev2Z2oi0hXh4ApfOHfrZ2eO732SMd0JzW2BuIJlMQHFpsLV8FFesqmtcedsvqupaWjVfnggM6roK1TYwNtSJi22vvLfnwqHvpif7RG2EV/EgbatIq0BBWSXWbtz0yB13vebrzctWQvN4RSxD+KSWibazJ/His0//4St7dn7bnJ6ApttwqbaIQUALwF9eg7vvuvdf73vdG95ZVVmbqQDjlLZMxGKT2LvnpeQLzz1V2HX+TNwmAEsRHTvEZrrHjUScfqcGT6hQdBVLJ1PCtYLoFGZBZYFZluNSArT5CYUdOK4njAvIFZSKwDlAJWZfTkj5mZOyzsmLyaCmZBySkW2K9OGd2H0K/WBZCyHON4vI46rrXHmzpC0i/uDs5SqPye95PDk4nd2+ZLYkt9CQ+9uyZUs14w10Dw4cOCA4PimyUMp5HHntkhKPfztrQeQ5O0sRrkfWqzosNmcdi7wXlyfSlZWYsjDxehkmed3yWDKz4YxLSFeQ986poOhCyaIvqajkM5T7lhYFqRvuvvvuHxMC/tRTT32b+7vRDJiieVXRiIZjldeu0hRmylKgAumvZDmVRJ00DQ4yqJCpmg/GEgHDeIwnHYJWWImSypr1FbX17y8oKrlDUTR/OpaeGuy9+Fhv55nH0hPdgMLyYu5HRdpg4JIM0nQtiqEFK1HbuPyRhqUr/jpUmB80zBQGent/1nXuxIcmuk8OQo3B67GRYuUgSV80L1KyJNPrw/LWVWVbtm5/aemKFSv8gaC4cYcPHdh36MC++y6cOB5hNaeLmREzJXggbAaGAoVIRNPwFZRi023bHlmxfNXXFzc2iUE9PT2Jl3e/+Pcnjx/6eF/HORHc1dwqzFSmKtTj1pAykyARL+8Z615EFkMERXn/qE8MaLZUELhCSQjm7OsgLnMHcu6glf60XL1loEoOXFkL4BzMTvfDyRrlbJMgU3Vzpddkzl5mE5xgqNzjcAVjpqSxsZEgs6ePHz8ekW6IDOrJY0vzWBYGUjm+/vWv/1NaESyjJq2aPLfcloI3NNivrGERn10vfehyKCHps8vrzKXSyz2XXAV2NXEGM693PlJp5N5veXyKU+nIlOn27dsFD8Xhw4fftWfPHnKKvMrquJooiscFO1vcJMquM2M7oxlZEAW2scvaxwIiaM2azi6XgrSRKcW0lWC2kMsFNS8A3c28swk7ZRPYD0Y+FZ3wo3iGh8XOkqaoFlIGm/4SS+ABPIEM1TQzLinmXt1AkqtyGFAS0F22qMXiabDugqhNBjot4h5EPbcOb16+yD5YHIwBP9LRSJYJyhR9Oy2D52FD13SRHs2kdWg9UXtp0H2BDIw3EobIxLAwy0zOxhBcmi68M8NKCAeCEBPOeM3lFqlYXndaRM2VHCsiQzoj0p/Z7Mr1lISTyOR6E1muJM5B5yR+kajDXCUhB4zch/PlBPLIVSwXGSmDX3zlKh5+RyKb22+//R8Y0Nu3b9/rDx48OMsd6azTcFpDEpC0Y8eOH5OkZs+ePcRaXDHxnIAxOYGlRSTvkbMGxbltLmr0aqI6UKdSCcjfyGt1KgZnFiP3Pl1t/7mTVVIhyOcli+vkcZyuoXM/udcjz51Nr+65555/YEzihRdeeJTB2NzfX0t0YRAoOhSVFYzZsmtR6cn/S0NzMUDInWX8Epemir6WFgdp2hbQClGCYBuCOt62U7DCkxnIs6jeymg3krWwWa+4FUILZVZfttyjm+N262xMCgNRmMnJDMktLzhJQAQffkaxUHcI3Jetw+D3xOYrHnj9rGa0kDINJCNTmZtupZGeyZj8Lp1BO1pNKdH/QkCkmb+mv+YPCJ4J1prY3C9JZmS1Jldxndo7+1v2z2BMRdHhUgm6Il+ELSwa00yKjA8rZpliZV0Mf0PJgt9nFQQxFhm5dnMeGQR0rh5Oa0IOplw0ZC6KMBfuLIl/nDLXxKElICdv7oCXq7mz/Nn5e/k9KQuDweBHbrvttn/bsGHD97xe7590dHSM0HymeyL3kaXXExiJlStX3k96OKIqSegiocO56T5nAdtcq2uu5DJmX08sBzDMmalwFkLlNnWWyvJG+444lbrcj/OeSpyF5MvMVQRXS41LEFZDQ8NyBm5J6ydL0m80PU7J1jGzFJo8BxZsx0QWNgPNiMz4FhPN7dKgEEiVtJCGKdZfkSERFgbTgtkUn2LB63GLCczYhZlmEQ1Tf1yJ3TDtTJ0ILQHVZqaAZeoEizC9yUmtwDJs+Dx5iMaisAwVLs0HQ0kKV8gmcYRpzVoGcbouDn4GFlSpWiZVlk4nBUsUXSmXKLKSXbQsuMhrEAuLtZ7l57SOxArKvLlOc52Ra/Jl2vDST7KyxLJMv5LElH6xW4PL60aCVHyiIFRi9DMP0+G5ZhWE40RvABSZi2B0DhInf6WTo8NpGjtXNRkMzF1Bc3Pj8lgy7iBdF+eE5ICVpclym9zzkVkAsmS5XK7fI8nKhg0bHq+pqXmagTemFpnhSKfTcY/HE+Jg5ouBV6Y/jx079jWmCXNdL6cvT3ECrZzVqrLgS57vja6eV3sOatZayV2JpbKS8Z65sAtX26dzH/KeOZ+nk1nbafHJ55irIJzPkGxjLHtnRqOvr48FYbP3y6n4riUkWRB/iFLwrOkr+8aI1VaaZjSvTVbRcVpnulHpqg7DJFWXS1RkMtAnrBGumAaQNBIwlMwKJDpw0y2AKfAJLPnWVFZjspiIsCwXwHJ/PSBipgZDIB4dETb2RABuPQO+srgyE/vv0wXISkx4YcrQpMmYhMJfdmVAPTNTZFfKBpo4XVnhSTPONGBKDj9aR6JrD0R5t7CCBK4hA9+W95/3iIpGDEiLgc9Epuw3ReshKchsqCWoYMg8JcrExY8zpV0Zujr5MG8MMp3Lm5g7ieXqkgsTlgPBWXLsVBZOSrtcJKD8Tu5DuiO57GXO85AuiTMe4pwsDFoePnw4NTo6+oGGhobVJLhhepXRe8LNuQ3TqkyDMo9/7ty5z3V0dAjyHNkZ3RmUk5aVUynMlc5zYhKcIq/xequ9knO/5f2Sx5X3Ra7O0krLjX1cTaTCybWG5nKpnPfW+bd8dx5TvrJgOP/Fixcf4710Prcbre1h4CH75413N8q95bIMxLmfa+nRrIec3UqFoufDVouAQCkWNTR+tG7Z8i+4va5geGr6lBFLDPReOPvpyUunj8CYgu5KIuh1YWYmJiyLhGmLACSJaiqr63DPa1/3yoqVrZvjqSTIldF54fypQwf2P9B+6mgfUjEE8n1IxaZhi0BL1rWa8/yuf91zX1duXcbV7uuN3ffL3ddfXY8hJ+VcK0mu3z1XzEHuw1m+7bRCbjQg+OuIJLLh4OU706BygnBi0CqhQuGL5/WfWfn/K8/ZukY8YD4LUbE8b1pzkkD613G3KL+9/uVzii5qHiwliKJFrUua12x/qaiuuYr8FazlyAv4kA5HkJgcwmTfqW8e2fPUBxAdgFu3RI/OBF0CdwhJW8O2u+56x+++/V2PNzQuw3QkgVgqLQAk8UQU7WdOYN+u5z+5Z9dzXzVnRkRmxuOiNQQkUtejfbm54lxJck3dGxmouRH3qw1yGfBzBuL+KxSEM1jqDBxKolrJ4ei0bJwr6XwQ3VGCfqtJrovoHAM37m7cVOHJe+ArqURNU8vfNCxvqdIKyjAwEUbSNJHnzoft1lBRV4TSguD7RwZ6v997bmZPyoqA9RpGNjbQumbtkgde/9DjLa1rEU+Y8AfcKCzLFym2kuJyFNy2A6GA/yuR6Yn9R17ZuQepGVGJSXq5+awgKNJdkH9L01umwqTJS8l9zw0mykEh/V7pEsj9O5mt5G9v1CS91vlTck1hKgfZk+NGYiM3S/SrYCmcZDzzWa7mTv06i8CN1yz/twgzF17UN6/5y/plrW8wND8m40nYbKbhDmJsJo2pqIpwXEcaQSxp3fxTT1EVoHsh3AmPF3lFRbjnvgfaV63ZgOlwHH2DY0ibGnSXH5FoCiOj01AVFxoamrFm7YbHKyqrRaWoaXDAYt6LMyDnLECSfjAnmkQ1yqi4tDKcWQmZIXGa9k4CFmesYrawJ6d8+DcRp2XitBjkS7aDdKZunT71zRbbcQ7OFgY3CkS62SJdx9zz/nXu7022JFRA86OgtObdgYIyjKdMME7pChZCV7wCmuAr8iEeY9u9AEqrl5QUlC5aPjw10CbAXW4dJRWVvur6xRlSW82FmrpSTM8kMDkRRUGoDOlUDIZFkpN81NY01BSESnxDdkecWAaXK4PlmM/i5DmQKDznCiw5Gejfy++lEpCd13JxFhRpesoYhERGsoKVvyGs+EZTeDciucFRKVcz4eeLJWFmg6NMyzKOQoyBhIzf7HO7EbmaMnDGnea3kmDYlBBsKHqCbFKqG6ruRizJHIgJr05Qk1/UYeR58qDYMfiCoTVQ1DbmPq10Cm6fr4bMUTPROFTNRmFeCcypOOLJBHS3By63H0Y6BrfLjeLScgRDBeuhuvYQX6GRAm+eKwlnRkESuvDhEpLLCV1XVycYodhJihT7LJRitoD1CixoYkHQ6OhoN/H+LN6Sg16uihKmnK0yZBnyH1y8ePHbEl79n5Ubney5AVX5/l+pqH5TKSoqYpGZwBoYhvEDyQl5K8i1EKk3mqa9yZYE4HKrLLnW2F9T8BG6/TDTCgxWnumqWNV05lNFQRlpyOK9AvlJRu94CmmTvIyaQHjORKMwBdOzC8WhwkypLVOydgo+PQNwYiGRQsp7EbTMRPXns+RG1GkxcFVraGioY8EOS4WzjXGTWdp5k4qCfAOSbp5FPWRUunjxIsuzRQEXYwLOWAf3X1xcvJzszkxBqqralotF+E3P/1rKILcYab64GVLUbD0FC67Ibh0MBn9wNQDTfBT5jJ3ZsV83MH1zlYRtITkxDDM5cxZmvCYdIx7DDb8vIJryWuk4vCoQ8GtAagIuLYmpseE9om5EgLwURGfCI+RtCBYWo7i4CPEEYawGAnksiqFLQWQk2YfiGB8fI8fDETsZh0Lcxc1fpK4rTtBLtnsUW9E9QoAMv2f3Kva8GB4ePi8p06lsWZhFoFNhYaHoIs62cHwvKir6+MmTJwdlJaSzcIzkLbRCWHUoi6f+OyL6V3M9KE7cgxP7cLPEzva/YJl8KpVqcdLPzXcFQXEiZZ339RayJNg1K4qRgQtfqVjUeF9JZTFmLBNT01OikY7P7UUsMoHC8gJoWgqnDu/7Poi7Ib1/OgOMCk9N4GzbiQN1DYs3C0tEMGEHEJmahNcFzIQnUF9TgbHhERw9/MqTE+Ojsrwq067vJsv1HpRE8DFewBqIlpaWvyBvAy2DvXv3fpqdmpwgnDnqEzobGho+u3LlyufYrYmIx7y8vK8fO3ZsF8umndT1LHOnJUKAk5OAJbe+wBkAkwAtmQWQ73RfnOSzuUphLkXg3IcEKeVmFyTcmd9LJSZX9txCOGe8xXls+X1uQVwuvFr2wbUyGSby3hc7rSv5t4wXOdGRualrZ0xIKv0bqUL9z4rzmnPjDzdcu4GbKoRxxjDU0/ai11vyhSbb9Zm88joUuHTEkzNQjRnUFPuhJIbRf/H4WF/nqY8nxvoAEkcrLoFDio2P4PTJo7+/uL7+7IYNW5EfCAglk4aOYDCE6vIajI0M4uiRV9Bxoe0ziRjBfURQmaLu5DrEUDddZFyABKZbtmz5V7oSbAbT1tZ2UHaLdpqQTpG1HSQ1GRgY2LN27do9mzZt+rfGxsaPkRNieHjYlB2nONAl+jHLgpUpfXP07shN+zmzLRINKY8p+3Y4xZldcSqPXMSkk39CVoQ6uSmcXcUo8jiSmDf3njjdg1wlJxWcDBDLmA+/lyAzK5NNEnEeWfXK76m4eR5MtUtlK/ftrMdwKlnnOdwKlsi8sCQ0TUVivB8X2458VoEeXGxZH2NzHq9LFWQt8dFBjA10HO84+8obhjtPjlOpED7OOhKL5LmqjZOH9rfFIzNKJDxjb9l6B4rJtJ1i8VcEvZcG8dKLv8KzT/9M6e04I2pK/AG/qBNJsQXhPBcOMBLHNjc3v5mBs3Pnzn3+wIEDs8xCc+Ek5N8SKi2RjCy1VhTl7VwRe3p6TGcbOQfMu5gvACO5qUu5MjurR50WhTyuVBjMBvB7MmnlFkrlIkSlkAdC9r6Q+5f9OWRXMmclpuxMT3EydTt7ljpXdO5fthCU3cQlpb9UTPI3zmtTVdWTbbY82ypPckTye9mDVJLwOmH0uau5s7bkVpCbHrgkH6Qo9pwYRNvRfR8fGOx7oqSy6i0er6vATKen4uHp45MjPU/MjFwSDYC5wOm6AtvkYMsyAqWTuHDiGP51dEw5tH/fg9U19e/XNW9VNBHvZau/3p6uX4729Qhmb1aJxAzaGaZQRIl0tqZinkqWMCSP5K3kfDxw4MATVBBy9cut5HQKB6fsCynJSVimbRjGuHMSSBLYrDntp0UhkZBUULRiqqurH+L3nCyMWXR1df2I/SglKMrJjCT3vWHDhlA8Hp8mvyVjIHOZ1k74N2Moa9asEZOdVpJsesz9sy1dTU1N3Z49e0gjL2jtmpubq7Mcj3pnZ+c3WUQm+2HIqlJKRUWFCPaWlpYuIWMVi8dkiwLSxA0NDXWziIz3x3mOzvZ/bre7mDyUvJ9UEFQ2VFqrVq2qo5vG7BKDxwz6Dg8Pt7Hakmlkp+XgLMBzWhrzXW6qkhBlT4YFNysxGUWMj2G6e/rg9MiFg4LcguXioutwpjrULYq2MqsMiW1F6RRxFW6XKBsf6+nGWG/fL+Hz/9LtypioZiQq6CI0ZjfYK4MpTysDxWaV6XwXrnTMOJCL4cSJEx8ioakEVkn2o1zJNWPlqu+U3IKs7OqmMUDHicDAJ/tTbN68+c9CodBqujmynyZTruwetWTJkhcOHz78bcZFnEVN0v1g/IOVnOFw+EtcdXMnYG49CifemjVr/nc2fftFUuFxv1y5W1paHmJMpaOj4/X8d2tr65vJwck0L1+kdzMMw3RyPNIdYKC3oaGBNPKP8BpYDclr5MRm02ByYa5YscIkj+Xx48d/Ql5NGedwokPVLIWebJ+4adOmEI/PfcTj8T5yNbD3KPko161bV9DW1vbZ/fv3P0dFkeuu3SpuxryxJFiRaYrKUjb/pftAWm6SxDCoqWbKQRlUYtbTZmqUmlgkROH1sFepgWQqkWmU4/aIas5UKo4UaeY0F38kqrhMseJacAuMgE90/U6Y/3kcwH+3kHiFKxhXqIGBgUEJpJqLC2KuwSeDcU4zXPr/ctLKycr0MF/smlVSUpJkNyqutnRxurq62oid4P64Ki9fvvyj7C+R7az1E3JGSFdDHo+EuVQqsqQ5V6HlVrZmA55LZcMZZwWnTO+2trZuZzs9Mkbv3bv3NWzxx2Ny5XaWtbNEev369S2rV6/+BhUVO7KTGWtkZGRa0sBR2VRXVwuKffaiIDdmeXn5R06dOmVKpupUKiUsHN4X0vBnuS6W8NqpcA4dOvQRKlVaMDyPuro6oTyYSaL18cILLzxBZSfvsfM53SpxiZuuJMgSbwjoVFrQ80Ml76Rshkf+ijwogneTDFZ0FzJWAGs3RH+dOBv3ZlwGiysIyS0EtwXRnCxP16HQnGXZNk09McEMuBVNALSmkxnzdL5KeXk5W7OVkao92/9zdnBx8MqJcbWUogwCOoun5DbSlJe/I2ksu2VxAnC15Yr+7LPPfomDXLof3BdTrVNTU49ScZEYht25+vv7OyUwS2Y8OJFpgmfbAlyBjXCer4zyZ335JPkl5HVxImdjCExBjpMSn8riyJEjnzp8+PDsdTiZnFj5uHbt2hamfdnK7vTp0189c+bMrOslMSc8p+7u7unCwsJ/XL9+/U7S1bPXx8DAwOedTNd+v180PaYl0dra+ldsLdjX1/f4rl27XpRxCflMBgYGpoeHhz+ybt269/M+dnR0PMHrkrEUKbeKgrjpSoKrP0lbVM0PFb4McY0vBH9hMGMKp23ExpMijpDpDUKWbtYgkO7OQsKIC2Ypt+7P9Nq0FBQWl6KiupoWhW9iajIenppGLDwt6PNcLi+blcNIxJG20zAy3HXzWmjC0ofmSiY5ITlo+Tcn0tUGmpyQuZkDJ+6CCkJOLAqtBhm4ZMOYAwcOPEf3Rk58Zhk44Pni5263+2Bzc7MnCzLqzA3Yya7ZuZyL0uKQk9WJjeC18iWJfGVwMduMxsfJSlJcKghZ7yGzHPIaudqTsp/b7ty586tUclQQTv4HikSd0iXYu3fv6WQy+U52DJMxHFlMZ2WzGwwcJ5PJ6hMnTvzR0aNHO6lIZMxCXhPPl6nloqKib9IVqays3NTb23tQKgmnFXGryE2GZSvQPV4k2RPQG0LRomVbqpqW/WVNw5L7vHkBYcKFxyZi4/2XvtlxfPfHERuCraXERGdDHo/qgb+gEOMT0/CFSnHXHXf/6Yq1G79SU9eAUFExoozonzuDwwf3feDEkX3fTI4Pw+P3wSIDltDqNz+6PNckdxZAEenHyUbAlJx8znTb1ZSE/NyJI5DRe1kY5gzwZT+bpnvAvhfHjh17jhaDnPR8lxONwr8ZXCReo6Sk5M5QKPRtSacvJz4JZDhRqVzkuThdC5k5kGnYbLqVyNGkEzuRjQOILsZUOsePH09JvISMf0hFkXUHPsoYzksvvfQ6xkuk5GYTnPeRx9i1a9eIM6sjv0tl7xVjNmz719bWJhREbgm+TKdyv1QUy5cvH2DPD7/ff3AumPStUnp+092NJAOJeSWobljz5oblW54MVS6GFiiAKcgzE6gsavZX1S/7mC/fX3/hxM43JYbPwbRJm6cibaUxPjGJRY1Lcec9D+zdesdrtxaXVQOaF4rugRaIYceixahtav6nRdWVDz37y5+8PjLcJ45bGMwTtHbRxPzhLZCSkzJLMeDGl6Iogn5MTiBng5hriVxxJdZAThYnD6MD2DTDIBwtlRup3ZDdzp0cBc5zd+5b+uXXuFb+28y2r7sidUllw+9YiyIrXZ2KUAKaSKDLWAjdM4kjuVGZS+Faly0jzXlvnPfNeV1SAWSrbMdle0LnMW4VN0PKTc7DMO2Qh4LSeq2+aeWXaxuXIlhcKpoLJ0j/5slD2vaioKQWK1ZteWPT8g1fhieElK3BImWe4KzXsGHjlr+7487XbG1sWoJAXiEMUwF1j8fjh88XxIrlq3DP3fc9sG7tpncLBBUU0fMzPg8VRO5goi/OyDqbBvNzZyn3jZqs1yKSce6Lx+FEYIDOCYa61nFo5fA9l9vCsX+xEF3tnKU1IV0gKhZaDU6MQzZmMcOYAC0XJ7JUijx+SUnJEloRXPEZaL1RcYKdrgIVd/NamQ2hhesEgc21HypYxnRoTTnrJ/4rCX1+W3Lz+SS0PBSVNzxSXFHfZLl9mEokEUmbSBKMqbgwEUtjeCIJl68U9c2rPxkqqwU7EKdoqqkqqhY3omXNuo8VlpYhEkuJV1pwRdDn9WJ8NIx4zEBFVR22bLv9+1V1jYL+ntWfMjw6H8QZ5afIgTQxMXGe/2awzOG3i21utErTCT6S/A2yqlR+n3VFgpykHNzSBcg9x1yRzXGdE8GZUmVMxfn51a7dYRXEqAyc38vGQJxw4+PjGdpsB/ZAHi/Lj0EF4w6Hw6a8T9eSue658zvlMh+DJ3tvIvK+z6UUpWSDxDFpSeQWtN1KMQn15h/eh4LC6ncEiyqQhgsJzn2fH4ovgKSiI6+gEgnTBQM+5BdVwZdfsj7T6EKB4nIjECrwFZWUQdM9ogeI15eHYF4BXJpfkPbSkkglyYXtQk3NYhQWlBZDdZNoG36faNR90+VqJnhWSYjBRt+WeX/J+nyjXAC5EGHnauksVJKrJbfhiiljGdeyALIvk7/LTe1lJ5CZfb3q2uaSrL+eks2B5XlnrQQPFQADg3Ptw3ENHqlkfh1E49UsCfvKTAwBWLPX6IxJ5E5+x/usr5GrgG4VQNVNPksF8Pjh9ee3qrpH9OBIM4vBtKVKBm5VcELYqguWYP9XoequEMhKTVi2YcHj9df7/HmwFRbb2KIWg1YCe3CwL4iukfUoo1RENFt3FWjMnDAQF5+/peLSNGW+ns16Q6HQmsWLF8+yY9/oauRc2SkS7ix/Pwd2gdmI2K9DqkKXwqkkHMeaYnzBqWzmWq3lvxngpMKhLy+7kTu2EzGB7Dm+6vr4zt9zO75CoZDb2YbwWvfnakpHvqzs8ai8nAxecykJp2WTtaRmo5O3kvXglJuuynRVgZFKDCSi7K1hQldUWMTuJ9lo10I0OgPLSMI2kzDSCVLhRzJt9DJdxQUSTmePDYYnMpHjzGqTKYPmhHCzq5hoOJRJZYlCIA5OzF+Rg47An46Ojq9xwq1YseLP6urqxOdz+cPXcze4UhPVyBTqtdB/2Yl21clzte0d/xb3XXYhd9ZRzLUfaQXw3GieExYue3jK8+cx+Hlu5aQjfSv+JsCJJe81NTXvpuX1XyVK1iKYi8r+WkJ3K1cpyvO+VWo3brKSsGHEw4iER19MxmcQ9LhRlJcHD29kOgmPasGvG/DqSahKFFY6ghS5J9j2zzAFurJ/oPfExCThuwn4PBo8Xg2Kagk+CpdmQ2WjINvATGQKY8NDGB0eGuEKw0P4fNf3WX9bcjV4NbMXnZ2d4wyYceA3NDQ0cvA7qzOvJc7iLeINyGbFWgbWHeSCmqTrkM2m3FCXJ+dKKa9DKhjGNhhwldmVuSwXeWyJw6BLQYUoMRdO4eeyAMuJrZCxAf5maGjIJMKS8GiiVf+zolxuH8iMi+bMuMhX7rVQZBA2d1+5290KcnOVBMljkhOYHrn0zWR4CBprNBJRaMk4fHYaWmoG08NdKA0CboTRfnrvZ6aGuyMEVbGPp51OY3y4H0ePHfhZBixFH34AumbA7baQiE0jGh5Hfr5HHGvvnp1fmJgcIZpKtBW8kfThb0OcUe+5hAVdbW1tXyXDFBvabNy4sZLWAEWSyUrwUW5xkhyYtKrIR/HAAw/8w1ve8pan1q1bR9DU7D6yq72brgYno1yZnb73XC5FNk4wIK0HCS7i98eOHXuMgc36+vqH2F9DoislboLbUFlJBbZ69eo3829aAzI4KDkbeG6Epzv5GmTqU774b+IXmP5kPcWWLVv+F5WiI/A5G/SV/+b38u9NmzaxZ6mb50rhPbavLO8WbhVFZlj4ks2TrxZnkES/zu8l+OpWkJtsSbDYKoaB3rNHLpw+8qGJwYvwWnEUuG2E9DTylBiW15bAig+j6+yBF3ounPyiGeYkj2cb8RJoEcPzzz71pp///N/3TY4PoaqsCHk+RVgdPq+FpU3VGB3qxss7nx0+ferIZ614JNPJ3Lqyp+J8FU4qWj6EFR85cuQ9XLl37Nix+7Wvfe2blyxZIgayRE/KdGEuJoIcjevXr2dV5t8QNUiwVH9/v2CfchK80BXLWhMM/t3Q/aELwBUzlz+Bv81WQZqsi1i3bt1qFo05e5DyuHSn+PnGjRtDXP0J9e7v7z8vC8YczN7jVDi5x3cGXilUEh0dHUfYQ5SVmVu3bt3e2Ng4i6DkdUqoN3/H6lS6OVu2bHFv27bt31paWv6mpqZmtpxcySpGWUiWq8glKOoqrpnJc5bHzQ0GL4CpbkgMuD0epCIjuHT++GOqovlq47G/LSyvFC3+VMvAYFcH+i+d+0Zn24E/ig6eB+wkNLoQJiHabIMOTA30YOfzz2yzTeul9eu33VleXgVVcyFpGdh14hUcPrTnh3tefv7to30XAdWCKhB6KdnidF6L9L+JCDx58mRE1/V3rl279p9ZRMRCp7a2ts+MjIz0cbA7kIGzqyYrOWtra99NmDJN5vPnz3/pyJEjP3ICjaS5n83p+7PQ7PGMW3Z1n5sTmHUl/J20SmTZOb8jYnP//v2/u2XLlh+vXbv2W4qifOD8+fNHGIyVKVbWWTQ3N29ZsWLFX3NSnTx58iPk4ZT7kdaCBJTlplqdWQWZ1iXJjtvt/hHrUFiJWlhY+P2SkpKvkQyY2AkZ0OS+qEAaGxtbli1b9jleR7YQ7IoeJHqmLoRuk09aJVejsZN/y99ky+uvuG+3Ut3GvEBcqkpaJDnMyAguHNv/tUvdnY+WVFQ+5A3469PpeN/U2OgLkcmhcUTYxzAJl25Ds9lM2BSlXuzuzR6fA53n8ER3z107n38By5a3/ClXEUKZOy6ce3R4sBdGZFLQ3rmYHSAsW/QnzTQOnu8ifXqukvv37x8cGBh4/erVq9/NKs2tW7c+y4IouiIMFHJl529omhN5yInHsmh+d+bMmU+x5oAKhSKZn+TftCCyqyXJdF91HrmTIcuRWUYXRa7mztWRE+nAgQNUPkKxrVmz5p9WrlwpAEk8Z04gWjY8HpGMHR0df3v69OkRKkT5e0q2VYCf2YW5MiPyJatNqVjPnz/P96/RAuExtm3b9nwqlRqjpcJ7wfoQ3iO+6Mowg8Rq11OnTqUkCIsuUDwedxIGE+g1ayk5mblyMyFZBReX91IqPCdm5VYRZV6cAAPHSiFsi6uRCnjcbGFOW1ZkMEgWA0Shu9JQ2DSYq4vlgs1BKXgyLRD7AJN7cwEeL0SakwFO5kSJ51GpkAArlSkZV6GIQRCNZzpiz1eRDWgpzsHJ4CPN4qqqqnuLi4u3s5hIEsJwMmUp6Dw9PT3foY/f09MzSOtBslHltt+j28KYRUVFRUt/f/9pTrLcFKJzBZRNfTZu3Mi4wpKurq7zslxcnqvcnnEHlm4vXbp0EzkhuGLTteE74xk9PT3fvXjx4kFJ/CIBY9KF4nMiGc2iRYsePHjw4C+5nTMO4eSddPJJ8HveJ1pTixcvfpA1JlRMvDfZEvY8djZnCXlXV5doOyBTr86AbyAQYD0I3bbV7e3tJ0iiI60vipN1S14zg8utra0kIt508uTJK6gG5b10/ns+y01XEtQFpqFB00NQ3QEk2d2cXBIMmtvsFq5nfYIEFDsBRU1kztrOVi+qHOgWXB4/3B5SkRkwEjKonCniIoU+m6ebaaZSqSA0uAQ8G0hZLD+fv5JLqOpcrTmQs3TvYlA6A2Gy9JoT3WliOyevnAxSCXEfQnFGo6K47mqpO2ewkNtzEnF7WSouj5NbXyKzKzxnZ7Uo3RLZ8CaX80KeA8+NsRW6AtyfM4vgJMeVrpYs/pLnQCXI88xiKcQ1yzgBz53xB3mdzo5mXq9XbEt6Ou6DMRRnRalTaTqL4ShUULwW6b7kBn5vFYvipisJNgWOxkikkrUiVEsEFkWHLpMDLZAt1uRAIxNTAopmw6ICISqP1sHsveb2Kjz+AHt5IM5VgVwTZjrTPtwGXJoOXWGunU5K5j97HlSDXkucEzt3YM31nbNL19W4KSnSpbgRxuZcROVc/rhz4jjxDHNxOjotAefv5e9ySWpkNoDbOzMoTnFev3OiO2tQnBYCfy+JbXIbMfM7WiXmVZoXO60Xp2Jx1qHMRRzsiLHMq6bI8zomEYsnM8zXqhdQ3FCCfpSUlsLvzytOJa3k+NB0JJVIgk1+OZdtldwSXPnY8YuWhiqAUcRMeHx+EKJdVb2o0uPzVkUi4VMDA32p8PQUkuEM21XapFpg0FKFzhVFENTMX+Gqy8HkrHSkOLuKOwerM8XGOeaEN8uMAfeZjdjDpjsnFIZbANCIWtW0zKB39mzIFakMpOJxclxSJBmuk6/C+X3mPaPU2VxJKgahvLOPRK7iwrqJJHOyAcQo0OLIXIfTRXEqB3l+8pykIsiFYc+llHLvu+0osZf3WypkpxLltrTiZOk4RWZTnGnbW0Vu7pnSDBAT3QNoZahoXn9/y8btT/vySxBNJuFxuRGemEZiZrz91JEXVqaGzpnQ43CraZgJfh9A0mK6T0FJTS2233nXP6/asPEPi8rKoTGuoVgY7O9D+5lTv/g/P/3330mPjQqwpmKkROZEJ7cmg0438RY4kXtXrMzyycjBRGUo3l8duLv8EB1wZbkPe67jOWo5xN9ZJi+6ZkLpvlpxvkpZcKDTCrvi+HNd4JXZiCuFx+Jx2WgpqwCsDIYCIqDNz9iwKTtGeJ50N8UOXZexNtc6/OXSiSvPQ17jfPY154nc5A5epJjzQPEWobZp05sblm97UgsuguUvQCDkQyyRREFNLVQjvNS003u7z+v3TfWfnjbSLBKnqWjCtDU0taz13XHPvRe33HFXeWlNNZKmhXjagGlbWFFajfKqujcoqmv3zueevn2s4zxcXDWtV5cbz0eZNantrCl/+Zvs34K4b/azVxHpyBk8+8PL+7v8vfrq77KT6KqBNXEu11EQNxyYyyoK5zm86vu5Ps+uyAL3cgOHWZBblE8CPgTyF2F566YnG5e1QPH4kNZccOcXwHb5oHkK4M+vxOLm1ZvrmlZ93dZ8okuXpepgu1DobrSsXvcva9dvLi8pK4dtuRBPmDANFZrqhscdRH1dM+65+/4da1Zv+Au4SFmmCRq8+TCucvP9V4ijkc0sIpPugXhdtipoDYh/Ol7ZL3I+mOsQdEs42Vkpy3hQ5nW1uo7LcqN3z7rOK3dfufuVSnAuJrFsjIQhLOqKGzyjzE+zruqCXFdu7l0SpqaffBLvzi+phql5kSbvJSPOKROWy4uZNDA+k4bqK0Z5ZeN7XAFCZnU60eIZL25aitZV695WVlGBRNLETCQOI00f0CdIdKenYojMJFBYWIJVrWu/UFFRjUQyLdYtj2v+1G5cVYRikC/OBL4ycZjMtJBTI8cauBGZw634zeXXO37GL7ehvMqNuRqtYFaBOf5N5cDX5X3+Bqe9IPO9dkMHXPmoXLTkzxTNj4mZJHRfHrjaT8bigMsP3RdCJKXCVP0orqhDYVn1JpaX2zTDVY18EquLSkrh8+dD0dxwu/3weoLQNR8ScbaIy4MCN1TFjcWLm1FZVb2EFgzXzYw/Pr8lQ+ykiWvNLJdUEJrDBCfGJOvbC7yJ48Xtr7rjbMRfRIOpMq+cnLS0Lh/j6vcpY8Vc/fWqw86+pBUkFWD28EJpMP1NyL78zMx+xlJeaR1J3nQ4rCvGSZzH4GbmFa/ZoKF8LcgtwCeheuDzF6ywSDjDTtaeAHS3FynmsJlKI3eEosJkWbjuhi8QaITOMnGuLJmxwQnB7xmpZw8Ptu9jf45UguArwmPd0FUX/L485OXltzATQo6JOHETuPlyNVfjikDj7AS5PCFmJ/Cs6SynhuPzaz5iuhVz8HNlzXBOOVWha3ZlsFOeF7MLs4pKbCPfnced+/jiksX/5QYQr+YfOT6f/dp61XEy57og/1elQOkbRGem28ssa6nHlenLqBD84vYI8FPaisLj1qDYcUTCk4jHZs6CgCtSS3EA64pukXKf/UFdbqRNFappIeDziWGTSsSh6PS5TQnaOaG5dNiih8d8EDnI5+RpyLQZkNqQ1oHGikOmFbPKhViEV80LZyDzald55eQUQUhnpmX2bw4Rpp1FR6TsiRFtyBWZ1kI2+3DFiWdcAR4/c/6Xj/efu+dXc4+uVIaiM9xsIHRueVU8d0HmL58EzASmJ0eeY0/QgMuN+PQkrEQCIb8bSioOOxVGyG/D50ojFh1GfGb8hAg6iPGiYGho8MjQcD/CMxOi8EsnhwRMWEYayXgMQZ9HkNcQUMUajsHB/k4jxRy2Aa/3chfq+SvZCaDq0Fwe0X3M5/Mj4A+KV8bicFoNTisix7J4lcwxRZhF4T75DuIQ6Jrpc+9PWBkabIUl6XwRh5D5THynEPyuXsd1kZ9JqyT389zf5PytkLEsY8Fk3Buefyb1eSthEeaz3OQUKLt2TWNyqONvR3oaPlzV6EN5fgDTyTiS48RD2EjFkigvzYcdH0Vvx4lPRCYGWIABVSODlYWx/m4cOrz3zxsa6v+aMNhoLAHLSCAeScNHzojYFAoLgrjU2Ykjh1/50Nj4kPi926simbz59HWX4c7ZVdIxrjPZDJuUe7AVFRs33da4atXq/81myB5foJEFbAcP7bvv3LmzEQYA01n4s9vrQTCPrenSmBqfyBCEE1fKHqgCZCUzKhBwdRkXpVtmmAD7qCZTFh5++9v/yu/11z/xw3/7vWQ8LvZjpZMi1uH2uLF27bo8tye/dd8rr+wnk9jtt9+5hcVT7e3nBsPT0/C4CQRLwuWWjY0zB9IdrQdpqQhFI/5NbAQVlA2PN5ApdWdthoBp0+hMi6phApRi0SgUlVBoEsLoAm4fzA8gHJ4UVpfHy34uhFrnlnbfGr0u5pPcfD4JO4rxgc7uzrYj7+nvOAMzMo4Sr4qKAhfKAgrqSj1ITfeg88z+7/R2Hv+aHR4WpDGqRUOX5nYKZ08f+9Lzzz/9s/Ntx6ErBkoK/Qj5dbiQQmG+B5c6z2LXi//xQtuZk4/ZiWgmr26b2ckzj4WrdxaqfNed92y/++67T+YHi7aOj08e7O3teyIYzG995JGPzLzlLW/93+k4JxiZuQKora3D/3zfB0YrKxdlQpOC+5MTMgNXvpIYlzFRyUlJt4J1dQZe+7rXPdSyau1nWlrXvqdl1ZpG3eWFlTahe/3wev0IBPPRsmrNP91+5537GEcianbZ8pVf3r7jjgNevx+6y41kMgXN7UEyYUBTXdA1xp8C0DTCnYltyJ6bQvSkG25vCPnBAii6W/zGMhXk5RWKeJOAeGsqUkkDsWgKmu4SlpXm8kHVfbA1F8IzrE/JBHr9/gAUgci8+kNesDRuiZiEAU1XYSZGMNh16ge2aZtlkfFPFJaXryefBDkfjER0bKCn7bM9HccfS4xdyvBJ0DXnqsiApmphpOMcfhWNvGlmcuJP167f+JXKimox6Lh6jY2N4Mih/X9+aP/eL02PsDFPpiJUdK6a78kN4VxbKC+vxLZtO14eHR3b+ZOfPn3X+PgEzISBUEnR+97w0OufWrd+44eOHT/9J52dF+JJw4AvEAw1LVlSwlSvNxBAMhnPxGBoRYieqJkVnbvXWWGXFZUBXZdPsI6vXrvxh4NDY5cW1y2u33zb9pdOHD9TK4rsNDcS0YhIIydTVoquRjJlwjYsQWgcTyaHR0Ym4HF7BadHKk1rTYPHlydWfyOWhTVrHqGwfN4AVF1HeGJGxFdSKQu6IPtNw+3LQ4RZLluF5mJlr45UjMpCgz/Phxn269TYDtIQ9ToiLaraSESmMTkxBejkIBBXNhvPcDogNKgWYhK3QOBSU9ICGZmKDKOn03xicOjSE55gsFr36EHTTE8lIuHBdHgUSIwDahJuD2c4wUUszNGhq+xHbiA82IudLzz91ZNHD321oKgkL+ANNJIbYXR0tHtosBd2Ii6ulqZ0KsEKx5tvR92o6G6XqGMYm5g6MtLfB+iELmuYnpjC3n0H3uT2evYlk8m4mUhh2cqWvA0bNj1JE37t2nV/lojFvzQdnkRsJlNZa5qZjIaILtCEFzUT4iiZbu2mjYamZfAH8j07d+//w86Onh077tj+ubxgAaZS2TobKKytYb1McDocnckPFWIibTE7NZZKp6c2bdl+R3VV1VtYJt3Te+mb59vOfbu76wJUl0cwmDO7RObvFS0r319cVHp3yrRSQ32jL3T3dX+3q/2UaIUQKirHopq6YsswZsqrSu9ZVFlyJ1VR+5mufzx+5PDgzEwUuj8I03Jh+epVy5sbGx5RNdu0zPTU8GDvD17Zs+u8i0VUsp1jjjZg5ATXx5otyM1WEiKPbXJF44RPwUqNI52cQHpK6YObaU6mJ7J8EAIZSJOYQchMfl9lDDseJeW2MJlTM9MYmprA0MULESj6iVlnm9F2jYVEOqx0ChDNh2Wq7+biLiUY6GoD1eXzsVM1Ll689IulS5d/4jX3v76zo7P7Wz3dAykrFcfFc+dTQ6NDG+IRNhNW4PJ4yvNDhZviqTRKisvuBfClax2fmRLGBrw+PxJxdmW3sPm2rT9mF7SJqcj54aHJg3e99t7P3XX3vT/+6U9/9Lu8/+Tu8PqD0HVvpWUrWqaTGjMZmn/Z8tamouLSnaPDI/smJsOnV61e963F9U2fePzxf10ZCYeh+/Pxhgde/1fsuK1pmudST98Pff7Qmi3bWt6zJhn7zt//fYdip+IoLC7Dxk1bnmpZuXLz6bMnd8ZiE/tq6+rfv7p1y59r7sCOI/tf2sOWC1W1i/Gmt7ztbEfH+X2JZOxSU1Pjh7ffvu0zuse1ec+uFw7Oec3ZMOeCcrhFLAm6x26RYmfvcAMGuSSEH8B4AyewS1Dli2g7B+hs4RMLvAmOsWELLgELPg+DdbIzFZUDx64sa7aQinEiWY7S5fk/TCRjdlt7+xfLK2vecOdd93xj3frYN6anIsm0mZ56aeevmi52XSCNOFSfD6dPn+4sKSn5WEVZ+bcOHD70tsnJKSRTWfIYUbXI0nHGA2hRyGpNK5vyVOEvKEJtXcNbTp1pe7yrvbMPpomjR04cWL9p81v+41fPIT45KjIK4XAEU9MzbRXB4q3Tk2EQIx9Ppqeg6lUnTpz6zOFDR784NTqENRs2fuvhh39335133vPlZ5556lOMeZSUVb5xciJ8+ue//MWGkf4BePKL8aaH3nps85ZNawqLSjAxMkiLxV1aVrXZsjXs23/wdy+cPTretHLFpz/6R5+yt22/8+Wjxw4pdjKB5iUr/tfi5qX49ve+9zuDFzvGqxfXvGvrbev/xe3xVoomThxPArLN4KiZVRAL8uvITTe4Wf1LYyGdTsAwooAdIaMji8gBi8xSqYwSIC5CpNboR/P/mHrLMCoJYKFpIRmLwkgnhY7RVEuUlFtmEqaREO8Z60OBxtScwPHMfyVhsEw+bWHv3v0Hv/lP/6w8/fR/vLOvr2+fz+fz1NTUln/iE5+YefPDD/8bXG5YqbSwzJhhIElKOBwZScQYj8iAjgSuYZY0JrP/TNZBRTLG2IGC5qaljQxMTk5OH3cF8gBvAB1d3d92uX1obV39B5x4Lroaqg5/IG9JIC8fbnZCc3uE+9F58RL2Hzj0xamJScDrx/HDR/d3Xrx0qal56SfzgoVCif/s579Y9dP/k1EQhZWL4A3kEVIfUzQPeBxeS3gmmorEktj98r7vd3X3jPO4HefO4+Sptpl4Kp0U2Zj8kOj5yoBlU/PSv6huWlLZPzCEZ5771e8fOnTk516faES+ILeyJSH8wSw61s501xGcEhwkitcL22MDUcJziTakZcAoeGZFoN3BpTAeiwo3gm38EimD7ATILywRNf1kWJqZGsuAhzUFuqYIZWMQjEU+Cc0Fy7yxfpr/fXIVd0dUYqoiUKjpXsG2NTrQj2g08cTBg4efILtWXX1945r1rX937733vo0M2Ht37fqugJ5YVmqWmUkUOGhCOVqMSVgZ62u2ilxxiS5phqnB6wlgxYoV/6u0uAhbtmz+yvqNG77CilvyORQXF+KOO+741sHdL3w7TQo8UT6i+cnUJLIlpknW65qhgcGd0RlabHQVDVFjMzQ48lzV2kXvj8USgmN0aiqMbdu2PbL9g3/0dSqZsYlpFOSViiBmhqiG5f8Zeji2NxSKjWnTVJKLQrC4rFSkRY1wGGfOnPp0TW39++9/3es+Fgr97se6Os6hp6fjhz/78Q/fno4yk6XNIjszFuVlSLhQlPN/nbjpctPdDYqiumFZLsBViKJl6+6ub17+hVBB0Vaf14WL5099ru3wvs9jug+qh1x3Kf5PPF3B92FlwJccW3mFdbj39W95fmXL2nvKKysxOTWKPS//6ivPPfOTT1mpGFK0JiymPjlptKyyuLnyKs84i1SUMGeXy4Nt23fcsaiq9r07d+75/b7ubniDBUjFY7hw9nhnT//F31nestJubGz82N6XX/4uc5g2rJRppREI+MiUktLcGswsCxJbIhK7QMyBi/1Txb3LTPLiqmI0Ni1+W29fF04cO/mJwqKirZFI7NJ0ZOasx2N/a3HDIhRUlmNqZAj5RSWIxGOXyitr1hO4Ri5R2zQY8xkX/j65RVUVPr+fBCwDxC1wVublhfDWt751sqKioqC9vX1nV2fn35+/0PXzzRu2f+/ht7/1PWQOQyIJNWQjGY9PmWkjwu5rBMDRZPS4dcQjMzBjUSg+L6YGe/Bv3/3n0herKtDYUP8/Vq1a8dfbbtvytuJQ3tIn//1Ha0cHmdEiGIxpDgLETOJHMyb0goK4NZSE0O6qCwiUoLx+7f1L1t39dHHlYlHQpKkGmpYHPgfLSnWc3POl9GQ/YGaZjwRvXYZFiQCgUFEF7rnvoZ/e+7q33FNctogBPBREJ9DQ1PhJ2zZju174xeeT00mRRjNSaUFapzEzMu84JSTCMFMOniJbs6J6mpqa3js1Raatga8lZqYy8YNQAQybK72HnJ0+MChrm3DrpH7XMDo6zA8yTNhkcErEEHdwOcq6F2GhuXUsX7H0QQKw9u55+c69e/fusm3la5L1a2ig9wePPPJI8r7X3v1vP/zB998enppCKBRcnohFRACZE9hIJYabm5vfUlRcgPGhUSKvEI9E0NBY/342Ptb0DMNTdU1Vwe5de77w/FP/57M8tidQIJrvRCNhEWTW/D5aEGV5fn9BJByeMdn+wKXBNk3Rqc2v+8V1Ekm7cfvW+zXNVbB/374nRrrav3tg/+7vvubuuz64Y/vWbxSGQhBK4lW1MZmA9XzqKj+f5abHJAzThpkiV6UXJcWLHi4pWgRdzUMyrsNIuFFaXIcVSzf+dUlJfR1ML2D5RPUot89YEMxgZPo3bNiw6Y21tbWCKow0YTST+e/t27d/rrS0HNAy6D7hn4tA1qsLl+ajdHZ2PjcTnrp02+aNf3vffa/9YGV1NdyEmys23vH2h3fTOjp75tTHBVxdAcLTkwcZkNy0YcMfBEMFSEajKC0qxm1btrgXZVvfyYY8Iu8pGKm9aG5u+kQiFum4cKF9l02mcWIc2H81EUfHqZOpnp5LyU2bNrytsKwUSMThdbsKFNsyBJuFkYKRSo6UlRZj+dIl7yitKBOK4/7X3//l8tKSqmNHD38sEZ4WLl95aQnKy0ruLK6sgNvvxdIlDatrayrfGPB5kZ+X5zZjEUxNjo7MhCfO+rx6MMNTyhQuL89IkhdV9bpFj9jK8rJ73/iGBx9fs6p1NeNUfq8Hbpfm04m/Eb9xUOc5VMJ8Wxrms8wPS8JmH0gfQvmFm4L+fCQsDzSL7MpexGbG4fWE4NLzlkL1dzO2wJ4bWU7mTFbD50NJSdmmirJy0RhYFHVpOrw+HT2XulFdtYiU7tWDvV19wp9m5EJ3I2XMjzZ/r5ZsdSNXVZcHFzvP48UXX1jx2tfee/H1r7//Gw8++MA3ksm0sBBmYlEc2L/nK4cO7n+GqeCCogLMTE/GozPTuO++e7+VTEQ7X3ll366ly5ob2Xvi5Zd3bx0dHR1kcDdOflGYwuoqKS6ke1LNFnkz01NQ3S7YKmM4TIEQlKTh5Ilj7ysvK/l+66qVD+4eH/1lf2/Pdxoamj6RH8pDPBElcGpgbHyoddv2LY/fedftj09PT0+VlZUVHDx48CsHD+17lJZFJDqFg4deOb64oWbHe37vXQniIGxb9ZiGooVnJlFcUrhJ8bj2uFwq/AF3Mc9HJfExz1XXMTY2+oJlmVtpKSWTUeze+dLHF9fVv/+hNzxw/PbtWwYCAV+VYpvJl3ftfE9ne1s2xzz/yY7ns+jzASiUNrIRJNuMq2RFZp4sbYLgIJeiiZLveDQxwOesuRlszAQvpRXAAF0ymRwWJKUs8nKpMA0TJNDN8/mRjhJ/kRonMk9KhrruFkiGMYUHC8eOvBLv7LpQsWzpikr2rtBcrgI2xTlx4sSn2e/C4rWrKqYnxzA1ksaT//7vVaVlxTtGh4Z3peIJXLp0qdOyrB2nT58eTCWTon6CkqGYNASK8uCB/a/v7Ow8HwtPZXLTIvCpAYYtoNL79+75QSoR750KTx+nt3fq5NFPnz514tNDA91MT+GlF599HS2UkpKS4mzHMN/ZM8dP7Nq160cG3Ry3G9NTo/jXH/zL2i1btjxEsFUqnhjs6el7ouNC93h9fW1oZKx32k7GMNR3CTtf/FVTOByOsKN8hu9SxfFjr/yObSlaMjYjRu/kUB++991vBe66Y8dfBIPB5T2XJg8O9Pf+4OjRo+OXQVROa2JBfl256bNEdysw0jrgKUPd8u0Pt6x/7Q+DhTUwTK72Cnx6Cr2dJ6Z2v/DTwuTYRSgulomzR2OGjMStZ7IaBcU1+L3f/5C948774c3LF529DDMOXUnhP5756dT/90//UJiYHoPHy1oCUu0zFarBsBkFvXmrzKtLlh38CFmClABThOwTkcwUQInGQ8z9ZYAOIuhYUFAorApTNB+y4XaTOZoQdnbpyjb3EXUbvN9p8TctMPaQEGXgzA+xsY1QtApYf0FrhUjPOBsYZeuiRJaBbg1jRh43zKQBXzAPuqIimuD9VkVQVRFFacxwZFwg1eWGyngQU7qWCd2T6X+RwWmYMFjf4WaVawb/kohmsS48N+qzbPEXCYUS7CHCIj+XSzCQifStsHZIaU/8S+ZkC4sKMDkxkaMa5qLMW5B5bUmwwAe6AaQjGOxv/1GwsOSOuvrUh7z+fPEcOzrPn+pqP/a+ZGQAUGKwzRQUmwhNWTCYAV5NTY5j395dm72+4IGq2noUFhYLc/TksVdiv/zlTwoT01Oz7g07kgveyHkwUK6+shE6nUnZRWbCon2A15cl4xGRftYz6CJenzZZ9DQNEeAjzQ5dhawFYpnMYuhIG2weTKauTINhVldKBUHTnfOKGZCA3w+DJMFGWtR7JFgrwYmquYRSEZT1YE8JPYN2tYH4bJrahELMhMJMhwS+WQI1yqCjkUiIFLbmcSHNmAd7WlAZZpsMJZMRxJg2FUUVDi4M4TEImC2ScbZW4HPjMWwk02kUFBSD0HOql5LiMhFrmZicwNRVFYRTGd/8MTDf5aZbEjR3A3k+RJI6kHJDCVWhqLR6ucvjrbTt9PTkWP+R1ChbpMVYEwST8QYGsIinIkzbAvKCIczEOMp11DSvQElZlWjpNjU9trP34oVfDvV0wJ/nEbEKgq1oSZOXgb0R5l/psIM8hb0kvN7MyskScNFXIi1WTYLIYjMR6Nn+FrIJj0hrGmmRuZF9OIhApUKh5JZbc5IQeMUuVhR2+Cb2gTeYmQjOR/6GSipDNadAdbHyQRWkQB5aHHQlbCAQykc0PCMsBsWyBSaDCpmp5tm+qwLvQh3H9K5bnGMinhQcGZZtiKI+KjAen0op05E7JQq3MsQ3KtxeF+gyZQKZLnEtGs9PsWCmLRgWGck0UeVLvMW1FcGCkpj3SkKdJX92AQpz6R4B+82cHScwB0MCoFvAsmZm2zLjTEiWETH7e/7WneGDFF/SJKepzVWV5isZk7JcChJyeNNRl9de0Wb5JmYvOKcvhiiZn2t/2c2v8vnl/ZOM9nKHK9mF5DKl3lwkMZf7dPxnRWSZZs+S1lP22QnGbnOOsu7Mw5f0G8xTiUY94h7xWngNvIoMP5U8/2tZbAsyz90NTngrOwNsaoBsO79MVJoprEzMQGyRaf2Z4V4ka5IgpZOISa4+qVmEYQbKyZWHCiJD9CqQdrMz6mYrh9+U/5KKT345l5Z3UtddT6g0r7dO5O7P4dOL+4v/nGRJZi7vV7vG5H31BWdD19m/+YQJveddyo09zP9U93yVm6wk+Fh1UbZLijSuDjQZ+cpYEdmO4dl63kzFJFWDW7wyA4Ct6ySzU7bjk5hIciXhi+ZuLnX7LaMnMvJrnuvVU36/6WSZY3/2bzOqKy2X3IM6//3r9AlZUBq4Qfn/AW788LKPcD3OAAAAAElFTkSuQmCC" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-08-23 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Inescapable 無處可逃<br>(Lamentations 耶利米哀歌 4:1-22)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Inescapable — Lamentations 4:1-22</span>
+<em>Big idea: when God comes in judgement, all must suffer the consequences — especially wicked spiritual leaders — and no one and nothing can provide security, except Jesus Christ.</em></td>
+<td class="zh"><span class="highlight">無處可逃——耶利米哀歌 4:1-22</span>
+<em>中心信息：當神施行審判的時候，所有人都必須承受後果——尤其是那些邪惡的屬靈領袖；除了耶穌基督以外，沒有任何人、任何事物能夠給我們保障。</em></td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Introduction: still in the ruins</span>
+Illustration. A gloriously hot, dry summer. We have been struggling to cope, especially at night.
+And yet I did not want to wish it away — because I love summer, and I knew it would soon be gone.</td>
+<td class="zh"><span class="highlight">引言：仍然身處廢墟之中</span>
+比喻。今年的夏天酷熱乾燥，陽光燦爛。我們都難以招架，尤其是晚上。
+然而我卻不願意把它趕走——因為我喜愛夏天，而且我知道它很快就會過去。</td></tr>
+<tr><td class="en">Last week we stood at the high point of the book — chapter 3.
+Full of hope!
+Because although there was ruin all around, there was very good reason to say: this situation will not last for ever.
+However, there remains the "now" to deal with.
+And the "now" could hardly be worse.</td>
+<td class="zh">上週我們站在全卷書的高峰——第三章。
+滿有盼望！
+因為儘管四周盡是廢墟，我們仍有充分的理由說：這光景不會永遠持續下去。
+然而，我們仍然要面對「現在」。
+而這個「現在」，實在壞得不能再壞。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">As we make our way back to what Robin Ham calls the "wild edges", we are still in shock.
+True, the invaders have now left. But the silence that remains is broken up by…
+Starving people scratching the ground, searching for food.
+Mothers quietly sobbing as they cradle dying children.</td>
+<td class="zh">當我們再次回到羅賓・咸（Robin Ham）所說的「荒野邊緣」時，我們仍然驚魂未定。
+不錯，侵略者如今已經離開。但留下來的死寂，卻不斷被這些聲音打破——
+飢餓的人在地上翻掘，四處尋找食物。
+母親抱著垂死的孩子，低聲飲泣。</td></tr>
+<tr><td class="en">A measure of how bad it is…
+Read verse 6 (v.6):
+<span class="verse">"The punishment of my people is greater than that of Sodom, which was overthrown in a moment without a hand turned to help her."</span></td>
+<td class="zh">究竟有多慘烈？
+請讀第 6 節（6 節）：
+<span class="verse">「都因我眾民的罪孽比所多瑪的罪還大；所多瑪雖然無人加手於她，還是轉眼之間被傾覆。」</span></td></tr>
+<tr><td class="en">Doubly shocking…
+1. Judah has become Sodom 2.0!
+Exhibit A of wickedness in the Old Testament is now them.</td>
+<td class="zh">這裡有雙重的震撼——
+一、猶大已經變成「所多瑪 2.0」！
+舊約中邪惡的頭號證據，如今竟然就是他們自己。</td></tr>
+<tr><td class="en">2. It was so bad that it was better to be Sodom!?
+Given that Sodom was destroyed when fire rained down from heaven, that is quite a claim.
+But at least that was quick.
+This is like slow torture — dehumanisation and degradation.</td>
+<td class="zh">二、情況壞到一個地步，竟然說做所多瑪人還好一些！？
+要知道所多瑪是在天降烈火之下被毀滅的，這樣的說法實在驚人。
+但至少那是瞬間的事。
+眼前這一切卻像是慢性的酷刑——把人的尊嚴一點一點地剝去。</td></tr>
+<tr><td class="en">Note: this was once the glorious city of Zion, Jerusalem.
+The jewel of the whole earth.
+Once so full of life and colour.
+Now a scorched and blackened shell.
+Read verse 11 (v.11):
+<span class="verse">"The LORD has given full vent to his wrath; he has poured out his fierce anger. He kindled a fire in Zion that consumed her foundations."</span></td>
+<td class="zh">請留意：這裡曾經是榮美的錫安城、耶路撒冷。
+全地的明珠。
+曾經如此充滿生命與色彩。
+如今卻只剩下一個被烈火燒焦、漆黑的空殼。
+請讀第 11 節（11 節）：
+<span class="verse">「耶和華發怒成就他所定的，倒出他的烈怒；在錫安使火著起，燒毀錫安的根基。」</span></td></tr>
+<tr><td class="en">One final time we are invited to survey the scene.
+And to draw three main lessons.
+We need to — because God is still just, and still must judge sin in all its forms.</td>
+<td class="zh">我們最後一次被邀請，去細察這幅景象。
+並且從中領受三個主要的功課。
+我們必須這樣做——因為神仍然是公義的，祂仍然必須審判一切形式的罪。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">1. The judgement is felt by all</span>
+The big focus here: every kind of person is sucked into the vortex of destruction.
+None is immune from the catastrophe.
+From the highest to the lowest, and all in between.</td>
+<td class="zh"><span class="highlight">一、審判臨到所有人</span>
+這裡的焦點十分清楚：各式各樣的人，都被捲入這場毀滅的漩渦之中。
+沒有一個人能夠倖免於這場災難。
+由最高位的，到最卑微的，以及當中所有的人。</td></tr>
+<tr><td class="en">Illustration. We know what that feels like — from the Covid pandemic.
+When a mystery virus emerged in early 2020, there was a degree of panic.
+Because there was no natural immunity, and no vaccine available — not even to buy on the black market.
+Even the late Queen was forced to broadcast her message from lockdown.
+Then, a few months later, she had to sit alone at her husband's funeral.</td>
+<td class="zh">比喻。我們對這種感受並不陌生——新冠疫情的日子。
+2020 年初，一種神秘病毒出現，社會上瀰漫著某種程度的恐慌。
+因為人沒有天然的免疫力，也沒有疫苗——就算在黑市也買不到。
+連已故的英女皇，也要在封城的處境中發表講話。
+幾個月之後，她更要獨自一人，坐在丈夫的喪禮上。</td></tr>
+<tr><td class="en">Here is a democracy of degradation.
+From the rich and powerful, through ordinary men and women, down to the most vulnerable…
+Read verse 4 (v.4):
+<span class="verse">"Because of thirst the infant's tongue sticks to the roof of its mouth; the children beg for bread, but no one gives it to them."</span></td>
+<td class="zh">這裡是一種「人人平等」的墮落與屈辱。
+由富有有權勢的人，到平凡的男女，直到最軟弱無助的一群——
+請讀第 4 節（4 節）：
+<span class="verse">「吃奶孩子的舌頭因乾渴貼住上膛；孩童求餅，無人擘給他們。」</span></td></tr>
+<tr><td class="en">Terrible — but a reminder: when a society, a people, a nation is bent on evil and the Lord "gives them over", it is always the children who suffer most.
+That should wake us up to how comfortable we have become with sin.
+Serious sin is never "victimless".</td>
+<td class="zh">何等可怕——但這也提醒我們：當一個社會、一群人、一個國家一意孤行地行惡，而主「任憑他們」的時候，受害最深的往往是孩子。
+這應當叫我們警醒，看見自己對罪已經何等習以為常。
+嚴重的罪，從來都不是「沒有受害者」的。</td></tr>
+<tr><td class="en">Think again of family breakdown.
+Who suffers most when a marriage breaks down through cheating, or abuse, or a selfish drive for a fresh start?
+The children.</td>
+<td class="zh">再想一想家庭破碎的問題。
+當一段婚姻因著不忠、虐待，或是自私地追求「重新開始」而破裂時，誰受的傷害最深？
+是孩子。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">So there are innocent victims — but no guilty party escapes either.
+That is true for all within Judah.
+But — and here is the good news — it is also true of the invaders and persecutors!
+Back in chapter 2 we asked, "What about them?"
+Read verses 21-22 (v.21-22):
+<span class="verse">"Rejoice and be glad, Daughter Edom, you who live in the land of Uz. But to you also the cup will be passed; you will be drunk and stripped naked… But he will punish your sin, Daughter Edom, and expose your wickedness."</span></td>
+<td class="zh">所以，這裡有無辜的受害者——但有罪的一方，也沒有一個能夠逃脫。
+這對猶大境內所有人都是真的。
+但——這也是好消息——這對那些侵略者和逼迫者同樣是真的！
+早在第二章我們就曾問過：「那他們呢？」
+請讀第 21 至 22 節（21-22 節）：
+<span class="verse">「住烏斯地的以東民哪，只管歡喜快樂；苦杯也必傳到你那裏；你必喝醉，以致露體。……以東的民哪，他必追討你的罪孽，顯露你的罪惡。」</span></td></tr>
+<tr><td class="en">The Edomites were the offspring of Esau, the brother of Jacob.
+Near neighbours — but anything but friends.
+When the Babylonians approached the borders of Israel, the Edomites cheered them on!
+Popcorn out, and sat back to enjoy the show.
+But they had better enjoy it while it lasts — because it is soon coming to them.
+Their days are numbered.
+Thirty years later, the Babylonians would come for them.</td>
+<td class="zh">以東人是以掃的後裔，而以掃是雅各的兄弟。
+他們是近鄰——卻絕對不是朋友。
+當巴比倫大軍逼近以色列邊境的時候，以東人在旁邊拍掌叫好！
+拿著爆谷，坐下來看好戲。
+但他們最好趁著還有機會盡情享受——因為同樣的事很快就會臨到他們身上。
+他們的日子屈指可數。
+三十年之後，巴比倫人就來對付他們了。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">Illustration. The Christian charity Open Doors estimates that over 388 million Christians suffer persecution and discrimination worldwide.
+From Sudan to Somalia.
+From India to Iran.
+Let us be praying.
+But let us also remember: justice and judgement are coming.
+The Lord is watching, and the Lord will not forget (Revelation 6:10-11).</td>
+<td class="zh">比喻。基督教機構「敞開的門」（Open Doors）估計，全球有超過三億八千八百萬名基督徒正在遭受逼迫和歧視。
+由蘇丹到索馬里。
+由印度到伊朗。
+讓我們為他們禱告。
+但也要記得：公義和審判必然來到。
+主正在觀看，主必不忘記（啟示錄 6:10-11）。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">But this is not about "other people".
+It is about everyone!
+Jesus is the "judge of the living and the dead".
+That means me — and you.</td>
+<td class="zh">但這並不是「別人的事」。
+這是關乎每一個人的事！
+耶穌是「審判活人死人的主」。
+那就是說：包括我，也包括你。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">2. The elites are leading the way</span>
+In chapter 2 we saw that the prophets were not doing their job in the years before the fall.
+Especially: they were not calling out sin — except Jeremiah.
+Here it goes up a level.
+They are leading the charge into worldliness and wickedness.</td>
+<td class="zh"><span class="highlight">二、精英階層帶頭犯罪</span>
+在第二章我們看見，在城破之前的那些年間，先知們並沒有盡上他們的職分。
+尤其是：他們沒有指出人的罪——除了耶利米以外。
+到了這裡，情況更進一步。
+他們竟然帶頭衝進世俗和罪惡之中。</td></tr>
+<tr><td class="en">Read verses 13-16 (v.13-16):
+<span class="verse">"But it happened because of the sins of her prophets and the iniquities of her priests, who shed within her the blood of the righteous… 'Go away! You are unclean!' people cry to them. 'Away! Away! Don't touch us!'… The LORD himself has scattered them; he no longer watches over them. The priests are shown no honour, the elders no favour."</span></td>
+<td class="zh">請讀第 13 至 16 節（13-16 節）：
+<span class="verse">「這都因她先知的罪惡和祭司的罪孽；他們在城中流了義人的血。……人向他們喊著說：不潔淨的，躲開，躲開！不要挨近我！……耶和華發怒，將他們分散，不再眷顧他們；人不重看祭司，也不厚待長老。」</span></td></tr>
+<tr><td class="en">A desperate situation and a disaster for the nation.
+Priests, prophets, elders — the religious leaders.
+Rather than setting a godly example and bringing the people back to God, they were some of the worst offenders.
+Even murder!
+Such a descent into wickedness — the slaying of the innocent.
+Note the phrase "the blood of the righteous" (Matthew 23:35).</td>
+<td class="zh">這是絕望的處境，也是整個國家的災難。
+祭司、先知、長老——都是宗教領袖。
+他們本應作敬虔的榜樣，把百姓帶回神那裡；結果卻成為罪行最深重的一群。
+甚至到了殺人流血的地步！
+如此墮入邪惡之中——竟然殺害無辜的人。
+請留意「義人的血」這句話（馬太福音 23:35）。</td></tr>
+<tr><td class="en">A shocking example — Jeremiah 26:20-23.
+On the king's orders they hunted down the prophet Uriah, who had been warning the people and was on the run.
+He was cut down with the sword.
+But the Lord sees, and the Lord knows.</td>
+<td class="zh">一個令人震驚的例子——耶利米書 26:20-23。
+他們奉王的命令，追捕先知烏利亞；他曾警戒百姓，後來只能逃亡。
+最終他被刀劍殺害。
+但主看見，主也知道。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">The ordinary people were not innocent.
+The nation as a whole was up to its neck in idolatry, corruption, injustice and immorality.
+But the leaders were leading — so theirs is the heavier weight of guilt.
+Those who teach will be judged more severely (James 3:1) — and their judgement is terrible indeed.</td>
+<td class="zh">一般百姓並不是無辜的。
+整個國家都深陷在拜偶像、貪腐、不義和淫亂之中，直到頸項。
+但既然是領袖在帶頭，他們就要承擔更重的罪責。
+作教師的要受更重的判斷（雅各書 3:1）——他們所受的審判，實在可怕。</td></tr>
+<tr><td class="en">Look now…
+The prophets and seers cannot see (v.14).
+The priests are unclean (v.15).
+A terrible and humiliating end.
+God cannot be mocked.
+These men of privilege and position deserve everything they get.</td>
+<td class="zh">現在看看他們的下場——
+先知和先見都看不見（14 節）。
+祭司都成了不潔淨的（15 節）。
+何等可怕、何等羞辱的結局。
+神是輕慢不得的。
+這些享有特權和地位的人，他們所受的一切都是罪有應得。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">There have been many murderous clerics through history.
+Illustration. The Rwandan genocide of 1994.
+In just over 100 days, up to one million people died — mostly from the minority Tutsi community.
+Even more shocking: Rwanda was one of the most Christianised nations in Africa.
+Many church pastors were involved in trying to protect the victims — but many also took part in the killing.
+The Lord sees, and the Lord knows.</td>
+<td class="zh">歷史上，有不少手上沾滿血腥的神職人員。
+比喻。1994 年的盧旺達種族滅絕。
+在短短一百天之內，多達一百萬人死亡——大部分是少數族群圖西族的人。
+更令人震驚的是：盧旺達當時是非洲基督教化程度最高的國家之一。
+許多教會的牧者曾努力保護受害者——但也有許多人參與了屠殺。
+主看見，主也知道。</td></tr>
+<tr><td class="en">Illustration. In the religious upheavals of the sixteenth and seventeenth centuries, many were killed on both sides.
+Illustration. More recently, consider the scale of sexual abuse among clergy and church leaders.
+It may not be literal "blood" — but lives have still been destroyed.</td>
+<td class="zh">比喻。在十六、十七世紀的宗教動盪之中，雙方都有許多人被殺害。
+比喻。再看近代，神職人員和教會領袖當中性侵犯事件的規模。
+那或許不是字面上的「流血」——但同樣是毀掉了人的一生。</td></tr>
+<tr><td class="en">Jesus said:
+<span class="verse">"It would be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea." (Matthew 18:6)</span></td>
+<td class="zh">耶穌說：
+<span class="verse">「凡使這信我的一個小子跌倒的，倒不如把大磨石拴在這人的頸項上，沉在深海裏。」（馬太福音 18:6）</span></td></tr>
+<tr><td class="en">How reassuring, then, that we have a prophet, a priest and a king who is…
+Always wonderfully good.
+Never takes advantage, never cruel, never corrupt.
+He leads us nowhere except into the green pastures of divine blessing and fullness.</td>
+<td class="zh">因此，我們有這樣一位先知、祭司和君王，是何等令人安心——
+祂永遠美善無瑕。
+祂從不佔人便宜，從不殘忍，從不腐敗。
+祂所帶領我們去的，只有那滿有神恩福與豐盛的青草地。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">3. The security that never was</span>
+This is not just physical devastation, or even human degradation.
+It is also a massive psychological blow.
+When the heavy hand of divine judgement landed on them, everything they had relied on for security crumbled around them.
+Naked and defenceless.</td>
+<td class="zh"><span class="highlight">三、從來不存在的保障</span>
+這不單是物質上的毀壞，甚至不單是人性尊嚴的墮落。
+這也是一次巨大的心理打擊。
+當神審判的重手臨到他們身上，他們一切所倚靠、所視為保障的，都在四周崩塌下來。
+赤身露體，毫無防衛。</td></tr>
+<tr><td class="en">Illustration. "There is no danger that Titanic will sink. The boat is unsinkable and nothing but inconvenience will be suffered by the passengers."
+Philip Franklin, Vice-President of the White Star Line — the company that owned and operated her — in 1912.
+Not long afterwards, her broken hull lay at the bottom of the icy waters of the North Atlantic.
+And she had taken 1,500 passengers with her.
+They had it covered. It would be fine!
+No!</td>
+<td class="zh">比喻。「鐵達尼號絕無沉沒的危險。這艘船是不沉之船，乘客最多只會感到一點不便而已。」
+這是 1912 年白星航運公司（擁有並營運該船）副總裁富蘭克林（Philip Franklin）所說的話。
+不久之後，這艘船斷裂的船身，就躺在北大西洋冰冷的海底。
+並且帶走了一千五百名乘客的性命。
+他們以為一切都在掌握之中。以為一定沒問題！
+結果並非如此！</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">There were lots of reasons why these people thought they would be all right.
+A sad delusion.
+A false complacency.
+We have already seen them…
+The temple would insulate them. It is the house of the Lord!
+Then the city walls! Well built.
+Both now lie in ruins.
+Psychologically devastating.</td>
+<td class="zh">這些人有許多理由，以為自己一定不會有事。
+那是可悲的幻覺。
+是虛假的安逸。
+我們已經看過了——
+聖殿會保護他們。那可是耶和華的殿！
+還有城牆！建造得堅固無比。
+如今兩者都成了廢墟。
+在心理上，這是徹底的摧毀。</td></tr>
+<tr><td class="en">Others still today…
+<span class="highlight">a. Wealth and privilege (v.5, 7)</span>
+As anywhere, some can buy their way out of trouble.
+Or rely on their connections.
+Not this time.
+Read verses 5 and 7 (v.5, 7):
+<span class="verse">"Those who once ate delicacies are destitute in the streets. Those brought up in royal purple now lie on ash heaps… Their princes were brighter than snow and whiter than milk."</span></td>
+<td class="zh">今天我們也有其他同類的倚靠——
+<span class="highlight">甲、財富與地位（5、7 節）</span>
+正如任何地方一樣，有些人可以用錢買通、脫身。
+或是靠關係擺平。
+但這一次不能。
+請讀第 5 和第 7 節（5、7 節）：
+<span class="verse">「素來吃美好食物的，現今在街上變為孤寒；素來臥朱紅褥子的，現今躺臥糞堆。……錫安的貴冑素來比雪純淨，比奶更白。」</span></td></tr>
+<tr><td class="en"><span class="highlight">b. The king — to look after them</span>
+To secure the borders, to protect and provide.
+Note "the LORD's anointed" (v.20).
+But not this king.
+Read verse 20 (v.20):
+<span class="verse">"The LORD's anointed, our very life breath, was caught in their traps. We thought that under his shadow we would live among the nations."</span></td>
+<td class="zh"><span class="highlight">乙、君王——以為他會照顧他們</span>
+以為他能守衛邊境、保護供養百姓。
+請留意「耶和華的受膏者」（20 節）。
+但這一位王卻不能。
+請讀第 20 節（20 節）：
+<span class="verse">「耶和華的受膏者好比我們鼻中的氣，在他們的坑中被捉住；我們曾論到他說：我們必在他蔭下，在列國中存活。」</span></td></tr>
+<tr><td class="en">Zedekiah was a wicked man (2 Kings 24:19).
+Without the Lord on his side, he could do nothing to prevent the collapse of the city.
+Note: he could not even save himself.
+He fled to the hills when the walls were breached.
+But he was hunted down.
+His eyes were cut out, and he was dragged off into exile.</td>
+<td class="zh">西底家是個邪惡的人（列王紀下 24:19）。
+沒有主與他同在，他根本無力阻止這城的傾覆。
+請留意：他連自己也救不了。
+城牆被攻破的時候，他逃往山區。
+但他還是被追捕到。
+他的雙眼被剜出，然後被擄去異地。</td></tr>
+<tr><td class="en"><span class="highlight">c. The insurance of another nation</span>
+Probably Egypt — coming to their aid.
+But that too came to nothing.
+Read verse 17 (v.17):
+<span class="verse">"Moreover, our eyes failed, looking in vain for help; from our towers we watched for a nation that could not save us."</span>
+Another security that never was!</td>
+<td class="zh"><span class="highlight">丙、另一個國家作保險</span>
+很可能是埃及——以為他們會來相助。
+但這同樣落了空。
+請讀第 17 節（17 節）：
+<span class="verse">「我們仰望人來幫助，以致眼目失明，還是枉然；我們所盼望的，竟盼望一個不能救人的國！」</span>
+又一個從來不存在的保障！</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en">We have our own list of things we think will insulate us against bad things.
+Wealth and privilege.
+Education, a good CV.
+Platinum health insurance.
+And so on.
+None of them can!</td>
+<td class="zh">我們自己也有一份清單，以為這些東西可以保護我們免受災禍。
+財富與地位。
+學歷、漂亮的履歷。
+最高級的醫療保險。
+如此類推。
+但沒有一樣做得到！</td></tr>
+<tr><td class="en">More foolishly still, we have a list of things we think will protect us when we stand before the throne of God.
+Regular church-going.
+Moving in the right circles.
+An impressive moral CV.
+Do not rely on anything other than the finished work of Jesus.
+The only refuge from the wrath to come is the one he has provided for us.
+If you have not yet come to him in repentance and faith…
+Today!</td>
+<td class="zh">更愚昧的是，我們還有另一份清單，以為這些可以在神的寶座前保護我們。
+恆常返教會。
+在合適的圈子中來往。
+一份亮麗的道德履歷。
+不要倚靠任何東西，只要倚靠耶穌已經完成的救贖。
+唯一能躲避那將來忿怒的避難所，就是祂親自為我們預備的那一位。
+如果你還未曾以悔改和信心來到祂面前——
+就在今天！</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Inescapable</h1>
+    <h1 class="zh">無處可逃</h1>
+    <div class="subtitle">Lamentations 耶利米哀歌 4:1-22 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"Your punishment will end, Daughter Zion; he will not prolong your exile." (Lamentations 4:22)<br>「錫安的民哪，你罪孽的刑罰受足了，耶和華必不使你再被擄去。」（耶利米哀歌 4:22）</div>
+  </div>
+
+  
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+    <div class="bilingual">
+      <div class="lang-en">
+        <div class="lang-label">English</div>
+        <p>Lamentations 3 was the high point of the book — hope in the middle of the ruins. Chapter 4 brings us back to the "now". The invaders have gone, but Jerusalem is a scorched shell: people scratch the ground for food, mothers cradle dying children, and the poet says the punishment is worse than Sodom's, because Sodom's end at least came quickly (v.6).</p><br>
+        <p>Standing over the ruins one last time, the sermon draws three lessons. First, <strong>the judgement is felt by all</strong> — from the wealthy to the most vulnerable, nobody is immune, and it is always the children who suffer most when a nation is given over to evil. Nor do the guilty escape: Edom cheered the Babylonians on, and thirty years later the same cup was passed to them (v.21-22).</p><br>
+        <p>Second, <strong>the elites led the way</strong>. Prophets, priests and elders did not merely fail to call out sin; they led the charge into wickedness, even shedding the blood of the righteous (v.13). Those who teach are judged more severely, and their end is humiliating: seers who cannot see, priests declared unclean.</p><br>
+        <p>Third, <strong>the securities they trusted never existed</strong>. Temple, city walls, wealth, the king, and a promised ally all crumbled together. Our own list is no stronger — savings, status, insurance, a respectable church record. The only refuge from the wrath to come is the one God himself has provided: the finished work of Jesus Christ, our good prophet, priest and king.</p>
+      </div>
+      <div class="lang-zh">
+        <div class="lang-label">繁體中文</div>
+        <p>耶利米哀歌第三章是全卷書的高峰——在廢墟之中仍有盼望。第四章卻把我們帶回「現在」。侵略者已經離開，但耶路撒冷只剩下一個被燒焦的空殼：人在地上翻掘尋找食物，母親抱著垂死的孩子，詩人更說這刑罰比所多瑪所受的更重，因為所多瑪的結局至少是轉眼之間的事（6 節）。</p><br>
+        <p>作者最後一次站在廢墟之上察看，講道從中領受三個功課。第一，<strong>審判臨到所有人</strong>——由富有的到最軟弱無助的，無一倖免；而當一個國家被任憑行惡時，受害最深的往往是孩子。有罪的一方同樣不能逃脫：以東人曾為巴比倫大軍拍掌叫好，三十年後同一個苦杯就傳到他們手上（21-22 節）。</p><br>
+        <p>第二，<strong>精英階層帶頭犯罪</strong>。先知、祭司和長老不單沒有指出百姓的罪，反而帶頭衝進罪惡之中，甚至流了義人的血（13 節）。作教師的要受更重的判斷，他們的結局也極其羞辱：先見卻看不見，祭司被人視為不潔淨。</p><br>
+        <p>第三，<strong>他們所倚靠的保障從來不存在</strong>。聖殿、城牆、財富、君王，以及所指望的盟國，全都一同崩塌。我們自己的清單同樣不堪一擊——積蓄、地位、保險、體面的教會記錄。唯一能躲避那將來忿怒的避難所，是神自己所預備的：耶穌基督已經完成的救贖；祂是我們良善的先知、祭司和君王。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">✝️</span> Key Scriptures 重要經文</div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:6 — Worse than Sodom 比所多瑪更重的刑罰 (NIV / 和合本)</div>
+      <div class="verse-text">"The punishment of my people is greater than that of Sodom, which was overthrown in a moment without a hand turned to help her."</div><br>
+      <div class="verse-text zh">「都因我眾民的罪孽比所多瑪的罪還大；所多瑪雖然無人加手於她，還是轉眼之間被傾覆。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:11 — The Lord's own hand 這是耶和華親自成就的</div>
+      <div class="verse-text">"The LORD has given full vent to his wrath; he has poured out his fierce anger. He kindled a fire in Zion that consumed her foundations."</div><br>
+      <div class="verse-text zh">「耶和華發怒成就他所定的，倒出他的烈怒；在錫安使火著起，燒毀錫安的根基。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:4 — The children suffer most 受苦最深的是孩子</div>
+      <div class="verse-text">"Because of thirst the infant's tongue sticks to the roof of its mouth; the children beg for bread, but no one gives it to them."</div><br>
+      <div class="verse-text zh">「吃奶孩子的舌頭因乾渴貼住上膛；孩童求餅，無人擘給他們。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:13 — The guilt of the leaders 領袖的罪責</div>
+      <div class="verse-text">"But it happened because of the sins of her prophets and the iniquities of her priests, who shed within her the blood of the righteous."</div><br>
+      <div class="verse-text zh">「這都因她先知的罪惡和祭司的罪孽；他們在城中流了義人的血。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:17, 20 — Securities that failed 失效的保障</div>
+      <div class="verse-text">"Moreover, our eyes failed, looking in vain for help; from our towers we watched for a nation that could not save us… The LORD's anointed, our very life breath, was caught in their traps. We thought that under his shadow we would live among the nations."</div><br>
+      <div class="verse-text zh">「我們仰望人來幫助，以致眼目失明，還是枉然；我們所盼望的，竟盼望一個不能救人的國！……耶和華的受膏者好比我們鼻中的氣，在他們的坑中被捉住；我們曾論到他說：我們必在他蔭下，在列國中存活。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Lamentations 耶利米哀歌 4:21-22 — No persecutor escapes 逼迫者也不能逃脫</div>
+      <div class="verse-text">"Rejoice and be glad, Daughter Edom, you who live in the land of Uz. But to you also the cup will be passed; you will be drunk and stripped naked. Your punishment will end, Daughter Zion; he will not prolong your exile. But he will punish your sin, Daughter Edom, and expose your wickedness."</div><br>
+      <div class="verse-text zh">「住烏斯地的以東民哪，只管歡喜快樂；苦杯也必傳到你那裏；你必喝醉，以致露體。錫安的民哪，你罪孽的刑罰受足了，耶和華必不使你再被擄去。以東的民哪，他必追討你的罪孽，顯露你的罪惡。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">James 雅各書 3:1 — Teachers judged more strictly 作教師的受更重的判斷</div>
+      <div class="verse-text">"Not many of you should become teachers, my fellow believers, because you know that we who teach will be judged more strictly."</div><br>
+      <div class="verse-text zh">「我的弟兄們，不要多人作師傅，因為曉得我們要受更重的判斷。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Matthew 馬太福音 18:6 — A warning to those who cause harm 使小子跌倒的警告</div>
+      <div class="verse-text">"If anyone causes one of these little ones — those who believe in me — to stumble, it would be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea."</div><br>
+      <div class="verse-text zh">「凡使這信我的一個小子跌倒的，倒不如把大磨石拴在這人的頸項上，沉在深海裏。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Revelation 啟示錄 6:10-11 — The Lord has not forgotten 主並沒有忘記</div>
+      <div class="verse-text">"How long, Sovereign Lord, holy and true, until you judge the inhabitants of the earth and avenge our blood?… They were told to wait a little longer."</div><br>
+      <div class="verse-text zh">「聖潔真實的主啊，你不審判住在地上的人，給我們伸流血的冤，要等到幾時呢？……又有話對他們說，還要安息片時。」</div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🔑</span> Key Themes 主要主題</div>
+
+    <div class="summary-point"><strong>1. No one is immune 沒有人可以倖免</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Chapter 4 is a democracy of degradation. Princes once brighter than snow are unrecognisable in the streets; the wealthy who ate delicacies now sit on ash heaps; infants beg for bread. When God's judgement falls, position and possessions give no exemption.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>第四章描繪出一種「人人平等」的墮落與屈辱。從前比雪更純淨的貴冑，如今在街上無人認得；素來吃美食的富人，現今躺臥糞堆；吃奶的孩子只能求餅。當神的審判臨到，地位和財富都不能豁免任何人。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>2. Sin is never victimless 罪從來不是「沒有受害者」的</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>When a nation is given over to evil, the children suffer most (v.4). The sermon presses this home with family breakdown: it is the children who carry the cost of adult unfaithfulness. Our comfortable talk of "private" sin does not survive contact with this chapter.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>當一個國家被任憑行惡，受苦最深的是孩子（4 節）。講道以家庭破碎為例：成年人的不忠，代價往往由孩子承擔。我們慣常說某些罪是「私人的事」，在這一章面前根本站不住腳。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>3. Judgement reaches the persecutors too 審判同樣臨到逼迫者</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Edom watched Judah fall and cheered. Verses 21-22 answer the question raised back in chapter 2 — "what about them?" The cup will be passed to Edom as well, and thirty years later Babylon came for them. For persecuted Christians today, this is not vindictiveness but comfort: the Lord is watching and will not forget.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>以東人眼看猶大傾覆，還在旁邊叫好。21 至 22 節回答了第二章所提出的問題——「那他們呢？」苦杯同樣會傳到以東手上；三十年之後，巴比倫果然來對付他們。對今日受逼迫的基督徒而言，這不是報復的心態，而是安慰：主正在觀看，並且必不忘記。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>4. Leaders carry a heavier weight of guilt 領袖要承擔更重的罪責</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Prophets, priests and elders should have set a godly example and called the nation back to God. Instead they led the charge into wickedness, even shedding innocent blood. Their end is humiliating — seers who cannot see, priests treated as unclean. James 3:1 says teachers are judged more strictly, and history from Rwanda to abuse scandals shows the pattern is not confined to Judah.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>先知、祭司和長老本應作敬虔的榜樣，把國民帶回神那裡；他們卻帶頭衝進罪惡之中，甚至流了無辜人的血。他們的結局極其羞辱——先見卻看不見，祭司被人當作不潔淨。雅各書 3:1 說作教師的要受更重的判斷；由盧旺達到近代教會的侵犯醜聞，都顯示這種模式並不只限於當年的猶大。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>5. False securities collapse together 虛假的保障必一同崩塌</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Temple, walls, wealth, king and foreign ally — each was trusted, and each failed on the same day. The Titanic was "unsinkable" until it was on the seabed. Zedekiah could not even save his own eyes. What we lean on determines whether we are standing on rock or on a well-built delusion.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>聖殿、城牆、財富、君王、外邦盟友——每一樣都曾被信賴，卻在同一日一同失效。鐵達尼號被稱為「永不沉沒」，直到它躺在海底。西底家連自己的雙眼也保不住。我們所倚靠的是甚麼，決定我們是站在磐石之上，還是站在一個建造精美的幻覺之上。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>6. Christ is the only refuge 基督是唯一的避難所</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Against every corrupt leader stands a prophet, priest and king who is always good, never cruel, never self-serving, and who leads his people into green pastures. Against every failed security stands his finished work. Regular church-going and a respectable moral record cannot stand before God's throne; only Jesus can.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>相對於一切腐敗的領袖，我們有一位先知、祭司和君王：祂永遠良善，從不殘忍，從不為自己謀利，並且帶領祂的子民進入青草地。相對於一切失效的保障，我們有祂已經完成的救贖。恆常返教會、亮麗的道德記錄，都不能在神的寶座前站立得住；唯有耶穌可以。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🤔</span> Thinking Questions 思考問題</div>
+    <div class="questions-container">
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Read Lamentations 4:1-10 slowly. List the different groups of people named or pictured in these verses. What is the writer trying to show us by moving from princes (v.7) to nursing infants (v.4)?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>慢慢細讀耶利米哀歌 4:1-10。列出這幾節經文中所提到或描繪的不同群體。作者由貴冑（7 節）寫到吃奶的嬰孩（4 節），是要讓我們看見甚麼？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Verse 6 says the punishment of God's people is greater than Sodom's. Why is that "doubly shocking"? What does it say about how God views sin among those who bear his name?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>第 6 節說神子民所受的刑罰比所多瑪更重。為甚麼這是「雙重的震撼」？這告訴我們，神怎樣看待那些稱為屬祂之人當中的罪？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The sermon insists that serious sin is never "victimless", and that children usually pay the highest price. Where have you seen this in your own family, workplace or community? Where have you been tempted to treat a sin as private and harmless?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>講道強調嚴重的罪從來不是「沒有受害者」的，而付上最大代價的通常是孩子。你在自己的家庭、職場或社區中，哪裡看見過這種情況？又在哪些事上，你曾試圖把某種罪看作是私人的、無傷大雅的？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Read verses 21-22 alongside Revelation 6:10-11. How should a Christian hold together prayer for persecuted believers and confidence in God's coming judgement — without becoming bitter or vengeful?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>把 21 至 22 節與啟示錄 6:10-11 一同閱讀。基督徒應當怎樣同時持守兩件事：為受逼迫的信徒禱告，以及相信神必施行審判——而不至於心懷苦毒或報復？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Verses 13-16 place the heaviest guilt on prophets, priests and elders. What does James 3:1 add to this? How should our church pray for, encourage and also honestly hold to account those who teach and lead us?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>13 至 16 節把最重的罪責放在先知、祭司和長老身上。雅各書 3:1 在這方面補充了甚麼？我們的教會應當怎樣為教導和帶領我們的人禱告、鼓勵他們，同時也誠實地要求他們承擔責任？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The sermon lists the securities that failed: temple, walls, wealth, the king, a foreign ally. Write your own honest list. Which one would hurt most if it were taken away this year — and what does that reveal about where your trust actually rests?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>講道列出了那些失效的保障：聖殿、城牆、財富、君王、外邦盟友。請誠實地寫下你自己的清單。如果今年其中一樣被拿走，哪一樣會令你最痛？這又反映出你的信靠實際上放在哪裡？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The sermon warns against relying on regular church attendance, the right circles, or an impressive moral record when we stand before God. Is there any part of you that quietly leans on these things? What would it look like this week to rest wholly on the finished work of Jesus instead?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>講道警告我們，不要以恆常返教會、置身合適的圈子，或一份亮麗的道德記錄，作為站在神面前的倚靠。你心裡有沒有某個角落，其實正暗暗依靠這些東西？本週若要完全安息在耶穌已成就的救恩上，那會是甚麼樣子？</div>
+      </div></div>
+
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🎯</span> Application 生活應用</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="application-item"><strong>Name one "victimless" sin.</strong> Identify a sin you have been treating as private, and trace honestly who it actually touches. Confess it this week, and tell one trusted believer.</div>
+        <div class="application-item"><strong>Pray for the persecuted church.</strong> Choose one country from the Open Doors list and pray for it by name each day this week — for endurance for believers, and for the mercy and justice of God.</div>
+        <div class="application-item"><strong>Pray for those who lead you.</strong> Rather than criticising them, pray specifically for your pastors, elders and Bible study leaders — for integrity, humility and protection from the wickedness this chapter exposes.</div>
+        <div class="application-item"><strong>Audit your securities.</strong> Write down the three things you most rely on to feel safe. Beside each, write what it can and cannot do on the day you stand before God.</div>
+        <div class="application-item"><strong>Guard the vulnerable.</strong> Support the children and vulnerable people around you in one concrete way — the ones who carry the cost when adults go wrong. Take our church safeguarding seriously.</div>
+        <div class="application-item"><strong>Come today.</strong> If you have never come to Christ in repentance and faith, do not put it off. Speak to a church leader this Sunday.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="application-item"><strong>指出一個所謂「沒有受害者」的罪。</strong>找出一項你一直當作私人事情的罪，誠實地追溯它實際上影響了誰。本週向神認罪，並且告訴一位可信的弟兄姊妹。</div>
+        <div class="application-item"><strong>為受逼迫的教會禱告。</strong>從「敞開的門」的名單中選一個國家，本週每日按名為它禱告——求主賜信徒忍耐的力量，也求神施憐憫、行公義。</div>
+        <div class="application-item"><strong>為帶領你的人禱告。</strong>與其批評他們，不如具體地為你的牧者、長老和查經班組長禱告——求主賜他們正直和謙卑，並保守他們遠離這一章所揭露的罪惡。</div>
+        <div class="application-item"><strong>檢視你的「保障清單」。</strong>寫下三樣你最倚靠、令你覺得安全的事物。在每一樣旁邊寫下：當你站在神面前的那日，它能做甚麼、不能做甚麼。</div>
+        <div class="application-item"><strong>保護軟弱的人。</strong>用一個具體的方式，去支持你身邊的孩子和弱勢的人——當成年人行差踏錯時，代價往往由他們承擔。也請認真看待教會的兒童及弱勢保護守則。</div>
+        <div class="application-item"><strong>就在今天來到主面前。</strong>如果你從未以悔改和信心來到基督面前，不要再拖延。這個主日就找一位教會領袖傾談。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prayer-section">
+    <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="prayer-text">Righteous Father,<br><br>
+        You are just, and you must judge sin in all its forms. As we look again at the ruins of Zion, do not let us look on as spectators. Show us our own ease with sin, and the harm it does to those we should be protecting — especially the children and the vulnerable.<br><br>
+        We pray for your church, and for those who teach and lead us. Keep them from the corruption and hypocrisy of Judah's prophets and priests. Give them clean hands, humble hearts, and the courage to call sin what it is — beginning with their own.<br><br>
+        We pray for our brothers and sisters who suffer persecution today, from Sudan to Somalia, from India to Iran. Strengthen them, provide for them, and comfort them with the certainty that you see, you remember, and you will act.<br><br>
+        Forgive us for the securities we have built for ourselves — our savings, our status, our health, our record of church attendance. Show us how thin they are. Teach us to rest on nothing but the finished work of your Son.<br><br>
+        Thank you that we have a prophet, priest and king who is always good, who never takes advantage of us, and who leads us into green pastures. He is our only refuge from the wrath to come, and he is enough.<br><br>
+        In the name of Jesus Christ, Amen.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="prayer-text">公義的天父：<br><br>
+        祢是公義的，祢必須審判一切形式的罪。當我們再次注視錫安的廢墟，求祢不要讓我們只作旁觀者。求祢讓我們看見自己對罪何等習以為常，也看見罪如何傷害那些我們本應保護的人——尤其是孩子和軟弱無助的人。<br><br>
+        我們為祢的教會禱告，也為教導和帶領我們的人禱告。求祢保守他們，不落入猶大先知和祭司那種腐敗和虛偽之中。求祢賜他們清潔的手、謙卑的心，以及指出罪就是罪的勇氣——並且從指出自己的罪開始。<br><br>
+        我們為今日受逼迫的弟兄姊妹禱告：由蘇丹到索馬里，由印度到伊朗。求祢堅固他們、供應他們，並以這確據安慰他們——祢看見，祢記念，祢也必施行作為。<br><br>
+        求祢赦免我們為自己所築起的種種保障——積蓄、地位、健康、返教會的記錄。求祢讓我們看見這一切何等脆弱，教導我們單單安息在祢兒子已成就的救恩之上。<br><br>
+        感謝祢賜給我們一位先知、祭司和君王：祂永遠良善，從不佔我們的便宜，並且領我們到青草地上。祂是我們躲避將來忿怒的唯一避難所，而且祂已經足夠。<br><br>
+        奉主耶穌基督的名求，阿們。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <ul class="further-list">
+          <li><strong>Lamentations 3:19-33</strong> — Last week's high point: great is his faithfulness, and his compassions never fail.</li>
+          <li><strong>Genesis 19:1-29</strong> — The overthrow of Sodom, the comparison behind verse 6.</li>
+          <li><strong>Jeremiah 26:20-23</strong> — The prophet Uriah, hunted down and killed for warning the nation.</li>
+          <li><strong>2 Kings 24:18-25:7</strong> — Zedekiah's reign and his capture: the king who could not save himself.</li>
+          <li><strong>Obadiah 1-21</strong> — God's word against Edom for standing by and gloating on the day of Judah's disaster.</li>
+          <li><strong>James 3:1-12</strong> — The stricter judgement on teachers, and the power of the tongue.</li>
+          <li><strong>Matthew 23:29-39</strong> — Jesus on religious leaders and the blood of the righteous.</li>
+          <li><strong>Ezekiel 34:1-16</strong> — Worthless shepherds, and the Lord himself shepherding his flock.</li>
+          <li><strong>Psalm 23</strong> — The good shepherd who leads us into green pastures.</li>
+          <li><strong>Romans 5:6-11</strong> — Saved from God's wrath through Jesus: the refuge God has provided.</li>
+        </ul>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <ul class="further-list">
+          <li><strong>耶利米哀歌 3:19-33</strong>——上週的高峰：祂的信實極其廣大，祂的慈愛永不斷絕。</li>
+          <li><strong>創世記 19:1-29</strong>——所多瑪被傾覆的記載，正是第 6 節比較的背景。</li>
+          <li><strong>耶利米書 26:20-23</strong>——先知烏利亞因警戒國民而被追捕殺害。</li>
+          <li><strong>列王紀下 24:18-25:7</strong>——西底家的統治和他被擄的經過：一位連自己也救不了的王。</li>
+          <li><strong>俄巴底亞書 1-21</strong>——神向以東所發的話，因他們在猶大遭難之日袖手旁觀、幸災樂禍。</li>
+          <li><strong>雅各書 3:1-12</strong>——作教師的要受更重的判斷，以及舌頭的能力。</li>
+          <li><strong>馬太福音 23:29-39</strong>——耶穌論到宗教領袖，以及義人的血。</li>
+          <li><strong>以西結書 34:1-16</strong>——不盡責的牧人，以及耶和華親自牧養祂的羊群。</li>
+          <li><strong>詩篇 23 篇</strong>——那位領我們到青草地上的好牧人。</li>
+          <li><strong>羅馬書 5:6-11</strong>——藉著耶穌免去神的忿怒：這是神為我們預備的避難所。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-08-23 · Source: Lamentations 4.1-22. Inescapable - for distribution.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>

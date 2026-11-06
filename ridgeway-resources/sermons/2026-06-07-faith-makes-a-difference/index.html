@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith Makes a Difference 信心使人不一樣 — Hebrews 11:23-31 希伯來書 11 章 23 至 31 節</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-06-07 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Faith Makes a Difference 信心使人不一樣<br>(Hebrews 11:23-31 希伯來書 11 章 23 至 31 節)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Intro Visiting the Hebrews' school of faith</span></td><td class="zh"><span class="highlight">引言：到訪希伯來書的「信心學校」</span></td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en">Our topic this morning is faith. Because for the next few minutes, we are going to visit the Hebrews' school of faith.</td><td class="zh">今早我們的主題是「信心」。因為接下來的時間，我們要一同到訪希伯來書這所「信心的學校」。</td></tr>
+<tr><td class="en">Hebrews eleven — the chapter we are in this morning — is a chapter God has given us to teach us about faith and to spur us on in faith. And the way it does this is just brilliant: it is a chapter brim-full of brilliant role models — real people who show us what real faith really involves.</td><td class="zh">希伯來書第十一章——就是我們今早所讀的這一章——是神賜給我們的一章，為要教導我們認識信心，並激勵我們在信心上前行。而它教導的方式實在精彩：這一章滿載著一個又一個出色的榜樣——都是真實的人物，向我們展示真正的信心，究竟包含著甚麼。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Previous role models</span></td><td class="zh"><span class="highlight">先前的榜樣</span></td></tr>
+<tr><td class="en">For example, in verse seven there is <span class="highlight">Noah</span>, famous for his ark. Noah teaches us that faith trusts in unseen realities and lives in light of the future. After all, why else would he have built a massive boat?</td><td class="zh">例如，第七節有「<span class="highlight">挪亞</span>」，因他的方舟而為人所熟知。挪亞教導我們：信心信靠那未見的實況，並按著將來的盼望而活。否則，他何必去建造一艘那麼龐大的方舟？</td></tr>
+<tr><td class="en">Then in verse eight there is <span class="highlight">Abraham</span>, the father of Israel. Abraham teaches us that faith looks forward to a better home and trusts that God will raise the dead. After all, why else would he have left his homeland behind?</td><td class="zh">接著第八節有「<span class="highlight">亞伯拉罕</span>」，以色列的先祖。亞伯拉罕教導我們：信心仰望那更美的家鄉，並深信神能叫死人復活。否則，他何必撇下自己的故鄉？</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Moses our mentor</span></td><td class="zh"><span class="highlight">我們的良師——摩西</span></td></tr>
+<tr><td class="en">And then there is <span class="highlight">Moses</span> — the man who led Israel out of Egypt; the main man in our passage; our mentor this morning. He teaches us a vital truth about faith: <span class="highlight">faith makes a difference.</span></td><td class="zh">然後，就是「<span class="highlight">摩西</span>」——那位帶領以色列人出埃及的人；我們這段經文的主角；今早我們的良師。他教導我們一個關於信心的關鍵真理：「<span class="highlight">信心使人不一樣</span>」。</td></tr>
+<tr><td class="en">That is: faith is <span class="highlight">not just an intellectual activity</span> — simply affirming a long list of beliefs. No! Faith <span class="highlight">acts</span>. It has concrete consequences. Both in the present — it stands with God's people; and in the future — it saves from God's judgment.</td><td class="zh">意思是：信心「<span class="highlight">不只是一種思想上的活動</span>」——不只是認同一連串的信條。不！信心是會「<span class="highlight">行動</span>」的，它帶來實質的後果。在現在——它與神的子民同站；在將來——它使人脫離神的審判。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">1. Faith chooses God's plan and God's people</span></td><td class="zh"><span class="highlight">一、信心揀選神的計劃、神的子民</span></td></tr>
+<tr><td class="en">Let us delve into our passage. The first thing we learn from Moses is that faith chooses God's plan and God's people — <span class="highlight">even when it feels foolish or frightening.</span></td><td class="zh">讓我們深入這段經文。我們從摩西身上學到的第一件事，就是：信心揀選神的計劃、神的子民——「<span class="highlight">即使這樣做看似愚拙、令人懼怕</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(i) Moses' parents chose to conceal their son (v.23)</span></td><td class="zh"><span class="highlight">（一）摩西的父母選擇把兒子藏起來（23 節）</span></td></tr>
+<tr><td class="en">Actually, our first example comes not from Moses but from his parents — who, by faith, chose to conceal their son. We find their example in verse twenty-three:</td><td class="zh">其實，我們第一個例子不是來自摩西，而是來自他的父母——他們因著信，選擇把兒子藏起來。我們在第二十三節看見他們的榜樣：</td></tr>
+<tr><td class="en"><span class="verse">"By faith Moses' parents hid him for three months after he was born, because they saw he was no ordinary child, and they were not afraid of the king's edict." (v.23)</span></td><td class="zh"><span class="verse">「摩西生下來，他的父母見他是個俊美的孩子，就因著信，把他藏了三個月，並不怕王命。」（23 節）</span></td></tr>
+<tr><td class="en">Just imagine yourself into the sandals of <span class="highlight">Jochebed</span>, Moses' mum. You live in Pharaoh's land. You work on Pharaoh's projects. You are one of Pharaoh's slaves — your whole life revolves around doing Pharaoh's orders. Life is already pretty rough… but then comes the command: <span class="verse">every Hebrew boy that is born you must throw into the Nile.</span></td><td class="zh">試想像你就是摩西的母親「<span class="highlight">約基別</span>」。你住在法老的地上，做著法老的工程，是法老的奴隸之一——你的整個人生都圍繞著執行法老的命令。生活本已十分艱難……然後命令傳來：「<span class="verse">以色列人所生的男孩，你們都要丟在河裏</span>」。</td></tr>
+<tr><td class="en">How do you feel when you discover you are pregnant? What do you do when your baby is born, and the midwife whispers, 'it's a boy'? Well, Moses' parents chose to defy Pharaoh's command and conceal their son. <span class="highlight">Question: what gave them the courage?</span></td><td class="zh">當你發現自己懷孕了，你會有甚麼感受？當你的嬰孩出生，接生婆輕聲說「是個男孩」，你會怎樣做？摩西的父母選擇違抗法老的命令，把兒子藏起來。「<span class="highlight">問題是：是甚麼給了他們勇氣？</span>」</td></tr>
+<tr><td class="en">God does not leave us guessing. He tells us: they hid Moses <span class="highlight">because they had faith</span>. They saw that Moses was no ordinary child; they knew God had special plans for him; and they trusted God instead of fearing Pharaoh and his threats. So they chose to conceal their son — even though it was a frightening thing to do.</td><td class="zh">神沒有讓我們瞎猜。祂告訴我們：他們把摩西藏起來，「<span class="highlight">是因為他們有信心</span>」。他們看出摩西不是個平凡的孩子；他們知道神對他有特別的計劃；他們選擇信靠神，而不懼怕法老和他的威嚇。於是他們選擇把兒子藏起來——即使這樣做是何等令人懼怕。</td></tr>
+<tr><td class="en">They give us our <span class="highlight">first inspiring example of faith having concrete consequences in the present.</span></td><td class="zh">他們為我們提供了「<span class="highlight">第一個激勵人心的榜樣，顯明信心在現今帶來實質的後果</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(ii) Moses chose mistreatment over enjoyment (v.24-26)</span></td><td class="zh"><span class="highlight">（二）摩西寧選苦待，不選享樂（24 至 26 節）</span></td></tr>
+<tr><td class="en">Our second example comes from Moses himself, who by faith chose mistreatment over enjoyment. Listen as I read from verse twenty-four:</td><td class="zh">我們第二個例子來自摩西本人——他因著信，寧選苦待，不選享樂。請聽我讀第二十四節起：</td></tr>
+<tr><td class="en"><span class="verse">"By faith Moses, when he had grown up, refused to be known as the son of Pharaoh's daughter. He chose to be ill-treated along with the people of God rather than to enjoy the fleeting pleasures of sin." (v.24-25)</span></td><td class="zh"><span class="verse">「摩西因著信，長大了就不肯稱為法老女兒之子。他寧可和神的百姓同受苦害，也不願暫時享受罪中之樂。」（24 至 25 節）</span></td></tr>
+<tr><td class="en">Imagine yourself into Moses' sandals. You have grown up in Pharaoh's house. You can feast on any food you feel like, live in any palace you find pleasing, perhaps marry any maiden you fancy. The treasures and pleasures of Egypt are at your fingertips. But you know you are an Israelite. And so you are faced with a choice: <span class="highlight">do I stand with my people, or do I stick with Pharaoh?</span></td><td class="zh">試想像你就是摩西。你在法老的宮中長大。你可以享用任何你想吃的美食、住在任何你喜歡的宮殿、或許迎娶任何你心儀的女子。埃及一切的財寶與享樂，都觸手可及。但你知道自己是個以色列人。於是你面對一個抉擇：「<span class="highlight">我要與我的同胞同站，還是繼續依附法老？</span>」</td></tr>
+<tr><td class="en">Moses chose to stand with God's people. He chose mistreatment over enjoyment; pain and shame over treasure and pleasure. <span class="highlight">Question: what gave him the courage?</span></td><td class="zh">摩西選擇與神的子民同站。他寧選苦待，不選享樂；寧選痛苦與羞辱，不選財寶與逸樂。「<span class="highlight">問題是：是甚麼給了他勇氣？</span>」</td></tr>
+<tr><td class="en">Once again God does not leave us guessing. Moses chose ill-treatment and disgrace <span class="highlight">because he had faith</span> — in particular, faith in God's promise of a reward. Did you spot that in verse twenty-six?</td><td class="zh">神再一次沒有讓我們瞎猜。摩西選擇受苦待、受羞辱，「<span class="highlight">是因為他有信心</span>」——尤其是對神所應許之賞賜的信心。你有沒有在第二十六節留意到這點？</td></tr>
+<tr><td class="en"><span class="verse">"He regarded disgrace for the sake of Christ as of greater value than the treasures of Egypt, because he was looking ahead to his reward." (v.26)</span></td><td class="zh"><span class="verse">「他看為基督受的凌辱比埃及的財物更寶貴，因他想望所要得的賞賜。」（26 節）</span></td></tr>
+<tr><td class="en">Moses knew that standing with God's people would bring suffering and shame in the present, and mean missing out on all the pleasures of Egypt. But he also knew God had promised his people an eternal inheritance in his heavenly city. And <span class="highlight">Moses did the maths!</span> He trusted God's promise of a reward, and so he chose to stand with God's people — even though it looked foolish in the present.</td><td class="zh">摩西知道，與神的子民同站，在現今會帶來痛苦與羞辱，也意味著要放棄埃及一切的享樂。但他同樣知道，神已應許賜給祂的子民一份在天上之城的永遠基業。「<span class="highlight">摩西把這筆帳算清楚了！</span>」他信靠神所應許的賞賜，於是選擇與神的子民同站——即使這在現今看來是何等愚拙。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(iii) Moses chose to leave Egypt with God's people (v.27)</span></td><td class="zh"><span class="highlight">（三）摩西選擇與神的子民一同離開埃及（27 節）</span></td></tr>
+<tr><td class="en">Our third and final example is again from the life of Moses, who by faith chose to leave Egypt with God's people. Verse twenty-seven:</td><td class="zh">我們第三個、也是最後一個例子，同樣來自摩西的生平——他因著信，選擇與神的子民一同離開埃及。第二十七節：</td></tr>
+<tr><td class="en"><span class="verse">"By faith he left Egypt, not fearing the king's anger; he persevered because he saw him who is invisible." (v.27)</span></td><td class="zh"><span class="verse">「他因著信，就離開埃及，不怕王怒；因為他恆心忍耐，如同看見那不能看見的主。」（27 節）</span></td></tr>
+<tr><td class="en">Imagine yourself into Moses' sandals as you enter Pharaoh's throne room. Pharaoh — probably the single most powerful man on the planet. How do you feel as you look Pharaoh in the eye and demand the release of your people? How do you feel as you pack your bags and prepare to leave?</td><td class="zh">試想像你就是摩西，正步入法老的殿中。法老——大概是當時全地上最有權勢的人。當你直視法老的眼睛，要求釋放你的同胞時，你會有甚麼感受？當你收拾行裝、準備離開時，你又會有甚麼感受？</td></tr>
+<tr><td class="en">Moses did not just identify with God's people; he <span class="highlight">left with them</span> — fully aware of how angry it would make Pharaoh. <span class="highlight">Question: what gave him the courage</span> to risk the anger of the planet's most powerful person?</td><td class="zh">摩西不單是認同神的子民；他更「<span class="highlight">與他們一同離開</span>」——而且完全清楚這樣會何等觸怒法老。「<span class="highlight">問題是：是甚麼給了他勇氣</span>」，去冒著觸怒全地上最有權勢者的風險？</td></tr>
+<tr><td class="en">Once again the answer is the same: Moses had faith. He did not fear Pharaoh because he trusted in God's promises and <span class="highlight">God's power</span>. He knew Pharaoh was the most powerful person in the world — but he knew that God <span class="highlight">made</span> the world. And <span class="highlight">Moses did the maths!</span> He trusted that, just as rock always beats scissors, God always beats Pharaoh.</td><td class="zh">答案再一次相同：摩西有信心。他不懼怕法老，因為他信靠神的應許，也信靠「<span class="highlight">神的大能</span>」。他知道法老是世上最有權勢的人——但他知道神是「<span class="highlight">創造</span>」這世界的主。「<span class="highlight">摩西又把這筆帳算清楚了！</span>」他深信：正如剪刀永遠勝不過石頭，法老永遠也勝不過神。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Summary: faith has concrete consequences in the present</span></td><td class="zh"><span class="highlight">小結：信心在現今帶來實質的後果</span></td></tr>
+<tr><td class="en">Both Moses and his parents teach us that faith has concrete consequences in the present. It acts now, in light of God's promises and power. In particular, it <span class="highlight">trusts God's plan and chooses God's people</span> — even when it looks foolish or feels frightening.</td><td class="zh">摩西和他的父母都教導我們：信心在現今帶來實質的後果。它如今就按著神的應許與大能而行動。尤其是，它「<span class="highlight">信靠神的計劃，並揀選神的子民</span>」——即使這樣看似愚拙、令人懼怕。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Two unhelpful ideas about faith</span></td><td class="zh"><span class="highlight">兩個對信心無益的觀念</span></td></tr>
+<tr><td class="en"><span class="highlight">Unhelpful idea #1:</span> faith is a purely private or entirely intellectual thing. No! Faith acts. Moses' parents ignored Pharaoh's order; Moses gave up his privileged position and left with God's oppressed people.</td><td class="zh">「<span class="highlight">無益的觀念之一：</span>」信心只是純粹個人、或全然思想層面的事。不！信心是會行動的。摩西的父母無視法老的命令；摩西放下他尊貴的地位，與神那受壓迫的子民一同離開。</td></tr>
+<tr><td class="en"><span class="highlight">Unhelpful idea #2:</span> faith guarantees immediate material blessings. No! Faith meant that Moses missed out on material blessings. Moses had the treasures of Egypt, and faith made Moses <span class="highlight">poorer</span>. (We will think more about this next Sunday morning.)</td><td class="zh">「<span class="highlight">無益的觀念之二：</span>」信心保證帶來即時的物質祝福。不！信心反而使摩西失去了物質的祝福。摩西本擁有埃及的財寶，信心卻使摩西「<span class="highlight">變得更窮</span>」。（這一點我們下主日早上會再多想一想。）</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Sometimes big choices, often small ones</span></td><td class="zh"><span class="highlight">有時是大抉擇，更多時候是小抉擇</span></td></tr>
+<tr><td class="en">Living by faith might mean making a <span class="highlight">big choice</span>, like when Moses chose God's people over his Egyptian upbringing. But a lot of the time it is about the <span class="highlight">hundreds of smaller choices</span> we make — how we use our time, energy and money; what we prioritise. Because faith trusts God's plan and chooses God's people <span class="highlight">today</span>, even when that means missing out or being opposed.</td><td class="zh">憑信心而活，有時意味著要作一個「<span class="highlight">重大的抉擇</span>」，正如摩西揀選神的子民，而非他在埃及所受的栽培。但更多時候，是關乎我們所作的「<span class="highlight">成百個較小的抉擇</span>」——我們如何運用時間、精力和金錢；我們以甚麼為優先。因為信心「<span class="highlight">今天</span>」就信靠神的計劃、揀選神的子民，即使這意味著要有所失去、或遭人反對。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Two great dangers</span></td><td class="zh"><span class="highlight">兩個極大的危機</span></td></tr>
+<tr><td class="en">We still live at a time when living by faith can mean missing out and facing opposition. And is it not frequently our fear of those two things that tempts us to shrink from God's people, rather than stand with them?</td><td class="zh">我們仍然活在一個時代——憑信心而活，可能意味著有所失去、並面對反對。我們之所以常常受試探，想要從神的子民身邊退縮、而非與他們同站，豈不正是因為害怕這兩件事？</td></tr>
+<tr><td class="en"><span class="highlight">Danger #1: Fear Of Missing Out (FOMO).</span> Living by faith has always meant saying no to the treasures of Egypt and the pleasures of sin — living for heavenly treasure rather than earthly possessions, for God's approval rather than sin's fleeting pleasure. But we want treasure and pleasure <span class="highlight">now</span>, and we fear missing out.</td><td class="zh">「<span class="highlight">危機之一：害怕錯失（FOMO）。</span>」憑信心而活，向來意味著要向埃及的財寶、罪中的享樂說「不」——是為天上的財寶而活，而非為地上的財產；為神的喜悅而活，而非為罪中那短暫的快感。但我們想要「<span class="highlight">現在</span>」就得著財寶與享樂，於是我們害怕錯失。</td></tr>
+<tr><td class="en"><span class="highlight">Illustration — St Albans:</span> I think this is a hugely significant pressure here. All the other kids at school seem to be involved in countless clubs and sports. It feels like there is a 'St Albans lifestyle', and if you are not investing all your time and money to give it to your kids, then they are missing out. When everyone else has something or does something, you do not want to miss out.</td><td class="zh">「<span class="highlight">舉例——聖奧爾本斯（St Albans）：</span>」我認為這在我們這裏是一股極大的壓力。學校裏其他孩子，似乎都參加了數不清的興趣班和運動。彷彿真有一種「聖奧爾本斯的生活方式」，若你不投入全部時間和金錢去給你的孩子，他們就好像被比下去、錯失了甚麼。當其他人都擁有某樣東西、或做某件事，你就不想被排除在外。</td></tr>
+<tr><td class="en"><span class="highlight">Danger #2: Fear Of Being Opposed (FOBO).</span> Living by faith has always meant identifying with God's people — and throughout history, God's people have frequently been marginalised, penalised and opposed. Sometimes by command, sometimes by social pressure.</td><td class="zh">「<span class="highlight">危機之二：害怕遭人反對（FOBO）。</span>」憑信心而活，向來意味著與神的子民認同——而綜觀歷史，神的子民常常被邊緣化、被懲處、被反對。有時是藉著命令，有時是藉著社會的壓力。</td></tr>
+<tr><td class="en">Sometimes opposition comes as a policy, law or command — that is what happened with Moses' mum and dad, and many of our brothers and sisters around the world still face this. But here in the UK, I wonder whether opposition is usually <span class="highlight">less legal and more social.</span></td><td class="zh">有時反對是以政策、法律或命令的形式出現——摩西的父母當日就是這樣，世界各地許多弟兄姊妹至今仍然面對這種反對。但在英國這裏，我在想，反對通常是「<span class="highlight">較少來自法律，更多來自社會</span>」。</td></tr>
+<tr><td class="en"><span class="highlight">Examples of social pressure:</span> I still remember being in a bar with colleagues who were criticising a Christian in the news for the beliefs they had shared; they turned to me — "you're a Christian, what do you think?" I remember a lady at a previous church who was invited to a family celebration she thought was sinful; declining was very costly. Even when there is no Pharaoh-level opposition, living by faith has often led to <span class="highlight">mocking and marginalisation, ridicule and rejection</span> — by classmates or colleagues, friends or even family.</td><td class="zh">「<span class="highlight">社會壓力的例子：</span>」我仍記得有一次和同事在酒吧裏，他們正在批評一位上了新聞的基督徒，批評他所分享的信仰；然後他們轉向我——「你是基督徒，你怎麼看？」我又記得從前教會有一位姊妹，被邀請出席一個她認為帶有罪的家庭慶祝活動；婉拒的代價非常沉重。即使沒有法老那種程度的反對，憑信心而活也常常招來「<span class="highlight">譏笑與排斥、嘲弄與拒絕</span>」——來自同學或同事、朋友、甚至家人。</td></tr>
+<tr><td class="en">Becoming a Christian does not turn you into an emotionless robot who does not care about being opposed. Which means not only do we fear missing out, but we also fear being opposed.</td><td class="zh">成為基督徒，並不會把你變成一個沒有感情、毫不介意被反對的機械人。這意味著：我們不單害怕錯失，也害怕遭人反對。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">How do we do it?</span></td><td class="zh"><span class="highlight">我們可以怎樣做到？</span></td></tr>
+<tr><td class="en">Given these two great fears, what will stop us distancing ourselves from God's people? What will help us stand with them, even when it means missing out or being opposed? Well — by following in the footsteps of Moses, and <span class="highlight">focusing on God's promise and God's power.</span></td><td class="zh">面對這兩個極大的懼怕，是甚麼能攔阻我們疏遠神的子民？是甚麼能幫助我們與他們同站，即使這意味著有所失去、或遭人反對？答案是——效法摩西的腳蹤，「<span class="highlight">專注於神的應許和神的大能</span>」。</td></tr>
+<tr><td class="en"><span class="highlight">(i) Remember God's promise.</span> The treasures of St Albans and the pleasures of sin are temporary; God's promises are permanent. The Egyptians thought they could take their treasures into the afterlife — they couldn't (I've seen them in the British Museum). But we have an eternal inheritance that will never spoil or fade. Would you rather have ten pence now, or ten grand in ten minutes? Our earthly possessions are paltry compared to our eternal inheritance; sin's temporary pleasure is nothing compared with God's personal approval.</td><td class="zh">「<span class="highlight">（一）記念神的應許。</span>」聖奧爾本斯的財寶、罪中的享樂，都是短暫的；神的應許卻是永存的。埃及人以為可以把財寶帶到來生——他們做不到（我在大英博物館見過那些陪葬品）。但我們有一份永遠的基業，是永不衰殘、永不褪色的。你寧願現在拿十便士，還是十分鐘後得一萬英鎊？與我們永遠的基業相比，我們地上的財產微不足道；與神親自的悅納相比，罪中那短暫的快感算不得甚麼。</td></tr>
+<tr><td class="en"><span class="highlight">(ii) Remember God's power.</span> We, like Moses, need to remember that while the Pharaohs of this world are frightening, they are <span class="highlight">nothing compared to God.</span></td><td class="zh">「<span class="highlight">（二）記念神的大能。</span>」我們要像摩西一樣，記得：這世上的法老雖然令人懼怕，但與神相比，他們「<span class="highlight">根本算不得甚麼</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">2. Faith saves from God's judgment</span></td><td class="zh"><span class="highlight">二、信心使人脫離神的審判</span></td></tr>
+<tr><td class="en">This brings us to the second half of our passage, and the second consequence of faith Moses teaches us. As well as showing us that faith stands with God's people, he also shows us that <span class="highlight">faith saves from God's judgment.</span> Because when God judges, it is those with faith who are saved.</td><td class="zh">這帶我們來到這段經文的下半部分，以及摩西所教導我們、信心的第二個後果。除了向我們顯明信心與神的子民同站，他也向我們顯明：「<span class="highlight">信心使人脫離神的審判</span>」。因為當神施行審判時，得蒙拯救的，正是那些有信心的人。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(a) Moses kept the Passover and Israel was spared (v.28)</span></td><td class="zh"><span class="highlight">（甲）摩西守逾越節，以色列得保全（28 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"By faith he kept the Passover and the application of blood, so that the destroyer of the firstborn would not touch the firstborn of Israel." (v.28)</span></td><td class="zh"><span class="verse">「他因著信，就守逾越節，行灑血的禮，免得那滅長子的臨近以色列人。」（28 節）</span></td></tr>
+<tr><td class="en">Hebrews zooms in on the <span class="highlight">Passover</span> — one of the most dramatic and decisive events in Israel's history — when the destroyer passed through Egypt and struck down every firstborn in the land. But the firstborn Israelites survived. Why?</td><td class="zh">希伯來書聚焦於「<span class="highlight">逾越節</span>」——以色列歷史上最戲劇性、最具決定性的事件之一——當滅命者走遍埃及，擊殺全地一切的長子時，以色列人的長子卻得以存活。為甚麼？</td></tr>
+<tr><td class="en">It was not that they were much more righteous than the Egyptians. No — it was their <span class="highlight">faith</span> that saved them. God told every Israelite family to take a lamb, slaughter it, and put its blood on their doorframe, so that when the destroyer came he would 'pass over' their house. And Moses and the Israelites trusted God and did what he said. Why else would you daub blood on your doorposts? <span class="highlight">Faith saves from God's judgment.</span></td><td class="zh">這並不是因為他們比埃及人公義得多。不——拯救他們的，是他們的「<span class="highlight">信心</span>」。神吩咐每一個以色列家庭取一隻羊羔，把牠宰了，將血塗在門框上，好使滅命者經過時「越過」他們的家。摩西和以色列人信靠神，照著祂的吩咐去行。否則，有誰會把血塗在自己的門框上？「<span class="highlight">信心使人脫離神的審判</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Three further examples</span></td><td class="zh"><span class="highlight">還有三個例子</span></td></tr>
+<tr><td class="en"><span class="highlight">(b) Israel crossed the sea; the Egyptians drowned (v.29)</span></td><td class="zh"><span class="highlight">（乙）以色列過紅海；埃及人被淹沒（29 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"By faith the people passed through the Red Sea as on dry land; but when the Egyptians tried to do so, they were drowned." (v.29)</span></td><td class="zh"><span class="verse">「他們因著信，過紅海如行乾地；埃及人試著要過去，就被吞滅了。」（29 節）</span></td></tr>
+<tr><td class="en">A few days after the Passover, God saves his people one final time from Pharaoh. He parts the Red Sea so that his people pass through, then brings the waters back so that the Egyptians drown. Two groups went into the sea, but only one came out alive. <span class="highlight">Why? They had faith.</span> When God judges, it is those with faith who are saved — people of faith live when God's enemies die.</td><td class="zh">逾越節後幾天，神最後一次把祂的子民從法老手中拯救出來。祂把紅海分開，讓祂的子民走過去，然後使海水復合，讓埃及人被淹沒。兩群人都下到海中，但只有一群活著出來。「<span class="highlight">為甚麼？因為他們有信心。</span>」當神施行審判時，得蒙拯救的，是那些有信心的人——神的仇敵滅亡時，有信心的人卻得存活。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(c) The walls of Jericho fell (v.30)</span></td><td class="zh"><span class="highlight">（丙）耶利哥的城牆倒塌（30 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"By faith the walls of Jericho fell, after the army had marched round them for seven days." (v.30)</span></td><td class="zh"><span class="verse">「以色列人因著信，圍繞耶利哥城七日，城牆就倒塌了。」（30 節）</span></td></tr>
+<tr><td class="en">Four decades after the Red Sea, God acts again in judgment and wins his people a great victory over Jericho — by getting them to march round the city, in broad daylight, not once but on seven days in a row; and on the seventh day, seven times! It is a battle plan like no other in military history. Humanly speaking it makes no sense — but the Israelites trust God and do what he says. The result: <span class="highlight">they live while the people of Jericho die.</span></td><td class="zh">過紅海四十年後，神再次施行審判，為祂的子民贏得勝過耶利哥的大勝利——方法是吩咐他們繞城而行，在光天化日之下，不是一次，而是一連七日；到第七日，更繞城七次！這是軍事史上絕無僅有的作戰計劃。從人的角度看，這毫無道理——但以色列人信靠神，照著祂的吩咐去行。結果是：「<span class="highlight">他們得存活，耶利哥的人卻滅亡</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">(d) Rahab was saved when the disobedient perished (v.31)</span></td><td class="zh"><span class="highlight">（丁）喇合得救，悖逆者滅亡（31 節）</span></td></tr>
+<tr><td class="en"><span class="verse">"By faith the prostitute Rahab, because she welcomed the spies, was not killed with those who were disobedient." (v.31)</span></td><td class="zh"><span class="verse">「妓女喇合因著信，曾和和平平地接待探子，就不與那些不順從的人一同滅亡。」（31 節）</span></td></tr>
+<tr><td class="en">Unlike everyone else in Jericho, <span class="highlight">Rahab lives</span>. Why? What sets her apart? Her <span class="highlight">faith</span>. Just like Moses, she aligns herself with God's people. Her faith acts — she welcomes the spies despite the danger. And it is the right decision, because when death comes to Jericho, Rahab lives.</td><td class="zh">與耶利哥城中所有人不同，「<span class="highlight">喇合得以存活</span>」。為甚麼？是甚麼使她與別人不同？是她的「<span class="highlight">信心</span>」。她像摩西一樣，把自己歸入神的子民當中。她的信心付諸行動——縱然有危險，她仍然接待那些探子。而這是正確的決定，因為當死亡臨到耶利哥時，喇合卻活了下來。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Summary</span></td><td class="zh"><span class="highlight">小結</span></td></tr>
+<tr><td class="en">Rahab is our fourth and final proof that when God judges, it is those with faith who are saved. Do you see? <span class="highlight">Faith makes a difference.</span> It stands with God's people, and it saves from God's judgment.</td><td class="zh">喇合是我們第四個、也是最後一個證據，證明當神施行審判時，得蒙拯救的，是那些有信心的人。你看見了嗎？「<span class="highlight">信心使人不一樣</span>」。它與神的子民同站，也使人脫離神的審判。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Why this matters: Jesus' return</span></td><td class="zh"><span class="highlight">為何這事重要：耶穌的再來</span></td></tr>
+<tr><td class="en">It is really important we are aware of this — because a day is coming when Jesus will appear a second time, <span class="highlight">to judge the living and the dead.</span> And that is a good thing, because on that day justice will be done: wickedness will be exposed, wrongs will be righted, and evil will be eradicated forever. And on that day, it is those who have faith who will be saved.</td><td class="zh">我們明白這事非常重要——因為有一天，耶穌要第二次顯現，「<span class="highlight">審判活人、死人</span>」。這是一件好事，因為在那日，公義必得伸張：惡行必被揭露，冤屈必得平反，邪惡必被永遠剷除。而在那日，得蒙拯救的，正是那些有信心的人。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Apply: unconvinced about judgment</span></td><td class="zh"><span class="highlight">應用：對審判仍有懷疑的人</span></td></tr>
+<tr><td class="en">It may be that you are here this morning entirely unconvinced that judgment will ever come. Can I suggest that these examples of God's <span class="highlight">past</span> judgment give us every reason to believe in God's <span class="highlight">future</span> judgment? Because if he did it then, surely he will do it again. Jesus will come again to judge the living and the dead. But — and this is crucial — <span class="highlight">if we have faith, we need not fear that judgment,</span> because faith saves from God's judgment.</td><td class="zh">或許你今早坐在這裏，對於審判會否真的來臨，仍然完全存疑。我可否這樣提議：神「<span class="highlight">過去</span>」這些審判的例子，給了我們充分的理由去相信神「<span class="highlight">將來</span>」的審判？因為祂既然從前這樣行了，將來必然也會再行。耶穌必要再來，審判活人、死人。但是——這一點至為關鍵——「<span class="highlight">我們若有信心，就不必懼怕那審判</span>」，因為信心使人脫離神的審判。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Apply: reassurance</span></td><td class="zh"><span class="highlight">應用：深深的安慰</span></td></tr>
+<tr><td class="en">These verses are actually deeply reassuring — in much the same way that seeing your sister have an injection, or watching your dad go to the dentist, can be reassuring: they have gone through it, therefore so can I. Moses, Rahab and the rest of the Israelites show that, <span class="highlight">if we have faith, we have nothing to fear when God's judgment falls.</span></td><td class="zh">這些經文其實帶來深深的安慰——就好像看見你的妹妹打針、或看著你的爸爸去看牙醫，也可以是一種安慰：他們既然經歷過了，那麼我也能夠經歷得過。摩西、喇合，以及其餘的以色列人都顯明：「<span class="highlight">我們若有信心，當神的審判臨到時，便毫無可懼</span>」。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Apply: perseverance</span></td><td class="zh"><span class="highlight">應用：堅忍到底</span></td></tr>
+<tr><td class="en">These verses also encourage perseverance. If it is faith that saves from judgment, then a key implication is that we must <span class="highlight">persevere in faith</span> — keep trusting God's plan and choosing God's people, even when it looks foolish or feels frightening.</td><td class="zh">這些經文也激勵我們堅忍到底。既然使人脫離審判的是信心，那麼一個關鍵的含意就是：我們必須「<span class="highlight">在信心上堅忍到底</span>」——持續信靠神的計劃、揀選神的子民，即使這看似愚拙、令人懼怕。</td></tr>
+<tr><td class="en"><span class="highlight">Illustration — Japan:</span> A few weeks ago I was chatting with a friend who pastors a church in Japan. One friend, when he became a Christian and told his parents, was excommunicated and lost his inheritance. Another man had his engagement cancelled by his fiancée's father, because he wanted to pursue full-time ministry. One woman decided not to become a Christian, as she would lose the chance of marriage (so few eligible Christian men!) — but another said she chooses Christ even if it means losing out on marriage.</td><td class="zh">「<span class="highlight">舉例——日本：</span>」幾星期前，我和一位在日本牧養教會的朋友傾談。有一位弟兄，當他信主並告訴父母後，便被逐出家門、失去了繼承權。另一位弟兄，因為想全時間事奉，他未婚妻的父親取消了他們的婚約。有一位女士決定不信主，因為這樣會失去結婚的機會（合適的基督徒男士實在太少了！）——但另一位女士卻說，即使要失去婚姻的福分，她仍然揀選基督。</td></tr>
+<tr><td class="en">Were they mad to make these choices? No! They were <span class="highlight">living by faith.</span> And when Jesus returns, not only will they be saved from judgment — they will receive something far greater than the treasures and pleasures of this earthly life: <span class="highlight">an eternal inheritance from God, and everlasting rest with God.</span> And so will we, as men and women of faith.</td><td class="zh">他們作這些抉擇，是瘋了嗎？不！他們是在「<span class="highlight">憑信心而活</span>」。當耶穌再來時，他們不單脫離審判——更要得著遠勝今生地上一切財寶與享樂的：「<span class="highlight">一份從神而來、永遠的基業，以及與神同在、永遠的安息</span>」。我們這些有信心的男女，也必照樣得著。</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Faith Makes a Difference</h1>
+    <h1 class="zh">信心使人不一樣</h1>
+    <div class="subtitle">Hebrews 11:23-31 希伯來書 11 章 23 至 31 節 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"He chose to be ill-treated along with the people of God rather than to enjoy the fleeting pleasures of sin. He regarded disgrace for the sake of Christ as of greater value than the treasures of Egypt, because he was looking ahead to his reward." · 「他寧可和神的百姓同受苦害，也不願暫時享受罪中之樂。他看為基督受的凌辱比埃及的財物更寶貴，因他想望所要得的賞賜。」(Hebrews 希伯來書 11 章 25 至 26 節)</div>
+  </div>
+
+  
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>
+      Hebrews 11:23-31 takes us into the <strong>school of faith</strong>, with Moses as our mentor. The big idea is simple and bracing: <strong>faith makes a difference</strong>. Faith is not a private opinion or a merely intellectual exercise — it <em>acts</em>, with concrete consequences both now and at the end. <strong>First, faith chooses God's plan and God's people</strong>, even when it feels foolish or frightening: Moses' parents hid him in defiance of Pharaoh; the grown Moses refused the treasures of Egypt and chose mistreatment with God's people, doing the maths on an eternal reward; and he left Egypt unafraid of the king, because he saw the invisible God. Two fears tempt us to shrink back — the Fear Of Missing Out and the Fear Of Being Opposed — and the antidote is to keep remembering God's <strong>promise</strong> (eternal, not temporary) and God's <strong>power</strong> (greater than any Pharaoh). <strong>Second, faith saves from God's judgment</strong>: the Passover blood, the Red Sea, the walls of Jericho, and Rahab all show that when God judges, it is those with faith who live. This points us to the return of Jesus, who will judge the living and the dead — a day the faithful need not fear. So these verses give <strong>reassurance</strong> and call us to <strong>persevere</strong> in faith.
+    </div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>
+      希伯來書 11 章 23 至 31 節帶我們進入一所「<strong>信心的學校</strong>」，由摩西作我們的良師。中心思想簡單而有力：<strong>信心使人不一樣</strong>。信心不是個人的意見，也不只是思想上的活動——它會「<em>行動</em>」，在今生與末了都帶來實質的後果。<strong>第一，信心揀選神的計劃、神的子民</strong>，即使這看似愚拙、令人懼怕：摩西的父母違抗法老，把他藏起來；長大的摩西不肯稱為法老女兒之子，寧與神的百姓同受苦害，因他把永遠的賞賜算清楚了；他又離開埃及，不怕王怒，因他看見那不能看見的神。兩種懼怕試探我們退縮——「害怕錯失」與「害怕遭人反對」——解藥就是不斷記念神的「<strong>應許</strong>」（是永遠的，不是短暫的）和神的「<strong>大能</strong>」（勝過任何法老）。<strong>第二，信心使人脫離神的審判</strong>：逾越節的血、紅海、耶利哥的城牆、以及喇合，全都顯明：當神施行審判時，存活的是那些有信心的人。這指向耶穌的再來——祂要審判活人、死人——那是有信心的人不必懼怕的一日。所以這些經文帶來「<strong>安慰</strong>」，也呼召我們在信心上「<strong>堅忍到底</strong>」。
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📜</span> Key Scriptures 重要經文</div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 11 章 23 至 26 節 — Moses chooses God's people 摩西揀選神的子民</div>
+    <div class="verse-text">"By faith Moses' parents hid him for three months after he was born, because they saw he was no ordinary child, and they were not afraid of the king's edict. By faith Moses, when he had grown up, refused to be known as the son of Pharaoh's daughter. He chose to be ill-treated along with the people of God rather than to enjoy the fleeting pleasures of sin. He regarded disgrace for the sake of Christ as of greater value than the treasures of Egypt, because he was looking ahead to his reward."</div><br>
+    <div class="verse-text zh">「摩西生下來，他的父母見他是個俊美的孩子，就因著信，把他藏了三個月，並不怕王命。摩西因著信，長大了就不肯稱為法老女兒之子。他寧可和神的百姓同受苦害，也不願暫時享受罪中之樂。他看為基督受的凌辱比埃及的財物更寶貴，因他想望所要得的賞賜。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 11 章 27 節 — Persevering by seeing the invisible 因看見那不能看見的而忍耐</div>
+    <div class="verse-text">"By faith he left Egypt, not fearing the king's anger; he persevered because he saw him who is invisible."</div><br>
+    <div class="verse-text zh">「他因著信，就離開埃及，不怕王怒；因為他恆心忍耐，如同看見那不能看見的主。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 11 章 28 至 31 節 — Faith saves from judgment 信心使人脫離審判</div>
+    <div class="verse-text">"By faith he kept the Passover and the application of blood, so that the destroyer of the firstborn would not touch the firstborn of Israel. By faith the people passed through the Red Sea as on dry land; but when the Egyptians tried to do so, they were drowned. By faith the walls of Jericho fell, after the army had marched round them for seven days. By faith the prostitute Rahab, because she welcomed the spies, was not killed with those who were disobedient."</div><br>
+    <div class="verse-text zh">「他因著信，就守逾越節，行灑血的禮，免得那滅長子的臨近以色列人。他們因著信，過紅海如行乾地；埃及人試著要過去，就被吞滅了。以色列人因著信，圍繞耶利哥城七日，城牆就倒塌了。妓女喇合因著信，曾和和平平地接待探子，就不與那些不順從的人一同滅亡。」</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="verse-ref">2 Corinthians 哥林多後書 4 章 18 節 — Fixing eyes on the unseen 定睛在那看不見的事上</div>
+    <div class="verse-text">"So we fix our eyes not on what is seen, but on what is unseen, since what is seen is temporary, but what is unseen is eternal."</div><br>
+    <div class="verse-text zh">「原來我們不是顧念所見的，乃是顧念所不見的；因為所見的是暫時的，所不見的是永遠的。」</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">💡</span> Key Themes 主要主題</div>
+
+  <div class="summary-point"><strong>1. Faith acts — it is never merely intellectual 信心會行動——絕非只是思想上的事</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        Hebrews never describes faith as a feeling held privately in the head. Every figure in the chapter <em>does</em> something: Moses' parents hide a baby, Moses walks away from a palace, a nation walks into a sea, a city is circled, a prostitute hides spies. Real faith always has concrete consequences in the real world.
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        希伯來書從不把信心描述為一種藏在腦海裏、純屬個人的感覺。本章裏每一個人物都「<em>做了</em>」一些事：摩西的父母藏起嬰孩、摩西離開王宮、一個民族走進大海、一座城被繞行、一名妓女收藏探子。真正的信心，在現實世界裏總是帶來實質的後果。
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>2. Faith does the maths on an eternal reward 信心把永遠的賞賜算清楚</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        Twice the sermon says "Moses did the maths". He weighed the fleeting treasures and pleasures of Egypt against an eternal inheritance and God's approval — and the eternal won. Faith is not irrational; it is the truest realism, valuing what lasts forever over what lasts a moment. Ten pence now, or ten grand in ten minutes?
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        講道兩次提到「摩西把這筆帳算清楚了」。他把埃及那短暫的財寶與享樂，與永遠的基業和神的悅納放在天平上衡量——結果永遠的一邊勝出。信心並非不理性；它其實是最真實的務實，看重那存到永遠的，過於那只存片刻的。現在拿十便士，還是十分鐘後得一萬英鎊？
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>3. FOMO and FOBO: the two fears that make us shrink back 害怕錯失與害怕反對：使我們退縮的兩種懼怕</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        The Fear Of Missing Out (the "St Albans lifestyle", treasure and pleasure now) and the Fear Of Being Opposed (mocking, marginalisation, lost relationships) are the very pressures that tempt us away from God's people. Naming them is the first step to resisting them.
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        「害怕錯失」（那種「聖奧爾本斯的生活方式」、想現在就得著財寶與享樂）與「害怕遭人反對」（被譏笑、被邊緣化、失去關係），正是試探我們離開神子民的壓力。能把它們指名道出，就是抵擋它們的第一步。
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>4. Remember God's promise and God's power 記念神的應許與神的大能</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        The antidote to both fears is to keep our eyes where Moses kept his. God's promises are permanent while the treasures of this world are temporary (the Egyptians' grave-goods now sit in a museum). And God's power dwarfs every Pharaoh: rock always beats scissors; God always beats Pharaoh.
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        對付這兩種懼怕的解藥，就是把目光放在摩西所注視之處。神的應許是永存的，而這世界的財寶卻是短暫的（埃及人的陪葬品如今只擺在博物館裏）。而神的大能遠遠勝過任何法老：剪刀永遠勝不過石頭，法老永遠也勝不過神。
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-point"><strong>5. Faith saves from judgment — so do not fear that day 信心使人脫離審判——所以不必懼怕那日</strong>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        The Passover, the Red Sea, Jericho and Rahab all preach one sermon: when God judges, it is those with faith who are saved. God's past acts of judgment assure us his future judgment is real — and that, for the person of faith, judgment day is not a threat but a deep reassurance. It calls us to persevere.
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        逾越節、紅海、耶利哥、喇合，全都傳講同一篇道：當神施行審判時，得救的是有信心的人。神過去的審判作為，使我們確信祂將來的審判是真實的——而對有信心的人而言，審判之日不是威脅，而是深深的安慰。它呼召我們堅忍到底。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">❓</span> Thinking Questions 思考問題</div>
+
+  <ol class="questions">
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">The sermon insists that "faith acts" and is never "merely intellectual". Where in your life has faith recently moved from belief into a concrete action or decision?</div>
+        <div class="lang-zh">講道堅持「信心會行動」，絕不只是「思想上的事」。最近在你生命中，信心在哪一處從「相信」轉化為一個具體的行動或決定？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">Moses "did the maths" — weighing Egypt's treasures against an eternal reward. What "treasures of Egypt" are most tempting to you right now, and how does the eternal inheritance change the calculation?</div>
+        <div class="lang-zh">摩西「把這筆帳算清楚」——把埃及的財寶與永遠的賞賜放在天平上衡量。此刻，哪些「埃及的財寶」對你最具吸引力？永遠的基業又如何改變這道計算題？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">Of the two fears — Fear Of Missing Out and Fear Of Being Opposed — which one grips you more? Can you name a recent moment where it tempted you to "shrink from God's people"?</div>
+        <div class="lang-zh">在「害怕錯失」與「害怕遭人反對」這兩種懼怕之中，哪一種更牢牢抓住你？你能否指出最近一個具體時刻，它試探你去「從神的子民身邊退縮」？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">The "St Albans lifestyle" illustration touched on time, money and children's activities. Where might the surrounding culture be quietly setting your priorities rather than your faith?</div>
+        <div class="lang-zh">「聖奧爾本斯生活方式」這個例子，談到時間、金錢與孩子的活動。在哪些方面，身邊的文化可能正在悄悄為你定下優先次序，而不是你的信仰？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">Moses "saw him who is invisible" (v.27). Practically, what helps you keep God's unseen promise and power more real to you than the very visible pressures around you?</div>
+        <div class="lang-zh">摩西「如同看見那不能看見的主」（27 節）。實際而言，是甚麼幫助你，使神那看不見的應許與大能，比你周遭那些清晰可見的壓力，更為真實？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">The Passover, Red Sea, Jericho and Rahab all teach that "faith saves from God's judgment". Does the coming judgment of Jesus fill you more with fear or with reassurance — and why?</div>
+        <div class="lang-zh">逾越節、紅海、耶利哥與喇合，都教導我們「信心使人脫離神的審判」。耶穌將要來的審判，使你心中更多是懼怕，還是安慰——為甚麼？</div>
+      </div>
+    </li>
+    <li>
+      <div class="bilingual">
+        <div class="lang-en">The Japanese believers chose Christ even at the cost of inheritance, engagement or marriage. What is the costliest thing your faith has asked of you — and what kept you persevering?</div>
+        <div class="lang-zh">那些日本的信徒，即使要付上繼承權、婚約或婚姻的代價，仍然揀選基督。你的信仰曾向你索取的最沉重代價是甚麼——又是甚麼使你能堅忍到底？</div>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🛠</span> Application 生活應用</div>
+
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>
+      <ul>
+        <li><strong>Name your "Egypt".</strong> Identify one treasure or pleasure you are most afraid of missing out on. Bring it honestly to God this week and ask him to weigh it against the eternal reward.</li>
+        <li><strong>Take one small faith-choice.</strong> Faith is usually "hundreds of smaller choices". Pick one this week — how you use an evening, some money, or a conversation — and choose God's people over Egypt.</li>
+        <li><strong>Prepare for the "what do you think?" moment.</strong> Like the bar conversation, opposition often comes socially. Decide now, before the moment, how you will gently and honestly stand rather than shrink.</li>
+        <li><strong>Stand <em>with</em> God's people.</strong> Faith aligns with the church. Is there a believer being marginalised, or a part of church life you have drifted from? Step back towards God's people deliberately.</li>
+        <li><strong>Preach reassurance to yourself.</strong> When judgment or the future frightens you, rehearse the truth: faith saves from God's judgment. Let it move you from fear to perseverance.</li>
+      </ul>
+    </div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>
+      <ul>
+        <li><strong>為你的「埃及」起個名。</strong>找出一樣你最害怕錯失的財寶或享樂。本週誠實地把它帶到神面前，求祂幫你把它與永遠的賞賜放在天平上衡量。</li>
+        <li><strong>作一個小小的信心抉擇。</strong>信心通常是「成百個較小的抉擇」。本週揀一個——如何運用一個晚上、一筆金錢、或一次對話——選擇神的子民，而非埃及。</li>
+        <li><strong>預備好「你怎麼看？」的時刻。</strong>正如酒吧裏那次對話，反對往往來自社交場合。趁那一刻未到，現在就決定：你要怎樣溫柔而誠實地站穩，而非退縮。</li>
+        <li><strong>與神的子民「同站」。</strong>信心與教會認同。是否有一位弟兄姊妹正被邊緣化？或有一部分的教會生活你已漸漸疏遠？刻意地，向神的子民走回去。</li>
+        <li><strong>向自己傳講那安慰。</strong>當審判或將來使你懼怕時，反覆默想這真理：信心使人脫離神的審判。讓它帶你從懼怕走向堅忍。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>
+      <p>Father, thank you that faith makes a difference — that it is not a private opinion but a power that acts. Thank you for Moses, who saw you who are invisible, and chose your people over the treasures of Egypt. Forgive us for the times our fear of missing out, and our fear of being opposed, have made us shrink back. Help us to do the maths as Moses did: to treasure your eternal promise above this world's passing pleasures, and to trust your power above every Pharaoh. And thank you that faith saves from your judgment. As we look to the day when Jesus returns to judge the living and the dead, fill us not with fear but with reassurance — and make us a people who persevere in faith, standing with your people whatever the cost. For Jesus' sake, Amen.</p>
+    </div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>
+      <p>天父，謝謝祢，因為信心使人不一樣——它不是個人的意見，而是會行動的能力。謝謝祢賜下摩西的榜樣，他看見那不能看見的祢，並揀選祢的子民，過於埃及的財寶。求祢赦免我們，多少次因著害怕錯失、害怕遭人反對，便退縮不前。求祢幫助我們像摩西一樣把帳算清楚：看重祢永遠的應許，過於這世界轉眼即逝的享樂；信靠祢的大能，過於任何法老。也謝謝祢，因為信心使人脫離祢的審判。當我們仰望耶穌再來、審判活人死人的那一日，求祢使我們心中不是懼怕，而是安慰——並使我們成為在信心上堅忍到底的子民，無論付上甚麼代價，都與祢的子民同站。奉耶穌的名求，阿們。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+  <ul class="bibliography">
+    <li><strong>Exodus 2:1-10</strong> — the account behind verse 23: the birth and hiding of Moses, and Jochebed's faith. 第 23 節背後的記載：摩西的出生與被藏，以及約基別的信心。</li>
+    <li><strong>Exodus 12:1-32</strong> — the first Passover, the lamb's blood on the doorframe (verse 28). 第一個逾越節、塗在門框上的羊羔之血（28 節）。</li>
+    <li><strong>Joshua 2 &amp; 6</strong> — Rahab welcomes the spies and the walls of Jericho fall (verses 30-31). 喇合接待探子、耶利哥城牆倒塌（30 至 31 節）。</li>
+    <li><strong>2 Corinthians 4:16-18</strong> — fixing our eyes on the unseen and eternal rather than the seen and temporary. 定睛在那看不見、永遠的事上，而非看得見、暫時的事上。</li>
+    <li><strong>Matthew 6:19-21</strong> — storing up treasure in heaven, not on earth — "where your treasure is, there your heart will be also." 積財寶在天上，不在地上——「你的財寶在哪裏，你的心也在那裏。」</li>
+    <li><strong>Hebrews 11:32-40</strong> — next Sunday's passage: faith that conquered, and faith that suffered, still awaiting the promise. 下主日的經文：得勝的信心，與受苦的信心，仍一同等候那應許。</li>
+  </ul>
+</div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-06-07 · Source: Hebrews 11v23-31_Ridgeway.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>

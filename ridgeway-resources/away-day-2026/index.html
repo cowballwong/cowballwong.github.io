@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thematic Bible Overview: REST · 主題聖經導覽：安息</title>
+<style>
+:root {
+  --fs: 17px;
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --ink: #2d2a25;
+  --muted: #6f6a62;
+  --accent: #b25530;
+  --accent-soft: #e8d8cf;
+  --rule: #e6dfd5;
+  --quote-bg: #f3ece1;
+  --quote-bar: #b25530;
+  --banner-bg: #2d2a25;
+  --banner-ink: #faf7f2;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(45,42,37,.05);
+}
+[data-theme="night"] {
+  --bg: #15171a;
+  --card: #1d2024;
+  --ink: #ebe7df;
+  --muted: #9a9590;
+  --accent: #e9956a;
+  --accent-soft: #3a2a22;
+  --rule: #2a2d31;
+  --quote-bg: #232427;
+  --quote-bar: #e9956a;
+  --banner-bg: #0d0e10;
+  --banner-ink: #ebe7df;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--fs);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  transition: background .25s, color .25s;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 32px 22px 120px; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.topbar .brand { font-size: 14px; color: var(--muted); }
+.topbar .brand b { color: var(--ink); }
+.controls { display: flex; gap: 6px; }
+.controls button {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s, border .15s;
+}
+.controls button:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero { text-align: center; padding: 28px 0 24px; border-bottom: 1px solid var(--rule); margin-bottom: 28px; }
+.hero .eyebrow { color: var(--accent); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 8px 0 4px; line-height: 1.2; }
+.hero h1 .zh { display: block; color: var(--muted); font-size: 0.7em; font-weight: 500; margin-top: 4px; }
+.hero .meta { font-size: 14px; color: var(--muted); }
+
+h2.section { font-size: 22px; margin: 36px 0 14px; }
+h2.section .zh { color: var(--muted); font-size: 16px; margin-left: 10px; font-weight: 500; }
+
+.bil { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+.bil .en, .bil .zh { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); }
+.bil .en { border-left: 3px solid var(--accent); }
+.bil .zh { border-left: 3px solid var(--muted); }
+.bil .label { display: block; font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+@media (max-width: 640px) {
+  .bil { grid-template-columns: 1fr; }
+}
+
+.part-banner {
+  margin: 48px 0 24px;
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  border-radius: 14px;
+  padding: 22px 24px;
+  text-align: center;
+}
+.part-banner .num { color: var(--accent); font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; }
+.part-banner .en { font-size: 22px; font-weight: 600; margin-top: 6px; }
+.part-banner .zh { color: var(--accent-soft); margin-top: 4px; }
+
+.chapter {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 18px 0;
+  box-shadow: var(--shadow);
+}
+.chapter h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 10px;
+}
+.chapter h3 .num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.chapter h3 .zh { color: var(--muted); font-weight: 500; font-size: 16px; }
+.chapter h4 { font-size: 15px; margin: 18px 0 6px; color: var(--accent); }
+.chapter h4 .zh { color: var(--muted); font-weight: 500; margin-left: 6px; }
+
+blockquote.passage {
+  background: var(--quote-bg);
+  border-left: 4px solid var(--quote-bar);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.7;
+}
+blockquote.passage .ref {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.commentary p { margin: 6px 0; }
+.commentary .zh { color: var(--muted); font-size: 0.95em; }
+
+ul.tight { padding-left: 22px; margin: 8px 0; }
+ul.tight li { margin: 4px 0; }
+
+.melakhot {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 4px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0 10px;
+}
+
+.spectrum {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+.spectrum .col {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+.spectrum .col .n { font-size: 11px; color: var(--accent); letter-spacing: 0.15em; }
+.spectrum .col b { display: block; margin-top: 4px; }
+.spectrum .col .zh { color: var(--muted); font-size: 12px; margin-top: 2px; display: block; }
+@media (max-width: 640px) {
+  .spectrum { grid-template-columns: 1fr 1fr; }
+}
+
+.spectrum-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+details.transcript {
+  background: linear-gradient(180deg, var(--quote-bg) 0%, var(--card) 100%);
+  border: 1px solid var(--accent-soft);
+  border-radius: 14px;
+  padding: 0 22px;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+}
+details.transcript[open] { padding-bottom: 18px; }
+details.transcript summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+}
+details.transcript summary::-webkit-details-marker { display: none; }
+details.transcript summary::before {
+  content: "▶";
+  display: inline-block;
+  font-size: 11px;
+  transition: transform .2s;
+}
+details.transcript[open] summary::before { transform: rotate(90deg); }
+details.transcript .narrative {
+  border-top: 1px dashed var(--accent-soft);
+  padding-top: 14px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 0.97em;
+  line-height: 1.95;
+}
+details.transcript .narrative h4 {
+  color: var(--accent);
+  margin: 18px 0 6px;
+  font-size: 15px;
+}
+details.transcript .narrative blockquote {
+  border-left: 3px solid var(--quote-bar);
+  background: var(--bg);
+  padding: 8px 14px;
+  margin: 10px 0;
+  font-size: 0.95em;
+  border-radius: 0 8px 8px 0;
+}
+
+.audio-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--rule);
+  box-shadow: 0 -2px 14px rgba(0,0,0,.08);
+  padding: 8px 14px;
+  z-index: 25;
+}
+.audio-bar .inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.audio-bar .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.audio-bar .header b { color: var(--ink); }
+.audio-bar .header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.audio-bar .toggle-btn {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: inherit;
+  transition: color .15s, border-color .15s;
+}
+.audio-bar .toggle-btn:hover { color: var(--accent); border-color: var(--accent); }
+.audio-bar .toggle-btn .chev { display: inline-block; transition: transform .2s; }
+.audio-bar.collapsed .toggle-btn .chev { transform: rotate(180deg); }
+.audio-bar.collapsed .tabs,
+.audio-bar.collapsed .player,
+.audio-bar.collapsed .lang-toggle { display: none; }
+.audio-bar.collapsed { padding: 6px 14px; cursor: pointer; }
+.audio-bar.collapsed .inner { gap: 0; }
+.audio-bar .tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.audio-bar .tab {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s;
+  font-family: inherit;
+}
+.audio-bar .tab:hover { border-color: var(--accent); color: var(--ink); }
+.audio-bar .tab.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 1px 4px rgba(178,85,48,.3);
+}
+.audio-bar .tab .num { font-weight: 700; margin-right: 4px; }
+.audio-bar .tab .tab-en { display: none; margin-left: 4px; }
+.audio-bar[data-lang="en"] .tab .tab-zh { display: none; }
+.audio-bar[data-lang="en"] .tab .tab-en { display: inline; margin-left: 0; }
+
+.audio-bar .lang-toggle {
+  display: inline-flex;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+.audio-bar .lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s, color .15s;
+}
+.audio-bar .lang-btn:hover { color: var(--ink); }
+.audio-bar .lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(178,85,48,.3);
+}
+
+.audio-bar .player audio {
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+}
+.audio-bar .player .now {
+  font-size: 11px;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 640px) {
+  .audio-bar .tabs { grid-template-columns: repeat(2, 1fr); }
+  .audio-bar .tab { font-size: 11px; }
+}
+
+footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 48px; }
+hr.soft { border: none; border-top: 1px solid var(--rule); margin: 24px 0; }
+
+.transcript-body .bil { margin: 10px 0; }
+.transcript-body .bil .en, .transcript-body .bil .zh {
+  font-size: 0.94em;
+  line-height: 1.7;
+  padding: 10px 13px;
+}
+.bil-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 26px 0 8px;
+}
+.bil-head .en, .bil-head .zh {
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.bil-head .zh { background: var(--ink); letter-spacing: 0.05em; }
+[data-theme="night"] .bil-head .zh { background: var(--bg); color: var(--ink); }
+@media (max-width: 700px) {
+  .bil-head { grid-template-columns: 1fr; gap: 6px; }
+}
+.transcript-body { padding-top: 18px; border-top: 1px dashed var(--accent-soft); }
+details.transcript summary .zh-summary {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<div class="topbar">
+  <div class="brand"><b>Ridgeway · Away Day 2026</b> · Thematic Overview: REST</div>
+  <div class="controls">
+    <button id="fontMinus" title="Smaller text">A−</button>
+    <button id="fontPlus" title="Larger text">A+</button>
+    <button id="themeToggle" title="Toggle theme">🌙 Night</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Day Away · 退修日</div>
+  <h1>Thematic Bible Overview: REST<span class="zh">主題聖經導覽：安息</span></h1>
+  <p class="meta">Ridgeway Church &middot; 2026</p>
+</header>
+
+<!-- INTRODUCTION -->
+<section>
+  <h2 class="section">Introduction <span class="zh">引言</span></h2>
+
+  <div class="bil">
+    <div class="en">
+      <span class="label">Why discuss rest?</span>
+      Modern life is exhausting — work, family, the constant ping of notifications. We long for rest, yet often fail to find it.
+    </div>
+    <div class="zh">
+      <span class="label">為何討論「安息」？</span>
+      現代人的生活很疲累 — 上班、家庭、手機不停的提示音。我們渴望休息，卻往往找不到真正的安息。
+    </div>
+  </div>
+
+  <div class="bil">
+    <div class="en">
+      <span class="label">Why a Thematic Bible Overview?</span>
+      Following one theme from Genesis to Revelation reveals God's single, coherent story — and locates us within it.
+    </div>
+    <div class="zh">
+      <span class="label">為何要用主題式聖經導覽？</span>
+      由創世記跟到啟示錄一個主題，可以看見神的大圖畫；亦能讓我們明白自己今日身處於這個故事的哪一個位置。
+    </div>
+  </div>
+
+  <div class="bil">
+    <div class="en">
+      <span class="label">Map of the journey</span>
+      <ul class="tight">
+        <li><b>Old Testament:</b> 1) Creation · 2) Fall · 3) Promise · 4) Exodus · 5) Kingdom · 6) Exile</li>
+        <li><b>New Testament:</b> 7) Christ · 8) Church · 9) New Creation</li>
+      </ul>
+    </div>
+    <div class="zh">
+      <span class="label">今日的路線</span>
+      <ul class="tight">
+        <li><b>舊約：</b>1) 創造 · 2) 墮落 · 3) 應許 · 4) 出埃及 · 5) 王國 · 6) 被擄</li>
+        <li><b>新約：</b>7) 基督 · 8) 教會 · 9) 新創造</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 1 ===== -->
+<div class="part-banner">
+  <div class="num">Part 1 · 第一部分</div>
+  <div class="en">Rest in the Old Testament</div>
+  <div class="zh">舊約裡面的安息</div>
+</div>
+
+<!-- 1. CREATION -->
+<article class="chapter">
+  <h3><span class="num">1</span> Creation <span class="zh">創造</span></h3>
+  <blockquote class="passage">
+    God saw all that he had made, and it was very good. And there was evening, and there was morning — the sixth day. … By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work. Then God blessed the seventh day and made it holy, because on it he rested from all the work of creating that he had done.
+    <span class="ref">Genesis 1:31 – 2:3 · 創世記 1 章 31 節至 2 章 3 節</span>
+  </blockquote>
+  <div class="commentary">
+    <p><b>Sabbath as the climax of creation.</b> Not because God was tired, but to set a pattern: completion, sufficiency, "very good".</p>
+    <p class="zh"><b>安息是創造的頂點。</b>並不是因為神疲累，而是祂以「歇工」為這個世界蓋上「甚好」的印章。安息本身就是創造的一部分。</p>
+  </div>
+</article>
+
+<!-- 2. FALL -->
+<article class="chapter">
+  <h3><span class="num">2</span> Fall <span class="zh">墮落</span></h3>
+  <blockquote class="passage">
+    Cursed is the ground because of you; through painful toil you will eat food from it all the days of your life. … By the sweat of your brow you will eat your food until you return to the ground.
+    <span class="ref">Genesis 3:17 – 19 · 創世記 3 章 17 至 19 節</span>
+  </blockquote>
+  <div class="commentary">
+    <p>Three downward steps after the Fall:</p>
+    <ul class="tight">
+      <li><b>Restless wandering</b> — Cain</li>
+      <li><b>Oppression &amp; violence</b> — Noah's flood era</li>
+      <li><b>Slavery of Babylon</b> — Babel</li>
+    </ul>
+  </div>
+  <blockquote class="passage">
+    "Come, let's make bricks and bake them thoroughly." … "Come, let us build ourselves a city, with a tower that reaches to the heavens, so that we may make a name for ourselves."
+    <span class="ref">Genesis 11:3 – 4 · 創世記 11 章 3 至 4 節</span>
+  </blockquote>
+  <div class="commentary">
+    <p class="zh"><b>「磚」是與安息相反的記號。</b>由巴別塔開始，「燒磚等於奴役」這個符號在聖經會反覆出現。</p>
+  </div>
+</article>
+
+<!-- 3. PROMISE -->
+<article class="chapter">
+  <h3><span class="num">3</span> Promise <span class="zh">應許</span></h3>
+  <blockquote class="passage">
+    The Lord had said to Abram, "Go from your country, your people and your father's household to the land I will show you. I will make you into a great nation, and I will bless you; I will make your name great, and you will be a blessing."
+    <span class="ref">Genesis 12:1 – 2 · 創世記 12 章 1 至 2 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    "Know for certain that for four hundred years your descendants will be strangers in a country not their own and that they will be enslaved and mistreated there."
+    <span class="ref">Genesis 15:13 · 創世記 15 章 13 節</span>
+  </blockquote>
+  <div class="commentary">
+    <p>God promises Abraham a land of <b>rest</b> — but warns it will only come <b>after</b> 400 years of slavery.</p>
+    <p class="zh">神給亞伯拉罕一塊安息之地的應許，但同時預告：應許實現之前必須先經歷奴役與救贖。</p>
+  </div>
+</article>
+
+<!-- 4. EXODUS -->
+<article class="chapter">
+  <h3><span class="num">4</span> Exodus <span class="zh">出埃及</span></h3>
+
+  <h4>Slavery in Egypt — making bricks <span class="zh">埃及奴役 — 又是燒磚</span></h4>
+  <blockquote class="passage">
+    They made their lives bitter with harsh labour in brick and mortar … the Egyptians worked them ruthlessly.
+    <span class="ref">Exodus 1:14 · 出埃及記 1 章 14 節</span>
+  </blockquote>
+
+  <h4>Sabbath — Creation Rest <span class="zh">創造的安息</span></h4>
+  <blockquote class="passage">
+    "Remember the Sabbath day by keeping it holy. … For in six days the Lord made the heavens and the earth … but he rested on the seventh day."
+    <span class="ref">Exodus 20:8 – 11 · 出埃及記 20 章 8 至 11 節</span>
+  </blockquote>
+
+  <h4>Sabbath — Redemption Rest <span class="zh">救贖的安息</span></h4>
+  <blockquote class="passage">
+    "Remember that you were slaves in Egypt and that the Lord your God brought you out of there with a mighty hand … Therefore the Lord your God has commanded you to observe the Sabbath day."
+    <span class="ref">Deuteronomy 5:15 · 申命記 5 章 15 節</span>
+  </blockquote>
+
+  <h4>Sabbath for the Land <span class="zh">地土的安息</span></h4>
+  <blockquote class="passage">
+    "For six years you are to sow your fields … but during the seventh year let the land lie unplowed and unused."
+    <span class="ref">Exodus 23:10 – 11 · 出埃及記 23 章 10 至 11 節</span>
+  </blockquote>
+
+  <h4>Sign of the Covenant <span class="zh">立約的記號</span></h4>
+  <blockquote class="passage">
+    "The Israelites are to observe the Sabbath … as a lasting covenant. It will be a sign between me and the Israelites forever."
+    <span class="ref">Exodus 31:15 – 17 · 出埃及記 31 章 15 至 17 節</span>
+  </blockquote>
+
+  <h4>Sabbath Celebration — Festivals <span class="zh">節期的安息</span></h4>
+  <blockquote class="passage">
+    "These are the Lord's appointed festivals … the Lord's Passover … And on the seventh day hold a sacred assembly and do no regular work."
+    <span class="ref">Leviticus 23:4 – 8 · 利未記 23 章 4 至 8 節</span>
+  </blockquote>
+  <p class="commentary"><span class="zh">逾越節（含初熟節）、五旬節、住棚節、吹角節、贖罪日 — 全部都有安息日的元素。</span></p>
+
+  <h4>Year of Jubilee — the Super-Sabbath <span class="zh">禧年 — 超級安息日</span></h4>
+  <blockquote class="passage">
+    "Count off seven sabbath years — seven times seven years — so that the seven sabbath years amount to a period of forty-nine years … Consecrate the fiftieth year and proclaim liberty throughout the land to all its inhabitants."
+    <span class="ref">Leviticus 25:8 – 10 · 利未記 25 章 8 至 10 節</span>
+  </blockquote>
+  <p class="commentary">7 × 7 = 49 → 50th year is Jubilee — slaves freed, land returned, debts cancelled.<br>
+  <span class="zh">7 乘 7 等於 49，第 50 年就是禧年 — 奴僕得釋放、地業歸還、債務取消。</span></p>
+
+  <h4>Restless Disobedience <span class="zh">不肯安息的後果</span></h4>
+  <blockquote class="passage">
+    "For forty years I was angry with that generation … 'They shall never enter my rest.'"
+    <span class="ref">Psalm 95:10 – 11 · 詩篇 95 篇 10 至 11 節</span>
+  </blockquote>
+</article>
+
+<!-- 5. KINGDOM -->
+<article class="chapter">
+  <h3><span class="num">5</span> Kingdom <span class="zh">王國</span></h3>
+
+  <h4>David — partial rest <span class="zh">大衛 — 部分的安息</span></h4>
+  <blockquote class="passage">
+    After [King David] was settled in his palace and the Lord had given him rest from all his enemies around him …
+    <span class="ref">2 Samuel 7:1 – 2 · 撒母耳記下 7 章 1 至 2 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    For if Joshua had given them rest, God would not have spoken later about another day.
+    <span class="ref">Hebrews 4:8 · 希伯來書 4 章 8 節</span>
+  </blockquote>
+  <p class="commentary"><span class="zh">大衛得到的安息只是部分的 — 真正的安息仍未到。</span></p>
+
+  <h4>Solomon's slavery splits the kingdom <span class="zh">所羅門的徵工分裂了國家</span></h4>
+  <blockquote class="passage">
+    Here is the account of the forced labour King Solomon conscripted to build the Lord's temple, his own palace, the terraces …
+    <span class="ref">1 Kings 9:15 – 18 · 列王紀上 9 章 15 至 18 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    "Your father put a heavy yoke on us, but now lighten the harsh labour and the heavy yoke he put on us."
+    <span class="ref">1 Kings 12:4 · 列王紀上 12 章 4 節</span>
+  </blockquote>
+  <p class="commentary">The kingdom that should have <b>given</b> rest became another Egypt that <b>denied</b> it.<br>
+  <span class="zh">本應給人安息的王國，竟變成另一個埃及。</span></p>
+
+  <h4>A pattern of oppression <span class="zh">壓迫的模式延續</span></h4>
+  <blockquote class="passage">
+    "Woe to him who builds his palace by unrighteousness … making his own people work for nothing, not paying them for their labour … your eyes and your heart are set only on dishonest gain, on shedding innocent blood and on oppression and extortion."
+    <span class="ref">Jeremiah 22:13, 17 · 耶利米書 22 章 13 節及 17 節</span>
+  </blockquote>
+</article>
+
+<!-- 6. EXILE -->
+<article class="chapter">
+  <h3><span class="num">6</span> Exile <span class="zh">被擄</span></h3>
+
+  <h4>Crime — failure to rest <span class="zh">罪 — 不守安息</span></h4>
+  <blockquote class="passage">
+    "If in spite of this you still do not listen to me … I will scatter you among the nations … Then the land will enjoy its sabbath years."
+    <span class="ref">Leviticus 26:27, 33 – 35 · 利未記 26 章 27 節及 33 至 35 節</span>
+  </blockquote>
+
+  <h4>Punishment — slavery in Babylon <span class="zh">刑罰 — 巴比倫為奴</span></h4>
+  <blockquote class="passage">
+    He carried into exile to Babylon … The land enjoyed its sabbath rests; all the time of its desolation it rested, until the seventy years were completed.
+    <span class="ref">2 Chronicles 36:20 – 21 · 歷代誌下 36 章 20 至 21 節</span>
+  </blockquote>
+
+  <h4>Prophecy — forgiveness &amp; the "Super-Jubilee" <span class="zh">預言 — 超級禧年</span></h4>
+  <blockquote class="passage">
+    "Seventy 'sevens' are decreed for your people and your holy city to finish transgression, to put an end to sin, to atone for wickedness, to bring in everlasting righteousness …"
+    <span class="ref">Daniel 9:24 · 但以理書 9 章 24 節</span>
+  </blockquote>
+  <p class="commentary">70 × 7 = 490 — about 500 years to a "Super-Jubilee".<br>
+  <span class="zh">70 乘 7 等於 490 年，倒數一個超級禧年。</span></p>
+
+  <h4>Liberation <span class="zh">釋放</span></h4>
+  <blockquote class="passage">
+    "Babylon has fallen, has fallen! All the images of its gods lie shattered on the ground!"
+    <span class="ref">Isaiah 21:9 · 以賽亞書 21 章 9 節</span>
+  </blockquote>
+
+  <h4>Anti-climax — license &amp; legalism <span class="zh">反高潮 — 放縱與律法主義</span></h4>
+  <blockquote class="passage">
+    "What is this wicked thing you are doing — desecrating the Sabbath day? … Once or twice the merchants … spent the night outside Jerusalem. But I warned them … I commanded the Levites to purify themselves and go and guard the gates …"
+    <span class="ref">Nehemiah 13:17 – 22 · 尼希米記 13 章 17 至 22 節</span>
+  </blockquote>
+  <p class="commentary">Even after exile, hearts hadn't truly changed. The OT story ends waiting for someone greater.<br>
+  <span class="zh">即使被擄歸回，人心仍然未真正改變。舊約的故事以反高潮收結 — 仍在等候一位更大的救主。</span></p>
+</article>
+
+<details class="transcript" id="talk1">
+  <summary>📖 Talk 1 · Rest in the Old Testament <span class="zh-summary">第一講 · 舊約裏面的安息</span></summary>
+  <div class="transcript-body">
+<div class="bil-head"><div class="en">THEMATIC OVERVIEW: REST</div><div class="zh">主題聖經導覽：安息</div></div>
+<div class="bil"><div class="en">Introduction</div><div class="zh">引言</div></div>
+<div class="bil"><div class="en">Rest is very topical at the moment. People are tired. We live in a 24/7 interconnected world. You can always log on and check your work emails. And lots of people work from home … the workplace has invaded the home, so work is always there. The cost-of-living crisis means people feel they need to work harder to earn enough or to secure a job. And there are so many other pressures in modern life, children and all their activities, social engagements, hobbies, staying up to date with what’s going on in the news and culture.</div><div class="zh">「安息」這個題目近來十分切身。人人都疲倦。我們生活在一個 24/7 高度連繫的世界，隨時可以登入查看公司電郵；很多人在家工作，工作場所入侵了家庭，工作好像永遠擺脫不了。生活成本上升，令人覺得要更努力工作才能掙得足夠收入或保住飯碗。再加上現代生活還有許多其他壓力——子女與其活動、社交應酬、興趣愛好、追上時事與文化潮流。</div></div>
+<div class="bil"><div class="en">And the reality is that the church can add to that … there are always rotas to serve on, more things to do. Because we’re encouraged to serve, and to serve sacrificially, that can mean that serving at church starts to become a long list of more things to do.</div><div class="zh">而現實是，教會也可能加重這些重擔——總有事奉的編更，總有更多事情要做。因為我們被鼓勵要服事，並且要犧牲地服事，於是教會的服事，往往就變成了一張更長的「待辦清單」。</div></div>
+<div class="bil-head"><div class="en">People are just tired, and so it’s important to rest.</div><div class="zh">人就是這樣疲倦，所以「休息」很重要。</div></div>
+<div class="bil"><div class="en">Now that can sound very like the culture around us. Society is always telling us to look after ourselves, to set healthy boundaries, to eat healthy, to go to the gym, and to make sure we have enough me time… and there is, of course, some merit to that advice.</div><div class="zh">不過，這樣聽起來，很像我們身處的世俗文化所講。社會經常告訴我們要好好照顧自己、設定健康的界線、健康飲食、上健身房，還要確保有足夠的「自我時間」——這些建議，當然也有它一定的道理。</div></div>
+<div class="bil"><div class="en">But in the Bible, Rest is more significant. It’s not just about physical rest. And it’s not primarily about ourselves. It’s spiritual, it’s about our relationship with God. God is the source of all good things, and so he is the source of true rest … which is not inactivity, but love, peace, mercy, harmony and a good relationship with God. It’s as we go to God as the source that we are fulfilled and find rest.</div><div class="zh">但聖經所講的「安息」，意義更深。它不單只是身體的休息，也不主要是關乎我們自己。它是屬靈的，是關乎我們與神的關係。神是一切美善的源頭，所以祂也是真正安息的源頭——這安息並不是甚麼也不做，而是愛、平安、憐憫、和諧、與神有美好的關係。當我們以神為源頭去尋求祂時，我們才能得到滿足與安息。</div></div>
+<div class="bil"><div class="en">On the other hand, if we reject God. Then inevitably, we are drawn to other things. When people are seeking fulfilment in other things – comfort, security, pleasure, success – those things become idolatrous. And when people are consumed with desire for those things, they’ll do whatever it takes to get them … they can’t rest … they become slaves, driven by their desires. More than that, they become oppressive… when people are so determined to have things, that’s when we are likely to cut corners and trample on people to get their own way. There’s no rest for anyone; there’s violence and war.</div><div class="zh">反過來說，如果我們拒絕神，我們必然被其他事物吸引。當人在其他事物上尋求滿足——舒適、安全、享樂、成就——這些事物便成了偶像。當人被那些慾望牢牢抓住時，他們會不擇手段去得到——他們無法安息——他們成了奴僕，被自己的慾望驅使。不只如此，他們也會變得壓迫人——當人決心要得到一些東西時，便會走捷徑，踐踏別人去達到目的。沒有人能安息；只有暴力與爭戰。</div></div>
+<div class="bil-head"><div class="en">So rest in the Bible is very important, not a side topic; it’s right at the heart of our relationship with God. If we can’t rest, it shows that we are spiritually sick.</div><div class="zh">所以聖經中的「安息」絕不是邊緣題目，而是我們與神關係的核心。如果我們無法安息，正正顯出我們屬靈上有病。</div></div>
+<div class="bil"><div class="en">It’s a very important topic, but it can be a bit confusing. In the Old Testament, God’s people were told to keep the Sabbath, one day in seven, but in the New Testament, that doesn’t seem to be a major theme, and Christians today have different approaches. Some keep one day in seven special; they won’t shop on Sunday. Others are very relaxed. What’s the right answer, what should we do … what does rest look like today?</div><div class="zh">這個題目很重要，但也容易令人混亂。在舊約，神的子民被吩咐要守安息日——七日中的一日；但在新約，這個主題似乎不再那麼突出，今日的基督徒對這個題目也有不同的看法。有些人特別將七日中的一日分別出來——星期日不購物；有些人則很寬鬆。哪個答案才正確？我們今日應該怎樣行？「安息」在今日應該是甚麼樣子？</div></div>
+<div class="bil"><div class="en">Well, to answer that question, we are going to do a bible overview … actually, a thematic bible overview of rest. You see, whenever we have a question, we should go to the Bible to find the answer, but there are different ways to do so.</div><div class="zh">要回答這個問題，今日我們會做一個聖經導覽——更準確地說，是一個關於「安息」的主題式聖經導覽。當我們有問題的時候，固然應該翻開聖經找答案，但「找答案」可以有幾種不同的方法。</div></div>
+<div class="bil-head"><div class="en">One way is to find a few passages that deal with that topic quite thoroughly, and do a deep dive into those passages to answer the question.</div><div class="zh">第一種，是找幾段比較深入處理某個題目的經文，然後深入研讀，從中得出答案。</div></div>
+<div class="bil"><div class="en">Another approach is systematic theology. That is to survey the key passages and then to lay out the findings logically, perhaps starting with a definition, what is rest … it’s the sort of approach you’ll find in theological textbooks.</div><div class="zh">另一種，是「系統神學」——就是把所有相關的關鍵經文掃過一次，再把結論按邏輯整理出來，可能由「甚麼是安息」這個定義開始——你在神學教科書裏面所見的，多數就是這種方法。</div></div>
+<div class="bil"><div class="en">But what we are doing today is biblical theology. That’s just a fancy way of saying, tell me the story. That’s when you are thinking about a particular topic, start at the beginning of the Bible, and trace the storyline all the way to the end. You can do for the Bible story as a whole, that’s a bible overview, and you can do it for a theme, that’s a thematic bible overview. You can do it for any topic, and the advantage is that it lets us see what the Bible is saying without imposing our own framework.</div><div class="zh">但今日我們做的，叫做「聖經神學」。其實只是一個比較學術的講法，意思就是「講故事畀我聽」。當你在思考一個主題時，由聖經第一頁開始，將整條故事線一直追蹤到最後一頁。可以針對整本聖經的故事——這就是「聖經導覽」；也可以針對某一個主題——這就是「主題式聖經導覽」。任何題目都可以這樣做。它的好處，是讓我們純粹聆聽聖經自己在說甚麼，而不會強加自己的框架。</div></div>
+<div class="bil"><div class="en">Now, when you take this approach, it’s common to divide the Bible story into different sections. Different people divide the story slightly differently, but most have seven, eight or nine different sections. I’ve gone with eight, five in the Old Testament: 1) Creation, 2) Fall, 3) Promise, 3) Exodus, 4) Kingdom, 5) Exile, and three in the New Testament:  6) Christ, 7) Church, 8) New Creation. This is quite a common way to do things, and at each stage, we’ll see what we learn about rest.</div><div class="zh">當你採用這種方法時，通常會將聖經故事分成不同階段。每個人的分法略有不同，但大多數人會分為七、八，或九個階段。我選了八個——舊約五個：第一、創造；第二、墮落；第三、應許；第四、出埃及；第五、王國；第六、被擄。新約三個：第七、基督；第八、教會；第九、新創造。這是頗常見的分法。在每個階段，我們都會看一看聖經教導我們關於「安息」的甚麼。</div></div>
+<div class="bil"><div class="en">Now that’s what we are doing. If you have never done this kind of thing, I hope you’ll see that this is a great way to answer any big question – start at the beginning and trace it through.</div><div class="zh">這就是我們今日要做的事。如果你從未試過這種讀經方式，希望你能看見：要回答任何重大問題，這都是一個很好的方法——由起頭開始，順著故事線一直追下去。</div></div>
+<div class="bil"><div class="en">And it’s very good for thinking about this topic of rest, because it brings out some helpful details we might not have realised. Now, if you have flicked through the handout, you might have noticed that I’ve put quite a lot of details in there. Apologies if this seems overwhelming … we won’t get bogged down in the details, the goal is for us to pick up the overall story, but it’s easier for us to do that if we have the key verses to hand.</div><div class="zh">而對於「安息」這個題目，這方法尤其有用，因為它會帶出一些我們未必留意過的細節。如果你翻過手上的講義，可能已經發覺我放了不少資料在裏面。如果看起來有點吃力，請見諒——我們不會迷失在細節裡，目標是抓住整個大故事；只是有了關鍵經文在手，會比較容易做到。</div></div>
+<div class="bil-head"><div class="en">So without any further ado … let’s get started.</div><div class="zh">那麼，閒話休提，我們開始。</div></div>
+<div class="bil-head"><div class="en">1.  CREATION</div><div class="zh">一、創造</div></div>
+<div class="bil-head"><div class="en">The story of rest starts with creation. Right at the beginning, God worked, and God rested. Look with me at Genesis 1;31:</div><div class="zh">關於「安息」的故事，由創造開始。最起初，神工作，然後神安息。請與我一同看創世記 1 章 31 節：</div></div>
+<div class="bil"><div class="en">31 God saw all that he had made, and it was very good. And there was evening, and there was morning—the sixth day. 2 Thus the heavens and the earth were completed in all their vast array. 2 By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work. 3 Then God blessed the seventh day and made it holy, because on it he rested from all the work of creating that he had done.</div><div class="zh">「神看着一切所造的都甚好，有晚上、有早晨，是第六日。天地萬物都造齊了。到第七日，神造物的工已經完畢，就在第七日歇了祂一切的工，安息了。神賜福給第七日，定為聖日，因為在這日，神歇了祂一切創造的工，就安息了。」</div></div>
+<div class="bil"><div class="en">We see here that God worked. Work is not a bad thing; it is a good thing. God is a God who invents and creates things. He’s made us in his image, and so we work too. Work was originally designed to be good. But after God had worked, he rested. Now can’t be because God is tired. After all, God is an eternal God; he doesn’t have a body that can get tired in the first place. So what does it mean for God to rest?</div><div class="zh">我們在這裏看到——神工作。工作不是壞事，工作本身是好的。神是一位發明、創造的神。祂按祂的形象造了我們，所以我們也工作。工作起初被設計為美好的事。但神工作之後，祂安息了。這並不是因為神疲倦——畢竟祂是永恆的神，祂沒有會疲倦的身體。那麼神安息又是甚麼意思呢？</div></div>
+<div class="bil"><div class="en">Well, rest is about the relationship. God stops working to enjoy what he has made. We see that in chapter three, where we are told that God used to come to walk in the Garden of Eden with Adam and Eve. The rest is relationship rest. This, you might say, is the goal, or the purpose of creation. The purpose of creation wasn’t for God to just relentlessly keep doing and doing and doing … but to be, to enjoy what he has made.</div><div class="zh">「安息」是關乎關係的。神停下祂的工，去享受祂所造的一切。我們在第三章看到，神曾與亞當夏娃在伊甸園中同行。這個安息，是「關係的安息」。你可以說，這正是創造的目標、創造的目的——並不是要神不停地做、做、做，而是要去「存在」、去享受祂所造的一切。</div></div>
+<div class="bil"><div class="en">So too our purpose in life is not to do things, but to be, most of all to be in the relationship with god who made us.  That’s how God made the world, but sadly, it didn’t stay like this for very long. Before long, there was the fall … Adam and Eve turned from god and went their own way.</div><div class="zh">同樣地，我們人生的目的，不單是去做事，而是去「存在」——最重要的，是與創造我們的那位神同在。這是神對世界的設計。但很可惜，事情並沒有維持很久。不久之後，便發生了「墮落」——亞當夏娃從神面前轉身，走自己的路。</div></div>
+<div class="bil-head"><div class="en">FALL</div><div class="zh">二、墮落</div></div>
+<div class="bil"><div class="en">Look with me at verse seventeen: 17 To Adam he said, “Because you listened to your wife and ate fruit from the tree about which I commanded you, ‘You must not eat from it,’</div><div class="zh">請看第十七節：「神又對亞當說：『你既聽從妻子的話，吃了我所吩咐你不可吃的那樹上的果子，地必為你的緣故受咒詛；你必終身勞苦，才能從地裏得吃的。地必給你長出荊棘和蒺藜來，你也要吃田間的菜蔬。你必汗流滿面才得糊口，直到你歸回了土，因為你是從土而出的。你本是塵土，仍要歸於塵土。』」</div></div>
+<div class="bil"><div class="en">“Cursed is the ground because of you;<br>    through painful toil you will eat food from it<br>    all the days of your life.<br>18 It will produce thorns and thistles for you,<br>    and you will eat the plants of the field.<br>19 By the sweat of your brow you will eat your food<br>until you return to the ground,<br>    since from it you were taken;<br>for dust you are and to dust you will return</div><div class="zh">突然之間，一切都改變了。人類沒有與神保持愛的關係，反倒背叛祂，選擇了魔鬼一邊，與神為敵。伊甸園的和諧破滅，他們開始彼此責備、彼此爭吵。</div></div>
+<div class="bil"><div class="en">Suddenly, everything changed. Instead of being in a loving relationship with God, humanity rebelled against him, and sided with the devil, and became his enemies. The harmony of the Garden of Eden was broken, and they started blaming and arguing with each other.</div><div class="zh">神必須懲罰他們——他們犯了叛國罪，要受叛國之罰，就是死刑——他們被定了死罪。但因為他們拒絕了神的安息，所以他們也被定了痛苦勞碌之罰。他們既然不肯接受伊甸園裏和諧的安息，便被趕出伊甸園。在園外，生活與工作會變得艱難，安息也大大減少。</div></div>
+<div class="bil"><div class="en">God had to punish them … which was treason; they had to face the punishment for treason, which is the death penalty; they were condemned to die. But because they had rejected God’s rest, they are also condemned to painful work. They wouldn’t accept harmony&#x27;s rest in the Garden of Eden, so they were cast out of Eden, where life and work would be difficult, and where there wouldn’t be much rest.</div><div class="zh">所以重要的是要明白：我們所感受到的疲倦，部分是來自神——神將人類趕離祂的同在、趕出伊甸園，所以人生永遠不會完全輕鬆。即使你樣樣做得正確，這個世界仍然會有疲憊，因為我們在伊甸園以外，活在咒詛之下。但聖經告訴我們，神這樣做有美善的用意——就是要讓我們醒覺過來——以痛楚的方式提醒我們：罪是不對的。</div></div>
+<div class="bil"><div class="en">So it’s important to realise that part of the tiredness we have comes from God … God has sent humanity out of his presence, out of Eden, so life is never going to be completely easy. Even if do everything right, there will still be exhaustion in this world, because we are out of Eden and under a curse. And the Bible shows us that God did this with good intentions, to bring us to our senses … a painful reminder that sin is wrong.</div><div class="zh">這聽起來可能還不太糟，但如果你讀過創世記頭幾章，你就知道事情很快變得更壞。爭吵變成謀殺。該隱殺了亞伯，被定為「在地上流離飄盪」。但比這更壞的還在後頭——暴力與拜偶像不斷蔓延，到了第六章，神便宣告：「人終日所思想的盡都是惡。」因為世界變得如此壓迫與不公義，神便降下洪水，重新洗白一切，並且救了挪亞。但即使如此，惡仍繼續敗壞世界。</div></div>
+<div class="bil-head"><div class="en">Now that might not sound so bad, but if you have read the opening chapters of Genesis, you know that things quickly escalate from there. Arguments turn to murder. Cain kills his brother Abel and is condemned to be a restless wanderer on the earth. But things get even worse than that … violence and idolatry continue and continue, until in chapter five we are told in chapter six that every inclination was evil all the time. Because the world was so oppressive and unjust, God sent the flood to wipe the slate clean … and he rescued Noah … but even then … evil continued to ruin the world.</div><div class="zh">到第十一章，是巴別塔的故事——「巴別」其實就是「巴比倫」的另一個名字。他們的目標，是為自己「傳揚名聲」：</div></div>
+<div class="bil"><div class="en">In chapter eleven, we have the story of the Tower of Babel, which is just another name for Babylon. Their goal is to build a name for themselves …</div><div class="zh">「他們彼此商量說：『來吧，我們要做磚，把磚燒透了。』他們就拿磚當石頭，又拿石漆當灰泥。他們說：『來吧，我們要建造一座城和一座塔，塔頂通天，為要傳揚我們的名，免得我們分散在全地上。』」</div></div>
+<div class="bil"><div class="en">They said to each other, “Come, let’s make bricks and bake them thoroughly.” They used brick instead of stone, and tar for mortar. 4 Then they said, “Come, let us build ourselves a city, with a tower that reaches to the heavens, so that we may make a name for ourselves; otherwise we will be scattered over the face of the whole earth.”</div><div class="zh">很明顯，這個工程不只是宏大，更是拜偶像。他們大量造磚，要建第一座摩天大樓——巴比倫塔。這聽起來，跟今日的人毫無分別——人因為野心要建最高的樓、做最大的公司、賺最多的錢。當人類被這種野心驅動時，工作必然變成奴役，社會必然變得壓迫。在聖經接下來的章節裏，「巴比倫」就成了這種壓迫制度的象徵。</div></div>
+<div class="bil-head"><div class="en">It’s clear that this project is not just ambitious, but idolatrous. They are making massive amounts of bricks to make the first skyscraper, the Tower of Babylon… sounds just like people today, who are driven by their ambition to build the tallest tower, or the biggest company, or earn the most money. When humanity is driven by ambition like this … inevitably work becomes slavery, and society becomes oppressive, and that is what Babylon becomes symbolic of in the rest of the bible. Now, as the whole world becomes engrossed in this race to build cities … God calls one man to leave a city.</div><div class="zh">然而，當整個世界都瘋狂地追求建造城市時，神呼召一個人——離開那座城。</div></div>
+<div class="bil-head"><div class="en">PROMISE</div><div class="zh">三、應許</div></div>
+<div class="bil"><div class="en">He calls Abraham … look with me at chapter 12:1-2: The Lord had said to Abram, “Go from your country, your people and your father’s household to the land I will show you. 2 “I will make you into a great nation and I will bless you; I will make your name great, and you will be a blessing.</div><div class="zh">祂呼召亞伯拉罕。請看 12 章 1 至 2 節：「耶和華對亞伯蘭說：『你要離開本地、本族、父家，往我所要指示你的地去。我必叫你成為大國，我必賜福給你，叫你的名為大；你也要叫別人得福。』」</div></div>
+<div class="bil"><div class="en">God promised to make Abraham into a great nation, to give him a land and to bless him. So Abraham left Ur, a big city, to go to a far-off land that was unimpressive … but a land that would be a place of rest. Now it doesn’t explicitly say rest in these verses; it says blessing, but that’s part of blessing, rest in God. And in other parts of the Bible, as we’ll see, we are told that this land is meant to be a land of rest.</div><div class="zh">神應許要使亞伯拉罕成為大國，賜他一塊地，並賜福給他。於是亞伯拉罕離開了大城市吾珥，前往一塊看似毫不起眼、卻將會成為「安息之地」的遙遠之地。這幾節經文沒有用「安息」這個字，只用「賜福」；但「安息」其實是「賜福」的一部分——在神裏面的安息。聖經其他地方亦會提及，這塊地確實被命定為「安息之地」。</div></div>
+<div class="bil"><div class="en">And so Abraham believes God and trusts him to leave the big city of Ur and go to the promised land, where God says he will guide him. Now God takes him to the promised land … and he has a son called Jacob, and Jacob has a son called Joseph … and Joseph, as you know, was the son with the fancy coat, who was sold to Egypt.</div><div class="zh">於是亞伯拉罕信神、信靠祂，離開了大城吾珥，前往應許之地，由神親自帶領。神帶他到應許之地，他生了一個兒子叫雅各，雅各又生了約瑟——約瑟，就是那個有彩衣、被賣到埃及的兒子。</div></div>
+<div class="bil"><div class="en">Now, all this time, God was working his perfect plan to use Joseph to rescue his people from a terrible famine that was coming, so he had deliberately sent Joseph there in advance. And at the same time, God knew that eventually, his people would be enslaved in Egypt. That wasn’t a mistake, that wasn’t a failure; it was God deliberately at work.</div><div class="zh">在那段日子裏，神一直在執行祂完美的計劃——要藉約瑟在饑荒臨到之前先一步預備，拯救祂的子民。同時，神也清楚知道，祂的子民最終會在埃及作奴隸。那不是失誤，也不是失敗，那是神蓄意安排的工。</div></div>
+<div class="bil-head"><div class="en">Then the Lord said to him, “Know for certain that for four hundred years your descendants will be strangers in a country not their own and that they will be enslaved and mistreated there.”</div><div class="zh">「耶和華對亞伯蘭說：『你要的確知道，你的後裔必寄居別人的地，又服事那地的人；那地的人要苦待他們四百年。』」</div></div>
+<div class="bil-head"><div class="en">And so they went to Egypt … God knew everything that would happen. And in Egypt, they did indeed become slaves, but this was all part of God’s plan to rescue his people.</div><div class="zh">於是他們去了埃及——神早已知道一切將要發生的事。在埃及，他們果然成了奴隸。但這一切，都是神拯救祂子民計劃的一部分。</div></div>
+<div class="bil-head"><div class="en">4	EXODUS</div><div class="zh">四、出埃及</div></div>
+<div class="bil-head"><div class="en">This is like what we had already seen at Babel, Babylon, slavery, and making bricks for building projects:</div><div class="zh">這就重複了我們在巴別、巴比倫所看見的圖畫——奴役、做磚、建造工程：</div></div>
+<div class="bil"><div class="en">They made their lives bitter with harsh labour in brick and mortar and with all kinds of work in the fields; in all their harsh labour, the Egyptians worked them ruthlessly.</div><div class="zh">「埃及人嚴嚴的使以色列人作工，使他們因作苦工覺得命苦；無論是和泥、是作磚、是作田間各樣的工，在一切的工上都嚴嚴的待他們。」</div></div>
+<div class="bil"><div class="en">There they were ruthlessly worked by the Egyptians, in bondage to them. Egypt was like another kind of Babylon. But God by his great hand rescued them through Moses … he sent the ten plagues, he destroyed Pharaoh&#x27;s army in the Red Sea, and he brought them to Mount Sinai.</div><div class="zh">埃及人狠狠地驅使他們，使他們成為奴僕。埃及就像另一個巴比倫。但神以祂大能的手藉摩西拯救他們——降下十災，在紅海毀滅法老的軍隊，將他們帶到西奈山。</div></div>
+<div class="bil-head"><div class="en">Now at Mount Sinai, God made a covenant with them. Almost like a wedding promise. He promised to look after and care for them. And the people promised to live God’s way.</div><div class="zh">在西奈山，神與他們立約——幾乎像一個婚約一樣。神應許要看顧他們、眷愛他們；百姓也應許要按神的方式生活。</div></div>
+<div class="bil"><div class="en">This wasn’t living God’s way to earn their way into heaven. Sometimes people have the mistaken idea that in the Old Testament, they did the right thing to get into heaven; that’s not true. They were rescued from their old way of living to live for God.</div><div class="zh">這不是靠遵守律法去掙取進入天國的門票。有時人有一個錯誤的想法，以為舊約的人是靠做對事情來換取得救——這是不真實的。他們其實是被神拯救出來，脫離舊有的生活方式，從此為神而活。</div></div>
+<div class="bil-head"><div class="en">It’s the same today; we can’t earn our way into heaven. No, we’ve been rescued, and once we&#x27;re rescued, we are required to follow God’s way.</div><div class="zh">今日也是一樣——我們不能靠自己賺取進入天國的門票。不能。我們是被拯救的，而被拯救之後，我們要按神的方式生活。</div></div>
+<div class="bil-head"><div class="en">Now, in the Old Testament… they didn’t have the Holy Spirit… instead, they had God’s law. And God’s law required that they should rest.</div><div class="zh">在舊約時代，他們沒有聖靈，只有神的律法。而神的律法要求他們要安息。</div></div>
+<div class="bil-head"><div class="en">This was the fourth of the commandments:</div><div class="zh">第四條誡命這樣說：</div></div>
+<div class="bil"><div class="en">8 “Remember the Sabbath day by keeping it holy. 9 Six days you shall labour and do all your work, 10 but the seventh day is a sabbath to the Lord your God … For in six days the Lord made the heavens and the earth, the sea, and all that is in them, but he rested on the seventh day.</div><div class="zh">「當記念安息日，守為聖日。六日要勞碌作你一切的工，但第七日是向耶和華你神當守的安息日……因為六日之內，耶和華造天、地、海，和其中的萬物，第七日便安息。」</div></div>
+<div class="bil"><div class="en">Creation rest: Do you see the rationale… God is one who rests, and you are now his people; you shouldn’t be like the nations around you; you should rest like God. This is a creation pattern.</div><div class="zh">「創造的安息」——你看見當中的根據了嗎？神是一位安息的神，而你現在是祂的子民，你不要像你周圍的列邦——你應該像神那樣安息。這是一個「創造的模式」。</div></div>
+<div class="bil"><div class="en">So this creation pattern is one of the reasons. The other reason is redemption rest; we see this in Deuteronomy, where the Ten Commandments are restated, but a different reason is given for the Sabbath …</div><div class="zh">這是其中一個原因。另一個原因是「救贖的安息」。我們在申命記裏看到這一點——十誡在那裏被重新述說，但卻給安息日提出了不同的理由：</div></div>
+<div class="bil"><div class="en">Remember that you were slaves in Egypt and that the Lord your God brought you out of there with a mighty hand and an outstretched arm. Therefore the Lord your God has commanded you to observe the Sabbath day.</div><div class="zh">「你也要記念你在埃及地作過奴僕；耶和華你神用大能的手和伸出來的膀臂將你從那裏領出來。因此，耶和華你的神吩咐你守安息日。」</div></div>
+<div class="bil"><div class="en">Redemption rest: this is redemption risk … they were slaves in Egypt, but now God had rescued them, so they were not to live like slaves any more. They had been redeemed.</div><div class="zh">「救贖的安息」——這是救贖的記念。他們從前在埃及作奴隸，現在被神拯救出來——所以他們不要再像奴隸般生活。他們已經被贖回了。</div></div>
+<div class="bil-head"><div class="en">So the Sabbath is tied to two big reasons: God rested, and it’s a creation pattern. And God saved you, you are free, so don’t act as slaves.</div><div class="zh">所以安息日承擔著兩個重大原因：神安息了——這是創造的模式；神救了你——你是自由人，不要再像奴隸般生活。</div></div>
+<div class="bil"><div class="en">It was in the Ten Commandments, so they had to do it, but actually, because this idea of rest for God’s people was SO vital, there was quite a lot of else that Moses taught the people about rest …</div><div class="zh">這是十誡的一部分，所以他們必須遵守。但其實，因為「神子民的安息」這個觀念是如此重要，摩西還教導百姓許多其他關於安息的事。</div></div>
+<div class="bil"><div class="en">Such as sabbath rest for the land: “For six years you are to sow your fields and harvest the crops, 11 but during the seventh year let the land lie unplowed and unused. Then the poor among your people may get food from it, and the wild animals may eat what is left. Do the same with your vineyard and your olive grove.</div><div class="zh">譬如「地土的安息」：「六年你要耕種田地，收藏土產，只是第七年要叫地歇息，不耕不種，使你民中的窮人有吃的；他們所剩下的，野獸可以吃。你的葡萄園和橄欖園，也要照樣辦理。」</div></div>
+<div class="bil"><div class="en">This is good farm practice; if you plant the same crop in the same field year after year, it leeches out the nutrients. And so every seven years, there was meant to be a sabbath rest for the land. Because God’s people were not to always be chasing getting more, they were to practice restraint and even give the land a chance to rest.</div><div class="zh">這也是優良的耕作原則——年復年在同一塊田裏種同一種作物，土地會枯竭。所以每七年，田地要有一個安息。神的子民不應該不停追求更多——他們要操練節制，甚至讓地土也能歇息。</div></div>
+<div class="bil-head"><div class="en">And because this was so important, Moses described it as a sign:</div><div class="zh">而因為這樣重要，摩西將安息日描述為一個「記號」：</div></div>
+<div class="bil"><div class="en">15 For six days work is to be done, but the seventh day is a day of sabbath rest, holy to the Lord. Whoever does any work on the Sabbath day is to be put to death. 16 The Israelites are to observe the Sabbath, celebrating it for the generations to come as a lasting covenant. 17 It will be a sign between me and the Israelites forever, for in six days the Lord made the heavens and the earth, and on the seventh day he rested and was refreshed.’”</div><div class="zh">「六日要做工，但第七日是安息聖日，是向耶和華守為聖的；凡在安息日做工的，必要把他治死。故此，以色列人要世世代代守安息日為永遠的約。這是我和以色列人永遠的證據；因為六日之內耶和華造天地，第七日便安歇舒暢。」</div></div>
+<div class="bil"><div class="en">Sabbath was so important that breaking the sabbath carried a death penalty. Now that might seem rather extreme … why would working on the Sabbath be such a big deal? The reason is that it was a sign of the covenant. God had rescued them from slavery and brought them to the promised land. To work all the time would be to return to slavery, and to return to the rebellion of Eden.</div><div class="zh">安息日是如此重要，以致違反安息日要被治死。可能你會覺得這太過嚴苛——為何在安息日做工，就是這麼嚴重的事？因為這是「立約的記號」。神將他們從奴役中救出來，帶他們進入應許之地。如果他們不停工作，就等於回去做奴隸，等於重蹈伊甸園的悖逆。</div></div>
+<div class="bil"><div class="en">So Sabbath was meant to be taken seriously by every individual, but it also had a communal aspect. Because every Sabbath, they would rest, enjoy time together, and spend time with God together. And you see that in the other celebrations that were part of the Jewish calendar.</div><div class="zh">所以安息日不只是個人要認真守，它也有「群體的層面」——每個安息日，他們會一同休息、一同享受時光、一同與神親近。我們也能在猶太曆其他節期看到這一點：</div></div>
+<div class="bil-head"><div class="en">4 “‘These are the Lord’s appointed festivals … The Lord’s Passover … For seven days present a food offering to the Lord. And on the seventh day hold a sacred assembly and do no regular work.”</div><div class="zh">「耶和華的節期，你們要宣告為聖會的，乃是我的節期……七月初一日，你們要守為聖安息日，要吹角作紀念，當有聖會。」</div></div>
+<div class="bil"><div class="en">Now this passage mentions Passover, but the rest of the chapter mentions all the other festivals (&amp; Firstfruits), Pentecost, Tabernacles, Trumpets, and Day of Atonement. Now we don’t have time to go into all of these … but these were all holidays where no work was allowed, so they were special sabbaths. And some of them were extended holidays. Three times a year, at Passover, Pentecost, and Tabernacles, God’s people were meant to travel to Jerusalem to have a week-long Sabbath. Each of these was after a different harvest, so people had just been working hard, and it was time to rest, feast, and worship. So there was this community aspect to sabbath rest. And there was also a justice aspect to rest. True sabbath rest meant peace and care for one another.</div><div class="zh">這段提到逾越節，但本章還提到許多其他節期——初熟節、五旬節、住棚節、吹角節、贖罪日。我們今日無法逐一講解，但所有這些都是不可作工的假期，所以全部都是「特別的安息日」。其中有些更是延長假期——一年三次，在逾越節、五旬節、住棚節，神的子民要上耶路撒冷度過一個一星期長的安息。每一次都是在某個收成之後——他們剛剛努力工作了一段日子，是時候休息、宴樂、敬拜。所以安息日是有「群體層面」的；它也有「公義層面」——真正的安息日意味著彼此和睦、彼此眷顧。</div></div>
+<div class="bil"><div class="en">“‘Count off seven sabbath years—seven times seven years—so that the seven sabbath years amount to a period of forty-nine years. 9 Then have the trumpet sounded everywhere on the tenth day of the seventh month; on the Day of Atonement sound the trumpet throughout your land. 10 Consecrate the fiftieth year and proclaim liberty throughout the land to all its inhabitants. It shall be a jubilee for you; each of you is to return to your family property and to your own clan.</div><div class="zh">「你要計算七個安息年，就是七七年；這便為你成了七個安息年，共是四十九年。當年七月初十日，你要大發角聲；這日就是贖罪日，要在遍地發出角聲。第五十年，你們要當作聖年，在遍地給一切的居民宣告自由。這年必為你們的禧年，各人要歸自己的產業，各歸本家。」</div></div>
+<div class="bil"><div class="en">So every seventh year was meant to be a rest year for the land, but after seven times seven years, that’s forty-nine, the fiftieth year was a jubilee year. So all of the land sold on long-term lease went back to the original owners. And all of the people who had put themselves under contract to work for someone else were released. This happened on the day of atonement, the holiest day of the calendar. Now, this system was important because it prevented people from buying up all the land and creating a system with some mega-wealthy people and some destitute people. After fifty years, all the land reverted to its original powers.</div><div class="zh">每七年是地土的安息年；而七乘七等於四十九，第五十年就是「禧年」。所有以長期租約賣出的田地，都歸還給原本的擁有者；所有將自己賣身為僕的人，都得釋放。這發生在贖罪日——一年中最神聖的一日。這個制度非常重要，因為它防止有人壟斷所有土地，造成極富者與赤貧者並存的社會。每五十年，所有土地就會回到原來的擁有者手中。</div></div>
+<div class="bil"><div class="en">So hopefully when we put all those things together showed that after the people of israel came out of Egypt, moses laid the blueprint for what their new society should be like … and sabbath was a really key part of that … not just resting one day in seven, but rest for the land, a sign of God’s relationship with his people, a celebratory aspect to it, and a social justice aspect to it.</div><div class="zh">希望將這些放在一起後，我們看見：以色列人離開埃及之後，摩西為他們新的社會立下了藍圖——而「安息」是其中極關鍵的一塊：不只是七日中休一日，也包括地土的安息、神與祂子民立約的記號、慶典的層面、社會公義的層面。</div></div>
+<div class="bil"><div class="en">And it comes back to this idea, that if you turn from God, you end up chasing idols. And if you chase idols, you are driven by your personal desires … that means you can’t rest, and you use and abuse the resources, like the land, and you use and abuse the people around you, they are all expendable. But when you come to God as you should, and rest in him, then you can live in harmony and celebrate life together.</div><div class="zh">這又回到我們之前的觀念——如果你轉離神，你必然追逐偶像；如果你追逐偶像，你便被自己的慾望驅使——這意味著你無法安息，你會利用、濫用資源（譬如地土），也會利用、濫用身邊的人——他們對你而言都是可丟棄的。但當你正確地來到神面前，在祂裏面安息時，你便能夠彼此和睦地生活，並一同慶祝生命。</div></div>
+<div class="bil"><div class="en">That was the blueprint for Israelite society, but sadly, it never worked out. The first generation who had seen the miracles in Egypt rebelled against God and turned from him. Writing years later, David wrote of them in Psalm 95, a very famous psalm.</div><div class="zh">這便是以色列社會的藍圖。但很可惜，從來沒有真正實現。第一代見過埃及神蹟的人，背叛神、轉離祂。多年之後，大衛在詩篇 95 篇——一首非常著名的詩篇——這樣描寫他們：</div></div>
+<div class="bil"><div class="en">10 For forty years I was angry with that generation; I said, ‘They are a people whose hearts go astray, and they have not known my ways.’ 11 So I declared on oath in my anger, ‘They shall never enter my rest.’</div><div class="zh">「四十年之久，我厭煩那世代，說：『這是心裏迷糊的百姓，竟不曉得我的作為。』所以我在怒中起誓，說：『他們斷不可進入我的安息！』」</div></div>
+<div class="bil"><div class="en">They were meant to enter the promised land, which was symbolic of rest … but they never did, because they rejected God and turned from him. And from there, things continued to go badly.</div><div class="zh">他們本應進入應許之地——那地就是「安息」的象徵——但他們沒有進入，因為他們拒絕神、轉離祂。從那時起，事情繼續往不好的方向走。</div></div>
+<div class="bil-head"><div class="en">5 	kINGDOM</div><div class="zh">五、王國</div></div>
+<div class="bil"><div class="en">Now, they did make it into the promised land under Joshua, and eventually, they became a kingdom, the kingdom of Israel. But there was never real rest. At best, there was partial rest. Even Joshua, one of the greatest leaders, wasn’t able to give them rest; that’s why Hebrews says:</div><div class="zh">雖然他們最終在約書亞帶領下進入應許之地，並且建立了「以色列王國」，但他們從來沒有得到真正的安息。最多只是部分的安息。即使是約書亞，這位偉大的領袖，也未能給他們安息。所以希伯來書這樣說：</div></div>
+<div class="bil-head"><div class="en">For if Joshua had given them rest, God would not have spoken later about another day.</div><div class="zh">「若是約書亞已叫他們享了安息，後來神就不再提別的日子了。」</div></div>
+<div class="bil"><div class="en">The point is that Joshua was a great military leader who brought them into the land and gave them some rest from their enemies, but of course, it wasn’t complete rest, because the prophets still spoke of rest to come.</div><div class="zh">意思是：約書亞是一位偉大的軍事領袖，將他們帶入應許之地，使他們從仇敵手中得到一些安息。但這當然不是完全的安息——因為先知後來仍然在預言「將要來的安息」。</div></div>
+<div class="bil-head"><div class="en">Similarly, King David was a great military leader, and gave them some partial rest in the land from enemies:</div><div class="zh">同樣，大衛王也是一位偉大的軍事領袖，使百姓在應許之地得到從仇敵而來的部分安息：</div></div>
+<div class="bil"><div class="en">7 After [King David] was settled in his palace and the Lord had given him rest from all his enemies around him, 2 he said to Nathan the prophet, “Here I am, living in a house of cedar, while the ark of God remains in a tent.”</div><div class="zh">「王住在自己宮中，耶和華使他安靜，不被四圍的仇敵擾亂。王對先知拿單說：『看哪，我住在香柏木的宮中，神的約櫃反在幔子裏。』」</div></div>
+<div class="bil-head"><div class="en">David defeated enemies, established the kingdom, built up Jerusalem and wanted to build a temple … but it was just a partial time of peace and rest.</div><div class="zh">大衛擊敗仇敵、堅立王國、建立耶路撒冷，並渴望建造聖殿——但這也只是「部分的太平與安息」。</div></div>
+<div class="bil"><div class="en">And it didn’t last long. His son Solomon, who started well as the wisest man on earth, made many mistakes. We tend to talk about the hundreds of wives he had that led his heart astray. But the thing that split the kingdom was his building projects.</div><div class="zh">而且為時不久。他的兒子所羅門起初是地上最有智慧的人，但犯了許多錯誤。我們經常講他那幾百個妻子如何引誘他的心離棄神。但真正令國家分裂的，其實是他的「建造工程」。</div></div>
+<div class="bil"><div class="en">15 Here is the account of the forced labour King Solomon conscripted to build the Lord’s temple, his own palace, the terraces, the wall of Jerusalem, and Hazor, Megiddo and Gezer … Lower Beth Horon, 18 Baalath, and Tadmor in the desert … as well as all his store cities and the towns for his chariots and for his horses…</div><div class="zh">「所羅門王挑取服苦的人，是為建造耶和華的殿、自己的宮、米羅、耶路撒冷的城牆、夏瑣、米吉多、基色……下伯和崙、巴拉、和國中曠野裏的達莫，又建造他一切的積貨城、車城、馬兵的城……」</div></div>
+<div class="bil-head"><div class="en">He was such a fanatical builder that he ended up oppressing his own people. So after he died, the people came to his son, cap in hand, desperate for the load to be lightened, saying:</div><div class="zh">他是個極狂熱的建造者，最終竟壓迫自己的子民。所以他死後，百姓來到他兒子面前，懇求他減輕重擔，說：</div></div>
+<div class="bil-head"><div class="en">Your father put a heavy yoke on us, but now lighten the harsh labour and the heavy yoke he put on us, and we will serve you</div><div class="zh">「你父親使我們負重軛、作苦工，現在求你使我們作的苦工、負的重軛輕鬆些，我們就事奉你。」</div></div>
+<div class="bil"><div class="en">But Rehoboam, instead of answering the people wisely, and saying, &quot; Yes, I won’t continue to enslave and oppress you like my father did, instead of saying that, he answered harshly, saying, &quot; My father scourged you with whips, I’ll scourge you with scorpions. A man in desperate need of a PR department. And so the kingdom split over the issue of the oppression of the people.</div><div class="zh">但羅波安沒有以智慧回應——沒有說「是的，我不會像我父親那樣繼續奴役、壓迫你們」——他卻嚴厲地回答：「我父親用鞭子責打你們，我要用蠍子鞭責打你們。」這個人實在很需要一個公關部門。於是國家就因「壓迫百姓」這件事分裂了。</div></div>
+<div class="bil-head"><div class="en">And of course, this pattern continued. The prophets promised that God would bring judgment if it continued.</div><div class="zh">當然，這個模式繼續發展下去。先知警告：如果繼續這樣，神必降下審判。</div></div>
+<div class="bil-head"><div class="en">13 “Woe to him who builds his palace by unrighteousness, his upper rooms by injustice,
+making his own people work for nothing, not paying them for their labour</div><div class="zh">「那行不義蓋房，行不公造樓，白白使用人的手工不給工價的，有禍了。」</div></div>
+<div class="bil-head"><div class="en">17 But your eyes and your heart are set only on dishonest gain,
+on shedding innocent blood and on oppression and extortion.</div><div class="zh">「你的眼和你的心，專顧貪婪，流無辜人的血，行欺壓和強暴。」</div></div>
+<div class="bil"><div class="en">It&#x27;s this failure to be a place of justice that is one of the big accusations of the prophets. But it’s all linked together. If you reject God and his way … you inevitably turn to idols to get the things you want. And because you are driven by desires, you can’t keep the Sabbath, because you are a slave to your desires, and because you are a slave to your desires, you resort to oppression and injustice to get what you want.</div><div class="zh">「不能成為公義之地」——這是先知最大的指控之一。但所有事情其實是連在一起的：如果你拒絕神和祂的方式，必然會轉去拜偶像來得到你想要的東西；既然被慾望驅使，你就無法守安息日，因為你已經是慾望的奴隸；既然是慾望的奴隸，你就會用壓迫與不公來達到目的。</div></div>
+<div class="bil-head"><div class="en">But keeping the Sabbath was a way of saying, I’m stopping to spend time with God and his people, because I’m not enslaved to my desires. I can stop.</div><div class="zh">但守安息日就等於在說：「我停下來，與神和祂的子民同在，因為我並非慾望的奴隸。我可以停下來。」</div></div>
+<div class="bil"><div class="en">And interestingly, when the people are sent into exile, this is given as the reason. Remember that when the covenant was formed at Sinai, Moses had said that the people would face discipline if they failed to live God’s way. And the final punishment was exile.</div><div class="zh">有趣的是——當百姓被擄之時，原因正是這個。記住：在西奈山立約時，摩西說過，如果他們不按神的方式生活，將會被管教。最終的懲罰，就是被擄。</div></div>
+<div class="bil-head"><div class="en">6	EXILE</div><div class="zh">六、被擄</div></div>
+<div class="bil-head"><div class="en">All of this had been foretold by Moses in Leviticus and Deuteronomy. But listen to the reason given.</div><div class="zh">這一切都早已被摩西在利未記和申命記預言。請聽當中所給的理由：</div></div>
+<div class="bil"><div class="en">27 If in spite of this you still do not listen to me … 33 I will scatter you among the nations … 34 Then the land will enjoy its sabbath years … 35 All the time that it lies desolate, the land will have the rest it did not have during the sabbaths you lived in it.</div><div class="zh">「你們若仍不聽從我……我要把你們散在列邦中……地荒涼的時候，就要享受眾安息。地荒涼的時候，就要守息，因為你們住在其上的時候不曾使地享受所當守的安息。」</div></div>
+<div class="bil-head"><div class="en">Do you see the reason given here? You have not kept the Sabbath, so you are being kicked out of the land, and the land will then have a chance to rest. Or listen to the explanation in 2 Chronicles:</div><div class="zh">你看到這裏給出的理由嗎？「你沒有守安息日，所以被趕出這塊地，地土便有機會安息。」歷代誌下也作出同樣的解釋：</div></div>
+<div class="bil"><div class="en">20 He carried into exile to Babylon the remnant, who escaped from the sword, and they became servants to him and his successors until the kingdom of Persia came to power. 21 The land enjoyed its sabbath rests; all the time of its desolation it rested, until the seventy years were completed in fulfillment of the word of the Lord spoken by Jeremiah.</div><div class="zh">「凡脫離刀劍的，迦勒底王都擄到巴比倫去，作他和他子孫的僕婢，直到波斯國興起來。這就應驗了耶和華藉耶利米口所說的話：地享受安息；因為地土荒涼便守安息，直滿了七十年。」</div></div>
+<div class="bil"><div class="en">Do you see how the punishment fits the crime here? They refused to rest, so they were sent off to Babylon, to be slaves there. If they wouldn’t rest with God, they would be slaves in Babylon. And then, again, the land can have the rest it was denied to the people.</div><div class="zh">你看到這個「罪有應得」的對應嗎？他們拒絕安息，所以被送去巴比倫做奴隸。如果他們不肯與神同享安息，他們就要在巴比倫為奴。然後地土，反過來能享受百姓所剝奪的安息。</div></div>
+<div class="bil-head"><div class="en">So Sabbath is a big part of the reason for this … because Sabbath is a sign of the covenant, and because Sabbath is all about resting in God and having a loving relationship with him.</div><div class="zh">所以「安息日」是這次被擄的重大原因之一——因為安息日是立約的記號，而安息日的核心，就是在神裏面歇息、與祂保持愛的關係。</div></div>
+<div class="bil"><div class="en">Now, when they were in exile in Babylon, the prophet Daniel received a number of visions and revelations, and one of these is in Daniel nine. And you may remember the context. He was praying about the restoration of Israel because Jeremiah had prophesied that it would last only seventy years, a Sabbath-type number. Seventy years for the land to have its sabbath. So he’s praying about this, and specifically confessing their sins … asking for forgiveness … and then he gets a message from an angel, which says:</div><div class="zh">被擄到巴比倫期間，先知但以理領受了多次異象與啟示。其中一次記在但以理書第九章。你也許還記得當時的背景：他正在禱告祈求以色列復興——因為耶利米預言被擄只會持續七十年——一個「安息式的數字」——七十年讓地土享受安息。所以他在禱告，認他們的罪，求神赦免——然後他從天使那裏領受一個信息：</div></div>
+<div class="bil"><div class="en">“Seventy ‘sevens’ are decreed for your people and your holy city to finish transgression, to put an end to sin, to atone for wickedness, to bring in everlasting righteousness, to seal up vision and prophecy and to anoint the Most Holy Place</div><div class="zh">「為你本國之民和你聖城，已經定了七十個七。要止住罪過、除淨罪惡、贖盡罪孽，引進永義，封住異象和預言，並膏至聖者。」（但以理書 9 章 24 節）</div></div>
+<div class="bil"><div class="en">Daniel 9:24</div><div class="zh">這又是一道數學題——但這次不是禧年的「七個七」，而是「七十個七」——四百九十年——大約五百年。將要來的，是一個「超級禧年」、一個「超級超級的安息日」。禧年是債務取消之時；而這個超級禧年，將是「罪債」取消之時——這當然是一個關於主耶穌基督的預言。但以理在主耶穌降臨之前約五百年領受這異象——關乎一個將要來、所有罪債都會取消、人的罪過與失敗都要被赦免的時候。</div></div>
+<div class="bil"><div class="en">Now this is another sum … but instead of seven sevens like the jubilee, it is seventy sevens, so four hundred and ninety years … that is about five hundred years. There will be a super-jubilee, a super-duper-sabbath. Now the jubilee was a time for debts to be cancelled, and this super-jubilee, or super-duper-sabbath, would be a time for their sin to be cancelled, and of course, this is a prophecy of the Lord Jesus Christ. Now, Daniel received this vision about 500 years before Jesus came. And it’s about a time when all their debts will be cancelled, and there will be forgiveness for their sins and failures.</div><div class="zh">這個異象很重要——它解釋了一件事：百姓並不夠資格從巴比倫歸回，但何以仍能歸回？正是因為將來那「超級禧年」、那「超級超級的安息日」必要實現。</div></div>
+<div class="bil-head"><div class="en">That vision is important, as it explains how it’s possible for them to come back from Babylon, when they are not good enough, it’s because of the super-jubilee, the super-duper-sabbath, which is coming in the future.</div><div class="zh">雖然這個未來的安息已被應許，但舊約其餘的部分卻多多少少有點反高潮——他們確實逃出了巴比倫，正如耶利米所預言的：</div></div>
+<div class="bil-head"><div class="en">But although this sabbath is promised in the future, the rest of the Old Testament is somewhat anticlimactic… they do escape Babylon. Just as Jeremiah had prophesied:</div><div class="zh">「巴比倫傾倒了！傾倒了！她一切雕刻的神像都打碎於地。」</div></div>
+<div class="bil"><div class="en">‘Babylon has fallen, has fallen! All the images of its gods lie shattered on the ground!’”</div><div class="zh">許多人歸回以色列，重建聖殿與聖城。歸回之後，先知不再經常指控他們拜偶像——似乎略有改變——但卻很反高潮。例如尼希米記的結尾：</div></div>
+<div class="bil"><div class="en">And a large number return to Israel, and they rebuild the temple and the city. And after returning to the land, the prophets do not accuse them of idolatry so often; it seems that there has been a bit of a change, but it’s very anticlimactic. Take for example, the end of Nehemiah</div><div class="zh">「我就斥責猶大的貴冑說：『你們怎麼行這惡事，犯了安息日呢？從前你們列祖豈不是這樣行，以致我們神使一切災禍臨到我們和這城嗎？現在你們還犯安息日，使忿怒越發臨到以色列！』……有一兩次，賣各樣貨物的人在耶路撒冷城外住宿。我就警戒他們說：『你們為何在城外住宿呢？若再這樣，我必下手拿辦你們。』從此以後，他們在安息日不再來了。我吩咐利未人潔淨自己，來守城門，使安息日為聖。」</div></div>
+<div class="bil"><div class="en">… I rebuked the nobles of Judah and said to them, “What is this wicked thing you are doing—desecrating the Sabbath day? 18 Didn’t your ancestors do the same things, so that our God brought all this calamity on us and on this city? Now you are stirring up more wrath against Israel by desecrating the Sabbath.”… Once or twice the merchants and sellers of all kinds of goods spent the night outside Jerusalem. 21 But I warned them and said, “Why do you spend the night by the wall? If you do this again, I will arrest you.” From that time on they no longer came on the Sabbath. 22 Then I commanded the Levites to purify themselves and go and guard the gates in order to keep the Sabbath day holy …</div><div class="zh">這段記載有幾方面其實都不對勁。首先，百姓顯然仍然在違犯安息日——他們的心並未跟隨神。他們可能不再像從前那樣拜偶像，但仍然不順服。其次，尼希米的反應變得相當猛烈，幾乎到了律法主義的地步。而被擄歸回之後，這似乎成了以色列的一個趨勢——一種猛烈的律法主義——而這當然就是後來我們在法利賽人身上看見的。</div></div>
+<div class="bil"><div class="en">This is just wrong in a number of ways … clearly the people are still breaking the Sabbath, their hearts are not following god. They might not be worshipping the idols to the same extent, but they are still disobedient. But then Nehemiah becomes quite fierce about it, almost to the point of legalism. And this seems to be the growing trend in Israel after the exile, a kind of fierce legalism, which, of course, is what we see the Pharisees doing.</div><div class="zh">結語</div></div>
+<div class="bil"><div class="en">Conclusion</div><div class="zh">我們講到這裏。內容不少，你或者未必記得所有細節，但希望大圖畫是清楚的——「安息日」由神的安息開始，並非因為祂需要休息，而是因為「安息」是創造與工作的高峰。工作之後，便享受關係。所以一切都是關乎在神裏面的和諧、平安、賜福。</div></div>
+<div class="bil-head"><div class="en">Wow, we’ve reached the end … we’ve covered a lot, and you may not remember all the details, but hopefully the big picture is clear … that Sabbath started with god’s rest, not because he needed to rest, but because rest is the climax of creation and work. After you work, you enjoy relationships. And so, it’s all about harmony, peace and blessing in God.</div><div class="zh">但我們看到，人類背叛神，因此失去了伊甸園裏祂的安息。當我們轉離神時，我們便拜偶像，被慾望奴役，無法安息，並且壓迫他人。</div></div>
+<div class="bil"><div class="en">But we saw that humanity rebelled against God, and so they lost his Sabbath rest in Eden, and instead … when we turn from God, we commit idolatry, we are enslaved to our desires, and we can’t rest, and we oppress others.</div><div class="zh">對以色列百姓而言，因為他們沒有聖靈，這些原則便以幾條簡單的規則記下來給他們遵守——休一日；讓別人也休息；讓地土每七年休息一次；每五十年取消債務；定期以筵席慶祝神的恩慈——一切都是美好的。</div></div>
+<div class="bil-head"><div class="en">For the people of Israel, because they didn’t have the holy spirit, they had these principles put down in some simple rules for them to follow – take a day off, let other people rest, let the land rest every seven years, cancel debts every fifty years, and celebrate God’s goodness in regular parties … it was all meant to be good …</div><div class="zh">但神的子民不肯遵守，一次又一次地轉離。最終被送去巴比倫作奴隸——這就是「拒絕安息」的懲罰：神將我們交給我們的奴役。</div></div>
+<div class="bil-head"><div class="en">But God’s people didn’t want to keep it; they turned away again and again, and eventually were sent to be slaves in Babylon; that’s the punishment for refusing to rest. God gives us over to our slavery.</div><div class="zh">但在巴比倫，他們領受了一個「超級超級安息日」、「超級禧年」的應許——這就是我們下一講要繼續看的。讓我們一同禱告。</div></div>
+<div class="bil"><div class="en">But in Babylon, they received this promise of a super-duper-sabbath, the super-jubilee … and that’s what we will find out about in the next talk. Let’s pray.</div><div class="zh"></div></div>
+  </div>
+</details>
+
+<!-- ===== PART 2 ===== -->
+<div class="part-banner">
+  <div class="num">Part 2 · 第二部分</div>
+  <div class="en">Rest in the New Testament</div>
+  <div class="zh">新約裡面的安息</div>
+</div>
+
+<!-- 7. EMMANUEL -->
+<article class="chapter">
+  <h3><span class="num">7</span> Emmanuel <span class="zh">以馬內利 — 基督</span></h3>
+
+  <h4>Jesus announces the Super-Jubilee <span class="zh">耶穌宣告超級禧年</span></h4>
+  <blockquote class="passage">
+    "The Spirit of the Lord is on me, because he has anointed me to proclaim good news to the poor. He has sent me to proclaim freedom for the prisoners and recovery of sight for the blind, to set the oppressed free, to proclaim the year of the Lord's favour."
+    <span class="ref">Luke 4:17 – 19 · 路加福音 4 章 17 至 19 節</span>
+  </blockquote>
+  <p class="commentary"><span class="zh">「主的恩年」就是禧年 — 但以理書的倒數，到耶穌時應驗。</span></p>
+
+  <h4>Pharisees &amp; Sabbath — the 39 Melakhot <span class="zh">法利賽人的 39 條禁工</span></h4>
+  <blockquote class="passage">
+    "Whoever does any work [<i>melakha</i>] on the Sabbath day is to be put to death."
+    <span class="ref">Exodus 31:15b · 出埃及記 31 章 15 節</span>
+  </blockquote>
+  <p class="commentary">The Talmud (~AD 200) lists 39 categories of forbidden "work":</p>
+  <div class="melakhot">
+    <div>耕地</div><div>播種</div><div>收割</div><div>聚集</div>
+    <div>打穀</div><div>揚場</div><div>過篩</div><div>磨穀</div>
+    <div>篩麵</div><div>揉麵</div><div>烘焙</div><div>剪羊毛</div>
+    <div>洗衣</div><div>梳毛</div><div>染色</div><div>紡紗</div>
+    <div>掛經紗</div><div>製絲環</div><div>織布</div><div>解紗</div>
+    <div>打結</div><div>解結</div><div>貼膠</div><div>撕扯</div>
+    <div>設陷阱</div><div>宰殺</div><div>剝皮</div><div>鞣皮</div>
+    <div>磨光</div><div>刻劃</div><div>精切</div><div>寫字</div>
+    <div>擦字</div><div>建造</div><div>拆毀</div><div>完成器皿</div>
+    <div>滅火</div><div>點火</div><div>揹負</div>
+  </div>
+  <p class="commentary"><span class="zh">「剪羊毛」包括除眉毛；「揹負」連口袋有任何東西也算。本來是祝福的安息日，變成最沉重的軛。</span></p>
+
+  <h4>Jesus &amp; Sabbath <span class="zh">耶穌的安息</span></h4>
+  <blockquote class="passage">
+    "Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls. For my yoke is easy and my burden is light."
+    <span class="ref">Matthew 11:28 – 30 · 馬太福音 11 章 28 至 30 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    Jesus went through the grainfields on the Sabbath. … "I tell you that something greater than the temple is here. … For the Son of Man is Lord of the Sabbath." … He went into their synagogue, and a man with a shrivelled hand was there. … "It is lawful to do good on the Sabbath." … But the Pharisees went out and plotted how they might kill Jesus.
+    <span class="ref">Matthew 12:1 – 14 · 馬太福音 12 章 1 至 14 節</span>
+  </blockquote>
+  <ul class="tight">
+    <li><b>True rest is in Jesus.</b> 真正的安息在於耶穌。</li>
+    <li><b>Jesus is Lord of the Sabbath.</b> 耶穌是安息日的主。</li>
+    <li><b>Rest is about love &amp; mercy, not rules.</b> 安息的本質是愛與憐憫，並不是規條。</li>
+  </ul>
+</article>
+
+<!-- 8. CHURCH -->
+<article class="chapter">
+  <h3><span class="num">8</span> Church <span class="zh">教會</span></h3>
+
+  <h4>The Lord's Day <span class="zh">主日 — 第一日</span></h4>
+  <blockquote class="passage">
+    Early on the first day of the week, while it was still dark, Mary Magdalene came to the tomb …
+    <span class="ref">John 20:1 · 約翰福音 20 章 1 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    On the first day of the week we came together to break bread …
+    <span class="ref">Acts 20:7 · 使徒行傳 20 章 7 節</span>
+  </blockquote>
+  <blockquote class="passage">
+    On the Lord's Day, I was in the Spirit …
+    <span class="ref">Revelation 1:10 · 啟示錄 1 章 10 節</span>
+  </blockquote>
+  <p class="commentary">Sunday — first day of the new creation, the day of resurrection. Not a replacement of Sabbath, but a celebration.<br>
+  <span class="zh">主日 — 新創造的第一日，亦是復活的日子。並不是取代安息日，而是慶祝。</span></p>
+
+  <h4>Not required to keep Sabbath — Jerusalem Council <span class="zh">耶路撒冷大會 — 不要求外邦人守安息日</span></h4>
+  <blockquote class="passage">
+    "It seemed good to the Holy Spirit and to us not to burden you with anything beyond the following requirements: You are to abstain from food sacrificed to idols, from blood, from the meat of strangled animals and from sexual immorality."
+    <span class="ref">Acts 15:27 – 29 · 使徒行傳 15 章 27 至 29 節</span>
+  </blockquote>
+
+  <h4>Different views are accepted — Romans <span class="zh">羅馬書 — 容許不同觀點</span></h4>
+  <blockquote class="passage">
+    One person considers one day more sacred than another; another considers every day alike. Each of them should be fully convinced in their own mind. … let us stop passing judgment on one another.
+    <span class="ref">Romans 14:5 – 6, 13 · 羅馬書 14 章 5 至 6 節及 13 節</span>
+  </blockquote>
+
+  <h4>Shadow vs Reality — Colossians <span class="zh">影兒與形體</span></h4>
+  <blockquote class="passage">
+    Therefore do not let anyone judge you by what you eat or drink, or with regard to a religious festival, a New Moon celebration or a Sabbath day. These are a shadow of the things that were to come; the reality, however, is found in Christ.
+    <span class="ref">Colossians 2:16 – 17 · 歌羅西書 2 章 16 至 17 節</span>
+  </blockquote>
+
+  <h4>Gospel Rest — now &amp; not yet — Hebrews <span class="zh">福音的安息 — 已然未然</span></h4>
+  <blockquote class="passage">
+    Therefore, since the promise of entering his rest still stands, let us be careful that none of you be found to have fallen short of it. … There remains, then, a Sabbath-rest for the people of God; for anyone who enters God's rest also rests from their works, just as God did from his. Let us, therefore, make every effort to enter that rest …
+    <span class="ref">Hebrews 4:1 – 3, 8 – 11 · 希伯來書 4 章 1 至 3 節及 8 至 11 節</span>
+  </blockquote>
+  <p class="commentary">When you enter God's rest you rest from your <b>works</b> — no longer earning, only receiving. <b>Already</b>, by faith — yet <b>not yet</b> consummated.<br>
+  <span class="zh">當你進入神的安息時，就從自己的工作中安息出來 — 不再賺取，只是領受。已經因着信進入了，但仍未圓滿，所以要繼續竭力進入。</span></p>
+</article>
+
+<!-- 9. NEW CREATION -->
+<article class="chapter">
+  <h3><span class="num">9</span> New Creation <span class="zh">新創造</span></h3>
+
+  <h4>The end of slavery in Babylon <span class="zh">巴比倫的終極倒塌</span></h4>
+  <blockquote class="passage">
+    With a mighty voice he shouted: "'Fallen! Fallen is Babylon the Great!'"
+    <span class="ref">Revelation 18:1 – 2 · 啟示錄 18 章 1 至 2 節</span>
+  </blockquote>
+
+  <h4>No rest for the wicked <span class="zh">作惡者沒有安息</span></h4>
+  <blockquote class="passage">
+    "And the smoke of their torment will rise for ever and ever. There will be no rest day or night for those who worship the beast and its image."
+    <span class="ref">Revelation 14:11 · 啟示錄 14 章 11 節</span>
+  </blockquote>
+
+  <h4>New-Creation Rest for God's People <span class="zh">神的子民得享新創造的安息</span></h4>
+  <blockquote class="passage">
+    "Look! God's dwelling place is now among the people, and he will dwell with them. They will be his people, and God himself will be with them and be their God. He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."
+    <span class="ref">Revelation 21:3 – 4 · 啟示錄 21 章 3 至 4 節</span>
+  </blockquote>
+
+  <h4>Three dimensions of final rest <span class="zh">終極安息的三重含義</span></h4>
+  <ul class="tight">
+    <li><b>Redemption Rest 救贖的安息</b> — personal sin overcome · curse removed · world &amp; devil defeated and punished. <span class="zh">罪、咒詛、世界、魔鬼，全部被處理。</span></li>
+    <li><b>Relationship Rest 關係的安息</b> — perfect relationship with God · harmony with each other. <span class="zh">與神、與人完全和諧。</span></li>
+    <li><b>Celebration Rest 慶祝的安息</b> — a wedding feast, a banquet of rich food. <span class="zh">羔羊的婚筵 — 安息並不是齋戒，而是筵席。</span></li>
+  </ul>
+
+  <blockquote class="passage">
+    On this mountain the Lord Almighty will prepare a feast of rich food for all peoples, a banquet of aged wine — the best of meats and the finest of wines.
+    <span class="ref">Isaiah 25:6 · 以賽亞書 25 章 6 節</span>
+  </blockquote>
+</article>
+
+<details class="transcript" id="talk2">
+  <summary>📖 Talk 2 · Rest in the New Testament <span class="zh-summary">第二講 · 新約裏面的安息</span></summary>
+  <div class="transcript-body">
+<div class="bil-head"><div class="en">PART 2 – REST IN THE NEW TESTAMENT</div><div class="zh">第二部分 — 新約裏面的安息</div></div>
+<div class="bil"><div class="en">Welcome back after our first talk. In the first talk, we began our thematic Bible overview of rest and saw that rest is something God does. It’s not first about resting our bodies, because God doesn’t have a body, it’s about relationship, harmony, peace, blessing… that’s what we had in the garden of Eden.</div><div class="zh">歡迎大家回來繼續第二講。在第一講，我們開始了一個關於「安息」的主題式聖經導覽，看見「安息」是神所做的事。它並非首先關乎我們身體休息——因為神並沒有身體——而是關乎關係、和諧、平安、賜福……這就是伊甸園裏的景況。</div></div>
+<div class="bil-head"><div class="en">But people rejected God and his blessing, and so they were cast outside the garden, and life there was idolatrous, driven by desires, and that results in slavery and oppression.</div><div class="zh">但人拒絕了神和祂的賜福，因此被趕出園子。在園外的生活淪為拜偶像、被慾望驅使，而結果就是奴役和壓迫。</div></div>
+<div class="bil"><div class="en">And we saw that God called a people, the people, and he rescued them out of slavery, and then he made a covenant with them at Sinai, and the Sabbath was a key part of that covenant … it was in the ten commandments, it was a sign of the covenant, a sign of the relationship, and it was meant to shape society … they were meant to rest the land, and they were to have annual holidays which were sabbath celebrations, like Passover Pentecost and tabernacles, and every fifty years the Jubilee was a super-sabbath, a year when debts were cancelled and slaves set free.</div><div class="zh">我們又看到，神揀選了一群人——祂的子民——將他們從奴役之中拯救出來，然後在西奈山與他們立約。安息日是這個立約裏面非常關鍵的一部分——它寫在十誡之中，是立約的記號、關係的記號，並且要塑造整個社會。他們要使地土歇息，每年要守安息日式的節期慶典——逾越節、五旬節、住棚節；每五十年更要守禧年——一個「超級安息日」——在那一年債務取消、奴僕得釋放。</div></div>
+<div class="bil"><div class="en">Sabbath was meant to be all about these harmonious relationships with God and with each other. But sadly, that wasn’t the case. When they got to the land, there was a little bit of rest from enemies, but they quickly started enslaving and exploiting each other, and they didn’t keep God’s sabbaths.</div><div class="zh">安息日本來應該是關乎與神、與人這些和諧關係的。但很可惜，事實並非如此。當他們進入應許之地後，雖然從仇敵手中得到一些短暫的安息，但很快他們又開始彼此奴役、彼此剝削，並且不守神的安息日。</div></div>
+<div class="bil"><div class="en">And so, because they were given over to idolatry and the slavery and oppression it brings … God sent them to exile … and in exile, there was a promise of a special kind of Sabbath coming, a sort of super-jubilee, in about five hundred years&#x27; time.</div><div class="zh">於是因為他們陷入拜偶像，以及那種隨之而來的奴役和壓迫……神就將他們送去被擄。在被擄期間，神應許將會有一種特別的安息日臨到——一種「超級禧年」——大約在五百年之後。</div></div>
+<div class="bil"><div class="en">And when they were sent back to the land, they were slightly better at keeping the Sabbath, but it was a bit legalistic and angry, and it seemed to miss the point. They were waiting for the coming of the messiah …</div><div class="zh">當他們被送回應許之地後，他們守安息日的態度好少少，但卻變得相當律法主義、滿懷怒氣，似乎完全錯失了安息日的本意。他們等待著彌賽亞的降臨……</div></div>
+<div class="bil-head"><div class="en">7	EMMANUEL</div><div class="zh">七、以馬內利</div></div>
+<div class="bil"><div class="en">Emmanuel, God with us. Jesus is the long-awaited messiah, and he’s the one who will bring in God’s eternal kingdom … the place of true and eternal rest, just like the prophets had always promised.</div><div class="zh">「以馬內利」——意思就是「神與我們同在」。耶穌就是那位等候已久的彌賽亞，祂要建立神永恆的國度——那真實永恆的「安息之地」——正如先知一直所應許的。</div></div>
+<div class="bil-head"><div class="en">When Jesus started his ministry, after he was tempted in the desert, he went to Nazareth, and taught in the synagogue… the quoted from the book of Isaiah:</div><div class="zh">當耶穌開始公開傳道時，祂在曠野受試探之後，去到拿撒勒，在會堂裏教訓人，並引述了以賽亞書這段經文：</div></div>
+<div class="bil"><div class="en">17 and the scroll of the prophet Isaiah was handed to him. Unrolling it, he found the place where it is written:</div><div class="zh">「有人把先知以賽亞的書交給祂。祂就打開，找到一處寫著：『主的靈在我身上，因為祂用膏膏我，叫我傳福音給貧窮的人；差遣我報告：被擄的得釋放，瞎眼的得看見，叫那受壓制的得自由，報告神悅納人的禧年。』」</div></div>
+<div class="bil"><div class="en">18 “The Spirit of the Lord is on me,<br>    because he has anointed me<br>    to proclaim good news to the poor.<br>He has sent me to proclaim freedom for the prisoners<br>    and recovery of sight for the blind,<br>to set the oppressed free,<br>19     to proclaim the year of the Lord’s favour.”</div><div class="zh">這就是但以理所聽見的「超級禧年」，也是其他先知所預言的。正如舊約裏，禧年是一個特別的安息日，是「取消債務、終止壓迫、釋放被擄者」的時候。</div></div>
+<div class="bil"><div class="en">This is the Super-Jubilee which Daniel had heard about, and which other prophets had foretold. Just as in the Old Testament, the jubilee was a special sabbath for cancelling debt, ending oppression, and setting free captives.</div><div class="zh">而耶穌來到，要以遠遠更大的方式，將這些事帶來。藉著祂在十字架上的死，祂帶來赦免——使罪債得以取消。祂要勝過撒旦，正如摩西勝過法老一樣，並且釋放被罪和死亡綑綁的囚徒。祂要終結罪的壓迫和奴役。這就是耶穌的事工——它就是「拯救的安息日」。</div></div>
+<div class="bil-head"><div class="en">Well Jesus has come to bring those things in a much bigger way. Through his death on the cross, he would bring forgiveness so that the debt of sin would be cancelled. He would overcome Satan, just as Moses overcame Pharaoh, and release those who are prisoners to sin and death. He would put an end to the oppression and slavery of sin. This is what Jesus’ ministry is … it’s deliverance Sabbath.</div><div class="zh">而這正使祂與法利賽人發生衝突。法利賽人對安息日採取了一種極度律法主義的態度。他們知道律法上說：</div></div>
+<div class="bil"><div class="en">Now this brought him into conflict with the Pharisees … who had taken a very legalistic approach to the Sabbath. See the pharisees knew the law, which said:</div><div class="zh">「凡在安息日做工[melakha — מְלָאכָה]的，必要把他治死。」</div></div>
+<div class="bil"><div class="en">Whoever does any work [melakha – מְלָאכָה] on the Sabbath day is to be put to death.</div><div class="zh">「做工」的刑罰是死——但他們將這條律法推到一個瘋狂律法主義的極端。希伯來文「做工」叫 melakha，法利賽人因此整理出「39 項 melakhot」——即三十九種在安息日不可做的事。這記載在「他勒目」（Talmud）裏面——一本約於主後 200 年寫成的猶太典籍——雖然那是耶穌之後不少時間才寫成，但它只是把當時口傳的傳統記錄下來，反映他們當日已經在做的事。</div></div>
+<div class="bil"><div class="en">The penalty for work is death … but they took it to a crazy legalistic extreme. Now, the Hebrew word for work is melakha, and the Pharisees put together the 39 Melakhot … that is, thirty-nine rules for what you couldn’t do on the sabbath. Now, this is recorded in the Talmud, a Jewish book written about 200 AD … but although it’s some time after Jesus, it’s just a record of an oral tradition, documenting what they were already doing. And you can see how ridiculous it is, all of these categories of things you can’t do. And the definition of doing these things was very legalistic. So, for instance, Shearing includes plucking eyebrows, carrying includes anything in your pocket. If you carried something in your pocket, you were breaking their rules. They wanted to build a wall around the sabbath, so you couldn’t get near it. For them, all these rules were not about loving God, or loving people or peace or harmony … it was not about works righteousness, earning your way into heaven, being proud, or judging other people.</div><div class="zh">你可以看到那有多荒謬——這麼多分類，這麼多不可做的事。而「做這些事」的定義也極其律法主義。譬如，「剪羊毛」連除眉毛都計算在內；「揹負」連你口袋裏面有任何東西都計算在內。如果你在口袋裏放了東西，你就違反了他們的規則。他們想在安息日四周築一道牆，不准你接近。對他們而言，這些規則並非關乎愛神、愛人、平安或和諧——而是變了「靠行為稱義」、靠自己賺取進入天國的門票，自高自大，論斷別人。</div></div>
+<div class="bil-head"><div class="en">That just isn’t what sabbath is about … and so Jesus was very quick to correct them. One of the places that we see a bit of his teaching on the Sabbath is Matthew 11:</div><div class="zh">但安息日根本不是這樣！所以耶穌很快糾正他們。我們可以從馬太福音第 11 至 12 章看到一些祂對安息日的教導：</div></div>
+<div class="bil"><div class="en">28 “Come to me, all you who are weary and burdened, and I will give you rest. 29 Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls. 30 For my yoke is easy and my burden is light.” 12 At that time, Jesus went through the grainfields on the Sabbath. His disciples were hungry and began to pick some heads of grain and eat them. 2 When the Pharisees saw this, they said to him, “Look! Your disciples are doing what is unlawful on the Sabbath.”3 He answered, “Haven’t you read what David did when he and his companions were hungry? 4 He entered the house of God, and he and his companions ate the consecrated bread—which was not lawful for them to do, but only for the priests. 5 Or haven’t you read in the Law that the priests on Sabbath duty in the temple desecrate the Sabbath and yet are innocent? 6 I tell you that something greater than the temple is here. 7 If you had known what these words mean, ‘I desire mercy, not sacrifice,’ you would not have condemned the innocent. 8 For the Son of Man is Lord of the Sabbath.” 9 Going on from that place, he went into their synagogue, 10 and a man with a shrivelled hand was there. Looking for a reason to bring charges against Jesus, they asked him, “Is it lawful to heal on the Sabbath?” 11 He said to them, “If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out? 12 How much more valuable is a person than a sheep! Therefore, it is lawful to do good on the Sabbath.” 13 Then he said to the man, “Stretch out your hand.” So he stretched it out and it was completely restored, just as sound as the other. 14 But the Pharisees went out and plotted how they might kill Jesus.</div><div class="zh">「凡勞苦擔重擔的人，可以到我這裏來，我就使你們得安息。我心裏柔和謙卑，你們當負我的軛，學我的樣式，這樣，你們心裏就必得享安息。因為我的軛是容易的，我的擔子是輕省的。」</div></div>
+<div class="bil"><div class="en">Having these back-to-back helps us to see what true Sabbath is all about:</div><div class="zh">「那時，耶穌在安息日從麥地經過。祂的門徒餓了，就掐起麥穗來吃。法利賽人看見，就對耶穌說：『看哪，你的門徒做安息日不可做的事了！』耶穌對他們說：『經上記著大衛和跟從他的人飢餓之時所做的事，你們沒有念過嗎？他怎麼進了神的殿，吃了陳設餅，這餅不是他和跟從他的人可以吃得，惟獨祭司才可以吃嗎？再者，律法上所記的，當安息日，祭司在殿裏犯了安息日還是沒有罪，你們沒有念過嗎？但我告訴你們，在這裏有一人比殿更大。我喜愛憐恤，不喜愛祭祀，你們若明白這話的意思，就不將無罪的當作有罪的了。因為人子是安息日的主。』</div></div>
+<div class="bil"><div class="en">True rest is in Jesus – Jesus says come to me for rest. Rest isn’t about stopping work, putting down your tools, it’s about God, and so it’s about Jesus. Jesus is the Messiah who brings Super-Jubilee blessing, who brings rest from sin, Satan and death. Rest is about God.</div><div class="zh">耶穌離開那地方，進了一個會堂。那裏有一個人枯乾了一隻手。有人問耶穌說：『安息日治病可以不可以？』意思是要控告祂。耶穌說：『你們中間誰有一隻羊，當安息日掉在坑裏，不把牠抓住、拉上來呢？人比羊何等貴重呢！所以，在安息日做善事是可以的。』於是對那人說：『伸出手來！』他把手一伸，手就復了原，和那隻手一樣。法利賽人出去，商議怎樣可以除滅耶穌。」</div></div>
+<div class="bil-head"><div class="en">Jesus is Lord of the Sabbath – that means Jesus is Lord of the Sabbath. For the Pharisees to criticise Jesus and say, &quot; Oh, you can’t do this on the Sabbath or that on the sabbath … it’s completely wrong. Sabbath was a ritual that pointed to him. The real Sabbath is rest in Jesus. So Jesus isn’t subject to the Sabbath; he’s Lord of the Sabbath.</div><div class="zh">將這幾段並排看，便可以看到真正的安息日是怎樣的：</div></div>
+<div class="bil"><div class="en">Rest is about love &amp; mercy, not rules - And Sabbath is not about rules to restrict people, it’s about love and mercy and harmony and peace. So it’s fine if Jesus wanted to give his disciples some food, giving them a few bits of grain if they are hungry is ok.</div><div class="zh">第一，真正的安息在耶穌裏——耶穌說：「到我這裏來」就得安息。安息不是停下手裏的工作那麼簡單，安息是關乎神，所以也就是關乎耶穌。耶穌就是那位帶來「超級禧年」的彌賽亞，祂帶來從罪、撒旦和死亡而來的安息。安息是關乎神。</div></div>
+<div class="bil"><div class="en">And healing on the Sabbath is ok. That’s what sabbath is about: mercy, love, healing, peace. The Pharisees were hypocrites, because they would look after their donkey on the Sabbath, but they didn’t want Jesus to heal a man -total hypocrites. And that’s because their hearts were filled with hate towards God; they wanted to kill Jesus!</div><div class="zh">第二，耶穌是安息日的主——既然耶穌是「安息日的主」，法利賽人批評耶穌「在安息日不可做這做那」，就完全錯了。安息日是一個指向耶穌的禮儀。真正的安息是在耶穌裏。所以耶穌不是受安息日所約束，相反，祂是安息日的主。</div></div>
+<div class="bil"><div class="en">So rest is all about Jesus. The Old Testament Sabbath was just a pointer to that, and now Jesus had come, he had brought the real thing. And he had established a new covenant.</div><div class="zh">第三，安息是關乎愛與憐憫，不是規條——安息日不是用來限制人的一堆規則，而是關乎愛、憐憫、和諧、平安。所以耶穌讓門徒在飢餓時掐幾穗麥子吃，是完全可以的。</div></div>
+<div class="bil"><div class="en">The Old Testament believers were under the old covenant, forged at Sinai, but Jesus brought in a new covenant through his death and resurrection, and with the pouring out of the Holy Spirit at Pentecost. There were no longer any rules to follow; they were led by the spirit. There were a number of differences between the practice of the Jews and the practice of the church.</div><div class="zh">而在安息日醫病也可以——這正是安息日的精髓：憐憫、愛、醫治、平安。法利賽人是偽君子——他們在安息日肯照顧自己的驢，卻不肯讓耶穌醫治一個人——徹底的偽善。原因就是：他們的心對神充滿仇恨，他們想殺耶穌！</div></div>
+<div class="bil-head"><div class="en">8	CHURCH</div><div class="zh">所以「安息」就是關乎耶穌。舊約安息日不過是一個指向耶穌的記號，現在耶穌來到，祂帶來了那真實的本體。祂並且立了「新約」。</div></div>
+<div class="bil"><div class="en">For one, they didn’t meet on the seventh day. The Jews celebrated the Sabbath on the seventh day, but the church met on the first day. That is, Jesus died on Friday, day six, and then there was the sabbath, day seven, and he rose again on Sunday, day one, the first day. We see this mentioned in several places:</div><div class="zh">舊約的信徒處於在西奈山所立的舊約之下；耶穌則藉著祂的死、復活，並五旬節聖靈澆灌，立下了新約。再沒有規則要遵守——他們是被聖靈帶領的。猶太人的做法和教會的做法，有幾個不同。</div></div>
+<div class="bil-head"><div class="en">Early on the first day of the week, while it was still dark, Mary Magdalene came to the tomb …</div><div class="zh">八、教會</div></div>
+<div class="bil"><div class="en">On the evening of that first day of the week, when the disciples were together …  John 20:19</div><div class="zh">第一，他們不再在第七日聚會。猶太人在第七日守安息日，但教會卻在第一日聚會。耶穌週五——第六日——被釘十字架，然後是安息日——第七日，祂在週日——第一日——復活。我們在很多地方看到這個記號：</div></div>
+<div class="bil-head"><div class="en">On the first day of the week we came together to break bread …</div><div class="zh">「七日的頭一日清早，天還黑的時候，抹大拉的馬利亞來到墳墓那裏……」</div></div>
+<div class="bil-head"><div class="en">On the first day of every week, each one of you should set aside a sum of money …</div><div class="zh">「那日，就是七日的第一日晚上，門徒所在的地方，因怕猶太人，門都關了……」（約翰福音 20 章 19 節）</div></div>
+<div class="bil-head"><div class="en">On the Lord’s Day, I was in the Spirit, and I heard behind me a loud voice…</div><div class="zh">「七日的第一日，我們聚會擘餅的時候……」</div></div>
+<div class="bil-head"><div class="en">So the church met for its service on the first day. They called it the Lord’s Day, not the Sabbath, in honour of Jesus’ resurrection on that day. It marked a new beginning, a new creation. And it also didn’t clash with Jewish meetings. Those who were still culturally Jewish could go to synagogue meetings on Saturday, and you may remember that is what Paul often did on his missionary journeys. So the early church started meeting on Sunday.</div><div class="zh">「每逢七日的第一日，各人要照自己的進項抽出來留著……」</div></div>
+<div class="bil-head"><div class="en">Now that doesn’t mean there wasn’t any discussion about this sort of thing. You may remember that there were false teachers constantly trying to convince believers to take on Jewish practices. And in fact, the letter to the Galatians is all about this: are New Testament believers still required to follow the Old Testament law? The answer is no. In fact, some people think the argument surrounding the letter to the Galatians prompted the Jerusalem council, where the leaders of the church met to discuss this issue … Are New Testament believers required to follow the law? The answer was a resounding no. This is the outcome of the Jerusalem council:</div><div class="zh">「當主日，我被聖靈感動，聽見在我後面有大聲音如吹號……」</div></div>
+<div class="bil"><div class="en">… we are sending Judas and Silas to confirm by word of mouth what we are writing. 28 It seemed good to the Holy Spirit and to us not to burden you with anything beyond the following requirements: 29 You are to abstain from food sacrificed to idols, from blood, from the meat of strangled animals and from sexual immorality. You will do well to avoid these things. Farewell.</div><div class="zh">所以教會在「第一日」聚會敬拜。他們稱之為「主日」，而非「安息日」，是為了紀念耶穌在那日復活。這標誌著一個新的開端、一個新的創造。同時也避免了與猶太人聚會的衝突——那些仍然在文化上是猶太人的，可以在週六照常去會堂。你可能還記得保羅在傳道旅程中經常這樣做。所以早期教會就開始在週日聚會。</div></div>
+<div class="bil"><div class="en">Very minimal requirements to stay away from food sacrificed to idols, and blood, and sexual impurity … all of those things were linked to idol worship. So keep away from idols, but nothing about following the law or getting circumcised, or keeping the Sabbath. Not at all.</div><div class="zh">當然，這不是說沒有討論。你可能記得當時不斷有假教師試圖說服信徒回到猶太人的禮儀。事實上，整卷加拉太書都在討論這個問題：新約信徒是否仍要遵守舊約律法？答案是「否」。有些人甚至認為，圍繞加拉太書的爭論引發了「耶路撒冷會議」——教會領袖聚集討論這個問題：新約信徒是否仍須遵守律法？答案是響亮的「否」。耶路撒冷會議的決議是這樣：</div></div>
+<div class="bil"><div class="en">Now, that doesn’t mean that some people still didn’t feel that Sabbath was, in some ways, important. Some Jewish believers were still culturally Jewish and wanted to keep the Sabbath. If that was the case, Paul said it was ok, and they shouldn’t argue about it.</div><div class="zh">「我們現今打發猶大和西拉……當面證明我們所寫的話。因為聖靈和我們，定意不將別的重擔放在你們身上；惟有幾件事是不可少的，就是禁戒祭偶像的物和血，並勒死的牲畜和姦淫，這幾件你們若能自己禁戒不犯就好了。願你們平安！」</div></div>
+<div class="bil"><div class="en">5 One person considers one day more sacred than another; another considers every day alike. Each of them should be fully convinced in their own mind. 6 Whoever regards one day as special does so to the Lord … 13 Therefore let us stop passing judgment on one another. Instead, make up your mind not to put any stumbling block or obstacle in the way of a brother or sister.</div><div class="zh">最低限度的要求——遠離祭偶像之物、血、姦淫——這些全部都與拜偶像有關。所以遠離偶像就好，至於遵守律法、行割禮、守安息日，一樣也沒有要求。完全沒有。</div></div>
+<div class="bil"><div class="en">So, if someone felt like they wanted to keep sabbath, that was fine, so long as they didn’t tell other people they had to keep sabbath. That would be wrong, very judgmental, and divisive. And it would be missing the whole point of the Sabbath, which is to point to Jesus.</div><div class="zh">但這也不是說一些人覺得安息日仍然在某程度上重要是錯的。有些猶太信徒在文化上仍是猶太人，希望守安息日。如果是這樣，保羅說可以的，但他們不要為此而爭論：</div></div>
+<div class="bil"><div class="en">This is made very clear in Paul’s letter to the Colossians. Again, there were some false teachers trying to persuade them to go back to Jewish ways, and Paul writes:</div><div class="zh">「有人看這日比那日強；有人看日日都是一樣。只是各人心裏要意見堅定。守日的人是為主守的……所以，我們不可再彼此論斷。寧可定意誰也不給弟兄放下絆腳跌人之物。」</div></div>
+<div class="bil"><div class="en">Therefore, do not let anyone judge you by what you eat or drink, or with regard to a religious festival, a New Moon celebration or a Sabbath day. 17 These are a shadow of the things that were to come; the reality, however, is found in Christ.</div><div class="zh">所以如果有人覺得想守安息日，是可以的——只要他不要叫別人也必須守。那樣就錯了，會變得論斷、分裂。也會錯失安息日的全部意義——它的目的，是指向耶穌。</div></div>
+<div class="bil-head"><div class="en">He’s saying, &quot; Look, don’t let these false teachers judge you, or convince you, that you need to keep the Jewish law, or the Jewish sabbath. All those parts of the ceremonial law – the sacrifices and ceremonies, rituals, and special days - they are all shadows of Jesus, the reality.</div><div class="zh">保羅在歌羅西書講得很清楚。同樣，當時也有假教師試圖說服信徒回到猶太人的方式：</div></div>
+<div class="bil-head"><div class="en">Imagine if you were walking up to meet a friend, and they walked past you and greeted your shadow behind you. And they said, &quot; Hello, and got down on all fours and tried to shake your shadow’s hand. it would be ridiculous, and you would be going, cooeee, I’m here … well people who are still keeping the Jewish rituals are missing the reality of Jesus, and going after the shadow that points to him.</div><div class="zh">「所以，不拘在飲食上，或節期、月朔、安息日都不可讓人論斷你們。這些原是後事的影兒；那形體卻是基督。」</div></div>
+<div class="bil"><div class="en">So that means we can be fairly confident that Sabbath is no longer a rule we need to keep. We can move on!</div><div class="zh">他在說：「看哪，不要讓這些假教師論斷你們，或說服你們仍要守猶太律法、守猶太人的安息日。所有那些禮儀的律法——獻祭制度、典禮、儀式、特別日子——都是耶穌的影兒，而耶穌才是那實體。」</div></div>
+<div class="bil"><div class="en">But that doesn’t mean that rest is not important; no rest is part of the gospel, resting in Jesus. That remains; that’s part of the reality. And there is a now and not yet dimension to it … some of the rest we get by giving our lives to him, and receiving forgiveness for sins, and some of it we have access to now as we rest in Jesus day by day, but there is also a future element. Look at Hebrews 4:</div><div class="zh">想像一下：你走過去要見一位朋友，但他迎面走過你身邊，跟你身後的影子打招呼，並且彎下身來想跟你的影子握手——那會多荒謬。你會說：「喂，我在這裏！」那些仍在守猶太禮儀的人也是一樣——他們錯失了耶穌這個實體，反去追逐那指向祂的影子。</div></div>
+<div class="bil-head"><div class="en">4 Therefore, since the promise of entering his rest still stands, let us be careful that none of you be found to have fallen short of it. 2 For we also have had the good news proclaimed to us, just as they did; but the message they heard was of no value to them, because they did not share the faith of those who obeyed. 3 Now we who have believed enter that rest, just as God has said, “So I declared on oath in my anger, ‘They shall never enter my rest.’”</div><div class="zh">所以我們可以相當有把握地說：安息日不再是我們需要遵守的規條。我們可以前進。</div></div>
+<div class="bil"><div class="en">8 For if Joshua had given them rest, God would not have spoken later about another day. 9 There remains, then, a Sabbath-rest for the people of God; 10 for anyone who enters God’s rest also rests from their works, just as God did from his. 11 Let us, therefore, make every effort to enter that rest, so that no one will perish by following their example of disobedience.</div><div class="zh">但這並不是說「安息」不重要。不！「在耶穌裏安息」就是福音的一部分。這個是仍然存留的，是那實體的一部分。而且還有一個「已然—未然」的層面——某些安息我們因為將生命交託給祂、得到罪的赦免，便已經得到；某些我們可以日復日在耶穌裏經歷；但同時還有一個未來的層面。請看希伯來書 4 章：</div></div>
+<div class="bil"><div class="en">It’s a quote from Psalm 95, which we saw earlier, saying that the disobedient do not enter God’s rest. It also links entering the rest to responding to the gospel; it’s as we receive God’s promise through the good news, that we believe, and we enter that rest, we receive Christ … but there is also a future dimension to that rest which we look forward to, in heaven.</div><div class="zh">「我們既蒙留下，有進入祂安息的應許，就當畏懼，免得我們中間，或有人似乎是趕不上了。因為有福音傳給我們，像傳給他們一樣；只是所聽見的道與他們無益，因為他們沒有信心與所聽見的道調和。但我們已經相信的人得以進入那安息，正如神所說：『我在怒中起誓，說：他們斷不可進入我的安息！』」</div></div>
+<div class="bil"><div class="en">The prophets were looking forward to this, and when they described the restoration of Israel, they were describing a return to Eden and to true relational rest.</div><div class="zh">「若是約書亞已叫他們享了安息，後來神就不再提別的日子了。這樣看來，必另有一安息日的安息為神的子民存留。因為那進入安息的，乃是歇了自己的工，正如神歇了祂的工一樣。所以，我們務必竭力進入那安息，免得有人學那不信從的樣子跌倒了。」</div></div>
+<div class="bil"><div class="en">And that is what the new creation will be … not just doing away with this world, but restoring it to what it should be, and making it even better than it was before.</div><div class="zh">這段引用的是詩篇 95 篇——我們之前看過——說不順從的人不得進入神的安息。它也將「進入安息」與「回應福音」連在一起：當我們因著福音領受神的應許而相信時，我們就進入那安息，承受基督。但同時也有一個未來的層面——我們在天上將要享有的安息。</div></div>
+<div class="bil-head"><div class="en">9	NEW CREATION</div><div class="zh">先知早已盼望這事；當他們描述以色列復興時，其實就是描述回到伊甸園的真正關係安息。</div></div>
+<div class="bil-head"><div class="en">In the new creation, there will be an end to the slavery of Babylon… Babylon, which, in the New Testament, symbolises the world in rebellion against God. Babylon will come to an end.</div><div class="zh">新創造正是如此——不是廢除這個世界，而是將它復原，恢復成原本應有的樣子，並且比之前更美。</div></div>
+<div class="bil-head"><div class="en">After this I saw another angel coming down from heaven. He had great authority, and the earth was illuminated by his splendor. 2 With a mighty voice he shouted: “‘Fallen! Fallen is Babylon the Great!’</div><div class="zh">九、新創造</div></div>
+<div class="bil-head"><div class="en">God has to do that. He has to punish evil and take them away … otherwise God’s people will never be safe, and will never be able to rest. And again, the punishment fits the crime. There is no rest for the wicked. Revelation fourteen says:</div><div class="zh">在新創造裏，巴比倫的奴役將要結束——「巴比倫」在新約中象徵著背叛神的世界。巴比倫必要終結。</div></div>
+<div class="bil-head"><div class="en">And the smoke of their torment will rise for ever and ever. There will be no rest day or night for those who worship the beast and its image, or for anyone who receives the mark of its name.”</div><div class="zh">「此後，我看見另有一位有大權柄的天使從天降下，地就因祂的榮耀發光。祂大聲喊著說：『巴比倫大城傾倒了！傾倒了！』」</div></div>
+<div class="bil"><div class="en">Those who have refused to love God and find rest in him are sent away to a place or no rest. God’s people being sent away to slavery in Babylon was just a shadow of this reality, that those who refuse to rest in God and will not repent are handed over to no rest for eternity. But God’s people receive eternal rest:</div><div class="zh">神必須這樣做——祂必須懲罰惡，並將惡除去——否則神的子民永不得安全，永不得安息。同樣，「罪有應得」——惡人沒有安息。啟示錄 14 章說：</div></div>
+<div class="bil-head"><div class="en">And I heard a loud voice from the throne saying, “Look! God’s dwelling place is now among the people, and he will dwell with them. They will be his people, and God himself will be with them and be their God. 4 ‘He will wipe every tear from their eyes. There will be no more death’ or mourning or crying or pain, for the old order of things has passed away.”</div><div class="zh">「他受痛苦的煙往上冒，直到永永遠遠。那些拜獸和獸像、受牠名之印記的，晝夜不得安寧。」</div></div>
+<div class="bil"><div class="en">These chapters reveal life in harmony with God and each other. This relational rest is what Sabbath is all about. And there are different elements to it. There is:</div><div class="zh">那些拒絕愛神、不肯在祂裏面尋求安息的人，被送到一個沒有安息的地方。神的子民被擄到巴比倫做奴隸，只是這個現實的影兒——拒絕在神裏面安息、不肯悔改的人，將被永遠交給「沒有安息」。但神的子民領受永恆的安息：</div></div>
+<div class="bil"><div class="en">Redemption Rest: Redemption was one of the reasons for rest given in the Ten Commandments. God had rescued them from slavery in Egypt. Well, now God has rescued people from slavery.</div><div class="zh">「我聽見有大聲音從寶座出來說：『看哪，神的帳幕在人間。祂要與人同住，他們要作祂的子民。神要親自與他們同在，作他們的神。神要擦去他們一切的眼淚；不再有死亡，也不再有悲哀、哭號、疼痛，因為以前的事都過去了。』」</div></div>
+<div class="bil-head"><div class="en">Personal sin is overcome – they are no longer in slavery to their sinful desires and urges, and sin is taken away.</div><div class="zh">這幾章描繪的是與神、與人都和諧相處的生命。這種「關係的安息」就是安息日的全部意義。當中包括幾個元素：</div></div>
+<div class="bil-head"><div class="en">Curse removed – they are no longer under the curse, which caused work and life in this world to be painful, frustrating and exhausting … that curse is God.</div><div class="zh">救贖的安息：救贖是十誡裏為安息日所給的其中一個原因——神將他們從埃及的奴役中救出來。如今，神也將人從奴役中救了出來。</div></div>
+<div class="bil-head"><div class="en">World &amp; Devil defeated and punished – the enemies of the Christian are defeated, and they can have rest from these enemies.</div><div class="zh">個人的罪被勝過——他們不再被自己的罪性慾望奴役，罪被除去。</div></div>
+<div class="bil-head"><div class="en">Relationship Rest as well</div><div class="zh">咒詛被除去——他們不再活在那令工作和人生變得痛苦、挫敗、疲憊的咒詛之下——咒詛已經屬於神。</div></div>
+<div class="bil-head"><div class="en">Perfect relationship with God – they can have a perfect daily relationship that is not marred by sin in any way.</div><div class="zh">世界與魔鬼被擊敗、被審判——基督徒的仇敵被擊敗，他們可以從這些仇敵手中得安息。</div></div>
+<div class="bil-head"><div class="en">Harmony with each other, no more fighting and arguing.</div><div class="zh">關係的安息：</div></div>
+<div class="bil-head"><div class="en">Celebration Rest: all of those Old Testament festivals and celebrations remind us of the communal celebratory dimension of the Sabbath. And we are told that heaven will be like a party: The kingdom of heaven is like a king who prepared a wedding banquet for his son.</div><div class="zh">與神有完美的關係——他們可以日日有完美的關係，不再被罪所玷污。</div></div>
+<div class="bil-head"><div class="en">The prophets looked forward to this, like Isaiah who said:</div><div class="zh">彼此和睦——再沒有爭吵和爭辯。</div></div>
+<div class="bil"><div class="en">On this mountain the Lord Almighty will prepare<br>    a feast of rich food for all peoples,<br>a banquet of aged wine—<br>    the best of meats and the finest of wines.</div><div class="zh">慶祝的安息：所有舊約節期和慶典，都提醒我們安息日有「群體慶祝」的層面。聖經告訴我們，天國要像一個筵席：「天國好比一個王為他兒子擺設娶親的筵席。」</div></div>
+<div class="bil-head"><div class="en">There is this future dimension to rest in heaven that we can look forward to. One of the best-known Puritan pastors was Richard Baxter, and perhaps his best-known book is Saints&#x27; Everlasting Rest. A book written during a time of great illness, when he thought he was certain to die. It is huge, over 800 pages, although you can get much shorter abridgements, and in the book, Baxter describes the life of the Christian as being on a journey to eternal rest …with God in the new creation. I recommend the book, and that is what we are, pilgrims in a world filled with idolatry, filled with oppression and slavery … but we are on our way to the new creation to eternal perfect rest in the future. That you might say, is what the whole Christian life is, a participation in sabbath rest every day by knowing Jesus, and a journey to perfect sabbath rest in the future. So we should be people who are shaped by rest, the bible has a big element of rest in it … but what does it look like to have our lives shaped by rest … well, that’s what we are thinking about in the next session, let’s pray.</div><div class="zh">先知早已盼望這事，例如以賽亞所說：</div></div>
+<div class="bil-head"><div class="en"></div><div class="zh">「在這山上，萬軍之耶和華必為萬民用肥甘設擺筵席，用陳酒和滿髓的肥甘，並澄清的陳酒，設擺筵席。」</div></div>
+<div class="bil"><div class="en"></div><div class="zh">天上有一個未來的安息，是我們可以盼望的。最著名的清教徒牧師之一是 Richard Baxter（巴克斯特），他最為人知的著作或許就是《聖徒永恆的安息》（Saints&#x27; Everlasting Rest）。這本書是他在重病期間寫成的——當時他以為自己將要離世。書非常厚，超過 800 頁，但你也可以買簡明版。在這本書中，巴克斯特將基督徒的人生描述為一段通往「在新創造中與神同享永恆安息」的旅程。我向你推薦這本書。我們就是這樣——在一個充滿拜偶像、充滿壓迫和奴役的世界裏作客旅——但我們正走在通向新創造的路上，朝著那未來完美的永恆安息進發。</div></div>
+<div class="bil"><div class="en"></div><div class="zh">可以這樣說，整個基督徒的人生，就是「每日藉著認識耶穌而參與在安息中」，並且是一段「邁向那未來完美安息日」的旅程。所以我們應該成為被「安息」塑造的人。聖經中關於安息的元素分量很重——但「我們的人生被安息塑造」實際上是甚麼樣子？這正是我們在下一講要思考的。讓我們一同禱告。</div></div>
+  </div>
+</details>
+
+<!-- ===== PART 3 ===== -->
+<div class="part-banner">
+  <div class="num">Part 3 · 第三部分</div>
+  <div class="en">Rest for Us Now</div>
+  <div class="zh">那麼我們現在如何？</div>
+</div>
+
+<article class="chapter">
+  <h3><span class="num">📍</span> Points of view about rest <span class="zh">基督徒對安息日的四種看法</span></h3>
+
+  <div class="spectrum-axis">
+    <div>← Continuity 連續</div>
+    <div>Discontinuity 不連續 →</div>
+  </div>
+  <div class="spectrum">
+    <div class="col">
+      <div class="n">1</div>
+      <b>Seventh-day Adventists</b>
+      <span class="zh">第七日安息日會 — 仍然守星期六。</span>
+    </div>
+    <div class="col">
+      <div class="n">2</div>
+      <b>Christian Sabbath</b>
+      <span class="zh">基督教安息日 — 將星期日視為新的安息日，要完全休息。</span>
+    </div>
+    <div class="col">
+      <div class="n">3</div>
+      <b>Creation Pattern</b>
+      <span class="zh">創造的模式 — 不死守一日，但每七日仍要休息一日。</span>
+    </div>
+    <div class="col">
+      <div class="n">4</div>
+      <b>Fulfilment in Christ</b>
+      <span class="zh">在基督裡的成全 — 安息已經在基督裡實現。</span>
+    </div>
+  </div>
+</article>
+
+<article class="chapter">
+  <h3><span class="num">📍</span> Principles for rest <span class="zh">四種安息的原則</span></h3>
+  <ul class="tight">
+    <li><b>Physical Rest 身體的安息</b> — 補充與消耗要平衡。你是肉身的，需要睡眠、需要停手。</li>
+    <li><b>Redemption Rest 救贖的安息</b> — 從工作之中安息出來。靠基督完成的工，不再靠自己的表現。</li>
+    <li><b>Relationship Rest 關係的安息</b> — 與神、與人和好。</li>
+    <li><b>Celebration Rest 慶祝的安息</b> — 享受神所賜的好東西。歡笑、感恩、筵席。</li>
+  </ul>
+  <p class="commentary"><b>God's punishment for failing to rest is …</b><br>
+  <span class="zh">請留意一個規律 — 神對「不肯安息」的刑罰，往往就是 — 「讓你繼續造磚」。當你拒絕進入神的安息時，神的審判很多時候就是：讓你繼續做你現在所做的事，但永遠沒有飽足。</span></p>
+</article>
+
+<article class="chapter">
+  <h3><span class="num">📍</span> Practical suggestions <span class="zh">實踐建議</span></h3>
+  <ul class="tight">
+    <li><b>Have a day off each week</b> — 每星期有一日真正休息，補充與消耗要平衡。</li>
+    <li><b>Take Holidays</b> — 放假並不是奢侈，而是順服。</li>
+    <li><b>Go to Church</b> — 嘗試將星期日特別留給神。</li>
+    <li><b>Rest with Jesus</b> — 在耶穌裡安息 — 這是根本。</li>
+  </ul>
+  <blockquote class="passage" style="margin-top:14px;">
+    "Come to me, all you who are weary and burdened, and I will give you rest."
+    <span class="ref">Matthew 11:28 · 馬太福音 11 章 28 節</span>
+  </blockquote>
+</article>
+
+<hr class="soft">
+<details class="transcript" id="talk3">
+  <summary>📖 Talk 3 · Rest for Us Now <span class="zh-summary">第三講 · 安息對我們今日的意義</span></summary>
+  <div class="transcript-body">
+<div class="bil-head"><div class="en">PART 3 – REST FOR US NOW</div><div class="zh">第三部分 — 安息對我們今日的意義</div></div>
+<div class="bil-head"><div class="en">Welcome back to our final session on what it means for us to rest.</div><div class="zh">歡迎大家回來，我們來到最後一講——「我們今日如何安息」。</div></div>
+<div class="bil"><div class="en">Remember, we started our first session by discussing a problem in modern life: people are exhausted, overworked, tired, and frazzled. And that many of us feel frazzled and tired, pulled in so many different directions.</div><div class="zh">請大家記住，我們在第一講開頭討論了一個現代生活的問題：人筋疲力盡、過勞、疲倦、心力交瘁；我們很多人都覺得忙到亂、累到散，被許多事情拉來拉去。</div></div>
+<div class="bil"><div class="en">We know that the world&#x27;s solution to this is to talk about self-care, and me-time … and although there is some value in this … we know that this is linked to a bigger problem, the problem of sin … sin is turning from God, it always leads to idolatry, and it always leads to slavery and oppression as people are driven by desires.</div><div class="zh">我們知道世俗對這個問題的解決方案，是談「自我照顧」、談「自我時間」⋯⋯雖然這些說法也有一定價值⋯⋯但我們知道這背後是一個更大的問題——「罪」的問題——罪就是轉離神，必然導致拜偶像，也必然導致人被慾望驅使所帶來的奴役和壓迫。</div></div>
+<div class="bil-head"><div class="en">That’s the problem, that sin makes people exhausted.</div><div class="zh">問題就在這裏：罪使人疲憊。</div></div>
+<div class="bil-head"><div class="en">And then we went to the Bible, but instead of jumping straight to a few well-known passages, we slowed down and did a thematic Bible overview.</div><div class="zh">然後我們翻開聖經——但我們不是直接跳去幾段大家熟悉的經文，而是慢下來，做一個主題式聖經導覽。</div></div>
+<div class="bil-head"><div class="en">God made the world and rested. Rest isn’t mainly about physical rest; it’s about spiritual rest.</div><div class="zh">神創造世界，然後安息了。「安息」並非首要關乎身體休息，而是關乎屬靈的安息。</div></div>
+<div class="bil-head"><div class="en">The Garden of Eden was the place of this rest and blessing.</div><div class="zh">伊甸園就是那「安息與賜福」之地。</div></div>
+<div class="bil-head"><div class="en">Humanity rebelled and turned to idols … the tower of Babel, or Babylon, was a demonstration of this</div><div class="zh">人類背叛，轉去拜偶像——巴別塔（即巴比倫）就是這個現象的具體呈現。</div></div>
+<div class="bil-head"><div class="en">God chose a people, the descendants of Abraham, and rescued them from slavery to make them his people.</div><div class="zh">神揀選了一群子民——亞伯拉罕的後裔——將他們從奴役中拯救出來，使他們成為祂的子民。</div></div>
+<div class="bil-head"><div class="en">He gave them rules to help them rest, but they didn’t listen</div><div class="zh">祂頒下律法幫助他們安息，但他們不肯聽。</div></div>
+<div class="bil-head"><div class="en">So, they were sent back to slavery in Babylon this time</div><div class="zh">於是他們被送回奴役之地——這次是巴比倫。</div></div>
+<div class="bil-head"><div class="en">They didn’t learn their lesson, but God brought them back, and he promised rest in the future … at a kind of Super-sabbath.</div><div class="zh">他們仍然沒有學到教訓，但神將他們帶回應許之地，並應許將來會有安息——一種「超級安息日」。</div></div>
+<div class="bil"><div class="en">That happened when Jesus came, he announces that he brings the super-sabbath … he says he brings true rest, and he is lord of sabbath, and sabbath is about love and mercy, not rules.</div><div class="zh">當耶穌降臨時，這事就成就了。祂宣告自己帶來「超級安息日」⋯⋯祂說祂帶來真正的安息，而且祂是「安息日的主」，安息日是關乎愛與憐憫，並非規條。</div></div>
+<div class="bil-head"><div class="en">After Jesus went, the New Testament church followed this teaching. They said, the Old Testament rules about the Sabbath were just shadows … pointers to rest in Jesus.</div><div class="zh">耶穌升天之後，新約的教會跟從這個教導。他們說：舊約有關安息日的規條只是影兒——指向那「在耶穌裏的安息」。</div></div>
+<div class="bil-head"><div class="en">Rest is all about Jesus, and having a relationship with him</div><div class="zh">安息全在乎耶穌——關乎與祂建立關係。</div></div>
+<div class="bil"><div class="en">And we look forward to the new creation, when everything in this world will be put right, Babylon will be destroyed, the curse will be lifted … and then we’ll be able to enjoy true rest, in all of its dimensions, with Jesus in heaven forever …</div><div class="zh">我們仰望那將來的「新創造」——那時這個世界一切將被修復，巴比倫被毀滅，咒詛被除去⋯⋯之後，我們就能在天上與耶穌享受真正的安息——所有層面的安息——直到永遠⋯⋯</div></div>
+<div class="bil"><div class="en">So that’s what we saw when we did the Bible overview. And having gone through the Bible, we now need to take some time to digest what we have seen, reflect on its meaning, and consider how to practically put it into practice. Because there is a range of views about what should be done, and how we should approach the topic of rest … what does it look like to rest, and should we still celebrate Sabbath, or keep Sunday special? How do we go away and put this all into practice?</div><div class="zh">這就是我們在聖經導覽中所看到的。經過聖經的整體掃過之後，我們現在需要花一點時間消化所看見的，反省當中的意義，並思考如何實際應用。因為對於這個題目，基督徒之間有不同的看法：應該怎樣行？我們如何看待安息日？「安息」實際上是甚麼樣子？我們仍要慶祝安息日，或將星期日分別出來嗎？我們如何將這一切實踐出來？</div></div>
+<div class="bil-head"><div class="en">Well, we are going to have three sections to this talk: points of view on rest, principles of rest, and practicalities of rest. So first of all:</div><div class="zh">這一講會分三部分：第一，對「安息」的不同觀點；第二，「安息」的原則；第三，「安息」的實踐。</div></div>
+<div class="bil-head"><div class="en">Points of view about rest</div><div class="zh">對「安息」的不同觀點</div></div>
+<div class="bil"><div class="en">It is important to acknowledge that Bible-believing Christians have different views on the Sabbath; we saw that in Romans. Now that doesn’t mean we have to accept all as equally valid, no, Paul tells us to do what is right in our own mind, that means we are to think about it … and try to find the right answer, but to do so respectfully.</div><div class="zh">首先要承認：相信聖經的基督徒，對「安息日」這件事有不同看法——我們在羅馬書已經看到。但這並不代表我們要將所有看法都當成同樣有道理。不——保羅告訴我們要「在自己心裏意見堅定」，意思是我們要思考，努力找出正確的答案，但同時要彼此尊重。</div></div>
+<div class="bil-head"><div class="en">Now, when dealing with this topic, it comes back to a bigger question: how should we read and apply the Old Testament law? And there are a range of views on this; there is a spectrum.</div><div class="zh">當處理這個題目時，我們要回到一個更大的問題：我們應該如何讀並應用舊約律法？這個問題也有不同看法，而且是一個光譜。</div></div>
+<div class="bil"><div class="en">On one hand, some people stress continuity. The Bible gives us God’s big plan to save, and all of his promises, Old Testament and New, are all focused on Jesus; it’s one big plan. And the law, yes, some things are fulfilled in Jesus, like the sacrificial system and the civil laws. But the moral law of the Old Testament, especially the Ten Commandments, still applies; we are still legally under the Ten Commandments, and we must still obey the moral part of the Old Testament law.</div><div class="zh">光譜的一端強調「延續性」（continuity）。這派認為：聖經給我們的是神拯救人類的整個大計劃，無論是舊約抑或新約所有應許，全部都聚焦於耶穌——是同一個大計劃。律法當中，有一部分在耶穌裏成就了，譬如獻祭制度和民事法。但舊約的「道德律」，特別是十誡，仍然有效——我們今日仍在十誡之下，仍然要遵守舊約律法當中的道德部分。</div></div>
+<div class="bil"><div class="en">The other approach is discontinuity. That says yes, the promises are all about the Holy Spirit, but there are two different operating systems. In the Old Testament, you have the laws pointing forward to Jesus, and in the New Testament, the church has the Holy Spirit guiding them. And there isn’t anywhere in the New Testament that divides the law into sacrificial, civil and moral law, and there isn’t anywhere that says you are still under the moral law. No, it says you are free from the law; you don’t have to keep it. It still has good principles, but you are not legally under the law.</div><div class="zh">另一端強調「不延續性」（discontinuity）。這派認為：對，所有應許都是關乎聖靈的——但舊約和新約是兩套不同的「運作系統」。在舊約，律法指向耶穌；在新約，教會由聖靈帶領。新約並沒有將律法分為「獻祭」、「民事」、「道德」三類，也沒有任何地方說我們仍然受「道德律」約束。相反，新約說我們從律法中得了自由——你不需要去守律法。律法仍有美好的原則，但你不再法律上受律法約束。</div></div>
+<div class="bil-head"><div class="en">One approach stresses continuity, and the other discontinuity when it comes to law.</div><div class="zh">一端強調延續，另一端強調不延續。</div></div>
+<div class="bil-head"><div class="en">And within that spectrum, there will be a range of views. I’ve put fruit down here to give us a sense of it.</div><div class="zh">而在這個光譜之內，又有不同的觀點。我在這裏列舉四種，讓大家有個印象：</div></div>
+<div class="bil"><div class="en">Seventh-day Adventists – first, the seven-day Adventists would say, &quot;Well, the Bible tells us we must rest on the seventh day, which is Saturday.&quot; They say, well, it’s in Genesis two, God rested. And it’s in the Ten Commandments, which is God’s moral law. Both of those things still apply, and so we are legally required … that is required by God’s law to keep the Sabbath on the Saturday.</div><div class="zh">第一，第七日安息日會（Seventh-day Adventists）——他們會說：「聖經告訴我們必須在第七日安息」——即星期六。他們的理據是：創世記第二章告訴我們，神在第七日安息了；十誡——也即神的道德律——也吩咐這事；這兩樣到今日仍然有效。所以我們是受神的律法所約束，必須在星期六守安息日。</div></div>
+<div class="bil"><div class="en">Christian Sabbath – another view of the Christian Sabbath. It operates on similar logic, but on Sunday. Those who go for this view say, well, God rested on the seventh day, and we are told to follow this in the Ten Commandments, and the Ten Commandments still apply. We are legally required to keep God’s ten commandments, and the sabbath is one of those. But when the early church met, they changed the sabbath from Saturday to Sunday. So, we don’t keep Saturday&#x27;s Sabbath; we keep the Lord’s Day, which is a Christian Sabbath.</div><div class="zh">第二，「基督教安息日」觀（Christian Sabbath）——這個觀點的邏輯類似，但守的是星期日。他們說：神在第七日安息了，十誡叫我們跟隨這事，十誡到今日仍然有效，我們是受十誡所約束，安息日是其中一條。但當早期教會聚會時，把安息日由星期六改成星期日。所以我們不守星期六的安息日，我們守「主日」——一個「基督教式的安息日」。</div></div>
+<div class="bil"><div class="en">So those views are both continuity views, saying we need to keep the sabbath because it’s in the Ten Commandments. The other two are discontinuity views, saying we are not required to keep them, because the law is fulfilled in Jesus.</div><div class="zh">頭兩個觀點都是「延續性」觀——主張我們要守安息日，因為它在十誡裏面。後兩個觀點是「不延續性」觀——主張我們不必須守安息日，因為律法已在耶穌裏成就。</div></div>
+<div class="bil"><div class="en">Fulfilment in Christ – the fourth view is a more extreme version of this… it says, the law is all fulfilled in Christ, so there are no special days. And yes, it makes sense for us to all come to church on the same day, but there is really nothing further than that. You can do what you want, because true rest in Jesus.</div><div class="zh">第三，「創造模式」觀（Creation Pattern）——這派說：「我們不在律法之下，亦不被十誡法律性地約束，因為耶穌就是律法的成就。」所以沒有甚麼「特別的日子」。但似乎創造仍有一個「七日休一日」的模式——雖然我們不再像舊約那樣「違反就要被治死」，但這仍是智慧而美好的事——我們都需要安息。「安息」是創造的模式。</div></div>
+<div class="bil"><div class="en">Creation Pattern – the third view is similar, but less extreme. It says, &quot;We are not under the law; we are not legally bound to the ten commandments, because Jesus is the fulfilment of the law …&quot; So yes, there are no special days. But there does seem to be a pattern of creation: resting one day in seven. And although we are not legally required to keep it under pain of death, as in the Old Testament, this is a wise and good thing to do; we all need rest. Rest is a creation pattern.</div><div class="zh">第四，「在基督裏的成就」觀（Fulfilment in Christ）——這是「不延續性」的一個更極端版本。它說：律法都已在基督裏成就，所以沒有任何「特別的日子」。當然，大家在同一日返教會仍然合理——但僅此而已。你想點都得，因為真正的安息已經在耶穌裏。</div></div>
+<div class="bil"><div class="en">These second two views, three and four, are approaches to the law based on discontinuity. You have continuity and discontinuity. And it’s very important that we respect each other, even if we don’t agree with other people, in the way Romans 14 tells us to do.</div><div class="zh">第三和第四這兩個觀點都是建基於「不延續性」。所以你看：延續性—對—不延續性。我們一定要彼此尊重，即使不同意對方的看法，也要按羅馬書 14 章所教導的那樣去做。</div></div>
+<div class="bil"><div class="en">Now my own approach is point three. For me … it just doesn’t make sense to divide the Old Testament law into sacrificial, civil and moral, and then say we are still under the moral law. I can’t see that anywhere; it seems to me that we are freed from the law and under a new system through the power of the Holy Spirit. It is all fulfilled in Christ. But I wouldn’t go so far to say Christians can do whatever they like. To me, it’s a question of wisdom: it seems wise to acknowledge that there is a basic pattern to the way the world works, and we need to recognise that and get some rest.  And that brings us to our second point:</div><div class="zh">我自己的立場是接近第三點。對我而言⋯⋯把舊約律法分成「獻祭、民事、道德」三類，再說我們仍然在「道德律」之下，這個分法似乎沒有甚麼根據；我看不到聖經這樣分。在我看來，我們是已經從律法中得了釋放，並透過聖靈的能力進入了一個新的系統。一切都已在基督裏成就。但我也不會去到極端，說基督徒可以為所欲為。對我而言，這是個「智慧」的問題——承認這個世界有一個基本運作模式是合理的，我們需要認識並按那模式得安息。</div></div>
+<div class="bil-head"><div class="en">Principles for rest</div><div class="zh">這就帶我們到第二部分：</div></div>
+<div class="bil-head"><div class="en">Physical Rest</div><div class="zh">「安息」的原則</div></div>
+<div class="bil-head"><div class="en">We have to admit that we need physical rest. If we just say that rest is fulfilled in Jesus … so it’s about coming to him for rest, it seems to miss this obvious point. We all need physical rest. Even Jesus got tired and rested. Think of the story of the calming of the story, Jesus was asleep after a long day&#x27;s work, getting some rest. So we need rest, and it makes sense for us to have a plan or a pattern to get that rest, so that we rest before we reach the point of exhaustion and keel over.</div><div class="zh">第一，身體的安息</div></div>
+<div class="bil"><div class="en">Redemption Rest</div><div class="zh">我們必須承認自己需要身體的休息。如果我們只說「安息已在耶穌裏成就，所以單去到祂那裏就可以了」，似乎錯失了這個顯然的事實——我們所有人都需要身體休息。連耶穌也會疲倦、會休息。想想耶穌在風暴中睡覺的故事——祂工作了一整日後睡覺，得到一點休息。所以我們需要休息，並且需要有計劃和模式去得到那休息——免得我們撐到精疲力盡才倒下來。</div></div>
+<div class="bil-head"><div class="en">Secondly, we need to remember that rest is not just physical rest; it’s redemption rest. That’s the reason given in Deuteronomy five. You are rescued. You were slaves in Egypt, but now you are free. We need to remember that. We were slaves of sin, but now we are free. Free from the penalty of sin, we are forgiven and also set free from sin in our lives. Sin creates slavery and oppression. So we need to draw boundaries and not get sucked into that. We hear a voice in our head saying, &quot; There is always more work to do … but we need to say, I’m set free from that rat-race. I’m not going to be sucked into the endless pursuit of selfish ambition and evil desires. Now, sometimes it can be hard to say no when our boss tells us directly to do a piece of work; we might be able to do it. But other times we need to exercise discretion. It might mean our careers don’t advance as quickly, but life isn’t all about career and promotions.</div><div class="zh">第二，救贖的安息</div></div>
+<div class="bil"><div class="en">Relationship Rest</div><div class="zh">其次，我們要記得：安息不單是身體的休息，也是救贖的安息——這正是申命記第五章所給的理由。「你被救出來了。你曾經是埃及的奴隸，但現在你自由了。」我們要記住這事。我們曾是罪的奴隸，現在自由了——從罪的刑罰中得自由，被赦免，並且被釋放，不再被罪轄制。罪帶來奴役和壓迫。所以我們要設立界線，不要被吸入那個漩渦中。我們腦中總有一把聲音說：「永遠都做不完⋯⋯」但我們要說：「我已經從那個鼠兒競賽中得了釋放。我不會再被無止境的自私野心和罪惡慾望吞沒。」有時候，當老闆直接吩咐你做某件工作，你或者真的能做。但有時候，我們需要運用判斷力——可能升職加薪會慢一點，但人生並不是只關於事業和升職。</div></div>
+<div class="bil-head"><div class="en">Then there’s relationship rest. True rest is found in Jesus, and so really resting means spending time with him. We should be seeking to do that every day … opening the Bible to hear his words, praying to him in response. We should all be doing that every day. But rest is also about enjoying time with others. Adam and Eve enjoyed time with God and each other in the Garden of Eden. So it makes sense for us to take time off together. If you have your day off one day, I have it another day, and they have it another day … well, we can’t spend time together enjoying relationships with one another or with God. To me it seems to make sense to synchronise our time resting from work, to be with each other, to enjoy relationships.</div><div class="zh">第三，關係的安息</div></div>
+<div class="bil"><div class="en">Celebration Rest</div><div class="zh">接著，是關係的安息。真正的安息在耶穌裏，所以真正的安息就是與祂同在。我們應該天天這樣做——打開聖經聽祂的話、向祂禱告作回應。我們每一個人都應該日日如此。但安息也包括與其他人共度時光。亞當夏娃在伊甸園裏，與神和彼此享受時光。所以我們一同休息也是合理的。如果你某一日休息，我另一日休息，他又另一日休息——那麼我們就無法一起享受彼此的關係，亦難以一同親近神。對我來說，把休息的時間同步化是有道理的——讓我們可以彼此相伴，享受關係。</div></div>
+<div class="bil-head"><div class="en">That brings us on to celebration rest. Rest is not just about sitting back, sipping a cup of tea and keeping your breathing steady and your pulse low. It’s meant to be a party; it’s meant to be something wonderful. We see that in the Old Testament, the festivals involved a week-long party, celebrating together after working hard in the harvest. And we see that in the New Creation; heaven is described as a wonderful wedding banquet with aged wine. That kind of rest isn’t boring at all, it’s wonderful. So, church on Sunday is meant to have a celebratory aspect, celebrating and praising God for how wonderful he is and enjoying time together. Of course, arranging a celebration takes some work, and it takes some commitment for us to all turn up, but that’s important. Rest is not meant to be boring; it’s meant to be wonderful.</div><div class="zh">第四，慶祝的安息</div></div>
+<div class="bil"><div class="en">Now we might think, well, this all sounds like a bit much, I don’t have time to rest in this way … but remember that …</div><div class="zh">這就帶我們到「慶祝的安息」。安息不是只坐下來、慢慢呷一啖茶、保持呼吸均勻、心跳緩和。它是一場筵席——是奇妙的事。我們在舊約看到，那些節期是長達一週的慶祝——在收成後辛勤勞動之後，一同慶祝。新創造也是如此——天國被描述為一個盛大的婚宴，有陳年美酒。這種安息一點也不沉悶，反而非常美妙。所以星期日返教會應有「慶祝」的層面——一同慶祝，敬拜神是何等奇妙，享受彼此的時光。當然，籌備一場慶祝需要付出工夫，需要大家委身一同出席——但這很重要。安息不應該沉悶——應該是奇妙的。</div></div>
+<div class="bil-head"><div class="en">God’s Punishment for failing to rest is SLAVERY</div><div class="zh">這時你或許會想：「咦，這聽起來太多了，我哪有時間這樣安息？」但請記住⋯⋯</div></div>
+<div class="bil-head"><div class="en">…  that’s what happened to his people; they wouldn’t rest, so he punished them with slavery in Babylon. Now God doesn’t punish us like that in the New Testament, but he will hand us over to the consequences of our sins. So if you won’t rest, you will be a slave. But he’s saved us from that; we don’t need to revert to slavery. Ok, finally, so practical suggestions, so we have some ideas of what to actually do:</div><div class="zh">「拒絕安息」的刑罰是「奴役」</div></div>
+<div class="bil"><div class="en">Practical suggestions for rest</div><div class="zh">⋯⋯這就是發生在神子民身上的事。他們不肯安息，所以神用「巴比倫的奴役」懲罰他們。新約時代神並非這樣懲罰我們，但祂會將我們交給罪的後果。所以如果你不肯安息，你便要做奴隸。但祂已經將我們從那狀態中拯救出來——我們不需要再回到奴役。</div></div>
+<div class="bil-head"><div class="en">Have a day off each week (energy in &amp; energy out)</div><div class="zh">最後，幾個實際的建議：</div></div>
+<div class="bil-head"><div class="en">Sleep- we need to acknowledge that we need physical rest. For one, we need sleep. I have one of those tracker watches that tracks my sleep and tells me how I’m doing … and if I go to bed too late, my sleep isn’t very good, and my watch tells me. God has created us to need sleep. So, you need to find out how much sleep you need and get enough sleep.</div><div class="zh">「安息」的實踐建議</div></div>
+<div class="bil-head"><div class="en">We also need to take days off to rest. To me, it’s clear in the Bible that God has created a pattern of seven, and following that pattern is the best way for the world to work. We take for granted in the West that we have a weekly pattern, and that it’s a seven-day cycle … but it comes from the Bible. The Roman Constantine adopted it in the fourth century, and since then, all of the West has followed it. People have tried to get rid of it. After the French Revolution, the French tried to introduce a ten-day week, a decimal week, but it didn’t work. In the 1920s, the Soviets tried to introduce a five-day workweek with factories running continuously and different days off. That didn’t work. There seems to be something about the seven days. God made it that way, and we should respect it. so can I encourage you to try and make sure that you are getting a day off each week. And I think, personally, having some clear boundaries helps us to do that … things you don’t do on your day off, otherwise, work just creeps in. And if we are married, we should have a conversation with our spouse and family about this and agree on those boundaries together.</div><div class="zh">第一，每星期有一日休息（能量進來和能量出去）</div></div>
+<div class="bil"><div class="en">Now, what should we do on our day off? What counts as work? I think a helpful way to think about this is energy in, and energy out. Resting doesn’t mean doing nothing; it’s what reenergises us. Some people are reenergised by going for a long walk, or even a run. Some people like seeing friends. We should do things that put energy in, not take energy out. Now we mustn’t take that to extremes, some people have a day off and shouldn&#x27;t run a half-marathon, and seeing five different people … even if those individual things energise you, it means you aren’t getting enough rest … we have to be sensible.</div><div class="zh">睡眠——我們要承認自己需要身體的休息。其中一樣，我們需要睡眠。我有一隻能追蹤睡眠的手錶——如果我太晚睡，我的睡眠質素就會差，手錶會告訴我。神創造我們需要睡眠。所以你要找出自己需要多少睡眠，並確保得到足夠睡眠。</div></div>
+<div class="bil"><div class="en">Take Holidays – second take holidays.</div><div class="zh">我們也需要休息日。對我而言，聖經很清楚地表明：神創造了一個「七日的模式」——按這模式生活，是世界運轉最好的方法。在西方我們把每星期七日這個模式視為理所當然——但這其實是來自聖經。羅馬皇帝君士坦丁在第四世紀採納了這個模式，自此整個西方都跟隨。也有人試過取消它——法國大革命之後，法國人試過一星期十日的「十進位星期」，行不通。1920 年代，蘇聯試過五日工作週，工廠不停運轉，員工錯開休息——也行不通。這個「七日」似乎有它的道理。神這樣造的，我們應該尊重。所以我鼓勵大家：嘗試確保每星期有一日休息。我個人覺得，設下清晰的界線會幫助我們——譬如「休息日不做哪幾樣」——否則工作就會慢慢蠶食。如果我們已婚，我們應該與配偶和家人就此商量好，一同達成共識。</div></div>
+<div class="bil"><div class="en">To me, it seems very Christian to take holidays. That’s what the believers did in the Old Testament. There were many set holidays besides the Sabbath, including the festivals, which lasted a week. So after the harvest, you’ve been working hard. You take a break, you get off the farm, and go to Jerusalem, and have a party, and worship the lord. It’s a holiday. So why not take a holiday? That principle seems to be in the Bible. It doesn’t need to be expensive; it doesn’t need to be two weeks in a five-star hotel in Hawaii. It might just be a few nights in a holiday cottage somewhere as a change of scene. I think going on very expensive holidays, can become quite worldly – that’s what the world around us wants to do, they think, I’ve only got a few years before die, so I want to travel the globe and enjoy luxuries … we want to avid that bucket-list-mentality I think, but there’s nothing wrong with holidays per se. and why not include a Christian dimension. That’s what they did in ancient Israel: they went to worship God at the temple. So could we do that? Perhaps try reading a Christian book, or, even better, a book with the people you are going on holiday with, and discuss it. Or if you are not into reading books, listen to some sermons and discuss them on holiday, it doesn’t need to take up all the time, but it brings that Christian aspect to the time away.</div><div class="zh">那麼，休息日該做甚麼？甚麼算是「工作」？我覺得有一個有用的方法去想：「能量進來，能量出去」。安息並非甚麼也不做——而是讓我們重新得力的事。有人因長途散步——甚至跑步——而恢復精力；有人喜歡見朋友。我們應做能讓「能量進來」的事，而非耗能量的事。但也不要太極端——有人休息日要去跑半馬，又見五個不同的朋友——即使每樣個別來說都讓你充電，整體加起來就等於沒得到足夠休息。要懂分寸。</div></div>
+<div class="bil-head"><div class="en">Go to Church ( … and so try to keep Sundays special?)</div><div class="zh">第二，放假</div></div>
+<div class="bil"><div class="en">Maybe this is obvious … but going to church is a key part of rest. This is part of the reason for synchronising our rest. We all rest together, so we can go to church together, worship God together, and enjoy relationships with each other and with God. Sometimes people seem to see church as optional. I go to church, so long as I don’t have other plans. If I have other plans, then I do those. And of course, sometimes there might be things we can’t avoid, but we should plan to be in church every week. We shouldn’t make plans that clash with church; it is a key part of our rest with God and his people every week.</div><div class="zh">對我而言，放假是非常合乎聖經教導的事。這就是舊約信徒所做的事。除了安息日之外，他們有許多既定假期——包括那些長達一週的節期。所以當收成後，你已經辛勤工作了一段日子，你便放下農場的事，上耶路撒冷，舉行筵席，敬拜耶和華——這是「放假」。所以為何不放假呢？這個原則是聖經裏面有的。它不需要昂貴——不需要兩星期五星級夏威夷酒店；可能只是幾個晚上在某處渡假小屋換一下環境而已。我覺得花費極大的奢華假期會變得相當世俗——這是身邊的世俗文化想做的事，他們覺得「我一生短短幾十年，所以我要環遊地球、享受奢華⋯⋯」我們要避免那種「人生 must-do 清單」的心態。但放假本身並沒有錯。為何不加入一點屬靈元素呢？這正是古以色列人所做的事——他們放假時前往聖殿敬拜神。我們可以這樣嗎？或者試試讀一本基督教書，更好的是，與一同放假的人讀同一本書，互相討論。如果你不喜歡讀書，可以聽道，再一同討論。這不需要佔據所有時間，但能為這段假期帶來屬靈的層面。</div></div>
+<div class="bil-head"><div class="en">And because this is so important, I think I would also argue for keeping Sunday special, for spending time with God’s people. I don’t mean that we are legally required by the Ten Commandments to do this … I just mean that it seems a sensible decision to make time for God’s people. Sometimes you see people who come to church every Sunday, without fail. The service ends, and they have left within a couple of minutes. They are not taking the time to connect with God’s people. And I think that misses the point of sabbath rest, connecting with the people of God. If you have taken time to come to church, to spend time with God’s people because you believe that is good and precious … then why rush off right away? Why not instead follow through on the decision … and take time to go for lunch, have coffee, or go for a walk, or have them back to your home to spend time together. There is something to be said for making Sunday a special time with God’s people, and not rushing off the moment the service finishes. And finally …</div><div class="zh">第三，返教會（並嘗試將星期日分別出來）</div></div>
+<div class="bil"><div class="en">Rest with Jesus</div><div class="zh">可能這很顯然⋯⋯但返教會是「安息」的關鍵一環。這也是同步休息日的其中一個原因。我們一同休息，所以我們可以一同返教會，一同敬拜神，享受彼此的關係，同時親近神。有時候，有人把返教會視為「可有可無」——「如果我有其他活動，我就不去」。當然，有時候真的有事情無法避免，但我們的計劃應該是「每星期返教會」。我們不應計劃會與教會時間衝突的事——因為這是我們每星期與神同在、與神的子民同在的關鍵時間。</div></div>
+<div class="bil"><div class="en">True rest is found in the Lord Jesus Christ. We need to go to him. Jesus said … “Come to me, all you who are weary and burdened, and I will give you rest.” We need to remember that all our strategies for resting, self-care, boundaries … those will not work. The only one who can truly satisfy the restlessness of our hearts is the Lord Jesus Christ. If we are gripped by anxiety and worry, if we are struggling with sin and doubt, if we feel overcome with suffering and burdens …. Weighed down in this world, we need to go to Jesus. He is the only one who can satisfy and save. So we need to be taking our troubles to him, each and every day, resting in him, because he says: “Come to me, all you who are weary and burdened, and I will give you rest.”</div><div class="zh">而正因為這事這樣重要，我也想為「將星期日分別出來」進言——花時間與神的子民同在。我不是說我們是因為十誡而被法律性地規定要這樣做⋯⋯我只是說，為神的子民騰出時間是合理而智慧的決定。有時你會看到一些人，每個星期日都準時返教會——但聚會一完，幾分鐘內就走了。他們沒有花時間與神的子民連繫。我認為這錯失了「安息日」的精髓——與神的子民連繫。如果你已經花時間返教會，已經願意與神的子民共度時光，因為你相信這事美好寶貴⋯⋯為甚麼要立刻趕走呢？為何不貫徹這個決定，多留一點時間——一齊吃午飯、飲咖啡、散散步，或請他們到家裏共度時光。為「星期日為神的子民留出特別時間」進言是有道理的——不要聚會一完就趕走。</div></div>
+<div class="bil-head"><div class="en"></div><div class="zh">最後⋯⋯</div></div>
+<div class="bil-head"><div class="en"></div><div class="zh">第四，在耶穌裏安息</div></div>
+<div class="bil"><div class="en"></div><div class="zh">真正的安息在主耶穌基督裏。我們要到祂那裏。耶穌說：「凡勞苦擔重擔的人，可以到我這裏來，我就使你們得安息。」我們要記住：一切休息策略——自我照顧、設界線——終究都不能解決根本問題。唯一真正能滿足我們心中那永不安息的，就是主耶穌基督。如果我們被焦慮愁煩所抓住，如果我們在罪和疑惑中掙扎，如果我們覺得被痛苦和重擔壓得喘不過氣——在這個世界中被壓得透不過氣的時候——我們需要去耶穌那裏。祂是唯一能滿足、能拯救我們的那一位。所以我們需要日復日將自己的憂愁帶到祂面前，在祂裏面安息——因為祂說：「凡勞苦擔重擔的人，可以到我這裏來，我就使你們得安息。」</div></div>
+  </div>
+</details>
+
+<footer>
+  Ridgeway Church Day Away · Thematic Bible Overview: REST · 主題聖經導覽：安息<br>
+  English text adapted from the original document. 中文書面語講章稿由 LillyRose 撰寫供 Anzon 審閱。<br>
+  <small>Bible quotations from NIV (English) · 中文聖經引用以「X 章 Y 節」寫法，方便 TTS 朗讀。</small>
+</footer>
+
+</div><!-- /wrap -->
+
+<div class="audio-bar" id="audioBar">
+  <div class="inner">
+    <div class="header">
+      <span>🎧 <b id="audioTitle">廣東話錄音</b> · <span id="audioEngine">MiniMax T2A v2</span></span>
+      <div class="header-right">
+        <div class="lang-toggle" id="langToggle" role="group" aria-label="Audio language">
+          <button class="lang-btn active" data-lang="zh">廣東話</button>
+          <button class="lang-btn"        data-lang="en">English</button>
+        </div>
+        <button class="toggle-btn" id="audioToggle" type="button" aria-label="Expand or collapse player" aria-expanded="false">
+          <span class="chev">▾</span>
+        </button>
+      </div>
+    </div>
+    <div class="tabs" id="audioTabs">
+      <button class="tab active" data-seg="talk1_old_testament" data-label-zh="第一講：舊約裏面的安息" data-label-en="Talk 1 · Rest in the Old Testament"><span class="num">1</span><span class="tab-zh">舊約 OT</span><span class="tab-en">Talk 1 · OT</span></button>
+      <button class="tab"        data-seg="talk2_new_testament" data-label-zh="第二講：新約裏面的安息" data-label-en="Talk 2 · Rest in the New Testament"><span class="num">2</span><span class="tab-zh">新約 NT</span><span class="tab-en">Talk 2 · NT</span></button>
+      <button class="tab"        data-seg="talk3_application"   data-label-zh="第三講：對我們今日的意義" data-label-en="Talk 3 · Rest for Us Now"><span class="num">3</span><span class="tab-zh">應用 Apply</span><span class="tab-en">Talk 3 · Apply</span></button>
+    </div>
+    <div class="player">
+      <div class="now" id="nowPlaying">▶ 第一講：舊約裏面的安息</div>
+      <audio id="audioPlayer" src="audio/talk1_old_testament_zh.mp3" controls preload="metadata"></audio>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('awayday_theme');
+  if (savedTheme) root.setAttribute('data-theme', savedTheme);
+  function syncThemeBtn() {
+    const t = root.getAttribute('data-theme');
+    themeBtn.textContent = t === 'night' ? '☀️ Day' : '🌙 Night';
+  }
+  syncThemeBtn();
+  themeBtn.addEventListener('click', () => {
+    const t = root.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+    root.setAttribute('data-theme', t);
+    localStorage.setItem('awayday_theme', t);
+    syncThemeBtn();
+  });
+
+  const minSize = 13, maxSize = 24;
+  let fs = parseInt(localStorage.getItem('awayday_fs') || '17', 10);
+  function applyFs() { root.style.setProperty('--fs', fs + 'px'); }
+  applyFs();
+  document.getElementById('fontPlus').addEventListener('click', () => {
+    if (fs < maxSize) { fs += 1; applyFs(); localStorage.setItem('awayday_fs', fs); }
+  });
+  document.getElementById('fontMinus').addEventListener('click', () => {
+    if (fs > minSize) { fs -= 1; applyFs(); localStorage.setItem('awayday_fs', fs); }
+  });
+
+  function padBottom() {
+    const bar = document.getElementById('audioBar');
+    if (bar) document.querySelector('.wrap').style.paddingBottom = (bar.offsetHeight + 40) + 'px';
+  }
+  window.addEventListener('load', padBottom);
+  window.addEventListener('resize', padBottom);
+
+  // Audio segment switcher + language toggle
+  const tabs = document.querySelectorAll('#audioTabs .tab');
+  const langBtns = document.querySelectorAll('#langToggle .lang-btn');
+  const player = document.getElementById('audioPlayer');
+  const nowPlaying = document.getElementById('nowPlaying');
+  const audioTitle = document.getElementById('audioTitle');
+  const audioEngine = document.getElementById('audioEngine');
+  const audioBar = document.getElementById('audioBar');
+  const audioToggle = document.getElementById('audioToggle');
+
+  audioBar.classList.add('collapsed');
+  function setCollapsed(collapsed) {
+    audioBar.classList.toggle('collapsed', collapsed);
+    audioToggle.setAttribute('aria-expanded', String(!collapsed));
+    padBottom();
+  }
+  audioToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setCollapsed(!audioBar.classList.contains('collapsed'));
+  });
+  audioBar.addEventListener('click', () => {
+    if (audioBar.classList.contains('collapsed')) setCollapsed(false);
+  });
+
+  let currentLang = localStorage.getItem('awayday_lang') || 'zh';
+  let currentSeg = 'talk1_old_testament';
+
+  function srcFor(seg, lang) {
+    return 'audio/' + seg + '_' + lang + '.mp3';
+  }
+  function labelFor(tab, lang) {
+    return tab.getAttribute(lang === 'en' ? 'data-label-en' : 'data-label-zh');
+  }
+  function applyLang() {
+    audioBar.setAttribute('data-lang', currentLang);
+    audioTitle.textContent = currentLang === 'en' ? 'English Audio' : '廣東話錄音';
+    audioEngine.textContent = currentLang === 'en'
+      ? 'MiniMax · English_Wiselady (British)'
+      : 'MiniMax · Cantonese_ProfessionalHost (F)';
+    langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === currentLang));
+    const activeTab = document.querySelector('#audioTabs .tab.active');
+    if (activeTab) {
+      const wasPlaying = !player.paused;
+      const t = player.currentTime;
+      player.src = srcFor(activeTab.dataset.seg, currentLang);
+      nowPlaying.textContent = '▶ ' + labelFor(activeTab, currentLang);
+      if (wasPlaying) {
+        player.addEventListener('loadedmetadata', () => {
+          player.currentTime = Math.min(t, player.duration || t);
+          player.play().catch(() => {});
+        }, { once: true });
+      }
+    }
+    padBottom();
+  }
+
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      localStorage.setItem('awayday_lang', currentLang);
+      applyLang();
+    });
+  });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentSeg = tab.dataset.seg;
+      player.src = srcFor(currentSeg, currentLang);
+      nowPlaying.textContent = '▶ ' + labelFor(tab, currentLang);
+      player.play().catch(() => {});
+      padBottom();
+    });
+  });
+
+  applyLang();
+})();
+</script>
+
+</body>
+</html>

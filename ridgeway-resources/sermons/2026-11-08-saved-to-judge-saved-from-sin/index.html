@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saved to Judge, Saved from Sin 蒙拯救與主同審，蒙拯救脫離罪惡 — 1 Corinthians 6:1-11 哥林多前書 6:1-11</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-11-08 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Saved to Judge, Saved from Sin 蒙拯救與主同審，蒙拯救脫離罪惡<br>(1 Corinthians 6:1-11 哥林多前書 6:1-11)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Intro: Our passage is about identity</span>
+<span class="verse">Do you not know that the Lord’s people will judge the world?</span>
+<span class="verse">Do you not know that we will judge angels?</span>
+<span class="verse">Do you not know that wrongdoers will not inherit the kingdom of God?</span>
+Our passage this morning is all about our identity as believers.
+Who we are as followers of Jesus.</td><td class="zh"><span class="highlight">引言：經文的主題是身分</span>
+<span class="verse">「豈不知聖徒要審判世界嗎？」</span>
+<span class="verse">「豈不知我們要審判天使嗎？」</span>
+<span class="verse">「你們豈不知不義的人不能承受神的國嗎？」</span>
+今早的經文，講的全是我們作為信徒的身分，
+就是我們這些跟隨耶穌的人，究竟是誰。</td></tr>
+<tr><td class="en"><span class="highlight">Our passage teaches us two truths</span>
+In particular, it’s a passage that teaches us two key truths about our identity.
+Two truths which transform the way we think and act.
+Because who we are governs how we live.
+Two truths which define us and make us distinctive.
+Firstly, we’ve been saved to judge with Jesus.
+And secondly, we’ve been saved from sin by Jesus.
+Let’s then delve into our passage and see that’s the case.</td><td class="zh"><span class="highlight">經文教導我們兩個真理</span>
+具體而言，這段經文教導我們兩個關於身分的重要真理。
+這兩個真理會改變我們思想和行事的方式，
+因為我們是誰，決定了我們怎樣生活。
+這兩個真理界定了我們，也使我們與眾不同。
+第一，我們蒙拯救，是要與耶穌一同審判。
+第二，我們蒙耶穌拯救，脫離了罪。
+現在就讓我們深入經文，看看是否如此。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Context: We’re in a section about identity and sin</span>
+We’re in 1 Corinthians chapter six.
+And what you need to know is this: our passage this morning comes in the middle of a section.
+A section which encompasses the whole of chapters five and six.
+A section which is all about who we are and what that means.
+In particular, what that means for the way we relate to sin.
+Our own sin and the sin of other people.</td><td class="zh"><span class="highlight">背景：這段經文屬於論身分與罪的段落</span>
+我們現在來到哥林多前書第六章。
+大家需要知道的是：今早的經文位於一個段落的中間。
+這個段落涵蓋整個第五章和第六章，
+整段講的是我們是誰，以及這身分有甚麼意義；
+特別是這身分對我們如何面對罪有甚麼意義，
+包括我們自己的罪，以及別人的罪。</td></tr>
+<tr><td class="en"><span class="highlight">Last Sunday: Serious unrepentant sin</span>
+For example, last Sunday, you looked at chapter five, where Paul urged the Corinthians to expel someone from among them.
+Why? Because they were living in serious unrepentant sin – sleeping with their father’s wife.
+And so, Paul told them to remove this man from their fellowship.
+For the good of the man.
+And for the good of the church.
+Because of what sin does: sin spreads.
+And because of who we are: God’s holy people.</td><td class="zh"><span class="highlight">上主日：嚴重而不悔改的罪</span>
+例如上主日，大家看了第五章，保羅在那裏勸哥林多人把一個人從他們中間趕出去。
+為甚麼？因為那人活在嚴重而不悔改的罪中：與他父親的妻子同居。
+所以保羅吩咐他們把這人從團契中除去。
+這是為了那人的益處，
+也是為了教會的益處；
+因為罪的本質：罪會蔓延；
+也因為我們的身分：我們是神聖潔的子民。</td></tr>
+<tr><td class="en"><span class="highlight">This Sunday: Same focus, different issue</span>
+And so, chapter five was all about who we are and what that means for our relationship to sin and our relationships with one another.
+Well, the same is true here in chapter six.
+However, the issue is very different.</td><td class="zh"><span class="highlight">本主日：焦點相同，問題不同</span>
+所以，第五章講的是我們是誰，以及這身分對我們與罪的關係、與彼此的關係有何意義。
+第六章也是如此，
+然而所處理的問題截然不同。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Issue #1: Disputes and lawsuits before unbelievers</span>
+Because the issue Paul is responding to here isn’t serious and unrepentant sexual sin.
+No! The issue Paul is dealing with here is disputes and lawsuits.
+Did you spot that in verse one?
+<span class="verse">“If any of you has a dispute with another, do you dare to take it before the ungodly for judgment instead of before the Lord’s people?” (v.1)</span>
+And again, in verse six:
+<span class="verse">“But instead, one brother takes another to court—and this in front of unbelievers!” (v.6)</span>
+Not only is the Corinthian church full of quarrels and disputes,
+but the Corinthians are taking each other to court,
+and getting unbelievers to judge between them.</td><td class="zh"><span class="highlight">問題一：在不信的人面前爭訟</span>
+因為保羅在這裏回應的，不是嚴重而不悔改的性方面的罪。
+不！保羅在這裏處理的是糾紛和訴訟。
+大家留意到第 1 節嗎？
+<span class="verse">「你們中間有彼此相爭的事，怎敢在不義的人面前求審，不在聖徒面前求審呢？」（1 節）</span>
+又在第 6 節：
+<span class="verse">「你們竟是弟兄與弟兄告狀，而且告在不信主的人面前。」（6 節）</span>
+哥林多教會不但充滿爭吵和糾紛，
+哥林多人更互相告上法庭，
+還讓不信的人在他們中間作裁判。</td></tr>
+<tr><td class="en"><span class="highlight">Paul is horrified</span>
+And Paul is horrified.
+In fact, he thinks the situation shameful (v.5).
+A complete defeat (v.7).</td><td class="zh"><span class="highlight">保羅大感震驚</span>
+保羅對此大感震驚。
+事實上，他認為這情況是羞恥的（5 節），
+是徹底的失敗（7 節）。</td></tr>
+<tr><td class="en"><span class="highlight">Clarification #1: Paul isn’t anti-civil authorities and courts</span>
+Now at this point, it’s important we pause to make a couple of key clarifications.
+Firstly, Paul isn’t anti-civil authorities and courts.
+No! In Acts, Paul appeals to the Roman legal system.
+And in Romans, Paul says that it is God who establishes governing authorities and we should therefore submit to them.
+And so, Paul isn’t anti-civil authorities and courts.
+And we shouldn’t be either.</td><td class="zh"><span class="highlight">澄清一：保羅並不反對政府與法庭</span>
+說到這裏，我們有必要停一停，作幾點重要的澄清。
+第一，保羅並不反對政府和法庭。
+不！在使徒行傳中，保羅曾向羅馬的司法制度上訴。
+在羅馬書中，保羅說掌權者是神所設立的，所以我們應當順服他們。
+因此，保羅並不反對政府和法庭，
+我們也不應反對。</td></tr>
+<tr><td class="en"><span class="highlight">Clarification #2: The issue here isn’t serious criminal activity</span>
+That’s the first clarification.
+The second is this: the issue here isn’t serious criminal activity,
+like murder or sexual assault.
+No! The issue here is believers suing each other, possibly due to a dispute about property.
+The issue here isn’t serious criminal activity,
+which should be punished by the state.</td><td class="zh"><span class="highlight">澄清二：這裏所講的並非嚴重刑事罪行</span>
+這是第一點澄清。
+第二點是：這裏所講的並非嚴重的刑事罪行，
+例如謀殺或性侵犯。
+不！這裏所講的是信徒互相控告，可能是因為財產糾紛。
+這裏所講的不是嚴重的刑事罪行，
+那些罪行應當由國家懲處。</td></tr>
+<tr><td class="en"><span class="highlight">We need to be careful not to overapply or underapply</span>
+And so, we need to be careful not to overapply this passage.
+However, we also need to be careful not to underapply or ignore this passage.
+Because Paul thinks having disputes and lawsuits before unbelievers is shameful.</td><td class="zh"><span class="highlight">既不可過度應用，也不可應用不足</span>
+所以，我們要小心，不要過度應用這段經文。
+然而，我們也要小心，不要應用不足，甚至忽略這段經文，
+因為保羅認為，在不信的人面前爭訟是羞恥的事。</td></tr>
+<tr><td class="en"><span class="highlight">Comes as a shock</span>
+And I think this comes as a bit of a shock.
+Because we live in a society which is quick to go to court.
+Where the assumption is: if I feel wronged, I ring my lawyer!
+If I feel short-changed, I sue!
+And so, we need to hear Paul’s horror.
+Having disputes and lawsuits before unbelievers is actually a serious issue.</td><td class="zh"><span class="highlight">令人震驚</span>
+我想這會令我們有點震驚，
+因為我們活在一個動輒訴諸法庭的社會。
+大家的想法是：我覺得受了委屈，就打電話給律師！
+我覺得吃了虧，就提出訴訟！
+所以，我們需要聽見保羅的震驚：
+在不信的人面前爭訟，其實是一件嚴重的事。</td></tr>
+<tr><td class="en"><span class="highlight">Question: Why?</span>
+But why?
+Why is it such an issue?</td><td class="zh"><span class="highlight">問題：為甚麼？</span>
+但為甚麼？
+為甚麼這是如此嚴重的問題？</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Identity #1: We have been saved to judge with Jesus</span>
+Well, Paul explains in verses two to six.
+And I think Paul’s answer is quite surprising.
+Because I’m expecting Paul to say that the reason we shouldn’t go to court is the impact it has on our unity or our witness.
+But that’s not what Paul says.
+Because Paul’s focus isn’t on the impact of the cases, but on our identity as believers.
+And so, Paul says that the reason we shouldn’t have disputes and lawsuits before unbelievers is that we will judge the world.</td><td class="zh"><span class="highlight">身分一：我們蒙拯救，要與耶穌一同審判</span>
+保羅在第 2 至 6 節作出解釋。
+我認為保羅的答案頗出人意料。
+因為我本以為保羅會說，我們不應上法庭，是因為這會影響我們的合一或見證。
+但保羅不是這樣說。
+保羅的焦點不在於訴訟的影響，而在於我們作為信徒的身分。
+所以保羅說，我們不應在不信的人面前爭訟，原因是我們將要審判世界。</td></tr>
+<tr><td class="en"><span class="highlight">Evidence in the passage</span>
+Is that what you were expecting?
+Just listen as I read from verse two.
+And as I read, keep an ear out for the two “do you not knows.”
+Two facts about who we are, which Paul thinks every believer should know.
+Verse two:
+<span class="verse">“Do you not know that the Lord’s people will judge the world? And if you are to judge the world, are you not competent to judge trivial cases? Do you not know that we will judge angels? How much more the things of this life! Therefore, if you have disputes about such matters, do you ask for a ruling from those whose way of life is scorned in the church?” (vv.2-4)</span></td><td class="zh"><span class="highlight">經文的證據</span>
+這是你所預期的嗎？
+請聽我從第 2 節讀起。
+讀的時候，請留意兩次「豈不知」，
+這是關於我們身分的兩個事實，保羅認為每個信徒都應當知道。
+第 2 節：
+<span class="verse">「豈不知聖徒要審判世界嗎？若世界為你們所審，難道你們不配審判這最小的事嗎？豈不知我們要審判天使嗎？何況今生的事呢？既是這樣，你們若有今生的事當審判，是派教會所輕看的人審判麼？」（2 至 4 節）</span></td></tr>
+<tr><td class="en"><span class="highlight">We aren’t simply saved from something, we’re saved for something</span>
+Frequently when we think about salvation, we focus on what we are saved from: judgment, sin and death.
+But as followers of Jesus, we aren’t simply saved from something.
+No! We are also saved for something.</td><td class="zh"><span class="highlight">我們不單是從某些事中得救，更是為某個目的得救</span>
+我們想到救恩的時候，往往著眼於我們從甚麼之中得救：審判、罪和死亡。
+但作為跟隨耶穌的人，我們不單是從某些事中得救。
+不！我們也是為某個目的而得救。</td></tr>
+<tr><td class="en"><span class="highlight">We get to share in Jesus’ rule and judgment</span>
+In particular, God saves us so that we can share in all that Jesus is and has done.
+And because he’s the ruler of the world, we get to share in that rule.
+And because he’s the judge of the world, we get to share in that judgment.</td><td class="zh"><span class="highlight">我們得以分享耶穌的統治與審判</span>
+具體來說，神拯救我們，使我們能分享耶穌的一切所是與所成就的。
+因為祂是世界的君王，我們得以分享祂的統治；
+因為祂是世界的審判者，我們得以分享祂的審判。</td></tr>
+<tr><td class="en"><span class="highlight">This is what we were made for</span>
+Which of course is what we were made for.
+After all, when God made men and women, what did he say?
+<span class="verse">“Be fruitful and multiply. Fill the earth, subdue it and rule.”</span>
+Genesis chapter one.
+We were made to rule.
+And a key component of ruling is judging.</td><td class="zh"><span class="highlight">這正是我們被造的目的</span>
+這當然正是我們被造的目的。
+畢竟，神創造男人和女人的時候，祂說了甚麼？
+<span class="verse">「要生養眾多，遍滿地面，治理這地，也要管理海裏的魚、空中的鳥，和地上各樣行動的活物。」</span>
+這是創世記第一章（28 節）。
+我們被造，是為了管理；
+而管理的一個關鍵部分，就是審判。</td></tr>
+<tr><td class="en"><span class="highlight">Whilst our precise role isn’t clear, our involvement is</span>
+Now, when it comes to judging the world and angels, it isn’t clear what our precise role will be.
+But what is clear is that we will have a role.
+We have been saved to judge with Jesus.</td><td class="zh"><span class="highlight">確切角色雖不清楚，但我們必參與其中</span>
+至於審判世界和天使，我們確切的角色是甚麼，經文並沒有說明。
+但清楚的是，我們必有一個角色：
+我們蒙拯救，是要與耶穌一同審判。</td></tr>
+<tr><td class="en"><span class="highlight">Reasons why taking each other to court doesn’t make sense</span>
+And so, says Paul, taking each other to court doesn’t make sense.
+After all, if we’re going to judge the world, then surely we should be able to resolve far less significant disputes (v.2).
+And, if we’re going to judge the world, then why would we want the world to judge us (v.4)?
+It doesn’t make sense!</td><td class="zh"><span class="highlight">為何互相告上法庭並不合理</span>
+所以保羅說，互相告上法庭是不合理的。
+畢竟，既然我們將要審判世界，我們理應能夠解決遠為次要的糾紛（2 節）。
+既然我們將要審判世界，為甚麼還要讓世界來審判我們呢（4 節）？
+這是說不通的！</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: We are in a different situation</span>
+Now, at this point, it is worth pausing again to mention that there is one way in which our situation does differ from that in Corinth.
+Which is that courts in Corinth were well known for being unjust and unfair, favouring the wealthy and well-connected.
+Whilst, in God’s kindness, our legal system has benefitted from hundreds of years of Christian influence,
+making it much more just and fair.</td><td class="zh"><span class="highlight">澄清：我們的處境有所不同</span>
+說到這裏，值得再停一停：我們的處境在一方面確實與哥林多不同。
+哥林多的法庭以不公不義見稱，偏袒富有和有權勢、有人脈的人。
+而蒙神恩待，我們的法律制度受惠於數百年來基督教的影響，
+因而公正公平得多。</td></tr>
+<tr><td class="en"><span class="highlight">But Paul’s point still stands</span>
+However, that does not mean that this passage no longer applies.
+Because Paul’s point still stands.
+As followers of Jesus, we have been saved to judge with Jesus.
+And so, having disputes and lawsuits before unbelievers is a disaster; in fact, it’s a defeat.</td><td class="zh"><span class="highlight">但保羅的論點依然成立</span>
+然而，這並不表示這段經文不再適用，
+因為保羅的論點依然成立：
+作為跟隨耶穌的人，我們蒙拯救，是要與耶穌一同審判。
+所以，在不信的人面前爭訟是一場災難，事實上更是一種失敗。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: Not because Paul is anti-authority or anti-justice</span>
+And again, this isn’t because Paul is anti-civil authorities.
+Nor is it because Paul is uninterested in justice.
+No! In verses one to six, he urges the church to judge disputes.
+And in verses nine and ten, it’s clear he trusts that God will judge wrongdoers.</td><td class="zh"><span class="highlight">澄清：並非因為保羅反對掌權者或不重視公義</span>
+再說一次，這不是因為保羅反對政府，
+也不是因為保羅不關心公義。
+不！在第 1 至 6 節，他勸教會要審斷糾紛；
+在第 9 至 10 節，他顯然相信神必審判行不義的人。</td></tr>
+<tr><td class="en"><span class="highlight">Principle: Disputes should be resolved by believers</span>
+And so, Paul cares about justice.
+And one of the key things he cares about is that, as a principle, disputes between believers should be resolved by believers.</td><td class="zh"><span class="highlight">原則：信徒之間的糾紛應由信徒解決</span>
+所以，保羅是關心公義的。
+他所關心的其中一件要事，就是原則上，信徒之間的糾紛應當由信徒解決。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: The focus isn’t on serious crimes</span>
+And again, the focus here is not on serious crimes committed by believers, but on lawsuits and disputes between believers.
+And Paul says disputes between believers should be resolved by believers.
+Because of our identity. Who we are.
+As followers of Jesus, we have been saved to judge with Jesus.</td><td class="zh"><span class="highlight">澄清：重點不在嚴重罪行</span>
+再說一次，這裏的重點不在信徒所犯的嚴重罪行，而在信徒之間的訴訟和糾紛。
+保羅說，信徒之間的糾紛應當由信徒解決。
+這是因為我們的身分，因為我們是誰：
+作為跟隨耶穌的人，我們蒙拯救，是要與耶穌一同審判。</td></tr>
+<tr><td class="en"><span class="highlight">Implications</span>
+And so, this passage has implications for us today, when disputes arise within the church.
+In particular, it encourages us to ask two questions.</td><td class="zh"><span class="highlight">對我們的意義</span>
+所以，當教會內出現糾紛時，這段經文對今天的我們有實際的意義。
+具體而言，它鼓勵我們問兩個問題。</td></tr>
+<tr><td class="en"><span class="highlight">Question #1: Can we resolve this in the church?</span>
+Firstly, can we resolve this in the church?
+Our first inclination should not be to take or send people to court.
+But rather, as brothers and sisters in Christ, we will want to resolve the dispute.
+After all, making judgments is one of the things we’ve been saved for.</td><td class="zh"><span class="highlight">問題一：我們能否在教會內解決？</span>
+第一，我們能否在教會內解決這事？
+我們的第一反應，不應是把人告上法庭或送上法庭。
+反之，作為在基督裏的弟兄姊妹，我們會願意把糾紛解決。
+畢竟，作出審斷正是我們蒙拯救的目的之一。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: Not an invitation to intervene wherever we think we should</span>
+Not that we should take it upon ourselves to personally intervene wherever we think there might be a disagreement.
+No! Paul is writing to the church.
+And so, settling disputes is the church’s responsibility.</td><td class="zh"><span class="highlight">澄清：這並非邀請我們隨意介入</span>
+這不是說，我們應當自作主張，凡認為有分歧的地方都親自介入。
+不！保羅是寫信給教會的，
+所以，解決糾紛是教會的責任。</td></tr>
+<tr><td class="en"><span class="highlight">This will differ by church</span>
+Now, the precise way that different churches do this will differ.
+And that’s fine – because, notice, Paul doesn’t insist on one particular approach.
+But he does urge churches to resolve their disputes rather than entrust that job to the unbelieving world.</td><td class="zh"><span class="highlight">各教會的做法會有不同</span>
+不同的教會，具體的做法會有不同。
+這並無不妥，因為請留意，保羅並沒有堅持某一種特定的方法。
+但他確實勸勉眾教會要自己解決糾紛，而不是把這工作交給不信的世界。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: Judgment might involve going to the authorities</span>
+Now, presumably the church’s judgment might be that one or both of the parties needs to be reported to the authorities, to the police.
+But notice, that’s a very different scenario from believers pursuing each other in court.</td><td class="zh"><span class="highlight">澄清：教會的裁斷可能包括報告當局</span>
+當然，教會的裁斷可能是：其中一方或雙方需要被報告給當局，即報警。
+但請留意，這與信徒在法庭上互相追討，是截然不同的情況。</td></tr>
+<tr><td class="en"><span class="highlight">Summarise</span>
+And so, the first question we should ask, when disputes arise, is this: can we resolve it in the church?
+And I think Paul’s expectation is that the answer should be yes.</td><td class="zh"><span class="highlight">小結</span>
+所以，當糾紛出現時，我們應當問的第一個問題是：我們能否在教會內解決？
+我認為保羅期望答案是：能。</td></tr>
+<tr><td class="en"><span class="highlight">Question #2: Might it be better to move on?</span>
+But that’s not the only question.
+Because there’s another question we should ask.
+A question which we should perhaps ask even before we think about resolving things in the church.
+And it’s this: might it be better to move on? Might it be better to take the hit?
+Just listen as I read from verse seven:
+<span class="verse">“The very fact that you have lawsuits among you means you have been completely defeated already. Why not rather be wronged? Why not rather be cheated?” (v.7)</span></td><td class="zh"><span class="highlight">問題二：放下會否更好？</span>
+但這不是唯一的問題，
+我們還應當問另一個問題。
+這個問題，或許我們在考慮於教會內解決事情之前，就應當先問。
+這問題就是：放下會否更好？自己承受損失會否更好？
+請聽我讀第 7 節：
+<span class="verse">「你們彼此告狀，這已經是你們的大錯了。為甚麼不情願受欺呢？為甚麼不情願吃虧呢？」（7 節）</span></td></tr>
+<tr><td class="en"><span class="highlight">A challenging verse</span>
+Now, I don’t know about you, but I find this one of the most challenging verses in 1 Corinthians, if not the whole Bible.
+Because, when I’ve been wronged, I want justice and I want it now.
+But frequently, says Paul, the best thing to do is to bear the cost and move on.
+To have mercy. To forgive.</td><td class="zh"><span class="highlight">一節極具挑戰的經文</span>
+我不知道你怎樣想，但我認為這是哥林多前書中最具挑戰性的經文之一，甚至是全本聖經中最具挑戰性的經文之一。
+因為當我受了委屈，我要討回公道，而且要立即討回。
+但保羅說，很多時候最好的做法是承擔代價，然後放下；
+就是施憐憫，就是饒恕。</td></tr>
+<tr><td class="en"><span class="highlight">This is what Jesus did and taught</span>
+Which, of course, is what Jesus taught, when he called us to turn the other cheek.
+And what Jesus did, as he went to the cross.
+He didn’t pursue justice against his accusers and abusers.
+No! He prayed for their forgiveness and bore the cost.</td><td class="zh"><span class="highlight">這正是耶穌的教導與榜樣</span>
+這當然正是耶穌的教導：祂呼召我們，有人打我們的右臉，連左臉也轉過來由他打。
+這也正是耶穌上十字架時所行的：
+祂沒有向控告祂、凌辱祂的人追討公道。
+不！祂為他們禱告，求父赦免他們，並且親自承擔了代價。</td></tr>
+<tr><td class="en"><span class="highlight">Not pursuing justice is costly</span>
+And, not pursuing justice is costly, isn’t it?
+Because it means that you have to absorb the hurt or the loss,
+even though you don’t deserve it.
+Sometimes people think forgiveness and forbearance are easy.
+They’re not! They’re costly.</td><td class="zh"><span class="highlight">不追討公道是要付代價的</span>
+不追討公道是要付代價的，不是嗎？
+因為這表示你要自己承受傷害或損失，
+即使那並非你應得的。
+有時人以為饒恕和忍耐很容易。
+並不容易！那是要付代價的。</td></tr>
+<tr><td class="en"><span class="highlight">Why moving on is often the best course of action</span>
+But in addition to being costly, having mercy and moving on is often the best course of action,
+for the unity of the church and for the witness of the church.
+Because disputes like this tear churches apart and undermine their witness to the unbelieving world.</td><td class="zh"><span class="highlight">為何放下往往是最好的做法</span>
+但施憐憫和放下，除了要付代價，往往也是最好的做法，
+為了教會的合一，也為了教會的見證。
+因為這類糾紛會撕裂教會，並損害教會在不信的世界面前的見證。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: This passage is not a tool to cover up abuse</span>
+Now, once again, we need to be very careful at this point.
+Because, tragically, church history contains cases of abusers using passages like this to silence their victims.
+Saying things like, “You mustn’t tell the police, because it will ruin the reputation of the church.”</td><td class="zh"><span class="highlight">澄清：這段經文絕不是掩飾虐待的工具</span>
+在這一點上，我們必須再次非常小心。
+因為可悲的是，教會歷史中確有施虐者利用這類經文，使受害者噤聲的案例。
+他們會說：「你絕不可報警，因為這會毀掉教會的名聲。」</td></tr>
+<tr><td class="en"><span class="highlight">Three reasons why</span>
+But that is to totally misapply this passage.
+Firstly, because this passage is about disputes, not abuse.
+Secondly, because in cases of abuse, presumably the church’s judgment would be to tell the relevant authorities.
+And, thirdly, because covering up abuse is far more damaging to the reputation of the church than informing the authorities.
+It’s generally a red flag if the person causing the dispute is also the one telling everyone else to keep it quiet for the good of the gospel.</td><td class="zh"><span class="highlight">三個原因</span>
+但這完全是誤用這段經文，原因有三：
+第一，這段經文講的是糾紛，不是虐待。
+第二，遇到虐待的情況，教會的裁斷理應是通知有關當局。
+第三，掩飾虐待對教會名聲的損害，遠比通知當局大得多。
+如果引起糾紛的人，同時也是那個叫所有人為福音的緣故保持沉默的人，這通常是一個警號。</td></tr>
+<tr><td class="en"><span class="highlight">So, we should care about justice… but not just justice</span>
+And so, this passage doesn’t encourage the church to be silent about abuse or indifferent to justice.
+No! We should care about justice.
+However, justice isn’t the only thing we care about.
+For example, we also care about mercy and unity.
+Because, as followers of Jesus, we are called to overlook offences, bear with one another and forgive – not once, not seven times, but seventy-seven times – since love covers over a multitude of sins.</td><td class="zh"><span class="highlight">所以我們應當關心公義……但不只是公義</span>
+所以，這段經文並不鼓勵教會對虐待保持沉默，或對公義漠不關心。
+不！我們應當關心公義。
+然而，公義並不是我們唯一關心的事；
+例如，我們也關心憐憫與合一。
+因為作為跟隨耶穌的人，我們蒙召要寬恕人的過失、彼此包容、彼此饒恕：不是一次，不是七次，<span class="verse">「乃是到七十個七次」</span>；因為<span class="verse">「愛能遮掩許多的罪」</span>。</td></tr>
+<tr><td class="en"><span class="highlight">Has our pendulum swung too far toward justice?</span>
+I was talking with someone earlier this week, and they wondered whether, over the last few decades, our pendulum has swung too far towards justice, and away from mercy and forgiveness.
+I’ll leave you to ponder whether that’s true.
+And so, when disputes arise, as well as asking whether we can resolve it in the church, we also want to ask whether it might be better to move on. To bear the cost.</td><td class="zh"><span class="highlight">我們的鐘擺是否過分偏向公義？</span>
+這星期稍早時我與一位朋友傾談，對方想到：過去數十年，我們的鐘擺是否已過分偏向公義，而遠離了憐憫與饒恕？
+這是否屬實，就留給大家思想。
+所以，當糾紛出現時，我們除了問能否在教會內解決，也要問：放下會否更好？承擔代價會否更好？</td></tr>
+<tr><td class="en"><span class="highlight">Always worth asking the question</span>
+Now, the answer might be no.
+But surely, it’s worth asking the question.</td><td class="zh"><span class="highlight">這個問題總值得一問</span>
+答案也許是否定的，
+但這個問題總值得一問。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Issue #2: Cheating and wrongdoing among believers</span>
+And so, the first issue in our passage is that there were disputes and lawsuits before unbelievers.
+But that’s not the only issue.
+Because there’s another issue.
+A deeper issue.
+The issue behind the lawsuits.
+Which is that there is cheating and wrongdoing among believers.
+Just listen as I read from verse seven:
+<span class="verse">“The very fact that you have lawsuits among you means you have been completely defeated already. Why not rather be wronged? Why not rather be cheated? Instead, you yourselves cheat and do wrong, and you do this to your brothers and sisters.” (vv.7-8)</span></td><td class="zh"><span class="highlight">問題二：信徒之間的欺騙與不義</span>
+所以，經文中的第一個問題，是在不信的人面前爭訟。
+但這不是唯一的問題，
+還有另一個問題，
+一個更深層的問題，
+就是訴訟背後的問題：
+信徒之間存在欺騙和不義。
+請聽我讀第 7 節：
+<span class="verse">「你們彼此告狀，這已經是你們的大錯了。為甚麼不情願受欺呢？為甚麼不情願吃虧呢？你們倒是欺壓人、虧負人；況且所欺壓、所虧負的就是弟兄！」（7 至 8 節）</span></td></tr>
+<tr><td class="en"><span class="highlight">Contrast: What they should do vs. what they are doing</span>
+The Corinthians should bear with wrongdoers. But instead, they are doing wrong.
+What’s more, they are doing wrong to their brothers and sisters.
+They are cheating each other.
+That’s why they have disputes and lawsuits.
+Because they are cheating and wronging each other.</td><td class="zh"><span class="highlight">對比：應當做的與實際所做的</span>
+哥林多人本應忍受行不義的人，他們卻反而自己行不義。
+更甚的是，他們虧負的是自己的弟兄姊妹。
+他們彼此欺騙。
+這就是他們有糾紛和訴訟的原因：
+因為他們互相欺騙、互相虧負。</td></tr>
+<tr><td class="en"><span class="highlight">Paul is horrified</span>
+And – no surprises – Paul is horrified.
+And so, once again, he reminds them about their identity.
+Who they are, as followers of Jesus.
+In particular, he reminds them that, as followers of Jesus, we have been saved from sin by Jesus.
+Just listen as I read from verse nine:
+<span class="verse">“Or do you not know that wrongdoers will not inherit the kingdom of God? Do not be deceived: Neither the sexually immoral nor idolaters nor adulterers nor men who have sex with men nor thieves nor the greedy nor drunkards nor slanderers nor swindlers will inherit the kingdom of God. And that is what some of you were. But you were washed, you were sanctified, you were justified in the name of the Lord Jesus Christ and by the Spirit of our God.” (vv.9-11)</span></td><td class="zh"><span class="highlight">保羅大感震驚</span>
+不出所料，保羅大感震驚。
+所以，他再一次提醒他們自己的身分，
+就是他們作為跟隨耶穌的人，究竟是誰。
+特別是，他提醒他們：作為跟隨耶穌的人，我們已蒙耶穌拯救，脫離了罪。
+請聽我讀第 9 節：
+<span class="verse">「你們豈不知不義的人不能承受神的國嗎？不要自欺！無論是淫亂的、拜偶像的、姦淫的、作孌童的、親男色的、偷竊的、貪婪的、醉酒的、辱罵人的、勒索的，都不能承受神的國。你們中間也有人從前是這樣；但如今你們奉主耶穌基督的名，並藉著我們神的靈，已經洗淨，成聖，稱義了。」（9 至 11 節）</span></td></tr>
+<tr><td class="en"><span class="highlight">Truth #1: Wrongdoers won’t inherit</span>
+Now at the heart of these verses are two key truths.
+The first comes in verse nine, and it’s this: wrongdoers won’t inherit.
+Under English law, murderers cannot inherit from their victims.
+Under God’s law, wrongdoers will not inherit his kingdom.
+That is, people who live in ongoing unrepentant sin will not share in all that Jesus is and has done.
+They will not live with him or rule with him.</td><td class="zh"><span class="highlight">真理一：不義的人不能承受神的國</span>
+這幾節經文的核心，是兩個重要的真理。
+第一個在第 9 節：不義的人不能承受。
+在英國法律下，殺人者不能繼承受害人的遺產；
+在神的律法下，不義的人不能承受祂的國。
+意思是，活在持續不悔改的罪中的人，不能分享耶穌一切的所是與所成就的。
+他們不能與祂同住，也不能與祂一同作王。</td></tr>
+<tr><td class="en"><span class="highlight">Clarify: A pattern of ongoing unrepentant sin</span>
+Now again, we need to be very careful here.
+When Paul talks about wrongdoers, he’s not talking about the Christian who longs to live for God but keeps failing and coming to Christ for forgiveness.
+No! He’s talking about the person – who may claim to be Christian – but is living in a pattern of unrepentant sin.
+That’s why he talks about the sexually immoral, rather than the person who once had a lustful thought.
+It’s why he talks about slanderers, rather than the person who once said something unkind and untrue.
+When Paul talks about wrongdoers, he’s talking about people whose lives are characterised by ongoing unrepentant sin.
+And his point is simple: they will not inherit God’s kingdom.
+Wrongdoers won’t inherit.</td><td class="zh"><span class="highlight">澄清：持續不悔改的犯罪模式</span>
+在這裏，我們同樣需要非常小心。
+保羅說「不義的人」，不是指那些渴望為神而活、卻屢屢失敗、又不斷來到基督面前求赦免的基督徒。
+不！他是指那些或許自稱基督徒，卻活在不悔改的犯罪模式中的人。
+所以他說的是「淫亂的」，而不是曾經有過一個淫念的人；
+他說的是「辱罵人的」，而不是曾經說過一句刻薄失實的話的人。
+保羅說「不義的人」，是指那些生命以持續不悔改的罪為特徵的人。
+他的重點很簡單：他們不能承受神的國。
+不義的人不能承受。</td></tr>
+<tr><td class="en"><span class="highlight">Truth #2: That’s what we were. Not who we are.</span>
+And that’s the first truth.
+The second comes in verse eleven.
+And it’s this: that’s what we were.
+It’s not who we are.
+Because, if we are trusting in Jesus, then we have been washed: completely cleansed by Jesus.
+We have been sanctified: made holy for Jesus.
+And we have been justified: declared righteous in Jesus.
+And so, wrongdoing belongs to our past, not our present.
+It’s what we were. Not who we are.
+Because not only have we been saved to judge with Jesus, but we have been saved from sin by Jesus.
+And this has numerous implications for us.
+Let’s think briefly about three.</td><td class="zh"><span class="highlight">真理二：那是我們的過去，不是我們的身分</span>
+這是第一個真理。
+第二個在第 11 節，
+就是：那是我們從前的樣子，
+不是我們現在的身分。
+因為我們若信靠耶穌，我們就已經洗淨：被耶穌完全潔淨；
+已經成聖：為耶穌被分別為聖；
+已經稱義：在耶穌裏被宣告為義。
+所以，不義屬於我們的過去，不屬於我們的現在。
+那是我們從前的樣子，不是我們現在的身分。
+因為我們不但蒙拯救，要與耶穌一同審判，我們更已蒙耶穌拯救，脫離了罪。
+這對我們有許多意義，
+讓我們簡單思想其中三點。</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">Implication #1: This passage warns us</span>
+First, this passage warns us.
+In particular, it warns us that if we live in ongoing unrepentant sin, then we will not inherit God’s kingdom.
+We will not share in Christ’s salvation.</td><td class="zh"><span class="highlight">意義一：這段經文警戒我們</span>
+第一，這段經文警戒我們。
+特別是，它警戒我們：如果我們活在持續不悔改的罪中，我們就不能承受神的國，
+也不能分享基督的救恩。</td></tr>
+<tr><td class="en"><span class="highlight">Apply: The person in wrongdoing</span>
+It may be that you are here this morning, aware that your life is characterised by ongoing unrepentant sin.
+Perhaps one of the sins that Paul lists in verses nine and ten.
+If so, the message of this passage is clear: wrongdoers won’t inherit.
+And so, if you are living in unrepentant sin – whether you call yourself a Christian or not – then you need to repent.
+To turn from sin and to God for forgiveness.
+And the promise of God is this: if you turn from sin and trust in Christ, then you will be completely cleansed and fully forgiven.</td><td class="zh"><span class="highlight">應用：給活在不義中的人</span>
+也許今早你坐在這裏，清楚知道自己的生命以持續不悔改的罪為特徵，
+或許就是保羅在第 9 至 10 節所列的其中一種罪。
+若是這樣，這段經文的信息十分清楚：不義的人不能承受神的國。
+所以，如果你正活在不悔改的罪中，無論你是否自稱基督徒，你都需要悔改，
+就是離開罪，轉向神求赦免。
+而神的應許是：你若離開罪、信靠基督，你就必被完全潔淨，完全得赦免。</td></tr>
+<tr><td class="en"><span class="highlight">Implication #2: This passage reassures us</span>
+Which brings us to the second thing this passage does.
+Because not only does it warn us, but it also reassures us.</td><td class="zh"><span class="highlight">意義二：這段經文安慰我們</span>
+這就帶到這段經文的第二個作用：
+它不但警戒我們，也安慰我們。</td></tr>
+<tr><td class="en"><span class="highlight">When we’re haunted by past sin</span>
+In particular, it reassures us in those moments when we are haunted by memories of past sin.
+Because in those moments, it can feel like our sin still defines us.
+And we feel dirty or guilty before God.</td><td class="zh"><span class="highlight">當過去的罪纏擾我們</span>
+特別是，當過去的罪的回憶纏擾我們時，它安慰我們。
+因為在那些時刻，我們會覺得自己的罪仍然界定著我們，
+在神面前覺得自己污穢、有罪。</td></tr>
+<tr><td class="en"><span class="highlight">Reassurance: We really have been cleansed</span>
+But this passage reassures us: we have been saved from sin by Jesus.
+That sin really has been washed away.
+We might feel dirty, but we are not dirty; we are holy.
+We might feel guilty, but Christ has taken our guilt and given us his righteousness.
+And so, this passage reassures us when we are haunted by memories of past sin.</td><td class="zh"><span class="highlight">安慰：我們真的已被洗淨</span>
+但這段經文安慰我們：我們已蒙耶穌拯救，脫離了罪。
+那罪真的已被洗淨了。
+我們或許覺得污穢，但我們並不污穢，我們是聖潔的。
+我們或許覺得有罪，但基督已擔當了我們的罪疚，又將祂的義賜給我們。
+所以，當過去的罪的回憶纏擾我們時，這段經文安慰我們。</td></tr>
+<tr><td class="en"><span class="highlight">When we’re aware of ongoing sin</span>
+What’s more, it reassures us when we’re painfully aware of ongoing sin.
+Sin we wish we were rid of.
+Because in those moments it can feel like nothing has changed.
+But this passage reassures us: as followers of Jesus, we have been saved from sin by Jesus.</td><td class="zh"><span class="highlight">當我們察覺自己仍在犯罪</span>
+不但如此，當我們痛苦地察覺自己仍在犯罪時，它也安慰我們，
+那些我們巴不得能擺脫的罪。
+因為在那些時刻，我們會覺得甚麼都沒有改變。
+但這段經文安慰我們：作為跟隨耶穌的人，我們已蒙耶穌拯救，脫離了罪。</td></tr>
+<tr><td class="en"><span class="highlight">Illustrate: British passport</span>
+One of my friends from theological college was born in America but recently received a British passport.
+Now, I assume there are moments when he doesn’t feel very British.
+But that doesn’t stop him being British.
+As followers of Jesus, wrongdoing is what we were.
+It really isn’t who we are.</td><td class="zh"><span class="highlight">例證：英國護照</span>
+我一位神學院的朋友在美國出生，最近取得了英國護照。
+我想，他總有些時候不太覺得自己是英國人，
+但這並不改變他是英國人的事實。
+作為跟隨耶穌的人，不義是我們從前的樣子，
+真的不是我們現在的身分。</td></tr>
+<tr><td class="en"><span class="highlight">Implication #3: This passage reminds us</span>
+Which brings us to a third and final implication.
+This passage reminds us.
+In particular, it reminds us that sin doesn’t make sense for followers of Jesus.
+Because we have been saved from sin by Jesus.
+And so, sin belongs to our past, not our present.</td><td class="zh"><span class="highlight">意義三：這段經文提醒我們</span>
+這就帶到第三個，也是最後一個意義：
+這段經文提醒我們。
+特別是，它提醒我們：對跟隨耶穌的人來說，犯罪是說不通的，
+因為我們已蒙耶穌拯救，脫離了罪。
+所以，罪屬於我們的過去，不屬於我們的現在。</td></tr>
+<tr><td class="en"><span class="highlight">Illustrate: Changing job</span>
+Earlier this year one of my sisters moved jobs.
+But imagine that tomorrow morning she goes back to her old office,
+and starts working for her old boss.
+What would her new boss say?
+Presumably: “What on earth are you doing?
+That’s your old office. You don’t work there any more!”</td><td class="zh"><span class="highlight">例證：轉換工作</span>
+今年較早時，我一位姊妹轉了工作。
+但試想像，明天早上她回到舊的辦公室，
+又開始為舊上司工作。
+她的新上司會怎麼說？
+大概會說：「你到底在做甚麼？
+那是你舊的辦公室，你已經不在那裏工作了！」</td></tr>
+<tr><td class="en"><span class="highlight">We should battle sin</span>
+Do you see? Sin and wrongdoing are what we were saved from.
+They’re what we were. Not who we are.
+Sin doesn’t make sense for followers of Jesus.
+And so, by the Spirit’s power at work in us, we should battle sin.
+Because we have been saved from sin by Jesus.</td><td class="zh"><span class="highlight">我們應當與罪爭戰</span>
+你看見嗎？罪與不義，正是我們蒙拯救所脫離的。
+那是我們從前的樣子，不是我們現在的身分。
+對跟隨耶穌的人來說，犯罪是說不通的。
+所以，靠著聖靈在我們裏面運行的大能，我們應當與罪爭戰，
+因為我們已蒙耶穌拯救，脫離了罪。</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Saved to Judge, Saved from Sin</h1>
+    <h1 class="zh">蒙拯救與主同審，蒙拯救脫離罪惡</h1>
+    <div class="subtitle">1 Corinthians 6:1-11 哥林多前書 6:1-11 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">“And that is what some of you were. But you were washed, you were sanctified, you were justified in the name of the Lord Jesus Christ and by the Spirit of our God.” (1 Corinthians 6:11, NIV)<br>「你們中間也有人從前是這樣；但如今你們奉主耶穌基督的名，並藉著我們神的靈，已經洗淨，成聖，稱義了。」（哥林多前書 6 章 11 節，和合本）</div>
+  </div>
+
+
+<!-- Summary -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">📖</span>Summary 摘要</h2>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <div class="summary-point"><strong>Identity shapes behaviour.</strong> 1 Corinthians 5–6 is one section about who believers are and how that identity governs the way we deal with our own sin and the sin of others. Who we are governs how we live.</div>
+      <div class="summary-point"><strong>Issue one: lawsuits before unbelievers (vv.1-6).</strong> Believers in Corinth were suing one another, probably over property, in front of pagan judges. Paul calls it shameful (v.5) and a complete defeat (v.7). He is not against civil courts (Acts 25; Romans 13), and he is not talking about serious crime, which the state should punish.</div>
+      <div class="summary-point"><strong>Truth one: saved to judge with Jesus.</strong> Paul’s reason is identity: “the Lord’s people will judge the world… we will judge angels.” We are saved not only <em>from</em> something but <em>for</em> something: to share in Christ’s rule and judgment, the purpose for which humanity was made (Genesis 1:28). So believers should be able to settle their own disputes, and it makes no sense to ask the world to judge us.</div>
+      <div class="summary-point"><strong>Two questions when disputes arise.</strong> (1) Can we resolve this in the church? (2) Might it be better to move on, to be wronged and bear the cost (v.7), as Jesus taught and did at the cross? The passage must never be used to hide abuse: abuse is not a “dispute”, and the church should report it to the authorities.</div>
+      <div class="summary-point"><strong>Issue two: cheating among believers (vv.7-8).</strong> Behind the lawsuits lies a deeper problem: the Corinthians were wronging and cheating their own brothers and sisters.</div>
+      <div class="summary-point"><strong>Truth two: saved from sin by Jesus (vv.9-11).</strong> Wrongdoers, those whose lives are marked by ongoing unrepentant sin, will not inherit God’s kingdom. “And that is what some of you were.” In Christ we have been washed, sanctified and justified. This warns the unrepentant, reassures the struggling, and reminds us that sin no longer makes sense for us: it is what we were, not who we are.</div>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">中文</div>
+      <div class="summary-point"><strong>身分塑造行為。</strong>哥林多前書第五、六章是同一段落，講信徒的身分，以及這身分如何決定我們面對自己的罪和別人的罪。我們是誰，決定我們怎樣生活。</div>
+      <div class="summary-point"><strong>問題一：在不信的人面前爭訟（1 至 6 節）。</strong>哥林多的信徒為了（大概是財產上的）糾紛，在外邦審判官面前互相控告。保羅稱這是羞恥的（5 節），是徹底的失敗（7 節）。他並不反對政府的法庭（使徒行傳 25 章；羅馬書 13 章），所講的也不是應由國家懲處的嚴重罪行。</div>
+      <div class="summary-point"><strong>真理一：蒙拯救，要與耶穌一同審判。</strong>保羅的理由在於身分：「聖徒要審判世界……我們要審判天使」。我們不單是<em>從</em>某些事中得救，更是<em>為</em>某個目的得救：分享基督的統治與審判，這正是人被造的目的（創世記 1 章 28 節）。所以信徒理應能解決自己的糾紛；請世界來審判我們，是說不通的。</div>
+      <div class="summary-point"><strong>糾紛出現時的兩個問題。</strong>（一）我們能否在教會內解決？（二）放下會否更好？就是情願受欺、承擔代價（7 節），正如耶穌的教導，也正如祂在十字架上所行的。這段經文絕不可用來掩飾虐待：虐待不是「糾紛」，教會應當向當局舉報。</div>
+      <div class="summary-point"><strong>問題二：信徒之間的欺騙（7 至 8 節）。</strong>訴訟背後有更深的問題：哥林多人正在欺壓、虧負自己的弟兄姊妹。</div>
+      <div class="summary-point"><strong>真理二：蒙耶穌拯救脫離罪（9 至 11 節）。</strong>不義的人，即生命以持續不悔改的罪為特徵的人，不能承受神的國。「你們中間也有人從前是這樣」；但在基督裏，我們已經洗淨、成聖、稱義了。這警戒不肯悔改的人，安慰仍在掙扎的人，也提醒我們：犯罪對我們已說不通，那是我們從前的樣子，不是我們現在的身分。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Key Scriptures -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">✝️</span>Key Scriptures 重要經文</h2>
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 6:1-3 · 哥林多前書 6 章 1 至 3 節</div>
+    <div class="bilingual">
+      <div class="verse-text">If any of you has a dispute with another, do you dare to take it before the ungodly for judgment instead of before the Lord’s people? Or do you not know that the Lord’s people will judge the world? And if you are to judge the world, are you not competent to judge trivial cases? Do you not know that we will judge angels? How much more the things of this life! (NIV)</div>
+      <div class="verse-text zh">你們中間有彼此相爭的事，怎敢在不義的人面前求審，不在聖徒面前求審呢？豈不知聖徒要審判世界嗎？若世界為你們所審，難道你們不配審判這最小的事嗎？豈不知我們要審判天使嗎？何況今生的事呢？（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 6:7-8 · 哥林多前書 6 章 7 至 8 節</div>
+    <div class="bilingual">
+      <div class="verse-text">The very fact that you have lawsuits among you means you have been completely defeated already. Why not rather be wronged? Why not rather be cheated? Instead, you yourselves cheat and do wrong, and you do this to your brothers and sisters. (NIV)</div>
+      <div class="verse-text zh">你們彼此告狀，這已經是你們的大錯了。為甚麼不情願受欺呢？為甚麼不情願吃虧呢？你們倒是欺壓人、虧負人；況且所欺壓、所虧負的就是弟兄！（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">1 Corinthians 6:9-11 · 哥林多前書 6 章 9 至 11 節</div>
+    <div class="bilingual">
+      <div class="verse-text">Or do you not know that wrongdoers will not inherit the kingdom of God? Do not be deceived: Neither the sexually immoral nor idolaters nor adulterers nor men who have sex with men nor thieves nor the greedy nor drunkards nor slanderers nor swindlers will inherit the kingdom of God. And that is what some of you were. But you were washed, you were sanctified, you were justified in the name of the Lord Jesus Christ and by the Spirit of our God. (NIV)</div>
+      <div class="verse-text zh">你們豈不知不義的人不能承受神的國嗎？不要自欺！無論是淫亂的、拜偶像的、姦淫的、作孌童的、親男色的、偷竊的、貪婪的、醉酒的、辱罵人的、勒索的，都不能承受神的國。你們中間也有人從前是這樣；但如今你們奉主耶穌基督的名，並藉著我們神的靈，已經洗淨，成聖，稱義了。（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Genesis 1:28 · 創世記 1 章 28 節</div>
+    <div class="bilingual">
+      <div class="verse-text">God blessed them and said to them, “Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.” (NIV)</div>
+      <div class="verse-text zh">神就賜福給他們，又對他們說：「要生養眾多，遍滿地面，治理這地，也要管理海裏的魚、空中的鳥，和地上各樣行動的活物。」（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Romans 13:1 · 羅馬書 13 章 1 節</div>
+    <div class="bilingual">
+      <div class="verse-text">Let everyone be subject to the governing authorities, for there is no authority except that which God has established. The authorities that exist have been established by God. (NIV)</div>
+      <div class="verse-text zh">在上有權柄的，人人當順服他，因為沒有權柄不是出於神的。凡掌權的都是神所命的。（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Matthew 5:39 · 馬太福音 5 章 39 節</div>
+    <div class="bilingual">
+      <div class="verse-text">But I tell you, do not resist an evil person. If anyone slaps you on the right cheek, turn to them the other cheek also. (NIV)</div>
+      <div class="verse-text zh">只是我告訴你們，不要與惡人作對。有人打你的右臉，連左臉也轉過來由他打；（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Luke 23:34 · 路加福音 23 章 34 節</div>
+    <div class="bilingual">
+      <div class="verse-text">Jesus said, “Father, forgive them, for they do not know what they are doing.” (NIV)</div>
+      <div class="verse-text zh">當下耶穌說：「父啊，赦免他們；因為他們所做的，他們不曉得。」（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Matthew 18:21-22 · 馬太福音 18 章 21 至 22 節</div>
+    <div class="bilingual">
+      <div class="verse-text">Then Peter came to Jesus and asked, “Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?” Jesus answered, “I tell you, not seven times, but seventy-seven times.” (NIV)</div>
+      <div class="verse-text zh">那時，彼得進前來，對耶穌說：「主啊，我弟兄得罪我，我當饒恕他幾次呢？到七次可以嗎？」耶穌說：「我對你說，不是到七次，乃是到七十個七次。」（和合本）</div>
+    </div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">1 Peter 4:8 · 彼得前書 4 章 8 節</div>
+    <div class="bilingual">
+      <div class="verse-text">Above all, love each other deeply, because love covers over a multitude of sins. (NIV)</div>
+      <div class="verse-text zh">最要緊的是彼此切實相愛，因為愛能遮掩許多的罪。（和合本）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Key Themes -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">🔑</span>Key Themes 主要主題</h2>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <div class="summary-point"><strong>1. Identity governs behaviour.</strong> Paul answers practical problems (lawsuits, cheating) not first with rules but with “Do you not know…?” Knowing who we are in Christ reshapes how we act.</div>
+      <div class="summary-point"><strong>2. Saved for something, not only from something.</strong> Salvation restores the human calling to rule (Genesis 1:28). Believers will share in Christ’s reign and judgment over the world and even angels.</div>
+      <div class="summary-point"><strong>3. The church as a place of wise judgment.</strong> As a principle, disputes between believers should be settled among believers, by the church, while serious crime and abuse are reported to the authorities God has established.</div>
+      <div class="summary-point"><strong>4. The costly way of mercy.</strong> “Why not rather be wronged?” Following Jesus, who bore the cost at the cross, we care about justice but not only justice; mercy, forbearance and unity also matter.</div>
+      <div class="summary-point"><strong>5. Washed, sanctified, justified.</strong> Unrepentant wrongdoers will not inherit the kingdom, but in Christ our sinful past is no longer our identity. This both warns and comforts, and calls us to battle sin by the Spirit.</div>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">中文</div>
+      <div class="summary-point"><strong>一、身分決定行為。</strong>保羅回應實際問題（訴訟、欺騙）時，首先不是訂立規條，而是問「豈不知……？」認識我們在基督裏是誰，會重塑我們的行事為人。</div>
+      <div class="summary-point"><strong>二、為某個目的得救，不單是從某些事中得救。</strong>救恩恢復了人被造時管理全地的呼召（創世記 1 章 28 節）。信徒將分享基督對世界、甚至對天使的統治與審判。</div>
+      <div class="summary-point"><strong>三、教會是作出智慧審斷的地方。</strong>原則上，信徒之間的糾紛應由教會在信徒中間解決；而嚴重罪行和虐待，則應向神所設立的當局舉報。</div>
+      <div class="summary-point"><strong>四、憐憫是要付代價的道路。</strong>「為甚麼不情願受欺呢？」我們跟隨在十字架上承擔代價的耶穌，關心公義，但不只關心公義；憐憫、忍耐與合一同樣重要。</div>
+      <div class="summary-point"><strong>五、洗淨、成聖、稱義。</strong>不悔改的不義之人不能承受神的國；但在基督裏，我們罪惡的過去已不再是我們的身分。這既是警戒，也是安慰，更呼召我們靠著聖靈與罪爭戰。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Thinking Questions -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">💭</span>Thinking Questions 思考問題</h2>
+  <div class="questions-container">
+    <div class="question-card">
+      <div class="bilingual">
+        <div>What two problems does Paul address in vv.1-8? What words does he use to describe the situation (vv.5, 7)?</div>
+        <div class="lang-zh">保羅在 1 至 8 節處理哪兩個問題？他用甚麼字眼形容當時的情況（5、7 節）？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>Count the “Do you not know…?” questions in vv.1-11. What facts about our identity does Paul expect every believer to know?</div>
+        <div class="lang-zh">數一數 1 至 11 節中有幾次「豈不知……？」保羅期望每個信徒都知道哪些關於自己身分的事實？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>Why does Paul argue from our future role as judges (vv.2-4), rather than from unity or witness? How does Genesis 1:28 help us understand being “saved for something”?</div>
+        <div class="lang-zh">為甚麼保羅是從我們將來作審判者的角色（2 至 4 節）來論證，而不是從合一或見證來論證？創世記 1 章 28 節如何幫助我們明白「為某個目的而得救」？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>What clarifications did the sermon make so that we neither overapply nor underapply this passage (civil courts, serious crime, abuse)? Why are these important?</div>
+        <div class="lang-zh">講道作了哪些澄清，使我們既不過度應用，也不應用不足這段經文（政府法庭、嚴重罪行、虐待）？這些澄清為何重要？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>“Why not rather be wronged? Why not rather be cheated?” (v.7) Think of a time you were wronged. What did it cost, or what would it have cost, to move on? How does Jesus at the cross shape your answer?</div>
+        <div class="lang-zh">「為甚麼不情願受欺呢？為甚麼不情願吃虧呢？」（7 節）回想一次你受委屈的經歷。放下要付上（或本來要付上）甚麼代價？耶穌在十字架上的榜樣如何影響你的回應？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>Do you think our culture’s pendulum has swung too far towards justice and away from mercy and forgiveness? Where do you see that in yourself?</div>
+        <div class="lang-zh">你認為我們文化的鐘擺，是否已過分偏向公義，而遠離了憐憫與饒恕？你在自己身上看到這種傾向嗎？</div>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="bilingual">
+        <div>Verse 11 says, “That is what some of you were.” When past or present sin makes you feel dirty or guilty, how do “washed, sanctified, justified” speak to you? How does the passport or the old-office illustration help you battle sin this week?</div>
+        <div class="lang-zh">第 11 節說：「你們中間也有人從前是這樣」。當過去或現在的罪令你覺得污穢、有罪時，「洗淨、成聖、稱義」對你說了甚麼？護照或舊辦公室的例證，可以怎樣幫助你這星期與罪爭戰？</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Application -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">🌱</span>Application 生活應用</h2>
+  <div class="application-item">
+    <div class="bilingual">
+      <div><strong>Remember who you are.</strong> Each morning this week, read 1 Corinthians 6:11 aloud and thank God that you have been washed, sanctified and justified.</div>
+      <div class="lang-zh"><strong>記住你是誰。</strong>這星期每天早上，朗讀哥林多前書 6 章 11 節，感謝神使你已經洗淨、成聖、稱義。</div>
+    </div>
+  </div>
+  <div class="application-item">
+    <div class="bilingual">
+      <div><strong>Ask the two questions.</strong> If you are in a disagreement with another believer, first ask, “Might it be better to move on?” If not, ask, “Can this be resolved within the church?” and seek help from church leaders rather than escalating.</div>
+      <div class="lang-zh"><strong>問那兩個問題。</strong>若你與另一位信徒有分歧，先問：「放下會否更好？」若不能，再問：「這事能否在教會內解決？」並尋求教會領袖的幫助，而不是把事情鬧大。</div>
+    </div>
+  </div>
+  <div class="application-item">
+    <div class="bilingual">
+      <div><strong>Choose costly forgiveness.</strong> Name one offence you have been holding onto. Pray about absorbing the cost and releasing it, as Christ did for you.</div>
+      <div class="lang-zh"><strong>選擇付代價的饒恕。</strong>說出一件你一直耿耿於懷的冒犯。為此禱告，求神幫助你承擔代價、放下它，正如基督為你所做的。</div>
+    </div>
+  </div>
+  <div class="application-item">
+    <div class="bilingual">
+      <div><strong>Never silence victims.</strong> Remember that this passage is about disputes, not abuse. If you know of abuse, report it to the appropriate authorities and the church’s safeguarding lead.</div>
+      <div class="lang-zh"><strong>絕不使受害者噤聲。</strong>記住這段經文講的是糾紛，不是虐待。若你知道有虐待的情況，應向有關當局及教會的保護事務負責人舉報。</div>
+    </div>
+  </div>
+  <div class="application-item">
+    <div class="bilingual">
+      <div><strong>Do not go back to the old office.</strong> Identify one recurring sin. By the Spirit’s power, make a concrete plan to battle it, and confess it honestly to God (1 John 1:9).</div>
+      <div class="lang-zh"><strong>不要回到舊辦公室。</strong>找出一個你經常重犯的罪。靠著聖靈的大能，訂立具體計劃與它爭戰，並誠實地向神認罪（約翰一書 1 章 9 節）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Prayer -->
+<div class="prayer-section">
+  <h2 class="sg-section-title"><span class="icon">🙏</span>Prayer 禱告</h2>
+  <div class="bilingual">
+    <div class="prayer-text">Heavenly Father, thank you that in Jesus you have not only saved us from judgment, sin and death, but saved us for a glorious purpose: to share in his rule and judgment. Forgive us for the times we have quarrelled, cheated and wronged our brothers and sisters, and for the times we have demanded justice for ourselves without mercy. Give us wisdom to resolve disputes among your people, courage to protect the vulnerable, and the grace to be wronged, to bear the cost and to forgive, as Jesus did for us on the cross. When our past haunts us, remind us that we have been washed, sanctified and justified in the name of the Lord Jesus Christ and by your Spirit. When we struggle with ongoing sin, keep us from returning to our old master, and by your Spirit’s power help us to battle sin. In Jesus’ name, Amen.</div>
+    <div class="prayer-text lang-zh">天父，感謝你，在耶穌裏你不單拯救我們脫離審判、罪和死亡，更是為一個榮耀的目的拯救我們：使我們分享祂的統治與審判。求你赦免我們曾經與弟兄姊妹爭吵、欺壓人、虧負人；也赦免我們只為自己追討公道，卻沒有憐憫。求你賜我們智慧，在你的子民中間解決糾紛；賜我們勇氣保護軟弱無助的人；也賜我們恩典，情願受欺、承擔代價、饒恕別人，正如耶穌在十字架上為我們所做的。當過去的罪纏擾我們時，求你提醒我們：我們已經奉主耶穌基督的名，並藉著你的靈，洗淨、成聖、稱義了。當我們仍與罪掙扎時，求你保守我們不再回到舊主人那裏，並靠著聖靈的大能與罪爭戰。奉耶穌的名求，阿們。</div>
+  </div>
+</div>
+
+<!-- Further Reading -->
+<div class="sg-section">
+  <h2 class="sg-section-title"><span class="icon">📚</span>Further Reading 延伸閱讀</h2>
+  <div class="bilingual">
+    <div class="lang-en">
+      <div class="lang-label">English</div>
+      <ul class="further-list">
+        <li>1 Corinthians 5:1-13: Expelling the unrepentant; the church as God’s holy people</li>
+        <li>Matthew 18:15-35: Resolving sin between believers; the parable of the unmerciful servant</li>
+        <li>Matthew 19:28; 2 Timothy 2:12; Revelation 3:21: Believers reigning and judging with Christ</li>
+        <li>Romans 12:17-21: Do not take revenge; overcome evil with good</li>
+        <li>Colossians 3:12-14: Bear with each other and forgive as the Lord forgave you</li>
+        <li>1 Peter 2:21-24: Christ’s example of suffering without retaliation</li>
+        <li>Titus 3:3-7: Once foolish, now washed and renewed by the Holy Spirit</li>
+        <li>2 Corinthians 5:17; Romans 6:1-14: A new creation, dead to sin and alive to God</li>
+        <li>Romans 8:1-13: No condemnation; putting sin to death by the Spirit</li>
+      </ul>
+    </div>
+    <div class="lang-zh">
+      <div class="lang-label">中文</div>
+      <ul class="further-list">
+        <li>哥林多前書 5 章 1 至 13 節：把不悔改的人趕出去；教會是神聖潔的子民</li>
+        <li>馬太福音 18 章 15 至 35 節：信徒之間如何處理得罪；不饒恕人之僕人的比喻</li>
+        <li>馬太福音 19 章 28 節；提摩太後書 2 章 12 節；啟示錄 3 章 21 節：信徒與基督一同作王、一同審判</li>
+        <li>羅馬書 12 章 17 至 21 節：不要自己伸冤；要以善勝惡</li>
+        <li>歌羅西書 3 章 12 至 14 節：彼此包容，主怎樣饒恕了你們，你們也要怎樣饒恕人</li>
+        <li>彼得前書 2 章 21 至 24 節：基督受苦不還口的榜樣</li>
+        <li>提多書 3 章 3 至 7 節：從前是無知的，如今藉聖靈重生的洗和更新</li>
+        <li>哥林多後書 5 章 17 節；羅馬書 6 章 1 至 14 節：新造的人，向罪是死的，向神是活的</li>
+        <li>羅馬書 8 章 1 至 13 節：不再定罪；靠著聖靈治死身體的惡行</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-11-08 · Source: 1 Corinthians 6v1-11 sermon v2_Ridgeway.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>

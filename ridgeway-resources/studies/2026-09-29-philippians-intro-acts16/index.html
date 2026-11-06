@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippians Introduction: Acts 16 | 腓立比書導論：使徒行傳十六章 · Bible Study Guide 聖經學習指南</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #8b4513;
+            --accent-light: #d4a574;
+            --bg: #faf8f5;
+            --bg-section: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e0d5c8;
+            --verse-bg: #f5f0e8;
+            --prayer-bg: #f0f4f8;
+            --question-bg: #fef9f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif TC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 3px double var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Merriweather', 'Noto Serif TC', serif;
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .header h1.zh {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.8em;
+            color: var(--accent);
+        }
+
+        .header .subtitle {
+            font-size: 1em;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .header .key-verse {
+            font-style: italic;
+            color: var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--bg-section);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .section-title {
+            font-family: 'Merriweather', 'Noto Serif TC', serif;
+            font-size: 1.4em;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent-light);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section-title .icon {
+            margin-right: 8px;
+        }
+
+        /* Bilingual block */
+        .bilingual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .lang-en, .lang-zh {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .lang-en {
+            border-left: 3px solid var(--accent);
+        }
+
+        .lang-zh {
+            border-left: 3px solid var(--primary);
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        .lang-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Key Scriptures */
+        .verse-card {
+            background: var(--verse-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .verse-ref {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .verse-text {
+            font-style: italic;
+            line-height: 1.9;
+        }
+
+        /* Thinking Questions */
+        .question-card {
+            background: var(--question-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            counter-increment: question;
+        }
+
+        .question-card::before {
+            content: "Q" counter(question);
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .questions-container {
+            counter-reset: question;
+        }
+
+        /* Prayer */
+        .prayer-section {
+            background: var(--prayer-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #c8d8e8;
+        }
+
+        .prayer-text {
+            font-style: italic;
+            line-height: 2;
+        }
+
+        /* Summary points */
+        .summary-point {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .summary-point:last-child {
+            border-bottom: none;
+        }
+
+        .summary-point strong {
+            color: var(--accent);
+        }
+
+        /* Application section */
+        .application-item {
+            background: #f8f5f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.85em;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .bilingual {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            body {
+                padding: 10px;
+            }
+            .section {
+                padding: 20px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                max-width: 100%;
+                padding: 0;
+            }
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    .bilingual>*{min-width:0} body{overflow-wrap:anywhere} svg{max-width:100%} @media (max-width:700px){.header h1{font-size:1.5em}.header h1.zh{font-size:1.35em}.header{padding:24px 8px}}
+    </style>
+</head>
+<body>
+
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<style>body{padding-top:56px}@media print{.rg-home-btn{display:none}body{padding-top:20px}}</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Philippians Introduction: Acts 16</h1>
+        <h1 class="zh">腓立比書導論：使徒行傳十六章</h1>
+        <div class="subtitle">Bible Study Guide 聖經學習指南</div>
+        <div class="key-verse">“Our citizenship is in heaven, from where we also wait for a Savior, the Lord Jesus Christ.” (Phil 3:20, WEB)<br>「我們卻是天上的國民，並且等候救主，就是主耶穌基督從天上降臨。」（腓立比書 3:20）</div>
+    </div>
+
+    <div class="section" style="padding:16px 20px"><div class="lang-label">廣東話導讀 Cantonese audio</div><audio controls preload="metadata" style="width:100%" src="audio/philippians-intro-acts16-cantonese.mp3"></audio></div>
+    <!-- SECTION 1: SUMMARY 摘要 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">📖</span> Summary 摘要
+        </div>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <p>An introduction to Philippians. Before the letter, we read how the church in Philippi began (Acts 16, about AD 49–50, Paul's second missionary journey).</p>
+<p>Blocked by the Spirit in Asia and Bithynia, Paul sees a man of Macedonia pleading for help. He crosses from Troas to Neapolis and walks inland to Philippi. There the Lord opens Lydia's heart by the river; a slave girl is freed from a spirit of divination; her owners have Paul and Silas beaten and jailed; at midnight they pray and sing, an earthquake opens the doors, and the jailer and his household believe. Next day Paul, a Roman citizen, insists the magistrates themselves escort them out.</p>
+<p><em>Before you study: read Acts 16 at least twice and note what you observe.</em></p>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <p>腓立比書導論。讀書信之前，先看腓立比教會如何開始（使徒行傳十六章，約主後49至50年，保羅第二次宣教旅程）。</p>
+<p>聖靈禁止保羅在亞細亞講道，也不許他往庇推尼去；他在異象中見一個馬其頓人求他過去幫助。他從特羅亞渡海到尼亞坡利，再往內陸到腓立比。在河邊，主開導呂底亞的心；被巫鬼所附的使女得釋放；她的主人們使保羅和西拉被打下監；半夜二人禱告唱詩，地大震動，監門全開，禁卒和他全家都信了主。翌日，身為羅馬公民的保羅要求官長親自領他們出監。</p>
+<p><em>研讀前：請把使徒行傳十六章至少讀兩遍，並記下觀察。</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: KEY SCRIPTURES 重要經文 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">✝️</span> Key Scriptures 重要經文
+        </div>
+        <div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:9–10 (WEB)</div><div class="verse-text">A vision appeared to Paul in the night. There was a man of Macedonia standing, begging him, and saying, “Come over into Macedonia and help us.” When he had seen the vision, immediately we sought to go out to Macedonia, concluding that the Lord had called us to preach the Good News to them.</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:9–10（和合本）</div><div class="verse-text">在夜間有異象現與保羅：有一個馬其頓人站著求他說：「請你過到馬其頓來幫助我們！」保羅既看見這異象，我們隨即想要往馬其頓去，以為神召我們傳福音給那裡的人聽。</div></div></div></div><div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:12–15 (WEB)</div><div class="verse-text">…to Philippi, which is a city of Macedonia, the foremost of the district, a Roman colony. We were staying some days in this city. On the Sabbath day we went forth outside of the city by a riverside, where we supposed there was a place of prayer, and we sat down and spoke to the women who had come together. A certain woman named Lydia, a seller of purple, of the city of Thyatira, one who worshiped God, heard us; whose heart the Lord opened to listen to the things which were spoken by Paul. When she and her household were baptized, she begged us, saying, “If you have judged me to be faithful to the Lord, come into my house, and stay.” So she persuaded us.</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:12–15（和合本）</div><div class="verse-text">從這裡來到腓立比，就是馬其頓這一方的頭一個城，也是羅馬的駐防城。我們在這城裡住了幾天。當安息日，我們出城門，到了河邊，知道那裡有一個禱告的地方，我們就坐下對那聚會的婦女講道。有一個賣紫色布疋的婦人，名叫呂底亞，是推雅推喇城的人，素來敬拜神。她聽見了，主就開導她的心，叫她留心聽保羅所講的話。她和她一家既領了洗，便求我們說：「你們若以為我是真信主的，請到我家裡來住。」於是強留我們。</div></div></div></div><div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:20–24 (WEB)</div><div class="verse-text">When they had brought them to the magistrates, they said, “These men, being Jews, are agitating our city, and advocate customs which it is not lawful for us to accept or to observe, being Romans.” The multitude rose up together against them, and the magistrates tore their clothes off of them, and commanded them to be beaten with rods. When they had laid many stripes on them, they threw them into prison, charging the jailer to keep them safely, who, having received such a command, threw them into the inner prison, and secured their feet in the stocks.</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:20–24（和合本）</div><div class="verse-text">帶到官長面前，說：「這些人原是猶太人，竟騷擾我們的城，傳我們羅馬人所不可受、不可行的規矩。」眾人就一同起來攻擊他們。官長吩咐剝了他們的衣裳，用棍打；打了許多棍，便將他們下在監裡，囑咐禁卒嚴緊看守。禁卒領了這樣的命，就把他們下在內監裡，兩腳上了木狗。</div></div></div></div><div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:25, 30–31 (WEB)</div><div class="verse-text">But about midnight Paul and Silas were praying and singing hymns to God, and the prisoners were listening to them. … He brought them out and said, “Sirs, what must I do to be saved?” They said, “Believe in the Lord Jesus Christ, and you will be saved, you and your household.”</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:25, 30–31（和合本）</div><div class="verse-text">約在半夜，保羅和西拉禱告，唱詩讚美神，眾囚犯也側耳而聽。……又領他們出來，說：「二位先生，我當怎樣行才可以得救？」他們說：「當信主耶穌，你和你一家都必得救。」</div></div></div></div><div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:33–34 (WEB)</div><div class="verse-text">He took them the same hour of the night, and washed their stripes, and was immediately baptized, he and all his household. He brought them up into his house, and set food before them, and rejoiced greatly, with all his household, having believed in God.</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:33–34（和合本）</div><div class="verse-text">當夜，就在那時候，禁卒把他們帶去，洗他們的傷；他和屬乎他的人立時都受了洗；於是禁卒領他們上自己家裡去，給他們擺上飯；他和全家，因為信了神，都很喜樂。</div></div></div></div><div class="verse-card"><div class="bilingual" style="margin:0"><div><div class="verse-ref">Acts 16:37 (WEB)</div><div class="verse-text">But Paul said to them, “They have beaten us publicly, without a trial, men who are Romans, and have cast us into prison! Do they now release us secretly? No, most certainly, but let them come themselves and bring us out!”</div></div><div class="lang-zh" style="padding:0;border:0"><div class="verse-ref">使徒行傳 16:37（和合本）</div><div class="verse-text">保羅卻說：「我們是羅馬人，並沒有定罪，他們就在眾人面前打了我們，又把我們下在監裡；現在要私下攆我們出去嗎？這是不行的。叫他們自己來領我們出去吧！」</div></div></div></div><p style="font-size:.8em;color:var(--text-light)">English: World English Bible (public domain). 中文：和合本（公共領域）。</p>
+    </div>
+
+    <!-- SECTION 3: KEY THEMES 主要主題 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🗺️</span> Map, Background &amp; Setting 地圖、背景與鋪墊
+        </div>
+        <h3 style="font-size:1.05em;color:var(--primary);margin-bottom:10px">Map 地圖</h3><svg viewBox="0 0 768 450" role="img" aria-label="Map of Philippi and Paul's route from Troas" style="width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--border)"><rect width="768" height="450" fill="#efe6d4"/><polygon points="0.0,147.0 60.0,147.0 96.0,157.5 136.8,145.5 144.0,187.5 186.0,247.5 216.0,217.5 234.0,210.0 306.0,220.5 258.0,157.5 246.0,123.0 300.0,111.0 313.2,100.5 366.0,109.5 444.0,97.5 492.0,112.5 510.0,135.0 576.0,147.0 528.0,172.5 528.0,232.5 522.0,247.5 516.0,315.0 564.0,322.5 618.0,337.5 600.0,397.5 636.0,450.0 636.0,450 0,450 138.0,450.0 120.0,345.0 96.0,255.0 0.0,195.0" fill="#cfe0ea" stroke="#9fb9c9" stroke-width="1.2"/><ellipse cx="348.0" cy="138.0" rx="20" ry="14" fill="#efe6d4" stroke="#9fb9c9"/><ellipse cx="450.0" cy="169.5" rx="14" ry="9" fill="#efe6d4" stroke="#9fb9c9"/><text x="466.0" y="173.5" font-size="15" fill="#556">Samothrace 撒摩特喇</text><ellipse cx="408.0" cy="255.0" rx="24" ry="16" fill="#efe6d4" stroke="#9fb9c9"/><ellipse cx="528.0" cy="360.0" rx="34" ry="20" fill="#efe6d4" stroke="#9fb9c9"/><polyline points="0.0,97.5 72.0,127.5 136.8,144.0 204.0,142.5 244.8,117.0 298.8,88.5 313.2,99.0" fill="none" stroke="#8b4513" stroke-width="3" stroke-dasharray="1 0" opacity=".55"/><text x="8" y="80" font-size="15" fill="#8b4513" font-weight="600">Via Egnatia 埃格那提亞大道</text><polyline points="523.2,277.5 450.0,169.5 313.2,99.0 298.8,88.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 5"/><text x="420.0" y="225.0" font-size="15" fill="#c0392b">Acts 16:11 sea route 航程</text><circle cx="298.8" cy="88.5" r="7" fill="#c0392b" stroke="#fff" stroke-width="1.5"/><text x="240.8" y="76.5" font-size="21" font-weight="700" fill="#2c3e50">Philippi 腓立比</text><circle cx="313.2" cy="99.0" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="325.2" y="103.0" font-size="16" font-weight="400" fill="#2c3e50">Neapolis 尼亞坡利</text><circle cx="523.2" cy="277.5" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="533.2" y="281.5" font-size="16" font-weight="400" fill="#2c3e50">Troas 特羅亞</text><circle cx="136.8" cy="144.0" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="16.80000000000001" y="132.0" font-size="16" font-weight="400" fill="#2c3e50">Thessalonica 帖撒羅尼迦</text><circle cx="244.8" cy="117.0" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="252.8" y="147.0" font-size="16" font-weight="400" fill="#2c3e50">Amphipolis 暗妃波里</text><circle cx="204.0" cy="142.5" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="164.0" y="176.5" font-size="16" font-weight="400" fill="#2c3e50">Apollonia 亞波羅尼亞</text><circle cx="724.8" cy="403.5" r="4.5" fill="#2c3e50" stroke="#fff" stroke-width="1.5"/><text x="574.8" y="395.5" font-size="16" font-weight="400" fill="#2c3e50">Thyatira 推雅推喇</text><text x="84.0" y="37.5" font-size="18" letter-spacing="2" fill="#7a6a55" font-weight="600">MACEDONIA 馬其頓</text><text x="576.0" y="45.0" font-size="14" letter-spacing="2" fill="#7a6a55" font-weight="600">THRACE 色雷斯</text><text x="660.0" y="255.0" font-size="15" letter-spacing="2" fill="#7a6a55" font-weight="600">ASIA 亞細亞</text><text x="240.0" y="315.0" font-size="14" letter-spacing="2" fill="#7a6a55" font-weight="600">Aegean Sea 愛琴海</text><text x="10" y="440" font-size="13" fill="#666">Schematic, approx. to scale · Neapolis to Philippi ≈ 16 km 約十六公里 · Troas to Neapolis ≈ 250 km by sea</text></svg><h3 style="font-size:1.05em;color:var(--primary);margin:22px 0 10px">Background 背景</h3><div class="bilingual"><div class="lang-en"><div class="lang-label">English</div><ul style="padding-left:1.1em">
+<li><strong>A Roman colony.</strong> Founded by Philip II of Macedon; after the battle of Philippi (42 BC) and again under Augustus it was settled with Roman veterans. Citizens were proud to be “Romans” (16:21), ran the city on Roman law, and the magistrates had lictors with rods (16:22, 35).</li>
+<li><strong>No synagogue.</strong> The Jewish community seems too small for one, so Paul looks for a “place of prayer” by the river (probably the Gangites) outside the gate (16:13).</li>
+<li><strong>Lydia</strong> is from Thyatira in Asia, a centre of the purple-dye trade: a businesswoman, a “God-fearer” (a Gentile worshipper of Israel's God), head of a household large enough to host the church (16:40).</li>
+<li><strong>The jailer</strong> was likely a public servant or retired soldier answerable with his life for the prisoners (compare 12:19), hence his drawn sword (16:27).</li>
+<li><strong>Paul's Roman citizenship.</strong> Beating a citizen without trial was illegal. Paul raises it only afterwards (16:37–38), which protects the new believers left behind.</li>
+</ul></div><div class="lang-zh"><div class="lang-label">繁體中文</div><ul style="padding-left:1.1em">
+<li><strong>羅馬駐防城（殖民地）。</strong>此城由馬其頓王腓力二世建立；腓立比之戰（主前42年）後及奧古斯都年間安置羅馬退伍軍人。居民以「羅馬人」自豪（16:21），按羅馬法治理，官長有手執棍杖的差役（16:22、35）。</li>
+<li><strong>沒有會堂。</strong>當地猶太人似乎太少，未能設立會堂，所以保羅出城到河邊（或為甘吉提斯河）尋找「禱告的地方」（16:13）。</li>
+<li><strong>呂底亞</strong>來自亞細亞的推雅推喇，當地以紫色染料業聞名。她是商人，是「敬畏神」的外邦人，家大可接待教會（16:40）。</li>
+<li><strong>禁卒</strong>大概是公職人員或退伍軍人；若囚犯逃脫，他要以性命抵償（參徒12:19），所以他拔刀要自殺（16:27）。</li>
+<li><strong>保羅的羅馬公民身分。</strong>未經審判鞭打羅馬公民是違法的。保羅事後才提出（16:37–38），藉此保護留下來的初信者。</li>
+</ul></div></div><h3 style="font-size:1.05em;color:var(--primary);margin:22px 0 10px">Acts 16 sets up Philippians 為腓立比書鋪路</h3><div class="bilingual"><div class="lang-en"><div class="lang-label">English</div><p>Paul later writes to this church from prison (Phil 1:7, 13). Acts 16 explains its tone:</p>
+<ul style="padding-left:1.1em">
+<li><strong>Joy</strong> in suffering: the letter from a prisoner who once sang in the Philippian jail (16:25; Phil 4:4).</li>
+<li><strong>Partnership in the gospel</strong> “from the first day until now” (Phil 1:5): from Lydia's open home onwards they supported Paul (Phil 4:15–16).</li>
+<li><strong>Citizenship in heaven</strong> (Phil 3:20): written to people proud of Roman citizenship, by a man who used his, yet counted a better one.</li>
+<li><strong>Knowing Christ</strong> (Phil 3:10): the heart of the letter.</li>
+</ul></div><div class="lang-zh"><div class="lang-label">繁體中文</div><p>保羅後來在監中寫信給這教會（腓1:7、13）。使徒行傳十六章正好解釋這封信的語調：</p>
+<ul style="padding-left:1.1em">
+<li><strong>苦中的喜樂：</strong>寫信的囚犯，曾在腓立比監中唱詩（16:25；腓4:4）。</li>
+<li><strong>興旺福音的同工：</strong>「從頭一天直到如今」（腓1:5），自呂底亞開放家庭起，他們一直供給保羅（腓4:15–16）。</li>
+<li><strong>天上的國民：</strong>「我們卻是天上的國民」（腓3:20），寫給以羅馬公民身分自豪的人，出自一位用過這身分、卻更看重另一個國籍的使徒。</li>
+<li><strong>認識基督：</strong>「使我認識基督」（腓3:10），正是全書的核心。</li>
+</ul></div></div>
+    </div>
+
+    <!-- SECTION 4: THINKING QUESTIONS 思考問題 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🤔</span> Thinking Questions 思考問題
+        </div>
+        <div class="questions-container">
+            <div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>Where is Philippi located geographically? (use the map above)</strong></p><p style="font-size:.95em;margin-top:6px">In eastern Macedonia (north-east Greece today), about 16 km inland from the port of Neapolis (modern Kavala), on the Via Egnatia, the Roman road linking the Adriatic with Byzantium. From Troas in Asia it was a two-day sail via Samothrace (16:11). It was the first stop in Europe for Paul's team, and the road led on to Amphipolis, Apollonia and Thessalonica (17:1).</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>腓立比在地理上位於哪裡？（參看上圖）</strong></p><p style="font-size:.95em;margin-top:6px">在馬其頓東部（今希臘東北），離海港尼亞坡利（今卡瓦拉）約十六公里，位於連接亞得里亞海與拜占庭的羅馬大道「埃格那提亞大道」上。從亞細亞的特羅亞經撒摩特喇航行兩天可達（16:11）。這是保羅一行在歐洲的第一站，大道再往西通往暗妃波里、亞波羅尼亞和帖撒羅尼迦（17:1）。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16:11–12; 17:1</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>What is the religious and political climate in Philippi?</strong></p><p style="font-size:.95em;margin-top:6px">Politically: a proud Roman colony governed by magistrates, quick to defend “Roman customs” and suspicious of Jews (Claudius had recently expelled Jews from Rome, 18:2). Religiously: pagan and superstitious; a slave girl with a “spirit of divination” (literally a “python spirit”, linked to Apollo's oracle) earned money for her owners. When the gospel threatened profit, the owners dressed a money complaint up as patriotism and anti-Jewish feeling, the crowd joined in, and due process was dropped.</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>腓立比的宗教和政治氣氛如何？</strong></p><p style="font-size:.95em;margin-top:6px">政治上：以羅馬為傲的殖民地，由官長治理，維護「羅馬人的規矩」，對猶太人存有戒心（革老丟剛把猶太人逐出羅馬，18:2）。宗教上：異教盛行、迷信普遍；使女被「巫鬼」（原文為「皮同之靈」，與阿波羅神諭有關）所附，為主人占卜賺錢。福音威脅到財路時，主人把金錢問題包裝成愛國和反猶的控訴，眾人附和，官長連審訊也省略了。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16:16–24</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>Why and how did Paul get to Philippi? And whom did he travel with?</strong></p><p style="font-size:.95em;margin-top:6px">Paul set out to strengthen the churches (15:36, 41; 16:5). The Holy Spirit forbade preaching in Asia, and “the Spirit of Jesus” did not allow Bithynia (16:6–7); at Troas a night vision of a man of Macedonia led them to conclude God had called them there (16:9–10). With him were Silas (15:40), Timothy, whom he took on at Lystra (16:1–3), and, from the “we” in 16:10, very likely Luke. God guided by closed doors and a clear call, and the team reasoned together to obey.</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>保羅為何及如何來到腓立比？與誰同行？</strong></p><p style="font-size:.95em;margin-top:6px">保羅出發是為了堅固各教會（15:36、41；16:5）。聖靈禁止他們在亞細亞講道，「耶穌的靈」也不許他們往庇推尼去（16:6–7）；在特羅亞，夜間異象中的馬其頓人使他們確定神召他們前往（16:9–10）。同行的有西拉（15:40）、在路司得加入的提摩太（16:1–3），以及從16:10的「我們」看來，很可能還有路加。神藉關上的門和清晰的呼召引導，眾人一同分辨並順服。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 15:36–16:11</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>How did Lydia and the jailer become converted?</strong></p><p style="font-size:.95em;margin-top:6px">Lydia: a God-fearer at prayer by the river; she listened, and “the Lord opened her heart” to pay attention to Paul's message (16:14). Quiet, gradual, the Lord's work through the word. The jailer: a pagan in crisis; after the midnight earthquake he was about to kill himself; Paul stopped him; trembling, he asked, “What must I do to be saved?” and was told, “Believe in the Lord Jesus” (16:30–31). Paul and Silas then spoke the word of the Lord to all his household (16:32). Very different people and routes, one gospel, and both by grace through faith.</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>呂底亞和禁卒如何歸信？</strong></p><p style="font-size:.95em;margin-top:6px">呂底亞：一位在河邊禱告、敬畏神的人；她聽道時，「主就開導她的心」，叫她留心聽保羅的話（16:14）。安靜、漸進，是主藉著道作工。禁卒：一位陷入危機的異教徒；半夜地震後他要自殺，保羅阻止他；他戰戰兢兢地問：「我當怎樣行才可以得救？」答案是：「當信主耶穌」（16:30–31）。二人又向他全家講主的道（16:32）。人不同、途徑不同，卻是同一福音，都是本乎恩、因著信。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16:12–14, 25–32</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>How did Lydia and the jailer demonstrate their faith?</strong></p><p style="font-size:.95em;margin-top:6px">Both were baptised at once with their households (16:15, 33), a public identification with Jesus. Both showed hospitality: Lydia opened her home and “persuaded” the missionaries to stay (16:15), later hosting the believers (16:40); the jailer washed the wounds he may have helped inflict, brought them into his home, fed them, and rejoiced with his whole household (16:33–34). Faith showed itself in baptism, hospitality, care and joy.</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>呂底亞和禁卒如何表明他們的信心？</strong></p><p style="font-size:.95em;margin-top:6px">兩人都立刻與全家受洗（16:15、33），公開表明歸屬耶穌。兩人都熱誠接待：呂底亞開放家庭，「強留」宣教士住下（16:15），後來更接待眾信徒（16:40）；禁卒為他們洗傷（這些傷或許正出於他手），領他們回家擺飯，與全家大大喜樂（16:33–34）。信心見於受洗、接待、關顧和喜樂。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16:15, 33–34, 40</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>What happened to Paul and Silas?</strong></p><p style="font-size:.95em;margin-top:6px">Seized and dragged to the marketplace, accused falsely, attacked by the crowd, stripped and beaten with rods without trial, thrown into the inner prison with their feet in the stocks (16:19–24). Yet at midnight they prayed and sang hymns (16:25). God sent an earthquake, the jailer was saved, and next day Paul made the magistrates escort them out publicly (16:35–39). Paul would later recall this: “we had suffered before and been shamefully treated at Philippi” (1 Thess 2:2).</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>保羅和西拉遭遇了甚麼事？</strong></p><p style="font-size:.95em;margin-top:6px">他們被揪住拉到市上，被誣告，被眾人攻擊，未經審判就被剝衣用棍打，下在內監，兩腳上了木狗（16:19–24）。然而半夜他們禱告唱詩（16:25）。神使地大震動，禁卒得救；翌日保羅要求官長公開親自領他們出監（16:35–39）。保羅後來追述：「我們在腓立比被害受辱」（帖前2:2）。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16:19–24, 35–40</p></div><div class="question-card"><div class="bilingual" style="margin:0"><div><p><strong>Write down a couple of applications from your study.</strong></p><p style="font-size:.95em;margin-top:6px">See the Application section below. Try to make yours specific: a name, a door, a habit.</p></div><div class="lang-zh" style="padding:0;border:0"><p><strong>寫下一兩點從研讀中得到的應用。</strong></p><p style="font-size:.95em;margin-top:6px">參看下面的「生活應用」。盡量具體：一個名字、一扇門、一個習慣。</p></div></div><p style="font-size:.8em;color:var(--accent);margin-top:8px">📍 Acts 16</p></div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: APPLICATION 生活應用 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🎯</span> Application 生活應用
+        </div>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <div class="application-item"><strong>1. Closed doors.</strong> Where has God said “not here” to you? How did Paul's team respond to a closed door, and to a clear call (16:6–10)?</div>
+<div class="application-item"><strong>2. Your Lydia, your jailer.</strong> Name one person you are praying for. Is the Lord perhaps opening a heart quietly, or is someone in crisis asking the question? Only the Lord opens hearts; our part is to speak and to be ready (16:14, 30–31).</div>
+<div class="application-item"><strong>3. Midnight songs.</strong> In a hard place this season, what would it look like to pray and praise with others “listening” (16:25)?</div>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <div class="application-item"><strong>一、關上的門。</strong>神在哪裡對你說過「不是這裡」？保羅一行怎樣回應關上的門和清晰的呼召（16:6–10）？</div>
+<div class="application-item"><strong>二、你身邊的呂底亞、禁卒。</strong>說出一位你正為他禱告的人。主是否正在安靜地開導他的心，還是他正在危機中發問？唯有主能開人的心；我們的本分是傳講和預備好（16:14、30–31）。</div>
+<div class="application-item"><strong>三、半夜的詩歌。</strong>在這季節的難處中，若禱告讚美時有人「側耳而聽」（16:25），會是怎樣的光景？</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: PRAYER 禱告 -->
+    <div class="prayer-section">
+        <div class="section-title">
+            <span class="icon">🙏</span> Prayer 禱告
+        </div>
+        <div class="bilingual">
+            <div class="lang-en">
+                <div class="lang-label">English</div>
+                <div class="prayer-text">Lord Jesus, as you opened Lydia's heart, open ours to your word. Guide us through open and closed doors, give us songs at midnight, and make us partners in the gospel, so that we may know you and make you known. Amen.</div>
+            </div>
+            <div class="lang-zh">
+                <div class="lang-label">繁體中文</div>
+                <div class="prayer-text">主耶穌，你怎樣開導呂底亞的心，求你也開導我們的心，留心聽你的話。無論門開門關，求你引導我們；在半夜給我們詩歌；使我們在福音上同心合意，認識你，也使人認識你。阿們。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 7: FURTHER READING 延伸閱讀 -->
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">📚</span> Further Reading 延伸閱讀
+        </div>
+        <div class="bilingual"><div class="lang-en"><div class="lang-label">English</div><ul style="padding-left:1.1em"><li>Acts 15:36–17:1 (context)</li><li>Philippians 1:3–11; 3:7–11, 20–21; 4:4–7, 14–16</li><li>1 Thessalonians 2:1–2</li><li>Next: begin Philippians 1</li></ul></div><div class="lang-zh"><div class="lang-label">繁體中文</div><ul style="padding-left:1.1em"><li>使徒行傳 15:36–17:1（上下文）</li><li>腓立比書 1:3–11；3:7–11、20–21；4:4–7、14–16</li><li>帖撒羅尼迦前書 2:1–2</li><li>下一步：開始研讀腓立比書第一章</li></ul></div></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Bible study guide · 查經指南</p>
+        <p>English: World English Bible (public domain) · 中文：和合本（公共領域）</p>
+    </div>
+
+</body>
+</html>

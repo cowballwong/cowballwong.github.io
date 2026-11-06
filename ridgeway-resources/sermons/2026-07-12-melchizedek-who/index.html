@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melchizedek Who? 麥基洗德是誰？ — Hebrews 7:1-10 希伯來書 7 章 1 至 10 節</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,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" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-07-12 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Melchizedek Who? 麥基洗德是誰？<br>(Hebrews 7:1-10 希伯來書 7 章 1 至 10 節)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Introduction — Melchizedek who?</span></td><td class="zh"><span class="highlight">引言——麥基洗德是誰？</span></td></tr>
+<tr><td class="en">I guarantee you&rsquo;ve never heard of Vasili Arkhipov. But he&rsquo;s a really important person.</td><td class="zh">我敢說你從未聽過瓦西里&middot;阿爾希波夫（Vasili Arkhipov）這個名字，但他卻是個極其重要的人物。</td></tr>
+<tr><td class="en">He was a nuclear submarine commander for the Soviet Union (Russia) back in the 1960s.</td><td class="zh">上世紀六十年代，他是蘇聯（俄羅斯）一艘核潛艇的指揮官。</td></tr>
+<tr><td class="en">He&rsquo;s famous because he stopped the other commanders from launching a nuclear missile at the United States from their position in the Caribbean.</td><td class="zh">他之所以留名，是因為他在加勒比海一帶，阻止了其他指揮官向美國發射核導彈。</td></tr>
+<tr><td class="en">He felt there wasn&rsquo;t the warrant to do such a thing. Legend has it he swallowed one of the keys needed to launch the missile so it couldn&rsquo;t be done.</td><td class="zh">他認為並沒有足夠理由去做這樣的事。傳說他甚至吞下了發射導彈所需的其中一把鑰匙，好叫這事無法進行。</td></tr>
+<tr><td class="en">No one really knows his name today &mdash; but he points us to how someone can have a great impact for peace when there could have been war.</td><td class="zh">今天幾乎沒有人記得他的名字——但他叫我們看見：在本可爆發戰爭之際，一個人竟能為和平帶來何等深遠的影響。</td></tr>
+<tr><td class="en">Melchizedek acts in much the same way. We may not have heard about him. But Hebrews 7 reminds us of him because Melchizedek shines a light not on himself &mdash; but on the greatness of the Lord Jesus &mdash; and how the Lord Jesus wins a greater peace and a greater salvation for his people.</td><td class="zh">麥基洗德所起的作用，也大致如此。我們也許從未聽聞他，但希伯來書第 7 章卻提醒我們記念他；因為麥基洗德所照亮的，不是他自己，而是主耶穌的偉大——以及主耶穌如何為祂的子民贏得更大的平安、更大的救恩。</td></tr>
+<tr><td class="en">Melchizedek is only mentioned in passing twice in the whole Old Testament. About three verses in Genesis (which we read) and a verse in Psalm 110.</td><td class="zh">麥基洗德在整本舊約裡，只被順帶提及兩次：創世記大約三節（就是我們剛才所讀的），以及詩篇 110 篇的一節。</td></tr>
+<tr><td class="en">That&rsquo;s it. We all know babies called Joshua, Samuel, Mary. No recorded babies in 2026 were given the name Melchizedek.</td><td class="zh">就只有這些。我們都認識叫約書亞、撒母耳、馬利亞的嬰孩；但 2026 年，沒有一個新生嬰孩被起名叫「麥基洗德」。</td></tr>
+<tr><td class="en">But the writer to the Hebrews thinks Melchizedek is incredibly important.</td><td class="zh">然而，希伯來書的作者卻認為麥基洗德極其重要。</td></tr>
+<tr><td class="en">We know from chapter 5, and now again in chapter 7, that Jesus is a priest in the order of Melchizedek. And that is significant only if we understand who Melchizedek is&hellip;</td><td class="zh">我們從第 5 章、如今又在第 7 章得知：耶穌是照著麥基洗德的等次作祭司的。而唯有當我們明白麥基洗德是誰，這一點才顯得意義重大……</td></tr>
+<tr><td class="en">Our whole series has been about how Jesus is better.</td><td class="zh">我們整個系列講道的主題，就是耶穌如何更美好。</td></tr>
+<tr><td class="en">And one of the ways he&rsquo;s better is that he&rsquo;s a priest in the line of Melchizedek.</td><td class="zh">而祂更美好的其中一個方面，就是祂是照著麥基洗德一系作祭司的。</td></tr>
+<tr><td class="en">Hebrews is all about Jesus being better &mdash; and this is one of the reasons Jesus is a better high priest for us.</td><td class="zh">希伯來書通篇都在講耶穌更美好——而這正是耶穌成為我們更美好的大祭司的原因之一。</td></tr>
+<tr><td class="en">Again &mdash; why is the language of &lsquo;high priest&rsquo; important?</td><td class="zh">再問一次：為甚麼「大祭司」這個說法如此重要？</td></tr>
+<tr><td class="en"><span class="verse">"Therefore, since we have a great high priest who has ascended into heaven, Jesus the Son of God, let us hold firmly to the faith we profess. For we do not have a high priest who is unable to empathize with our weaknesses, but we have one who has been tempted in every way, just as we are&mdash;yet he did not sin. Let us then approach God&rsquo;s throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need." (Hebrews 4:14-16)</span></td><td class="zh"><span class="verse">「我們既然有一位已經升入高天尊榮的大祭司，就是神的兒子耶穌，便當持定所承認的道。因我們的大祭司並非不能體恤我們的軟弱。他也曾凡事受過試探，與我們一樣，只是他沒有犯罪。所以，我們只管坦然無懼地來到施恩的寶座前，為要得憐恤，蒙恩惠，作隨時的幫助。」（希伯來書 4 章 14 至 16 節）</span></td></tr>
+<tr><td class="en">Who our high priest is matters. Do they grant access to God?</td><td class="zh">我們的大祭司是誰，這事關重要。他能否使我們得以親近神？</td></tr>
+<tr><td class="en">Do they understand, as our representative, the human condition &mdash; what it&rsquo;s like to live in a fallen world with our sinful hearts?</td><td class="zh">他作為我們的代表，是否明白人的光景——明白活在墮落世界、懷著罪惡之心是甚麼滋味？</td></tr>
+<tr><td class="en">Will we find grace and mercy from God through our priest?</td><td class="zh">我們能否藉著這位祭司，從神那裡得著恩典與憐憫？</td></tr>
+<tr><td class="en">Will we find what we need to keep us going in the Christian life?</td><td class="zh">我們能否得著所需的一切，支持我們在基督徒的道路上走下去？</td></tr>
+<tr><td class="en">Jesus does all that.</td><td class="zh">耶穌把這一切都成全了。</td></tr>
+<tr><td class="en">Sounds good, right?</td><td class="zh">聽起來很好，對嗎？</td></tr>
+<tr><td class="en">But of course &mdash; for the audience, for these Jewish-background believers &mdash; all they&rsquo;ve known is the priesthood of the Levites. The Levitical order. What they&rsquo;ve known and heard about for a thousand years.</td><td class="zh">然而，對當時的聽眾而言——對這些猶太背景的信徒來說——他們所認識的，只有利未人的祭司制度，就是利未的體系；這是他們一千年來所熟知、所聽聞的。</td></tr>
+<tr><td class="en">Tempted to return there? To return to what they know. But to return there is to go back to a priesthood that can&rsquo;t achieve what Jesus achieves.</td><td class="zh">他們是否受試探要回到那裡去？回到自己所熟悉的。但回到那裡，就是回到一個無法成就耶穌所成就之事的祭司制度。</td></tr>
+<tr><td class="en">He&rsquo;s of a different order. He&rsquo;s a priest in the order of Melchizedek.</td><td class="zh">耶穌屬於另一個等次。他是照著麥基洗德的等次作祭司的。</td></tr>
+<tr><td class="en">Qualitatively better.</td><td class="zh">在本質上更為美好。</td></tr>
+<tr><td class="en">To get that, we need to see who Melchizedek is&hellip;</td><td class="zh">要明白這一點，我們就必須看清麥基洗德是誰……</td></tr>
+<tr><td class="en">From Genesis 14, Melchizedek&rsquo;s greatness is shown in three ways&hellip;</td><td class="zh">從創世記第 14 章，可見麥基洗德的偉大有三方面……</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">1. Melchizedek resembles Jesus (7:2-3)</span></td><td class="zh"><span class="highlight">一、麥基洗德與耶穌相似（7:2-3）</span></td></tr>
+<tr><td class="en">Background: Genesis 14.</td><td class="zh">背景：創世記第 14 章。</td></tr>
+<tr><td class="en">Abraham, as it turns out, is not just a farmer. There&rsquo;s war in the area. Many kings going at each other. His nephew Lot is captured by some of these kings, who also grab plunder from the area around Sodom. And so Abraham plans this amazing rescue: he brings with him 318 trained men, defeats this coalition of kings and retrieves Lot and a lot of the plunder that was taken. And as he&rsquo;s returning home, suddenly out of nowhere comes this strange figure. Melchizedek.</td><td class="zh">原來亞伯拉罕不單是個農夫。那地區正值戰亂，列王彼此爭戰。他的姪兒羅得被其中幾個王擄去，這些王還從所多瑪一帶擄掠了財物。於是亞伯拉罕策劃了一場了不起的拯救行動：他帶著三百一十八名訓練有素的壯丁，擊敗了這聯盟的列王，救回羅得，並奪回大部分被擄的財物。正當他返家途中，忽然有一個奇特的人物憑空出現——麥基洗德。</td></tr>
+<tr><td class="en">He&rsquo;s a king from Salem &mdash; most likely Jerusalem.</td><td class="zh">他是撒冷王——撒冷極可能就是耶路撒冷。</td></tr>
+<tr><td class="en">He&rsquo;s a priest. Not just that &mdash; a priest of the one true God.</td><td class="zh">他是祭司。不單是祭司，更是獨一真神的祭司。</td></tr>
+<tr><td class="en">He brings bread and wine. He blesses Abraham &mdash; and Abraham in return gives Melchizedek a tenth of the spoils he&rsquo;s returning with.</td><td class="zh">他帶著餅和酒出來，為亞伯拉罕祝福——亞伯拉罕則把所奪回財物的十分之一獻給麥基洗德。</td></tr>
+<tr><td class="en">As quickly as he arrives, he&rsquo;s gone. We hear nothing else about him.</td><td class="zh">他來得快，去得也快，此後聖經再沒有提及他。</td></tr>
+<tr><td class="en">Random? But not. Never in God&rsquo;s scheme.</td><td class="zh">看似偶然，其實不然。在神的計劃裡，從無偶然。</td></tr>
+<tr><td class="en">The writer to the Hebrews zeroes in on a few things that reveal he&rsquo;s not just a normal guy&hellip;</td><td class="zh">希伯來書的作者聚焦於幾件事，揭示他絕非等閒之輩……</td></tr>
+<tr><td class="en">Read verses 2-3.</td><td class="zh">請讀 2 至 3 節。</td></tr>
+<tr><td class="en">Biblical names are really important: God has orchestrated all these characters and what they&rsquo;re called to tell us something.</td><td class="zh">聖經中的名字往往別具深意：神編織這一切人物、以及他們的名字，為要向我們啟示某些真理。</td></tr>
+<tr><td class="en">Melchizedek&rsquo;s name means &lsquo;King of Righteousness&rsquo;.</td><td class="zh">麥基洗德的名字意思是「仁義王」。</td></tr>
+<tr><td class="en">He&rsquo;s king of Salem &mdash; in Hebrew the consonants are the key thing: it sounds like the letters for &lsquo;Shalom&rsquo;. Peace. Not just peace between people but world-wide peace. Harmony.</td><td class="zh">他是撒冷王——希伯來文中，關鍵在於那幾個輔音：讀音近似「Shalom（沙龍）」的字母，就是「平安」。這不單指人與人之間的平安，更是遍及全地的平安、和諧。</td></tr>
+<tr><td class="en">Two of the greatest things the world needs, according to the Bible, are peace between a warring world and God, and righteousness for a world lost in sin and wickedness.</td><td class="zh">按聖經而言，世界最需要的兩樣至寶，就是：這爭戰不休的世界與神之間的平安，以及為這沉淪在罪惡與敗壞中的世界所預備的公義。</td></tr>
+<tr><td class="en">Here is a King of Righteousness and a King of Peace.</td><td class="zh">這裡有一位仁義王，同時也是平安王。</td></tr>
+<tr><td class="en">But not the only one. The Bible takes this and looks forward to a figure to come who will not just point us to these things but will embody these things and pour them out on the world&hellip;</td><td class="zh">但他並非唯一的一位。聖經以此為引，前瞻一位將要來臨的人物——他不單指出這些美善，更要親身體現這些美善，並將之澆灌全地……</td></tr>
+<tr><td class="en">Isaiah 9:6-7. Prince of Peace. A kingdom of righteousness.</td><td class="zh">以賽亞書 9 章 6 至 7 節。和平的君。公義的國度。</td></tr>
+<tr><td class="en">Of course, we know that to be found in the Lord Jesus.</td><td class="zh">我們當然知道，這一切都在主耶穌身上得著應驗。</td></tr>
+<tr><td class="en">Then notice how the writer zeroes in on the way Melchizedek is portrayed in the story: in particular, what we don&rsquo;t hear about him.</td><td class="zh">接著留意作者聚焦於故事怎樣描寫麥基洗德——尤其是那些「沒有提及」的地方。</td></tr>
+<tr><td class="en">One of the most famous cases Sherlock Holmes solves revolves around silence and the importance of silence. There&rsquo;s been a mysterious break-in and murder committed in someone&rsquo;s home. Who did it?</td><td class="zh">福爾摩斯所偵破最著名的案件之一，關鍵正在於「沉默」以及沉默的重要。某人家中發生了一宗離奇的闖入兼兇殺案。兇手是誰？</td></tr>
+<tr><td class="en">Well, a vital clue turns out to be that the murdered man had a dog in the house. And at one point the police constable points out that the dog was not heard barking on the night of the murder&hellip; the dog was silent.</td><td class="zh">原來一條關鍵線索，在於被殺的人家中養了一隻狗。案發當晚，那警員注意到一件事實：兇案發生時，沒有人聽見狗吠……那狗竟然是靜默的。</td></tr>
+<tr><td class="en">Why does that turn out to be the vital clue? Sherlock Holmes realises it must mean the dog knew the person who&rsquo;d broken in and committed the murder. That&rsquo;s why the dog didn&rsquo;t bark. A vital detail.</td><td class="zh">為何這竟成了關鍵線索？福爾摩斯意識到：這必然表示那狗認得闖進屋裡行兇的人。這正是狗沒有吠叫的原因。何等關鍵的細節。</td></tr>
+<tr><td class="en">It&rsquo;s where we get the phrase: &lsquo;the curious incident of the dog in the night-time&rsquo;.</td><td class="zh">「那隻狗在夜間的怪事」這句名言，正是由此而來。</td></tr>
+<tr><td class="en">What Genesis doesn&rsquo;t tell us about Melchizedek &mdash; what it&rsquo;s silent on &mdash; is used by Hebrews as a vital clue as to how great he is and the one he points to&hellip;</td><td class="zh">創世記對麥基洗德「沒有交代」的地方——就是它所沉默之處——正被希伯來書用作關鍵線索，指出他何等偉大、以及他所指向的那一位……</td></tr>
+<tr><td class="en">He notices that Melchizedek has no genealogy.</td><td class="zh">作者注意到，麥基洗德沒有族譜。</td></tr>
+<tr><td class="en">Striking. Genesis is full of genealogies. Everyone is connected to someone. Each person is son or daughter of so-and-so, who themselves are sons or daughters of so-and-so. But with Melchizedek we get nothing.</td><td class="zh">這實在耐人尋味。創世記滿是族譜，人人都與某人相連；每個人都是某某的兒女，而某某又是某某的兒女。唯獨到了麥基洗德，我們甚麼也得不著。</td></tr>
+<tr><td class="en">Almost as if he has no mother or father.</td><td class="zh">幾乎彷彿他無父無母。</td></tr>
+<tr><td class="en">And the fact he comes and goes &mdash; it&rsquo;s almost as if he&rsquo;s someone with no beginning and no end.</td><td class="zh">而他來去無蹤——豈不就像一位無始無終的人物嗎？</td></tr>
+<tr><td class="en">We love origin stories &mdash; most movies these days are prequels so we see the origin story of some character. Not so here. Which is key.</td><td class="zh">我們都愛看「起源故事」——如今大部分電影都是別部電影的前傳，好讓我們看見某角色的來歷。但在這裡卻並非如此，而這正是關鍵所在。</td></tr>
+<tr><td class="en">The narrative portrays Melchizedek as &lsquo;always living&rsquo; (v.8). And if he&rsquo;s a priest, then he&rsquo;s a priest forever.</td><td class="zh">這段敘事把麥基洗德描繪為「活著的」（8 節）。他若是祭司，就是永遠作祭司的。</td></tr>
+<tr><td class="en">Almost like the Son of God himself.</td><td class="zh">幾乎就像神的兒子自己一樣。</td></tr>
+<tr><td class="en">Is Melchizedek actually Jesus? A pre-incarnate form? We don&rsquo;t need to go there.</td><td class="zh">那麼麥基洗德其實就是耶穌嗎？是道成肉身以前的形態嗎？我們不必鑽到那裡去。</td></tr>
+<tr><td class="en">Melchizedek is presented as having a priestly office forever.</td><td class="zh">麥基洗德是被描寫為擁有一個永遠長存的祭司職分。</td></tr>
+<tr><td class="en">Great news! Why? We need a priest that lives forever.</td><td class="zh">這是天大的好消息！為甚麼？因為我們需要一位永遠長存的祭司。</td></tr>
+<tr><td class="en">There&rsquo;s a lack of permanence in culture today &mdash; so many football managers sacked even during the World Cup&hellip; Think about how many different prime ministers we&rsquo;ve had here in the UK&hellip;</td><td class="zh">今天的文化極度缺乏「恆常持久」——連在世界盃期間，都有那麼多球會領隊被解僱……想想我們英國換了多少任首相……</td></tr>
+<tr><td class="en">Andy Burnham would be the UK&rsquo;s seventh prime minister in ten years.</td><td class="zh">安迪&middot;伯納姆（Andy Burnham）若上場，將會是英國十年內第七位首相。</td></tr>
+<tr><td class="en">A sense of upheaval. No security when there&rsquo;s always change at the top.</td><td class="zh">一片動盪之感。高層若不斷更替，就毫無穩妥可言。</td></tr>
+<tr><td class="en">Not the case with a priest like Melchizedek &mdash; and whoever is a priest in his line&hellip;</td><td class="zh">但麥基洗德這樣的祭司卻不然——凡照著他一系作祭司的，也都不然……</td></tr>
+<tr><td class="en">Just as Melchizedek&rsquo;s priesthood is presented in Genesis like a priest who is eternal, so Jesus&rsquo; priesthood, in Melchizedek&rsquo;s line, is ACTUALLY eternal&hellip;</td><td class="zh">正如創世記把麥基洗德的祭司職分描寫得如同永恆一般……照樣，耶穌照著麥基洗德等次的祭司職分，是「真正」永恆的……</td></tr>
+<tr><td class="en">Massive.</td><td class="zh">這一點意義何其重大。</td></tr>
+<tr><td class="en">Access is forever open. Grace and mercy are ours forever. Nothing can change that.</td><td class="zh">通往神的路永遠敞開。恩典與憐憫永遠屬於我們。沒有甚麼能改變這事實。</td></tr>
+<tr><td class="en">A forever peace and a forever righteousness can be looked forward to.</td><td class="zh">一個永遠的平安、一個永遠的公義，是我們可以指望的。</td></tr>
+<tr><td class="en">Melchizedek is great. He&rsquo;s all about what our world needs: peace, righteousness, eternal access to God.</td><td class="zh">麥基洗德是偉大的。他所代表的，正是我們世界所需要的一切：平安、公義、永遠得以親近神。</td></tr>
+<tr><td class="en">And because Jesus is from his line &mdash; not Levi&rsquo;s line &mdash; that&rsquo;s who Jesus gives us, but in full. Melchizedek&rsquo;s the trailer; Jesus is the whole movie.</td><td class="zh">而因為耶穌出於他一系——不是出於利未一系——這正是耶穌所賜給我們的，而且是完完全全地賜下。麥基洗德是預告片，耶穌才是整套電影。</td></tr>
+<tr><td class="en">So don&rsquo;t turn away from Jesus&hellip;</td><td class="zh">所以，不要離棄耶穌……</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">2. Melchizedek trumps Abraham and the Levites (7:4-10)</span></td><td class="zh"><span class="highlight">二、麥基洗德勝過亞伯拉罕與利未人（7:4-10）</span></td></tr>
+<tr><td class="en">When I first went to the job centre right after university, one of the things I was tested on was how quickly I could type. When we type we use the QWERTY keyboard &mdash; named after the letters on the top row &mdash; which dates back to the 1870s on typewriters. The way the letters are arranged is actually odd: all the common letter pairings are separated, designed to make sure people typed slowly, so they&rsquo;d take more care.</td><td class="zh">我大學畢業後第一次到就業中心，被測試的其中一項，就是打字速度。我們打字用的是 QWERTY 鍵盤——名字取自鍵盤最上一行的字母——可追溯至 1870 年代的打字機。這套字母排列其實很奇怪：所有常用的字母配搭都被刻意分開——設計原意是要人打得慢一點，好叫他們更小心。</td></tr>
+<tr><td class="en">Much later, someone designed a new layout that put all the most common letters on the middle row, which reduced finger movement, increased typing speed and made your fingers far less tired. On your modern computer you can switch to that layout &mdash; but hardly anyone does. Even though it&rsquo;s a far better system. Why? Because we prefer what we know and are familiar with. We tend to return to what we know, even if there&rsquo;s no good reason.</td><td class="zh">很久以後，有人設計了一套新的鍵盤佈局，把最常用的字母都放在中間一行——這樣可減少手指移動、加快打字速度，也大大減輕手指的疲勞。在你現在的電腦上，其實可以切換到那套佈局，但幾乎沒有人這樣做。即使那套系統明明好得多。為甚麼？因為我們偏愛自己所熟悉、所習慣的。即使沒有充分理由，我們仍傾向回到自己所認識的。</td></tr>
+<tr><td class="en">The writer to the Hebrews knows his audience are finding life hard. People don&rsquo;t want them to be Christians. Jesus is ridiculed. And so they are tempted to return to what they know. And what they know is the Levitical order: the priesthood with the sacrifices, the temple, the robes, the altars. Familiar.</td><td class="zh">希伯來書的作者知道，他的讀者正經歷艱難。有人不願他們作基督徒，耶穌被人譏笑。於是他們大受試探，想回到自己所熟悉的。而他們所熟悉的，就是利未體系：連同獻祭、聖殿、祭司袍、祭壇的那套祭司制度。何等熟悉。</td></tr>
+<tr><td class="en">But that system is worse for them.</td><td class="zh">但那套制度對他們而言其實更差。</td></tr>
+<tr><td class="en">The writer wants them to see that what they&rsquo;re used to may be familiar, but to pull back from Jesus is the worst thing you can do.</td><td class="zh">作者要他們看見：他們所習慣的或許熟悉，但從耶穌退後，卻是你所能做最壞的事。</td></tr>
+<tr><td class="en">Don&rsquo;t look back to the Levites&hellip; the Old Testament priesthood&hellip;</td><td class="zh">不要回望利未人……不要回到舊約的祭司制度……</td></tr>
+<tr><td class="en">The Melchizedekian order has always been greater.</td><td class="zh">麥基洗德的等次，從來都是更為尊大的。</td></tr>
+<tr><td class="en">How do we know? From Melchizedek&rsquo;s greatness over Abraham and the Levites&hellip;</td><td class="zh">我們怎麼知道？就從麥基洗德勝過亞伯拉罕與利未人這事看出來……</td></tr>
+<tr><td class="en">Two points from the story back in Genesis 14&hellip;</td><td class="zh">從創世記第 14 章的故事，可見兩點……</td></tr>
+<tr><td class="en"><span class="highlight">(a) Melchizedek collects a tithe from Abraham</span></td><td class="zh"><span class="highlight">（甲）麥基洗德向亞伯拉罕收取十分之一</span></td></tr>
+<tr><td class="en">Read verses 4-6a.</td><td class="zh">請讀 4 至 6 節上。</td></tr>
+<tr><td class="en">Simple point here. It doesn&rsquo;t just say Abraham gives Melchizedek a tenth of the spoils he&rsquo;s won.</td><td class="zh">這裡的重點很簡單。經文不是單單說：亞伯拉罕把所得戰利品的十分之一給了麥基洗德。</td></tr>
+<tr><td class="en">Abraham &mdash; the patriarch &mdash; gives Melchizedek a tenth.</td><td class="zh">而是說：亞伯拉罕——這位先祖——把十分之一給了麥基洗德。</td></tr>
+<tr><td class="en">Abraham is the father of the Jewish nation. He is the spiritual father of all believers. Even you and I trace our spiritual ancestry all the way back to Abraham.</td><td class="zh">亞伯拉罕是猶太民族之父，是眾信徒屬靈的父。連你和我，也可把屬靈的血脈一直上溯至亞伯拉罕。</td></tr>
+<tr><td class="en">He&rsquo;s the one who really gets God&rsquo;s salvation plan going. His example of faith is the blueprint for our faith. He gets given all the promises.</td><td class="zh">是他真正開展了神的救恩計劃。他信心的榜樣，是我們信心的藍本。一切應許都賜給了他。</td></tr>
+<tr><td class="en">It&rsquo;s hard to think of a bigger spiritual cheese than Abraham.</td><td class="zh">很難想出比亞伯拉罕更「德高望重」的屬靈人物。</td></tr>
+<tr><td class="en">And yet he pays a tithe to someone else&hellip; Melchizedek!</td><td class="zh">然而他竟向另一位——麥基洗德——繳付十分之一！</td></tr>
+<tr><td class="en">Why does Abraham do this? Because Abraham acknowledges Melchizedek&rsquo;s greatness. That&rsquo;s the writer&rsquo;s point in verses 5-6.</td><td class="zh">亞伯拉罕為甚麼這樣做？因為亞伯拉罕承認麥基洗德的偉大。這正是作者在 5 至 6 節的重點。</td></tr>
+<tr><td class="en">It was normal to give tithes to the Levites in the Old Testament &mdash; but people did that NOT because they were just overawed by the Levites, but because it was written in the law that they should. It was how the Levites could make their living without a formal income.</td><td class="zh">在舊約，人向利未人繳付十分之一本是常事——但人這樣做，並非單單因為敬畏利未人，而是因為律法明文規定當如此行。這是利未人在沒有正式收入下得以維生的方式。</td></tr>
+<tr><td class="en">NOT the case with Melchizedek. No law says Abraham must tithe to him. Abraham does it simply because he recognises the greatness of Melchizedek.</td><td class="zh">麥基洗德的情況卻不同。並沒有任何律法規定亞伯拉罕必須向他繳付十分之一。亞伯拉罕這樣做，純粹是因為他認出麥基洗德的偉大。</td></tr>
+<tr><td class="en">And if Abraham tithed to him &mdash; in a sense &mdash; the Levites tithe to Melchizedek too. That&rsquo;s the logic of verses 9-10.</td><td class="zh">而既然亞伯拉罕向他繳付十分之一——在某種意義上——利未人也就向麥基洗德繳付了十分之一。這正是 9 至 10 節的邏輯。</td></tr>
+<tr><td class="en">We don&rsquo;t quite understand that logic in the West &mdash; far too individualistic. It would make a lot of sense to most cultures in the world today. You and your descendants are tight-knit. You come as one.</td><td class="zh">我們西方人不太明白這種邏輯——因為太過個人主義了。但對今天世上大多數文化而言，這卻十分合理：你與你的後裔緊密相連，如同一體。</td></tr>
+<tr><td class="en">If you think the Levitical priests were cool &mdash; well, they actually thought Melchizedek was way better!</td><td class="zh">你若認為利未祭司很了不起——其實他們自己也認為麥基洗德遠比他們尊大！</td></tr>
+<tr><td class="en"><span class="highlight">(b) Melchizedek blesses Abraham</span></td><td class="zh"><span class="highlight">（乙）麥基洗德為亞伯拉罕祝福</span></td></tr>
+<tr><td class="en">Read verses 6b-7.</td><td class="zh">請讀 6 節下至 7 節。</td></tr>
+<tr><td class="en">Blessing here is not about praising someone. Here, and in other places in the Bible, it&rsquo;s about declaring God&rsquo;s blessing on someone else: normally a spiritual leader blessing someone under them.</td><td class="zh">這裡的「祝福」不是指稱讚某人。在這裡、以及聖經其他地方，它是指宣告神的祝福臨到別人身上：通常是屬靈領袖為在他之下的人祝福。</td></tr>
+<tr><td class="en">You see it in Church of England churches when a leader blesses someone who asks for a blessing during communion.</td><td class="zh">你在英國聖公會的教會中會見到這情景：領聖餐時，若有人請求祝福，領袖便為他祝福。</td></tr>
+<tr><td class="en">Melchizedek&rsquo;s blessing reminds Abraham who&rsquo;s really won the victory over those kings. The Lord. It&rsquo;s a way of saying the Lord is with you and working through you, and I can officially recognise and pronounce that to be true.</td><td class="zh">麥基洗德的祝福提醒亞伯拉罕：真正勝過那些王的，是誰。是主。這是一種宣告，說：主與你同在、藉你動工，而我可以正式承認並宣告這是真的。</td></tr>
+<tr><td class="en">You can see, then, why it&rsquo;s the lesser who is blessed by the greater.</td><td class="zh">由此你就明白，為何是位分較小的，接受位分較大者的祝福。</td></tr>
+<tr><td class="en">Abraham &mdash; the patriarch, the one who had the promises &mdash; is inferior to this priest.</td><td class="zh">亞伯拉罕——這位先祖、領受應許的人——竟低於這位祭司。</td></tr>
+<tr><td class="en">That priest is someone significant. More significant than Abraham. More significant than the Levitical priests.</td><td class="zh">這位祭司是個重要人物，比亞伯拉罕更重要，也比利未祭司更重要。</td></tr>
+<tr><td class="en">And Jesus is a priest in his line.</td><td class="zh">而耶穌正是照著他一系作祭司的。</td></tr>
+<tr><td class="en">What you might want to turn back to&hellip; is inferior. So don&rsquo;t turn away&hellip;</td><td class="zh">你或許想回頭歸向的——其實是較次的……所以不要離棄耶穌……</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">3. Melchizedek&rsquo;s combined office (v.1)</span></td><td class="zh"><span class="highlight">三、麥基洗德兼備君王與祭司之職（1 節）</span></td></tr>
+<tr><td class="en">One of the geniuses of Pixar is that it speaks to both adults and kids. The animations are entertaining for the kids, but they&rsquo;re also packed full of references that adults love: Aladdin is full of pop-culture references that kids can&rsquo;t even understand. A rare skill, to combine both.</td><td class="zh">彼思（Pixar）的其中一項天才之處，就是能同時對大人與小孩說話。動畫既能娛樂孩子，同時又滿載大人喜愛的種種典故：就如《阿拉丁》——處處是連小孩也看不懂的流行文化梗。能同時兼顧兩者，是難能可貴的本領。</td></tr>
+<tr><td class="en">The last point to make is this: the most obvious point from Melchizedek&rsquo;s description. Verse 1: he combines something incredibly rare &mdash; he&rsquo;s both a king AND a priest.</td><td class="zh">最後一點要說的是：這是麥基洗德的描述中最顯而易見的一點。第 1 節：他兼備一件極其罕有的身分——他既是君王，又是祭司。</td></tr>
+<tr><td class="en">Rare, because in the Old Testament God had said a king could not be a priest. No one could do both. In fact, King Saul was punished for trying to meddle with the priesthood.</td><td class="zh">之所以罕有，是因為在舊約，神曾說君王不可作祭司，沒有人能兼任兩職。事實上，掃羅王正因擅自插手祭司的職事而受罰。</td></tr>
+<tr><td class="en">But here we find in Melchizedek both brought together.</td><td class="zh">但在麥基洗德身上，我們卻見兩者合而為一。</td></tr>
+<tr><td class="en">Which again points us to Jesus.</td><td class="zh">這再一次指向耶穌。</td></tr>
+<tr><td class="en">Why is that important?</td><td class="zh">為甚麼這很重要？</td></tr>
+<tr><td class="en">We&rsquo;ll hear more on this next week, but only with Jesus do we have a High Priest who opens up access to God &mdash; who ministers grace and mercy to us when we&rsquo;re weak&hellip;</td><td class="zh">我們下週會更多聽到這方面的信息，但這裡先說：唯有在耶穌身上，我們才有一位大祭司，為我們開通往神的路——在我們軟弱時，把恩典與憐憫服事給我們……</td></tr>
+<tr><td class="en">AND only with Jesus do we have a King who guarantees we will share in his victory over his enemies and ours.</td><td class="zh">而且唯有在耶穌身上，我們才有一位君王，擔保我們必分享他勝過仇敵、也勝過我們仇敵的得勝。</td></tr>
+<tr><td class="en">Infinite mercy combined with infinite justice. Infinite grace combined with infinite power. All of which means that with Jesus we have it all. And only Jesus.</td><td class="zh">無限的憐憫與無限的公義相結合。無限的恩典與無限的能力相結合。這一切都意味著：在耶穌裡，我們便擁有一切。而唯獨在耶穌裡。</td></tr>
+<tr><td class="en">Jesus is better in every way.</td><td class="zh">耶穌在各方面都更美好。</td></tr>
+<tr><td class="en">When we see Jesus&rsquo; greatness, we are more likely to stay with him.</td><td class="zh">當我們看見耶穌的偉大，我們就更可能持守、與他同行。</td></tr>
+<tr><td class="en">Again, we&rsquo;re probably not about to turn back to the Old Testament priesthood. We can&rsquo;t anyway!</td><td class="zh">再說一次，我們今天大概不至於要回到舊約的祭司制度。反正也回不去了！</td></tr>
+<tr><td class="en">Where do you look to find peace &mdash; peace with God, peace with others, peace for the world &mdash; where do you look that isn&rsquo;t Jesus? Only Jesus is the Prince of Peace!</td><td class="zh">你尋求平安時——與神和好的平安、與人和睦的平安、賜給世界的平安——你所仰望的，若不是耶穌，還能是誰？唯獨耶穌是和平的君！</td></tr>
+<tr><td class="en">Where do you look when you&rsquo;re feeling weak and sinful &mdash; when you feel like you&rsquo;ve let God down again &mdash; where can you find righteousness that is not just on the outside but inside too? Only Jesus is Righteousness itself. Only Jesus has that righteousness we need and gives it to us.</td><td class="zh">當你感到軟弱、滿身罪污時——當你覺得自己又一次辜負了神時——你可以往哪裡去，才能尋得那不單在外表、更在內心的公義？唯獨耶穌本身就是公義。唯獨耶穌擁有我們所需的那份公義，並將之賜給我們。</td></tr>
+<tr><td class="en">Where do you look when life feels chaotic, both around you and inside you? When others let you down, when life throws a curveball, who gives you security? Only Jesus is the first and the last. He is the Alpha and the Omega. Only with Jesus can we find a hope that never changes, a standing before God that can never change.</td><td class="zh">當你裡裡外外都感到人生一片混亂時——當別人叫你失望、當生活突然拋來難以招架的變故時——是誰賜你穩妥？唯獨耶穌是首先的，也是末後的。他是阿拉法，也是俄梅戛。唯有在耶穌裡，我們才能尋得那永不改變的盼望，並在神面前那永不更改的地位。</td></tr>
+<tr class="separator"><td>………………………</td><td>………………………</td></tr>
+<tr><td class="en"><span class="highlight">Conclusion — a forgotten greatness that points us to Jesus</span></td><td class="zh"><span class="highlight">結語——被遺忘的偉大，指引我們仰望耶穌</span></td></tr>
+<tr><td class="en">Have you forgotten that Russian guy&rsquo;s name from the start?</td><td class="zh">你還記得開頭那位俄羅斯人的名字嗎？</td></tr>
+<tr><td class="en">A forgotten person&rsquo;s greatness is meant to make us see Jesus&rsquo; greatness.</td><td class="zh">一位被遺忘之人的偉大，原是要叫我們看見耶穌的偉大。</td></tr>
+<tr><td class="en">Hebrews 7 gives us just a few verses in Genesis 14 to point to Jesus&rsquo; superiority in every way.</td><td class="zh">希伯來書第 7 章藉著創世記第 14 章的幾節經文，指出耶穌在各方面的超越。</td></tr>
+<tr><td class="en">Here&rsquo;s a clue as to how to keep Jesus&rsquo; greatness and superiority in view: as we read the Scriptures more &mdash; and read them with the aim of knowing Jesus more &mdash; we&rsquo;ll find so many treasures that help us behold him.</td><td class="zh">至於如何常常把耶穌的偉大與超越擺在眼前，這裡有一條線索：當我們愈多讀聖經——並以「更深認識耶穌」為目標去讀——我們就會發現無數的珍寶，幫助我們仰望他。</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Melchizedek Who?</h1>
+    <h1 class="zh">麥基洗德是誰？</h1>
+    <div class="subtitle">Hebrews 7:1-10 希伯來書 7 章 1 至 10 節 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"Without father or mother, without genealogy, without beginning of days or end of life, resembling the Son of God, he remains a priest forever." · 「他無父，無母，無族譜，無生之始，無命之終，乃是與神的兒子相似，長遠為祭司。」(Hebrews 希伯來書 7 章 3 節)</div>
+  </div>
+
+  
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>Hebrews 7:1-10 asks a surprising question: <strong>Melchizedek who?</strong> He appears in only three verses of Genesis 14 and one verse of Psalm 110, yet the writer treats him as vital &mdash; because Melchizedek shines a light not on himself but on the <strong>greatness of the Lord Jesus</strong>. The whole letter argues that Jesus is <em>better</em>, and one reason is that he is a priest &lsquo;in the order of Melchizedek&rsquo;, not of Levi. The sermon draws out three ways Melchizedek&rsquo;s greatness points to Christ. <strong>First, Melchizedek resembles Jesus</strong> (vv.2-3): his name means &lsquo;king of righteousness&rsquo;, he is king of Salem (peace), and Genesis is silent about his genealogy, birth and death &mdash; portraying a priest who &lsquo;remains forever&rsquo;. Jesus&rsquo; priesthood really is eternal, so access to God, grace and mercy are ours forever. <strong>Second, Melchizedek trumps Abraham and the Levites</strong> (vv.4-10): Abraham, the great patriarch, pays him a tithe and is blessed by him &mdash; and the lesser is blessed by the greater. What the readers were tempted to return to (the Levitical system) is inferior. <strong>Third, Melchizedek combines two offices</strong> (v.1): he is both king and priest &mdash; something forbidden in the Old Testament &mdash; which points to Jesus alone, who opens access to God AND guarantees final victory. Infinite mercy with infinite justice; infinite grace with infinite power. So <strong>don&rsquo;t turn away from Jesus</strong> &mdash; look to him for peace, righteousness and security, and read the Scriptures to keep beholding his greatness.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>希伯來書 7 章 1 至 10 節提出一個出人意表的問題：<strong>麥基洗德是誰？</strong>他在創世記第 14 章只出現三節、在詩篇 110 篇只有一節，作者卻視他為極其重要——因為麥基洗德所照亮的不是自己，而是<strong>主耶穌的偉大</strong>。整封書信都在論證耶穌<em>更美好</em>，其中一個原因，就是他是照著「麥基洗德的等次」、而非利未的等次作祭司。講道從三方面帶出麥基洗德的偉大如何指向基督。<strong>第一，麥基洗德與耶穌相似</strong>（2 至 3 節）：他名字意思是「仁義王」，又是撒冷（平安）王，而創世記對他的族譜、生死都保持沉默——描寫出一位「長遠為祭司」的祭司。耶穌的祭司職分是真正永恆的，所以通往神的路、恩典與憐憫都永遠屬於我們。<strong>第二，麥基洗德勝過亞伯拉罕與利未人</strong>（4 至 10 節）：連偉大的先祖亞伯拉罕也向他繳付十分之一、並接受他的祝福——而位分大的給位分小的祝福。讀者所受試探要回去的（利未制度），其實是較次的。<strong>第三，麥基洗德兼備兩職</strong>（1 節）：他既是君王又是祭司——這在舊約是不容許的——正指向唯獨耶穌，他既開通往神的路，又擔保最終的得勝。無限的憐憫與無限的公義；無限的恩典與無限的能力。所以<strong>不要離棄耶穌</strong>——尋求平安、公義與穩妥都當仰望他，並多讀聖經，好常常仰望他的偉大。</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📜</span> Key Scriptures 重要經文</div>
+  <div class="verse-card">
+    <div class="verse-ref">Genesis 創世記 14 章 18 至 20 節 — Melchizedek meets Abram 麥基洗德迎接亞伯蘭</div>
+    <div class="verse-text">"Then Melchizedek king of Salem brought out bread and wine. He was priest of God Most High, and he blessed Abram, saying, &lsquo;Blessed be Abram by God Most High, Creator of heaven and earth. And praise be to God Most High, who delivered your enemies into your hand.&rsquo; Then Abram gave him a tenth of everything."</div><br>
+    <div class="verse-text zh">「又有撒冷王麥基洗德帶著餅和酒出來迎接；他是至高神的祭司。他為亞伯蘭祝福，說：『願天地的主、至高的神賜福與亞伯蘭！至高的神把敵人交在你手裡，是應當稱頌的！』亞伯蘭就把所得的拿出十分之一來，給麥基洗德。」</div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 7 章 1 至 3 節 — Resembling the Son of God 與神的兒子相似</div>
+    <div class="verse-text">"This Melchizedek was king of Salem and priest of God Most High&hellip; First, the name Melchizedek means &lsquo;king of righteousness&rsquo;; then also, &lsquo;king of Salem&rsquo; means &lsquo;king of peace&rsquo;. Without father or mother, without genealogy, without beginning of days or end of life, resembling the Son of God, he remains a priest forever."</div><br>
+    <div class="verse-text zh">「這麥基洗德就是撒冷王，又是至高神的祭司……他頭一個名繙出來就是仁義王，他又名撒冷王，就是平安王的意思。他無父，無母，無族譜，無生之始，無命之終，乃是與神的兒子相似，長遠為祭司。」</div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Hebrews 希伯來書 7 章 7 節 — The lesser blessed by the greater 位分大的給位分小的祝福</div>
+    <div class="verse-text">"And without doubt the lesser is blessed by the greater."</div><br>
+    <div class="verse-text zh">「從來位分大的給位分小的祝福，這是駁不倒的理。」</div>
+  </div>
+  <div class="verse-card">
+    <div class="verse-ref">Psalm 詩篇 110 篇 4 節 — A priest forever 永遠為祭司</div>
+    <div class="verse-text">"The Lord has sworn and will not change his mind: &lsquo;You are a priest forever, in the order of Melchizedek.&rsquo;"</div><br>
+    <div class="verse-text zh">「耶和華起了誓，決不後悔，說：『你是照著麥基洗德的等次永遠為祭司。』」</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🎯</span> Key Themes 主要主題</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div><strong>1. Jesus is a better high priest.</strong> The letter&rsquo;s big claim is that Jesus is better &mdash; and being a priest &lsquo;in the order of Melchizedek&rsquo; (not Levi) is one key reason why.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>1. 耶穌是更美好的大祭司。</strong>整封書信的核心宣告，就是耶穌更美好——而他是照著「麥基洗德等次」（而非利未等次）作祭司，正是關鍵原因之一。</div>
+  </div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div><strong>2. A priesthood that lasts forever.</strong> Genesis is silent about Melchizedek&rsquo;s beginning and end, portraying a priest who &lsquo;remains forever&rsquo;. Jesus&rsquo; priesthood really is eternal &mdash; so access, grace and mercy never run out.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>2. 永遠長存的祭司職分。</strong>創世記對麥基洗德的始末保持沉默，描寫出一位「長遠為祭司」的祭司。耶穌的祭司職分是真正永恆的——所以親近神的路、恩典與憐憫永不斷絕。</div>
+  </div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div><strong>3. King of righteousness and king of peace.</strong> Melchizedek&rsquo;s very names embody the two things the world most needs; both are fully found and poured out in the Lord Jesus, the Prince of Peace.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>3. 仁義王與平安王。</strong>麥基洗德的名字本身，就體現了世界最需要的兩樣至寶；這兩者都完全在主耶穌——和平的君——身上尋得並澆灌下來。</div>
+  </div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div><strong>4. Greater than Abraham and the Levites.</strong> Abraham tithes to Melchizedek and is blessed by him; the lesser is blessed by the greater. What is familiar (the Levitical system) is actually inferior &mdash; so don&rsquo;t drift back.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>4. 勝過亞伯拉罕與利未人。</strong>亞伯拉罕向麥基洗德繳十分之一、又接受他的祝福；位分小的接受位分大的祝福。那看似熟悉的（利未制度）其實是較次的——所以不要隨流退後。</div>
+  </div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div><strong>5. King and priest combined &mdash; only in Jesus.</strong> The Old Testament forbade one person to hold both offices; Melchizedek holds both, pointing to Jesus alone, who opens access to God AND guarantees his people&rsquo;s victory.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div><strong>5. 君王與祭司合一——唯獨在耶穌。</strong>舊約禁止一人兼任兩職；麥基洗德卻兼備兩者，指向唯獨耶穌——他既開通往神的路，又擔保祂子民的得勝。</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">💭</span> Thinking Questions 思考問題</div>
+<div class="questions-container">
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Before this passage, what did you know (or not know) about Melchizedek? Why do you think the writer makes so much of someone so briefly mentioned in the Old Testament?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>在讀這段經文之前，你對麥基洗德認識多少（或幾乎一無所知）？你認為作者為何如此看重一位舊約只是輕輕帶過的人物？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>The sermon says &lsquo;who our high priest is matters&rsquo;. Looking at Hebrews 4:14-16, what difference does it make to you that Jesus both sympathises with our weakness and gives access to God&rsquo;s throne of grace?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>講道說「我們的大祭司是誰，這事關重要」。參照希伯來書 4 章 14 至 16 節，耶穌既體恤我們的軟弱、又使我們得以到施恩寶座前，這對你有何實際的分別？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Melchizedek is portrayed as a priest who &lsquo;remains forever&rsquo;. In a world of constant change and upheaval, where are you tempted to look for security &mdash; and how does an eternal priest change that?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>麥基洗德被描寫為「長遠為祭司」。在這變幻動盪的世界裡，你傾向往哪裡尋找穩妥？一位永遠長存的祭司，又如何改變這一點？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>The readers were tempted to return to what was familiar (the Levitical system), even though it was inferior. What &lsquo;familiar but lesser&rsquo; things are you tempted to drift back to instead of holding on to Jesus?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>讀者受試探要回到熟悉的（利未制度），儘管那是較次的。有甚麼「熟悉卻較次」的事物，是你容易隨流退回、以致沒有緊守耶穌的？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Abraham &mdash; the great patriarch &mdash; tithes to Melchizedek and is blessed by him. What does it look like, practically, to acknowledge that Jesus is greater than everything else we might exalt?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>連偉大的先祖亞伯拉罕也向麥基洗德繳十分之一、接受他的祝福。在生活中，「承認耶穌比我們所高舉的一切更尊大」具體會是甚麼模樣？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>Jesus alone combines King and Priest &mdash; infinite mercy with infinite justice, infinite grace with infinite power. Which of these do you most need to rest in this week, and why?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>唯獨耶穌兼備君王與祭司——無限的憐憫與無限的公義、無限的恩典與無限的能力。這個星期，你最需要安息於哪一樣？為甚麼？</div>
+    </div>
+  </div>
+  <div class="question-card">
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>The sermon ends with a clue: reading Scripture with the aim of knowing Jesus more. What would it look like for you to read the Bible this way, and where could you start?</div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>講道以一條線索作結：以「更深認識耶穌」為目標去讀聖經。對你而言，這樣讀聖經會是甚麼模樣？你可以從哪裡開始？</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🌱</span> Application 生活應用</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>This passage is ultimately pastoral: it wants weary, tempted believers to <strong>keep going with Jesus</strong>. Three concrete steps. <strong>(1) Name where you&rsquo;re drifting.</strong> Like a QWERTY keyboard we return to out of habit, we drift back to &lsquo;familiar but lesser&rsquo; sources of security &mdash; performance, approval, control, old comforts. Identify one this week and consciously turn back to Jesus. <strong>(2) Rest in an unchanging priest.</strong> When life feels chaotic and you&rsquo;ve let God down again, remember that access, grace and mercy are <em>forever</em> open through a priest who remains forever. Bring your failure to the throne of grace rather than hiding from it. <strong>(3) Read to behold him.</strong> Take even &lsquo;minor&rsquo; passages (like three verses about Melchizedek) and ask, &lsquo;how does this show me Jesus&rsquo; greatness?&rsquo; Let Scripture keep his superiority in view, so that seeing his greatness, you stay with him.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>這段經文歸根究底是牧養性的：它要疲乏、受試探的信徒<strong>持守、與耶穌同行</strong>。三個具體步驟。<strong>（一）指出你正在隨流退往哪裡。</strong>就像我們出於習慣而回到 QWERTY 鍵盤，我們也會退回「熟悉卻較次」的安全感來源——表現、他人認同、掌控、舊日的慰藉。這個星期找出其中一樣，並刻意轉回耶穌。<strong>（二）安息於一位不改變的祭司。</strong>當生活一片混亂、你又一次辜負了神時，記得藉著一位長遠為祭司的祭司，親近神的路、恩典與憐憫是<em>永遠</em>敞開的。把你的失敗帶到施恩寶座前，而不是躲避。<strong>（三）為要仰望他而讀經。</strong>就連「不起眼」的經文（如三節關於麥基洗德的記載），也問一句：「這如何叫我看見耶穌的偉大？」讓聖經常把他的超越擺在眼前，好叫你看見他的偉大，就持守跟隨他。</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>Heavenly Father, thank you that in the Lord Jesus we have a great High Priest &mdash; a priest forever in the order of Melchizedek &mdash; who is better in every way. Thank you that through him, access to you, grace and mercy are ours forever, and that he is both the King who guarantees our victory and the Priest who welcomes us in our weakness. Forgive us for drifting back to what is familiar but lesser. Fix our eyes on Jesus, our King of Righteousness and Prince of Peace; and as we read your Word, give us eyes to behold his greatness, that we would hold firmly to him and never turn away. In his name we pray, Amen.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>天父，感謝你，因為在主耶穌裡，我們有一位尊榮的大祭司——照著麥基洗德的等次永遠為祭司——在各方面都更美好。感謝你，藉著他，親近你的路、恩典與憐憫永遠屬於我們；他既是擔保我們得勝的君王，也是在我們軟弱時仍接納我們的祭司。求你赦免我們，常常隨流退回那熟悉卻較次的事物。求你叫我們定睛仰望耶穌——我們的仁義王、和平的君；當我們讀你的話語時，求你開我們的眼睛看見他的偉大，使我們緊守他、永不離棄。奉主耶穌的名求，阿們。</div>
+  </div>
+</div>
+
+<div class="sg-section">
+  <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+  <div class="bilingual">
+    <div class="lang-en"><div class="lang-label">English</div>&bull; <strong>Genesis 14:17-24</strong> &mdash; the original account of Melchizedek meeting Abram.<br>&bull; <strong>Psalm 110</strong> &mdash; the Messiah as king and &lsquo;a priest forever in the order of Melchizedek&rsquo;.<br>&bull; <strong>Hebrews 4:14-16</strong> &mdash; why who our high priest is matters.<br>&bull; <strong>Hebrews 5:1-10</strong> &mdash; Jesus first named as a Melchizedek-priest.<br>&bull; <strong>Hebrews 7:11-28</strong> &mdash; next week: why this priesthood is better than Levi&rsquo;s.<br>&bull; <strong>Isaiah 9:6-7</strong> &mdash; the Prince of Peace and a kingdom of righteousness.</div>
+    <div class="lang-zh"><div class="lang-label">繁體中文</div>&bull; <strong>創世記 14 章 17 至 24 節</strong>——麥基洗德迎接亞伯蘭的原始記載。<br>&bull; <strong>詩篇 110 篇</strong>——彌賽亞既是君王，又是「照著麥基洗德的等次永遠為祭司」。<br>&bull; <strong>希伯來書 4 章 14 至 16 節</strong>——我們的大祭司是誰，為何事關重要。<br>&bull; <strong>希伯來書 5 章 1 至 10 節</strong>——耶穌首次被稱為照麥基洗德等次的祭司。<br>&bull; <strong>希伯來書 7 章 11 至 28 節</strong>——下週：為何這祭司職分勝過利未的。<br>&bull; <strong>以賽亞書 9 章 6 至 7 節</strong>——和平的君與公義的國度。</div>
+  </div>
+</div>
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-07-12 · Source: Hebrews 7 SERMON.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>
