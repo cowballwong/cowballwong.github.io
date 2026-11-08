@@ -22,17 +22,24 @@
 <meta property="article:published_time" content="2026-09-02">
 <meta property="article:section" content="我試過">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#f5f2ec">
+<meta name="theme-color" content="#06070a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BlogPosting","@id":"https://anzonwong.com/zh/journal/ai-agent-equipment-12/#article","headline":"AI Agent 裝備 12 · 認人唔可以靠指令 · Anzon Wong","description":"上集講出手前問准。今集講一樣更加前面嘅嘢:郁手之前,你要肯定你郁緊嗰樣真係你嘅。 呢部機上面,唔止我一隻 agent。 仲有另一隻,做緊完全另一邊嘅嘢,同我…","inLanguage":"zh-Hant-HK","author":{"@id":"https://anzonwong.com/#person"},"publisher":{"@id":"https://anzonwong.com/#person"},"mainEntityOfPage":{"@id":"https://anzonwong.com/zh/journal/ai-agent-equipment-12/#page"},"image":["https://anzonwong.com/img/og/journal-ai-agent-equipment-12.jpg","https://anzonwong.com/journal/img/ai-agent-equipment-12/01.webp","https://anzonwong.com/journal/img/ai-agent-equipment-12/02.webp","https://anzonwong.com/journal/img/ai-agent-equipment-12/03.webp"],"datePublished":"2026-09-02","articleSection":"我試過","isBasedOn":"https://www.facebook.com/photo/?fbid=10175009221070702"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://anzonwong.com/zh/journal/"},{"@type":"ListItem","position":3,"name":"AI Agent 裝備 12","item":"https://anzonwong.com/zh/journal/ai-agent-equipment-12/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/zh/journal/ai-agent-equipment-12/#page","url":"https://anzonwong.com/zh/journal/ai-agent-equipment-12/","name":"AI Agent 裝備 12 · 認人唔可以靠指令 · Anzon Wong","description":"上集講出手前問准。今集講一樣更加前面嘅嘢:郁手之前,你要肯定你郁緊嗰樣真係你嘅。 呢部機上面,唔止我一隻 agent。 仲有另一隻,做緊完全另一邊嘅嘢,同我…","inLanguage":"zh-Hant-HK","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/journal-ai-agent-equipment-12.jpg"}]}</script>
 <style>
-/* Anzon Wong home site. Option D: Index (design standard v0.2). System fonts only. */
+/* Anzon Wong home site. Option D: Index (design standard v0.2).
+   RESKIN 2026-11-08: the 8 Nov home's palette and type (ink #06070a, paper #eceef0, greys #a9aeb4/#c8ccd0, lime #c8ff2e
+   only on dark surfaces; Archivo, JetBrains Mono, Noto Sans TC). Content pages read on paper with a dark header and footer.
+   Lab tool pages (<body class="aw-tool">) keep the old tokens below, so their app UIs are unchanged. */
 :root{
-  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
-  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
-  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
-  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+  --paper:#eceef0; --card:#f7f8f9; --ink:#06070a; --ink-2:#2a2f35; --muted:#555c64;
+  --rule:#c3c8cd; --rule-2:#dde0e3; --accent:#3e5500; --accent-ink:#3e5500;
+  --serif:"Archivo","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --sans:"Archivo","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --k0:#06070a; --k1:#0c0f13; --kp:#eceef0; --kc:#a9aeb4; --kch:#c8ccd0; --kacc:#c8ff2e; --acc:#c8ff2e; --aw-accent:#c8ff2e;
+  --krule:rgba(200,204,208,.18); --kg:clamp(16px,4vw,56px);
+  --kf-en:"Archivo",system-ui,sans-serif; --kf-zh:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --kf-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
   --gutter:clamp(16px,4vw,48px); --max:1240px;
 }
 *{box-sizing:border-box}
@@ -42,6 +49,13 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+body.aw-tool{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+}
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* language: EN by default, zh when <html data-lang="zh"> */
@@ -51,18 +65,24 @@ a:hover{color:var(--accent)}
 
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 
-/* header: one line, 1px ink rule */
-.top{border-bottom:1px solid var(--ink)}
-.top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:22px;padding-bottom:14px;flex-wrap:wrap}
-.brand{font:400 22px var(--serif);text-decoration:none;white-space:nowrap}
-.brand small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:12px}
-.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);flex-wrap:wrap;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-.nav a{text-decoration:none;color:var(--ink-2);padding:3px 0;border-bottom:1px solid transparent}
-.nav a:hover{color:var(--accent)}
-.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
-:root[data-lang="zh"] .nav{letter-spacing:.2em}
-.lang{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--ink);background:transparent;padding:5px 9px;border-radius:3px;cursor:pointer;color:var(--ink)}
-.lang:hover{background:var(--ink);color:var(--paper)}
+/* header (RESKIN 2026-11-08): the home's dark bar. Only --k* tokens, so it looks the same on tool pages */
+.top{position:relative;z-index:30;background:var(--k0);color:var(--kp);border-bottom:1px solid var(--krule)}
+.top .tb{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px;padding:0 var(--kg)}
+.mark{display:flex;gap:.6em;align-items:center;text-decoration:none;color:var(--kp);flex:none}
+.mark:hover{color:var(--kp)}
+.awm{width:34px;height:34px;color:var(--kp);flex:none;display:block}
+.awm .aw-grid{display:none}
+.mark b{font-family:var(--kf-en);font-stretch:125%;font-weight:800;letter-spacing:.02em;font-size:15px;line-height:1}
+.mark i{font-style:normal;font-family:var(--kf-en);font-stretch:75%;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;color:var(--kc);line-height:1}
+.snav{display:flex;align-items:center;gap:clamp(10px,1.6vw,22px);margin-left:auto;min-width:0}
+.snav a{text-decoration:none;font-family:var(--kf-en);font-stretch:75%;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--kch);white-space:nowrap;padding:6px 0;line-height:1.2;border-bottom:1px solid transparent;transition:color .2s}
+:root[data-lang="zh"] .snav a{font-family:var(--kf-zh);font-stretch:100%;letter-spacing:.06em;font-size:13px}
+.snav a:hover,.snav a:focus-visible{color:var(--kacc)}
+.snav a[aria-current="page"]{color:var(--kp);border-bottom-color:var(--kacc)}
+.snav a.lang{border:1px solid var(--kacc);color:var(--kacc);padding:4px 9px;border-radius:2px;font-family:var(--kf-en);font-stretch:100%;letter-spacing:.06em;font-size:12px;background:transparent;cursor:pointer}
+:root[data-lang="zh"] .snav a.lang{font-family:var(--kf-en);font-size:12px}
+.snav a.lang:hover,.snav a.lang:focus-visible{background:var(--kacc);color:var(--k0)}
+.top :focus-visible,.foot :focus-visible{outline-color:var(--kacc)}
 
 /* type */
 h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
@@ -219,16 +239,22 @@ a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
 .mail:hover{border-color:var(--accent)}
 
-/* footer: 1px ink rule, one quiet line */
-.foot{margin-top:clamp(40px,6vw,64px)}
-.foot .wrap > div{border-top:1px solid var(--ink);padding:12px 0 36px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--muted)}
-.foot p{margin:0;max-width:60em}
-.foot .sig{white-space:nowrap}
-.foot a{color:var(--ink)}
+/* footer (RESKIN 2026-11-08): dark, mono line as on the home; --k* tokens only */
+.foot{margin-top:clamp(40px,6vw,64px);background:var(--k0);color:var(--kc);border-top:1px solid var(--krule)}
+.foot .wrap{max-width:none;padding:26px var(--kg) 34px}
+.foot .fr{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 28px;padding-bottom:16px;border-bottom:1px solid var(--krule)}
+.fmark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--kch)}
+.fmark b{font-family:var(--kf-en);font-stretch:125%;font-weight:800;font-size:13px;letter-spacing:.02em}
+.awm-f{width:28px;height:28px;color:var(--kch)}
+.fnav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.fnav a{font-family:var(--kf-en);font-stretch:75%;font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--kch);text-decoration:none}
+:root[data-lang="zh"] .fnav a{font-family:var(--kf-zh);font-stretch:100%;font-size:12.5px;letter-spacing:.06em}
+.foot p{margin:14px 0 0;max-width:none;font:10.5px/1.7 var(--kf-mono);color:var(--kc)}
+:root[data-lang="zh"] .foot p{font-family:var(--kf-zh);font-size:11.5px}
+.foot a{color:var(--kp)}
+.foot a:hover,.fmark:hover,.fnav a:hover{color:var(--kacc)}
 
 /* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
-a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;border:1px solid var(--ink);color:var(--ink);letter-spacing:.08em;line-height:1}
-.nav a.lang:hover{background:var(--ink);color:var(--paper)}
 .gc-im,.fw-im{position:relative}
 .ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
 .fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
@@ -242,14 +268,11 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
 .fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
 .fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
 .fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
-.foot p{font:12px/1.6 var(--sans);color:var(--muted)}
 .nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
 @media (max-width:860px){.fw-list{grid-template-columns:1fr}}
 
 /* phone */
 @media (max-width:860px){
-  .top .wrap{padding-top:16px;padding-bottom:10px;row-gap:8px}
-  .nav{margin-left:0;width:100%;gap:8px 14px;font-size:12px}
   .head,.sec,.band .grid{grid-template-columns:1fr}
   .label{margin-bottom:12px}
   .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
@@ -269,18 +292,36 @@ a.lang,.nav a.lang{text-decoration:none;display:inline-block;padding:5px 9px;bor
   .tracks{grid-template-columns:1fr}
   .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .foot .sig{white-space:normal}
 }
 @media (max-width:420px){
-  .brand small{display:none}
   .xp{grid-template-columns:96px minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+/* RESKIN 2026-11-08: phone header as on the home (mark only, nav scrolls sideways) */
+@media (max-width:760px){
+  .top .tb{height:56px;padding:0 16px;gap:12px}
+  .mark b,.mark i{display:none}
+  .snav{flex:1;justify-content:flex-end;gap:11px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .snav::-webkit-scrollbar{display:none}
+  .snav a{font-size:11px;letter-spacing:.06em}
+  :root[data-lang="zh"] .snav a{font-size:12.5px;letter-spacing:.02em}
+  .snav a.lang{padding:3px 7px}
+  .foot .wrap{padding:22px 16px 30px}
+}
+@media (min-width:761px) and (max-width:1100px){.mark i{display:none}}
+
+/* RESKIN 2026-11-08: content pages only (tool pages keep their own look) */
+.aw-page h1,.aw-page h2{font-weight:700;letter-spacing:-.02em}
+.aw-page h3{font-weight:600}
+.aw-page ::selection{background:var(--acc);color:var(--ink)}
+.aw-page .btn{border-radius:2px}
+.aw-page .btn:hover{background:var(--acc);border-color:var(--ink);color:var(--ink)}
+
 /* journal (2026-10-18, magazine): index = "the issue" (mock A), article = "review" (mock B). Site tokens and type only. */
 .jm-mono{font:11.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 :root[data-lang="zh"] .jm-mono{letter-spacing:.1em}
-.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(29,28,26,.45)}
+.jm-mat{display:block;background:var(--card);border:1px solid var(--rule);padding:clamp(8px,1.4vw,18px);box-shadow:0 1px 0 var(--rule-2),0 18px 40px -30px rgba(6,7,10,.35)}
 .jm-mat img{width:100%;height:auto;margin:0 auto}
 
 /* ---- index: mast */
@@ -325,9 +366,9 @@ a.jm-all:hover{color:var(--accent)}
 .jm-card b{display:block;font:400 18px/1.3 var(--serif);margin:10px 0 4px;overflow-wrap:anywhere}
 .jm-card a:hover b{color:var(--accent)}
 .jm-tc{display:flex;flex-direction:column;justify-content:space-between;gap:10px;width:100%;height:100%;padding:16px;background:var(--ink);color:var(--paper)}
-.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#d98a68!important;margin:0!important}
+.jm-tc b{font:10.5px/1.4 var(--mono)!important;letter-spacing:.1em;text-transform:uppercase;color:#c8ff2e!important;margin:0!important}
 .jm-tc i{font:400 20px/1.3 var(--serif);font-style:normal;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
-.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jm-tc small{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#a9aeb4}
 .jm-tc-big{aspect-ratio:4/3}.jm-tc-big i{font-size:clamp(26px,3vw,40px);-webkit-line-clamp:5}
 .jm-back{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .jm-back details{border-top:1px solid var(--ink);padding-top:10px}
@@ -347,7 +388,7 @@ a.jm-all:hover{color:var(--accent)}
 .jx a:hover .jx-ti{color:var(--accent)}
 .jx-im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--rule);background:var(--card);padding:4px}
 .jx-im img{max-width:100%;max-height:100%;width:auto;height:auto}
-.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d98a68}
+.jx-im.noimg{align-items:flex-end;justify-content:flex-start;padding:8px;background:var(--ink);font:10px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#c8ff2e}
 .jx-tx{display:block;min-width:0}
 .jx-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 .jx-ti{display:block;font:400 20px/1.3 var(--serif);margin:5px 0 6px}
@@ -361,19 +402,19 @@ a.jm-all:hover{color:var(--accent)}
 /* ---- article: dark title band (full bleed without widening the page) */
 .jr-band{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding:clamp(32px,6vw,80px) 0 clamp(24px,4vw,48px)}
 .jr-band a{color:var(--paper)}
-.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#f0b49a}
-.jr-k a{color:#f0b49a;text-decoration:none;border-bottom:1px solid rgba(240,180,154,.5)}
-.jr-h{font:400 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
+.jr-k{font:11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#c8ff2e}
+.jr-k a{color:#c8ff2e;text-decoration:none;border-bottom:1px solid rgba(200,255,46,.5)}
+.jr-h{font:700 clamp(36px,5.8vw,84px)/1.03 var(--serif);letter-spacing:-.02em;margin:14px 0 20px;max-width:15em;color:var(--paper);text-wrap:balance;overflow-wrap:break-word}
 .jr-h.t-mid{font-size:clamp(32px,4.8vw,66px);max-width:17em}
 .jr-h.t-long{font-size:clamp(28px,3.9vw,54px);line-height:1.1;max-width:20em}
 :root[data-lang="zh"] .jr-h{line-height:1.25;letter-spacing:.03em}
-.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#d9d3c7;max-width:34em;margin:0}
+.jr-stand{font:400 clamp(19px,2.1vw,25px)/1.45 var(--serif);color:#c8ccd0;max-width:34em;margin:0}
 .jr-stand a{word-break:break-all}
-.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #4a4741;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#b9b2a5}
+.jr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:12px 0 0;border-top:1px solid #2a2f35;font:11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#a9aeb4}
 .jr-plate0{margin:clamp(20px,3vw,36px) 0 0}
-.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#2b2926}
+.jr-plate0 img{width:auto;max-width:100%;max-height:82vh;margin:0 auto;background:#0c0f13}
 .jr-cap{font:11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-.jr-band .jr-cap{color:#9a9386}
+.jr-band .jr-cap{color:#a9aeb4}
 
 /* ---- article: facts rail + text */
 .jr-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(24px,4vw,56px);padding-top:clamp(32px,5vw,64px)}
@@ -437,6 +478,9 @@ a.jm-all:hover{color:var(--accent)}
 }
 
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <script>
 // Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
 // The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
@@ -449,19 +493,11 @@ a.jm-all:hover{color:var(--accent)}
 
 </script>
 </head>
-<body>
+<body class="aw-page">
 <header class="top">
-  <div class="wrap">
-    <a class="brand" href="../../">Anzon Wong<small>AW Design</small></a>
-    <nav class="nav" aria-label="Main">
-      <a href="../../work/"><span class="zh" lang="zh-Hant">作品</span></a>
-      <a href="../../lab/"><span class="zh" lang="zh-Hant">實驗室</span></a>
-      <a href="../../courses/"><span class="zh" lang="zh-Hant">課程</span></a>
-      <a href="../" aria-current="page"><span class="zh" lang="zh-Hant">文章</span></a>
-      <a href="../../about/"><span class="zh" lang="zh-Hant">關於</span></a>
-      <a href="../../contact/"><span class="zh" lang="zh-Hant">聯絡</span></a>
-      
-    </nav>
+  <div class="tb">
+    <a class="mark" href="../../" aria-label="AW Design"><svg class="awm" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="190 160 644 640" aria-hidden="true"> <g class="aw-grid" stroke="currentColor" stroke-opacity=".12" stroke-width="2" fill="none"> <path d="M212 200V824M352 160V864M512 140V884M667 160V864M812 200V824"/> <path d="M200 212H824M160 362H864M140 512H884M160 662H864M200 812H824"/> </g> <g fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-linecap="square"> <path d="M222 720 L352 300 L482 720" stroke-width="32"/> <path d="M274 560 H430" stroke-width="20"/> <path d="M532 300 L592 720 L667 450 L742 720 L802 300" stroke-width="32"/> </g> <path d="M200 744 H824" stroke="currentColor" stroke-width="10"/> <g stroke="currentColor" stroke-opacity=".4" stroke-width="3"><path d="M230 756l-18 18M270 756l-18 18M310 756l-18 18M350 756l-18 18M390 756l-18 18M430 756l-18 18M470 756l-18 18M510 756l-18 18M550 756l-18 18M590 756l-18 18M630 756l-18 18M670 756l-18 18M710 756l-18 18M750 756l-18 18M790 756l-18 18"/></g> <circle cx="667" cy="450" r="24" style="fill:var(--aw-accent,#E3342B)"/><circle cx="667" cy="450" r="42" fill="none" style="stroke:var(--aw-accent,#E3342B)" stroke-opacity=".45" stroke-width="4"/> </svg><b>AW DESIGN</b><i>AI × Architecture practice</i></a>
+    <nav class="snav" aria-label="Main"><a href="../../#services"><span class="zh" lang="zh-Hant">服務</span></a><a href="../../work/"><span class="zh" lang="zh-Hant">作品</span></a><a href="../../courses/"><span class="zh" lang="zh-Hant">課程</span></a><a href="../" aria-current="page"><span class="zh" lang="zh-Hant">文章</span></a><a href="../../lab/">Lab</a><a href="../../contact/"><span class="zh" lang="zh-Hant">聯絡</span></a></nav>
   </div>
 </header>
 <main class="wrap">
@@ -498,9 +534,10 @@ a.jm-all:hover{color:var(--accent)}
 </article>
 </main>
 <footer class="foot">
-  <div class="wrap"><div>
+  <div class="wrap">
+    <div class="fr"><a class="fmark" href="../../" aria-label="AW Design"><svg class="awm awm-f" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="190 160 644 640" aria-hidden="true"> <g class="aw-grid" stroke="currentColor" stroke-opacity=".12" stroke-width="2" fill="none"> <path d="M212 200V824M352 160V864M512 140V884M667 160V864M812 200V824"/> <path d="M200 212H824M160 362H864M140 512H884M160 662H864M200 812H824"/> </g> <g fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-linecap="square"> <path d="M222 720 L352 300 L482 720" stroke-width="32"/> <path d="M274 560 H430" stroke-width="20"/> <path d="M532 300 L592 720 L667 450 L742 720 L802 300" stroke-width="32"/> </g> <path d="M200 744 H824" stroke="currentColor" stroke-width="10"/> <g stroke="currentColor" stroke-opacity=".4" stroke-width="3"><path d="M230 756l-18 18M270 756l-18 18M310 756l-18 18M350 756l-18 18M390 756l-18 18M430 756l-18 18M470 756l-18 18M510 756l-18 18M550 756l-18 18M590 756l-18 18M630 756l-18 18M670 756l-18 18M710 756l-18 18M750 756l-18 18M790 756l-18 18"/></g> <circle cx="667" cy="450" r="24" style="fill:var(--aw-accent,#E3342B)"/><circle cx="667" cy="450" r="42" fill="none" style="stroke:var(--aw-accent,#E3342B)" stroke-opacity=".45" stroke-width="4"/> </svg><b>AW DESIGN</b></a><nav class="fnav" aria-label="Footer"><a href="../../work/"><span class="zh" lang="zh-Hant">作品</span></a><a href="../../lab/"><span class="zh" lang="zh-Hant">實驗室</span></a><a href="../../courses/"><span class="zh" lang="zh-Hant">課程</span></a><a href="../"><span class="zh" lang="zh-Hant">文章</span></a><a href="../../about/"><span class="zh" lang="zh-Hant">關於</span></a><a href="../../contact/"><span class="zh" lang="zh-Hant">聯絡</span></a></nav></div>
     <p><span class="zh" lang="zh-Hant">© 2026 Anzon Wong · AW Design 為個人設計品牌，並非註冊公司 · 實驗室工具屬個人興趣項目，並非專業意見</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
-  </div></div>
+  </div>
 </footer>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
