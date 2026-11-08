@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-06</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-06</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -141,6 +141,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/hk-swept-path/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/hk-swept-path/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/hk-swept-path/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/</loc><lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/anzonwong-com-has-new-look-rebuilt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/anzonwong-com-has-new-look-rebuilt/</loc><lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/anzonwong-com-has-new-look-rebuilt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/type-one-line-make-me-door/</loc><lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/type-one-line-make-me-door/"/>
