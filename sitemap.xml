@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-08</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-08</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -161,6 +161,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/facade-surface-studio/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/facade-surface-studio/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/facade-surface-studio/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/ai-teaching-changed-shared-part-does/</loc><lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/ai-teaching-changed-shared-part-does/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/ai-teaching-changed-shared-part-does/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/ai-teaching-changed-shared-part-does/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/ai-teaching-changed-shared-part-does/</loc><lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/ai-teaching-changed-shared-part-does/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/ai-teaching-changed-shared-part-does/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/ai-teaching-changed-shared-part-does/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/</loc><lastmod>2026-11-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/anzonwong-com-has-new-look-rebuilt/"/>
