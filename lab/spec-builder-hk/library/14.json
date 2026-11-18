@@ -1,0 +1,1270 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "14",
+    "id": "IRM",
+    "title": {
+      "en": "Ironmongery",
+      "zh": "五金配件"
+    },
+    "intro": {
+      "en": "Ironmongery items, accessible ironmongery and ironmongery for specific uses, keyed to the Door and Ironmongery Schedule."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 14,
+        "title": "Ironmongery"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "General",
+        "zh": "一般要求"
+      }
+    },
+    {
+      "id": "ITEM",
+      "title": {
+        "en": "Ironmongery items",
+        "zh": "五金配件項目"
+      }
+    },
+    {
+      "id": "ACC",
+      "title": {
+        "en": "Accessibility",
+        "zh": "無障礙設計"
+      }
+    },
+    {
+      "id": "EXE",
+      "title": {
+        "en": "Installation",
+        "zh": "安裝"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    },
+    {
+      "id": "USE",
+      "title": {
+        "en": "Ironmongery for specific uses"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "IRM-GEN-010",
+      "group": "GEN",
+      "type": "outline",
+      "title": {
+        "en": "Ironmongery schedule and sets"
+      },
+      "text": {
+        "en": "Ironmongery shall be supplied to the Door and Ironmongery Schedule, which lists each door mark against a hardware set (HS codes) and each item by hardware code. All items shall come from [[mfr]] so that finishes and fixings match. Submit the full schedule with product data, and fire test evidence for items on fire-rated door sets, to {{CA}} for approval at least [[weeks]] weeks before ordering. The keying system shall be approved before any lock is ordered, and every item shall be labelled with its door mark on delivery."
+      },
+      "fields": {
+        "mfr": {
+          "label": {
+            "en": "Supplier"
+          },
+          "kind": "select",
+          "default": "one manufacturer or one coordinated supplier",
+          "options": [
+            {
+              "v": "one manufacturer or one coordinated supplier",
+              "en": "one manufacturer or one coordinated supplier"
+            },
+            {
+              "v": "the named manufacturer listed in the schedule",
+              "en": "the named manufacturer listed in the schedule"
+            }
+          ]
+        },
+        "weeks": {
+          "label": {
+            "en": "Submission lead time"
+          },
+          "kind": "number",
+          "default": "6",
+          "unit": "weeks"
+        }
+      },
+      "guidance": {
+        "en": "A set-based schedule keeps the specification short and makes changes easy to track door by door. Mixing suppliers commonly leads to mismatched finishes and items outside the fire door evidence."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "HW"
+      ]
+    },
+    {
+      "id": "IRM-GEN-020",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Materials and finishes"
+      },
+      "text": {
+        "en": "Ironmongery shall be [[finish]] unless the schedule states otherwise. Items shall meet corrosion resistance grade [[corr]] to BS EN 1670. Fixings shall be of a compatible metal and finish to avoid bimetallic corrosion."
+      },
+      "fields": {
+        "finish": {
+          "label": {
+            "en": "Finish",
+            "zh": "飾面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "satin stainless steel grade 304",
+              "en": "satin stainless steel grade 304"
+            },
+            {
+              "v": "satin stainless steel grade 316",
+              "en": "satin stainless steel grade 316"
+            },
+            {
+              "v": "polished stainless steel grade 304",
+              "en": "polished stainless steel grade 304"
+            },
+            {
+              "v": "powder coated or PVD finish as scheduled",
+              "en": "powder coated or PVD finish as scheduled"
+            }
+          ],
+          "default": "satin stainless steel grade 304"
+        },
+        "corr": {
+          "label": {
+            "en": "Corrosion resistance grade",
+            "zh": "抗腐蝕等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "3",
+              "en": "3"
+            },
+            {
+              "v": "4",
+              "en": "4"
+            },
+            {
+              "v": "5",
+              "en": "5"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Grade 304 stainless steel is commonly used for interiors; grade 316 is usual for external doors, coastal sites and pool areas, where 304 tends to tea stain in Hong Kong's salty air."
+      },
+      "standards": [
+        "BS EN 1670"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-010",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Hinges"
+      },
+      "text": {
+        "en": "Hinges shall be [[htype]] to BS EN 1935, grade [[hgrade]], with [[qty]] hinges per leaf, or as required by the fire door evidence. Hinges on fire-rated door sets shall be the type covered by that evidence."
+      },
+      "fields": {
+        "htype": {
+          "label": {
+            "en": "Hinge type",
+            "zh": "門鉸類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "ball bearing butt hinges",
+              "en": "ball bearing butt hinges"
+            },
+            {
+              "v": "concealed hinges",
+              "en": "concealed hinges"
+            },
+            {
+              "v": "lift-off hinges",
+              "en": "lift-off hinges"
+            }
+          ],
+          "default": "ball bearing butt hinges"
+        },
+        "hgrade": {
+          "label": {
+            "en": "Hinge grade (BS EN 1935)",
+            "zh": "門鉸等級 (BS EN 1935)"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "from the classification code, e.g. grade 13"
+          }
+        },
+        "qty": {
+          "label": {
+            "en": "Hinges per leaf",
+            "zh": "每扇門門鉸數量"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "3",
+              "en": "3"
+            },
+            {
+              "v": "4",
+              "en": "4"
+            },
+            {
+              "v": "2 pairs",
+              "en": "2 pairs"
+            }
+          ],
+          "default": "3"
+        }
+      },
+      "guidance": {
+        "en": "Heavy solid core and fire doors on busy corridors commonly take a higher grade hinge, and a fourth hinge on tall leaves helps resist warping. Hinge grade and size should match the leaf weight and the closer."
+      },
+      "standards": [
+        "BS EN 1935"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-020",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Door closers and floor springs"
+      },
+      "text": {
+        "en": "Door closers shall be [[ctype]] to BS EN 1154, power size [[power]] to suit the leaf width and weight. Closers shall have [[feature]]. Closers on fire-rated door sets shall be covered by the fire door evidence."
+      },
+      "fields": {
+        "ctype": {
+          "label": {
+            "en": "Closer type",
+            "zh": "閉門器類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "overhead surface mounted",
+              "en": "overhead surface mounted"
+            },
+            {
+              "v": "concealed in frame or leaf",
+              "en": "concealed in frame or leaf"
+            },
+            {
+              "v": "floor spring",
+              "en": "floor spring"
+            }
+          ],
+          "default": "overhead surface mounted"
+        },
+        "power": {
+          "label": {
+            "en": "Power size",
+            "zh": "閉門力級數"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. EN 2 to 4 adjustable"
+          }
+        },
+        "feature": {
+          "label": {
+            "en": "Features",
+            "zh": "功能"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "adjustable closing and latching speed",
+              "en": "adjustable closing and latching speed"
+            },
+            {
+              "v": "backcheck and adjustable speed",
+              "en": "backcheck and adjustable speed"
+            },
+            {
+              "v": "backcheck and delayed action",
+              "en": "backcheck and delayed action"
+            }
+          ],
+          "default": "backcheck and adjustable speed"
+        }
+      },
+      "guidance": {
+        "en": "Closers set too strong are a common complaint and can make doors hard to open for wheelchair users and children. Floor springs are typical on glass entrance doors and heavy double-swing doors; check the screed depth for the floor box early."
+      },
+      "standards": [
+        "BS EN 1154"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "IRM-ACC-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-030",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Panic and emergency exit devices"
+      },
+      "text": {
+        "en": "Escape doors shown on the schedule shall have [[exit]]. Devices shall be compatible with the door, frame and any fire rating, and shall be operable from the escape side without a key. Locations shall be as required by the project's fire safety strategy and comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition)."
+      },
+      "fields": {
+        "exit": {
+          "label": {
+            "en": "Exit device",
+            "zh": "出口裝置"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "panic exit devices with horizontal bar to BS EN 1125",
+              "en": "panic exit devices with horizontal bar to BS EN 1125"
+            },
+            {
+              "v": "emergency exit devices with lever or push pad to BS EN 179",
+              "en": "emergency exit devices with lever or push pad to BS EN 179"
+            },
+            {
+              "v": "panic or emergency exit devices as scheduled door by door",
+              "en": "panic or emergency exit devices as scheduled door by door"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Panic bars (BS EN 1125) are typical where members of the public may use the exit and are not familiar with it; lever or push pad devices (BS EN 179) are commonly used where occupants are staff trained in the escape route. Check which applies with the fire engineer before ordering."
+      },
+      "standards": [
+        "BS EN 1125",
+        "BS EN 179"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-040",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Locks, latches and keying"
+      },
+      "text": {
+        "en": "Locks and latches shall be mortice type to BS EN 12209, backset [[backset]] mm, with functions as the schedule; WC indicator bolts shall be releasable from outside in an emergency. Locks and latches on fire-rated door sets shall be covered by the fire door evidence. Cylinders shall be [[cyl]], keyed to a key plan with [[levels]] agreed with {{CA}} and the Employer before cylinders are ordered. Use construction keys or cores during the works and change to the permanent keying at handover."
+      },
+      "fields": {
+        "backset": {
+          "label": {
+            "en": "Backset",
+            "zh": "鎖距（門邊至鎖中心）"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "55",
+              "en": "55"
+            },
+            {
+              "v": "60",
+              "en": "60"
+            },
+            {
+              "v": "70",
+              "en": "70"
+            }
+          ],
+          "default": null
+        },
+        "levels": {
+          "label": {
+            "en": "Key plan levels",
+            "zh": "鎖匙系統層級"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. grand master, floor master, individual"
+          }
+        },
+        "cyl": {
+          "label": {
+            "en": "Cylinder type",
+            "zh": "鎖芯類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "euro profile pin tumbler",
+              "en": "euro profile pin tumbler"
+            },
+            {
+              "v": "restricted key section with registered keys",
+              "en": "restricted key section with registered keys"
+            },
+            {
+              "v": "compatible with an electronic access control system",
+              "en": "compatible with an electronic access control system"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "The key plan is commonly left until late, which delays cylinder orders and handover; a restricted key section stops copies being cut at a local key shop. Check the leaf stile width before fixing the backset, as a short backset pinches knuckles on narrow-stile doors."
+      },
+      "standards": [
+        "BS EN 12209"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-045",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Double doors: coordinators and bolts"
+      },
+      "text": {
+        "en": "Pairs of doors with rebated meeting stiles that close on their own shall have a door coordinator to BS EN 1158, so the leaves always close in the right order. The inactive leaf shall be held by [[bolts]]. On fire-rated pairs, the coordinator and bolts shall be covered by the fire door evidence, and bolts shall not stop the inactive leaf closing in a fire unless the fire door evidence allows it."
+      },
+      "fields": {
+        "bolts": {
+          "label": {
+            "en": "Inactive leaf bolts",
+            "zh": "從動門扇門栓"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "auto",
+              "en": "automatic flush bolts top and bottom"
+            },
+            {
+              "v": "manual",
+              "en": "lever action flush bolts top and bottom"
+            },
+            {
+              "v": "none",
+              "en": "the closer and coordinator only, with no bolts"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Without a coordinator, a rebated pair often closes out of order and the active leaf stays ajar, which defeats a fire door. Manual flush bolts left engaged are a frequent finding on fire door inspections, so automatic bolts are common on escape routes."
+      },
+      "standards": [
+        "BS EN 1158"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "IRM-ITEM-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-050",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Lever handles"
+      },
+      "text": {
+        "en": "Lever handles shall comply with BS EN 1906, category of use [[cat]], on [[rose]]. Levers shall be a returned design that does not catch clothing. Levers on fire-rated door sets shall be covered by the fire door evidence."
+      },
+      "fields": {
+        "cat": {
+          "label": {
+            "en": "Category of use",
+            "zh": "使用類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "3",
+              "en": "3"
+            },
+            {
+              "v": "4",
+              "en": "4"
+            }
+          ],
+          "default": null
+        },
+        "rose": {
+          "label": {
+            "en": "Mounting",
+            "zh": "安裝方式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "round roses with matching escutcheons",
+              "en": "round roses with matching escutcheons"
+            },
+            {
+              "v": "backplates",
+              "en": "backplates"
+            }
+          ],
+          "default": "round roses with matching escutcheons"
+        }
+      },
+      "guidance": {
+        "en": "Category 4 is commonly chosen for public buildings and heavy-use doors, category 3 for offices and homes. Returned levers are typical on escape routes and accessible doors."
+      },
+      "standards": [
+        "BS EN 1906"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "IRM-ACC-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-060",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Door stops and fire door signs"
+      },
+      "text": {
+        "en": "Provide [[stop]] to every door that could strike a wall, fitting or another door. Fire-rated doors shall carry the fire door notices of {{ref:SGN-FIR-010}}, in a finish to match the ironmongery."
+      },
+      "fields": {
+        "stop": {
+          "label": {
+            "en": "Door stop",
+            "zh": "門擋"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "floor mounted stops",
+              "en": "floor mounted stops"
+            },
+            {
+              "v": "wall mounted stops",
+              "en": "wall mounted stops"
+            },
+            {
+              "v": "overhead stops integrated with the closer",
+              "en": "overhead stops integrated with the closer"
+            }
+          ],
+          "default": "wall mounted stops"
+        }
+      },
+      "guidance": {
+        "en": "Floor stops are a trip hazard on escape routes and under raised floors, so wall or overhead stops are often preferred there. Bilingual fire door signs are typical in Hong Kong."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "IRM-ITEM-070",
+      "group": "ITEM",
+      "type": "product",
+      "title": {
+        "en": "Electrically powered hold-open devices"
+      },
+      "text": {
+        "en": "Where the schedule shows a fire door held open, provide [[hold]] to BS EN 1155, linked to the fire alarm system so that the door releases and closes on alarm or loss of power. The interface with the fire alarm shall be coordinated with the fire services installation and shall be as required by the project's fire safety strategy."
+      },
+      "fields": {
+        "hold": {
+          "label": {
+            "en": "Hold-open device",
+            "zh": "開門保持裝置"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "closer with integral electromagnetic hold-open",
+              "en": "closer with integral electromagnetic hold-open"
+            },
+            {
+              "v": "separate wall or floor electromagnetic holder",
+              "en": "separate wall or floor electromagnetic holder"
+            },
+            {
+              "v": "free swing closer",
+              "en": "free swing closer"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Hold-open devices stop fire doors being wedged open on busy corridors, a frequent finding at fire inspections. Commonly the wiring and alarm interface are missed between the joinery and fire services packages, so name who supplies and connects them."
+      },
+      "standards": [
+        "BS EN 1155"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "IRM-ACC-010",
+      "group": "ACC",
+      "type": "performance",
+      "title": {
+        "en": "Accessible ironmongery"
+      },
+      "text": {
+        "en": "Ironmongery on accessible routes shall comply with the Design Manual: Universal Accessibility 2026 (formerly the Design Manual: Barrier Free Access 2008). Lever handles shall be mounted at [[height]] mm above finished floor level and contrast visually with the door. The opening force at the leading edge shall not exceed [[force]] N for internal doors and [[forcefd]] N for external doors and fire doors on accessible routes. Closers on internal doors shall take at least 3 seconds to move the door from 70 degrees open to 75 mm from closed."
+      },
+      "fields": {
+        "height": {
+          "label": {
+            "en": "Lever height"
+          },
+          "kind": "text",
+          "default": "950 to 1,050"
+        },
+        "force": {
+          "label": {
+            "en": "Internal door force"
+          },
+          "kind": "number",
+          "default": "22",
+          "unit": "N"
+        },
+        "forcefd": {
+          "label": {
+            "en": "External and fire door force"
+          },
+          "kind": "number",
+          "default": "30",
+          "unit": "N"
+        }
+      },
+      "guidance": {
+        "en": "Opening force is where accessible doors most often fail in use, usually because closers are left at factory setting. Coordinating handle height with vision panels and push plates avoids clashes on the door face."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "IRM-ITEM-020"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "IRM-EXE-010",
+      "group": "EXE",
+      "type": "execution",
+      "title": {
+        "en": "Fixing and adjustment"
+      },
+      "text": {
+        "en": "Fix ironmongery to the manufacturer's templates and recommendations, using all fixing holes and the screws supplied. Prepare leaves and frames for ironmongery in the factory where possible. Do not cut intumescent material or the leaf core beyond what the fire door evidence allows. Remove ironmongery before decoration or protect it fully, then refit and adjust."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Site cutting for locks and closers is a common way fire door sets lose their rating. Factory machining to the approved schedule is typical practice for fire-rated doors."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Handover of ironmongery"
+      },
+      "text": {
+        "en": "At completion, adjust every closer for closing speed, latching and opening force, and check that all locks and exit devices work freely. Hand over [[keys]], a keying schedule cross-referenced to door numbers, special tools, spare parts and an operation and maintenance (O&M) manual with product data and servicing intervals. Readjust closers [[readjust]]."
+      },
+      "fields": {
+        "keys": {
+          "label": {
+            "en": "Keys to hand over",
+            "zh": "移交鎖匙"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 3 keys per cylinder and 2 master keys"
+          }
+        },
+        "readjust": {
+          "label": {
+            "en": "Closer readjustment",
+            "zh": "閉門器重新調校"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "before the end of the defects liability period",
+              "en": "before the end of the defects liability period"
+            },
+            {
+              "v": "once after six months of occupation",
+              "en": "once after six months of occupation"
+            }
+          ],
+          "default": "before the end of the defects liability period"
+        }
+      },
+      "guidance": {
+        "en": "Closers settle and doors drop in the first months of use, so a return visit to readjust is commonly included. Keys handed over loose without a schedule cause problems for facilities managers for years."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 14
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "IRM-USE-010",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Fail-safe locks and exits"
+      },
+      "text": {
+        "en": "Electric locks on exit routes shall release on power failure and on fire alarm. Exit doors shall open from inside without a key. [[extra]]"
+      },
+      "fields": {
+        "extra": {
+          "label": {
+            "en": "Further requirement"
+          },
+          "kind": "select",
+          "default": "none",
+          "options": [
+            {
+              "v": "none",
+              "en": "No further requirement applies."
+            },
+            {
+              "v": "rche",
+              "en": "Encased push bars shall not be used."
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "swd_rche"
+                ]
+              },
+              "v": "rche"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Licence conditions for hotels, guesthouses and care homes."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "ola_hotel",
+          "ola_gh",
+          "swd_rche",
+          "swd_cc"
+        ]
+      }
+    },
+    {
+      "id": "IRM-USE-020",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Food room ironmongery"
+      },
+      "text": {
+        "en": "Every food room and toilet door shall have a closer. Doors shall have stainless steel push and kick plates, and exit doors shall have keyless exit hardware."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Licence requirements plus hygiene practice."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      },
+      "codes": [
+        "MT"
+      ]
+    },
+    {
+      "id": "IRM-USE-030",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Accessible guestrooms"
+      },
+      "text": {
+        "en": "Accessible guestrooms, at not less than 2 per 100 rooms or part thereof with a minimum of 2, shall have visual doorbells and room numbers in Braille and raised characters mounted between 900 mm and 1,500 mm above floor level."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "The ratio follows the hotel licensing conditions and the access manual; the visual doorbell is best practice."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "hotel",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "IRM-USE-040",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Closers on staircase and lobby doors"
+      },
+      "text": {
+        "en": "Closers on doors to required staircases and their protected lobbies shall not allow a check action to hold the door open, and these doors shall have no hold-open device. Notices reminding users to keep the doors closed shall be fixed to both sides as {{ref:SGN-FIR-010}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clauses B13.7 and C16.2, checked 9 Nov 2026."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 1670": "Building hardware: corrosion resistance, requirements and test methods",
+    "BS EN 1935": "Building hardware: single-axis hinges, requirements and test methods",
+    "BS EN 1154": "Building hardware: controlled door closing devices, requirements and test methods",
+    "BS EN 1125": "Building hardware: panic exit devices operated by a horizontal bar, for use on escape routes",
+    "BS EN 179": "Building hardware: emergency exit devices operated by a lever handle or push pad, for use on escape routes",
+    "BS EN 12209": "Building hardware: mechanically operated locks and locking plates, requirements and test methods",
+    "BS EN 1906": "Building hardware: lever handles and knob furniture, requirements and test methods",
+    "BS EN 1155": "Building hardware: electrically powered hold-open devices for swing doors, requirements and test methods",
+    "BS EN 1158": "Building hardware: door coordinator devices, requirements and test methods"
+  }
+}

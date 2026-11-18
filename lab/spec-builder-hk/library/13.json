@@ -1,0 +1,1837 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "13",
+    "id": "JOI",
+    "title": {
+      "en": "Doors and joinery",
+      "zh": "門及木工製品"
+    },
+    "intro": {
+      "en": "Door sets, fire doors, joinery and doors for specific uses."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 13,
+        "title": "Carpentry and Joinery"
+      },
+      {
+        "doc": "GS 2022",
+        "section": 22,
+        "title": "Internal Fittings and Fixtures",
+        "groups": [
+          "JNY"
+        ]
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Timber and panels: general",
+        "zh": "木材及板材：一般要求"
+      }
+    },
+    {
+      "id": "DOOR",
+      "title": {
+        "en": "Doors and door sets",
+        "zh": "門及門組件"
+      }
+    },
+    {
+      "id": "JNY",
+      "title": {
+        "en": "Built-in joinery",
+        "zh": "嵌入式木工製品"
+      }
+    },
+    {
+      "id": "EXE",
+      "title": {
+        "en": "Installation",
+        "zh": "安裝"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    },
+    {
+      "id": "FD",
+      "title": {
+        "en": "Fire doors and smoke control"
+      }
+    },
+    {
+      "id": "USE",
+      "title": {
+        "en": "Doors for specific uses"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "JOI-GEN-010",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Timber for joinery"
+      },
+      "text": {
+        "en": "Timber for joinery shall be [[species]] to BS EN 942, appearance class [[class]]. Timber shall be free from decay, insect attack and splits that affect strength or finish. Submit a sample of each species and finish to {{CA}} for approval before ordering."
+      },
+      "fields": {
+        "species": {
+          "label": {
+            "en": "Species",
+            "zh": "木材品種"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. American white oak, steamed beech"
+          }
+        },
+        "class": {
+          "label": {
+            "en": "Appearance class (BS EN 942)",
+            "zh": "外觀等級 (BS EN 942)"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "J10",
+              "en": "J10"
+            },
+            {
+              "v": "J20",
+              "en": "J20"
+            },
+            {
+              "v": "J30",
+              "en": "J30"
+            },
+            {
+              "v": "J40",
+              "en": "J40"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Naming the species and appearance class early avoids disputes over knots and colour variation at handover. Exposed clear-finished timber commonly takes a tighter class than painted work."
+      },
+      "standards": [
+        "BS EN 942"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "TB"
+      ]
+    },
+    {
+      "id": "JOI-GEN-020",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Moisture content"
+      },
+      "text": {
+        "en": "Timber shall have a moisture content of [[mc]] % at the time of fixing. The Contractor shall check moisture content with a calibrated meter and record the readings for {{CA}}. Store timber and joinery in dry, ventilated conditions off the floor until fixing."
+      },
+      "fields": {
+        "mc": {
+          "label": {
+            "en": "Moisture content range",
+            "zh": "含水率範圍"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 10 to 12 for air-conditioned interiors"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Hong Kong's humid climate means timber delivered to site often takes up moisture before the air-conditioning runs, then shrinks and cracks after handover. Commonly the range is set to suit the conditioned interior, with joinery stored on site only once the building is enclosed."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-GEN-030",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Sustainable timber sourcing"
+      },
+      "text": {
+        "en": "All timber and wood-based products shall come from [[cert]] certified sources. Submit chain of custody certificates and delivery records for each consignment to {{CA}}."
+      },
+      "fields": {
+        "cert": {
+          "label": {
+            "en": "Certification scheme",
+            "zh": "認證計劃"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "FSC",
+              "en": "FSC"
+            },
+            {
+              "v": "PEFC",
+              "en": "PEFC"
+            },
+            {
+              "v": "FSC or PEFC",
+              "en": "FSC or PEFC"
+            }
+          ],
+          "default": "FSC or PEFC"
+        }
+      },
+      "guidance": {
+        "en": "Certified timber is commonly asked for on projects targeting BEAM Plus credits. Certificates are only meaningful with an unbroken chain of custody to the supplier, so collect them with each delivery rather than at completion."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "flags": [
+              "beam"
+            ]
+          },
+          "tags": [
+            "S"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "JOI-GEN-040",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Wood-based panels and adhesives"
+      },
+      "text": {
+        "en": "Wood-based panels shall comply with BS EN 13986 and the relevant product standard: MDF to BS EN 622 and particleboard to BS EN 312. Formaldehyde class shall be [[hcho]]. Use moisture resistant grades in [[mr]]. Adhesives shall be suited to the service conditions, low in volatile organic compounds and used to the manufacturer's recommendations."
+      },
+      "fields": {
+        "hcho": {
+          "label": {
+            "en": "Formaldehyde class",
+            "zh": "甲醛釋放等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "E1",
+              "en": "E1"
+            },
+            {
+              "v": "E0 / low emission as declared by manufacturer",
+              "en": "E0 / low emission as declared by manufacturer"
+            }
+          ],
+          "default": "E1"
+        },
+        "mr": {
+          "label": {
+            "en": "Moisture resistant board locations",
+            "zh": "防潮板材使用位置"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. vanity units, pantry and sink base cabinets"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Most built-in joinery in Hong Kong is board-based, so the panel grade drives indoor air quality and durability more than the solid timber does. Standard boards under sinks and pantries commonly swell within the defects liability period."
+      },
+      "standards": [
+        "BS EN 13986",
+        "BS EN 622",
+        "BS EN 312"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        },
+        {
+          "doc": "GS 2022",
+          "section": 22
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-010",
+      "group": "DOOR",
+      "type": "product",
+      "title": {
+        "en": "Door leaves"
+      },
+      "text": {
+        "en": "Door leaves shall be [[core]] construction, [[thk]] mm thick, faced with [[facing]]. Leaves shall be flat and free from warping, with all edges lipped in solid timber or as detailed. Door types and sizes shall be as the door schedule."
+      },
+      "fields": {
+        "core": {
+          "label": {
+            "en": "Core",
+            "zh": "門芯"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "flush hollow core",
+              "en": "flush hollow core"
+            },
+            {
+              "v": "flush solid core",
+              "en": "flush solid core"
+            },
+            {
+              "v": "framed and panelled",
+              "en": "framed and panelled"
+            },
+            {
+              "v": "glazed",
+              "en": "glazed"
+            }
+          ],
+          "default": "flush solid core"
+        },
+        "thk": {
+          "label": {
+            "en": "Leaf thickness",
+            "zh": "門扇厚度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 44 or 54"
+          }
+        },
+        "facing": {
+          "label": {
+            "en": "Facing",
+            "zh": "門面飾面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "hardwood veneer",
+              "en": "hardwood veneer"
+            },
+            {
+              "v": "high-pressure laminate",
+              "en": "high-pressure laminate"
+            },
+            {
+              "v": "paint grade MDF",
+              "en": "paint grade MDF"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Solid core leaves are commonly used in offices and flats for acoustic privacy and to hold ironmongery screws; hollow core is usually limited to wardrobe and store doors. Check the leaf thickness suits the specified ironmongery and any fire rating."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "IRM-GEN-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "DOORS"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-020",
+      "group": "DOOR",
+      "type": "performance",
+      "title": {
+        "en": "Fire-rated door sets"
+      },
+      "text": {
+        "en": "Fire-rated doors shall be complete door sets of leaf, frame, seals, glazing and ironmongery as tested to [[fire_test]], with a fire resistance rating of [[frr]] as required by the project's fire safety strategy. Door sets shall comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition). Submit test reports from a laboratory accredited by HOKLAS or by a mutually recognised accreditation body, and any assessment report, covering the actual configuration to {{CA}} for approval before ordering. Ironmongery shall be as {{ref:IRM-GEN-010}} and shall be covered by the same evidence. Install timber-based door sets to the manufacturer's instructions and the recommendations of BS 8214."
+      },
+      "fields": {
+        "fire_test": {
+          "label": {
+            "en": "Fire test standard",
+            "zh": "耐火測試標準"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "BS 476-22",
+              "en": "BS 476-22"
+            },
+            {
+              "v": "BS EN 1634-1",
+              "en": "BS EN 1634-1"
+            }
+          ],
+          "default": null
+        },
+        "frr": {
+          "label": {
+            "en": "Fire resistance rating"
+          },
+          "kind": "text",
+          "default": null,
+          "by": [
+            {
+              "when": {
+                "frr": [
+                  60
+                ]
+              },
+              "v": "-/60/60 (FD60 equivalent)"
+            },
+            {
+              "when": {
+                "frr": [
+                  120
+                ]
+              },
+              "v": "-/120/120"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "A fire door is only as good as its tested configuration: changing the leaf size, glazing, hinges or lock outside the test evidence voids it. Commonly the supplier provides a certified door set, and the evidence is checked against the ironmongery schedule before ordering."
+      },
+      "standards": [
+        "BS 476-22",
+        "BS EN 1634-1",
+        "BS 8214"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "IRM-GEN-010"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-030",
+      "group": "DOOR",
+      "type": "product",
+      "title": {
+        "en": "Door frames and linings"
+      },
+      "text": {
+        "en": "Door frames shall be [[frame]], with a section of [[section]] mm and rebates to suit the leaf and seals. Frames to fire-rated door sets shall be the type covered by the test evidence in {{ref:JOI-DOOR-020}}."
+      },
+      "fields": {
+        "frame": {
+          "label": {
+            "en": "Frame type",
+            "zh": "門框類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "solid hardwood",
+              "en": "solid hardwood"
+            },
+            {
+              "v": "pressed steel",
+              "en": "pressed steel"
+            },
+            {
+              "v": "aluminium",
+              "en": "aluminium"
+            }
+          ],
+          "default": "solid hardwood"
+        },
+        "section": {
+          "label": {
+            "en": "Frame section",
+            "zh": "門框截面"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 45 x 120"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Frame width is often left to site, then found too narrow for the partition plus finishes. Fix the section once the wall build-up is known, and confirm fire frames match the door set evidence rather than a generic detail."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-040",
+      "group": "DOOR",
+      "type": "product",
+      "title": {
+        "en": "Intumescent and smoke seals"
+      },
+      "text": {
+        "en": "Fire-rated door sets shall have intumescent seals of the type, size and position in the test evidence. Smoke seals shall be fitted [[smoke]], as tested to BS EN 1634-3 where smoke control is required by the fire safety strategy. Seals shall not be painted over or cut back on site."
+      },
+      "fields": {
+        "smoke": {
+          "label": {
+            "en": "Smoke seals",
+            "zh": "防煙密封條"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "to all fire-rated door sets",
+              "en": "to all fire-rated door sets"
+            },
+            {
+              "v": "where indicated on the door schedule",
+              "en": "where indicated on the door schedule"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Painted or trimmed seals are one of the most common defects found at fire door inspections. Combined intumescent and smoke seals in the frame rebate are commonly used to reduce the number of parts."
+      },
+      "standards": [
+        "BS EN 1634-3"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-050",
+      "group": "DOOR",
+      "type": "product",
+      "title": {
+        "en": "Vision panels and glazing in doors"
+      },
+      "text": {
+        "en": "Vision panels shall be provided where shown on the door schedule, with a clear opening of [[vp]] mm. Glass in doors shall be safety glass classified to BS EN 12600, [[glass]]. Glazing in fire-rated doors shall be the glass, beads and glazing system covered by the test evidence in {{ref:JOI-DOOR-020}}."
+      },
+      "fields": {
+        "vp": {
+          "label": {
+            "en": "Vision panel size",
+            "zh": "觀察窗尺寸"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 150 x 900"
+          }
+        },
+        "glass": {
+          "label": {
+            "en": "Safety glass",
+            "zh": "安全玻璃"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "toughened glass",
+              "en": "toughened glass"
+            },
+            {
+              "v": "laminated glass",
+              "en": "laminated glass"
+            },
+            {
+              "v": "fire-rated glass as tested",
+              "en": "fire-rated glass as tested"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Vision panels are typical on corridor doors, plant rooms and doors on accessible routes so users can see people on the other side. Ordinary beads and gaskets are often substituted for the tested fire glazing system on site, which breaks the tested configuration."
+      },
+      "standards": [
+        "BS EN 12600"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-DOOR-060",
+      "group": "DOOR",
+      "type": "product",
+      "title": {
+        "en": "Doors in wet areas"
+      },
+      "text": {
+        "en": "Doors to toilets, showers, kitchens and other wet areas shall have [[wet]], with all edges and cut-outs sealed before hanging. Frames shall stand clear of the wet floor finish or be protected as detailed. Fixings and ironmongery in these areas shall be corrosion resistant."
+      },
+      "fields": {
+        "wet": {
+          "label": {
+            "en": "Wet area leaf",
+            "zh": "濕區門扇"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "moisture resistant core with high-pressure laminate facing",
+              "en": "moisture resistant core with high-pressure laminate facing"
+            },
+            {
+              "v": "solid compact laminate",
+              "en": "solid compact laminate"
+            },
+            {
+              "v": "aluminium framed",
+              "en": "aluminium framed"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Swollen door bottoms and rotted frame feet are a typical early defect in Hong Kong toilets, mainly from unsealed edges and frames standing in mopping water. A stainless steel or stone frame base is commonly detailed."
+      },
+      "standards": [
+        "BS EN 438"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-JNY-010",
+      "group": "JNY",
+      "type": "product",
+      "title": {
+        "en": "Built-in joinery carcasses and finishes"
+      },
+      "text": {
+        "en": "Cabinet carcasses shall be [[carcass]], [[cthk]] mm thick. Exposed faces shall be finished in [[finish]]; high-pressure laminate shall comply with BS EN 438. Internal faces and backs shall be finished to match or in a light melamine. Submit shop drawings and a finish sample for each joinery item to {{CA}} for approval."
+      },
+      "fields": {
+        "carcass": {
+          "label": {
+            "en": "Carcass board",
+            "zh": "櫃身板材"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "plywood",
+              "en": "plywood"
+            },
+            {
+              "v": "MDF",
+              "en": "MDF"
+            },
+            {
+              "v": "particleboard",
+              "en": "particleboard"
+            }
+          ],
+          "default": "plywood"
+        },
+        "cthk": {
+          "label": {
+            "en": "Carcass thickness",
+            "zh": "櫃身厚度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 18"
+          }
+        },
+        "finish": {
+          "label": {
+            "en": "Face finish",
+            "zh": "外露面飾面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "high-pressure laminate",
+              "en": "high-pressure laminate"
+            },
+            {
+              "v": "hardwood veneer with clear lacquer",
+              "en": "hardwood veneer with clear lacquer"
+            },
+            {
+              "v": "spray lacquer on MDF",
+              "en": "spray lacquer on MDF"
+            },
+            {
+              "v": "melamine faced board",
+              "en": "melamine faced board"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Plywood carcasses are commonly preferred in Hong Kong for screw holding and humidity tolerance. Laminate on one face only can bow the panel, so a balancing backer is usual on doors and large panels."
+      },
+      "standards": [
+        "BS EN 438"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        },
+        {
+          "doc": "GS 2022",
+          "section": 22
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "LP"
+      ]
+    },
+    {
+      "id": "JOI-JNY-020",
+      "group": "JNY",
+      "type": "product",
+      "title": {
+        "en": "Edging and worktops"
+      },
+      "text": {
+        "en": "Exposed board edges shall be finished with [[edge]]. Worktops shall be [[worktop]], [[wthk]] mm thick, with sealed cut-outs and a sealed joint to walls and splashbacks. Joints in worktops shall be kept clear of sinks and hobs."
+      },
+      "fields": {
+        "edge": {
+          "label": {
+            "en": "Edging",
+            "zh": "封邊"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "2 mm ABS or PVC edging",
+              "en": "2 mm ABS or PVC edging"
+            },
+            {
+              "v": "solid timber lipping",
+              "en": "solid timber lipping"
+            },
+            {
+              "v": "matching veneer edging",
+              "en": "matching veneer edging"
+            }
+          ],
+          "default": "2 mm ABS or PVC edging"
+        },
+        "worktop": {
+          "label": {
+            "en": "Worktop",
+            "zh": "檯面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "high-pressure laminate on moisture resistant board",
+              "en": "high-pressure laminate on moisture resistant board"
+            },
+            {
+              "v": "solid surface",
+              "en": "solid surface"
+            },
+            {
+              "v": "quartz composite",
+              "en": "quartz composite"
+            },
+            {
+              "v": "natural stone",
+              "en": "natural stone"
+            }
+          ],
+          "default": null
+        },
+        "wthk": {
+          "label": {
+            "en": "Worktop thickness",
+            "zh": "檯面厚度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 20 or 30"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Unsealed sink cut-outs are the usual cause of swollen pantry worktops. Stone and quartz tops are heavy, so check the carcass and wall fixings can take them before ordering."
+      },
+      "standards": [
+        "BS EN 438"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        },
+        {
+          "doc": "GS 2022",
+          "section": 22
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-JNY-030",
+      "group": "JNY",
+      "type": "product",
+      "title": {
+        "en": "Reception counter"
+      },
+      "text": {
+        "en": "The reception counter shall be built to the joinery drawings with a transaction top at [[top]] mm and a lowered section at [[low]] mm above finished floor level for wheelchair users. Provide cable management and access panels for power and data as detailed. Submit a full-size mock-up of a typical section if required by {{CA}}."
+      },
+      "fields": {
+        "top": {
+          "label": {
+            "en": "Main counter height",
+            "zh": "主櫃面高度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1100"
+          }
+        },
+        "low": {
+          "label": {
+            "en": "Lowered counter height",
+            "zh": "較低櫃面高度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "to the Design Manual: Barrier Free Access 2008"
+          }
+        }
+      },
+      "guidance": {
+        "en": "The reception counter is usually the most visible joinery item and the one most often redesigned late. Agree the lowered section and knee space with the access consultant early, and coordinate the cable routes with the electrical contractor before carcasses are made."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        },
+        {
+          "doc": "GS 2022",
+          "section": 22
+        }
+      ],
+      "refs": [],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-EXE-010",
+      "group": "EXE",
+      "type": "execution",
+      "title": {
+        "en": "Hanging doors and gaps"
+      },
+      "text": {
+        "en": "Fix frames plumb, square and level to the tolerance of [[tol]] mm, with fixings at not more than [[fix]] mm centres. Gaps between leaf and frame shall be [[gap]] mm, and to fire-rated door sets shall be within the limits of the test evidence. Threshold gaps shall be as the door schedule to suit floor finishes and any undercut for ventilation; to fire-rated and smoke control door sets they shall also be within the limits of the test evidence."
+      },
+      "fields": {
+        "tol": {
+          "label": {
+            "en": "Frame tolerance",
+            "zh": "門框容許偏差"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 2 over the frame height"
+          }
+        },
+        "fix": {
+          "label": {
+            "en": "Frame fixing centres",
+            "zh": "門框固定件間距"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        },
+        "gap": {
+          "label": {
+            "en": "Leaf to frame gap",
+            "zh": "門扇與門框門縫"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 2 to 4"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Gaps that are too wide are a common reason fire doors fail inspection, and they cannot be fixed by adding seals. Commonly the floor finish is confirmed before leaves are trimmed, so threshold gaps are right first time."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-EXE-020",
+      "group": "EXE",
+      "type": "execution",
+      "title": {
+        "en": "Installing joinery and protection"
+      },
+      "text": {
+        "en": "Fix joinery to the substrate with [[fixing]] suited to the wall or partition type, with concealed fixings where possible. Provide backing or pattresses in drywall partitions for wall-hung units. Protect installed doors and joinery from impact, dust, wet trades and sunlight until practical completion."
+      },
+      "fields": {
+        "fixing": {
+          "label": {
+            "en": "Fixing type",
+            "zh": "固定件類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "stainless steel screws and plugs",
+              "en": "stainless steel screws and plugs"
+            },
+            {
+              "v": "proprietary concealed brackets",
+              "en": "proprietary concealed brackets"
+            },
+            {
+              "v": "fixings as the manufacturer's recommendations",
+              "en": "fixings as the manufacturer's recommendations"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Missing backing in drywall partitions is a common cause of sagging wall cabinets, and it is costly to add once boards are up. Joinery is best installed after wet trades and once the space is enclosed."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        },
+        {
+          "doc": "GS 2022",
+          "section": 22
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Completion checks and records"
+      },
+      "text": {
+        "en": "Before practical completion, check every door for free swing, closing and latching, and adjust as necessary. Fire door labels and certification marks shall be left in place and not painted over. Hand over a fire door schedule with certificates, [[warranty]] warranties for joinery and door sets, and an operation and maintenance (O&M) manual with care instructions for each finish."
+      },
+      "fields": {
+        "warranty": {
+          "label": {
+            "en": "Warranty period",
+            "zh": "保用期"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 12 month, 5 year"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Fire door labels are often lost under paint or removed by cleaners, which leaves the building owner unable to prove the door set at later inspections. A walk-round with {{CA}} using the door schedule is a common final check."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 13
+        }
+      ],
+      "refs": [
+        "JOI-DOOR-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "JOI-FD-010",
+      "group": "FD",
+      "type": "performance",
+      "title": {
+        "en": "Fire door requirements"
+      },
+      "text": {
+        "en": "Every fire-rated door shall be self-closing. Doors to required staircases and their protected lobbies shall be kept closed. Other fire doors may be held open only on devices that release manually, release automatically on power failure, and release on the fire alarm signal or on smoke detectors fitted on both sides of the door. The gap under a fire door shall not exceed 10 mm, or the tested gap if smaller. Every fire door set shall be tagged or labelled with its rating and test reference, and every fire door without such a hold-open device shall carry the notice required by {{ref:SGN-FIR-010}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clauses C16.1 to C16.4, B13.8 and E5.3, checked against the 2024 text on 9 Nov 2026."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "JOI-FD-020",
+      "group": "FD",
+      "type": "performance",
+      "title": {
+        "en": "Smoke seals"
+      },
+      "text": {
+        "en": "Door sets with smoke seals shall be tested for smoke leakage at ambient and medium temperature to BS EN 1634-3, or to another standard listed for the purpose in the FS Code, and shall meet the leakage criteria of that standard; door sets tested to BS EN 1634-3 shall be classified S200 to BS EN 13501-2. Smoke seals shall run along the head and both jambs. Both doors of every protected lobby shall have smoke seals."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clause E9.1 (ambient and medium temperature tests), C6.1 commentary (top and sides) and C16.5 (both lobby doors). The old leakage figure of Clause E9.2 was deleted, so the criteria now come from the test standard."
+      },
+      "standards": [
+        "BS EN 1634-3",
+        "BS EN 13501-2"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "JOI-FD-030",
+      "group": "FD",
+      "type": "performance",
+      "title": {
+        "en": "Guestroom entrance door sets"
+      },
+      "text": {
+        "en": "Guestroom entrance door sets shall have a fire resistance rating equal to the corridor, [[gfrr]], with smoke seals at head and jambs, a self-closing device and the ironmongery set in the Door Schedule."
+      },
+      "fields": {
+        "gfrr": {
+          "label": {
+            "en": "Guestroom door FRR"
+          },
+          "kind": "text",
+          "default": "-/60/60"
+        }
+      },
+      "guidance": {
+        "en": "FD30 is not the default for guestroom entrances; the FRR follows the corridor and a smoke seal is required (FS Code C6.1, confirmed in the 2024 Edition). The project's Authorized Person confirms per building."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "hotel",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "JOI-FD-040",
+      "group": "FD",
+      "type": "performance",
+      "title": {
+        "en": "Kitchen door sets"
+      },
+      "text": {
+        "en": "Kitchen door sets shall have a fire resistance rating of [[kdfrr]], be self-closing and, where held open, be released as {{ref:JOI-FD-010}}. For a restaurant kitchen, a protected lobby shall be provided between the kitchen and any exit route from the main building, and between the kitchen and the dining area where the kitchen has a usable floor area exceeding 45 m2 and the lobby opens onto an exit route of the dining area, as the drawings show."
+      },
+      "fields": {
+        "kdfrr": {
+          "label": {
+            "en": "Kitchen door FRR"
+          },
+          "kind": "text",
+          "default": "-/60/60"
+        }
+      },
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clause C13.2, checked 9 Nov 2026. The lobby to the main building exit route applies at any kitchen size; the 45 m2 test applies only to the lobby on the dining side."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff",
+          "ola_hotel",
+          "ola_gh",
+          "swd_rche"
+        ]
+      }
+    },
+    {
+      "id": "JOI-FD-050",
+      "group": "FD",
+      "type": "performance",
+      "title": {
+        "en": "Flat entrance and kitchen doors"
+      },
+      "text": {
+        "en": "The flat entrance door set shall have a fire resistance rating equal to the corridor barrier and shall have a smoke seal. Where a single-exit flat has its kitchen next to the entrance, the kitchen wall and door shall be rated -/30/30. An open kitchen in a single-exit flat shall not be built unless the alternative measures in the fire safety design are approved."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clauses C6.1, C13.3 and C13.4, checked 9 Nov 2026. The open-kitchen alternative needs smoke detection, a sprinkler head over the kitchen and a 600 mm wide -/30/30 wall beside the exit door."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "flat_fo",
+        "resi_tower"
+      ]
+    },
+    {
+      "id": "JOI-USE-010",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Door widths and thresholds"
+      },
+      "text": {
+        "en": "Doors on accessible routes shall give a clear opening width of not less than [[clear]] mm. Any threshold shall be no higher than [[thr]] mm, bevelled or rounded on each side at a gradient not steeper than 1:2. [[extra]]"
+      },
+      "fields": {
+        "clear": {
+          "label": {
+            "en": "Minimum clear width"
+          },
+          "kind": "number",
+          "default": "850",
+          "unit": "mm"
+        },
+        "thr": {
+          "label": {
+            "en": "Maximum threshold"
+          },
+          "kind": "number",
+          "default": "15",
+          "unit": "mm"
+        },
+        "extra": {
+          "label": {
+            "en": "Licence requirement"
+          },
+          "kind": "select",
+          "default": "none",
+          "options": [
+            {
+              "v": "none",
+              "en": "No further width requirement applies."
+            },
+            {
+              "v": "rche",
+              "en": "Doorways, including bedrooms and toilets, shall be at least 800 mm clear and passages at least 1,050 mm wide."
+            },
+            {
+              "v": "gh",
+              "en": "Exit doors shall be at least 750 mm clear and corridors at least 1,050 mm wide, with at least 2 m headroom."
+            },
+            {
+              "v": "dpc",
+              "en": "Doorways and corridors shall allow a patient on a stretcher or wheelchair to pass, with trolley clearance where sedation is used."
+            },
+            {
+              "v": "fnb",
+              "en": "Each leaf of a double exit door shall be at least 600 mm wide, with 2,000 mm headroom in passages."
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "swd_rche"
+                ]
+              },
+              "v": "rche"
+            },
+            {
+              "when": {
+                "lic": [
+                  "ola_gh"
+                ]
+              },
+              "v": "gh"
+            },
+            {
+              "when": {
+                "lic": [
+                  "orphf_dpc"
+                ]
+              },
+              "v": "dpc"
+            },
+            {
+              "when": {
+                "lic": [
+                  "fehd_gr",
+                  "fehd_lr",
+                  "fehd_ff"
+                ]
+              },
+              "v": "fnb"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "DMUA 2026 makes 850 mm clear and a 15 mm threshold obligatory design requirements, advisory until written into the B(P)R; APP-175 adds wider doors and lower thresholds on regulated routes of residential and commercial buildings from 1 August 2026. The older BFA 2008 values were 800 mm required and a 20 mm threshold. The licence sentence sets the rest."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "JOI-USE-020",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Vision panels"
+      },
+      "text": {
+        "en": "Provide vision panels in [[vpwhere]], glazed as {{ref:JOI-DOOR-050}}."
+      },
+      "fields": {
+        "vpwhere": {
+          "label": {
+            "en": "Locations"
+          },
+          "kind": "text",
+          "default": "doors to inner rooms and to rooms shown on the Door Schedule",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "school"
+                ]
+              },
+              "v": "classroom doors, which shall be solid core"
+            },
+            {
+              "when": {
+                "types": [
+                  "clinic"
+                ]
+              },
+              "v": "treatment room doors, with privacy film"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "An inner room in an office needs a vision panel or an alarm; classrooms commonly have solid-core doors with vision panels."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "school",
+        "clinic",
+        "childcare",
+        "rche"
+      ]
+    },
+    {
+      "id": "JOI-USE-030",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Finger protection"
+      },
+      "text": {
+        "en": "Doors used by young children shall have finger guards on the hinge side and anti-trap edges on the closing side, to a height of not less than [[fg]] mm."
+      },
+      "fields": {
+        "fg": {
+          "label": {
+            "en": "Guard height"
+          },
+          "kind": "number",
+          "default": "1500",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "Best practice for child care centres, kindergartens and primary schools; the SWD/EDB operation manual does not set it."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "childcare",
+        "school"
+      ]
+    },
+    {
+      "id": "JOI-USE-040",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Automatic doors and shutters on exits"
+      },
+      "text": {
+        "en": "Automatic sliding doors on exit routes shall open fully and stay open on power failure. Roller shutters across exits shall be kept fully open during trading hours. External exit doors shall be single action and open in the direction of escape."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "From BD's common requirements for licensed premises; applies to any retail exit."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "retail_fo",
+        "fnb_fo"
+      ]
+    },
+    {
+      "id": "JOI-USE-050",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Food room and toilet doors"
+      },
+      "text": {
+        "en": "Doors to food rooms and toilets shall be self-closing and full size. Toilets shall not open directly into a food room."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FEHD construction requirements."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    }
+  ],
+  "standards": {
+    "BS EN 942": "Timber in joinery: general requirements",
+    "BS EN 13986": "Wood-based panels for use in construction: characteristics, evaluation of conformity and marking",
+    "BS EN 622": "Fibreboards: specifications",
+    "BS EN 312": "Particleboards: specifications",
+    "BS EN 438": "High-pressure decorative laminates (HPL): sheets based on thermosetting resins (usually called laminates)",
+    "BS 476-22": "Fire tests on building materials and structures. Methods for determination of the fire resistance of non-loadbearing elements of construction (superseded by BSI; still a route under the HK FS Code)",
+    "BS EN 1634-1": "Fire resistance and smoke control tests for door and shutter assemblies: fire resistance test",
+    "BS EN 1634-3": "Fire resistance and smoke control tests for door and shutter assemblies: smoke control test",
+    "BS 8214": "Timber-based fire door assemblies: code of practice",
+    "BS EN 12600": "Glass in building: pendulum test, impact test method and classification for flat glass",
+    "BS EN 13501-2": "Fire classification of construction products and building elements: classification from fire resistance and smoke control tests"
+  }
+}

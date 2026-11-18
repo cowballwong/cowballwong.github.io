@@ -1,0 +1,262 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "27",
+    "id": "MIC",
+    "title": {
+      "en": "Modular integrated construction",
+      "zh": "組裝合成建築"
+    },
+    "intro": {
+      "en": "Design, factory supervision, tolerances, joints, testing and protection of MiC modules."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 27,
+        "title": "Modular Integrated Construction"
+      }
+    ],
+    "types": [],
+    "optional": [],
+    "flagsOn": [
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Generally"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "MIC-GEN-010",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "MiC design requirements"
+      },
+      "text": {
+        "en": "The MiC design shall address fire protection of modules and of the joints and gaps between them, stability at every temporary stage, robustness by tying, movement and tolerances, and access to inspect joints, drainage and services, as PNAP ADV-36 requires. Balcony or utility platform modules joined to the main module in situ shall be avoided."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "ADV-36 Appendix A (revised July 2025)."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-020",
+      "group": "GEN",
+      "type": "execution",
+      "title": {
+        "en": "Factory supervision and audit"
+      },
+      "text": {
+        "en": "The Contractor shall implement a MiC Supervision Plan and keep the inspection log book at the factory. The Contractor's Authorized Signatory, with the Authorized Person and the Registered Structural Engineer, shall inspect the first batch of modules in person and then carry out quality audit checks at least monthly, in person at least quarterly and otherwise in person or by video. Where audit checks are made on modules delivered to site instead, at least 1 per cent of each module type shall be sampled, including an open-up check of fire-resisting dry walls. The Contractor shall allow for this opening up and reinstatement."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "PNAP ADV-36 (July 2025) quality audit and Appendix B, checked 9 Nov 2026."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-030",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Tolerances and joints"
+      },
+      "text": {
+        "en": "Modules shall be fabricated within plus or minus [[ftol]] mm on length, width and height, and installed within plus or minus [[itol]] mm of their set-out position. Joints between modules shall be [[jmin]] to [[jmax]] mm wide. The design life of module structure and joints shall be [[life]] years."
+      },
+      "fields": {
+        "ftol": {
+          "label": {
+            "en": "Fabrication tolerance"
+          },
+          "kind": "number",
+          "default": "3",
+          "unit": "mm"
+        },
+        "itol": {
+          "label": {
+            "en": "Installation tolerance"
+          },
+          "kind": "number",
+          "default": "5",
+          "unit": "mm"
+        },
+        "jmin": {
+          "label": {
+            "en": "Joint width min"
+          },
+          "kind": "number",
+          "default": "15",
+          "unit": "mm"
+        },
+        "jmax": {
+          "label": {
+            "en": "Joint width max"
+          },
+          "kind": "number",
+          "default": "30",
+          "unit": "mm"
+        },
+        "life": {
+          "label": {
+            "en": "Design life"
+          },
+          "kind": "number",
+          "default": "50",
+          "unit": "years"
+        }
+      },
+      "guidance": {
+        "en": "ADV-36 sets no design life figure; it is a project decision."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-040",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Joints, fire stopping and weather seals"
+      },
+      "text": {
+        "en": "Joints between modules shall have tested intumescent and fire-stopping sealants, scheduled with their test reports as {{ref:FST-GEN-020}}, cavity barriers where the joint forms a cavity, and primary and secondary weather seals at external joints. Joint fillers shall stay accessible for inspection."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "ADV-36 Appendix C asks for joint details showing cavity barriers and waterproofing."
+      },
+      "standards": [
+        "BS EN 1366-4"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-050",
+      "group": "GEN",
+      "type": "execution",
+      "title": {
+        "en": "Ponding and spray tests"
+      },
+      "text": {
+        "en": "Roofs, shower areas and other waterproofed parts of modules shall be ponding or spray tested before the modules leave the factory, and the test reports kept for the quality audit checks. Roofs and module joints shall be tested again after installation."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "ADV-36 audit checks call for water ponding or spray test reports; the repeat test after installation is best practice."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-060",
+      "group": "GEN",
+      "type": "outline",
+      "title": {
+        "en": "Finishes installed in the factory"
+      },
+      "text": {
+        "en": "The Finishes Schedule states for each room whether each finish and fitting is installed in the factory or on site. Factory-installed items shall be inspected and recorded before shipping."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "ADV-36 Appendix C asks for a schedule of finishes, fixtures and fittings installed off site."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-070",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Materials in modules"
+      },
+      "text": {
+        "en": "External wall, insulation and waterproofing materials in modules shall be non-combustible, and internal wall, ceiling and floor linings and decorative finishes shall be of limited combustibility, with a schedule of fire-resisting products and their test references submitted to {{CA}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "ADV-36 Appendix C."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    },
+    {
+      "id": "MIC-GEN-080",
+      "group": "GEN",
+      "type": "completion",
+      "title": {
+        "en": "Protection of finished modules"
+      },
+      "text": {
+        "en": "Pre-installed finishes shall be protected during transport, lifting and storage. Each module shall be inspected for damage after installation and defects made good before the next trade follows."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Best practice."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": []
+    }
+  ],
+  "standards": {
+    "BS EN 1366-4": "Fire resistance tests for service installations: linear joint seals"
+  }
+}

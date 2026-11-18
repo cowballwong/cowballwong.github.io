@@ -1,0 +1,366 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "19",
+    "id": "SAN",
+    "title": {
+      "en": "Sanitary appliances and drainage interface",
+      "zh": "潔具及排水接口"
+    },
+    "intro": {
+      "en": "Sanitary fittings, accessible toilets and the architectural interface with plumbing and drainage."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 19,
+        "title": "Sanitary Appliances"
+      },
+      {
+        "doc": "GS 2022",
+        "section": 23,
+        "title": "Plumbing and Drainage",
+        "groups": [
+          "FD",
+          "GH"
+        ]
+      }
+    ],
+    "types": [
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "office_fo",
+      "retail_fo",
+      "industrial"
+    ],
+    "flagsOn": [
+      "aa",
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Generally"
+      }
+    },
+    {
+      "id": "FD",
+      "title": {
+        "en": "Food premises"
+      }
+    },
+    {
+      "id": "GH",
+      "title": {
+        "en": "Guesthouses"
+      }
+    },
+    {
+      "id": "CL",
+      "title": {
+        "en": "Clinics"
+      }
+    },
+    {
+      "id": "CC",
+      "title": {
+        "en": "Child care"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "SAN-GEN-010",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Sanitary fittings"
+      },
+      "text": {
+        "en": "Sanitary fittings shall be as the fitting codes on the drawings and the Material Data Sheets, fixed to solid backing or proprietary frames, with all junctions to walls and worktops sealed as {{ref:WPF-SEAL-010}}. Flushing provisions shall comply with the Waterworks Regulations and the water supply authority's requirements."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Detailed sanitary schedules are kept by the architect or the plumbing engineer."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "FX"
+      ],
+      "types": [
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "office_fo",
+        "retail_fo",
+        "industrial"
+      ]
+    },
+    {
+      "id": "SAN-GEN-020",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Accessible toilets"
+      },
+      "text": {
+        "en": "Accessible unisex toilets shall be not less than 1,500 mm by 1,750 mm inside, with grab rails of 32 to 40 mm diameter, as the Design Manual: Universal Accessibility 2026 (formerly the Design Manual: Barrier Free Access 2008). [[extra]]"
+      },
+      "fields": {
+        "extra": {
+          "label": {
+            "en": "Licence requirement"
+          },
+          "kind": "select",
+          "default": "none",
+          "options": [
+            {
+              "v": "none",
+              "en": "No further provision is required."
+            },
+            {
+              "v": "rche",
+              "en": "Provide at least one accessible toilet on each floor with bedrooms or a sitting or dining room, and, where more than 50 residents live on that floor, one more for every further 50 residents or part of 50."
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "swd_rche"
+                ]
+              },
+              "v": "rche"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Statutory under B(P)R reg. 72; the care home ratio is a licence condition."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "SAN-FD-010",
+      "group": "FD",
+      "type": "execution",
+      "title": {
+        "en": "Drainage in food rooms"
+      },
+      "text": {
+        "en": "No manhole shall be placed inside a food room. Soil and waste pipes passing through food rooms shall be cased in impervious, rust-proof ducts with access panels."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FEHD construction requirements."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "SAN-FD-020",
+      "group": "FD",
+      "type": "product",
+      "title": {
+        "en": "Grease trap"
+      },
+      "text": {
+        "en": "Provide a grease trap of not less than [[vol]] litres, sized to EPD guidance for the kitchen area, accessible for cleaning, with a sampling point downstream."
+      },
+      "fields": {
+        "vol": {
+          "label": {
+            "en": "Capacity"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "litres"
+        }
+      },
+      "guidance": {
+        "en": "EPD guidance: 490 L for 8 m2, 790 L for 16 m2, 1,050 L for 24 m2, 1,220 L for 32 m2 of kitchen, 250 L minimum."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "SAN-GH-010",
+      "group": "GH",
+      "type": "execution",
+      "title": {
+        "en": "Guesthouse drainage"
+      },
+      "text": {
+        "en": "Every en-suite soil and waste pipe shall have a cleaning eye. uPVC pipes shall run in fire-rated ducts or be fire stopped where they pass through fire-resisting elements."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Guesthouse licensing conditions."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "ola_gh"
+        ]
+      }
+    },
+    {
+      "id": "SAN-CL-010",
+      "group": "CL",
+      "type": "product",
+      "title": {
+        "en": "Clinical hand-wash basins"
+      },
+      "text": {
+        "en": "Each clinical room shall have a clinical hand-wash basin with a hands-free tap, within immediate reach of the clinical area."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Required in day procedure centres; best practice in other clinics."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "clinic"
+      ],
+      "codes": [
+        "FX"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "lic": [
+              "orphf_clinic"
+            ]
+          },
+          "tags": [
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SAN-CC-010",
+      "group": "CC",
+      "type": "product",
+      "title": {
+        "en": "Child-height fittings"
+      },
+      "text": {
+        "en": "Wash basins for children shall be about [[basin]] mm to the rim and WC pans about [[wc]] mm high."
+      },
+      "fields": {
+        "basin": {
+          "label": {
+            "en": "Basin rim"
+          },
+          "kind": "number",
+          "default": "500",
+          "unit": "mm"
+        },
+        "wc": {
+          "label": {
+            "en": "WC pan height"
+          },
+          "kind": "number",
+          "default": "300",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "From the SWD/EDB operation manual."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "childcare"
+      ],
+      "codes": [
+        "FX"
+      ]
+    }
+  ],
+  "standards": {}
+}

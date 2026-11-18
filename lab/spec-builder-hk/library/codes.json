@@ -1,0 +1,4810 @@
+{
+ "hardware": [
+  {
+   "code": "H1",
+   "desc": "Butt hinge, stainless steel, to BS EN 1935, grade to suit door mass"
+  },
+  {
+   "code": "C1",
+   "desc": "Overhead door closer to BS EN 1154, power size to suit door"
+  },
+  {
+   "code": "FS",
+   "desc": "Floor spring with top centre, to BS EN 1154"
+  },
+  {
+   "code": "L1",
+   "desc": "Mortice sashlock to BS EN 12209 with euro profile cylinder"
+  },
+  {
+   "code": "L2",
+   "desc": "Mortice latch to BS EN 12209"
+  },
+  {
+   "code": "L3",
+   "desc": "Bathroom lock with emergency release and indicator"
+  },
+  {
+   "code": "L4",
+   "desc": "Electronic guestroom lock, fail-safe on fire alarm"
+  },
+  {
+   "code": "LH",
+   "desc": "Lever handle on rose to BS EN 1906, pair"
+  },
+  {
+   "code": "PH",
+   "desc": "Pull handle, stainless steel, back to back pair per leaf"
+  },
+  {
+   "code": "PP",
+   "desc": "Push plate, stainless steel"
+  },
+  {
+   "code": "KP",
+   "desc": "Kick plate, stainless steel, 300 mm high"
+  },
+  {
+   "code": "PB",
+   "desc": "Panic exit device to BS EN 1125"
+  },
+  {
+   "code": "FB",
+   "desc": "Flush bolt, pair, to BS EN 1158 coordination"
+  },
+  {
+   "code": "CO",
+   "desc": "Door coordinator to BS EN 1158"
+  },
+  {
+   "code": "DS",
+   "desc": "Door stop, wall or floor mounted"
+  },
+  {
+   "code": "SS",
+   "desc": "Smoke seal set to BS EN 1634-3 tested door set"
+  },
+  {
+   "code": "FN",
+   "desc": "Fire door notice SG-01, each face"
+  },
+  {
+   "code": "FG",
+   "desc": "Finger guard, hinge side"
+  },
+  {
+   "code": "DV",
+   "desc": "Door viewer"
+  }
+ ],
+ "presets": {
+  "office_fo": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "CA-01",
+     "item": "Carpet tile",
+     "desc": "Tufted loop pile carpet tile to BS EN 1307, Class 33",
+     "size": "500 x 500 mm",
+     "finish": "Charcoal, quarter-turn",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GL-01",
+     "item": "Toughened glass partition",
+     "desc": "Thermally toughened safety glass to BS EN 12150-1",
+     "size": "12 mm",
+     "finish": "Clear, with manifestation",
+     "ps": "20",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "LP-01",
+     "item": "High-pressure laminate",
+     "desc": "HPL to BS EN 438 for joinery and door facings",
+     "size": "0.8 mm",
+     "finish": "Colour and texture to schedule",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-03",
+     "el": "Floor",
+     "desc": "Carpet tile CA-01 on smoothing compound on screed or slab"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Reception",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Open office",
+     "fl": "FL-03",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Meeting room",
+     "fl": "FL-03",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Pantry",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Corridor (protected)",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Store",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Main entrance",
+     "frr": "",
+     "w": 1800,
+     "h": 2400,
+     "type": "Frameless glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Meeting room",
+     "frr": "",
+     "w": 900,
+     "h": 2400,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D03",
+     "loc": "Pantry",
+     "frr": "",
+     "w": 900,
+     "h": 2400,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D04",
+     "loc": "Corridor to lift lobby",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2400,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D05",
+     "loc": "Store",
+     "frr": "",
+     "w": 900,
+     "h": 2400,
+     "type": "Timber flush, painted",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D06",
+     "loc": "Escape door to staircase",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2400,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "retail_fo": {
+   "materials": [
+    {
+     "code": "CA-01",
+     "item": "Carpet tile",
+     "desc": "Tufted loop pile carpet tile to BS EN 1307, Class 33",
+     "size": "500 x 500 mm",
+     "finish": "Charcoal, quarter-turn",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GL-01",
+     "item": "Toughened glass partition",
+     "desc": "Thermally toughened safety glass to BS EN 12150-1",
+     "size": "12 mm",
+     "finish": "Clear, with manifestation",
+     "ps": "20",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-03",
+     "el": "Floor",
+     "desc": "Carpet tile CA-01 on smoothing compound on screed or slab"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Sales floor",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Entrance zone",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Fitting room",
+     "fl": "FL-03",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Stock room",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staff toilet",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Shopfront entrance",
+     "frr": "",
+     "w": 1800,
+     "h": 2700,
+     "type": "Frameless glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Stock room",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2400,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D03",
+     "loc": "Staff toilet",
+     "frr": "",
+     "w": 800,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D04",
+     "loc": "Back-of-house escape door",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2400,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "fnb_fo": {
+   "materials": [
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MT-01",
+     "item": "Stainless steel",
+     "desc": "Stainless steel grade 1.4301 (304) to BS EN 10088-2",
+     "size": "1.2 mm sheet",
+     "finish": "Satin brushed",
+     "ps": "17",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-04",
+     "item": "Kitchen floor tile",
+     "desc": "Heavy-duty porcelain or quarry tile with profiled surface",
+     "size": "200 x 200 mm",
+     "finish": "Textured, red brown",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-05",
+     "item": "Cove tile",
+     "desc": "Coved skirting tile to match the floor tile",
+     "size": "200 x 100 mm",
+     "finish": "To match floor",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-05",
+     "el": "Floor",
+     "desc": "Kitchen tile TL-04 on waterproofing membrane WM-01 on screed laid to falls 1:80 to 1:100"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-05",
+     "el": "Skirting",
+     "desc": "Cove tile TL-05 at floor and wall junction"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-03",
+     "el": "Wall",
+     "desc": "Glazed tile TL-03 to 2,000 mm with cove at base, washable paint PT-03 above"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Dining",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Bar counter",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Kitchen",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Scullery",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Food store",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Customer toilet",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staff changing",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Main entrance",
+     "frr": "",
+     "w": 1800,
+     "h": 2400,
+     "type": "Frameless glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Kitchen",
+     "frr": "-/60/60",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated door set, stainless steel faced",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D03",
+     "loc": "Scullery",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Stainless steel faced, self-closing",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D04",
+     "loc": "Food store",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Stainless steel faced, self-closing",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D05",
+     "loc": "Customer toilet (male)",
+     "frr": "",
+     "w": 850,
+     "h": 2100,
+     "type": "Timber flush, HPL faced, self-closing",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D06",
+     "loc": "Customer toilet (female)",
+     "frr": "",
+     "w": 850,
+     "h": 2100,
+     "type": "Timber flush, HPL faced, self-closing",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D07",
+     "loc": "Exit door to staircase",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-06",
+     "desc": "Food room or kitchen door",
+     "items": "H1:3, C1:1, PP:2, KP:2, SS:1, FN:2"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "flat_fo": {
+   "materials": [
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TB-01",
+     "item": "Hardwood",
+     "desc": "Hardwood for frames, skirtings and trims, from certified sustainable sources",
+     "size": "As detailed",
+     "finish": "Clear lacquer or painted as scheduled",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-04",
+     "el": "Skirting",
+     "desc": "100 mm hardwood skirting TB-01, painted"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Living and dining",
+     "fl": "FL-04",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Bedroom",
+     "fl": "FL-04",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Kitchen",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Bathroom",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Flat entrance",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set with smoke seal",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D02",
+     "loc": "Bedroom",
+     "frr": "",
+     "w": 800,
+     "h": 2100,
+     "type": "Timber flush, painted",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D03",
+     "loc": "Kitchen",
+     "frr": "",
+     "w": 800,
+     "h": 2100,
+     "type": "Timber flush, painted",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D04",
+     "loc": "Bathroom",
+     "frr": "",
+     "w": 750,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    }
+   ]
+  },
+  "resi_tower": {
+   "materials": [
+    {
+     "code": "AL-01",
+     "item": "Aluminium window / framing",
+     "desc": "Extruded aluminium framing, polyester powder coated",
+     "size": "As detailed",
+     "finish": "Colour to schedule",
+     "ps": "16",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "EP-01",
+     "item": "Floor hardener / resin coating",
+     "desc": "Dry-shake hardener with sealer, or epoxy resin coating where scheduled",
+     "size": "In situ",
+     "finish": "Natural grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-04",
+     "item": "External wall paint",
+     "desc": "Acrylic or elastomeric external paint system",
+     "size": "",
+     "finish": "Low sheen, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "ST-01",
+     "item": "Granite",
+     "desc": "Natural granite, flamed or polished as scheduled, tested to BS EN 12372",
+     "size": "600 x 600 x 20 mm",
+     "finish": "Polished, grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TB-01",
+     "item": "Hardwood",
+     "desc": "Hardwood for frames, skirtings and trims, from certified sustainable sources",
+     "size": "As detailed",
+     "finish": "Clear lacquer or painted as scheduled",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-08",
+     "el": "Floor",
+     "desc": "Concrete slab with hardener or resin coating EP-01"
+    },
+    {
+     "code": "FL-09",
+     "el": "Floor",
+     "desc": "Granite ST-01 on mortar bed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-04",
+     "el": "Skirting",
+     "desc": "100 mm hardwood skirting TB-01, painted"
+    },
+    {
+     "code": "SK-07",
+     "el": "Skirting",
+     "desc": "Granite skirting 100 mm, ST-01"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-06",
+     "el": "Wall",
+     "desc": "Granite cladding ST-01"
+    },
+    {
+     "code": "WL-07",
+     "el": "Wall",
+     "desc": "Anti-fungal paint PT-03 on cement-sand render"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Entrance lobby",
+     "fl": "FL-09",
+     "sk": "SK-07",
+     "wl": "WL-06",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Lift lobby (typical)",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staircase",
+     "fl": "FL-08",
+     "sk": "SK-01",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Flat: living and bedrooms",
+     "fl": "FL-04",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Flat: kitchen",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Flat: bathroom",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Refuse room",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Entrance lobby",
+     "frr": "",
+     "w": 1800,
+     "h": 2700,
+     "type": "Aluminium framed glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Flat entrance (typical)",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set with smoke seal",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D03",
+     "loc": "Staircase door (typical)",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D04",
+     "loc": "Refuse room",
+     "frr": "FRR",
+     "w": 900,
+     "h": 2100,
+     "type": "Fire-rated steel door set",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D05",
+     "loc": "Flat bathroom (typical)",
+     "frr": "",
+     "w": 750,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "office_bldg": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "AL-01",
+     "item": "Aluminium window / framing",
+     "desc": "Extruded aluminium framing, polyester powder coated",
+     "size": "As detailed",
+     "finish": "Colour to schedule",
+     "ps": "16",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "EP-01",
+     "item": "Floor hardener / resin coating",
+     "desc": "Dry-shake hardener with sealer, or epoxy resin coating where scheduled",
+     "size": "In situ",
+     "finish": "Natural grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GL-02",
+     "item": "Laminated glass",
+     "desc": "Laminated safety glass to BS EN ISO 12543",
+     "size": "6.38 mm",
+     "finish": "Clear",
+     "ps": "20",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "ST-01",
+     "item": "Granite",
+     "desc": "Natural granite, flamed or polished as scheduled, tested to BS EN 12372",
+     "size": "600 x 600 x 20 mm",
+     "finish": "Polished, grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-08",
+     "el": "Floor",
+     "desc": "Concrete slab with hardener or resin coating EP-01"
+    },
+    {
+     "code": "FL-09",
+     "el": "Floor",
+     "desc": "Granite ST-01 on mortar bed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-07",
+     "el": "Skirting",
+     "desc": "Granite skirting 100 mm, ST-01"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-06",
+     "el": "Wall",
+     "desc": "Granite cladding ST-01"
+    },
+    {
+     "code": "WL-07",
+     "el": "Wall",
+     "desc": "Anti-fungal paint PT-03 on cement-sand render"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Entrance lobby",
+     "fl": "FL-09",
+     "sk": "SK-07",
+     "wl": "WL-06",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Lift lobby (typical)",
+     "fl": "FL-09",
+     "sk": "SK-07",
+     "wl": "WL-06",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Office floor (shell)",
+     "fl": "FL-08",
+     "sk": "",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Toilets",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staircase",
+     "fl": "FL-08",
+     "sk": "SK-01",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Plant room",
+     "fl": "FL-08",
+     "sk": "",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Main entrance",
+     "frr": "",
+     "w": 2000,
+     "h": 3000,
+     "type": "Aluminium framed glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Staircase door (typical)",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D03",
+     "loc": "Toilet lobby",
+     "frr": "",
+     "w": 900,
+     "h": 2400,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D04",
+     "loc": "Plant room",
+     "frr": "FRR",
+     "w": 1800,
+     "h": 2400,
+     "type": "Fire-rated steel door set, double",
+     "leaf": "DL",
+     "set": "HS-05"
+    },
+    {
+     "mark": "D05",
+     "loc": "Accessible toilet",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Timber flush, HPL faced, sliding option",
+     "leaf": "SL",
+     "set": "HS-03"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-05",
+     "desc": "Fire door, double",
+     "items": "H1:6, C1:2, CO:1, FB:1, LH:2, SS:2, FN:4"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "school": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "AL-01",
+     "item": "Aluminium window / framing",
+     "desc": "Extruded aluminium framing, polyester powder coated",
+     "size": "As detailed",
+     "finish": "Colour to schedule",
+     "ps": "16",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "CA-01",
+     "item": "Carpet tile",
+     "desc": "Tufted loop pile carpet tile to BS EN 1307, Class 33",
+     "size": "500 x 500 mm",
+     "finish": "Charcoal, quarter-turn",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GL-02",
+     "item": "Laminated glass",
+     "desc": "Laminated safety glass to BS EN ISO 12543",
+     "size": "6.38 mm",
+     "finish": "Clear",
+     "ps": "20",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-04",
+     "item": "External wall paint",
+     "desc": "Acrylic or elastomeric external paint system",
+     "size": "",
+     "finish": "Low sheen, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SP-01",
+     "item": "Sports floor",
+     "desc": "Area-elastic sports floor system to BS EN 14904",
+     "size": "Sheet / system",
+     "finish": "Maple effect with line marking",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TB-01",
+     "item": "Hardwood",
+     "desc": "Hardwood for frames, skirtings and trims, from certified sustainable sources",
+     "size": "As detailed",
+     "finish": "Clear lacquer or painted as scheduled",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-02",
+     "item": "Welded sheet vinyl",
+     "desc": "Homogeneous sheet vinyl to BS EN ISO 10581, hot-welded seams",
+     "size": "2 m wide roll",
+     "finish": "Pale blue",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-03",
+     "el": "Floor",
+     "desc": "Carpet tile CA-01 on smoothing compound on screed or slab"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-06",
+     "el": "Floor",
+     "desc": "Welded sheet vinyl VF-02 with integral cove on smoothing compound"
+    },
+    {
+     "code": "FL-10",
+     "el": "Floor",
+     "desc": "Sports floor SP-01 on levelled screed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "SK-03",
+     "el": "Skirting",
+     "desc": "Integral coved skirting 100 mm high, sealed"
+    },
+    {
+     "code": "SK-04",
+     "el": "Skirting",
+     "desc": "100 mm hardwood skirting TB-01, painted"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-04",
+     "el": "Wall",
+     "desc": "Tile dado TL-03 to 1,000 mm, paint PT-03 above"
+    },
+    {
+     "code": "WL-07",
+     "el": "Wall",
+     "desc": "Anti-fungal paint PT-03 on cement-sand render"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Classroom",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Corridor",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Washroom",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-04",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Science laboratory",
+     "fl": "FL-06",
+     "sk": "SK-03",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Hall",
+     "fl": "FL-10",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staff room",
+     "fl": "FL-03",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staircase",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Classroom (typical)",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Solid-core timber, vision panel",
+     "leaf": "SL",
+     "set": "HS-08"
+    },
+    {
+     "mark": "D02",
+     "loc": "Washroom",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D03",
+     "loc": "Science laboratory",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set, vision panel",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D04",
+     "loc": "Hall",
+     "frr": "FRR",
+     "w": 1800,
+     "h": 2400,
+     "type": "Fire-rated timber door set, double",
+     "leaf": "DL",
+     "set": "HS-05"
+    },
+    {
+     "mark": "D05",
+     "loc": "Staircase door (typical)",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D06",
+     "loc": "Staff room",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D07",
+     "loc": "Main entrance",
+     "frr": "",
+     "w": 1800,
+     "h": 2400,
+     "type": "Aluminium framed glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-05",
+     "desc": "Fire door, double",
+     "items": "H1:6, C1:2, CO:1, FB:1, LH:2, SS:2, FN:4"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    },
+    {
+     "code": "HS-08",
+     "desc": "Classroom or children's room door",
+     "items": "H1:3, C1:1, L1:1, LH:1, FG:1, DS:1"
+    }
+   ]
+  },
+  "industrial": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "AL-01",
+     "item": "Aluminium window / framing",
+     "desc": "Extruded aluminium framing, polyester powder coated",
+     "size": "As detailed",
+     "finish": "Colour to schedule",
+     "ps": "16",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "EP-01",
+     "item": "Floor hardener / resin coating",
+     "desc": "Dry-shake hardener with sealer, or epoxy resin coating where scheduled",
+     "size": "In situ",
+     "finish": "Natural grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-08",
+     "el": "Floor",
+     "desc": "Concrete slab with hardener or resin coating EP-01"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-07",
+     "el": "Wall",
+     "desc": "Anti-fungal paint PT-03 on cement-sand render"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Warehouse floor",
+     "fl": "FL-08",
+     "sk": "",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Loading bay",
+     "fl": "FL-08",
+     "sk": "",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Office",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Toilets",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Staircase",
+     "fl": "FL-08",
+     "sk": "SK-01",
+     "wl": "WL-07",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Compartment wall opening",
+     "frr": "FRR",
+     "w": 4000,
+     "h": 4000,
+     "type": "Fire shutter, steel",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D02",
+     "loc": "Staircase door",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated steel door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D03",
+     "loc": "Office",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Timber flush, painted",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D04",
+     "loc": "Toilets",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    }
+   ]
+  },
+  "hotel": {
+   "materials": [
+    {
+     "code": "AL-01",
+     "item": "Aluminium window / framing",
+     "desc": "Extruded aluminium framing, polyester powder coated",
+     "size": "As detailed",
+     "finish": "Colour to schedule",
+     "ps": "16",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "CA-01",
+     "item": "Carpet tile",
+     "desc": "Tufted loop pile carpet tile to BS EN 1307, Class 33",
+     "size": "500 x 500 mm",
+     "finish": "Charcoal, quarter-turn",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "LP-01",
+     "item": "High-pressure laminate",
+     "desc": "HPL to BS EN 438 for joinery and door facings",
+     "size": "0.8 mm",
+     "finish": "Colour and texture to schedule",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "ST-01",
+     "item": "Granite",
+     "desc": "Natural granite, flamed or polished as scheduled, tested to BS EN 12372",
+     "size": "600 x 600 x 20 mm",
+     "finish": "Polished, grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TB-01",
+     "item": "Hardwood",
+     "desc": "Hardwood for frames, skirtings and trims, from certified sustainable sources",
+     "size": "As detailed",
+     "finish": "Clear lacquer or painted as scheduled",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-04",
+     "item": "Kitchen floor tile",
+     "desc": "Heavy-duty porcelain or quarry tile with profiled surface",
+     "size": "200 x 200 mm",
+     "finish": "Textured, red brown",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-05",
+     "item": "Cove tile",
+     "desc": "Coved skirting tile to match the floor tile",
+     "size": "200 x 100 mm",
+     "finish": "To match floor",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-03",
+     "el": "Floor",
+     "desc": "Carpet tile CA-01 on smoothing compound on screed or slab"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-05",
+     "el": "Floor",
+     "desc": "Kitchen tile TL-04 on waterproofing membrane WM-01 on screed laid to falls 1:80 to 1:100"
+    },
+    {
+     "code": "FL-09",
+     "el": "Floor",
+     "desc": "Granite ST-01 on mortar bed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "SK-04",
+     "el": "Skirting",
+     "desc": "100 mm hardwood skirting TB-01, painted"
+    },
+    {
+     "code": "SK-05",
+     "el": "Skirting",
+     "desc": "Cove tile TL-05 at floor and wall junction"
+    },
+    {
+     "code": "SK-07",
+     "el": "Skirting",
+     "desc": "Granite skirting 100 mm, ST-01"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-03",
+     "el": "Wall",
+     "desc": "Glazed tile TL-03 to 2,000 mm with cove at base, washable paint PT-03 above"
+    },
+    {
+     "code": "WL-06",
+     "el": "Wall",
+     "desc": "Granite cladding ST-01"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    },
+    {
+     "code": "CL-05",
+     "el": "Ceiling",
+     "desc": "Exposed soffit, painted PT-02"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Lobby",
+     "fl": "FL-09",
+     "sk": "SK-07",
+     "wl": "WL-06",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Guest corridor",
+     "fl": "FL-03",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Guestroom",
+     "fl": "FL-03",
+     "sk": "SK-04",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Guest bathroom",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Back-of-house corridor",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-05",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Kitchen",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Guestroom entrance (typical)",
+     "frr": "-/60/60",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set, smoke seals at head and jambs",
+     "leaf": "SL",
+     "set": "HS-09"
+    },
+    {
+     "mark": "D02",
+     "loc": "Guest bathroom (typical)",
+     "frr": "",
+     "w": 800,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D03",
+     "loc": "Staircase door (typical)",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D04",
+     "loc": "Kitchen",
+     "frr": "-/60/60",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated door set, stainless steel faced",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D05",
+     "loc": "Lobby entrance",
+     "frr": "",
+     "w": 2000,
+     "h": 2700,
+     "type": "Aluminium framed glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-06",
+     "desc": "Food room or kitchen door",
+     "items": "H1:3, C1:1, PP:2, KP:2, SS:1, FN:2"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    },
+    {
+     "code": "HS-09",
+     "desc": "Guestroom entrance door",
+     "items": "H1:3, C1:1, L4:1, SS:1, FN:2, DV:1"
+    }
+   ]
+  },
+  "guesthouse": {
+   "materials": [
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-01",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-01 on adhesive on cement-sand screed"
+    },
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Reception",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Corridor",
+     "fl": "FL-01",
+     "sk": "SK-01",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Guestroom",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "En-suite shower room",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Pantry kitchen",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Guestroom entrance (typical)",
+     "frr": "-/60/60",
+     "w": 900,
+     "h": 2100,
+     "type": "Fire-rated timber door set with smoke seals",
+     "leaf": "SL",
+     "set": "HS-09"
+    },
+    {
+     "mark": "D02",
+     "loc": "En-suite shower room",
+     "frr": "",
+     "w": 750,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D03",
+     "loc": "Exit door",
+     "frr": "-/60/60",
+     "w": 900,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    },
+    {
+     "mark": "D04",
+     "loc": "Pantry kitchen",
+     "frr": "-/60/60",
+     "w": 900,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-02"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-09",
+     "desc": "Guestroom entrance door",
+     "items": "H1:3, C1:1, L4:1, SS:1, FN:2, DV:1"
+    }
+   ]
+  },
+  "clinic": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "LP-01",
+     "item": "High-pressure laminate",
+     "desc": "HPL to BS EN 438 for joinery and door facings",
+     "size": "0.8 mm",
+     "finish": "Colour and texture to schedule",
+     "ps": "13",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-02",
+     "item": "Welded sheet vinyl",
+     "desc": "Homogeneous sheet vinyl to BS EN ISO 10581, hot-welded seams",
+     "size": "2 m wide roll",
+     "finish": "Pale blue",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-06",
+     "el": "Floor",
+     "desc": "Welded sheet vinyl VF-02 with integral cove on smoothing compound"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "SK-03",
+     "el": "Skirting",
+     "desc": "Integral coved skirting 100 mm high, sealed"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Reception and waiting",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Consultation room",
+     "fl": "FL-06",
+     "sk": "SK-03",
+     "wl": "WL-01",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Treatment room",
+     "fl": "FL-06",
+     "sk": "SK-03",
+     "wl": "WL-01",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Dirty utility",
+     "fl": "FL-06",
+     "sk": "SK-03",
+     "wl": "WL-02",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Toilet",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Clinic entrance",
+     "frr": "",
+     "w": 1500,
+     "h": 2400,
+     "type": "Frameless glass, double",
+     "leaf": "DL",
+     "set": "HS-07"
+    },
+    {
+     "mark": "D02",
+     "loc": "Consultation room",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced, vision panel",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D03",
+     "loc": "Treatment room",
+     "frr": "",
+     "w": 1200,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced, stretcher width",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D04",
+     "loc": "Dirty utility",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced, self-closing",
+     "leaf": "SL",
+     "set": "HS-02"
+    },
+    {
+     "mark": "D05",
+     "loc": "Toilet",
+     "frr": "",
+     "w": 900,
+     "h": 2100,
+     "type": "Timber flush, HPL faced",
+     "leaf": "SL",
+     "set": "HS-03"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-02",
+     "desc": "Fire door, single, with closer",
+     "items": "H1:3, C1:1, L2:1, LH:1, SS:1, FN:2, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-07",
+     "desc": "Glass door, double leaf",
+     "items": "FS:2, PH:2, L1:1"
+    }
+   ]
+  },
+  "rche": {
+   "materials": [
+    {
+     "code": "GB-01",
+     "item": "Gypsum board ceiling",
+     "desc": "Gypsum plasterboard to BS EN 520 on concealed metal grid",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-02",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-02",
+     "item": "Emulsion paint, ceilings",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt white",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-04",
+     "item": "Kitchen floor tile",
+     "desc": "Heavy-duty porcelain or quarry tile with profiled surface",
+     "size": "200 x 200 mm",
+     "finish": "Textured, red brown",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-05",
+     "item": "Cove tile",
+     "desc": "Coved skirting tile to match the floor tile",
+     "size": "200 x 100 mm",
+     "finish": "To match floor",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "VF-01",
+     "item": "Luxury vinyl tile",
+     "desc": "Heterogeneous vinyl tile to BS EN ISO 10582",
+     "size": "180 x 1220 mm plank",
+     "finish": "Light oak effect",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-04",
+     "el": "Floor",
+     "desc": "Vinyl tile VF-01 on smoothing compound on screed"
+    },
+    {
+     "code": "FL-05",
+     "el": "Floor",
+     "desc": "Kitchen tile TL-04 on waterproofing membrane WM-01 on screed laid to falls 1:80 to 1:100"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-02",
+     "el": "Skirting",
+     "desc": "100 mm vinyl skirting to match the floor"
+    },
+    {
+     "code": "SK-05",
+     "el": "Skirting",
+     "desc": "Cove tile TL-05 at floor and wall junction"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-02",
+     "el": "Wall",
+     "desc": "Ceramic tile TL-03 full height on waterproofing WM-01 to wet zone"
+    },
+    {
+     "code": "WL-03",
+     "el": "Wall",
+     "desc": "Glazed tile TL-03 to 2,000 mm with cove at base, washable paint PT-03 above"
+    },
+    {
+     "code": "CL-02",
+     "el": "Ceiling",
+     "desc": "Gypsum board GB-01 painted PT-02"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Dormitory",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Corridor",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Dining and activity",
+     "fl": "FL-04",
+     "sk": "SK-02",
+     "wl": "WL-01",
+     "cl": "CL-02",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Bathroom and toilet",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-02",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Kitchen",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Dormitory (typical)",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced, vision panel",
+     "leaf": "SL",
+     "set": "HS-01"
+    },
+    {
+     "mark": "D02",
+     "loc": "Bathroom and toilet",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Timber flush, HPL faced, outward opening",
+     "leaf": "SL",
+     "set": "HS-03"
+    },
+    {
+     "mark": "D03",
+     "loc": "Kitchen",
+     "frr": "-/60/60",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated door set",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D04",
+     "loc": "Exit door",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-01",
+     "desc": "General door",
+     "items": "H1:3, L1:1, LH:1, DS:1"
+    },
+    {
+     "code": "HS-03",
+     "desc": "WC or shower door",
+     "items": "H1:3, L3:1, LH:1, KP:1, DS:1"
+    },
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-06",
+     "desc": "Food room or kitchen door",
+     "items": "H1:3, C1:1, PP:2, KP:2, SS:1, FN:2"
+    }
+   ]
+  },
+  "childcare": {
+   "materials": [
+    {
+     "code": "AC-01",
+     "item": "Mineral fibre ceiling tile",
+     "desc": "Mineral fibre acoustic tile to BS EN 13964 in exposed grid",
+     "size": "600 x 600 mm",
+     "finish": "White, fine fissured",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GB-02",
+     "item": "Moisture-resistant board ceiling",
+     "desc": "Moisture-resistant gypsum board, type H to BS EN 520",
+     "size": "12.5 mm board",
+     "finish": "Painted PT-03",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "GL-02",
+     "item": "Laminated glass",
+     "desc": "Laminated safety glass to BS EN ISO 12543",
+     "size": "6.38 mm",
+     "finish": "Clear",
+     "ps": "20",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "MC-01",
+     "item": "Metal clip-in ceiling",
+     "desc": "Powder-coated aluminium clip-in tile to BS EN 13964",
+     "size": "600 x 600 mm",
+     "finish": "White, perforated where scheduled",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-01",
+     "item": "Emulsion paint, walls",
+     "desc": "Water-based emulsion, low VOC, to BS EN 13300",
+     "size": "",
+     "finish": "Matt, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "PT-03",
+     "item": "Paint, wet areas",
+     "desc": "Anti-fungal washable emulsion or acrylic",
+     "size": "",
+     "finish": "Eggshell, colour to schedule",
+     "ps": "21",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "RB-01",
+     "item": "Rubber floor tile",
+     "desc": "Homogeneous rubber floor covering to BS EN 1817",
+     "size": "610 x 610 mm",
+     "finish": "Mid green",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SG-01",
+     "item": "Fire door notice",
+     "desc": "Rigid sign, bilingual wording as the FS Code",
+     "size": "As required",
+     "finish": "White on red or as approved",
+     "ps": "22",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "SL-01",
+     "item": "Sealant",
+     "desc": "Silicone or polyurethane sealant classified to BS EN ISO 11600",
+     "size": "As joint",
+     "finish": "Colour to match adjacent finish",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-01",
+     "item": "Porcelain floor tile",
+     "desc": "Full-body porcelain tile, absorption group BIa to BS EN 14411",
+     "size": "600 x 600 mm",
+     "finish": "Matt, light grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-02",
+     "item": "Porcelain floor tile, wet areas",
+     "desc": "Porcelain tile with textured surface, absorption group BIa to BS EN 14411",
+     "size": "300 x 300 mm",
+     "finish": "Textured, mid grey",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-03",
+     "item": "Glazed ceramic wall tile",
+     "desc": "Glazed ceramic wall tile to BS EN 14411",
+     "size": "300 x 600 mm",
+     "finish": "Gloss white",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-04",
+     "item": "Kitchen floor tile",
+     "desc": "Heavy-duty porcelain or quarry tile with profiled surface",
+     "size": "200 x 200 mm",
+     "finish": "Textured, red brown",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "TL-05",
+     "item": "Cove tile",
+     "desc": "Coved skirting tile to match the floor tile",
+     "size": "200 x 100 mm",
+     "finish": "To match floor",
+     "ps": "18",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    },
+    {
+     "code": "WM-01",
+     "item": "Waterproofing membrane",
+     "desc": "Liquid-applied membrane to BS EN 14891 under tiles",
+     "size": "",
+     "finish": "Not visible",
+     "ps": "11",
+     "mfr": "",
+     "supplier": "",
+     "remarks": ""
+    }
+   ],
+   "systems": [
+    {
+     "code": "FL-02",
+     "el": "Floor",
+     "desc": "Porcelain tile TL-02 on adhesive on waterproofing membrane WM-01 on screed laid to falls"
+    },
+    {
+     "code": "FL-05",
+     "el": "Floor",
+     "desc": "Kitchen tile TL-04 on waterproofing membrane WM-01 on screed laid to falls 1:80 to 1:100"
+    },
+    {
+     "code": "FL-07",
+     "el": "Floor",
+     "desc": "Rubber tile RB-01 on smoothing compound"
+    },
+    {
+     "code": "SK-01",
+     "el": "Skirting",
+     "desc": "100 mm tile skirting cut from the floor tile"
+    },
+    {
+     "code": "SK-05",
+     "el": "Skirting",
+     "desc": "Cove tile TL-05 at floor and wall junction"
+    },
+    {
+     "code": "SK-06",
+     "el": "Skirting",
+     "desc": "100 mm rubber skirting to match the floor"
+    },
+    {
+     "code": "WL-01",
+     "el": "Wall",
+     "desc": "Emulsion PT-01 on skim coat on board or plaster"
+    },
+    {
+     "code": "WL-03",
+     "el": "Wall",
+     "desc": "Glazed tile TL-03 to 2,000 mm with cove at base, washable paint PT-03 above"
+    },
+    {
+     "code": "WL-04",
+     "el": "Wall",
+     "desc": "Tile dado TL-03 to 1,000 mm, paint PT-03 above"
+    },
+    {
+     "code": "CL-01",
+     "el": "Ceiling",
+     "desc": "Mineral fibre tile AC-01 in exposed grid"
+    },
+    {
+     "code": "CL-03",
+     "el": "Ceiling",
+     "desc": "Moisture-resistant board GB-02 painted PT-03"
+    },
+    {
+     "code": "CL-04",
+     "el": "Ceiling",
+     "desc": "Metal clip-in tile MC-01"
+    }
+   ],
+   "rooms": [
+    {
+     "name": "Activity room",
+     "fl": "FL-07",
+     "sk": "SK-06",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Sleeping room",
+     "fl": "FL-07",
+     "sk": "SK-06",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Washroom",
+     "fl": "FL-02",
+     "sk": "SK-01",
+     "wl": "WL-04",
+     "cl": "CL-03",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Kitchen",
+     "fl": "FL-05",
+     "sk": "SK-05",
+     "wl": "WL-03",
+     "cl": "CL-04",
+     "mic": "",
+     "remarks": ""
+    },
+    {
+     "name": "Corridor",
+     "fl": "FL-07",
+     "sk": "SK-06",
+     "wl": "WL-01",
+     "cl": "CL-01",
+     "mic": "",
+     "remarks": ""
+    }
+   ],
+   "doors": [
+    {
+     "mark": "D01",
+     "loc": "Activity room (typical)",
+     "frr": "",
+     "w": 1000,
+     "h": 2100,
+     "type": "Solid-core timber, vision panel",
+     "leaf": "SL",
+     "set": "HS-08"
+    },
+    {
+     "mark": "D02",
+     "loc": "Washroom",
+     "frr": "",
+     "w": 800,
+     "h": 2100,
+     "type": "Solid-core timber, HPL faced",
+     "leaf": "SL",
+     "set": "HS-08"
+    },
+    {
+     "mark": "D03",
+     "loc": "Kitchen",
+     "frr": "-/60/60",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated door set",
+     "leaf": "SL",
+     "set": "HS-06"
+    },
+    {
+     "mark": "D04",
+     "loc": "Exit door",
+     "frr": "FRR",
+     "w": 1000,
+     "h": 2100,
+     "type": "Fire-rated timber door set",
+     "leaf": "SL",
+     "set": "HS-04"
+    }
+   ],
+   "sets": [
+    {
+     "code": "HS-04",
+     "desc": "Escape door with panic device",
+     "items": "H1:4, C1:1, PB:1, SS:1, FN:2"
+    },
+    {
+     "code": "HS-06",
+     "desc": "Food room or kitchen door",
+     "items": "H1:3, C1:1, PP:2, KP:2, SS:1, FN:2"
+    },
+    {
+     "code": "HS-08",
+     "desc": "Classroom or children's room door",
+     "items": "H1:3, C1:1, L1:1, LH:1, FG:1, DS:1"
+    }
+   ]
+  }
+ }
+}

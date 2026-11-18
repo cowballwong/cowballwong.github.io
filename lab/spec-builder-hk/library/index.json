@@ -1,0 +1,26 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "files": [
+    "01.json",
+    "02.json",
+    "09.json",
+    "11.json",
+    "13.json",
+    "14.json",
+    "16.json",
+    "17.json",
+    "18.json",
+    "19.json",
+    "20.json",
+    "21.json",
+    "22.json",
+    "27.json",
+    "28.json",
+    "29.json"
+  ],
+  "drivers": "drivers.json",
+  "codes": "codes.json",
+  "glossary": "glossary.json"
+}

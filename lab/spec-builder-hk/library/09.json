@@ -1,0 +1,1431 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "09",
+    "id": "BLK",
+    "title": {
+      "en": "Blockwork and partitions",
+      "zh": "砌塊牆及間牆"
+    },
+    "intro": {
+      "en": "Concrete blockwork, drywall partitions and partitions for specific uses."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 9,
+        "title": "Brickwork & Blockwork"
+      },
+      {
+        "doc": "GS 2022",
+        "section": 18,
+        "title": "Finishes",
+        "groups": [
+          "DRY",
+          "SPC"
+        ]
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "BLK",
+      "title": {
+        "en": "Blockwork",
+        "zh": "砌塊牆"
+      }
+    },
+    {
+      "id": "DRY",
+      "title": {
+        "en": "Drywall partitions",
+        "zh": "輕鋼架石膏板間牆"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    },
+    {
+      "id": "SPC",
+      "title": {
+        "en": "Partitions for specific uses"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "BLK-BLK-010",
+      "group": "BLK",
+      "type": "product",
+      "title": {
+        "en": "Concrete blocks and mortar"
+      },
+      "text": {
+        "en": "Blocks shall be [[blocktype]] aggregate concrete masonry units to BS EN 771-3, nominal thickness [[thk]] mm, with the compressive strength stated by the project structural engineer: [[strength]]. Mortar shall be [[mortar]] masonry mortar to BS EN 998-2, strength class [[mclass]]. Fire resistance rating of blockwork walls: [[frr]], to comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition) and the project fire safety strategy."
+      },
+      "fields": {
+        "blocktype": {
+          "label": {
+            "en": "Block type",
+            "zh": "砌塊類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "dense",
+              "en": "solid dense"
+            },
+            {
+              "v": "light",
+              "en": "solid lightweight"
+            },
+            {
+              "v": "hollow",
+              "en": "hollow dense"
+            }
+          ],
+          "default": null
+        },
+        "thk": {
+          "label": {
+            "en": "Block thickness (mm)",
+            "zh": "砌塊厚度（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 100"
+          }
+        },
+        "strength": {
+          "label": {
+            "en": "Compressive strength",
+            "zh": "抗壓強度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 7 N/mm2, by the engineer"
+          }
+        },
+        "mortar": {
+          "label": {
+            "en": "Mortar supply",
+            "zh": "砂漿供應"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "factory",
+              "en": "factory-made premixed"
+            },
+            {
+              "v": "site",
+              "en": "site-mixed to approved proportions"
+            }
+          ],
+          "default": "factory"
+        },
+        "mclass": {
+          "label": {
+            "en": "Mortar class",
+            "zh": "砂漿等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "M4",
+              "en": "M4"
+            },
+            {
+              "v": "M6",
+              "en": "M6"
+            },
+            {
+              "v": "M12",
+              "en": "M12"
+            }
+          ],
+          "default": null
+        },
+        "frr": {
+          "label": {
+            "en": "Fire resistance rating",
+            "zh": "耐火時效"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "none",
+              "en": "not fire-resisting"
+            },
+            {
+              "v": "60",
+              "en": "FRR -/60/60"
+            },
+            {
+              "v": "120",
+              "en": "FRR -/120/120"
+            }
+          ],
+          "default": null,
+          "by": [
+            {
+              "when": {
+                "frr": [
+                  60
+                ]
+              },
+              "v": "60"
+            },
+            {
+              "when": {
+                "frr": [
+                  120
+                ]
+              },
+              "v": "120"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Lightweight blocks are common in Hong Kong residential and fit-out work because they reduce slab loads. Class M4 mortar is commonly used for non-loadbearing internal walls, but the engineer should confirm it for any wall that carries load."
+      },
+      "standards": [
+        "BS EN 771-3",
+        "BS EN 998-2"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-BLK-020",
+      "group": "BLK",
+      "type": "execution",
+      "title": {
+        "en": "Laying and bonding"
+      },
+      "text": {
+        "en": "Blocks shall be laid on a full bed of mortar with all perpendicular joints filled, in [[bond]], with joints of 10 mm nominal thickness. Walls shall be built in lifts not exceeding [[lift]] m per day and kept plumb within a tolerance of [[tol]] mm over the storey height. Lightweight blocks shall not be wetted unless the manufacturer recommends it."
+      },
+      "fields": {
+        "bond": {
+          "label": {
+            "en": "Bond",
+            "zh": "搭接方式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "half",
+              "en": "half bond (stretcher bond)"
+            },
+            {
+              "v": "quarter",
+              "en": "quarter bond"
+            }
+          ],
+          "default": "half"
+        },
+        "lift": {
+          "label": {
+            "en": "Maximum daily lift (m)",
+            "zh": "每日最大砌築高度（米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1.5"
+          }
+        },
+        "tol": {
+          "label": {
+            "en": "Plumb tolerance (mm)",
+            "zh": "垂直度容許偏差（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 10"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Unfilled perpendicular joints are a common cause of poor sound and fire performance in block walls. Limiting the daily lift stops fresh walls from squeezing out mortar and going out of plumb."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-BLK-030",
+      "group": "BLK",
+      "type": "execution",
+      "title": {
+        "en": "Ties to structure and head restraint"
+      },
+      "text": {
+        "en": "Blockwork shall be tied to columns and concrete walls with austenitic stainless steel ties to BS EN 845-1 at [[spacing]] mm vertical centres, fixed by [[fixing]]. A compressible joint of [[gap]] mm shall be formed at the head of walls below slabs and beams, with head restraints to the manufacturer's recommendations. At fire-resisting walls the head joint shall be sealed with a fire-stopping product tested for that joint."
+      },
+      "fields": {
+        "spacing": {
+          "label": {
+            "en": "Tie spacing (mm)",
+            "zh": "拉結件間距（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 450"
+          }
+        },
+        "fixing": {
+          "label": {
+            "en": "Tie fixing",
+            "zh": "拉結件固定方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "channel",
+              "en": "cast-in or fixed channels"
+            },
+            {
+              "v": "anchor",
+              "en": "post-fixed mechanical anchors"
+            },
+            {
+              "v": "dowel",
+              "en": "resin-anchored dowel bars"
+            }
+          ],
+          "default": null
+        },
+        "gap": {
+          "label": {
+            "en": "Head joint width (mm)",
+            "zh": "牆頂縫寬度（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "by the engineer's deflection figure"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Slab deflection is a common cause of cracking in partitions built tight to the soffit. A compressible head joint lets the slab move, but at fire-resisting walls it must still keep the fire separation."
+      },
+      "standards": [
+        "BS EN 845-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-BLK-040",
+      "group": "BLK",
+      "type": "execution",
+      "title": {
+        "en": "Movement joints in blockwork"
+      },
+      "text": {
+        "en": "Vertical movement joints shall be formed at not more than [[mjspacing]] m centres, at changes in wall height or thickness, and at junctions with different materials. Joints shall be filled with a compressible filler and sealed with [[seal]], and shall be carried through plaster and finishes."
+      },
+      "fields": {
+        "mjspacing": {
+          "label": {
+            "en": "Joint spacing (m)",
+            "zh": "伸縮縫間距（米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 6, per manufacturer"
+          }
+        },
+        "seal": {
+          "label": {
+            "en": "Joint sealant",
+            "zh": "伸縮縫密封膠"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "pu",
+              "en": "a paintable polyurethane sealant"
+            },
+            {
+              "v": "fire",
+              "en": "a fire-rated sealant tested for the joint"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Long block walls without joints commonly crack as the blocks dry and shrink. A frequent pitfall is plastering over the joint, which moves the crack into the finish."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-BLK-050",
+      "group": "BLK",
+      "type": "execution",
+      "title": {
+        "en": "Chases, openings and lintels"
+      },
+      "text": {
+        "en": "Chases and holes shall not be cut in blockwork without the approval of {{CA}}, and shall be cut with a chasing machine, not by hammer. Vertical chases shall not exceed [[chase]] of the wall thickness, and horizontal chases shall not be formed unless approved. Openings shall be formed with precast concrete lintels with an end bearing of not less than [[bearing]] mm."
+      },
+      "fields": {
+        "chase": {
+          "label": {
+            "en": "Maximum chase depth",
+            "zh": "坑槽最大深度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. one third, by the engineer"
+          }
+        },
+        "bearing": {
+          "label": {
+            "en": "Lintel bearing (mm)",
+            "zh": "過樑擱置長度（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 150"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Deep chases for conduits are a common source of cracking and lost fire or sound performance in thin walls. Agreeing service routes on the shop drawings reduces cutting on site."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-010",
+      "group": "DRY",
+      "type": "performance",
+      "title": {
+        "en": "Drywall partition performance"
+      },
+      "text": {
+        "en": "Drywall partitions shall be a complete system from one manufacturer, built exactly as the system tested or assessed to [[firestd]] for the required rating, with no substitution of components. Fire resistance rating: [[frr]], to comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition) and the project fire safety strategy. Airborne sound insulation: [[rw]] dB Rw, rated to BS EN ISO 717-1. Maximum height: [[height]] mm, as shown in the manufacturer's published data for the selected system."
+      },
+      "fields": {
+        "firestd": {
+          "label": {
+            "en": "Fire test standard",
+            "zh": "耐火測試標準"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "bs476",
+              "en": "BS 476-22"
+            },
+            {
+              "v": "en13501",
+              "en": "BS EN 13501-2"
+            }
+          ],
+          "default": null
+        },
+        "frr": {
+          "label": {
+            "en": "Fire resistance rating",
+            "zh": "耐火時效"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "none",
+              "en": "not fire-resisting"
+            },
+            {
+              "v": "60",
+              "en": "FRR -/60/60"
+            },
+            {
+              "v": "120",
+              "en": "FRR -/120/120"
+            }
+          ],
+          "default": null,
+          "by": [
+            {
+              "when": {
+                "frr": [
+                  60
+                ]
+              },
+              "v": "60"
+            },
+            {
+              "when": {
+                "frr": [
+                  120
+                ]
+              },
+              "v": "120"
+            }
+          ]
+        },
+        "rw": {
+          "label": {
+            "en": "Sound insulation Rw (dB)",
+            "zh": "隔聲量 Rw（dB）"
+          },
+          "kind": "number",
+          "default": null
+        },
+        "height": {
+          "label": {
+            "en": "Maximum partition height (mm)",
+            "zh": "間牆最大高度（毫米）"
+          },
+          "kind": "number",
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Fire and acoustic ratings belong to the whole tested build-up, so swapping one board or stud brand typically voids the evidence. Laboratory Rw figures are commonly higher than what is achieved on site, so a margin is usually allowed."
+      },
+      "standards": [
+        "BS 476-22",
+        "BS EN 13501-2",
+        "BS EN ISO 717-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-020",
+      "group": "DRY",
+      "type": "product",
+      "title": {
+        "en": "Metal framing and deflection head"
+      },
+      "text": {
+        "en": "Studs, tracks and channels shall be galvanized steel components to BS EN 14195, with [[stud]] mm studs at [[centres]] mm centres. Head tracks shall allow a deflection of the structure above of [[deflection]] mm using the manufacturer's deflection head detail, and at fire-resisting partitions this detail shall be part of the tested system. Additional studs shall be provided at door openings, free ends and junctions to the manufacturer's recommendations."
+      },
+      "fields": {
+        "stud": {
+          "label": {
+            "en": "Stud size",
+            "zh": "立柱尺寸"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 70, 92 or 146"
+          }
+        },
+        "centres": {
+          "label": {
+            "en": "Stud centres",
+            "zh": "立柱間距"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "600",
+              "en": "600"
+            },
+            {
+              "v": "400",
+              "en": "400"
+            },
+            {
+              "v": "300",
+              "en": "300"
+            }
+          ],
+          "default": "600"
+        },
+        "deflection": {
+          "label": {
+            "en": "Deflection allowance (mm)",
+            "zh": "撓度預留（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "from the structural engineer"
+          }
+        }
+      },
+      "guidance": {
+        "en": "A deflection head that is too tight is a common cause of cracked joints at the ceiling line. Door openings commonly need heavier or doubled studs to carry heavy doors and closers."
+      },
+      "standards": [
+        "BS EN 14195"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-030",
+      "group": "DRY",
+      "type": "product",
+      "title": {
+        "en": "Gypsum boards"
+      },
+      "text": {
+        "en": "Gypsum boards shall be to BS EN 520, [[boardtype]], [[boardthk]] mm thick, in [[layers]] on each face, or as required by the tested system. Moisture-resistant boards shall be used in wet areas and behind tiling."
+      },
+      "fields": {
+        "boardtype": {
+          "label": {
+            "en": "Board type",
+            "zh": "石膏板類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "A",
+              "en": "Type A standard board"
+            },
+            {
+              "v": "F",
+              "en": "Type F fire board"
+            },
+            {
+              "v": "H",
+              "en": "Type H moisture-resistant board"
+            },
+            {
+              "v": "DF",
+              "en": "Type DF high-density fire board"
+            }
+          ],
+          "default": null
+        },
+        "boardthk": {
+          "label": {
+            "en": "Board thickness",
+            "zh": "板厚"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "12.5",
+              "en": "12.5"
+            },
+            {
+              "v": "15",
+              "en": "15"
+            }
+          ],
+          "default": "12.5"
+        },
+        "layers": {
+          "label": {
+            "en": "Layers each face",
+            "zh": "每面層數"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "1",
+              "en": "one layer"
+            },
+            {
+              "v": "2",
+              "en": "two layers"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Board type and number of layers are what deliver the fire and sound rating, so they are commonly scheduled per partition type. Standard boards in shower areas are a frequent cause of tile failure."
+      },
+      "standards": [
+        "BS EN 520"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-040",
+      "group": "DRY",
+      "type": "product",
+      "title": {
+        "en": "Cavity insulation"
+      },
+      "text": {
+        "en": "The stud cavity shall be filled with [[insul]] slabs of density [[density]] kg/m3 and thickness [[insthk]] mm, with a reaction to fire classification of [[fireclass]] to BS EN 13501-1, or as required by the tested system. Insulation shall be fixed to prevent slumping, and perimeter gaps shall be sealed with an acoustic sealant."
+      },
+      "fields": {
+        "insul": {
+          "label": {
+            "en": "Insulation",
+            "zh": "隔音棉"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "stone",
+              "en": "stone mineral wool"
+            },
+            {
+              "v": "glass",
+              "en": "glass mineral wool"
+            }
+          ],
+          "default": "stone"
+        },
+        "density": {
+          "label": {
+            "en": "Density (kg/m3)",
+            "zh": "密度（kg/m3）"
+          },
+          "kind": "number",
+          "default": null
+        },
+        "insthk": {
+          "label": {
+            "en": "Thickness (mm)",
+            "zh": "厚度（毫米）"
+          },
+          "kind": "number",
+          "default": null
+        },
+        "fireclass": {
+          "label": {
+            "en": "Reaction to fire class",
+            "zh": "對火反應等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "A1",
+              "en": "A1"
+            },
+            {
+              "v": "A2",
+              "en": "A2-s1, d0"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Small gaps at the perimeter and around sockets commonly undo much of the benefit of the insulation. Stone mineral wool is typical where the partition is also fire-resisting."
+      },
+      "standards": [
+        "BS EN 13501-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-050",
+      "group": "DRY",
+      "type": "execution",
+      "title": {
+        "en": "Board fixing, joints and finish level"
+      },
+      "text": {
+        "en": "Boards shall be fixed with joints staggered between layers and between opposite faces, using the manufacturer's screws at the stated centres. Joints shall be taped and filled, and the surface finished to level [[finish]], ready for [[decoration]]. Surfaces shall be checked under the final lighting conditions before decoration."
+      },
+      "fields": {
+        "finish": {
+          "label": {
+            "en": "Finish level",
+            "zh": "完成等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "Q2",
+              "en": "Q2 (standard)"
+            },
+            {
+              "v": "Q3",
+              "en": "Q3 (enhanced)"
+            },
+            {
+              "v": "Q4",
+              "en": "Q4 (full skim coat)"
+            }
+          ],
+          "default": "Q2"
+        },
+        "decoration": {
+          "label": {
+            "en": "Decoration",
+            "zh": "飾面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "paint",
+              "en": "painting"
+            },
+            {
+              "v": "wallcovering",
+              "en": "wallcovering"
+            },
+            {
+              "v": "tile",
+              "en": "tiling"
+            }
+          ],
+          "default": "paint"
+        }
+      },
+      "guidance": {
+        "en": "Grazing light from windows or wall washers shows joint lines that look fine under site lighting, so a higher finish level is commonly chosen for those walls. Agreeing the level on the sample panel avoids disputes."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-DRY-060",
+      "group": "DRY",
+      "type": "execution",
+      "title": {
+        "en": "Services openings, fixings and backing"
+      },
+      "text": {
+        "en": "Openings for services, access panels and recessed boxes shall be formed using the manufacturer's trimming details. Timber or steel backing shall be built in for wall-hung items: [[backing]]. In fire-resisting or acoustic partitions, boxes, access panels and penetrations shall be fire-stopped and sealed as the tested system, and back-to-back outlets shall be offset by at least [[offset]] mm."
+      },
+      "fields": {
+        "backing": {
+          "label": {
+            "en": "Items needing backing",
+            "zh": "須背襯的物件"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. basins, wall cabinets, grab rails, TVs"
+          }
+        },
+        "offset": {
+          "label": {
+            "en": "Outlet offset (mm)",
+            "zh": "插座錯開距離（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 600"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Missing backing for basins, cabinets and grab rails is a common late discovery once boards are closed. Back-to-back sockets are a common weak point for both sound and fire."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Inspection before close-up and records"
+      },
+      "text": {
+        "en": "Each wall shall be inspected at the hold point in {{ref:GEN-QA-030}} after services, insulation, backing and fire-stopping are complete and before the second face is closed. The Contractor shall photograph each partition before close-up and record its location and reference. The Contractor shall submit marked-up drawings showing each fire-resisting and acoustic wall with its system reference and test or assessment report, for inclusion in the operation and maintenance (O&M) manual."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Once boarded, a partition hides almost every defect that matters for fire and sound. Records of the tested system are commonly needed later for alterations and for fire safety inspections."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 9
+        },
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "GEN-QA-030"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "BLK-SPC-010",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Office partitions and protected routes"
+      },
+      "text": {
+        "en": "Partitions shall generally stop at the underside of the false ceiling. Partitions forming part of an exit route or protected lobby shall run to the structural soffit, with a fire resistance rating of {{FRR}}, and the head shall be fire stopped as {{sec:FST}}. Full-height partitions to rooms served by return-air ceilings shall have acoustic transfer louvres sized by the building services engineer."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Partitions to ceiling level are a landlord norm; the protected-route rating is statutory."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LL"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "clinic"
+      ]
+    },
+    {
+      "id": "BLK-SPC-020",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Shop demise walls"
+      },
+      "text": {
+        "en": "Demise walls between shop units shall run from structural floor to structural soffit. Where a demise wall forms a compartment wall or other fire barrier, it shall have a fire resistance rating of {{FRR}} and be fire stopped at the head and at every penetration."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Shops are Use Class 4b: 60 minutes up to 2,500 m2 compartments and 120 minutes from 2,500 to 10,500 m2. The intake compartment answer sets the rating. Full-height demise walls are a common landlord rule; whether each demise is a fire barrier depends on the fire safety design."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LL"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "retail_fo"
+      ]
+    },
+    {
+      "id": "BLK-SPC-030",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Commercial kitchen enclosure"
+      },
+      "text": {
+        "en": "Walls enclosing the kitchen, including any glass panels, shall run to the structural soffit with a fire resistance rating of not less than [[kfrr]], built in masonry or a tested drywall system, fire stopped at the head and at every penetration. Toilets shall be enclosed full height. Food counters shall have screens at least [[screen]] mm high."
+      },
+      "fields": {
+        "kfrr": {
+          "label": {
+            "en": "Kitchen enclosure FRR"
+          },
+          "kind": "text",
+          "default": "-/60/60"
+        },
+        "screen": {
+          "label": {
+            "en": "Counter screen height"
+          },
+          "kind": "number",
+          "default": "750",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "FS Code C13.2 sets the restaurant kitchen at -/60/60; BD's Letter of Requirements leaves the value for the AP, so it is editable."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "fnb_fo",
+        "hotel",
+        "school",
+        "rche",
+        "childcare",
+        "guesthouse"
+      ],
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "BLK-SPC-040",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Guestroom and corridor separation"
+      },
+      "text": {
+        "en": "Walls between guestrooms and between guestrooms and corridors shall run to the structural soffit with a fire resistance rating of {{FRR}}, fire stopped at the head and at every penetration. In a licensed guesthouse, walls shall be -/60/60 to the structural ceiling, and separation from adjoining occupancies shall be -/60/60 for walls and 60/60/60 for floors."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Use Class 2. The guesthouse values are licence conditions."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "hotel",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "BLK-SPC-050",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Clinical room enclosures"
+      },
+      "text": {
+        "en": "Partitions around treatment, procedure and dirty utility rooms shall run full height to the structural soffit, with every penetration sealed airtight. Board joints in these rooms shall be fully sealed so that walls can be cleaned and disinfected."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Required for day procedure centres; good practice for other clinics."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "clinic"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "lic": [
+              "orphf_clinic"
+            ]
+          },
+          "tags": [
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BLK-SPC-060",
+      "group": "SPC",
+      "type": "product",
+      "title": {
+        "en": "Partitions in flats"
+      },
+      "text": {
+        "en": "New partitions inside the flat shall be lightweight board partitions unless shown otherwise. A non-load-bearing block wall in a flat is a minor works item and shall be built only where the drawings show it and the minor works submission has been made."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Keeps a flat renovation within exempted works where possible."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "BLK-SPC-070",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Impact resistance in schools and care premises"
+      },
+      "text": {
+        "en": "Corridor and circulation walls shall meet the [[impact]] grade of BS 5234-2, with impact-resistant board or masonry up to [[height]] mm above finished floor level."
+      },
+      "fields": {
+        "impact": {
+          "label": {
+            "en": "Impact category"
+          },
+          "kind": "select",
+          "default": "severe duty",
+          "options": [
+            {
+              "v": "severe duty",
+              "en": "Severe Duty"
+            },
+            {
+              "v": "heavy duty",
+              "en": "Heavy Duty"
+            }
+          ]
+        },
+        "height": {
+          "label": {
+            "en": "Height"
+          },
+          "kind": "number",
+          "default": "1200",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "No HK source sets this; it is a durability target."
+      },
+      "standards": [
+        "BS 5234-2"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "BLK-SPC-080",
+      "group": "SPC",
+      "type": "performance",
+      "title": {
+        "en": "Industrial compartment walls"
+      },
+      "text": {
+        "en": "Compartment walls shall be dense concrete blockwork or concrete, full height to the structural soffit, with a fire resistance rating of {{FRR}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Industrial and storage Use Classes take 120 minutes."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "industrial"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 771-3": "Specification for masonry units. Aggregate concrete masonry units (dense and lightweight aggregates)",
+    "BS EN 998-2": "Specification for mortar for masonry. Masonry mortar",
+    "BS EN 845-1": "Specification for ancillary components for masonry. Wall ties, tension straps, hangers and brackets",
+    "BS EN 520": "Gypsum plasterboards. Definitions, requirements and test methods",
+    "BS EN 14195": "Metal framing components for gypsum board systems. Definitions, requirements and test methods",
+    "BS 476-22": "Fire tests on building materials and structures. Methods for determination of the fire resistance of non-loadbearing elements of construction (superseded by BSI; still a route under the HK FS Code)",
+    "BS EN 13501-1": "Fire classification of construction products: reaction to fire",
+    "BS EN 13501-2": "Fire classification of construction products and building elements: classification from fire resistance and smoke control tests",
+    "BS EN ISO 717-1": "Acoustics: rating of sound insulation, airborne sound insulation",
+    "BS 5234-2": "Partitions, including matching linings: performance requirements for strength and robustness"
+  }
+}

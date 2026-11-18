@@ -1,0 +1,249 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "29",
+    "id": "ACS",
+    "title": {
+      "en": "Acoustic performance",
+      "zh": "聲學性能"
+    },
+    "intro": {
+      "en": "Sound insulation targets, room acoustics and testing."
+    },
+    "related": [],
+    "types": [
+      "school",
+      "hotel"
+    ],
+    "optional": [
+      "office_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "clinic",
+      "guesthouse",
+      "rche",
+      "childcare"
+    ],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Sound insulation"
+      }
+    },
+    {
+      "id": "SCH",
+      "title": {
+        "en": "Schools"
+      }
+    },
+    {
+      "id": "HOT",
+      "title": {
+        "en": "Hotels"
+      }
+    },
+    {
+      "id": "TST",
+      "title": {
+        "en": "Testing"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ACS-GEN-010",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Sound insulation targets"
+      },
+      "text": {
+        "en": "Separating partitions shall achieve a laboratory airborne sound insulation of not less than [[rw]] dB Rw to BS EN ISO 717-1 and, where site testing is required, [[dnt]] dB DnT,w measured to BS EN ISO 16283-1."
+      },
+      "fields": {
+        "rw": {
+          "label": {
+            "en": "Rw"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "dB",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "school"
+                ]
+              },
+              "v": "37"
+            }
+          ]
+        },
+        "dnt": {
+          "label": {
+            "en": "DnT,w"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "dB",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "school"
+                ]
+              },
+              "v": "31"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "No HK statute sets airborne or impact sound insulation for offices, flats or hotels. These are project targets."
+      },
+      "standards": [
+        "BS EN ISO 717-1",
+        "BS EN ISO 16283-1"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "hotel",
+        "office_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "clinic",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "ACS-SCH-010",
+      "group": "SCH",
+      "type": "performance",
+      "title": {
+        "en": "Classroom acoustics"
+      },
+      "text": {
+        "en": "The reverberation time in classrooms shall be between 0.4 s and 0.6 s, and in halls between 1.5 s and 2.0 s, measured to BS EN ISO 3382-2 in the furnished, unoccupied room."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "BEAM Plus HWB 6 figures. A BEAM registration does not make an individual credit mandatory, so this stays a project target."
+      },
+      "standards": [
+        "BS EN ISO 3382-2"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school"
+      ]
+    },
+    {
+      "id": "ACS-HOT-010",
+      "group": "HOT",
+      "type": "performance",
+      "title": {
+        "en": "Guestroom acoustics"
+      },
+      "text": {
+        "en": "Walls between guestrooms shall achieve not less than [[room]] dB Rw and guestroom entrance door sets not less than [[door]] dB Rw, both to BS EN ISO 717-1."
+      },
+      "fields": {
+        "room": {
+          "label": {
+            "en": "Room to room"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "dB"
+        },
+        "door": {
+          "label": {
+            "en": "Door set"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "dB"
+        }
+      },
+      "guidance": {
+        "en": "Brand practice of about Rw 50 to 55 between rooms and Rw 30 to 35 for door sets is unverified; no HK source."
+      },
+      "standards": [
+        "BS EN ISO 717-1"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "hotel",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "ACS-TST-010",
+      "group": "TST",
+      "type": "completion",
+      "title": {
+        "en": "Pre-completion sound testing"
+      },
+      "text": {
+        "en": "Carry out pre-completion sound insulation tests on [[n]] sets of separating elements chosen by {{CA}}, by a laboratory accredited by HOKLAS or a mutually recognised body, and submit the reports."
+      },
+      "fields": {
+        "n": {
+          "label": {
+            "en": "Number of tests"
+          },
+          "kind": "number",
+          "default": "3"
+        }
+      },
+      "guidance": {
+        "en": "Testing proves the target; agree the sample size early."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "hotel",
+        "office_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "clinic",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN ISO 3382-2": "Acoustics: measurement of room acoustic parameters, reverberation time in ordinary rooms",
+    "BS EN ISO 717-1": "Acoustics: rating of sound insulation, airborne sound insulation",
+    "BS EN ISO 16283-1": "Acoustics: field measurement of sound insulation, airborne sound insulation"
+  }
+}

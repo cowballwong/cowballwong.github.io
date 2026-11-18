@@ -1,0 +1,207 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "02",
+    "id": "DEM",
+    "title": {
+      "en": "Demolition, strip-out and alterations",
+      "zh": "拆卸及改動"
+    },
+    "intro": {
+      "en": "Strip-out of existing finishes and fittings, waste disposal, and asbestos and lead paint controls."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 2,
+        "title": "Demolition, Site Clearance and Alterations"
+      }
+    ],
+    "types": [
+      "flat_fo"
+    ],
+    "optional": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "clinic",
+      "hotel",
+      "guesthouse",
+      "rche",
+      "childcare"
+    ],
+    "flagsOn": [
+      "aa"
+    ]
+  },
+  "groups": [
+    {
+      "id": "STR",
+      "title": {
+        "en": "Strip-out and disposal"
+      }
+    },
+    {
+      "id": "ASB",
+      "title": {
+        "en": "Asbestos and lead"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "DEM-STR-010",
+      "group": "STR",
+      "type": "execution",
+      "title": {
+        "en": "Strip-out extent"
+      },
+      "text": {
+        "en": "Remove existing finishes, partitions, ceilings and fittings to the extent shown on the drawings. Items marked for retention shall be protected, and items marked for reuse shall be removed with care, labelled and stored. Building services shall be isolated and made safe by the relevant registered persons before removal."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Agree retained items on site with the Employer before work starts."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "flat_fo",
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "clinic",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "DEM-STR-020",
+      "group": "STR",
+      "type": "execution",
+      "title": {
+        "en": "Disposal of construction waste"
+      },
+      "text": {
+        "en": "Construction waste shall be sorted on site and disposed of at the facilities designated by the Environmental Protection Department, under the construction waste disposal charging scheme. Where a billing account is required for the contract, the Contractor shall open it before work starts. Trip tickets shall be kept and submitted to {{CA}} monthly."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "The charging scheme is statutory; the monthly submission is a project control."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "flat_fo",
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "clinic",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "DEM-ASB-010",
+      "group": "ASB",
+      "type": "execution",
+      "title": {
+        "en": "Asbestos investigation and abatement"
+      },
+      "text": {
+        "en": "No work that may disturb asbestos-containing material shall start until the Registered Asbestos Consultant's investigation report has been issued. Where asbestos is found, the investigation report and the abatement plan shall reach the Environmental Protection Department at least 28 days before abatement starts, the abatement shall be carried out by a Registered Asbestos Contractor to the abatement plan submitted to EPD, and written notice of commencement shall reach EPD at least 28 days before the work starts."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Under the Air Pollution Control Ordinance (Cap. 311): the owner engages a Registered Asbestos Consultant and submits the report and plan. This is the key programme clause for older buildings, most of all those completed before about 1990."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa"
+        ]
+      }
+    },
+    {
+      "id": "DEM-ASB-020",
+      "group": "ASB",
+      "type": "execution",
+      "title": {
+        "en": "Suspect material found during the works"
+      },
+      "text": {
+        "en": "If material that may contain asbestos is found during the works, work in that area shall stop at once, the area shall be closed off and {{CA}} notified. Work shall resume only after the Registered Asbestos Consultant has inspected and advised."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "The survey may not reach every concealed space."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa"
+        ]
+      }
+    },
+    {
+      "id": "DEM-ASB-030",
+      "group": "ASB",
+      "type": "execution",
+      "title": {
+        "en": "Lead in existing paint"
+      },
+      "text": {
+        "en": "Before abrasive removal of existing paint in a building completed before [[year]], the Contractor shall test the paint for lead and submit the results to {{CA}}. Where lead is found, removal shall use methods that limit dust, with containment and personal protection to the approval of {{CA}}."
+      },
+      "fields": {
+        "year": {
+          "label": {
+            "en": "Building completed before"
+          },
+          "kind": "number",
+          "default": "1990"
+        }
+      },
+      "guidance": {
+        "en": "No HK lead-paint statute was found, so this is precautionary best practice."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa"
+        ]
+      }
+    }
+  ],
+  "standards": {}
+}

@@ -1,0 +1,1220 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "11",
+    "id": "WPF",
+    "title": {
+      "en": "Waterproofing and sealants",
+      "zh": "防水及密封膠"
+    },
+    "intro": {
+      "en": "Wet area, roof and planter waterproofing, sealant joints and water testing."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 11,
+        "title": "Tanking"
+      },
+      {
+        "doc": "GS 2022",
+        "section": 12,
+        "title": "Roofing",
+        "groups": [
+          "ROOF",
+          "PLT"
+        ]
+      }
+    ],
+    "types": [
+      "office_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "retail_fo",
+      "clinic"
+    ],
+    "flagsOn": [
+      "aa",
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "WET",
+      "title": {
+        "en": "Wet areas",
+        "zh": "濕區"
+      }
+    },
+    {
+      "id": "ROOF",
+      "title": {
+        "en": "Flat roofs",
+        "zh": "平天台"
+      }
+    },
+    {
+      "id": "PLT",
+      "title": {
+        "en": "Planters",
+        "zh": "花槽"
+      }
+    },
+    {
+      "id": "TST",
+      "title": {
+        "en": "Testing and completion",
+        "zh": "測試及完工"
+      }
+    },
+    {
+      "id": "SEAL",
+      "title": {
+        "en": "Sealant joints"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "WPF-WET-005",
+      "group": "WET",
+      "type": "execution",
+      "title": {
+        "en": "Existing floor and base-build waterproofing"
+      },
+      "text": {
+        "en": "Before strip-out, the Contractor shall inspect the existing wet areas, flood test them where {{CA}} instructs, and report any leaks or damage to {{CA}} and the building management as a record of the existing condition. The existing membrane shall be [[existing]]. Where new membrane meets a retained base-build membrane, it shall be lapped and bonded with a product the manufacturer confirms as compatible, without damaging the retained membrane. Breaking out screed, core drilling or forming any slab opening shall start only after the building management has approved it and the structural engineer has confirmed it in writing; any added screed for falls shall stay within the floor loading they allow."
+      },
+      "fields": {
+        "existing": {
+          "label": {
+            "en": "Existing membrane",
+            "zh": "現有防水層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "overlay",
+              "en": "retained, made good and overlaid with the new membrane"
+            },
+            {
+              "v": "replace",
+              "en": "removed and replaced with the new membrane"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "In an office fit-out the floor below usually belongs to another tenant, so a record of leaks found before work starts avoids disputes later. Most building managements control core drilling and extra screed through their fit-out rules; check them before pricing."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        }
+      ],
+      "refs": [
+        "WPF-TST-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-WET-010",
+      "group": "WET",
+      "type": "product",
+      "title": {
+        "en": "Liquid-applied membrane to wet areas"
+      },
+      "text": {
+        "en": "Wet areas shall be waterproofed with a [[wettype]] liquid-applied membrane to BS EN 14891, applied in at least two coats to a total dry film thickness of [[dft]] mm. Reinforcing fabric or preformed tape from the same system shall be bedded in at internal corners, wall to floor junctions and changes of substrate. The membrane shall be tested as {{ref:WPF-TST-010}}."
+      },
+      "fields": {
+        "wettype": {
+          "label": {
+            "en": "Membrane type",
+            "zh": "防水層類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "CM",
+              "en": "cementitious flexible (CM)"
+            },
+            {
+              "v": "DM",
+              "en": "polymer dispersion (DM)"
+            },
+            {
+              "v": "RM",
+              "en": "reaction resin (RM)"
+            }
+          ],
+          "default": null
+        },
+        "dft": {
+          "label": {
+            "en": "Total dry film thickness (mm)",
+            "zh": "總乾膜厚度（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "per manufacturer, e.g. 1.5"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Most leaks from Hong Kong bathrooms, toilets and pantries come from corners, drains and pipe penetrations rather than the open floor. Using tape and primer from the same system as the membrane avoids adhesion failures between products."
+      },
+      "standards": [
+        "BS EN 14891"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        }
+      ],
+      "refs": [
+        "WPF-TST-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "WM"
+      ]
+    },
+    {
+      "id": "WPF-WET-020",
+      "group": "WET",
+      "type": "execution",
+      "title": {
+        "en": "Extent of wet area membrane and upturns"
+      },
+      "text": {
+        "en": "The membrane shall cover the whole floor of [[rooms]] and shall be turned up all walls by [[upturn]] mm above finished floor level. In shower areas the membrane shall extend to [[shower]]. At door thresholds the membrane shall be carried under the threshold and lapped onto the adjoining floor."
+      },
+      "fields": {
+        "rooms": {
+          "label": {
+            "en": "Wet areas",
+            "zh": "濕區範圍"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. bathrooms, kitchens, utility room"
+          }
+        },
+        "upturn": {
+          "label": {
+            "en": "Wall upturn"
+          },
+          "kind": "select",
+          "default": "150",
+          "options": [
+            {
+              "v": "150",
+              "en": "150"
+            },
+            {
+              "v": "300",
+              "en": "300"
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "ola_gh"
+                ]
+              },
+              "v": "300"
+            },
+            {
+              "when": {
+                "lic": [
+                  "fehd_gr",
+                  "fehd_lr",
+                  "fehd_ff"
+                ]
+              },
+              "v": "300"
+            }
+          ]
+        },
+        "shower": {
+          "label": {
+            "en": "Shower extent"
+          },
+          "kind": "select",
+          "default": "full",
+          "options": [
+            {
+              "v": "full",
+              "en": "the full height of the enclosure"
+            },
+            {
+              "v": "1800",
+              "en": "1800 mm above finished floor level"
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "ola_gh"
+                ]
+              },
+              "v": "1800"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Water tracking under the door threshold into the next room is a frequent complaint, so the threshold detail is worth drawing. Taking the membrane to full height in shower enclosures is common where walls are tiled on gypsum board."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "lic": [
+              "ola_gh"
+            ]
+          },
+          "tags": [
+            "LC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WPF-WET-030",
+      "group": "WET",
+      "type": "execution",
+      "title": {
+        "en": "Drains, falls and pipe penetrations"
+      },
+      "text": {
+        "en": "Floor drains shall be gullies to BS EN 1253 with a clamping ring or bonding flange that the membrane can be sealed into. Falls of [[fall]] towards drains shall be formed in [[fallsin]]. Pipe penetrations shall be sealed with the membrane manufacturer's preformed collars or reinforced sleeves bonded to the membrane, and pipes shall be fixed before the membrane is applied."
+      },
+      "fields": {
+        "fall": {
+          "label": {
+            "en": "Fall to drains",
+            "zh": "排水坡度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1:100"
+          }
+        },
+        "fallsin": {
+          "label": {
+            "en": "Falls formed in",
+            "zh": "坡度形成位置"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "below",
+              "en": "the substrate below the membrane"
+            },
+            {
+              "v": "above",
+              "en": "the tile bedding above the membrane"
+            }
+          ],
+          "default": "below"
+        }
+      },
+      "guidance": {
+        "en": "A drain without a flange leaves water free to run between the membrane and the drain body. Pipes that move after the membrane is applied commonly tear the seal around them."
+      },
+      "standards": [
+        "BS EN 1253"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-WET-040",
+      "group": "WET",
+      "type": "execution",
+      "title": {
+        "en": "Curing and protection of wet area membrane"
+      },
+      "text": {
+        "en": "The membrane shall be cured for at least [[cure]] hours, or longer if the manufacturer recommends it, before the flood test in {{ref:WPF-TST-010}}. After a successful test the membrane shall be protected by [[protect]] before tiling. Foot traffic and fixings through the membrane shall not be allowed."
+      },
+      "fields": {
+        "cure": {
+          "label": {
+            "en": "Minimum curing time (hours)",
+            "zh": "最短養護時間（小時）"
+          },
+          "kind": "number",
+          "default": 24
+        },
+        "protect": {
+          "label": {
+            "en": "Protection",
+            "zh": "保護方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "screed",
+              "en": "a cement and sand protection screed"
+            },
+            {
+              "v": "adhesive",
+              "en": "tile adhesive applied directly as the system allows"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Damage by following trades between the flood test and tiling is a common cause of leaks that the test never saw. Some systems are designed to take tile adhesive directly, which saves a screed but needs care on site."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        }
+      ],
+      "refs": [
+        "WPF-TST-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-ROOF-010",
+      "group": "ROOF",
+      "type": "product",
+      "title": {
+        "en": "Flat roof waterproofing system"
+      },
+      "text": {
+        "en": "Flat roofs shall be waterproofed with a [[system]] system, designed with reference to BS 6229, as a [[config]]. The system shall be installed by an installer approved by the membrane manufacturer. Reinforced bitumen sheets shall comply with BS EN 13707."
+      },
+      "fields": {
+        "system": {
+          "label": {
+            "en": "Membrane system",
+            "zh": "防水系統"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "bitumen",
+              "en": "torch-on reinforced modified bitumen two-layer"
+            },
+            {
+              "v": "pu",
+              "en": "liquid-applied polyurethane"
+            },
+            {
+              "v": "single",
+              "en": "PVC or TPO single-ply sheet"
+            }
+          ],
+          "default": null
+        },
+        "config": {
+          "label": {
+            "en": "Roof configuration",
+            "zh": "屋面構造"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "inverted",
+              "en": "inverted roof with insulation above the membrane"
+            },
+            {
+              "v": "warm",
+              "en": "warm roof with insulation below the membrane"
+            },
+            {
+              "v": "none",
+              "en": "uninsulated roof"
+            }
+          ],
+          "default": "inverted"
+        }
+      },
+      "guidance": {
+        "en": "Torch-on bitumen is common on Hong Kong roofs, but liquid-applied systems are often chosen where there are many plinths and pipes or where hot work is restricted. An inverted roof keeps the membrane cooler and protected, which suits the local sun and typhoon rain."
+      },
+      "standards": [
+        "BS 6229",
+        "BS EN 13707"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-ROOF-020",
+      "group": "ROOF",
+      "type": "execution",
+      "title": {
+        "en": "Falls, upstands and outlets"
+      },
+      "text": {
+        "en": "Finished roof falls shall be not less than [[fall]], with no ponding after rain. Upstands at parapets, plinths and doors shall rise at least [[upstand]] mm above the finished roof surface and be finished into a chase or under a fixed termination bar with sealant. Rainwater outlets shall be [[outlet]] outlets to BS EN 1253 with flanges sealed into the membrane and with removable leaf guards."
+      },
+      "fields": {
+        "fall": {
+          "label": {
+            "en": "Minimum finished fall",
+            "zh": "最小完成坡度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1:80"
+          }
+        },
+        "upstand": {
+          "label": {
+            "en": "Minimum upstand height (mm)",
+            "zh": "最小上翻高度（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 150"
+          }
+        },
+        "outlet": {
+          "label": {
+            "en": "Outlet type",
+            "zh": "雨水口類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "vertical",
+              "en": "vertical"
+            },
+            {
+              "v": "parapet",
+              "en": "parapet (horizontal)"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Ponding water and low upstands at roof doors are among the most common causes of roof leaks. Blocked outlets during typhoons can flood a roof quickly, so overflow provision is commonly considered as well."
+      },
+      "standards": [
+        "BS EN 1253"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-ROOF-030",
+      "group": "ROOF",
+      "type": "product",
+      "title": {
+        "en": "Roof insulation and protective finish"
+      },
+      "text": {
+        "en": "Thermal insulation shall be [[insul]], thickness [[thk]] mm, as required by the project's energy and thermal design. The membrane shall be protected by [[finish]]. Separation and protection layers shall be laid between the membrane and any finish as the membrane manufacturer recommends."
+      },
+      "fields": {
+        "insul": {
+          "label": {
+            "en": "Insulation",
+            "zh": "隔熱層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "xps",
+              "en": "extruded polystyrene boards"
+            },
+            {
+              "v": "pir",
+              "en": "PIR boards"
+            },
+            {
+              "v": "none",
+              "en": "no insulation"
+            }
+          ],
+          "default": null
+        },
+        "thk": {
+          "label": {
+            "en": "Insulation thickness (mm)",
+            "zh": "隔熱層厚度（毫米）"
+          },
+          "kind": "number",
+          "default": null
+        },
+        "finish": {
+          "label": {
+            "en": "Protective finish",
+            "zh": "保護面層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "pavers",
+              "en": "concrete paving slabs on adjustable pedestals"
+            },
+            {
+              "v": "screed",
+              "en": "a cement and sand screed with tiles"
+            },
+            {
+              "v": "gravel",
+              "en": "gravel ballast over a filter layer"
+            },
+            {
+              "v": "coating",
+              "en": "an exposed membrane with a solar reflective coating"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Insulation for inverted roofs must tolerate being wet, which is why extruded polystyrene is typical there. Paving on pedestals keeps the membrane accessible for repair, which is often valued in Hong Kong roofs with heavy plant."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-ROOF-040",
+      "group": "ROOF",
+      "type": "execution",
+      "title": {
+        "en": "Substrate preparation and membrane application"
+      },
+      "text": {
+        "en": "Substrates shall be clean, sound, dry and free of laitance, with moisture content within the manufacturer's limits. Primers, laps and junctions shall follow the manufacturer's recommendations and the workmanship principles of BS 8000-0. Torch-on work shall be carried out only under a hot work permit, with a fire extinguisher at the work area. Membranes shall not be applied in rain or on wet substrates."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Laying over damp screed is a common cause of blistering in both sheet and liquid membranes. Hot work permits are typically required by building management and insurers in occupied buildings."
+      },
+      "standards": [
+        "BS 8000-0"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-PLT-010",
+      "group": "PLT",
+      "type": "product",
+      "title": {
+        "en": "Planter waterproofing"
+      },
+      "text": {
+        "en": "Planters shall be waterproofed with [[pltsystem]], with root resistance demonstrated by test to BS EN 13948. The membrane shall be carried up the planter walls to at least [[upturn]] mm above finished soil level and protected with a protection board before backfilling."
+      },
+      "fields": {
+        "pltsystem": {
+          "label": {
+            "en": "Planter system",
+            "zh": "花槽系統"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "bitumen",
+              "en": "a root-resistant modified bitumen sheet"
+            },
+            {
+              "v": "liquid",
+              "en": "a liquid-applied membrane with a separate root barrier"
+            },
+            {
+              "v": "sheet",
+              "en": "a root-resistant single-ply sheet"
+            }
+          ],
+          "default": null
+        },
+        "upturn": {
+          "label": {
+            "en": "Upturn above soil (mm)",
+            "zh": "高出泥面（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 150"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Roots exploit any weak lap, and planter leaks are among the hardest to repair because the soil must come out. Planters over occupied rooms commonly justify a root-resistant layer even for small shrubs."
+      },
+      "standards": [
+        "BS EN 13948"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-PLT-020",
+      "group": "PLT",
+      "type": "product",
+      "title": {
+        "en": "Planter drainage and filter layers"
+      },
+      "text": {
+        "en": "After a successful flood test to {{ref:WPF-TST-010}}, a [[drainage]] drainage layer shall be laid over the protected membrane. A non-woven geotextile filter fabric shall be laid over the drainage layer, lapped [[lap]] mm and turned up the planter sides above soil level. Planter outlets shall have accessible inspection chambers."
+      },
+      "fields": {
+        "drainage": {
+          "label": {
+            "en": "Drainage layer",
+            "zh": "排水層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "cell",
+              "en": "HDPE drainage board or cell"
+            },
+            {
+              "v": "aggregate",
+              "en": "free-draining aggregate"
+            }
+          ],
+          "default": "cell"
+        },
+        "lap": {
+          "label": {
+            "en": "Fabric lap (mm)",
+            "zh": "隔濾布搭接（毫米）"
+          },
+          "kind": "number",
+          "default": null,
+          "hint": {
+            "en": "e.g. 200"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Fine soil washed into the drainage layer is the usual reason planters waterlog after a few years. Inspection chambers at outlets let blockages be cleared without digging out the planting."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [
+        "WPF-TST-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-TST-010",
+      "group": "TST",
+      "type": "execution",
+      "title": {
+        "en": "Flood test"
+      },
+      "text": {
+        "en": "Every wet area, roof and planter shall be flood tested after the membrane has cured and before any protection or finish is laid. Outlets shall be plugged and the area flooded to a depth of [[depth]] mm at the highest point for at least [[duration]] hours, with the soffit and walls below inspected for leaks. Where the area below is outside the site, the Contractor shall arrange access for inspection through the building management. Any leak shall be repaired and the test repeated until no leak is found. [[retest]]"
+      },
+      "fields": {
+        "depth": {
+          "label": {
+            "en": "Flood depth (mm)",
+            "zh": "灌水深度（毫米）"
+          },
+          "kind": "number",
+          "default": 50,
+          "hint": {
+            "en": "e.g. 50"
+          }
+        },
+        "duration": {
+          "label": {
+            "en": "Test duration (hours)",
+            "zh": "測試時間（小時）"
+          },
+          "kind": "number",
+          "default": 24
+        },
+        "retest": {
+          "label": {
+            "en": "Second test",
+            "zh": "第二次測試"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "yes",
+              "en": "A second flood test shall be carried out after floor finishes are complete."
+            },
+            {
+              "v": "no",
+              "en": "No second test is required."
+            }
+          ],
+          "default": "yes"
+        }
+      },
+      "guidance": {
+        "en": "A flood test is the only reliable check of a membrane before it disappears under finishes. Testing again after tiling is common in Hong Kong flats and office fit-outs, and is often required by the landlord's fit-out rules, as tile fixers often damage the membrane at drains."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        },
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-TST-020",
+      "group": "TST",
+      "type": "completion",
+      "title": {
+        "en": "Inspection, warranty and records"
+      },
+      "text": {
+        "en": "Each membrane shall be inspected by {{CA}} at the hold point in {{ref:GEN-QA-030}} before it is covered. The Contractor shall provide [[warranty]] for the waterproofing for [[years]] years from practical completion. The Contractor shall submit signed flood test records with photographs, product data and as-built drawings showing membrane extents and outlets, for inclusion in the operation and maintenance (O&M) manual."
+      },
+      "fields": {
+        "warranty": {
+          "label": {
+            "en": "Warranty type",
+            "zh": "保用證類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "joint",
+              "en": "a joint warranty from the Contractor and the specialist installer"
+            },
+            {
+              "v": "system",
+              "en": "the manufacturer's system warranty plus the installer's workmanship warranty"
+            }
+          ],
+          "default": "joint"
+        },
+        "years": {
+          "label": {
+            "en": "Warranty period (years)",
+            "zh": "保用期（年）"
+          },
+          "kind": "number",
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Waterproofing warranties in Hong Kong commonly run well beyond the defects liability period, so a joint warranty from the Contractor and installer is often sought. Flood test records are valuable evidence if a leak appears years later."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 11
+        },
+        {
+          "doc": "GS 2022",
+          "section": 12
+        }
+      ],
+      "refs": [
+        "GEN-QA-030"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "WPF-SEAL-010",
+      "group": "SEAL",
+      "type": "product",
+      "title": {
+        "en": "Sealant joints generally"
+      },
+      "text": {
+        "en": "Movement and perimeter joints shall be sealed with sealants classified to BS EN ISO 11600 for the movement expected, used with the primer and backing rod recommended by the sealant manufacturer. The joint width to depth ratio shall be as the manufacturer's data, and the sealant shall be compatible with adjacent materials, including any coating or stone. Submit colour samples for approval."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Joint sealing is a frequent source of water leaks; agree locations on the drawings."
+      },
+      "standards": [
+        "BS EN ISO 11600"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "SL"
+      ],
+      "types": [
+        "office_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "clinic"
+      ]
+    },
+    {
+      "id": "WPF-SEAL-020",
+      "group": "SEAL",
+      "type": "execution",
+      "title": {
+        "en": "Applying sealants"
+      },
+      "text": {
+        "en": "Joints shall be clean, dry and primed before sealing. Sealant shall be tooled to a smooth concave finish in full contact with both sides and shall not bond to the back of the joint. Sealants in wet areas and food rooms shall be mould-resistant."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Three-sided adhesion is the usual cause of early sealant failure."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "clinic"
+      ]
+    },
+    {
+      "id": "WPF-TST-030",
+      "group": "TST",
+      "type": "execution",
+      "title": {
+        "en": "Spray testing of openings and facades"
+      },
+      "text": {
+        "en": "Window and door surrounds and other external openings shall be spray tested after installation and before internal finishes, using the method in BS EN 13051 or an approved equivalent agreed with {{CA}}. Any leak shall be traced, repaired and the test repeated."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "No HK statute sets the test; it protects against common seepage claims."
+      },
+      "standards": [
+        "BS EN 13051"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche"
+      ]
+    }
+  ],
+  "standards": {
+    "BS 8000-0": "Workmanship on construction sites. Introduction and general principles",
+    "BS EN 14891": "Liquid-applied water impermeable products for use beneath ceramic tiling bonded with adhesives. Requirements, test methods, assessment and verification of constancy of performance, classification and marking",
+    "BS EN 1253": "Gullies for buildings (multi-part series, including roof and floor drain outlets)",
+    "BS 6229": "Flat roofs with continuously supported flexible waterproof coverings. Code of practice",
+    "BS EN 13707": "Flexible sheets for waterproofing. Reinforced bitumen sheets for roof waterproofing. Definitions and characteristics",
+    "BS EN 13948": "Flexible sheets for waterproofing. Bitumen, plastic and rubber sheets for roof waterproofing. Determination of resistance to root penetration",
+    "BS EN ISO 11600": "Building construction: jointing products, classification and requirements for sealants",
+    "BS EN 13051": "Curtain walling: watertightness, site test"
+  }
+}

@@ -1,0 +1,1703 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "01",
+    "id": "GEN",
+    "title": {
+      "en": "General requirements",
+      "zh": "一般要求"
+    },
+    "intro": {
+      "en": "Project particulars, statutory route, regulations, licensing, submissions, quality, protection and site rules."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 1,
+        "title": "Preliminaries"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "PART",
+      "title": {
+        "en": "Project particulars",
+        "zh": "工程概況"
+      }
+    },
+    {
+      "id": "MAT",
+      "title": {
+        "en": "Materials and workmanship",
+        "zh": "材料及工藝"
+      }
+    },
+    {
+      "id": "SUB",
+      "title": {
+        "en": "Submissions",
+        "zh": "提交文件"
+      }
+    },
+    {
+      "id": "QA",
+      "title": {
+        "en": "Quality control",
+        "zh": "品質控制"
+      }
+    },
+    {
+      "id": "PRO",
+      "title": {
+        "en": "Site conduct and protection",
+        "zh": "現場管理及保護"
+      }
+    },
+    {
+      "id": "REG",
+      "title": {
+        "en": "Statutory route and regulations"
+      }
+    },
+    {
+      "id": "LIC",
+      "title": {
+        "en": "Licensing requirements"
+      }
+    },
+    {
+      "id": "AA",
+      "title": {
+        "en": "Alteration and addition works"
+      }
+    },
+    {
+      "id": "MIC",
+      "title": {
+        "en": "Modular integrated construction"
+      }
+    },
+    {
+      "id": "GRN",
+      "title": {
+        "en": "Green building"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "GEN-PART-010",
+      "group": "PART",
+      "type": "outline",
+      "title": {
+        "en": "Description of the works"
+      },
+      "text": {
+        "en": "The works comprise [[works]] at [[site]]. The Contractor shall carry out the works in accordance with the contract drawings, this specification and the instructions of {{CA}}."
+      },
+      "fields": {
+        "works": {
+          "label": {
+            "en": "Works description",
+            "zh": "工程內容"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. office fit-out of 12/F"
+          }
+        },
+        "site": {
+          "label": {
+            "en": "Site address",
+            "zh": "工地地址"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1 Example Road, Kowloon"
+          }
+        }
+      },
+      "guidance": {
+        "en": "A short, plain description helps every sub-contractor understand the scope and the setting. Commonly this states the building, floor or unit and whether the premises remain occupied."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-PART-020",
+      "group": "PART",
+      "type": "outline",
+      "title": {
+        "en": "Form of contract and order of precedence"
+      },
+      "text": {
+        "en": "The works shall be carried out under [[contract]]. Where contract documents conflict, the order of precedence shall be [[precedence]]. The Contractor shall notify {{CA}} in writing of any discrepancy before proceeding with the affected work."
+      },
+      "fields": {
+        "contract": {
+          "label": {
+            "en": "Form of contract",
+            "zh": "合約形式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "sfbc",
+              "en": "the Standard Form of Building Contract (Private Edition)"
+            },
+            {
+              "v": "nec4",
+              "en": "the NEC4 Engineering and Construction Contract"
+            },
+            {
+              "v": "bespoke",
+              "en": "the Employer's own conditions of contract"
+            }
+          ],
+          "default": null
+        },
+        "precedence": {
+          "label": {
+            "en": "Order of precedence",
+            "zh": "優先次序"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "cond",
+              "en": "as stated in the conditions of contract"
+            },
+            {
+              "v": "list",
+              "en": "conditions of contract, then specification, then drawings"
+            }
+          ],
+          "default": "cond"
+        }
+      },
+      "guidance": {
+        "en": "The specification should support the conditions of contract, not override them. A common pitfall is a specification clause that quietly changes risk allocation already set in the conditions."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-MAT-010",
+      "group": "MAT",
+      "type": "product",
+      "title": {
+        "en": "Materials, workmanship and manufacturer's recommendations"
+      },
+      "text": {
+        "en": "Materials shall be new, of the quality specified and, for each product type, from one source unless {{CA}} approves otherwise. Workmanship not otherwise specified shall follow the general principles of BS 8000-0. Products shall be stored, handled and installed to the manufacturer's recommendations current at the time of installation. Where these conflict with this specification, the Contractor shall refer the matter to {{CA}} before proceeding."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Mixing batches or brands is a frequent cause of colour and performance variation. Keeping the current installation guide on site is common practice and simplifies inspection."
+      },
+      "standards": [
+        "BS 8000-0"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-MAT-020",
+      "group": "MAT",
+      "type": "product",
+      "title": {
+        "en": "Substitution of specified products"
+      },
+      "text": {
+        "en": "Named products may be substituted only with the written approval of {{CA}}. Each proposal shall include technical data showing equal or better performance, the reason for the change and any effect on cost and programme. Proposals shall be submitted at least [[subdays]] working days before the order date."
+      },
+      "fields": {
+        "subdays": {
+          "label": {
+            "en": "Notice before order (working days)",
+            "zh": "訂貨前通知期（工作天）"
+          },
+          "kind": "number",
+          "default": 10
+        }
+      },
+      "guidance": {
+        "en": "Late substitutions are commonly driven by lead times, so asking for proposals early protects the design intent. Fire-rated and tested systems typically cannot be part-substituted without new test evidence."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-SUB-010",
+      "group": "SUB",
+      "type": "outline",
+      "title": {
+        "en": "Submission procedure"
+      },
+      "text": {
+        "en": "The Contractor shall make all submissions to {{CA}} as [[format]], each with a transmittal stating the specification clause reference. The Contractor shall allow [[review]] working days for review of each submission. Work affected by a submission shall not proceed until it has been returned without objection."
+      },
+      "fields": {
+        "format": {
+          "label": {
+            "en": "Submission format",
+            "zh": "提交形式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "pdf",
+              "en": "electronic PDF through the project document platform"
+            },
+            {
+              "v": "pdfhard",
+              "en": "electronic PDF plus two hard copies"
+            }
+          ],
+          "default": "pdf"
+        },
+        "review": {
+          "label": {
+            "en": "Review period (working days)",
+            "zh": "審閱期（工作天）"
+          },
+          "kind": "number",
+          "default": 10
+        }
+      },
+      "guidance": {
+        "en": "A stated review period lets the programme allow for it and avoids disputes about delay. A common pitfall is bundling many items into one large submission, which slows every item in it."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-SUB-020",
+      "group": "SUB",
+      "type": "product",
+      "title": {
+        "en": "Samples and technical data"
+      },
+      "text": {
+        "en": "The Contractor shall submit the manufacturer's technical data sheets for every product before ordering. The Contractor shall submit samples of [[samples]] for approval by {{CA}}. Approved samples shall be kept on site as the standard for the works."
+      },
+      "fields": {
+        "samples": {
+          "label": {
+            "en": "Items needing samples",
+            "zh": "須提交樣本的項目"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. floor tiles, paint colours, door handles"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Samples are typically asked for wherever appearance matters, such as finishes, ironmongery and sanitary fittings. Labelling each sample with the clause number and approval date avoids confusion later."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-SUB-030",
+      "group": "SUB",
+      "type": "execution",
+      "title": {
+        "en": "Shop drawings and method statements"
+      },
+      "text": {
+        "en": "The Contractor shall prepare and submit shop drawings for [[shop]], coordinated with all trades and showing setting out, fixings and junctions. The Contractor shall submit method statements with risk assessments for [[methods]] before starting each activity."
+      },
+      "fields": {
+        "shop": {
+          "label": {
+            "en": "Items needing shop drawings",
+            "zh": "須提交施工詳圖的項目"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. joinery, partitions, ceilings"
+          }
+        },
+        "methods": {
+          "label": {
+            "en": "Activities needing method statements",
+            "zh": "須提交施工方法說明的工序"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. demolition, hot work, roof works"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Shop drawings are where coordination between trades is really tested, so asking for them early reduces site clashes. Method statements are commonly required for work at height, hot work and work next to occupied areas."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-QA-010",
+      "group": "QA",
+      "type": "execution",
+      "title": {
+        "en": "Sample panels and mock-ups"
+      },
+      "text": {
+        "en": "The Contractor shall construct sample panels of [[panels]] in locations agreed with {{CA}}. Work represented by a sample panel shall not proceed until the panel is approved. Approved panels shall be retained until [[retain]]."
+      },
+      "fields": {
+        "panels": {
+          "label": {
+            "en": "Sample panels required",
+            "zh": "須製作的樣板"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. one bathroom fully finished"
+          }
+        },
+        "retain": {
+          "label": {
+            "en": "Retain until",
+            "zh": "保留至"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "work",
+              "en": "the related work is complete"
+            },
+            {
+              "v": "pc",
+              "en": "practical completion"
+            }
+          ],
+          "default": "work"
+        }
+      },
+      "guidance": {
+        "en": "A sample panel fixes the accepted standard of workmanship and avoids arguments at handover. Building the panel in its final position, where it can be kept, commonly saves cost."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-QA-020",
+      "group": "QA",
+      "type": "execution",
+      "title": {
+        "en": "Testing"
+      },
+      "text": {
+        "en": "The Contractor shall carry out the tests stated in each section and any further tests instructed by {{CA}}. Laboratory tests shall be carried out by a laboratory accredited under [[lab]] for the test concerned. Test results shall be submitted within [[days]] working days of each test."
+      },
+      "fields": {
+        "lab": {
+          "label": {
+            "en": "Accreditation scheme",
+            "zh": "認可計劃"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "hoklas",
+              "en": "the Hong Kong Laboratory Accreditation Scheme (HOKLAS)"
+            },
+            {
+              "v": "hoklasmra",
+              "en": "HOKLAS, or an accreditation scheme recognised by the Hong Kong Accreditation Service (HKAS) under a mutual recognition arrangement"
+            }
+          ],
+          "default": "hoklas"
+        },
+        "days": {
+          "label": {
+            "en": "Report period (working days)",
+            "zh": "報告期限（工作天）"
+          },
+          "kind": "number",
+          "default": 5
+        }
+      },
+      "guidance": {
+        "en": "HOKLAS accreditation is the usual benchmark for test results accepted in Hong Kong. A common pitfall is a laboratory that is accredited, but not for the specific test reported."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-QA-030",
+      "group": "QA",
+      "type": "execution",
+      "title": {
+        "en": "Inspection hold points"
+      },
+      "text": {
+        "en": "The Contractor shall give {{CA}} at least [[notice]] hours' notice before covering up or closing in work at the following hold points: [[holdpoints]]. Work shall not proceed past a hold point until it has been inspected and released by {{CA}}."
+      },
+      "fields": {
+        "notice": {
+          "label": {
+            "en": "Notice period (hours)",
+            "zh": "通知期（小時）"
+          },
+          "kind": "number",
+          "default": 24
+        },
+        "holdpoints": {
+          "label": {
+            "en": "Hold points",
+            "zh": "停工點"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. waterproofing before screed; services above ceilings before closing"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Concealed work is expensive to open up later, so hold points are best listed at tender. Typical hold points include waterproofing before screeding and partitions before boarding the second side."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-PRO-010",
+      "group": "PRO",
+      "type": "execution",
+      "title": {
+        "en": "Working in occupied premises"
+      },
+      "text": {
+        "en": "The Contractor shall comply with the fit-out rules and house rules of the building management of [[building]], and shall obtain all permits from the building management before starting work. Working hours shall be [[hours]], and noisy or dusty work shall be limited to [[noisy]], in line with the Noise Control Ordinance; any work in restricted hours shall be covered by a construction noise permit. Before starting, the Contractor shall carry out a photographic condition survey of common areas and adjoining premises used for access, and submit it to {{CA}}."
+      },
+      "fields": {
+        "building": {
+          "label": {
+            "en": "Building name",
+            "zh": "大廈名稱"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. Example Tower"
+          }
+        },
+        "hours": {
+          "label": {
+            "en": "Permitted working hours",
+            "zh": "准許工作時間"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. Mon to Sat 09:00 to 18:00"
+          }
+        },
+        "noisy": {
+          "label": {
+            "en": "Hours for noisy work",
+            "zh": "噪音工序時間"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 10:00 to 12:00 and 14:00 to 17:00"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Building management rules in Hong Kong commonly control deposits, lift protection, debris removal and quiet hours, and breaches can stop the job. A condition survey before work protects the Contractor against claims for existing damage."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "LL",
+        "S"
+      ]
+    },
+    {
+      "id": "GEN-PRO-020",
+      "group": "PRO",
+      "type": "completion",
+      "title": {
+        "en": "Protection, cleaning and waste"
+      },
+      "text": {
+        "en": "The Contractor shall protect completed work, existing finishes and fittings from damage until handover, and shall make good any damage at the Contractor's cost. Waste shall be removed regularly and disposed of at facilities permitted by the Environmental Protection Department. Before handover the Contractor shall carry out [[clean]]."
+      },
+      "fields": {
+        "clean": {
+          "label": {
+            "en": "Final clean",
+            "zh": "最後清潔"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "builders",
+              "en": "a builder's clean, removing all debris, dust and labels"
+            },
+            {
+              "v": "occupation",
+              "en": "a full clean ready for immediate occupation, including glazing and fittings"
+            }
+          ],
+          "default": "occupation"
+        }
+      },
+      "guidance": {
+        "en": "Most damage to finishes happens in the last weeks of a job, so protection is typically kept in place until the final clean. Hong Kong construction waste goes through the Construction Waste Disposal Charging Scheme, so it helps to agree who holds the account."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 1
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GEN-REG-010",
+      "group": "REG",
+      "type": "outline",
+      "title": {
+        "en": "Submission route: approved plans and minor works"
+      },
+      "text": {
+        "en": "The works include building works under {{ROUTE}}. The Contractor carrying out those works shall be a registered general building contractor or a registered minor works contractor of the class and type required by the Buildings Ordinance. The Contractor shall keep the supervision records that the route requires of the prescribed building professionals and registered contractors, make them available on site and submit copies to {{CA}} at completion."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Set by intake question 1. Full plans and the Minor Works Control System both need registered contractors and supervision records; the class follows the minor works item."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "route": [
+          "full",
+          "mw1",
+          "mw2",
+          "mw3"
+        ]
+      }
+    },
+    {
+      "id": "GEN-REG-020",
+      "group": "REG",
+      "type": "outline",
+      "title": {
+        "en": "Submission route: exempted and designated exempted works"
+      },
+      "text": {
+        "en": "The works are intended to be {{ROUTE}}. Exempted works shall not alter or affect any structural element, means of escape or fire-resisting construction, and designated exempted works shall stay within the limits of the item concerned. If the Contractor finds that any part of the works would change this classification, that part shall stop and the Contractor shall notify {{CA}} in writing before proceeding."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Interior works stay exempt only while they are inside the building, leave structure alone and carry only their own weight. Some designated exempted works items, such as small slab openings, do touch structure within set limits. A site discovery can move an item into minor works."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "route": [
+          "dew",
+          "exempt"
+        ]
+      }
+    },
+    {
+      "id": "GEN-REG-030",
+      "group": "REG",
+      "type": "execution",
+      "title": {
+        "en": "Cutting, coring and chasing of structure"
+      },
+      "text": {
+        "en": "No structural element shall be cut, cored, chased or drilled other than for light fixings without the written approval of {{CA}} and the Registered Structural Engineer, and any required submission to the Buildings Department. Before any coring, the Contractor shall scan the element to locate reinforcement and embedded services, and submit the scan results and a method statement to {{CA}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Statutory where a submission is needed; the scan and method statement are best practice."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "hotel"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "flags": [
+              "aa"
+            ]
+          },
+          "tags": [
+            "S",
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GEN-REG-040",
+      "group": "REG",
+      "type": "outline",
+      "title": {
+        "en": "Regulations and codes"
+      },
+      "text": {
+        "en": "The works shall comply with the Buildings Ordinance (Cap. 123) and its regulations, the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition), the Design Manual: Universal Accessibility 2026 (formerly the Design Manual: Barrier Free Access 2008), and the practice notes for authorized persons that apply to the project, including PNAP APP-175 on slip-resistant floors where the works are in its scope. References to these documents mean the edition current at the tender date."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Cite the FS Code 2024 Edition at its current BD address; the April 2012 copy is superseded. APP-175 (first issued August 2026) covers residential and commercial buildings; works already being carried out, or with consent to commence, as at 1 August 2026 are outside it."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "GEN-REG-050",
+      "group": "REG",
+      "type": "execution",
+      "title": {
+        "en": "Statutory site controls"
+      },
+      "text": {
+        "en": "Powered mechanical equipment shall not be used between 7 pm and 7 am or on any general holiday, including Sundays, unless a Construction Noise Permit under the Noise Control Ordinance (Cap. 400) is in force. Dust control shall comply with the Air Pollution Control (Construction Dust) Regulation. Gas work shall be carried out only by a registered gas installer employed by a registered gas contractor under the Gas Safety Ordinance (Cap. 51)."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "These apply to every type. Landlord hours are often narrower and go in the landlord clause."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "GEN-REG-060",
+      "group": "REG",
+      "type": "outline",
+      "title": {
+        "en": "Landlord fit-out rules"
+      },
+      "text": {
+        "en": "The works shall comply with [[guide]] issued by the building management. The Contractor shall obtain the landlord's written approval of partition, ceiling, fire services, electrical and shopfront drawings before starting the affected work, noting that approvals are valid for [[validity]] months. Working hours on site shall be [[llhours]]. At completion the Contractor shall submit as-built drawings in PDF to the building management, and the reinstatement obligations of the lease shall be noted on the as-built set."
+      },
+      "fields": {
+        "guide": {
+          "label": {
+            "en": "Landlord fit-out guide and revision"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. Technical Fitting-out Guide Rev. 8"
+          }
+        },
+        "validity": {
+          "label": {
+            "en": "Approval validity"
+          },
+          "kind": "number",
+          "default": "3",
+          "unit": "months"
+        },
+        "llhours": {
+          "label": {
+            "en": "Landlord working hours"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 7:30 am to 7:00 pm, Monday to Friday"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Landlord and management rules, not statute. Name the guide with its revision; Grade A guides commonly limit approval validity to three months."
+      },
+      "standards": [],
+      "tags": [
+        "LL"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "clinic"
+      ]
+    },
+    {
+      "id": "GEN-LIC-010",
+      "group": "LIC",
+      "type": "outline",
+      "title": {
+        "en": "Restaurant licence requirements"
+      },
+      "text": {
+        "en": "The works shall meet the requirements of the Food and Environmental Hygiene Department, the Buildings Department and the Fire Services Department for the [[ftype]] licence sought, including any Letter of Requirements issued. For every fire-rated or licence-related element the Contractor shall keep certificates, test reports, delivery notes and dated photographs, and shall give {{CA}} [[holdnotice]] working days' notice of each hold point before the element is concealed."
+      },
+      "fields": {
+        "ftype": {
+          "label": {
+            "en": "Licence"
+          },
+          "kind": "select",
+          "default": null,
+          "options": [
+            {
+              "v": "general restaurant",
+              "en": "general restaurant"
+            },
+            {
+              "v": "light refreshment restaurant",
+              "en": "light refreshment restaurant"
+            },
+            {
+              "v": "food factory",
+              "en": "food factory"
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "fehd_gr"
+                ]
+              },
+              "v": "general restaurant"
+            },
+            {
+              "when": {
+                "lic": [
+                  "fehd_lr"
+                ]
+              },
+              "v": "light refreshment restaurant"
+            },
+            {
+              "when": {
+                "lic": [
+                  "fehd_ff"
+                ]
+              },
+              "v": "food factory"
+            }
+          ]
+        },
+        "holdnotice": {
+          "label": {
+            "en": "Hold point notice"
+          },
+          "kind": "number",
+          "default": "2",
+          "unit": "working days"
+        }
+      },
+      "guidance": {
+        "en": "A restaurant licence bundles FEHD, BD and FSD requirements. Inspectors may ask for opening-up where concealed work has no photographic record."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "GEN-LIC-020",
+      "group": "LIC",
+      "type": "performance",
+      "title": {
+        "en": "Restaurant floor loading"
+      },
+      "text": {
+        "en": "The restaurant floor shall be capable of a design imposed load of not less than [[load]] kPa, as confirmed by the Registered Structural Engineer before the works start. Before installation, the Contractor shall obtain the Registered Structural Engineer's check of heavy partitions, fish tanks, cold rooms and other concentrated loads, with cold rooms checked at [[coldload]] kPa per metre of storage height and 2 kPa for circulation areas inside them."
+      },
+      "fields": {
+        "load": {
+          "label": {
+            "en": "Minimum imposed load"
+          },
+          "kind": "number",
+          "default": "4",
+          "unit": "kPa"
+        },
+        "coldload": {
+          "label": {
+            "en": "Cold room load"
+          },
+          "kind": "number",
+          "default": "5",
+          "unit": "kPa/m"
+        }
+      },
+      "guidance": {
+        "en": "FEHD's licensing guide states the BD requirement of at least 4 kPa; BD's common requirements check cold rooms at 5 kPa per metre of storage height and 2 kPa for internal circulation."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "GEN-LIC-030",
+      "group": "LIC",
+      "type": "completion",
+      "title": {
+        "en": "Hotel and guesthouse licence records"
+      },
+      "text": {
+        "en": "For the licence application the Contractor shall provide certificates, test reports, invoices and dated photographs of concealed drainage, fire-resisting construction, waterproofing and duct penetrations, taken before each is covered. Records shall be indexed by room and floor and submitted to {{CA}} within [[days]] days of completion of each floor."
+      },
+      "fields": {
+        "days": {
+          "label": {
+            "en": "Submission period"
+          },
+          "kind": "number",
+          "default": "14",
+          "unit": "days"
+        }
+      },
+      "guidance": {
+        "en": "The Office of the Licensing Authority may require opening-up where concealed work is not evidenced."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "ola_hotel",
+          "ola_gh"
+        ]
+      }
+    },
+    {
+      "id": "GEN-LIC-040",
+      "group": "LIC",
+      "type": "outline",
+      "title": {
+        "en": "Care and child care premises"
+      },
+      "text": {
+        "en": "The works shall meet the requirements of the Social Welfare Department for the [[care]] licence sought, including the dimensional and finish requirements set out in the relevant code of practice or operation manual. Where those requirements and this specification differ, the stricter shall apply."
+      },
+      "fields": {
+        "care": {
+          "label": {
+            "en": "Licence"
+          },
+          "kind": "select",
+          "default": null,
+          "options": [
+            {
+              "v": "residential care home for the elderly",
+              "en": "residential care home for the elderly"
+            },
+            {
+              "v": "child care centre",
+              "en": "child care centre"
+            },
+            {
+              "v": "kindergarten",
+              "en": "kindergarten"
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "swd_rche"
+                ]
+              },
+              "v": "residential care home for the elderly"
+            },
+            {
+              "when": {
+                "lic": [
+                  "swd_cc"
+                ]
+              },
+              "v": "child care centre"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "The SWD codes give some of the clearest numbers in HK: passages, doorways, ceiling heights, barriers and wet-area tiling."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "swd_rche",
+          "swd_cc"
+        ]
+      }
+    },
+    {
+      "id": "GEN-LIC-050",
+      "group": "LIC",
+      "type": "execution",
+      "title": {
+        "en": "Clinics and day procedure centres"
+      },
+      "text": {
+        "en": "The works shall support the licence sought under the Private Healthcare Facilities Ordinance (Cap. 633) and, for a day procedure centre, the current Code of Practice for Day Procedure Centres. Where the premises remain in use during the works, the Contractor shall submit an infection control plan for dust, debris and air movement to {{CA}} before starting, and shall seal the work area from clinical areas."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Cap. 633 governs clinics from 2025; the older Cap. 343 code is treated as legacy."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "orphf_clinic",
+          "orphf_dpc"
+        ]
+      }
+    },
+    {
+      "id": "GEN-LIC-060",
+      "group": "LIC",
+      "type": "execution",
+      "title": {
+        "en": "Works at an operating school"
+      },
+      "text": {
+        "en": "Where the school is in use, noise from the works shall not exceed [[day]] dB(A) at classroom windows on school days and [[exam]] dB(A) during examinations. The Contractor shall agree working hours, safe routes and separation of the works from pupils with the school before starting, and all site staff shall follow the school's safeguarding rules."
+      },
+      "fields": {
+        "day": {
+          "label": {
+            "en": "School-day limit"
+          },
+          "kind": "number",
+          "default": "70",
+          "unit": "dB(A)"
+        },
+        "exam": {
+          "label": {
+            "en": "Examination limit"
+          },
+          "kind": "number",
+          "default": "65",
+          "unit": "dB(A)"
+        }
+      },
+      "guidance": {
+        "en": "The figures are cited by BEAM Plus for works near schools; they are not a statutory limit for ordinary building works, so they bind the Contractor by contract only."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "childcare"
+      ]
+    },
+    {
+      "id": "GEN-AA-010",
+      "group": "AA",
+      "type": "execution",
+      "title": {
+        "en": "Existing fire safety to be maintained"
+      },
+      "text": {
+        "en": "New work shall not reduce the fire resistance of any existing element or the capacity of any existing means of escape. Where existing fire-resisting construction is disturbed, it shall be reinstated to at least its original rating with tested materials, and the reinstatement shall be recorded and submitted to {{CA}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "A statutory principle for all alteration and addition works; the wording is ours."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa"
+        ]
+      }
+    },
+    {
+      "id": "GEN-AA-020",
+      "group": "AA",
+      "type": "execution",
+      "title": {
+        "en": "Works in an occupied building"
+      },
+      "text": {
+        "en": "Work shall be carried out between [[hours]] and within the building management's rules. The Contractor shall erect dust screens, protect lifts, lobbies and routes used for access, keep every escape route clear at all times, and give the building management and {{CA}} at least [[fsinotice]] hours' notice before any fire services installation is isolated. A dilapidation survey of the common areas and adjoining premises shall be submitted before work starts."
+      },
+      "fields": {
+        "hours": {
+          "label": {
+            "en": "Permitted hours"
+          },
+          "kind": "text",
+          "default": "7:00 am and 7:00 pm, Monday to Saturday, excluding general holidays"
+        },
+        "fsinotice": {
+          "label": {
+            "en": "FSI isolation notice"
+          },
+          "kind": "number",
+          "default": "24",
+          "unit": "hours"
+        }
+      },
+      "guidance": {
+        "en": "Hours default to 7 am to 7 pm, inside the statutory noise window; many buildings set narrower hours."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa",
+          "occupied"
+        ]
+      }
+    },
+    {
+      "id": "GEN-AA-030",
+      "group": "AA",
+      "type": "product",
+      "title": {
+        "en": "Matching existing work"
+      },
+      "text": {
+        "en": "Where new work is to match existing, the Contractor shall submit samples set against the existing work for the approval of {{CA}} before ordering. Retained finishes, fittings and services shall be protected throughout and any damage made good to match."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Matching is a quality issue, not statute; agree the reference area early."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa"
+        ]
+      }
+    },
+    {
+      "id": "GEN-AA-040",
+      "group": "AA",
+      "type": "execution",
+      "title": {
+        "en": "Mandatory building and window inspection repairs"
+      },
+      "text": {
+        "en": "Repairs required by a statutory notice under the Mandatory Building Inspection Scheme or the Mandatory Window Inspection Scheme shall be carried out in coordination with the Registered Inspector appointed for the building. They shall include, where scheduled, repair of spalled concrete, a survey of render and tile debonding with removal of loose material, and removal of unauthorised projections and signboards. Records shall be kept for the Registered Inspector's certification."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "MBIS covers buildings of 30 years and older; MWIS covers windows in buildings of 10 years and older. Domestic buildings of three storeys or fewer are excluded."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "notices"
+        ]
+      }
+    },
+    {
+      "id": "GEN-AA-050",
+      "group": "AA",
+      "type": "execution",
+      "title": {
+        "en": "Fire Safety Direction upgrades"
+      },
+      "text": {
+        "en": "Where the works include upgrading required by a Fire Safety Direction, upgraded fire-resisting door sets shall have smoke seals, staircase and lobby enclosures shall be upgraded with test evidence for each element, and penetrations shall be fire stopped. Fire service installations shall be provided by a Registered Fire Service Installation Contractor as a separate package, and the Contractor shall coordinate with that package."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Directions under Cap. 572 and Cap. 502 cover means of escape, fire-resisting construction and access."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "fsdir"
+        ]
+      }
+    },
+    {
+      "id": "GEN-AA-060",
+      "group": "AA",
+      "type": "execution",
+      "title": {
+        "en": "Heritage buildings"
+      },
+      "text": {
+        "en": "Before any work, the Employer shall confirm with the Antiquities and Monuments Office whether the building is a declared or proposed monument or a graded historic building. Work to historic fabric shall follow minimum intervention: record the existing fabric by photographs and measured drawings, carry out trial panels for cleaning, repair and new finishes for the approval of {{CA}}, and follow the Conservation Management Plan where one exists."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Best practice. Grading by the Antiquities Advisory Board does not by itself impose statutory controls on private buildings."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "heritage"
+        ]
+      }
+    },
+    {
+      "id": "GEN-MIC-010",
+      "group": "MIC",
+      "type": "outline",
+      "title": {
+        "en": "MiC manufacturer and quality"
+      },
+      "text": {
+        "en": "The MiC manufacturer shall hold a full certificate under the MiC Manufacturer Accreditation Scheme, or ISO 9001 or equivalent certification with a project quality assurance scheme. A copy of the certificate or scheme shall be submitted to {{CA}} in time for submission to the Buildings Department at least 14 days before production starts. For public works the manufacturer shall be on the List of Approved MiC Suppliers. The Contractor shall give {{CA}}, the Authorized Person and the Registered Structural Engineer access to the factory, keep the factory log book and support remote video audits."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Factory quality is a condition of BD approval under PNAP ADV-36. For public works, DEVB TC(W) No. 2/2026 introduced a list of approved suppliers for tenders from 1 April 2026."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "mic"
+        ]
+      }
+    },
+    {
+      "id": "GEN-MIC-020",
+      "group": "MIC",
+      "type": "outline",
+      "title": {
+        "en": "No reduction of MiC scope"
+      },
+      "text": {
+        "en": "No substitution, alternative design or value engineering proposal shall reduce the floor area built by MiC without the written approval of {{CA}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "GFA concessions under Joint Practice Note 8 can be revoked if MiC is not adopted. The clause is a contract control that protects a statutory concession."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "mic"
+        ]
+      }
+    },
+    {
+      "id": "GEN-GRN-010",
+      "group": "GRN",
+      "type": "outline",
+      "title": {
+        "en": "BEAM Plus targets and evidence"
+      },
+      "text": {
+        "en": "The project is registered for BEAM Plus New Buildings Version 2.0 or above, target rating [[rating]]. The Contractor shall provide the evidence the assessor needs for the materials and indoor environment credits, including chain of custody certificates for timber, recycled and regional content declarations, and product data for low-emission paints, adhesives and sealants, and shall submit it with each product submission to {{CA}}."
+      },
+      "fields": {
+        "rating": {
+          "label": {
+            "en": "Target rating"
+          },
+          "kind": "select",
+          "default": "Gold",
+          "options": [
+            {
+              "v": "Platinum",
+              "en": "Platinum"
+            },
+            {
+              "v": "Gold",
+              "en": "Gold"
+            },
+            {
+              "v": "Silver",
+              "en": "Silver"
+            },
+            {
+              "v": "Bronze",
+              "en": "Bronze"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Under APP-151, BEAM Plus registration and a target rating stated on the general building plans are prerequisites for GFA concessions, so this clause is statutory in effect when concessions are claimed; otherwise it is a project target."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "beam"
+        ]
+      }
+    }
+  ],
+  "standards": {
+    "BS 8000-0": "Workmanship on construction sites. Introduction and general principles"
+  }
+}

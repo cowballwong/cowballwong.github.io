@@ -1,0 +1,1821 @@
+<!doctype html>
+<html lang="en-GB" data-lang="en" data-alt="../../zh/lab/spec-builder-hk/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spec Builder HK · 建築規範產生器 · Anzon Wong</title>
+<meta name="description" content="Spec Builder HK: pick a project type and work sections, choose the options in each clause, fill the blanks and export a numbered Word, PDF or Markdown building specification for a Hong Kong job, with a schedule of standards cited and a list of open items, in English, Traditional Chinese or both. Clauses written fresh, citing GS 2022 sections and standards by number only. A free drafting aid by Anzon Wong. Draft only.">
+<meta name="author" content="Anzon Wong">
+
+<link rel="canonical" href="https://anzonwong.com/lab/spec-builder-hk/">
+<link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/spec-builder-hk/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/spec-builder-hk/">
+<link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/spec-builder-hk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anzon Wong">
+<meta property="og:title" content="Spec Builder HK · 建築規範產生器 · Anzon Wong">
+<meta property="og:description" content="Spec Builder HK: pick a project type and work sections, choose the options in each clause, fill the blanks and export a numbered Word, PDF or Markdown building specification for a Hong Kong job, with a schedule of standards cited and a list of open items, in English, Traditional Chinese or both. Clauses written fresh, citing GS 2022 sections and standards by number only. A free drafting aid by Anzon Wong. Draft only.">
+<meta property="og:url" content="https://anzonwong.com/lab/spec-builder-hk/">
+<meta property="og:image" content="https://anzonwong.com/img/og/spec-builder-hk.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spec Builder HK">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d1c1a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f5f2ec' text-anchor='middle'%3EAW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://anzonwong.com/#website","url":"https://anzonwong.com/","name":"Anzon Wong","inLanguage":["en-GB","zh-Hant-HK"],"publisher":{"@id":"https://anzonwong.com/#person"}},{"@type":"Person","@id":"https://anzonwong.com/#person","name":"Anzon Wong","jobTitle":"Architect","url":"https://anzonwong.com/","email":"mailto:anzon@anzonwong.com","image":"https://anzonwong.com/img/about/portrait-800.webp","knowsLanguage":["en","yue","zh-Hant"],"brand":{"@type":"Brand","name":"AW Design","description":"The practice label Anzon Wong uses for his own design work and tools. Not a registered company."},"sameAs":["https://www.linkedin.com/in/wong-yuen-ho-anzon-8056b7201/","https://www.facebook.com/anzonwong"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anzon Wong","item":"https://anzonwong.com/"},{"@type":"ListItem","position":2,"name":"Lab","item":"https://anzonwong.com/lab/"},{"@type":"ListItem","position":3,"name":"Spec Builder HK","item":"https://anzonwong.com/lab/spec-builder-hk/"}]},{"@type":"WebPage","@id":"https://anzonwong.com/lab/spec-builder-hk/#page","url":"https://anzonwong.com/lab/spec-builder-hk/","name":"Spec Builder HK · 建築規範產生器 · Anzon Wong","description":"Spec Builder HK: pick a project type and work sections, choose the options in each clause, fill the blanks and export a numbered Word, PDF or Markdown building specification for a Hong Kong job, with a schedule of standards cited and a list of open items, in English, Traditional Chinese or both. Clauses written fresh, citing GS 2022 sections and standards by number only. A free drafting aid by Anzon Wong. Draft only.","inLanguage":"en-GB","isPartOf":{"@id":"https://anzonwong.com/#website"},"primaryImageOfPage":"https://anzonwong.com/img/og/spec-builder-hk.jpg"}]}</script>
+<style>
+/* Anzon Wong home site. Option D: Index (design standard v0.2).
+   RESKIN 2026-11-08: the 8 Nov home's palette and type (ink #06070a, paper #eceef0, greys #a9aeb4/#c8ccd0, lime #c8ff2e
+   only on dark surfaces; Archivo, JetBrains Mono, Noto Sans TC). Content pages read on paper with a dark header and footer.
+   Lab tool pages (<body class="aw-tool">) keep the old tokens below, so their app UIs are unchanged. */
+:root{
+  --paper:#eceef0; --card:#f7f8f9; --ink:#06070a; --ink-2:#2a2f35; --muted:#555c64;
+  --rule:#c3c8cd; --rule-2:#dde0e3; --accent:#3e5500; --accent-ink:#3e5500;
+  --serif:"Archivo","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --sans:"Archivo","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --k0:#06070a; --k1:#0c0f13; --kp:#eceef0; --kc:#a9aeb4; --kch:#c8ccd0; --kacc:#c8ff2e; --acc:#c8ff2e; --aw-accent:#c8ff2e;
+  --krule:rgba(200,204,208,.18); --kg:clamp(16px,4vw,56px);
+  --kf-en:"Archivo",system-ui,sans-serif; --kf-zh:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --kf-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--sans);text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+body.aw-tool{
+  --paper:#f5f2ec; --card:#fbfaf7; --ink:#1d1c1a; --ink-2:#4a4741; --muted:#6f6a60;
+  --rule:#d9d3c7; --rule-2:#e8e3d9; --accent:#9c4a2f; --accent-ink:#7d3a24;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Noto Serif TC","Songti TC","Microsoft JhengHei",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;
+}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* language: EN by default, zh when <html data-lang="zh"> */
+:root:not([data-lang="zh"]) .zh{display:none!important}
+:root[data-lang="zh"] .en{display:none!important}
+:root[data-lang="zh"] body{line-height:1.75;letter-spacing:.02em}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* header (RESKIN 2026-11-08): the home's dark bar. Only --k* tokens, so it looks the same on tool pages */
+.top{position:relative;z-index:30;background:var(--k0);color:var(--kp);border-bottom:1px solid var(--krule)}
+.top .tb{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px;padding:0 var(--kg)}
+.mark{display:flex;gap:.6em;align-items:center;text-decoration:none;color:var(--kp);flex:none}
+.mark:hover{color:var(--kp)}
+.awm{width:34px;height:34px;color:var(--kp);flex:none;display:block}
+.awm .aw-grid{display:none}
+.mark b{font-family:var(--kf-en);font-stretch:125%;font-weight:800;letter-spacing:.02em;font-size:15px;line-height:1}
+.mark i{font-style:normal;font-family:var(--kf-en);font-stretch:75%;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;color:var(--kc);line-height:1}
+.snav{display:flex;align-items:center;gap:clamp(10px,1.6vw,22px);margin-left:auto;min-width:0}
+.snav a{text-decoration:none;font-family:var(--kf-en);font-stretch:75%;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--kch);white-space:nowrap;padding:6px 0;line-height:1.2;border-bottom:1px solid transparent;transition:color .2s}
+:root[data-lang="zh"] .snav a{font-family:var(--kf-zh);font-stretch:100%;letter-spacing:.06em;font-size:13px}
+.snav a:hover,.snav a:focus-visible{color:var(--kacc)}
+.snav a[aria-current="page"]{color:var(--kp);border-bottom-color:var(--kacc)}
+.snav a.lang{border:1px solid var(--kacc);color:var(--kacc);padding:4px 9px;border-radius:2px;font-family:var(--kf-en);font-stretch:100%;letter-spacing:.06em;font-size:12px;background:transparent;cursor:pointer}
+:root[data-lang="zh"] .snav a.lang{font-family:var(--kf-en);font-size:12px}
+.snav a.lang:hover,.snav a.lang:focus-visible{background:var(--kacc);color:var(--k0)}
+.top :focus-visible,.foot :focus-visible{outline-color:var(--kacc)}
+
+/* type */
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.015em}
+:root[data-lang="zh"] h1{letter-spacing:.02em;line-height:1.15}
+h2{font-size:clamp(24px,3vw,36px);line-height:1.15}
+h3{font-size:21px;line-height:1.2}
+.label{font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;padding-top:.6em}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--ink-2);max-width:34em;margin:24px 0 0}
+.kind{display:block;font:11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+/* page head + ruled sections (2fr label / 10fr content) */
+.head{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter);padding:clamp(36px,5vw,64px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.prose{max-width:38em}
+.prose p{margin:0 0 1em}
+.prose p:last-child{margin-bottom:0}
+.note{color:var(--ink-2)}
+
+/* home intro */
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;padding:clamp(32px,5vw,56px) 0 40px;align-items:end}
+.intro p{font:400 clamp(26px,3vw,42px)/1.18 var(--serif);margin:0;letter-spacing:-.005em}
+:root[data-lang="zh"] .intro p{line-height:1.35;letter-spacing:.02em}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.meta div{padding:8px 10px 8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.meta b{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* selected strip */
+.sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:46px}
+.sel a{text-decoration:none;display:block;min-width:0}
+.sel img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--rule-2)}
+.sel span{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px}
+.sel b{font:400 17px var(--serif)}
+.sel i{font:11px var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.sel a:hover b{color:var(--accent)}
+
+/* index controls */
+.ix-wrap{margin:0 0 8px}
+.ctl{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);background:transparent;padding:5px 10px;border-radius:3px;cursor:pointer;font:12.5px var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.chip sup{font:10px var(--mono);color:var(--muted);margin-left:3px}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on sup{color:var(--rule)}
+.ctl-t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.count{font:11px var(--mono);color:var(--muted);letter-spacing:.06em}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:2px 0}
+.search input{border:0;background:transparent;font:15px var(--serif);width:220px;outline:none;color:var(--ink);padding:2px 0}
+.search input::placeholder{color:var(--muted)}
+.search kbd{font:10px var(--mono);border:1px solid var(--rule);padding:1px 5px;border-radius:2px;color:var(--muted)}
+
+/* the index table */
+.ix{width:100%;border-collapse:collapse}
+.ix thead th{font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;padding:0;white-space:nowrap}
+.ix thead th button{all:unset;cursor:pointer;display:block;padding:12px 10px 8px 0}
+.ix thead th button:hover{color:var(--ink)}
+.ix thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ix thead th.s button::after{content:" \2193";color:var(--accent)}
+.ix thead th.s.r button::after{content:" \2191"}
+.ix tbody tr{border-top:1px solid var(--rule);cursor:pointer}
+.ix tbody tr:last-child{border-bottom:1px solid var(--rule)}
+.ix td{padding:13px 10px 13px 0;vertical-align:baseline}
+.ix td.no{font:11.5px var(--mono);color:var(--muted);width:64px;white-space:nowrap}
+.ix td.ti{font:400 23px/1.2 var(--serif)}
+.ix td.ti a{text-decoration:none}
+.ix .alt{font:400 14px var(--serif);color:var(--muted);margin-left:12px}
+.ix .sub{display:none}
+.ix td.ty,.ix td.pl{font-size:13.5px;color:var(--ink-2)}
+.ix td.ty{max-width:240px}
+.ix td.pl{white-space:nowrap}
+.ix td.yr{font:12.5px var(--mono);color:var(--ink-2);width:60px}
+.ix td.go{width:30px;text-align:right;color:var(--muted)}
+.ix .tag{margin-left:10px;vertical-align:middle}
+.ix tbody:hover tr td,.ix tbody:hover tr .alt{color:var(--muted)}
+.ix tbody tr:hover td,.ix tbody tr.kb td{color:var(--ink)!important}
+.ix tbody tr:hover td.go,.ix tbody tr.kb td.go,.ix tbody tr:hover td.ti a{color:var(--accent)!important}
+.ix tbody tr.kb{background:var(--card)}
+.ix .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0;max-width:42em}
+.ix .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:6px 0 0;max-width:42em}
+:root[data-lang="zh"] .ix .disc{font-style:normal}
+.ix tbody:hover tr .sum,.ix tbody:hover tr .disc{color:var(--muted)}
+.ix tbody tr:hover .sum{color:var(--ink-2)!important}
+.xp{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin:12px 0 4px;font:14px/1.5 var(--sans);cursor:default}
+.xp[hidden]{display:none}
+.xp img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--rule-2)}
+.xp p{margin:0 0 8px;color:var(--ink-2)}
+.xp .xd{font-size:13px;color:var(--muted)}
+.xp a.open{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.xp.noimg{grid-template-columns:1fr}
+.empty{padding:30px 0;color:var(--muted);font:400 18px var(--serif)}
+
+/* Work / Lab card grid (.gx): 3 / 2 / 1 columns, 4:3 thumbnail, calm hover */
+.gx{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 24px}
+.gc{min-width:0}
+.gc[hidden]{display:none}
+.gc-a{display:block;text-decoration:none;color:inherit}
+.gc-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2);transition:transform .2s ease,border-color .2s ease}
+.gc-im img{width:100%;height:100%;object-fit:cover}
+.gc-im.noimg{display:flex;align-items:flex-end;padding:14px;font:12px var(--mono);color:var(--muted)}
+.gc-no{display:inline-block;font:11px var(--mono);letter-spacing:.06em;color:var(--muted);margin:14px 0 4px}
+.gc .tag{margin-left:10px;vertical-align:1px}
+.gc-ti{font:400 23px/1.2 var(--serif);margin:0}
+.gc-ti .alt{display:block;font:400 14px/1.4 var(--serif);color:var(--muted);margin-top:3px}
+.gc .sum{font:14.5px/1.55 var(--sans);color:var(--ink-2);margin:8px 0 0}
+.gc-meta{font:11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+:root[data-lang="zh"] .gc-meta{letter-spacing:.1em}
+.gc .disc{font:13px/1.5 var(--sans);font-style:italic;color:var(--muted);margin:8px 0 0;padding-top:8px;border-top:1px solid var(--rule-2)}
+:root[data-lang="zh"] .gc .disc{font-style:normal}
+a.gc-a:hover .gc-im{transform:translateY(-2px);border-color:var(--ink)}
+a.gc-a:hover .gc-ti .t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:var(--accent-ink)}
+a.gc-a:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+@media (max-width:960px){.gx{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}}
+@media (max-width:600px){.gx{grid-template-columns:1fr;gap:36px}.gc-ti{font-size:21px}}
+
+/* preview that follows the cursor */
+.pv{position:fixed;z-index:20;left:0;top:0;width:360px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .15s,transform .15s}
+.pv.on{opacity:1;transform:none}
+.pv img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;box-shadow:0 20px 40px -20px rgba(29,28,26,.5);background:#fff}
+.pv .cap{display:inline-block;margin-top:6px;background:var(--ink);color:var(--paper);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px}
+.pv .pd{margin:6px 0 0;background:var(--paper);border:1px solid var(--rule);padding:6px 8px;font-size:12px;line-height:1.45;color:var(--ink-2)}
+.pv .pd:empty{display:none}
+
+/* tags */
+.tag{display:inline-block;font:11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-2);white-space:nowrap}
+.tag.soon{border-color:var(--accent);color:var(--accent)}
+.tag.tbc{background:#fff3cd;border-color:#d8b44a;color:#6b5210}
+
+/* courses */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--rule);background:var(--card)}
+.tracks > div{padding:24px 26px}
+.tracks > div + div{border-left:1px solid var(--rule)}
+.tracks h3{margin:6px 0 10px}
+.tracks p{margin:0;color:var(--ink-2)}
+.lessons{list-style:none;margin:0;padding:0;counter-reset:l}
+.lessons li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 16px;padding:16px 0;border-top:1px solid var(--rule)}
+.lessons li:last-child{border-bottom:1px solid var(--rule)}
+.lessons li::before{counter-increment:l;content:"L" counter(l,decimal-leading-zero);font:12px var(--mono);color:var(--muted);padding-top:6px}
+.lessons b{font-family:var(--serif);font-weight:400;font-size:21px;display:block}
+.lessons span{color:var(--ink-2);font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 22px;border-radius:3px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-2{background:transparent;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(28px,4vw,44px)}
+.facts div{padding:10px 16px 10px 0;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--rule)}
+.facts b{display:block;font:10.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+/* call block: ruled like the index controls, no dark band */
+.band{border-top:3px solid var(--ink);padding:clamp(32px,5vw,56px) 0;margin-top:clamp(28px,4vw,48px)}
+.band .grid{display:grid;grid-template-columns:minmax(120px,2fr) 10fr;gap:0 var(--gutter)}
+.band p{color:var(--ink-2);max-width:34em}
+
+/* contact */
+.mail{font-family:var(--serif);font-size:clamp(24px,4.4vw,52px);line-height:1.1;text-decoration:none;border-bottom:1px solid var(--rule);overflow-wrap:anywhere}
+.mail:hover{border-color:var(--accent)}
+
+/* footer (RESKIN 2026-11-08): dark, mono line as on the home; --k* tokens only */
+.foot{margin-top:clamp(40px,6vw,64px);background:var(--k0);color:var(--kc);border-top:1px solid var(--krule)}
+.foot .wrap{max-width:none;padding:26px var(--kg) 34px}
+.foot .fr{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 28px;padding-bottom:16px;border-bottom:1px solid var(--krule)}
+.fmark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--kch)}
+.fmark b{font-family:var(--kf-en);font-stretch:125%;font-weight:800;font-size:13px;letter-spacing:.02em}
+.awm-f{width:28px;height:28px;color:var(--kch)}
+.fnav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.fnav a{font-family:var(--kf-en);font-stretch:75%;font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--kch);text-decoration:none}
+:root[data-lang="zh"] .fnav a{font-family:var(--kf-zh);font-stretch:100%;font-size:12.5px;letter-spacing:.06em}
+.foot p{margin:14px 0 0;max-width:none;font:10.5px/1.7 var(--kf-mono);color:var(--kc)}
+:root[data-lang="zh"] .foot p{font-family:var(--kf-zh);font-size:11.5px}
+.foot a{color:var(--kp)}
+.foot a:hover,.fmark:hover,.fnav a:hover{color:var(--kacc)}
+
+/* 2026-10-18 revamp: language link, AI-render tag, selected work, one-line footer */
+.gc-im,.fw-im{position:relative}
+.ai-tag{position:absolute;left:8px;bottom:8px;font:10px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,250,247,.92);color:var(--ink-2);padding:4px 6px;border-radius:2px}
+.fw{padding:clamp(28px,4vw,44px) 0 clamp(8px,2vw,16px)}
+.fw-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.fw-list a{display:block;text-decoration:none;color:var(--ink)}
+.fw-im{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+.fw-list li:first-child .fw-im{aspect-ratio:4/3}
+.fw-im img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.fw-list a:hover img{transform:scale(1.02)}
+.fw-no{display:block;font:11px var(--mono);color:var(--muted);margin-top:12px}
+.fw-ti{display:block;font:400 clamp(20px,2vw,26px)/1.2 var(--serif);margin-top:4px}
+.fw-sum{display:block;font:14.5px/1.55 var(--sans);color:var(--ink-2);margin-top:6px}
+.fw-meta{display:block;font:11px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:6px}
+.nf-links{margin-top:22px;font:15px/1.8 var(--sans)}
+@media (max-width:860px){.fw-list{grid-template-columns:1fr}}
+
+/* phone */
+@media (max-width:860px){
+  .head,.sec,.band .grid{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .intro{grid-template-columns:1fr;gap:24px;padding:28px 0 28px}
+  .sel{gap:8px;margin-bottom:30px}
+  .sel b{font-size:13px}.sel i{display:none}
+  .search{margin-left:0;width:100%}.search input{width:100%}.search kbd{display:none}
+  .ix td.ty,.ix td.pl,.ix td.go,.ix th.ty,.ix th.pl,.ix th.go{display:none}
+  .ix td{padding:11px 8px 11px 0}
+  .ix td.no{width:44px;font-size:10.5px}
+  .ix td.ti{font-size:19px}
+  .ix .alt{display:block;margin:2px 0 0;font-size:13px}
+  .ix .sub{display:block;font:12px/1.4 var(--sans);color:var(--muted);margin-top:3px}
+  .ix td.yr{width:auto;text-align:right}
+  .ix th.yr button{text-align:right;padding-right:0}
+  .ix .tag{margin:4px 0 0}
+  .pv{display:none}
+  .tracks{grid-template-columns:1fr}
+  .tracks > div + div{border-left:0;border-top:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:420px){
+  .xp{grid-template-columns:96px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* RESKIN 2026-11-08: phone header as on the home (mark only, nav scrolls sideways) */
+@media (max-width:760px){
+  .top .tb{height:56px;padding:0 16px;gap:12px}
+  .mark b,.mark i{display:none}
+  .snav{flex:1;justify-content:flex-end;gap:11px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .snav::-webkit-scrollbar{display:none}
+  .snav a{font-size:11px;letter-spacing:.06em}
+  :root[data-lang="zh"] .snav a{font-size:12.5px;letter-spacing:.02em}
+  .snav a.lang{padding:3px 7px}
+  .foot .wrap{padding:22px 16px 30px}
+}
+@media (min-width:761px) and (max-width:1100px){.mark i{display:none}}
+
+/* RESKIN 2026-11-08: content pages only (tool pages keep their own look) */
+.aw-page h1,.aw-page h2{font-weight:700;letter-spacing:-.02em}
+.aw-page h3{font-weight:600}
+.aw-page ::selection{background:var(--acc);color:var(--ink)}
+.aw-page .btn{border-radius:2px}
+.aw-page .btn:hover{background:var(--acc);border-color:var(--ink);color:var(--ink)}
+
+/* Lab tool: Spec Builder HK. Tokens from styles.css only (body.aw-tool); layout follows podium-pattern-studio.css. */
+.sb-h1zh{font-size:.62em;color:var(--ink-2);margin-left:.18em;white-space:nowrap}
+.head{padding:clamp(32px,4.5vw,64px) 0 clamp(22px,3vw,36px)}
+.head .lede{font-size:clamp(17px,1.6vw,21px);margin-top:16px}
+.head .facts{margin-top:clamp(18px,2.4vw,28px)}
+.sb-disc{border:1px solid var(--accent-ink);border-left-width:4px;padding:10px 14px;font-size:14px;line-height:1.55;color:var(--ink);background:var(--card);margin:0 0 18px}
+.sb-disc b{margin-right:4px}
+
+.sb{padding:clamp(12px,2vw,24px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.sb-plabel,.sb-railhead{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.sb-steps{border-top:1px solid var(--ink);padding:10px 0 12px}
+.sb-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:6px}
+.sb-type{display:flex;flex-direction:column;gap:3px;text-align:left;border:1px solid var(--ink);background:var(--card);color:var(--ink);border-radius:3px;padding:12px 14px;cursor:pointer;font:inherit}
+.sb-type b{font-size:16px}
+.sb-type small{font-size:12.5px;color:var(--ink-2)}
+.sb-type:hover b{color:var(--accent)}
+.sb-type[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sb-type[aria-pressed="true"] small{color:var(--paper);opacity:.85}
+.sb-type[aria-pressed="true"]:hover b{color:var(--paper)}
+
+.sb-proj{border-top:1px solid var(--ink);padding:8px 0 10px;margin-top:4px}
+.sb-proj summary,.sb-ai summary{font:11px/2.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.sb-projgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 14px;margin-top:6px}
+.sb-field{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--ink-2);min-width:0}
+.sb-field input,.sb-field select,.sb-field textarea{font:14px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:3px;padding:7px 8px;width:100%;box-sizing:border-box;min-width:0}
+.sb-field textarea{resize:vertical}
+.sb-field input:focus,.sb-field select:focus,.sb-field textarea:focus{outline:2px solid var(--accent);outline-offset:0}
+.sb-note{font-size:13px;color:var(--ink-2);margin:8px 0 0;line-height:1.55}
+.sb-hint{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;min-height:1.4em}
+.sb-hint.err{color:var(--accent-ink);font-weight:600}
+
+.sb-work{display:grid;grid-template-columns:220px minmax(0,1fr) minmax(300px,400px);gap:clamp(14px,2vw,24px);border-top:1px solid var(--ink);padding-top:12px;margin-top:6px;align-items:start}
+.sb-rail,.sb-main,.sb-preview{min-width:0}
+.sb-rail{position:sticky;top:12px}
+.sb-rail ul{list-style:none;margin:6px 0 0;padding:0}
+.sb-rail li{display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--rule-2);padding:2px 0}
+.sb-rail li input{flex:none;margin:0;width:16px;height:16px;accent-color:var(--ink)}
+.sb-rail li button{text-wrap:pretty;flex:1;min-width:0;text-align:left;background:none;border:0;padding:7px 2px;font:13.5px var(--sans);color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;gap:6px}
+.sb-rail li button .n{font:11px var(--mono);color:var(--muted);flex:none}
+.sb-rail li button .n.open{color:var(--accent-ink);font-weight:700}
+.sb-rail li.cur button{font-weight:700}
+.sb-rail li.cur{border-left:3px solid var(--ink);padding-left:4px}
+.sb-rail li.off button{color:var(--muted)}
+.sb-meter{margin-top:12px;font:12px/1.6 var(--mono);color:var(--ink)}
+.sb-bar{height:6px;background:var(--rule-2);border-radius:3px;overflow:hidden;margin:4px 0}
+.sb-bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.sb-meter .done{color:var(--accent);font-weight:700}
+
+.sb-mainhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px}
+.sb-mainhead h2{font-size:clamp(20px,2vw,26px);margin:0}
+.sb-mainbtns{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.sb-secintro{font-size:14px;color:var(--ink-2);margin:6px 0 10px}
+.sb-grp{font:11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px;border-bottom:1px solid var(--rule)}
+.sb-card{border:1px solid var(--rule);border-radius:3px;background:var(--card);padding:10px 12px;margin:0 0 8px}
+.sb-card.off{opacity:.55;background:transparent}
+.sb-card.has-open{border-left:3px solid var(--accent-ink)}
+.sb-card.ok{border-left:3px solid var(--accent)}
+.sb-chead{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 8px}
+.sb-chead input[type=checkbox]{margin:3px 0 0;width:16px;height:16px;flex:none;accent-color:var(--ink)}
+.sb-ctitle{flex:1;min-width:0;font-weight:600;font-size:15px;text-wrap:pretty}
+.sb-ctitle .num{font:12px var(--mono);color:var(--muted);margin-right:6px;font-weight:400}
+.sb-tag{font:10.5px/1.6 var(--mono);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--rule);border-radius:2px;padding:0 5px;color:var(--ink-2);white-space:nowrap}
+.sb-tag.ai{border-color:var(--accent-ink);color:var(--accent-ink);font-weight:700}
+.sb-ctext{font-size:14px;line-height:1.6;margin:6px 0 0;color:var(--ink)}
+.sb-ph{background:#fff1ec;color:var(--accent-ink);border-bottom:1px dashed var(--accent-ink);padding:0 2px;font-weight:600}
+.sb-fv{background:#eef3e2;padding:0 1px;border-radius:2px}
+.sb-fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 10px;margin-top:8px}
+.sb-fhint{font-size:11.5px;color:var(--muted);line-height:1.4}
+.sb-cfoot{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin-top:8px;font-size:12px;color:var(--ink-2)}
+.sb-cfoot .std{font:11px var(--mono);color:var(--muted)}
+.sb-guide{margin-top:6px;font-size:13px;color:var(--ink-2)}
+.sb-guide summary{cursor:pointer;font:11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.sb-guide p{margin:4px 0 0;line-height:1.55}
+.sb-chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer}
+.sb-chk input{accent-color:var(--ink)}
+.sb-custom textarea{min-height:64px}
+
+.sb-btn{font:12px var(--mono);letter-spacing:.04em;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:3px;padding:8px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.sb-btn:hover{color:var(--accent)}
+.sb-btn:disabled{opacity:.45;cursor:not-allowed}
+.sb-btn-p{background:var(--ink);color:var(--paper)}
+.sb-btn-p:hover{color:var(--paper);background:var(--accent)}
+.sb-btn-s{padding:5px 8px;font-size:11px}
+.sb-file{position:relative;overflow:hidden}
+.sb-file input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.sb-seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.sb-seg button{font:12px var(--mono);background:transparent;color:var(--ink);border:0;border-right:1px solid var(--ink);padding:6px 9px;cursor:pointer}
+.sb-seg button:last-child{border-right:0}
+.sb-seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+.sb-preview{position:sticky;top:12px}
+.sb-prevhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px}
+.sb-prevbody{margin-top:8px;border:1px solid var(--rule);background:#fff;border-radius:3px;padding:14px 16px;max-height:76vh;overflow:auto;font-size:13.5px;line-height:1.55}
+.sb-prevbody h3{font-size:15px;margin:0 0 6px}
+.sb-prevbody h4{font:11px/1.8 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:12px 0 2px}
+.sb-pc{margin:0 0 9px}
+.sb-pc .n{font:12px var(--mono);color:var(--ink-2);margin-right:6px}
+.sb-pc .t{font-weight:600}
+.sb-pc p{margin:2px 0 0}
+.sb-pc.both{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sb-pc.both>.sb-pchd{grid-column:1/-1}
+.sb-empty{color:var(--muted);font-style:italic}
+
+.sb-ai{border-top:1px solid var(--ink);margin-top:18px;padding-top:6px}
+.sb-aibody{padding:4px 0 6px}
+.sb-setup{font-size:13px;color:var(--ink-2);padding-left:18px;margin:8px 0}
+.sb-setup code,.sb-note code{font:12px var(--mono);background:var(--rule-2);padding:1px 4px;border-radius:2px;word-break:break-all}
+.sb-airow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin:8px 0}
+.sb-field-i{flex:1 1 160px}
+
+.sb-export{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:12px 0;margin-top:18px}
+.sb-sep{width:1px;height:24px;background:var(--rule);margin:0 4px}
+
+.sb-howto{margin:0;padding-left:20px;line-height:1.65}
+.sb-howto li{margin-bottom:8px}
+.sb-list2{list-style:none;margin:0;padding:0}
+.sb-list2 li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;border-top:1px solid var(--rule);padding:10px 0;line-height:1.6}
+.sb-p{line-height:1.65}
+.sb-discp{color:var(--ink-2);font-size:14px}
+
+#sb-print{display:none}
+
+@media (max-width:1200px){
+  .sb-work{grid-template-columns:200px minmax(0,1fr)}
+  .sb-preview{grid-column:1/-1;position:static}
+  .sb-prevbody{max-height:60vh}
+}
+@media (max-width:760px){
+  .sb-types,.sb-projgrid{grid-template-columns:minmax(0,1fr)}
+  .sb-work{grid-template-columns:minmax(0,1fr)}
+  .sb-rail{position:static}
+  .sb-rail ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px}
+  .sb-list2 li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .sb-pc.both{grid-template-columns:minmax(0,1fr)}
+  .sb-sep{display:none}
+  .sb-fields{grid-template-columns:minmax(0,1fr)}
+}
+
+/* v2: intake, types, tags, schedule tables */
+.sb-intake .sb-projgrid{margin-top:6px}
+.sb-flagbox{margin-top:10px}
+.sb-fl{display:block;font-size:12.5px;color:var(--ink-2);margin:10px 0 4px}
+.sb-flags{display:flex;flex-wrap:wrap;gap:6px 16px}
+.sb-tgroup{margin:6px 0 10px}
+.sb-tglabel{display:block;font:11px/1.8 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-bottom:4px}
+.sb-tag.t-S{border-color:var(--ink);color:var(--ink);font-weight:600}
+.sb-tag.t-LC{border-color:var(--accent-ink);color:var(--accent-ink)}
+.sb-tag.t-LL{border-style:dashed}
+.sb-tag.t-BP{opacity:.8}
+.sb-tagkey{margin:0 0 8px}
+.sb-sched{margin-top:14px}
+.sb-tabs{display:flex;flex-wrap:wrap;margin:8px 0}
+.sb-tblwrap{overflow-x:auto;max-width:min(100%,calc(100vw - 32px));border:1px solid var(--rule);border-radius:3px;background:var(--card);margin:6px 0 8px}
+.sb-tbl{border-collapse:collapse;font-size:13px;min-width:100%}
+.sb-tbl th{font:11px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:left;padding:6px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.sb-tbl td{padding:3px 4px;border-bottom:1px solid var(--rule);vertical-align:top}
+.sb-tbl input,.sb-tbl select{font:13px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:2px;padding:4px 5px;width:100%;box-sizing:border-box}
+.sb-pvh{display:flex;justify-content:space-between;gap:10px;font-size:11px;line-height:1.35;border-bottom:1px solid var(--ink);padding-bottom:4px;margin-bottom:6px;color:var(--ink-2)}
+.sb-pvh span:last-child{text-align:right}
+.sb-pvgs{font-size:12px;font-style:italic;color:var(--ink-2);margin:0 0 6px}
+.sb-pvtag{font-size:10px;color:var(--muted);font-weight:400}
+.sb-pvend{text-align:center;font-size:12px;margin:10px 0 0}
+#sb-setinfo{margin-top:6px}
+.sb-btn[hidden],.sb-field[hidden]{display:none!important}
+#sb-revs,#sb-table,.sb-proj,.sb-sched{min-width:0;max-width:100%}
+@media print{
+  @page land{size:A4 landscape}
+  body>*:not(#sb-print){display:none!important}
+  body{background:#fff!important}
+  #sb-print{display:block!important;color:#000;font:10pt/1.42 Arial,Helvetica,sans-serif}
+  #sb-print .doc{break-before:page}
+  #sb-print .doc:first-child{break-before:auto}
+  #sb-print .doc.land{page:land}
+  #sb-print .dh{display:flex;justify-content:space-between;font-size:8pt;line-height:1.35;border-bottom:.75pt solid #000;padding-bottom:3pt;margin-bottom:10pt}
+  #sb-print .dh .r{text-align:right}
+  #sb-print .cv{text-align:center;padding-top:60mm}
+  #sb-print .cv h1{font-size:20pt;margin:0 0 8pt}
+  #sb-print .cv h2{font-size:14pt;margin:0 0 4pt}
+  #sb-print .cv table{margin:30pt auto 0;width:80%;text-align:left}
+  #sb-print .pg{break-before:page}
+  #sb-print h3{font-size:11pt;margin:10pt 0 4pt;break-after:avoid}
+  #sb-print h4{font-size:9pt;margin:9pt 0 3pt 25mm;break-after:avoid}
+  #sb-print .gsl{font-style:italic;font-size:9pt;margin:0 0 8pt 25mm}
+  #sb-print .pc{display:grid;grid-template-columns:25mm 1fr;margin:0 0 6pt;break-inside:avoid}
+  #sb-print .pn,#sb-print .pt{font-weight:700}
+  #sb-print .pc p{margin:2pt 0 0}
+  #sb-print .tg{font-size:7pt;font-weight:400;color:#555}
+  #sb-print .ai{color:#c00;font-size:8pt}
+  #sb-print .end{text-align:center;margin-top:12pt}
+  #sb-print table{border-collapse:collapse;width:100%;font-size:8.5pt;margin:4pt 0 8pt}
+  #sb-print td,#sb-print th{border:.5pt solid #777;padding:2.5pt 4pt;text-align:left;vertical-align:top}
+  #sb-print th{background:#e7e7e7}
+  #sb-print table.kv td:first-child,#sb-print table.kv4 td:nth-child(odd){font-weight:700;width:28%;background:#f2f2f2}
+  #sb-print table.sm{font-size:7.5pt}
+  #sb-print .img{border:.5pt solid #777;height:60mm;font-size:8pt;color:#555;padding:4pt;margin:6pt 0}
+  #sb-print .note{font-size:7.5pt;margin:4pt 0 0 14pt;padding:0}
+  #sb-print .disc{font-size:8.5pt;font-style:italic}
+  #sb-print .lib{font-size:7.5pt;color:#555}
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+// Language (since 2026-10-18): one URL per language, English at /<page>/ and Chinese at /zh/<page>/.
+// The 中文 / EN button is a plain link. Old ?lang=zh|en links are sent to the matching page.
+(function(){
+  var root = document.documentElement, cur = root.getAttribute('data-lang'), alt = root.getAttribute('data-alt');
+  var q = (location.search.match(/[?&]lang=(zh|en)\b/) || [])[1];
+  if(q && q !== cur && alt){ try{ location.replace(new URL(alt, location.href).href + location.hash); return; }catch(e){} }
+  try{ localStorage.setItem('aw-lang', cur); }catch(e){}
+})();
+
+</script>
+</head>
+<body class="aw-tool">
+<header class="top">
+  <div class="tb">
+    <a class="mark" href="../../" aria-label="AW Design"><svg class="awm" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="190 160 644 640" aria-hidden="true"> <g class="aw-grid" stroke="currentColor" stroke-opacity=".12" stroke-width="2" fill="none"> <path d="M212 200V824M352 160V864M512 140V884M667 160V864M812 200V824"/> <path d="M200 212H824M160 362H864M140 512H884M160 662H864M200 812H824"/> </g> <g fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-linecap="square"> <path d="M222 720 L352 300 L482 720" stroke-width="32"/> <path d="M274 560 H430" stroke-width="20"/> <path d="M532 300 L592 720 L667 450 L742 720 L802 300" stroke-width="32"/> </g> <path d="M200 744 H824" stroke="currentColor" stroke-width="10"/> <g stroke="currentColor" stroke-opacity=".4" stroke-width="3"><path d="M230 756l-18 18M270 756l-18 18M310 756l-18 18M350 756l-18 18M390 756l-18 18M430 756l-18 18M470 756l-18 18M510 756l-18 18M550 756l-18 18M590 756l-18 18M630 756l-18 18M670 756l-18 18M710 756l-18 18M750 756l-18 18M790 756l-18 18"/></g> <circle cx="667" cy="450" r="24" style="fill:var(--aw-accent,#E3342B)"/><circle cx="667" cy="450" r="42" fill="none" style="stroke:var(--aw-accent,#E3342B)" stroke-opacity=".45" stroke-width="4"/> </svg><b>AW DESIGN</b><i>AI × Architecture practice</i></a>
+    <nav class="snav" aria-label="Main"><a href="../../#services"><span class="en">Services</span></a><a href="../../work/"><span class="en">Work</span></a><a href="../../courses/"><span class="en">Courses</span></a><a href="../../journal/"><span class="en">Journal</span></a><a href="../../lab/" aria-current="page"><span class="en">Lab</span></a><a href="../../contact/"><span class="en">Contact</span></a><a class="lang" id="langBtn" href="../../zh/lab/spec-builder-hk/" hreflang="zh-Hant-HK" lang="zh-Hant" data-to="zh">中文</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<!-- Lab tool Spec Builder HK · 建築規範產生器 v2 (rebuilt 8 Nov 2026 after Anzon's review: real HK spec set format from
+     REAL_SPEC_PATTERNS.md, English-only output, 13 building types and the driver research). One page, no backend: the app is
+     src/pages/spec-builder-hk.js, inlined by build.py; the clause library, drivers and codes are JSON in
+     lab/spec-builder-hk/library/ (copied by lab_spec_builder/assets.py). EN and zh pages are separate builds (strip_lang);
+     the zh page translates the interface only, the specification is always English. docx (MIT) loads from jsDelivr on export. -->
+<header class="head">
+  <div class="label"><a href="../../lab/" style="text-decoration:none">02 / <span class="en">Lab</span></a></div>
+  <div>
+    <span class="kind"><span class="en">Specification drafting aid · Hong Kong · Hobby project</span></span>
+    <h1>Spec Builder HK <span class="sb-h1zh" lang="zh-Hant">建築規範產生器</span></h1>
+    <p class="lede en">Draft a Hong Kong architectural specification set the way practices issue them. Answer four questions on the statutory route, Use Class, licence and delivery, pick one of 13 building types, then adjust the clauses, rooms, doors and materials. The export is a set: cover and issue sheet, a statement adopting the ArchSD General Specification by reference, a Particular Specification for each trade numbered to the GS sections, material data sheets, a Finishes Schedule, a Door and Ironmongery Schedule and an Open Items list, all linked by codes. The specification is in English.</p>
+    
+    <div class="facts">
+      <div><b><span class="en">Library</span></b><span id="sb-libfact"><span class="en">16 PS sections</span></span></div>
+      <div><b><span class="en">Exports</span></b><span class="en">.docx set, .zip of documents, .pdf, project file</span></div>
+      <div><b><span class="en">Privacy</span></b><span class="en">Runs in your browser. Nothing is uploaded</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="sb-disc" role="note">
+  <b><span class="en">Draft only.</span></b>
+  <span class="en">Everything this tool writes is a starting point for the project team. Check it against the current General Specification, the Buildings Ordinance and its codes, any licence requirements and the contract before issue. It is not a substitute for professional judgement, and AW Design gives no warranty.</span>
+  
+</div>
+
+<section class="sb" id="tool" aria-label="Spec Builder HK">
+  <div class="sb-steps sb-intake" role="group" aria-label="Statutory drivers">
+    <span class="sb-plabel"><span class="en">1. Four questions first</span></span>
+    <div class="sb-projgrid">
+      <label class="sb-field"><span class="en">Q1 Submission route</span><select id="sb-route"></select></label>
+      <label class="sb-field"><span class="en">Q2 FS Code Use Class</span><select id="sb-uc"></select></label>
+      <label class="sb-field" id="sb-compwrap"><span class="en">Q2 Compartment size</span><select id="sb-comp"></select></label>
+      <label class="sb-field"><span class="en">Q3 Licence sought</span><select id="sb-lic"></select></label>
+    </div>
+    <div class="sb-flagbox"><span class="sb-fl"><span class="en">Q4 Delivery flags</span></span><div id="sb-flags" class="sb-flags"></div></div>
+    <p class="sb-note" id="sb-frr" aria-live="polite"></p>
+  </div>
+
+  <div class="sb-steps" role="group" aria-label="Building type">
+    <span class="sb-plabel"><span class="en">2. Building type</span></span>
+    <div id="sb-types"></div>
+  </div>
+
+  <details class="sb-proj" id="sb-proj" open>
+    <summary><span class="en">3. Project and document control</span></summary>
+    <div class="sb-projgrid">
+      <label class="sb-field"><span class="en">Project name</span><input type="text" id="sb-pname" autocomplete="off"></label>
+      <label class="sb-field"><span class="en">Address</span><input type="text" id="sb-paddr" autocomplete="off"></label>
+      <label class="sb-field"><span class="en">Client</span><input type="text" id="sb-pclient" autocomplete="off"></label>
+      <label class="sb-field"><span class="en">Contract form</span><select id="sb-pcontract"></select></label>
+      <label class="sb-field"><span class="en">Contract administrator</span><select id="sb-pca"></select></label>
+      <label class="sb-field"><span class="en">Job / document prefix</span><input type="text" id="sb-pref" autocomplete="off" placeholder="e.g. J2611-SP"></label>
+      <label class="sb-field"><span class="en">Contract / package</span><input type="text" id="sb-ppkg" autocomplete="off"></label>
+      <label class="sb-field"><span class="en">Prepared by (optional)</span><input type="text" id="sb-pby" autocomplete="off"></label>
+    </div>
+    <p class="sb-note" id="sb-contractnote"></p>
+    <div class="sb-fl"><span class="en">Revisions (the last row is the current issue)</span></div>
+    <div id="sb-revs"></div>
+  </details>
+
+  <div class="sb-work">
+    <nav class="sb-rail" aria-label="Particular Specification sections">
+      <div class="sb-railhead"><span class="en">4. Particular Specification</span></div>
+      <ul id="sb-sections"></ul>
+      <div class="sb-meter" id="sb-meter" aria-live="polite"></div>
+    </nav>
+
+    <div class="sb-main">
+      <div class="sb-mainhead">
+        <h2 id="sb-sectitle"></h2>
+        <div class="sb-mainbtns">
+          <button type="button" class="sb-btn sb-btn-s" id="sb-allon"><span class="en">Include all</span></button>
+          <button type="button" class="sb-btn sb-btn-s" id="sb-alloff"><span class="en">Exclude all</span></button>
+          <label class="sb-chk"><input type="checkbox" id="sb-onlyopen"><span class="en">Only clauses with open items</span></label>
+        </div>
+      </div>
+      <p class="sb-secintro" id="sb-secintro"></p>
+      <p class="sb-note sb-tagkey"><span class="en">Source marks: S statutory · LC licence condition · LL landlord rule · BP best practice (no HK statute).</span></p>
+      <div id="sb-cards" class="sb-cards"></div>
+
+      <details class="sb-ai" id="sb-ai">
+        <summary><span class="en">Draft a clause from my note (optional, local AI)</span></summary>
+        <div class="sb-aibody">
+          <p class="sb-note"><span class="en">Off by default. It sends your note only to an AI model running on your own computer, such as Ollama. There is no paid service and no key in this page. If you have no local model, use "Copy prompt" and paste it into whatever AI your office already uses.</span></p>
+          <ol class="sb-setup">
+            <li><span class="en">Install Ollama and pull a model, e.g.</span> <code>ollama pull qwen2.5:7b</code></li>
+            <li><span class="en">Allow this site to call it: set</span> <code>OLLAMA_ORIGINS=https://anzonwong.com</code> <span class="en">then restart Ollama.</span></li>
+            <li><span class="en">Tick "Use my local model", check the address, write a note, press Draft.</span></li>
+          </ol>
+          <div class="sb-airow">
+            <label class="sb-chk"><input type="checkbox" id="sb-aion"><span class="en">Use my local model</span></label>
+            <label class="sb-field sb-field-i"><span class="en">Address</span><input type="url" id="sb-aiurl" value="http://localhost:11434" autocomplete="off"></label>
+            <label class="sb-field sb-field-i"><span class="en">Model</span><input type="text" id="sb-aimodel" value="qwen2.5:7b" autocomplete="off"></label>
+          </div>
+          <label class="sb-field"><span class="en">Your note</span><textarea id="sb-ainote" rows="3"></textarea></label>
+          <div class="sb-airow">
+            <button type="button" class="sb-btn" id="sb-aigo" disabled><span class="en">Draft</span></button>
+            <button type="button" class="sb-btn" id="sb-aicopy"><span class="en">Copy prompt</span></button>
+            <button type="button" class="sb-btn" id="sb-addblank"><span class="en">Add a blank clause</span></button>
+          </div>
+          <p class="sb-hint" id="sb-aimsg" aria-live="polite"></p>
+        </div>
+      </details>
+    </div>
+
+    <aside class="sb-preview" aria-label="Preview">
+      <div class="sb-prevhead"><span class="sb-plabel"><span class="en">Preview, as issued</span></span></div>
+      <div class="sb-prevbody" id="sb-prev"></div>
+    </aside>
+  </div>
+
+  <div class="sb-steps sb-sched" role="group" aria-label="Codes and schedules">
+    <span class="sb-plabel"><span class="en">5. Codes and schedules</span></span>
+    <p class="sb-note"><span class="en">Codes link the documents: rooms take finish system codes (FL, SK, WL, CL), systems cite material codes (TL, PT, VF...), doors take a hardware set (HS) made of item codes (H1, C1, L1...). The Particular Specification clauses list the codes that apply.</span></p>
+    <div class="sb-seg sb-tabs" id="sb-tabs" role="group" aria-label="Tables"></div>
+    <div id="sb-table"></div>
+    <button type="button" class="sb-btn sb-btn-s" id="sb-codesreset"><span class="en">Reset to building type defaults</span></button>
+  </div>
+
+  <div class="sb-export" role="group" aria-label="Export">
+    <span class="sb-plabel"><span class="en">6. Export the set</span></span>
+    <button type="button" class="sb-btn sb-btn-p" id="sb-xdocx"><span class="en">Export .docx set</span></button>
+    <button type="button" class="sb-btn" id="sb-xzip"><span class="en">Export .zip (one .docx per document)</span></button>
+    <button type="button" class="sb-btn" id="sb-xpdf"><span class="en">Export .pdf</span></button>
+    <label class="sb-chk"><input type="checkbox" id="sb-marks" checked><span class="en">Source marks on clause titles</span></label>
+    <span class="sb-sep"></span>
+    <button type="button" class="sb-btn" id="sb-save"><span class="en">Save project</span></button>
+    <label class="sb-btn sb-file"><span class="en">Open project</span><input type="file" id="sb-open" accept=".json,application/json"></label>
+    <span class="sb-sep"></span>
+    <button type="button" class="sb-btn" id="sb-libx"><span class="en">Download library JSON</span></button>
+    <label class="sb-btn sb-file"><span class="en">Import office library</span><input type="file" id="sb-libi" accept=".json,application/json"></label>
+    <button type="button" class="sb-btn" id="sb-libreset" hidden><span class="en">Remove office library</span></button>
+    <button type="button" class="sb-btn" id="sb-reset"><span class="en">Start again</span></button>
+  </div>
+  <p class="sb-note" id="sb-setinfo" aria-live="polite"></p>
+  <p class="sb-hint" id="sb-msg" aria-live="polite"></p>
+</section>
+
+<section class="sec" id="how">
+  <div class="label"><span class="en">How it works</span></div>
+  <div>
+    <ol class="sb-howto en">
+      <li><b>Drivers first.</b> In Hong Kong the submission route, the FS Code Use Class, the licence and the delivery mode move more clause text than the building type does. The four answers set the fire rating, the licence clauses and the A&amp;A, MiC, heritage and notice clauses.</li>
+      <li><b>Building type.</b> Thirteen types in three groups tick the Particular Specification sections and clauses that usually apply, and load default rooms, doors, hardware sets and materials.</li>
+      <li><b>Source marks.</b> Every clause says why it is there: S statutory, LC licence condition, LL landlord rule or BP best practice. Strip the BP layer for a lean tender or keep it for quality.</li>
+      <li><b>Set, not a single document.</b> The export follows the way HK practices issue specifications: GS adopted by reference with its section numbers, a Particular Specification per trade (PS-18 for Finishes, and so on), each with its own page numbers and revision log, then data sheets and schedules keyed by codes.</li>
+      <li><b>Open items.</b> Anything not yet decided appears in the documents as TBC with an item number and is listed in the Open Items document, so the clause text never shows raw blanks.</li>
+      <li><b>Your office master.</b> An office can import its own clause library in the same JSON shape. Clauses with the same id replace ours, new ones are added. It stays in this browser.</li>
+    </ol>
+    
+  </div>
+</section>
+
+<section class="sec" id="limits">
+  <div class="label"><span class="en">Limits</span></div>
+  <div>
+    <ul class="sb-list2">
+      <li><b><span class="en">Own words</span></b><span><span class="en">No text from the ArchSD General Specification for Building, the Housing Authority Specification Library, NBS or any standard is reproduced. The GS is adopted by reference using its section numbers and titles only.</span></span></li>
+      <li><b><span class="en">Statutory values</span></b><span><span class="en">Values from codes, practice notes and licence guides are defaults with their source marked. The project's Authorized Person and consultants confirm them for each building.</span></span></li>
+      <li><b><span class="en">Gaps</span></b><span><span class="en">Hong Kong has no statutory source for acoustics, glazing safety classes, kitchen slip ratings or wet-area waterproofing outside guesthouses and MiC. Those clauses are marked BP and are the first to review.</span></span></li>
+      <li><b><span class="en">Language</span></b><span><span class="en">The specification is English only, as HK tender specifications are. Where a statute requires a bilingual sign, the clause asks for the Chinese wording on the sign itself.</span></span></li>
+      <li><b><span class="en">Local AI</span></b><span><span class="en">A clause drafted by your local model is marked "AI draft, verify" in the tool and in every export until you clear the mark.</span></span></li>
+    </ul>
+    <p class="sb-p sb-discp"><span class="en">A free hobby tool by AW Design. A drafting aid, not professional advice.</span></p>
+  </div>
+</section>
+
+<section class="sec" id="credits">
+  <div class="label"><span class="en">Credits</span></div>
+  <div>
+    <ul class="sb-list2">
+      <li><b><span class="en">Word export</span></b><span><a href="https://github.com/dolanmiu/docx" rel="noopener">docx</a> 9.5.1 <span class="en">by Dolan Miu, MIT licence, loaded from jsDelivr only when you export.</span></span></li>
+      <li><b><span class="en">References</span></b><span><span class="en">Section numbers and titles from the</span> <a href="https://www.archsd.gov.hk/en/publications-publicity/general-specification-for-building.html" rel="noopener"><span class="en">ArchSD General Specification for Building, 2022 Edition (Corrigendum GS 2022-05)</span></a><span class="en">; codes and practice notes from the</span> <a href="https://www.bd.gov.hk/en/resources/codes-and-references/index.html" rel="noopener"><span class="en">Buildings Department</span></a>.</span></li>
+      <li><b><span class="en">Method</span></b><span><span class="en">The pick-a-section, pick-an-option way of writing a specification that UK spec software (NBS Chorus) made familiar. No text, numbering or guidance from it is used.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="fr"><a class="fmark" href="../../" aria-label="AW Design"><svg class="awm awm-f" xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="190 160 644 640" aria-hidden="true"> <g class="aw-grid" stroke="currentColor" stroke-opacity=".12" stroke-width="2" fill="none"> <path d="M212 200V824M352 160V864M512 140V884M667 160V864M812 200V824"/> <path d="M200 212H824M160 362H864M140 512H884M160 662H864M200 812H824"/> </g> <g fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-linecap="square"> <path d="M222 720 L352 300 L482 720" stroke-width="32"/> <path d="M274 560 H430" stroke-width="20"/> <path d="M532 300 L592 720 L667 450 L742 720 L802 300" stroke-width="32"/> </g> <path d="M200 744 H824" stroke="currentColor" stroke-width="10"/> <g stroke="currentColor" stroke-opacity=".4" stroke-width="3"><path d="M230 756l-18 18M270 756l-18 18M310 756l-18 18M350 756l-18 18M390 756l-18 18M430 756l-18 18M470 756l-18 18M510 756l-18 18M550 756l-18 18M590 756l-18 18M630 756l-18 18M670 756l-18 18M710 756l-18 18M750 756l-18 18M790 756l-18 18"/></g> <circle cx="667" cy="450" r="24" style="fill:var(--aw-accent,#E3342B)"/><circle cx="667" cy="450" r="42" fill="none" style="stroke:var(--aw-accent,#E3342B)" stroke-opacity=".45" stroke-width="4"/> </svg><b>AW DESIGN</b></a><nav class="fnav" aria-label="Footer"><a href="../../work/"><span class="en">Work</span></a><a href="../../lab/"><span class="en">Lab</span></a><a href="../../courses/"><span class="en">Courses</span></a><a href="../../journal/"><span class="en">Journal</span></a><a href="../../about/"><span class="en">About</span></a><a href="../../contact/"><span class="en">Contact</span></a></nav></div>
+    <p><span class="en">© 2026 Anzon Wong · AW Design is my practice label, not a registered company · Lab tools are hobby projects, not professional advice</span> · <a href="mailto:anzon@anzonwong.com">anzon@anzonwong.com</a></p>
+  </div>
+</footer>
+<script>
+/* Spec Builder HK v2. Lab tool, anzonwong.com, 8 Nov 2026. No backend; nothing leaves the browser except
+   (a) the docx library fetched from jsDelivr when a Word export is asked for and (b) the optional local-AI call to an
+   address the user types (default http://localhost:11434, off by default).
+   Model: drivers (4 intake questions + 13 building types) + clause library (one JSON per PS section, English) + codes
+   (materials, finish systems, rooms, doors, hardware) -> project state -> a specification SET: document control,
+   General Specification adoption statement, Particular Specification per trade (PS-nn, GS-aligned), material data
+   sheets, Finishes Schedule, Door and Ironmongery Schedule and Open Items. Exports: one .docx with a section per
+   document, a .zip of separate .docx documents, and print-to-PDF. Specification output is English only. */
+(function () {
+'use strict';
+var ZH = document.documentElement.getAttribute('data-lang') === 'zh';
+function T(en, zh) { return ZH ? zh : en; }
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function pad(n, w) { n = String(n); while (n.length < w) n = '0' + n; return n; }
+function L(o) { return o ? (ZH && o.zh ? o.zh : (o.en || o.zh || '')) : ''; }
+function E(o) { return o ? (o.en || '') : ''; }
+function today() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1, 2) + '-' + pad(d.getDate(), 2); }
+function cloneJ(o) { return JSON.parse(JSON.stringify(o)); }
+function caps(s) { return String(s || '').toUpperCase(); }
+
+var BASE = ZH ? '../../../lab/spec-builder-hk/library/' : 'library/';
+var DOCX_URL = 'https://cdn.jsdelivr.net/npm/docx@9.5.1/dist/index.iife.js';
+var DOCX_SRI = 'sha384-HWC8sFPgg/WYrr43jIR6e0YIKgPkS3VLdteGgh9MFlUet3xdAVEM8YS69xP4Puse';
+var KEY_P = 'sbhk-project-v2', KEY_O = 'sbhk-officelib-v2';
+
+var CTYPES = {
+  outline: { en: 'System outline', zh: '系統概述' }, performance: { en: 'Performance', zh: '性能' },
+  product: { en: 'Product', zh: '產品' }, execution: { en: 'Execution', zh: '施工' }, completion: { en: 'Completion', zh: '竣工' }
+};
+var TAGN = { S: { en: 'Statutory', zh: '法定' }, LC: { en: 'Licence condition', zh: '牌照條件' }, LL: { en: 'Landlord rule', zh: '業主規則' }, BP: { en: 'Best practice', zh: '良好做法' } };
+var CONTRACTS = {
+  hklump: { en: 'HK private lump sum contract (standard form)', zh: '香港私人工程總價合約（標準格式）', ca: 'arch' },
+  gov: { en: 'HK Government General Conditions of Contract', zh: '香港政府工程合約一般條款', ca: 'so' },
+  nec: { en: 'NEC Engineering and Construction Contract', zh: 'NEC 工程及建造合約', ca: 'pm',
+    note: { en: 'NEC: read "approved" as "accepted" and the contract administrator as the Project Manager. Check the term mapping against the contract data with your QS.',
+            zh: 'NEC：「批准」應理解為「接受」，合約管理人即項目經理。請與工料測量師按合約資料核對用語對照。' } },
+  other: { en: 'Other (state in the contract)', zh: '其他（按合約註明）', ca: 'ca' }
+};
+var ROLES = { arch: { en: 'the Architect', zh: '建築師' }, so: { en: 'the Supervising Officer', zh: '監督人員' }, pm: { en: 'the Project Manager', zh: '項目經理' }, ca: { en: 'the Contract Administrator', zh: '合約管理人' } };
+var STATUSES = [['draft', 'Draft'], ['qs', 'For QS review'], ['tender', 'For Tender'], ['addendum', 'Tender Addendum'], ['contract', 'Contract']];
+var USR_GROUP = { id: 'USR', title: { en: 'Project additions', zh: '項目新增條款' } };
+var DISC = 'Prepared with Spec Builder HK, a free drafting aid by AW Design. The project team must check every clause against the current General Specification for Building, the Buildings Ordinance and its codes, any licence requirements and the contract before issue. It is not a substitute for professional judgement and AW Design gives no warranty.';
+var MSNOTE = ['The English wording of this sheet governs.', 'All products shall be submitted to {CA} for approval before ordering.', 'Quality shall be as the contract and the Particular Specification.', 'The Contractor shall verify all dimensions and quantities on site.', 'Extent and location are as shown on the drawings and schedules.', 'Supplier information, where given, is for reference only.', 'The Contractor may propose an equivalent product of equal or better performance for approval.'];
+var FAMN = { TL: 'tiles', VF: 'resilient flooring', CA: 'carpet', RB: 'rubber flooring', SP: 'sports floor', EP: 'floor hardener and resin', ST: 'stone', GB: 'board ceilings', AC: 'ceiling tiles', MC: 'metal ceilings', PT: 'paints', LP: 'laminates', TB: 'timber', MT: 'metal', GL: 'glass', AL: 'aluminium', WM: 'waterproofing', SL: 'sealants', SG: 'signs', FX: 'sanitary fittings' };
+
+/* ---------- storage (never required) ---------- */
+function sget(k) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+function sset(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+
+/* ---------- library ---------- */
+var BASELIB = null, OFFICE = null, LIB = null, DRV = null, CODES = null;
+function normaliseLib(j) {
+  if (!j) throw new Error('empty');
+  var files = Array.isArray(j) ? j : j.files ? j.files : j.section ? [j] : null;
+  if (!files || !files.length) throw new Error(T('No sections found in this file.', '檔案內找不到任何分項。'));
+  files.forEach(function (f, i) {
+    if (!f.section || !f.section.code || !Array.isArray(f.clauses)) throw new Error(T('Section ' + (i + 1) + ' is missing "section" or "clauses".', '第 ' + (i + 1) + ' 個分項缺少 "section" 或 "clauses"。'));
+    f.clauses.forEach(function (c) { if (!c.id || !c.text || !(c.text.en || c.text.zh)) throw new Error(T('A clause in section ' + f.section.code + ' has no id or text.', '分項 ' + f.section.code + ' 有條款缺少編號或條文。')); });
+  });
+  return { format: 'sbhk-library', library: j.library || (files[0] && files[0].library) || 'Office library', version: j.version || (files[0] && files[0].version) || '', date: j.date || (files[0] && files[0].date) || '', files: files };
+}
+function merge() {
+  var secs = {}, order = [], allT = DRV.types.map(function (t) { return t.id; });
+  function addFile(f, origin) {
+    var code = f.section.code, s = secs[code];
+    if (!s) {
+      s = secs[code] = { code: code, id: f.section.id || code, title: f.section.title, intro: f.section.intro || null, related: f.section.related || [],
+        types: f.section.types || allT, optional: f.section.optional || [], flagsOn: f.section.flagsOn || [], groups: [], clauses: [], standards: {}, origin: origin };
+      order.push(code);
+    } else if (origin === 'office') {
+      ['title', 'intro', 'related', 'types', 'optional', 'flagsOn'].forEach(function (k) { if (f.section[k]) s[k] = f.section[k]; });
+    }
+    (f.groups || []).forEach(function (g) { var ex = s.groups.filter(function (x) { return x.id === g.id; })[0]; if (ex) ex.title = g.title; else s.groups.push(cloneJ(g)); });
+    Object.keys(f.standards || {}).forEach(function (k) { s.standards[k] = f.standards[k]; });
+    f.clauses.forEach(function (c0) {
+      var c = cloneJ(c0); c.origin = origin; c.section = code;
+      if (!c.group) c.group = 'GEN';
+      if (!c.tags) c.tags = ['BP'];
+      if (!c.types && !c.when && c.projectTypes) c.types = allT;
+      if (!s.groups.some(function (g) { return g.id === c.group; })) s.groups.push({ id: c.group, title: { en: c.group } });
+      var i = -1; s.clauses.forEach(function (x, j) { if (x.id === c.id) i = j; });
+      if (i >= 0) s.clauses[i] = c; else s.clauses.push(c);
+    });
+  }
+  BASELIB.files.forEach(function (f) { addFile(f, 'base'); });
+  if (OFFICE) {
+    OFFICE.files.forEach(function (f) { addFile(f, 'office'); });
+    var seen = {};
+    order.slice().reverse().forEach(function (code) { secs[code].clauses = secs[code].clauses.filter(function (c) { if (seen[c.id] && c.origin === 'base') return false; seen[c.id] = true; return true; }); });
+  }
+  order.sort();
+  var byId = {}, bySid = {};
+  order.forEach(function (code) { bySid[secs[code].id] = secs[code]; secs[code].clauses.forEach(function (c) { byId[c.id] = c; }); });
+  LIB = { version: BASELIB.version, date: BASELIB.date, office: OFFICE ? (OFFICE.library + (OFFICE.version ? ' v' + OFFICE.version : '')) : null, sections: order.map(function (k) { return secs[k]; }), byId: byId, bySid: bySid };
+}
+function libFileOf(s) {
+  return { library: 'AW Design Spec Builder HK', version: LIB.version, date: LIB.date,
+    section: { code: s.code, id: s.id, title: s.title, intro: s.intro, related: s.related, types: s.types, optional: s.optional, flagsOn: s.flagsOn },
+    groups: s.groups, standards: s.standards, clauses: s.clauses.map(function (c) { var o = cloneJ(c); delete o.origin; delete o.section; return o; }) };
+}
+
+/* ---------- project state ---------- */
+var st = null;
+function blank() {
+  return { v: 2, type: null, intake: { route: '', uc: '', comp: 'le2500', lic: '', flags: {} },
+    proj: { name: '', addr: '', client: '', contract: 'hklump', ca: 'arch', ref: '', pkg: 'Main Contract Tender', by: '', status: 'draft', marks: true },
+    revs: [{ rev: 'A', date: today(), status: 'draft', note: 'First issue', by: '' }],
+    cur: null, secs: {}, cl: {}, custom: [], codes: null, codesType: null, codesEdited: false, tab: 'materials', onlyOpen: false };
+}
+var saveT = 0;
+function save() { clearTimeout(saveT); saveT = setTimeout(function () { sset(KEY_P, st); }, 250); }
+function typeOf() { return DRV.types.filter(function (t) { return t.id === st.type; })[0] || null; }
+function sections() { return LIB.sections; }
+function secBy(code) { return LIB.sections.filter(function (s) { return s.code === code; })[0]; }
+function customOf(code) { return st.custom.filter(function (c) { return c.section === code; }); }
+function clausesOf(s) { return s.clauses.concat(customOf(s.code)); }
+function clauseBy(id) { return LIB.byId[id] || st.custom.filter(function (c) { return c.id === id; })[0]; }
+function cs(id) { return st.cl[id] || (st.cl[id] = { vals: {} }); }
+
+/* ---------- drivers: effective intake and conditions ---------- */
+function eff(k) {
+  var v = st.intake[k], t = typeOf();
+  if (v) return v;
+  if (!t) return null;
+  return t[k] || (k === 'uc' ? null : null);
+}
+function effFlags() {
+  var t = typeOf(), out = [];
+  DRV.flags.forEach(function (f) {
+    var x = st.intake.flags[f.v];
+    if (x === true || (x == null && t && t.flags.indexOf(f.v) >= 0)) out.push(f.v);
+  });
+  return out;
+}
+function ucOf(uc) { return DRV.useclasses.filter(function (x) { return x.v === uc; })[0] || null; }
+/* FS Code Table C1: a fixed FRR, or one that depends on the compartment size (frrBy); null = no figure in Table C1 */
+function frrOf() {
+  var u = ucOf(eff('uc')); if (!u) return null;
+  if (u.frrBy) return u.frrBy[st.intake.comp || 'le2500'] || null;
+  return u.frr || null;
+}
+function compText() { return (DRV.compartments.filter(function (c) { return c.v === (st.intake.comp || 'le2500'); })[0] || {}).en; }
+/* why the FRR is open: no Use Class yet, or Table C1 gives no figure for this class and compartment size */
+function frrWhy() {
+  var u = ucOf(eff('uc'));
+  if (u && u.v !== 'tbc') return 'FS Code Table C1 gives no rating for Use Class ' + u.v + (u.frrBy ? ' with a compartment of ' + compText().toLowerCase() : '') + ' (Note 1: decided on individual merits): confirm with the project\'s Authorized Person';
+  return 'Confirm the fire resistance rating from FS Code Table C1 once the Use Class is confirmed';
+}
+/* Use Class taken from the building type, not chosen by the user */
+function ucNoteOf() { var t = typeOf(); return t && t.ucNote && !st.intake.uc ? t.ucNote : ''; }
+function ctx() { return { types: st.type ? [st.type] : [], route: eff('route'), uc: eff('uc'), frr: frrOf(), lic: eff('lic') || 'none', flags: effFlags(), comp: st.intake.comp }; }
+function match(w, cx) {
+  if (!w) return true;
+  cx = cx || ctx();
+  return Object.keys(w).every(function (k) {
+    var want = w[k];
+    if (k === 'types') return cx.types.some(function (t) { return want.indexOf(t) >= 0; });
+    if (k === 'flags') return cx.flags.some(function (f) { return want.indexOf(f) >= 0; });
+    return want.indexOf(cx[k]) >= 0;
+  });
+}
+function secDefault(s, cx) {
+  cx = cx || ctx();
+  if (!st.type) return false;
+  if (s.types.indexOf(st.type) >= 0) return true;
+  return (s.flagsOn || []).some(function (f) { return cx.flags.indexOf(f) >= 0; });
+}
+function secOn(s) { var o = st.secs[s.code]; return typeof o === 'boolean' ? o : secDefault(s); }
+function defInc(c, cx) {
+  if (c.custom) return true;
+  if (c.include === false || !st.type) return false;
+  if (c.types && c.types.indexOf(st.type) < 0) return false;
+  return match(c.when, cx);
+}
+function inc(c, cx) { var x = st.cl[c.id]; return x && typeof x.inc === 'boolean' ? x.inc : defInc(c, cx); }
+function tagsOf(c, cx) {
+  var t = c.tags || ['BP'];
+  (c.tagWhen || []).forEach(function (tw) { if (match(tw.when, cx)) t = tw.tags; });
+  return t;
+}
+function groupsOf(s) { var gs = s.groups.slice(); if (customOf(s.code).length) gs.push(USR_GROUP); return gs; }
+
+/* ---------- numbering: PS nn.01 Scope, nn.02 GS relationship, then included clauses ---------- */
+function numbering() {
+  var map = {}, list = [], cx = ctx();
+  sections().forEach(function (s) {
+    if (!secOn(s)) return;
+    var k = 2, all = clausesOf(s);
+    groupsOf(s).forEach(function (g) {
+      all.filter(function (c) { return c.group === g.id && inc(c, cx); }).forEach(function (c) {
+        k++; var n = s.code + '.' + pad(k, 2); map[c.id] = n; list.push({ c: c, n: n, s: s, g: g });
+      });
+    });
+  });
+  return { map: map, list: list };
+}
+
+/* ---------- text resolution: segments {k:'t'|'v'|'o', s, key?, why?} ---------- */
+var TOKRE = /\[\[([A-Za-z0-9_]+)\]\]|\{\{ref:([A-Z0-9-]+)\}\}|\{\{sec:([A-Z]+)\}\}|\{\{(CA|FRR|ROUTE)\}\}/g;
+function fieldOf(c, k) { return (c.fields && c.fields[k]) || { label: { en: k.replace(/_/g, ' ') }, kind: 'text', default: null }; }
+function valOf(c, k, cx) {
+  var x = st.cl[c.id], f = fieldOf(c, k);
+  if (x && x.vals && Object.prototype.hasOwnProperty.call(x.vals, k) && x.vals[k] != null && x.vals[k] !== '') return x.vals[k];
+  var by = (f.by || []).filter(function (b) { return match(b.when, cx); })[0];
+  var v = by ? by.v : f.default;
+  return v == null || v === '' ? null : v;
+}
+function showVal(f, v) {
+  if (f.kind === 'select') { var o = (f.options || []).filter(function (o) { return String(o.v) === String(v); })[0]; return o ? E(o) : String(v); }
+  return String(v);
+}
+function segs(c, num, cx, depth) {
+  cx = cx || ctx();
+  var src = typeof c.text === 'string' ? c.text : E(c.text), out = [], last = 0, m, re = new RegExp(TOKRE.source, 'g');
+  while ((m = re.exec(src))) {
+    if (m.index > last) out.push({ k: 't', s: src.slice(last, m.index) });
+    if (m[1]) {
+      var f = fieldOf(c, m[1]), v = valOf(c, m[1], cx);
+      if (v == null) out.push({ k: 'o', s: '[' + E(f.label) + ']', key: m[1], why: 'Confirm ' + E(f.label).charAt(0).toLowerCase() + E(f.label).slice(1) });
+      else {
+        var sv = showVal(f, v);
+        if (!depth && /\{\{/.test(sv)) segs({ id: c.id, text: sv, fields: {} }, num, cx, 1).forEach(function (x) { out.push(x.k === 't' ? { k: 'v', s: x.s } : x); });
+        else out.push({ k: 'v', s: sv });
+      }
+    } else if (m[2]) {
+      var n = num && num[m[2]], tc = clauseBy(m[2]);
+      out.push(n ? { k: 't', s: 'PS ' + n } : { k: 'o', s: '[' + m[2] + ']', ref: m[2], why: 'Cross-referenced clause ' + m[2] + (tc ? ' (' + E(tc.title) + ')' : '') + ' is not included: include it or edit this clause' });
+    } else if (m[3]) {
+      var s2 = LIB.bySid[m[3]];
+      out.push(s2 && secOn(s2) ? { k: 't', s: 'PS-' + s2.code } : { k: 'o', s: '[' + m[3] + ']', ref: m[3], why: 'Section ' + (s2 ? s2.code + ' ' + E(s2.title) : m[3]) + ' is referred to but not included' });
+    } else if (m[4] === 'CA') {
+      var r = E(ROLES[st.proj.ca] || ROLES.ca), prev = out.length ? out[out.length - 1].s : '';
+      if (!out.length && last === 0 || /[.:;]\s*$/.test(prev)) r = r.charAt(0).toUpperCase() + r.slice(1);
+      out.push({ k: 't', s: r });
+    } else if (m[4] === 'FRR') {
+      var fr = cx.frr;
+      out.push(fr ? { k: 'v', s: '-/' + fr + '/' + fr } : { k: 'o', s: '[FRR]', key: '_frr', why: frrWhy() });
+    } else if (m[4] === 'ROUTE') {
+      var rt = DRV.routes.filter(function (x) { return x.v === cx.route; })[0];
+      out.push(rt ? { k: 'v', s: rt.text } : { k: 'o', s: '[route]', key: '_route', why: 'Confirm the submission route (approved plans, minor works or exempted works)' });
+    }
+    last = re.lastIndex;
+  }
+  if (last < src.length) out.push({ k: 't', s: src.slice(last) });
+  for (var i = 0; i + 1 < out.length; i++) {
+    var um = out[i].k === 'v' && out[i + 1].k === 't' && out[i + 1].s.match(/^\s*(mm|m2|m3|m|kPa|kg|N|dB|%|years|months|weeks|days|hours|litres|microns)(?![A-Za-z0-9])/);
+    if (um && new RegExp('(^|[\\s\\d])' + um[1] + '\\s*$').test(out[i].s)) out[i + 1].s = out[i + 1].s.replace(/^\s*/, '').slice(um[1].length);
+  }
+  out.forEach(function (x) { if (x.k !== 'o') x.s = x.s.replace(/ {2,}/g, ' '); });
+  return out;
+}
+function segsText(sg) { return sg.map(function (x) { return x.s; }).join(''); }
+function segsHTML(sg) {
+  return sg.map(function (x) {
+    if (x.k === 'o') return '<span class="sb-ph">' + esc(x.s) + '</span>';
+    if (x.k === 'v') return '<span class="sb-fv">' + esc(x.s) + '</span>';
+    return esc(x.s);
+  }).join('');
+}
+function openOf(c, num, cx) {
+  var items = [], seen = {};
+  segs(c, num, cx).forEach(function (x) { if (x.k !== 'o') return; var key = x.key || ('ref:' + x.ref); if (seen[key]) return; seen[key] = 1; items.push(x.why); });
+  var x = st.cl[c.id];
+  if (x && x.tbc) items.push('Clause marked TBC: confirm before issue');
+  if (c.ai && !(x && x.aiok)) items.push('AI draft: verify the clause');
+  (c.aiOpen || []).forEach(function (t) { items.push('AI assumption: ' + t); });
+  return items;
+}
+function sectionStats(s, num, cx) {
+  var n = 0, open = 0, ph = 0, filled = 0;
+  clausesOf(s).forEach(function (c) {
+    if (!inc(c, cx)) return; n++;
+    segs(c, num, cx).forEach(function (x) { if (x.k === 'o' && x.key) ph++; if (x.k === 'v') { ph++; filled++; } });
+    open += openOf(c, num, cx).length;
+  });
+  return { n: n, open: open, ph: ph, filled: filled };
+}
+
+/* ---------- codes (materials, systems, rooms, doors, hardware) ---------- */
+function presetCodes(t) {
+  var p = CODES.presets[t]; if (!p) return { materials: [], systems: [], rooms: [], doors: [], sets: [], hardware: cloneJ(CODES.hardware) };
+  var o = cloneJ(p); o.hardware = cloneJ(CODES.hardware); return o;
+}
+function C2() { return st.codes || (st.codes = { materials: [], systems: [], rooms: [], doors: [], sets: [], hardware: cloneJ(CODES.hardware) }); }
+function parseItems(s) {
+  var o = [];
+  String(s || '').split(/[,;]/).forEach(function (p) {
+    var m = p.trim().match(/^([A-Za-z0-9-]+)\s*[:x×]?\s*(\d+)?$/);
+    if (m) o.push({ code: m[1].toUpperCase(), qty: m[2] ? +m[2] : 1 });
+  });
+  return o;
+}
+function doorFrr(d, cx) {
+  var f = String(d.frr || '').trim();
+  if (f === 'FRR') return cx.frr ? '-/' + cx.frr + '/' + cx.frr : null;
+  return f || '-';
+}
+
+/* ---------- the specification set ---------- */
+function curRev() { return st.revs[st.revs.length - 1] || { rev: 'A', date: today(), status: 'draft', note: 'First issue', by: '' }; }
+function statusName(v) { var s = STATUSES.filter(function (x) { return x[0] === v; })[0]; return s ? s[1] : 'Draft'; }
+function docNo(id) { var r = String(st.proj.ref || '').trim(); return (r ? r + '-' : '') + id; }
+function routeText(cx) { var r = DRV.routes.filter(function (x) { return x.v === cx.route; })[0]; return r ? r.en : null; }
+function ucText(cx) { var u = DRV.useclasses.filter(function (x) { return x.v === cx.uc; })[0]; return u ? u.en : null; }
+function licText(cx) { var l = DRV.licences.filter(function (x) { return x.v === cx.lic; })[0]; return l ? l.en : 'None'; }
+function gsTitle(n) { var g = DRV.gs.sections.filter(function (x) { return x.no === n; })[0]; return g ? g.title : ''; }
+function schedFor(code) { return { '18': 'the Finishes Schedule (SCH-01)', '21': 'the Finishes Schedule (SCH-01)', '13': 'the Door and Ironmongery Schedule (SCH-02)', '14': 'the Door and Ironmongery Schedule (SCH-02)', '27': 'the Finishes Schedule (SCH-01)' }[code] || ''; }
+function sentenceList(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; }
+
+function buildSet() {
+  var cx = ctx(), nb = numbering(), num = nb.map, rv = curRev(), K = C2();
+  var oi = [], oiKey = {};
+  function alloc(ref, why) {
+    var k = ref + '|' + why; if (oiKey[k]) return oiKey[k];
+    var no = 'OI-' + pad(oi.length + 1, 3); oi.push({ no: no, ref: ref, item: why }); oiKey[k] = no; return no;
+  }
+  function docSegs(c, ref) {
+    return segs(c, num, cx).map(function (x) { return x.k === 'o' ? { k: 'o', s: 'TBC (' + alloc(ref, x.why) + ')' } : x; });
+  }
+  var matRefs = {};
+  function famLine(c, n) {
+    var out = [];
+    (c.codes || []).forEach(function (fam) {
+      if (fam === 'DOORS') { if (K.doors.length) out.push('Door sets: door marks ' + K.doors[0].mark + ' to ' + K.doors[K.doors.length - 1].mark + ' as the Door and Ironmongery Schedule (SCH-02).'); return; }
+      if (fam === 'HW') { if (K.sets.length) out.push('Hardware: sets ' + sentenceList(K.sets.map(function (s) { return s.code; })) + ' and item codes as the Door and Ironmongery Schedule (SCH-02).'); return; }
+      var ms = K.materials.filter(function (m) { return String(m.code).indexOf(fam + '-') === 0; });
+      if (!ms.length) return;
+      ms.forEach(function (m) { (matRefs[m.code] = matRefs[m.code] || []).push('PS ' + n); });
+      out.push('Products: ' + ms.map(function (m) { return m.code + ' ' + (m.item || '').toLowerCase(); }).join('; ') + ', as the Material Data Sheets (MS).');
+    });
+    return out.join(' ');
+  }
+  var P = st.proj, base = { rev: rv.rev, date: rv.date, status: statusName(rv.status) };
+  var lateStatus = ['tender', 'addendum', 'contract'].indexOf(rv.status) >= 0;
+  var docs = [];
+  // project-level open items
+  if (!P.name) alloc('Cover', 'State the project name');
+  if (!cx.route) alloc('GS', 'Confirm the submission route (approved plans, minor works or exempted works)');
+  // 1. Particular Specification sections (built first so open items follow document order after the front matter)
+  var ps = [], relBy = {};
+  sections().forEach(function (s) {
+    if (!secOn(s)) return;
+    var gin = {}; nb.list.forEach(function (it) { if (it.s.code === s.code) gin[it.g.id] = 1; });
+    var rel = (s.related || []).filter(function (r) { return !r.groups || r.groups.some(function (g) { return gin[g]; }); });
+    if (!rel.length && (s.related || []).length) rel = [s.related[0]];
+    relBy[s.code] = rel;
+    var items = [], code = s.code;
+    var intro = E(s.intro).replace(/\.$/, '');
+    var sch = schedFor(code);
+    items.push({ k: 'clause', n: code + '.01', t: 'SCOPE', tags: [], body: [{ k: 't', s: 'The work of this section comprises ' + intro.charAt(0).toLowerCase() + intro.slice(1) + '. Locations and extents are as shown on the drawings' + (sch ? ' and in ' + sch : '') + '.' }] });
+    var gsb = rel.length
+      ? (rel.length === 1 ? 'GS Section ' + rel[0].section + ' (' + gsTitle(rel[0].section) + ') of the General Specification applies' : 'GS Sections ' + sentenceList(rel.map(function (r) { return r.section + ' (' + gsTitle(r.section) + ')'; })) + ' of the General Specification apply') +
+        ' to the work of this section, amended and supplemented by the clauses below. Where a clause below differs from the General Specification, the clause below prevails.'
+      : 'There is no corresponding section in the General Specification. GS Section 1 (Preliminaries) applies to the work of this section, supplemented by the clauses below.';
+    items.push({ k: 'clause', n: code + '.02', t: 'GENERAL SPECIFICATION', tags: [], body: [{ k: 't', s: gsb }] });
+    var lastG = null;
+    nb.list.forEach(function (it) {
+      if (it.s.code !== code) return;
+      if (it.g.id !== lastG) { items.push({ k: 'group', t: caps(E(it.g.title)) }); lastG = it.g.id; }
+      var c = it.c, body = docSegs(c, 'PS ' + it.n), fl = famLine(c, it.n);
+      if (fl) body.push({ k: 't', s: ' ' + fl });
+      (openOf(c, num, cx).filter(function (t) { return /^(Clause marked|AI )/.test(t); })).forEach(function (t) { alloc('PS ' + it.n, t); });
+      items.push({ k: 'clause', n: it.n, id: c.id, t: caps(E(c.title)), tags: c.custom ? ['BP'] : tagsOf(c, cx), ai: !!(c.ai && !(st.cl[c.id] || {}).aiok), body: body, std: c.standards || [] });
+    });
+    ps.push(cloneJ(base)); var d = ps[ps.length - 1];
+    d.kind = 'ps'; d.id = 'PS-' + code; d.no = docNo('PS-' + code); d.label = 'PS ' + code; d.code = code; d.dtype = 'PARTICULAR SPECIFICATION';
+    d.title = 'PS-' + code + ' ' + E(s.title); d.head = 'PS ' + code + '.00 ' + caps(E(s.title)); d.items = items;
+    d.gsline = rel.length ? 'To be read with GS Section' + (rel.length > 1 ? 's ' : ' ') + sentenceList(rel.map(function (r) { return String(r.section); })) + ' and the Preliminaries.' : 'To be read with GS Section 1 and the Preliminaries.';
+    d.stds = {}; items.forEach(function (x) { (x.std || []).forEach(function (k) { d.stds[k] = s.standards[k] || ''; }); });
+  });
+  // 2. material data sheets
+  var ms = K.materials.map(function (m) {
+    var sys = K.systems.filter(function (y) { return new RegExp('\\b' + m.code + '\\b').test(y.desc); }).map(function (y) { return y.code; });
+    var rooms = K.rooms.filter(function (r) { return [r.fl, r.sk, r.wl, r.cl].some(function (x) { return x && sys.indexOf(x) >= 0; }); }).map(function (r) { return r.name; });
+    return { code: m.code, item: m.item || '', desc: m.desc || '', size: m.size || '', finish: m.finish || '', mfr: m.mfr || '', supplier: m.supplier || '', remarks: m.remarks || '',
+      ps: (matRefs[m.code] || []).filter(function (x, i, a) { return a.indexOf(x) === i; }).concat(m.ps && !(matRefs[m.code] || []).length ? ['PS-' + m.ps] : []), sys: sys, rooms: rooms };
+  });
+  // 3. schedules
+  var mic = cx.flags.indexOf('mic') >= 0;
+  var sysOf = {}; K.systems.forEach(function (y) { sysOf[y.code] = y; });
+  K.rooms.forEach(function (r) { ['fl', 'sk', 'wl', 'cl'].forEach(function (k) { if (r[k] && !sysOf[r[k]]) alloc('SCH-01', 'Room "' + r.name + '": system code ' + r[k] + ' is not defined'); }); if (mic && !r.mic) alloc('SCH-01', 'Room "' + r.name + '": state factory or site installation (MiC)'); });
+  var hwUsed = [], setOf = {}, hwOf = {};
+  K.hardware.forEach(function (h) { hwOf[h.code] = h; });
+  K.sets.forEach(function (s) { setOf[s.code] = s; parseItems(s.items).forEach(function (it) { if (hwUsed.indexOf(it.code) < 0) hwUsed.push(it.code); }); });
+  var doors = K.doors.map(function (d) {
+    var f = doorFrr(d, cx), set = setOf[d.set], q = {};
+    if (f == null) f = 'TBC (' + alloc('SCH-02', 'Door ' + d.mark + ': ' + frrWhy().replace(/^./, function (x) { return x.toLowerCase(); })) + ')';
+    if (!set) alloc('SCH-02', 'Door ' + d.mark + ': hardware set ' + (d.set || '(blank)') + ' is not defined');
+    else parseItems(set.items).forEach(function (it) { q[it.code] = it.qty; });
+    return { mark: d.mark, loc: d.loc, frr: f, w: d.w, h: d.h, type: d.type, leaf: d.leaf, set: d.set, q: q };
+  });
+  var hwOrder = K.hardware.map(function (h) { return h.code; });
+  hwUsed.sort(function (a, b) { var i = hwOrder.indexOf(a), j = hwOrder.indexOf(b); return (i < 0 ? 999 : i) - (j < 0 ? 999 : j); });
+  hwUsed.forEach(function (h) { if (!hwOf[h]) alloc('SCH-02', 'Hardware code ' + h + ' is used in a set but not defined'); });
+  // 4. front matter
+  var gsRows = DRV.gs.sections.map(function (g) {
+    var by = ps.filter(function (d) { return (relBy[d.code] || []).some(function (r) { return r.section === g.no; }); }).map(function (d) { return d.id; });
+    var tg = typeOf() ? typeOf().group : '', eng = [3, 4, 5, 6, 7, 8, 15, 26].indexOf(g.no) >= 0, oth = [19, 23, 24, 25].indexOf(g.no) >= 0;
+    var stt = g.no === 1 || by.length ? 'Applies' : tg === 'new' && eng ? 'Engineer\'s specification' : tg === 'new' && oth ? 'Other consultants' : 'Not used';
+    return [String(g.no), g.title, stt, g.no === 1 ? (by.length ? by.join(', ') : 'PS-01') : by.join(', ')];
+  });
+  var front = [];
+  front.push(Object.assign(cloneJ(base), { kind: 'cover', id: '00', no: docNo('00'), label: '00', dtype: 'ARCHITECTURAL SPECIFICATION', title: 'Cover, contents and issue sheet' }));
+  front.push(Object.assign(cloneJ(base), { kind: 'gs', id: 'GS', no: docNo('GS'), label: 'GS', dtype: 'GENERAL SPECIFICATION', title: 'General Specification: adoption statement', rows: gsRows }));
+  var back = [];
+  if (ms.length) back.push(Object.assign(cloneJ(base), { kind: 'ms', id: 'MS', no: docNo('MS'), label: 'MS', dtype: 'MATERIAL DATA SHEETS', title: 'Material data sheets', sheets: ms }));
+  back.push(Object.assign(cloneJ(base), { kind: 'fs', id: 'SCH-01', no: docNo('SCH-01'), label: 'SCH-01', dtype: 'SCHEDULES', title: 'Finishes Schedule', land: true, rooms: K.rooms, systems: K.systems.slice().sort(function (a, b) { var o = ['Floor', 'Skirting', 'Wall', 'Ceiling']; return o.indexOf(a.el) - o.indexOf(b.el) || (a.code < b.code ? -1 : 1); }), mic: mic }));
+  back.push(Object.assign(cloneJ(base), { kind: 'ds', id: 'SCH-02', no: docNo('SCH-02'), label: 'SCH-02', dtype: 'SCHEDULES', title: 'Door and Ironmongery Schedule', land: true, doors: doors, hw: hwUsed.map(function (h) { return { code: h, desc: hwOf[h] ? hwOf[h].desc : 'Not defined' }; }), sets: K.sets }));
+  back.push(Object.assign(cloneJ(base), { kind: 'oi', id: 'OI', no: docNo('OI'), label: 'OI', dtype: 'OPEN ITEMS', title: 'Open items', items: oi }));
+  docs = front.concat(ps, back);
+  if (lateStatus && oi.length) docs.forEach(function (d) { d.status = 'Draft'; d.held = statusName(rv.status); });
+  var contents = docs.map(function (d) { return [d.no, d.title, d.rev, d.date, d.status]; });
+  sections().forEach(function (s) { if (!secOn(s)) contents.push([docNo('PS-' + s.code), 'PS-' + s.code + ' ' + E(s.title), '-', '-', 'Not used']); });
+  contents.sort(function (a, b) { return order(a[0]) - order(b[0]) || (a[0] < b[0] ? -1 : 1); });
+  function order(no) { var pre = docNo(''), id = pre && no.indexOf(pre) === 0 ? no.slice(pre.length) : no; return id === '00' ? 0 : id === 'GS' ? 1 : /^PS-/.test(id) ? 2 : id === 'MS' ? 3 : /^SCH/.test(id) ? 4 : 5; }
+  docs[0].contents = contents;
+  var allStd = {}; ps.forEach(function (d) { Object.keys(d.stds).forEach(function (k) { (allStd[k] = allStd[k] || { title: d.stds[k], in: [] }).in.push(d.id); }); });
+  docs[0].stds = allStd;
+  docs[0].drivers = [['Building type', typeOf() ? E(typeOf().title) : 'Not chosen'], ['Submission route', routeText(cx) || 'Not answered (see Open Items)'],
+    ['Use Class (FS Code)', (ucText(cx) || 'Not confirmed') + ((ucOf(cx.uc) || {}).frrBy ? ', compartment ' + compText().toLowerCase() : '') + (ucNoteOf() ? '. Default for the building type. ' + ucNoteOf() : '')],
+    ['Fire resistance rating used', cx.frr ? '-/' + cx.frr + '/' + cx.frr + ' (FS Code Table C1; to be confirmed by the project\'s Authorized Person)' : 'Not set (see Open Items)'],
+    ['Licence sought', licText(cx)], ['Delivery flags', cx.flags.length ? cx.flags.map(function (f) { return (DRV.flags.filter(function (x) { return x.v === f; })[0] || {}).en; }).join('; ') : 'None']];
+  return { docs: docs, oi: oi, ps: ps, count: nb.list.length, ctx: cx };
+}
+
+/* ---------- shared text for the front matter ---------- */
+function gsParas(set) {
+  var g = DRV.gs, ca = E(ROLES[st.proj.ca] || ROLES.ca);
+  return [
+    ['GS.1', 'ADOPTION', 'The ' + g.title + ', published by the ' + g.publisher + ', incorporating ' + g.corrigendum + ' (' + g.corr_note + '), forms part of the Contract. It is adopted by reference and is not reproduced in these documents.'],
+    ['GS.2', 'SECTIONS THAT APPLY', 'The sections of the General Specification marked "Applies" in the table below apply so far as they are relevant to the Works, each as amended and supplemented by the Particular Specification section shown. Sections marked "Not used" do not apply.'],
+    ['GS.3', 'ORDER OF PRECEDENCE', 'Where the General Specification and the Particular Specification differ, the Particular Specification prevails. Where the General Specification offers a choice, the choice stated in the Particular Specification applies.'],
+    ['GS.4', 'TERMS', 'Where the General Specification refers to the contract administrator by another title, or to procedures that apply only to Government contracts, read them as ' + ca + ' and the procedures of this Contract.'],
+    ['GS.5', 'COPIES', 'Tenderers shall obtain their own copy of the General Specification from the Architectural Services Department (' + g.url + '). The Conditions of Contract and the Preliminaries are issued separately.'],
+    ['GS.6', 'STANDARDS', 'Standards are cited in the Particular Specification by number. The edition current at the tender date applies unless an edition is stated. The standards cited are listed below.']
+  ];
+}
+function tagKey() { return ['S', 'LC', 'LL', 'BP'].map(function (k) { return ['[' + k + ']', DRV.tags[k]]; }); }
+function libLine() { return 'Spec Builder HK library v' + LIB.version + ' (' + LIB.date + ', GS 2022 sections and standards checked ' + DRV.gs.checked + ')' + (LIB.office ? ' + office library ' + LIB.office : ''); }
+
+/* ---------- docx ---------- */
+var docxP = null;
+function loadDocx() {
+  if (window.docx) return Promise.resolve(window.docx);
+  if (docxP) return docxP;
+  docxP = new Promise(function (res, rej) {
+    var s = document.createElement('script');
+    s.src = DOCX_URL; s.crossOrigin = 'anonymous';
+    if (DOCX_SRI.indexOf('sha') === 0) s.integrity = DOCX_SRI;
+    s.onload = function () { window.docx ? res(window.docx) : rej(new Error('docx')); };
+    s.onerror = function () { docxP = null; rej(new Error(T('Could not load the Word library from jsDelivr. Check your connection, or use .pdf.', '未能由 jsDelivr 載入 Word 程式庫。請檢查網絡，或改用 .pdf。'))); };
+    document.head.appendChild(s);
+  });
+  return docxP;
+}
+function docxParts(X, set) {
+  var FONT = 'Arial', IND = 1418, GREY = '666666';
+  var thin = { style: X.BorderStyle.SINGLE, size: 4, color: '808080' }, none = { style: X.BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+  var GRID = { top: thin, bottom: thin, left: thin, right: thin, insideHorizontal: thin, insideVertical: thin };
+  var NOB = { top: none, bottom: none, left: none, right: none, insideHorizontal: none, insideVertical: none };
+  function R(t, o) { o = o || {}; o.text = String(t == null ? '' : t).replace(/(\d) (?=(mm|m|m2|m3|kPa|kg|N|dB|s|litres|years|days|hours|weeks|months)\b)/g, '$1\u00a0'); return new X.TextRun(o); }
+  function Pp(runs, o) { o = o || {}; o.children = Array.isArray(runs) ? runs : [R(runs)]; return new X.Paragraph(o); }
+  function cell(content, o) {
+    o = o || {};
+    var kids = Array.isArray(content) ? content : [Pp([R(content, { bold: !!o.bold, size: o.size || 18 })], { alignment: o.align })];
+    var co = { children: kids, margins: { top: 40, bottom: 40, left: 80, right: 80 } };
+    if (o.w) co.width = { size: o.w, type: X.WidthType.PERCENTAGE };
+    if (o.shade) co.shading = { type: X.ShadingType.CLEAR, color: 'auto', fill: o.shade };
+    if (o.span) co.columnSpan = o.span;
+    if (o.h) co.verticalAlign = X.VerticalAlign.TOP;
+    return new X.TableCell(co);
+  }
+  function table(head, rows, widths, o) {
+    o = o || {};
+    var tr = [];
+    if (head) tr.push(new X.TableRow({ tableHeader: true, children: head.map(function (t, i) { return cell(t, { bold: true, w: widths[i], shade: 'E7E7E7', size: o.size || 17 }); }) }));
+    rows.forEach(function (r) { tr.push(new X.TableRow({ cantSplit: true, children: r.map(function (t, i) { return cell(t, { w: widths[i], size: o.size || 17, bold: o.boldFirst && i === 0 }); }) })); });
+    return new X.Table({ width: { size: 100, type: X.WidthType.PERCENTAGE }, borders: GRID, rows: tr });
+  }
+  function H(t, o) { o = o || {}; return Pp([R(t, { bold: true, size: o.size || 22 })], { style: o.style || 'SBDocHead', pageBreakBefore: !!o.pb, spacing: { before: o.before == null ? 240 : o.before, after: 120 }, keepNext: true }); }
+  function clauseParas(n, title, tags, body, ai, keep) {
+    var head = [R(n, { bold: true }), R('\t'), R(title, { bold: true })];
+    if (tags && tags.length && st.proj.marks !== false) head.push(R('  [' + tags.join('][') + ']', { size: 14, color: GREY }));
+    if (ai) head.push(R('  (AI draft, verify)', { size: 14, bold: true, color: 'C00000' }));
+    var out = [Pp(head, { style: 'SBClause' })];
+    if (body) out.push(Pp(body.map(function (x) { return R(x.s, x.k === 'o' ? { bold: true } : {}); }), { style: 'SBText', keepNext: !!keep }));
+    return out;
+  }
+  function header(d) {
+    var P = st.proj;
+    var left = [Pp([R(P.name || 'Project', { bold: true, size: 17 })]), Pp([R(d.dtype, { size: 16 })]), Pp([R(P.pkg || '', { size: 16 })])];
+    var right = [Pp([R(d.label === '00' ? 'SPECIFICATION SET' : d.label, { bold: true, size: 17 })], { alignment: X.AlignmentType.RIGHT }), Pp([R(d.no, { size: 16 })], { alignment: X.AlignmentType.RIGHT }), Pp([R('Rev ' + d.rev + '   ' + d.status.toUpperCase(), { size: 16 })], { alignment: X.AlignmentType.RIGHT })];
+    return new X.Header({ children: [new X.Table({ width: { size: 100, type: X.WidthType.PERCENTAGE }, borders: { top: none, left: none, right: none, insideHorizontal: none, insideVertical: none, bottom: thin },
+      rows: [new X.TableRow({ children: [cell(left, { w: 65 }), cell(right, { w: 35 })] })] }), Pp('')] });
+  }
+  function footer(d) {
+    return new X.Footer({ children: [Pp([R('Issue date ' + d.date + '   ' + d.status, { size: 15, color: GREY }), R('\t'), R(d.label + ' - ', { size: 16 }), new X.TextRun({ children: [X.PageNumber.CURRENT], size: 16 })],
+      { tabStops: [{ type: X.TabStopType.RIGHT, position: d.land ? 14457 : 9525 }], border: { top: { style: X.BorderStyle.SINGLE, size: 4, color: '808080', space: 4 } } })] });
+  }
+  function revTable(d) { return table(['No.', 'Date', 'Updated item', 'By'], st.revs.map(function (r) { return [r.rev, r.date, r.note || statusName(r.status), r.by || '']; }), [10, 18, 57, 15], { size: 15 }); }
+  function body(d) {
+    var P = st.proj, k = [];
+    if (d.kind === 'cover') {
+      k.push(Pp([R('')], { spacing: { before: 2400 } }));
+      k.push(Pp([R(P.name || 'Project', { bold: true, size: 40 })], { alignment: X.AlignmentType.CENTER, spacing: { after: 240 } }));
+      k.push(Pp([R('ARCHITECTURAL SPECIFICATION', { bold: true, size: 28 })], { alignment: X.AlignmentType.CENTER, spacing: { after: 120 } }));
+      if (P.pkg) k.push(Pp([R(P.pkg, { size: 24 })], { alignment: X.AlignmentType.CENTER, spacing: { after: 600 } }));
+      k.push(table(null, [['Project', P.name || ''], ['Address', P.addr || ''], ['Client', P.client || ''], ['Contract', E(CONTRACTS[P.contract] || CONTRACTS.other)], ['Specification set', (st.proj.ref || '-') + ' (document numbers ' + docNo('00') + ' to ' + docNo('OI') + ')'], ['Status', d.status + ', revision ' + d.rev + ', ' + d.date]].concat(P.by ? [['Prepared by', P.by]] : []), [30, 70], { size: 19, boldFirst: true }));
+      k.push(H('CONTENTS', { pb: true, before: 0 }));
+      k.push(table(['Document no.', 'Title', 'Rev', 'Issue date', 'Status'], d.contents, [22, 44, 7, 13, 14], { size: 16 }));
+      k.push(H('ISSUE SHEET', { pb: true, before: 0 }));
+      k.push(table(['Rev', 'Date', 'Status', 'Description', 'By'], st.revs.map(function (r) { return [r.rev, r.date, statusName(r.status), r.note || '', r.by || '']; }), [8, 15, 17, 45, 15], { size: 17 }));
+      k.push(H('BASIS OF THE CLAUSE DEFAULTS'));
+      k.push(table(null, d.drivers, [30, 70], { size: 17, boldFirst: true }));
+      if (st.proj.marks !== false) {
+        k.push(H('CLAUSE SOURCE MARKS'));
+        k.push(Pp([R('Each clause title in the Particular Specification carries a small mark showing why the clause is there:', { size: 18 })], { spacing: { after: 120 } }));
+        k.push(table(null, tagKey(), [12, 88], { size: 17, boldFirst: true }));
+      }
+      k.push(H('NOTE'));
+      k.push(Pp([R(DISC, { size: 16, italics: true })]));
+      k.push(Pp([R(libLine(), { size: 15, color: GREY })], { spacing: { before: 120 } }));
+    } else if (d.kind === 'gs') {
+      k.push(H('GENERAL SPECIFICATION', { before: 0 }));
+      gsParas().forEach(function (p, i) {
+        clauseParas(p[0], p[1], null, [{ k: 't', s: p[2] }]).forEach(function (x) { k.push(x); });
+        if (i === 1) k.push(table(['GS section', 'Title', 'Status', 'Particular Specification'], d.rows, [12, 50, 14, 24], { size: 16 }));
+      });
+      var stds = set.docs[0].stds, sk = Object.keys(stds).sort(function (a, b) { return a.localeCompare(b, 'en', { numeric: true }); });
+      k.push(table(['Standard', 'Title (summary)', 'Cited in'], sk.length ? sk.map(function (s) { return [s, stds[s].title, stds[s].in.join(', ')]; }) : [['None', '', '']], [22, 56, 22], { size: 15 }));
+      k.push(Pp([R('-End-', { size: 18 })], { alignment: X.AlignmentType.CENTER, spacing: { before: 240 } }));
+    } else if (d.kind === 'ps') {
+      k.push(revTable(d));
+      k.push(Pp([R(d.head, { bold: true, size: 22 })], { style: 'SBDocHead', spacing: { before: 240, after: 60 } }));
+      k.push(Pp([R(d.gsline, { italics: true, size: 17 })], { spacing: { after: 160 }, indent: { left: IND } }));
+      d.items.forEach(function (it, ii) {
+        if (it.k === 'group') k.push(Pp([R(it.t, { bold: true, size: 18 })], { style: 'SBGroup' }));
+        else clauseParas(it.n, it.t, it.tags, it.body, it.ai, ii === d.items.length - 1).forEach(function (x) { k.push(x); });
+      });
+      k.push(Pp([R('-End-', { size: 18 })], { alignment: X.AlignmentType.CENTER, spacing: { before: 240 } }));
+    } else if (d.kind === 'ms') {
+      d.sheets.forEach(function (m, i) {
+        k.push(Pp([R('MATERIAL DATA SHEET ' + m.code, { bold: true, size: 22 })], { style: 'SBDocHead', pageBreakBefore: i > 0, spacing: { before: 0, after: 120 } }));
+        k.push(new X.Table({ width: { size: 100, type: X.WidthType.PERCENTAGE }, borders: GRID, rows: [
+          new X.TableRow({ children: [cell('Code', { bold: true, w: 18, shade: 'E7E7E7' }), cell(m.code, { w: 32, bold: true }), cell('Item', { bold: true, w: 18, shade: 'E7E7E7' }), cell(m.item, { w: 32 })] }),
+          new X.TableRow({ children: [cell('Project', { bold: true, shade: 'E7E7E7' }), cell(P.name || ''), cell('Job no.', { bold: true, shade: 'E7E7E7' }), cell(P.ref || '')] }),
+          new X.TableRow({ children: [cell('Issue date', { bold: true, shade: 'E7E7E7' }), cell(d.date), cell('Rev.', { bold: true, shade: 'E7E7E7' }), cell(d.rev)] }),
+          new X.TableRow({ children: [cell('Area / location', { bold: true, shade: 'E7E7E7' }), cell(m.rooms.length ? m.rooms.join('; ') + '. Refer to drawings.' : 'Refer to drawings.', { span: 3 })] })] }));
+        k.push(Pp(''));
+        k.push(table(null, [['Description', m.desc], ['Size', m.size || 'As drawings'], ['Finish / colour', m.finish || 'As approved sample'],
+          ['Manufacturer', m.mfr ? m.mfr + ', or equivalent' : 'Contractor to propose for approval'], ['Supplier', m.supplier ? m.supplier + ', or equivalent' : 'Contractor to propose for approval'],
+          ['Specification reference', m.ps.join(', ') || '-'], ['Finish systems', m.sys.join(', ') || '-'], ['Remarks', m.remarks || '-']], [28, 72], { size: 18, boldFirst: true }));
+        k.push(Pp(''));
+        k.push(new X.Table({ width: { size: 100, type: X.WidthType.PERCENTAGE }, borders: GRID, rows: [new X.TableRow({ height: { value: 3000, rule: X.HeightRule.ATLEAST }, children: [cell([Pp([R('Sample / image reference', { size: 16, color: GREY })])], { w: 100 })] })] }));
+        k.push(Pp([R('Notes', { bold: true, size: 16 })], { spacing: { before: 160 } }));
+        MSNOTE.forEach(function (t, j) { k.push(Pp([R((j + 1) + '. ' + t.replace('{CA}', E(ROLES[st.proj.ca] || ROLES.ca)), { size: 15 })], { indent: { left: 284 } })); });
+      });
+    } else if (d.kind === 'fs') {
+      k.push(H('FINISHES SCHEDULE', { before: 0 }));
+      k.push(Pp([R('System codes are defined in the legend below. Material codes refer to the Material Data Sheets (MS). Workmanship is as PS-18 and PS-21.', { size: 17 })], { spacing: { after: 120 } }));
+      var hd = ['Room', 'Floor', 'Skirting', 'Wall', 'Ceiling'].concat(d.mic ? ['Installed'] : []).concat(['Remarks']);
+      var wd = d.mic ? [26, 10, 10, 10, 10, 10, 24] : [30, 11, 11, 11, 11, 26];
+      k.push(table(hd, d.rooms.map(function (r) { return [r.name, r.fl || '-', r.sk || '-', r.wl || '-', r.cl || '-'].concat(d.mic ? [r.mic || 'TBC'] : []).concat([r.remarks || '']); }), wd, { size: 17 }));
+      k.push(H('SYSTEM LEGEND'));
+      k.push(table(['Code', 'Element', 'Build-up'], d.systems.map(function (y) { return [y.code, y.el, y.desc]; }), [10, 12, 78], { size: 17, boldFirst: true }));
+    } else if (d.kind === 'ds') {
+      k.push(H('DOOR AND IRONMONGERY SCHEDULE', { before: 0 }));
+      var hw = d.hw.map(function (h) { return h.code; });
+      var n = 8 + hw.length, rest = Math.max(2, Math.floor(40 / Math.max(hw.length, 1)));
+      var w0 = [7, 17, 9, 6, 6, 18, 5, 7].map(function (x) { return Math.round(x * (100 - rest * hw.length) / 75); });
+      k.push(table(['Mark', 'Location', 'FRR', 'W', 'H', 'Door type', 'Leaf', 'Set'].concat(hw), d.doors.map(function (x) { return [x.mark, x.loc, x.frr, x.w, x.h, x.type, x.leaf, x.set].concat(hw.map(function (h) { return x.q[h] ? String(x.q[h]) : ''; })); }), w0.concat(hw.map(function () { return rest; })), { size: 14 }));
+      k.push(Pp([R('W and H are leaf or opening sizes in mm. FRR is the fire resistance rating of the door set. Quantities are per door. SL single leaf, DL double leaf. Rules for ironmongery are in PS-14; door sets in PS-13.', { size: 15 })], { spacing: { before: 120 } }));
+      k.push(H('HARDWARE CODES'));
+      k.push(table(['Code', 'Item'], d.hw.map(function (h) { return [h.code, h.desc]; }), [10, 90], { size: 16, boldFirst: true }));
+      k.push(H('HARDWARE SETS'));
+      k.push(table(['Set', 'Description', 'Items (code: quantity)'], d.sets.map(function (s) { return [s.code, s.desc, s.items]; }), [10, 35, 55], { size: 16, boldFirst: true }));
+    } else if (d.kind === 'oi') {
+      k.push(H('OPEN ITEMS', { before: 0 }));
+      k.push(Pp([R('Each item below is shown in the documents as TBC with its number. Close every item before the set is issued for tender.', { size: 18 })], { spacing: { after: 120 } }));
+      k.push(table(['No.', 'Reference', 'Item', 'Action'], d.items.length ? d.items.map(function (o) { return [o.no, o.ref, o.item, 'Confirm']; }) : [['-', '-', 'No open items.', '-']], [9, 14, 62, 15], { size: 17 }));
+    }
+    return k;
+  }
+  function section(d) {
+    var pg = { margin: { top: 1300, bottom: 1100, left: 1304, right: 1077, header: 567, footer: 454 }, pageNumbers: { start: 1, formatType: X.NumberFormat.DECIMAL } };
+    if (d.land) pg.size = { width: 11906, height: 16838, orientation: X.PageOrientation.LANDSCAPE };
+    else pg.size = { width: 11906, height: 16838 };
+    return { properties: { page: pg }, headers: { default: header(d) }, footers: { default: footer(d) }, children: body(d) };
+  }
+  var styles = {
+    default: { document: { run: { font: FONT, size: 20 }, paragraph: { spacing: { after: 60 } } } },
+    paragraphStyles: [
+      { id: 'SBDocHead', name: 'SB Doc Heading', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { font: FONT, bold: true, size: 22 }, paragraph: { keepNext: true } },
+      { id: 'SBGroup', name: 'SB Group', basedOn: 'Normal', next: 'SBClause', run: { font: FONT, bold: true, size: 18 }, paragraph: { spacing: { before: 200, after: 80 }, keepNext: true, indent: { left: IND } } },
+      { id: 'SBClause', name: 'SB Clause', basedOn: 'Normal', next: 'SBText', quickFormat: true, run: { font: FONT, size: 20 }, paragraph: { spacing: { before: 140, after: 40 }, keepNext: true, indent: { left: IND, hanging: IND }, tabStops: [{ type: X.TabStopType.LEFT, position: IND }] } },
+      { id: 'SBText', name: 'SB Clause Text', basedOn: 'Normal', run: { font: FONT, size: 20 }, paragraph: { spacing: { after: 80, line: 264 }, indent: { left: IND } } }
+    ]
+  };
+  function doc(ds) {
+    return new X.Document({ creator: 'Spec Builder HK (AW Design)', title: (st.proj.name || 'Project') + ' specification', description: libLine(), styles: styles, sections: ds.map(section) });
+  }
+  return { doc: doc };
+}
+function docxBlob(set) {
+  set = set || buildSet();
+  return loadDocx().then(function (X) { return X.Packer.toBlob(docxParts(X, set).doc(set.docs)); });
+}
+function docxZip(set) {
+  set = set || buildSet();
+  return loadDocx().then(function (X) {
+    var parts = docxParts(X, set);
+    return Promise.all(set.docs.map(function (d) { return X.Packer.toBlob(parts.doc([d])).then(function (b) { return b.arrayBuffer(); }).then(function (ab) { return { name: fileSafe(d.no + ' ' + d.title) + '.docx', data: new Uint8Array(ab) }; }); }));
+  }).then(function (files) { return zipBlob(files); });
+}
+function fileSafe(s) { return String(s).replace(/[^A-Za-z0-9 _.,()-]+/g, '-').replace(/\s+/g, ' ').trim().slice(0, 80); }
+
+/* ---------- minimal ZIP writer (store, no compression) ---------- */
+var CRCT = null;
+function crc32(u) {
+  if (!CRCT) { CRCT = []; for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; CRCT[n] = c >>> 0; } }
+  var crc = 0xFFFFFFFF; for (var i = 0; i < u.length; i++) crc = CRCT[(crc ^ u[i]) & 0xFF] ^ (crc >>> 8);
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function zipBlob(files) {
+  var chunks = [], central = [], off = 0, enc = new TextEncoder();
+  function u16(v) { return [v & 255, (v >>> 8) & 255]; }
+  function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+  files.forEach(function (f) {
+    var nm = enc.encode(f.name), crc = crc32(f.data), sz = f.data.length;
+    var lh = [].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(sz), u32(sz), u16(nm.length), u16(0));
+    chunks.push(new Uint8Array(lh), nm, f.data);
+    central.push([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(sz), u32(sz), u16(nm.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off)), nm);
+    off += lh.length + nm.length + sz;
+  });
+  var cdStart = off, cdLen = 0;
+  central.forEach(function (c, i) { if (i % 2 === 0) { chunks.push(new Uint8Array(c)); cdLen += c.length; } else { chunks.push(c); cdLen += c.length; } });
+  chunks.push(new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length), u32(cdLen), u32(cdStart), u16(0))));
+  return new Blob(chunks, { type: 'application/zip' });
+}
+
+/* ---------- print (PDF): the same set as HTML, one document per page group ---------- */
+function printHTML(set) {
+  set = set || buildSet();
+  var P = st.proj, h = [];
+  function tbl(head, rows, cls) { return '<table class="' + (cls || '') + '">' + (head ? '<tr>' + head.map(function (x) { return '<th>' + esc(x) + '</th>'; }).join('') + '</tr>' : '') + rows.map(function (r) { return '<tr>' + r.map(function (x) { return '<td>' + esc(x) + '</td>'; }).join('') + '</tr>'; }).join('') + '</table>'; }
+  function cl(n, t, tags, body, ai) { return '<div class="pc"><div class="pn">' + esc(n) + '</div><div class="pb"><div class="pt">' + esc(t) + (tags && tags.length && st.proj.marks !== false ? ' <span class="tg">[' + esc(tags.join('][')) + ']</span>' : '') + (ai ? ' <span class="ai">(AI draft, verify)</span>' : '') + '</div>' + (body ? '<p>' + body.map(function (x) { return x.k === 'o' ? '<b>' + esc(x.s) + '</b>' : esc(x.s); }).join('') + '</p>' : '') + '</div></div>'; }
+  set.docs.forEach(function (d) {
+    h.push('<section class="doc' + (d.land ? ' land' : '') + '" data-doc="' + esc(d.id) + '"><div class="dh"><div><b>' + esc(P.name || 'Project') + '</b><br>' + esc(d.dtype) + '<br>' + esc(P.pkg || '') + '</div><div class="r"><b>' + esc(d.label === '00' ? 'SPECIFICATION SET' : d.label) + '</b><br>' + esc(d.no) + '<br>Rev ' + esc(d.rev) + ' ' + esc(d.status.toUpperCase()) + '</div></div>');
+    if (d.kind === 'cover') {
+      h.push('<div class="cv"><h1>' + esc(P.name || 'Project') + '</h1><h2>ARCHITECTURAL SPECIFICATION</h2><p>' + esc(P.pkg || '') + '</p>' + tbl(null, [['Project', P.name || ''], ['Address', P.addr || ''], ['Client', P.client || ''], ['Contract', E(CONTRACTS[P.contract] || CONTRACTS.other)], ['Status', d.status + ', revision ' + d.rev + ', ' + d.date]].concat(P.by ? [['Prepared by', P.by]] : []), 'kv') + '</div>');
+      h.push('<h3 class="pg">CONTENTS</h3>' + tbl(['Document no.', 'Title', 'Rev', 'Issue date', 'Status'], d.contents));
+      h.push('<h3 class="pg">ISSUE SHEET</h3>' + tbl(['Rev', 'Date', 'Status', 'Description', 'By'], st.revs.map(function (r) { return [r.rev, r.date, statusName(r.status), r.note || '', r.by || '']; })));
+      h.push('<h3>BASIS OF THE CLAUSE DEFAULTS</h3>' + tbl(null, d.drivers, 'kv') + (st.proj.marks !== false ? '<h3>CLAUSE SOURCE MARKS</h3>' + tbl(null, tagKey(), 'kv') : '') + '<h3>NOTE</h3><p class="disc">' + esc(DISC) + '</p><p class="lib">' + esc(libLine()) + '</p>');
+    } else if (d.kind === 'gs') {
+      h.push('<h3>GENERAL SPECIFICATION</h3>');
+      gsParas().forEach(function (p, i) { h.push(cl(p[0], p[1], null, [{ k: 't', s: p[2] }])); if (i === 1) h.push(tbl(['GS section', 'Title', 'Status', 'Particular Specification'], d.rows)); });
+      var stds = set.docs[0].stds; h.push(tbl(['Standard', 'Title (summary)', 'Cited in'], Object.keys(stds).sort(function (a, b) { return a.localeCompare(b, 'en', { numeric: true }); }).map(function (s) { return [s, stds[s].title, stds[s].in.join(', ')]; }), 'sm'));
+      h.push('<p class="end">-End-</p>');
+    } else if (d.kind === 'ps') {
+      h.push(tbl(['No.', 'Date', 'Updated item', 'By'], st.revs.map(function (r) { return [r.rev, r.date, r.note || statusName(r.status), r.by || '']; }), 'sm rev'));
+      h.push('<h3>' + esc(d.head) + '</h3><p class="gsl">' + esc(d.gsline) + '</p>');
+      d.items.forEach(function (it) { h.push(it.k === 'group' ? '<h4>' + esc(it.t) + '</h4>' : cl(it.n, it.t, it.tags, it.body, it.ai)); });
+      h.push('<p class="end">-End-</p>');
+    } else if (d.kind === 'ms') {
+      d.sheets.forEach(function (m, i) {
+        h.push('<div class="ms' + (i ? ' pg' : '') + '"><h3>MATERIAL DATA SHEET ' + esc(m.code) + '</h3>' + tbl(null, [['Code', m.code, 'Item', m.item], ['Project', P.name || '', 'Job no.', P.ref || ''], ['Issue date', d.date, 'Rev.', d.rev]], 'kv4') +
+          tbl(null, [['Area / location', (m.rooms.join('; ') || '') + ' Refer to drawings.'], ['Description', m.desc], ['Size', m.size || 'As drawings'], ['Finish / colour', m.finish || 'As approved sample'], ['Manufacturer', m.mfr ? m.mfr + ', or equivalent' : 'Contractor to propose for approval'], ['Supplier', m.supplier ? m.supplier + ', or equivalent' : 'Contractor to propose for approval'], ['Specification reference', m.ps.join(', ') || '-'], ['Finish systems', m.sys.join(', ') || '-'], ['Remarks', m.remarks || '-']], 'kv') +
+          '<div class="img">Sample / image reference</div><ol class="note">' + MSNOTE.map(function (t) { return '<li>' + esc(t.replace('{CA}', E(ROLES[st.proj.ca] || ROLES.ca))) + '</li>'; }).join('') + '</ol></div>');
+      });
+    } else if (d.kind === 'fs') {
+      h.push('<h3>FINISHES SCHEDULE</h3>' + tbl(['Room', 'Floor', 'Skirting', 'Wall', 'Ceiling'].concat(d.mic ? ['Installed'] : []).concat(['Remarks']), d.rooms.map(function (r) { return [r.name, r.fl || '-', r.sk || '-', r.wl || '-', r.cl || '-'].concat(d.mic ? [r.mic || 'TBC'] : []).concat([r.remarks || '']); })));
+      h.push('<h3>SYSTEM LEGEND</h3>' + tbl(['Code', 'Element', 'Build-up'], d.systems.map(function (y) { return [y.code, y.el, y.desc]; })));
+    } else if (d.kind === 'ds') {
+      var hw = d.hw.map(function (x) { return x.code; });
+      h.push('<h3>DOOR AND IRONMONGERY SCHEDULE</h3>' + tbl(['Mark', 'Location', 'FRR', 'W', 'H', 'Door type', 'Leaf', 'Set'].concat(hw), d.doors.map(function (x) { return [x.mark, x.loc, x.frr, x.w, x.h, x.type, x.leaf, x.set].concat(hw.map(function (k) { return x.q[k] ? String(x.q[k]) : ''; })); }), 'sm'));
+      h.push('<h3>HARDWARE CODES</h3>' + tbl(['Code', 'Item'], d.hw.map(function (x) { return [x.code, x.desc]; }), 'sm') + '<h3>HARDWARE SETS</h3>' + tbl(['Set', 'Description', 'Items (code: quantity)'], d.sets.map(function (s) { return [s.code, s.desc, s.items]; }), 'sm'));
+    } else if (d.kind === 'oi') {
+      h.push('<h3>OPEN ITEMS</h3><p>Each item below is shown in the documents as TBC with its number. Close every item before the set is issued for tender.</p>' + tbl(['No.', 'Reference', 'Item', 'Action'], d.items.length ? d.items.map(function (o) { return [o.no, o.ref, o.item, 'Confirm']; }) : [['-', '-', 'No open items.', '-']]));
+    }
+    h.push('</section>');
+  });
+  return h.join('\n');
+}
+function doPrint() {
+  var el = $('sb-print');
+  if (!el) { el = document.createElement('div'); el.id = 'sb-print'; document.body.appendChild(el); }
+  el.innerHTML = printHTML();
+  var ps = $('sb-pagestyle');
+  if (!ps) { ps = document.createElement('style'); ps.id = 'sb-pagestyle'; document.head.appendChild(ps); }
+  var fl = (st.proj.name || 'Specification') + '  ·  ' + statusName(curRev().status) + '  ·  Rev ' + curRev().rev + '  ·  Page ';
+  ps.textContent = '@media print{@page{size:A4;margin:16mm 14mm 16mm 20mm;@bottom-right{content:' + JSON.stringify(fl) + ' counter(page);font:7pt Arial,sans-serif;color:#555}}@page land{size:A4 landscape}}';
+  var t = document.title;
+  document.title = fname('').replace(/\.$/, '');
+  var go = function () { window.print(); setTimeout(function () { document.title = t; }, 800); };
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(go, go); else go();
+}
+function fname(ext) {
+  var b = (st.proj.ref || st.proj.name || 'specification').replace(/[^A-Za-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'specification';
+  return b + '_spec-set_' + today() + (ext ? '.' + ext : '.');
+}
+function download(name, blob) {
+  var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+}
+
+/* ---------- UI ---------- */
+function opt(v, label, sel) { return '<option value="' + esc(v) + '"' + (sel ? ' selected' : '') + '>' + esc(label) + '</option>'; }
+function renderIntake() {
+  var t = typeOf();
+  function fill(id, list, key, dflt) {
+    var cur = st.intake[key] || '', td = t ? t[key] : null, tl = list.filter(function (x) { return x.v === td; })[0];
+    $(id).innerHTML = opt('', t ? T('From building type', '按建築類別') + (tl ? ': ' + tl.en : ': ' + T('not set', '未設定')) : T('Choose...', '請選擇...'), !cur) + list.map(function (x) { return opt(x.v, x.en, x.v === cur); }).join('');
+  }
+  fill('sb-route', DRV.routes, 'route'); fill('sb-uc', DRV.useclasses, 'uc'); fill('sb-lic', DRV.licences, 'lic');
+  $('sb-comp').innerHTML = DRV.compartments.map(function (c) { return opt(c.v, c.en, c.v === st.intake.comp); }).join('');
+  $('sb-compwrap').hidden = !(ucOf(eff('uc')) || {}).frrBy;
+  var fl = effFlags();
+  $('sb-flags').innerHTML = DRV.flags.map(function (f) {
+    return '<label class="sb-chk"><input type="checkbox" data-flag="' + esc(f.v) + '"' + (fl.indexOf(f.v) >= 0 ? ' checked' : '') + '>' + esc(ZH ? f.zh + ' ' + f.en : f.en) + '</label>';
+  }).join('');
+  var fr = frrOf();
+  $('sb-frr').textContent = T('Fire resistance rating used in clauses: ', '條款採用的耐火時效：') + (fr ? '-/' + fr + '/' + fr + T(' (FS Code Table C1, to be confirmed by the project\'s Authorized Person)', '（消防安全守則表 C1，須由項目認可人士確認）') : (ucOf(eff('uc')) && eff('uc') !== 'tbc' ? T('not set: FS Code Table C1 gives no rating for this Use Class and compartment size, confirm with the project\'s Authorized Person', '未設定：消防安全守則表 C1 未有此用途分類及分隔面積的耐火時效，須由項目認可人士確定') : T('not set until the Use Class is known', '未設定，須先確定用途分類'))) + (ucNoteOf() ? ' ' + ucNoteOf() : '');
+}
+function renderTypes() {
+  $('sb-types').innerHTML = DRV.groups.map(function (g) {
+    return '<div class="sb-tgroup"><span class="sb-tglabel">' + esc(L(g.title)) + '</span><div class="sb-types">' + DRV.types.filter(function (t) { return t.group === g.id; }).map(function (t) {
+      return '<button type="button" class="sb-type" data-ptype="' + esc(t.id) + '" aria-pressed="' + (st.type === t.id) + '"><b>' + esc(L(t.title)) + '</b><small>' + esc(t.sub) + '</small></button>';
+    }).join('') + '</div></div>';
+  }).join('');
+}
+function renderProj() {
+  var p = st.proj;
+  [['sb-pname', 'name'], ['sb-paddr', 'addr'], ['sb-pclient', 'client'], ['sb-pref', 'ref'], ['sb-ppkg', 'pkg'], ['sb-pby', 'by']].forEach(function (a) { $(a[0]).value = p[a[1]] || ''; });
+  $('sb-pcontract').value = p.contract; $('sb-pca').value = p.ca; $('sb-marks').checked = p.marks !== false;
+  var n = (CONTRACTS[p.contract] || {}).note;
+  $('sb-contractnote').textContent = n ? L(n) : '';
+  renderTable('revs', $('sb-revs'));
+}
+function renderRail() {
+  var num = numbering().map, ul = $('sb-sections'), h = '', tot = { ph: 0, filled: 0, open: 0, n: 0 }, cx = ctx();
+  sections().forEach(function (s) {
+    var on = secOn(s), x = sectionStats(s, num, cx), optl = !on && st.type && (s.optional || []).indexOf(st.type) >= 0;
+    if (on) { tot.ph += x.ph; tot.filled += x.filled; tot.open += x.open; tot.n += x.n; }
+    var badge = on ? (x.n + ' · ' + (x.open ? x.open + T(' open', ' 待定') : T('done', '完成'))) : (optl ? T('optional', '可選') : '');
+    h += '<li class="' + (on ? '' : 'off ') + (st.cur === s.code ? 'cur' : '') + '"><input type="checkbox" data-sec="' + esc(s.code) + '"' + (on ? ' checked' : '') + ' aria-label="' + esc(T('Include PS-', '納入 PS-') + s.code) + '">' +
+      '<button type="button" data-go="' + esc(s.code) + '"><span>PS-' + esc(s.code + ' ' + L(s.title)) + '</span><span class="n' + (on && x.open ? ' open' : '') + '">' + esc(badge) + '</span></button></li>';
+  });
+  ul.innerHTML = h;
+  var pct = tot.ph ? Math.round(100 * tot.filled / tot.ph) : (tot.n ? 100 : 0);
+  $('sb-meter').innerHTML = tot.n
+    ? '<div>' + esc(T('Blanks filled', '已填空格')) + ' ' + tot.filled + ' / ' + tot.ph + ' (' + pct + '%)</div><div class="sb-bar"><i style="width:' + pct + '%"></i></div>' +
+      '<div>' + esc(T('Clauses', '條款')) + ' ' + tot.n + ' · ' + (tot.open ? '<span>' + tot.open + esc(T(' open items', ' 項待定')) + '</span>' : '<span class="done">' + esc(T('No open items', '沒有待定事項')) + '</span>') + '</div>'
+    : '<div>' + esc(T('Choose a building type to start.', '請先選擇建築類別。')) + '</div>';
+}
+function tagBadges(c, cx) {
+  return tagsOf(c, cx).map(function (k) { return '<span class="sb-tag t-' + k + '" title="' + esc(DRV.tags[k]) + '">' + esc(k) + ' · ' + esc(L(TAGN[k])) + '</span>'; }).join('');
+}
+function fieldHTML(c, k, cx) {
+  var f = fieldOf(c, k), x = st.cl[c.id], uv = x && x.vals ? x.vals[k] : null, v = valOf(c, k, cx), id = 'f-' + c.id + '-' + k, lab = esc(L(f.label));
+  if (f.kind === 'select') {
+    var o = '<option value="">' + esc(T('Choose...', '請選擇...')) + '</option>' + (f.options || []).map(function (op) { return opt(op.v, E(op), v != null && String(v) === String(op.v)); }).join('');
+    return '<label class="sb-field">' + lab + '<select id="' + esc(id) + '" data-c="' + esc(c.id) + '" data-k="' + esc(k) + '">' + o + '</select></label>';
+  }
+  var ph = f.hint ? E(f.hint) : '', longHint = ph.length > 22;
+  return '<label class="sb-field">' + lab + (f.unit ? ' (' + esc(f.unit) + ')' : '') + '<input type="' + (f.kind === 'number' ? 'number' : 'text') + '" id="' + esc(id) + '" data-c="' + esc(c.id) + '" data-k="' + esc(k) + '" value="' + esc(v == null ? '' : v) + '" placeholder="' + esc(longHint ? '' : ph) + '" autocomplete="off">' + (longHint ? '<small class="sb-fhint">' + esc(ph) + '</small>' : '') + '</label>';
+}
+function keysOf(c) { var ks = [], m, re = /\[\[([A-Za-z0-9_]+)\]\]/g, s = E(c.text); while ((m = re.exec(s))) if (ks.indexOf(m[1]) < 0) ks.push(m[1]); return ks; }
+function cardInner(c, num, cx) {
+  var on = inc(c, cx), x = st.cl[c.id] || {}, open = on ? openOf(c, num, cx).length : 0;
+  var h = '<div class="sb-chead"><input type="checkbox" data-inc="' + esc(c.id) + '"' + (on ? ' checked' : '') + ' aria-label="' + esc(T('Include clause', '納入條款')) + '">' +
+    '<div class="sb-ctitle"><span class="num">' + esc(num[c.id] ? 'PS ' + num[c.id] : c.id) + '</span>' + esc(E(c.title)) + '</div>' +
+    '<span class="sb-tag">' + esc(L(CTYPES[c.type] || CTYPES.product)) + '</span>' + (c.custom ? '' : tagBadges(c, cx)) +
+    (c.origin === 'office' ? '<span class="sb-tag">' + esc(T('Office', '辦公室')) + '</span>' : '') +
+    (c.ai && !x.aiok ? '<span class="sb-tag ai">' + esc(T('AI draft, verify', 'AI 初稿，須核實')) + '</span>' : '') + '</div>';
+  h += '<p class="sb-ctext" lang="en" data-text="' + esc(c.id) + '">' + segsHTML(segs(c, num, cx)) + '</p>';
+  if (c.custom) {
+    h += '<div class="sb-fields sb-custom"><label class="sb-field">' + esc(T('Title', '標題')) + '<input type="text" data-cust="' + esc(c.id) + '" data-part="title" value="' + esc(E(c.title)) + '"></label></div>' +
+      '<div class="sb-fields sb-custom"><label class="sb-field">' + esc(T('Text (English), [[blank]] for a blank', '條文（英文），空格寫作 [[blank]]')) + '<textarea data-cust="' + esc(c.id) + '" data-part="text">' + esc(E(c.text)) + '</textarea></label></div>';
+  }
+  var ks = keysOf(c);
+  if (ks.length) h += '<div class="sb-fields">' + ks.map(function (k) { return fieldHTML(c, k, cx); }).join('') + '</div>';
+  var stds = (c.standards || []).join(', ');
+  h += '<div class="sb-cfoot"><label class="sb-chk"><input type="checkbox" data-tbc="' + esc(c.id) + '"' + (x.tbc ? ' checked' : '') + '>' + esc(T('Mark TBC', '標示待確認')) + '</label>' +
+    (c.ai && !x.aiok ? '<button type="button" class="sb-btn sb-btn-s" data-aiok="' + esc(c.id) + '">' + esc(T('I have verified it', '已核實')) + '</button>' : '') +
+    (c.custom ? '<button type="button" class="sb-btn sb-btn-s" data-del="' + esc(c.id) + '">' + esc(T('Delete', '刪除')) + '</button>' : '') +
+    (stds ? '<span class="std">' + esc(stds) + '</span>' : '') + (c.codes && c.codes.length ? '<span class="std">' + esc(T('Codes: ', '代號：') + c.codes.join(', ')) + '</span>' : '') + '</div>';
+  var g = c.guidance ? E(c.guidance) : '';
+  if (g) h += '<details class="sb-guide"><summary>' + esc(T('Guidance', '指引')) + '</summary><p lang="en">' + esc(g) + '</p></details>';
+  return { html: h, cls: 'sb-card' + (on ? '' : ' off') + (on && open ? ' has-open' : on ? ' ok' : '') };
+}
+function renderCards() {
+  var s = secBy(st.cur), box = $('sb-cards');
+  if (!s) {
+    $('sb-sectitle').textContent = T('Answer the four questions, then choose a building type', '先回答四條問題，再選擇建築類別');
+    $('sb-secintro').textContent = T('The answers and the building type tick the Particular Specification sections and clauses that usually apply. You can change any of them.', '答案及建築類別會預先剔選通常適用的分項及條款，你可隨時更改。');
+    box.innerHTML = ''; return;
+  }
+  $('sb-sectitle').textContent = 'PS-' + s.code + ' ' + L(s.title);
+  $('sb-secintro').textContent = (secOn(s) ? '' : T('This section is not included. Tick it in the list to add it. ', '此分項未納入，請在列表中剔選以加入。')) + E(s.intro);
+  var cx = ctx(), num = numbering().map, all = clausesOf(s), h = '';
+  groupsOf(s).forEach(function (g) {
+    var cl = all.filter(function (c) { return c.group === g.id; });
+    if (st.onlyOpen) cl = cl.filter(function (c) { return inc(c, cx) && openOf(c, num, cx).length; });
+    if (!cl.length) return;
+    h += '<div class="sb-grp">' + esc(L(g.title)) + '</div>';
+    cl.forEach(function (c) { var r = cardInner(c, num, cx); h += '<div class="' + r.cls + '" data-card="' + esc(c.id) + '">' + r.html + '</div>'; });
+  });
+  box.innerHTML = h || '<p class="sb-empty">' + esc(T('No clauses with open items in this section.', '此分項沒有待定事項的條款。')) + '</p>';
+}
+function refreshCardTexts() {
+  var cx = ctx(), num = numbering().map;
+  [].forEach.call(document.querySelectorAll('[data-card]'), function (el) {
+    var c = clauseBy(el.getAttribute('data-card')); if (!c) return;
+    var on = inc(c, cx), open = on ? openOf(c, num, cx).length : 0;
+    el.className = 'sb-card' + (on ? '' : ' off') + (on && open ? ' has-open' : on ? ' ok' : '');
+    var t = el.querySelector('[data-text]'); if (t) t.innerHTML = segsHTML(segs(c, num, cx));
+    var n = el.querySelector('.sb-ctitle .num'); if (n) n.textContent = num[c.id] ? 'PS ' + num[c.id] : c.id;
+  });
+}
+function renderPreview() {
+  var s = secBy(st.cur), box = $('sb-prev');
+  if (!s || !secOn(s) || !st.type) { box.innerHTML = '<p class="sb-empty">' + esc(T('Include a section to see it laid out as issued.', '納入分項後，會在此以發出格式顯示。')) + '</p>'; return; }
+  var set = buildSet(), d = set.ps.filter(function (x) { return x.code === s.code; })[0];
+  var h = '<div class="sb-pvh"><span>' + esc(st.proj.name || 'Project') + '<br>PARTICULAR SPECIFICATION</span><span>' + esc(d.label) + '<br>Rev ' + esc(d.rev) + '</span></div><h3>' + esc(d.head) + '</h3><p class="sb-pvgs">' + esc(d.gsline) + '</p>';
+  d.items.forEach(function (it) {
+    if (it.k === 'group') { h += '<h4>' + esc(it.t) + '</h4>'; return; }
+    h += '<div class="sb-pc"><div class="sb-pchd"><span class="n">' + esc(it.n) + '</span><span class="t">' + esc(it.t) + (it.tags && it.tags.length ? ' <span class="sb-pvtag">[' + esc(it.tags.join('][')) + ']</span>' : '') + '</span></div><p lang="en">' +
+      it.body.map(function (x) { return x.k === 'o' ? '<span class="sb-ph">' + esc(x.s) + '</span>' : esc(x.s); }).join('') + '</p></div>';
+  });
+  box.innerHTML = h + '<p class="sb-pvend">-End-</p>';
+  $('sb-setinfo').textContent = T('Set: ', '文件組：') + set.docs.length + T(' documents, ', ' 份文件，') + set.ps.length + T(' PS sections, ', ' 個規範分項，') + set.count + T(' clauses, ', ' 項條款，') + set.oi.length + T(' open items', ' 項待定事項') + (set.docs[0].held ? T('. Status printed as Draft until the open items are closed.', '。待定事項未完成前，文件狀態會印作 Draft。') : '');
+}
+
+/* ---------- schedule tables (codes) ---------- */
+var COLS = {
+  revs: [['rev', 'Rev', 4], ['date', 'Date', 8], ['status', 'Status', 10, 'status'], ['note', 'Description', 24], ['by', 'By', 8]],
+  materials: [['code', 'Code', 5], ['item', 'Item', 14], ['desc', 'Description', 26], ['size', 'Size', 9], ['finish', 'Finish / colour', 12], ['mfr', 'Manufacturer', 11], ['supplier', 'Supplier', 10], ['remarks', 'Remarks', 10]],
+  systems: [['code', 'Code', 5], ['el', 'Element', 8, 'el'], ['desc', 'Build-up (cite material codes)', 40]],
+  rooms: [['name', 'Room', 16], ['fl', 'Floor', 7, 'Floor'], ['sk', 'Skirting', 7, 'Skirting'], ['wl', 'Wall', 7, 'Wall'], ['cl', 'Ceiling', 7, 'Ceiling'], ['mic', 'Installed (MiC)', 8, 'mic'], ['remarks', 'Remarks', 14]],
+  doors: [['mark', 'Mark', 5], ['loc', 'Location', 14], ['frr', 'FRR (FRR = from Use Class)', 9], ['w', 'W', 5], ['h', 'H', 5], ['type', 'Door type', 18], ['leaf', 'Leaf', 5, 'leaf'], ['set', 'Set', 7, 'set']],
+  sets: [['code', 'Set', 6], ['desc', 'Description', 20], ['items', 'Items (code: qty, ...)', 30]],
+  hardware: [['code', 'Code', 5], ['desc', 'Item', 40]]
+};
+var TABN = { materials: T('Materials (MS)', '物料 (MS)'), systems: T('Finish systems', '飾面系統'), rooms: T('Rooms', '房間'), doors: T('Doors', '門'), sets: T('Hardware sets', '五金組合'), hardware: T('Hardware codes', '五金代號') };
+function rowsOf(tab) { return tab === 'revs' ? st.revs : C2()[tab]; }
+function cellCtl(tab, i, col, v) {
+  var k = col[0], kind = col[3], a = ' data-tab="' + tab + '" data-row="' + i + '" data-col="' + k + '" aria-label="' + esc(col[1]) + '"';
+  var list = null;
+  if (kind === 'status') list = STATUSES.map(function (s) { return [s[0], s[1]]; });
+  else if (kind === 'el') list = [['Floor', 'Floor'], ['Skirting', 'Skirting'], ['Wall', 'Wall'], ['Ceiling', 'Ceiling']];
+  else if (kind === 'leaf') list = [['SL', 'SL'], ['DL', 'DL']];
+  else if (kind === 'mic') list = [['', '-'], ['Factory', 'Factory'], ['Site', 'Site']];
+  else if (kind === 'set') list = [['', '-']].concat(C2().sets.map(function (s) { return [s.code, s.code]; }));
+  else if (/^(Floor|Skirting|Wall|Ceiling)$/.test(kind || '')) list = [['', '-']].concat(C2().systems.filter(function (s) { return s.el === kind; }).map(function (s) { return [s.code, s.code]; }));
+  if (list) { if (v && !list.some(function (o) { return o[0] === v; })) list.push([v, v]); return '<select' + a + '>' + list.map(function (o) { return opt(o[0], o[1], String(v || '') === o[0]); }).join('') + '</select>'; }
+  return '<input type="text"' + a + ' value="' + esc(v == null ? '' : v) + '" style="min-width:' + Math.max(3, col[2]) * 0.62 + 'em" autocomplete="off">';
+}
+function renderTable(tab, box) {
+  var cols = COLS[tab].filter(function (c) { return c[3] !== 'mic' || effFlags().indexOf('mic') >= 0; }), rows = rowsOf(tab);
+  box.innerHTML = '<div class="sb-tblwrap"><table class="sb-tbl"><thead><tr>' + cols.map(function (c) { return '<th>' + esc(c[1]) + '</th>'; }).join('') + '<th></th></tr></thead><tbody>' +
+    rows.map(function (r, i) { return '<tr>' + cols.map(function (c) { return '<td>' + cellCtl(tab, i, c, r[c[0]]) + '</td>'; }).join('') + '<td><button type="button" class="sb-btn sb-btn-s" data-delrow="' + tab + ':' + i + '" aria-label="' + esc(T('Delete row', '刪除列')) + '">&times;</button></td></tr>'; }).join('') +
+    '</tbody></table></div><button type="button" class="sb-btn sb-btn-s" data-addrow="' + tab + '">' + esc(T('Add row', '新增一列')) + '</button>';
+}
+function renderSched() {
+  [].forEach.call(document.querySelectorAll('#sb-tabs [data-tab]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-tab') === st.tab)); });
+  if (!st.codes) { $('sb-table').innerHTML = '<p class="sb-empty">' + esc(T('Choose a building type to load its default rooms, doors and materials.', '選擇建築類別後會載入預設房間、門及物料。')) + '</p>'; return; }
+  renderTable(st.tab, $('sb-table'));
+}
+function renderAll() {
+  renderIntake(); renderTypes(); renderProj(); renderRail(); renderCards(); renderPreview(); renderSched();
+  $('sb-onlyopen').checked = !!st.onlyOpen; $('sb-libreset').hidden = !OFFICE; save();
+}
+function refreshLight() { renderRail(); refreshCardTexts(); renderPreview(); save(); }
+function msg(t, err) { var m = $('sb-msg'); m.textContent = t; m.className = 'sb-hint' + (err ? ' err' : ''); }
+
+/* ---------- actions ---------- */
+function setType(pt) {
+  st.type = pt; st.secs = {};
+  Object.keys(st.cl).forEach(function (id) { delete st.cl[id].inc; });
+  if (!st.codes || !st.codesEdited || st.codesType === pt) { st.codes = presetCodes(pt); st.codesType = pt; st.codesEdited = false; }
+  var first = sections().filter(function (s) { return secOn(s); });
+  st.cur = (first.filter(function (s) { return s.code === '18'; })[0] || first[0] || sections()[0]).code;
+  renderAll();
+}
+function newCustom(code, data) {
+  var n = 1; while (st.custom.some(function (c) { return c.id === code + '-USR-' + pad(n * 10, 3); })) n++;
+  var c = { id: code + '-USR-' + pad(n * 10, 3), section: code, group: 'USR', type: (data && data.type) || 'product', custom: true, tags: ['BP'],
+    title: { en: (data && data.title) || 'New clause' }, text: { en: (data && data.text) || '[[description]]' }, fields: (data && data.fields) || {}, guidance: data && data.guidance ? { en: data.guidance } : null,
+    standards: (data && data.standards) || [], ai: !!(data && data.ai), aiOpen: (data && data.aiOpen) || [] };
+  st.custom.push(c); return c;
+}
+function aiPrompt(note) {
+  var s = secBy(st.cur);
+  var sys = 'You draft ONE clause for a Hong Kong building specification, in English only. Rules: write in your own words; do not quote, adapt or paraphrase the ArchSD General Specification for Building, Housing Authority specifications, NBS or the text of any standard, and cite standards by number only. Do not state fire, structural or statutory values as compliance: write "comply with" the relevant code and leave the value as a placeholder. Put every project-specific value or assumption as a placeholder in double square brackets with a snake_case key, for example [[tile_size]]. UK spelling, short "shall" sentences. No em dashes. Reply with JSON only, in this shape: {"title":"","text":"","guidance":"","standards":["BS EN ..."],"open_items":["assumption to confirm"]}';
+  return { system: sys, prompt: 'Work section: ' + (s ? 'PS-' + s.code + ' ' + E(s.title) : 'general') + '. Note: ' + note };
+}
+function parseAI(txt) {
+  var t = String(txt || '').trim(), i = t.indexOf('{'), j = t.lastIndexOf('}');
+  if (i < 0 || j < i) throw new Error('no JSON');
+  var o = JSON.parse(t.slice(i, j + 1));
+  function en(x) { return x && typeof x === 'object' ? String(x.en || '') : String(x || ''); }
+  function clean(s) { return s.replace(/[—–]/g, ', '); }
+  var text = clean(en(o.text));
+  if (!text) throw new Error('no text');
+  return { title: clean(en(o.title)) || 'AI drafted clause', text: text, guidance: o.guidance ? clean(en(o.guidance)) : null,
+    standards: Array.isArray(o.standards) ? o.standards.map(String).filter(Boolean).slice(0, 8) : [], aiOpen: Array.isArray(o.open_items) ? o.open_items.map(String).filter(Boolean).slice(0, 8) : [], ai: true };
+}
+function aiDraft() {
+  var note = $('sb-ainote').value.trim(), url = $('sb-aiurl').value.trim().replace(/\/+$/, ''), model = $('sb-aimodel').value.trim(), m = $('sb-aimsg');
+  if (!st.cur) { m.textContent = T('Open a work section first.', '請先開啟一個工程分項。'); return; }
+  if (!note) { m.textContent = T('Write a short note first.', '請先寫下簡短筆記。'); return; }
+  if (!/^https?:\/\//.test(url)) { m.textContent = T('The address must start with http:// or https://', '地址須以 http:// 或 https:// 開頭'); return; }
+  var p = aiPrompt(note), btn = $('sb-aigo');
+  btn.disabled = true; m.textContent = T('Asking your local model...', '正在詢問本機模型...');
+  fetch(url + '/api/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: model, system: p.system, prompt: p.prompt, stream: false, format: 'json' }) })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (j) {
+      var c = newCustom(st.cur, parseAI(j.response != null ? j.response : j.message && j.message.content));
+      st.secs[st.cur] = true; renderAll();
+      m.textContent = T('Draft added to "Project additions" as ' + c.id + '. It is marked AI draft until you verify it.', '初稿已加入「項目新增條款」，編號 ' + c.id + '。核實前會一直標示為 AI 初稿。');
+      var el = document.querySelector('[data-card="' + c.id + '"]'); if (el && el.scrollIntoView) el.scrollIntoView({ block: 'center' });
+    })
+    .catch(function (e) { m.textContent = T('No answer from ' + url + ' (' + e.message + '). Is Ollama running, and is OLLAMA_ORIGINS set to allow this site? You can still use "Copy prompt".', url + ' 沒有回應（' + e.message + '）。Ollama 是否正在運行？OLLAMA_ORIGINS 是否已容許本網站？你仍可使用「複製提示」。'); })
+    .then(function () { btn.disabled = !$('sb-aion').checked; });
+}
+function copyText(t) {
+  if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+  return new Promise(function (res, rej) { var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy') ? res() : rej(new Error('copy')); } catch (e) { rej(e); } ta.remove(); });
+}
+function projectFile() { return { format: 'sbhk-project', version: 2, library: LIB.version, libraryDate: LIB.date, saved: new Date().toISOString(), state: st }; }
+function loadProject(j) {
+  if (!j || j.format !== 'sbhk-project' || !j.state || !j.state.proj) throw new Error(T('This is not a Spec Builder HK project file.', '這不是 Spec Builder HK 項目檔。'));
+  if (j.version !== 2 || j.state.v !== 2) throw new Error(T('This project file is from version 1 of the tool and cannot be opened in version 2.', '此項目檔屬第一版工具，未能在第二版開啟。'));
+  var b = blank(); st = j.state;
+  if (st.intake && (st.intake.uc === '3' || st.intake.uc === '5')) st.intake.uc = '';
+  Object.keys(b).forEach(function (k) { if (st[k] == null) st[k] = b[k]; });
+  Object.keys(b.proj).forEach(function (k) { if (st.proj[k] == null) st.proj[k] = b.proj[k]; });
+  renderAll();
+}
+function libraryExport() { return { format: 'sbhk-library', library: 'AW Design Spec Builder HK' + (LIB.office ? ' + ' + LIB.office : ''), version: LIB.version, date: LIB.date, files: sections().map(libFileOf) }; }
+function importOffice(j) {
+  var lib = normaliseLib(j); OFFICE = lib; merge();
+  var stored = sset(KEY_O, OFFICE); renderAll();
+  var n = lib.files.reduce(function (a, f) { return a + f.clauses.length; }, 0);
+  msg(T('Office library imported: ' + n + ' clauses in ' + lib.files.length + ' sections. Same ids replace ours. ' + (stored ? 'Kept in this browser only.' : 'This browser would not store it, so it lasts until you close the page.'),
+        '已匯入辦公室條款庫：' + lib.files.length + ' 個分項共 ' + n + ' 項條款，相同編號的條款已取代本庫條款。' + (stored ? '只保存在此瀏覽器內。' : '此瀏覽器未能保存，關閉網頁後便會消失。')));
+  return n;
+}
+function readFile(input, fn) {
+  var f = input.files && input.files[0]; if (!f) return;
+  var r = new FileReader();
+  r.onload = function () { try { fn(JSON.parse(r.result)); } catch (e) { msg(T('Could not read that file: ', '未能讀取檔案：') + e.message, true); } input.value = ''; };
+  r.readAsText(f);
+}
+
+/* ---------- wiring ---------- */
+function wire() {
+  $('sb-types').addEventListener('click', function (e) { var b = e.target.closest('[data-ptype]'); if (b) setType(b.getAttribute('data-ptype')); });
+  [['sb-route', 'route'], ['sb-uc', 'uc'], ['sb-lic', 'lic'], ['sb-comp', 'comp']].forEach(function (a) {
+    $(a[0]).addEventListener('change', function () { st.intake[a[1]] = this.value; renderAll(); });
+  });
+  $('sb-flags').addEventListener('change', function (e) { var f = e.target.getAttribute('data-flag'); if (!f) return; st.intake.flags[f] = e.target.checked; renderAll(); });
+  var pc = $('sb-pcontract'), pca = $('sb-pca');
+  pc.innerHTML = Object.keys(CONTRACTS).map(function (k) { return opt(k, L(CONTRACTS[k])); }).join('');
+  pca.innerHTML = Object.keys(ROLES).map(function (k) { return opt(k, L(ROLES[k]).replace(/^the /, '').replace(/^./, function (x) { return x.toUpperCase(); })); }).join('');
+  [['sb-pname', 'name'], ['sb-paddr', 'addr'], ['sb-pclient', 'client'], ['sb-pref', 'ref'], ['sb-ppkg', 'pkg'], ['sb-pby', 'by']].forEach(function (a) {
+    $(a[0]).addEventListener('input', function () { st.proj[a[1]] = this.value; save(); });
+    $(a[0]).addEventListener('change', function () { renderPreview(); });
+  });
+  pc.addEventListener('change', function () { st.proj.contract = pc.value; st.proj.ca = CONTRACTS[pc.value].ca; renderProj(); refreshLight(); });
+  pca.addEventListener('change', function () { st.proj.ca = pca.value; refreshLight(); });
+  $('sb-sections').addEventListener('click', function (e) {
+    var cb = e.target.closest('[data-sec]'), go = e.target.closest('[data-go]');
+    if (cb) { st.secs[cb.getAttribute('data-sec')] = cb.checked; if (cb.checked) st.cur = cb.getAttribute('data-sec'); renderAll(); return; }
+    if (go) { st.cur = go.getAttribute('data-go'); renderAll(); var m = $('sb-sectitle'); if (window.innerWidth < 760 && m.scrollIntoView) m.scrollIntoView({ block: 'start' }); }
+  });
+  var cards = $('sb-cards');
+  cards.addEventListener('change', function (e) {
+    var t = e.target, id;
+    if ((id = t.getAttribute('data-inc'))) { cs(id).inc = t.checked; if (t.checked && st.cur) st.secs[st.cur] = true; renderAll(); return; }
+    if ((id = t.getAttribute('data-tbc'))) { cs(id).tbc = t.checked; refreshLight(); return; }
+    if ((id = t.getAttribute('data-c'))) { cs(id).vals[t.getAttribute('data-k')] = t.value === '' ? null : t.value; refreshLight(); }
+  });
+  cards.addEventListener('input', function (e) {
+    var t = e.target, id;
+    if ((id = t.getAttribute('data-c')) && t.tagName === 'INPUT') { cs(id).vals[t.getAttribute('data-k')] = t.value === '' ? null : t.value; refreshLight(); }
+    if ((id = t.getAttribute('data-cust'))) { var c = clauseBy(id); c[t.getAttribute('data-part')] = { en: t.value }; refreshLight(); }
+  });
+  cards.addEventListener('focusout', function (e) { if (e.target.getAttribute('data-part') === 'text') renderCards(); });
+  cards.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-aiok],[data-del]'); if (!b) return;
+    if (b.hasAttribute('data-aiok')) cs(b.getAttribute('data-aiok')).aiok = true;
+    else { var id = b.getAttribute('data-del'); st.custom = st.custom.filter(function (c) { return c.id !== id; }); delete st.cl[id]; }
+    renderAll();
+  });
+  $('sb-allon').addEventListener('click', function () { var s = secBy(st.cur); if (!s) return; st.secs[s.code] = true; clausesOf(s).forEach(function (c) { cs(c.id).inc = true; }); renderAll(); });
+  $('sb-alloff').addEventListener('click', function () { var s = secBy(st.cur); if (!s) return; clausesOf(s).forEach(function (c) { cs(c.id).inc = false; }); renderAll(); });
+  $('sb-onlyopen').addEventListener('change', function () { st.onlyOpen = this.checked; renderCards(); save(); });
+  // schedule tables
+  $('sb-tabs').addEventListener('click', function (e) { var b = e.target.closest('[data-tab]'); if (!b) return; st.tab = b.getAttribute('data-tab'); renderSched(); save(); });
+  function tblEdit(e) {
+    var t = e.target, tab = t.getAttribute('data-tab'); if (!tab || !t.hasAttribute('data-row')) return;
+    var r = rowsOf(tab)[+t.getAttribute('data-row')]; if (!r) return;
+    r[t.getAttribute('data-col')] = t.value; if (tab !== 'revs') st.codesEdited = true;
+    if (e.type === 'change') { if (tab === 'revs') renderProj(); else renderSched(); }
+    renderPreview(); save();
+  }
+  function tblClick(e) {
+    var a = e.target.closest('[data-addrow]'), d = e.target.closest('[data-delrow]');
+    if (a) { var tab = a.getAttribute('data-addrow'), rows = rowsOf(tab), row = {}; COLS[tab].forEach(function (c) { row[c[0]] = ''; });
+      if (tab === 'revs') { var lr = rows[rows.length - 1] || {}; row.rev = String.fromCharCode(((lr.rev || 'A').charCodeAt(0) || 64) + 1); row.date = today(); row.status = lr.status || 'draft'; }
+      rows.push(row); if (tab !== 'revs') st.codesEdited = true; }
+    else if (d) { var p = d.getAttribute('data-delrow').split(':'); var rs = rowsOf(p[0]); if (p[0] === 'revs' && rs.length < 2) return; rs.splice(+p[1], 1); if (p[0] !== 'revs') st.codesEdited = true; }
+    else return;
+    renderProj(); renderSched(); renderPreview(); save();
+  }
+  ['sb-table', 'sb-revs'].forEach(function (id) { $(id).addEventListener('input', tblEdit); $(id).addEventListener('change', tblEdit); $(id).addEventListener('click', tblClick); });
+  $('sb-codesreset').addEventListener('click', function () { if (!st.type) return; if (!window.confirm(T('Replace rooms, doors and materials with the defaults for this building type?', '以此建築類別的預設值取代房間、門及物料？'))) return; st.codes = presetCodes(st.type); st.codesType = st.type; st.codesEdited = false; renderSched(); renderPreview(); save(); });
+  // exports
+  function guard() { if (!st.type || !numbering().list.length) { msg(T('Nothing to export yet: answer the questions and choose a building type.', '尚未有內容可匯出：請回答問題並選擇建築類別。'), true); return false; } return true; }
+  $('sb-xpdf').addEventListener('click', function () { if (!guard()) return; msg(T('In the print window choose "Save as PDF". For page numbers that restart in each document, open the .docx in Word and save it as PDF.', '請在列印視窗選擇「另存為 PDF」。如需每份文件各自重新編頁，請用 Word 開啟 .docx 再另存為 PDF。')); doPrint(); });
+  function xbtn(id, fn, ext, done) {
+    $(id).addEventListener('click', function () {
+      if (!guard()) return; var b = this; b.disabled = true; msg(T('Building the Word files...', '正在製作 Word 檔...'));
+      var set = buildSet();
+      fn(set).then(function (blob) { download(fname(ext), blob); msg(done(set)); }).catch(function (e) { msg(e.message, true); }).then(function () { b.disabled = false; });
+    });
+  }
+  xbtn('sb-xdocx', docxBlob, 'docx', function (s) { return T('Word set exported: ' + s.docs.length + ' documents in one file, ' + s.count + ' clauses, ' + s.oi.length + ' open items.', '已匯出 Word 文件組：一個檔案內 ' + s.docs.length + ' 份文件，' + s.count + ' 項條款，' + s.oi.length + ' 項待定事項。'); });
+  xbtn('sb-xzip', docxZip, 'zip', function (s) { return T('Zip exported: ' + s.docs.length + ' separate .docx documents.', '已匯出壓縮檔：' + s.docs.length + ' 份獨立 .docx 文件。'); });
+  $('sb-marks').addEventListener('change', function () { st.proj.marks = this.checked; renderPreview(); save(); });
+  $('sb-save').addEventListener('click', function () { download(fname('spec.json'), new Blob([JSON.stringify(projectFile(), null, 1)], { type: 'application/json' })); msg(T('Project file saved.', '已儲存項目檔。')); });
+  $('sb-open').addEventListener('change', function () { readFile(this, function (j) { loadProject(j); msg(T('Project opened.', '已開啟項目。')); }); });
+  $('sb-libx').addEventListener('click', function () { download('spec-builder-hk_library_v' + LIB.version + '.json', new Blob([JSON.stringify(libraryExport(), null, 1)], { type: 'application/json' })); msg(T('Library downloaded. Edit it in the same shape and import it as your office library.', '已下載條款庫。可按相同格式修改，再匯入作為辦公室條款庫。')); });
+  $('sb-libi').addEventListener('change', function () { readFile(this, importOffice); });
+  $('sb-libreset').addEventListener('click', function () { OFFICE = null; sset(KEY_O, null); merge(); renderAll(); msg(T('Office library removed.', '已移除辦公室條款庫。')); });
+  $('sb-reset').addEventListener('click', function () { if (!window.confirm(T('Clear this project and start again?', '清除此項目並重新開始？'))) return; st = blank(); renderAll(); msg(''); });
+  $('sb-aion').addEventListener('change', function () { $('sb-aigo').disabled = !this.checked; });
+  $('sb-aigo').addEventListener('click', aiDraft);
+  $('sb-aicopy').addEventListener('click', function () {
+    var note = $('sb-ainote').value.trim() || T('(write your note here)', '（在此寫下筆記）'), p = aiPrompt(note);
+    copyText(p.system + '\n\n' + p.prompt).then(function () { $('sb-aimsg').textContent = T('Prompt copied. Paste the answer back with "Add a blank clause" and edit it.', '已複製提示。可把 AI 回覆的內容以「新增空白條款」貼回並修改。'); },
+      function () { $('sb-aimsg').textContent = T('Could not copy. Your browser blocked the clipboard.', '未能複製，瀏覽器封鎖了剪貼簿。'); });
+  });
+  $('sb-addblank').addEventListener('click', function () {
+    if (!st.cur) { $('sb-aimsg').textContent = T('Open a work section first.', '請先開啟一個工程分項。'); return; }
+    var c = newCustom(st.cur); st.secs[st.cur] = true; renderAll();
+    var el = document.querySelector('[data-card="' + c.id + '"] input[data-part]'); if (el) el.focus();
+  });
+}
+
+function boot() {
+  var root = $('tool'); if (!root) return;
+  function get(f) { return fetch(BASE + f).then(function (r) { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); }); }
+  get('index.json').then(function (ix) {
+    return Promise.all([Promise.all(ix.files.map(get)), get(ix.drivers || 'drivers.json'), get(ix.codes || 'codes.json')]).then(function (a) {
+      BASELIB = { format: 'sbhk-library', library: ix.library, version: ix.version, date: ix.date, files: a[0] }; DRV = a[1]; CODES = a[2];
+    });
+  }).then(function () {
+    var o = sget(KEY_O); if (o) { try { OFFICE = normaliseLib(o); } catch (e) { OFFICE = null; } }
+    merge();
+    var saved = sget(KEY_P), b = blank();
+    st = saved && saved.v === 2 && saved.proj ? saved : b;
+    if (st.intake && (st.intake.uc === '3' || st.intake.uc === '5')) st.intake.uc = '';
+    Object.keys(b).forEach(function (k) { if (st[k] == null) st[k] = b[k]; });
+    Object.keys(b.intake).forEach(function (k) { if (st.intake[k] == null) st.intake[k] = b.intake[k]; });
+    var n = LIB.sections.reduce(function (a, s) { return a + s.clauses.length; }, 0);
+    $('sb-libfact').textContent = T(LIB.sections.length + ' PS sections, ' + n + ' clauses, ' + DRV.types.length + ' building types, v' + LIB.version, LIB.sections.length + ' 個規範分項、' + n + ' 項條款、' + DRV.types.length + ' 種建築類別，版本 ' + LIB.version);
+    $('sb-tabs').innerHTML = Object.keys(TABN).map(function (k) { return '<button type="button" data-tab="' + k + '" aria-pressed="false">' + esc(TABN[k]) + '</button>'; }).join('');
+    wire(); renderAll();
+    root.setAttribute('data-ready', '1');
+    window.SBHK = { get state() { return st; }, set state(v) { st = v; renderAll(); }, lib: function () { return LIB; }, drivers: function () { return DRV; }, numbering: numbering, buildSet: buildSet,
+      printHTML: printHTML, docxBlob: docxBlob, docxZip: docxZip, libraryExport: libraryExport, importOffice: importOffice, projectFile: projectFile, loadProject: loadProject,
+      setType: setType, ctx: ctx, parseAI: parseAI, aiPrompt: aiPrompt, render: renderAll,
+      blobB64: function (b) { return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.readAsDataURL(b); }); } };
+  }).catch(function (e) {
+    msg(T('The clause library did not load (' + e.message + '). Please reload the page.', '條款庫未能載入（' + e.message + '），請重新載入網頁。'), true);
+    root.setAttribute('data-ready', 'error');
+  });
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+
+</script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

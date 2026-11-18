@@ -1,0 +1,3434 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "18",
+    "id": "FIN",
+    "title": {
+      "en": "Finishes",
+      "zh": "飾面工程"
+    },
+    "intro": {
+      "en": "Floor screeds, tiling, plastering, ceilings, floorings, linings and finishes for specific uses."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 18,
+        "title": "Finishes"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "SCR",
+      "title": {
+        "en": "Cement-sand screeds",
+        "zh": "水泥砂漿地台批盪"
+      }
+    },
+    {
+      "id": "TILE",
+      "title": {
+        "en": "Floor and wall tiling",
+        "zh": "地磚及牆磚"
+      }
+    },
+    {
+      "id": "PLS",
+      "title": {
+        "en": "Internal plastering and skim",
+        "zh": "室內批盪及批灰"
+      }
+    },
+    {
+      "id": "RAF",
+      "title": {
+        "en": "Raised access floors",
+        "zh": "架空地台"
+      }
+    },
+    {
+      "id": "CLG",
+      "title": {
+        "en": "Suspended ceilings",
+        "zh": "假天花"
+      }
+    },
+    {
+      "id": "FLR",
+      "title": {
+        "en": "Resilient and textile floorings",
+        "zh": "彈性及紡織地板"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    },
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Tolerances"
+      }
+    },
+    {
+      "id": "LIN",
+      "title": {
+        "en": "Reaction to fire of linings"
+      }
+    },
+    {
+      "id": "USE",
+      "title": {
+        "en": "Finishes for specific uses"
+      }
+    },
+    {
+      "id": "IND",
+      "title": {
+        "en": "Industrial floors"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "FIN-SCR-010",
+      "group": "SCR",
+      "type": "outline",
+      "title": {
+        "en": "Cement-sand screeds: general"
+      },
+      "text": {
+        "en": "Provide cement-sand levelling screeds to floors where shown on the drawings, laid [[bond]]. Nominal screed thickness shall be [[thk]] mm. Materials, mix and laying shall follow BS 8204-1 unless stated otherwise. Submit the screed mix and a method statement to {{CA}} before work starts."
+      },
+      "fields": {
+        "bond": {
+          "label": {
+            "en": "Bond to base",
+            "zh": "與基層結合方式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "bonded",
+              "en": "bonded to the prepared structural base"
+            },
+            {
+              "v": "unbonded",
+              "en": "unbonded on a separating layer"
+            },
+            {
+              "v": "floating",
+              "en": "floating on an insulation or acoustic layer"
+            }
+          ],
+          "default": null
+        },
+        "thk": {
+          "label": {
+            "en": "Screed thickness",
+            "zh": "地台批盪厚度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null,
+          "hint": {
+            "en": "Project to confirm, varies with bond type"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Bonded screeds can be thinner but rely on a clean, keyed base; unbonded and floating screeds need more depth to resist curling and cracking. In HK fit-outs a bonded screed on the structural slab is common, and a thin screed laid over dust or laitance is a frequent cause of hollowness."
+      },
+      "standards": [
+        "BS 8204-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-SCR-020",
+      "group": "SCR",
+      "type": "execution",
+      "title": {
+        "en": "Falls to drains"
+      },
+      "text": {
+        "en": "Where floors drain to gullies or channels, form falls in the screed of [[fall]] towards the outlets, with no ponding. Set levels so that outlet gratings sit slightly below the finished floor surface. Where a waterproofing membrane is shown, form the falls in the layer stated on the drawings so the membrane also drains."
+      },
+      "fields": {
+        "fall": {
+          "label": {
+            "en": "Fall gradient",
+            "zh": "排水坡度"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "1:60",
+              "en": "1:60"
+            },
+            {
+              "v": "1:80",
+              "en": "1:80"
+            },
+            {
+              "v": "1:100",
+              "en": "1:100"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Falls are commonly 1:80 to 1:100 in toilets, pantries and plant rooms; flatter falls tend to pond once tile and grout tolerances are added. A frequent HK pitfall is forming falls only in the topping so that water trapped above the membrane cannot escape."
+      },
+      "standards": [
+        "BS 8204-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-SCR-030",
+      "group": "SCR",
+      "type": "execution",
+      "title": {
+        "en": "Curing and protection of screeds"
+      },
+      "text": {
+        "en": "Protect newly laid screed from rapid drying, direct sun, draughts and early traffic. Cure by [[cure]] for not less than [[days]] days. Do not use curing compounds that would impair the bond of adhesives or floor finishes."
+      },
+      "fields": {
+        "cure": {
+          "label": {
+            "en": "Curing method",
+            "zh": "養護方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "sheet",
+              "en": "close covering with polythene sheet"
+            },
+            {
+              "v": "damp",
+              "en": "damp hessian kept moist"
+            },
+            {
+              "v": "compound",
+              "en": "a curing compound approved by the flooring manufacturer"
+            }
+          ],
+          "default": "sheet"
+        },
+        "days": {
+          "label": {
+            "en": "Curing period",
+            "zh": "養護期"
+          },
+          "kind": "number",
+          "unit": "days",
+          "default": 7
+        }
+      },
+      "guidance": {
+        "en": "Summer heat and hot air from temporary ventilation can dry the surface before the screed gains strength, leading to dusting and crazing. Seven days is a common curing period, but the drying time before finishes is a separate and much longer matter."
+      },
+      "standards": [
+        "BS 8204-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-SCR-040",
+      "group": "SCR",
+      "type": "performance",
+      "title": {
+        "en": "Screed surface regularity and finish"
+      },
+      "text": {
+        "en": "The finished screed shall achieve surface regularity class [[sr]] to BS 8204-1, checked with a 2 m straightedge. Grind high spots and fill low spots with a compatible levelling compound approved by {{CA}}. Surface finish shall be [[finish]]."
+      },
+      "fields": {
+        "sr": {
+          "label": {
+            "en": "Surface regularity class",
+            "zh": "表面平整度等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "SR1",
+              "en": "SR1"
+            },
+            {
+              "v": "SR2",
+              "en": "SR2"
+            },
+            {
+              "v": "SR3",
+              "en": "SR3"
+            }
+          ],
+          "default": null
+        },
+        "finish": {
+          "label": {
+            "en": "Surface finish",
+            "zh": "表面處理"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "wood",
+              "en": "wood floated, to receive bedded tiling"
+            },
+            {
+              "v": "steel",
+              "en": "steel trowelled, to receive adhesive-fixed finishes"
+            },
+            {
+              "v": "textured",
+              "en": "lightly textured to receive a levelling compound"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Thin finishes such as vinyl, LVT and carpet tiles show every ripple, so they typically need a tighter class than tiles on a thick bed. Agreeing the class early avoids disputes over who pays for smoothing compound."
+      },
+      "standards": [
+        "BS 8204-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-SCR-050",
+      "group": "SCR",
+      "type": "performance",
+      "title": {
+        "en": "Moisture in screeds before floor finishes"
+      },
+      "text": {
+        "en": "Do not lay moisture-sensitive finishes, including resilient floorings, carpets, timber and adhesive-fixed tiles, until the screed is dry enough. Test moisture by [[method]] and achieve not more than [[limit]], or the lower value set by the finish or adhesive manufacturer. Record the results on a floor plan and submit them to {{CA}}."
+      },
+      "fields": {
+        "method": {
+          "label": {
+            "en": "Test method",
+            "zh": "測試方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "hygro",
+              "en": "hygrometer (relative humidity) test as BS 8203"
+            },
+            {
+              "v": "carbide",
+              "en": "calcium carbide test"
+            },
+            {
+              "v": "both",
+              "en": "hygrometer test, with electronic meter readings for mapping only"
+            }
+          ],
+          "default": "hygro"
+        },
+        "limit": {
+          "label": {
+            "en": "Moisture limit",
+            "zh": "含水量上限"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 75% RH, to manufacturer's data"
+          }
+        }
+      },
+      "guidance": {
+        "en": "HK's humid climate slows screed drying, so rule-of-thumb drying times are commonly unreliable and testing is the safer basis for release. Where programme does not allow drying, a moisture-tolerant surface membrane approved by the flooring maker is a typical remedy."
+      },
+      "standards": [
+        "BS 8203",
+        "BS 8204-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-010",
+      "group": "TILE",
+      "type": "product",
+      "title": {
+        "en": "Floor tiles"
+      },
+      "text": {
+        "en": "Floor tiles shall be [[type]] tiles to BS EN 14411, absorption group [[group]], nominal size [[size]], colour and finish [[colour]]. Slip resistance shall be not less than [[slip]] as {{ref:FIN-TILE-030}}. Bed tiles by [[bed]] as {{ref:FIN-TILE-060}}. Submit samples of each tile to {{CA}} for approval before ordering."
+      },
+      "fields": {
+        "type": {
+          "label": {
+            "en": "Tile type",
+            "zh": "磚類"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "porcelain",
+              "en": "porcelain"
+            },
+            {
+              "v": "ceramic",
+              "en": "glazed ceramic"
+            }
+          ],
+          "default": "porcelain"
+        },
+        "group": {
+          "label": {
+            "en": "Absorption group",
+            "zh": "吸水率類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "BIa",
+              "en": "BIa"
+            },
+            {
+              "v": "BIb",
+              "en": "BIb"
+            },
+            {
+              "v": "BIIa",
+              "en": "BIIa"
+            }
+          ],
+          "default": "BIa"
+        },
+        "size": {
+          "label": {
+            "en": "Tile size",
+            "zh": "磚塊尺寸"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "300x300",
+              "en": "300 x 300 mm"
+            },
+            {
+              "v": "600x600",
+              "en": "600 x 600 mm"
+            },
+            {
+              "v": "600x1200",
+              "en": "600 x 1200 mm"
+            },
+            {
+              "v": "800x800",
+              "en": "800 x 800 mm"
+            },
+            {
+              "v": "schedule",
+              "en": "as stated in the finishes schedule"
+            }
+          ],
+          "default": "600x600"
+        },
+        "colour": {
+          "label": {
+            "en": "Colour and finish"
+          },
+          "kind": "select",
+          "default": "sched",
+          "options": [
+            {
+              "v": "sched",
+              "en": "as the Material Data Sheet for each tile code"
+            },
+            {
+              "v": "other",
+              "en": "as the Finishes Schedule"
+            }
+          ]
+        },
+        "slip": {
+          "label": {
+            "en": "Slip class"
+          },
+          "kind": "select",
+          "default": "the class stated for each area in {{ref:FIN-TILE-030}}",
+          "options": [
+            {
+              "v": "P3 or R10",
+              "en": "P3 or R10"
+            },
+            {
+              "v": "P4 or R11",
+              "en": "P4 or R11"
+            },
+            {
+              "v": "P5 or R12",
+              "en": "P5 or R12"
+            },
+            {
+              "v": "the class stated for each area in {{ref:FIN-TILE-030}}",
+              "en": "the class stated for each area in {{ref:FIN-TILE-030}}"
+            }
+          ]
+        },
+        "bed": {
+          "label": {
+            "en": "Bedding method",
+            "zh": "鋪貼方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "adhesive",
+              "en": "thin-bed adhesive"
+            },
+            {
+              "v": "semidry",
+              "en": "semi-dry cement-sand mortar bed"
+            }
+          ],
+          "default": "adhesive"
+        }
+      },
+      "guidance": {
+        "en": "Porcelain (group BIa) is the usual choice for office and lobby floors because of its low absorption and hard wearing surface. Semi-dry bedding is common in HK for large floor tiles over uneven slabs, while thin-bed adhesive needs a flat screed but gives better contact; state the finish, not just the colour, as polished porcelain is slippery when wet."
+      },
+      "standards": [
+        "BS EN 14411"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-TILE-030",
+        "FIN-TILE-060"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "codes": [
+        "TL"
+      ]
+    },
+    {
+      "id": "FIN-TILE-020",
+      "group": "TILE",
+      "type": "product",
+      "title": {
+        "en": "Wall tiles"
+      },
+      "text": {
+        "en": "Wall tiles shall be [[type]] tiles to BS EN 14411, absorption group [[group]], nominal size [[size]] mm, colour and finish [[colour]]. Fix with adhesive as {{ref:FIN-TILE-040}} onto a background prepared as {{ref:FIN-PLS-040}}, or onto cement-based board where shown. Submit samples to {{CA}} for approval before ordering."
+      },
+      "fields": {
+        "type": {
+          "label": {
+            "en": "Tile type",
+            "zh": "磚類"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "ceramic",
+              "en": "glazed ceramic"
+            },
+            {
+              "v": "porcelain",
+              "en": "porcelain"
+            }
+          ],
+          "default": "ceramic"
+        },
+        "group": {
+          "label": {
+            "en": "Absorption group",
+            "zh": "吸水率類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "BIII",
+              "en": "BIII"
+            },
+            {
+              "v": "BIb",
+              "en": "BIb"
+            },
+            {
+              "v": "BIa",
+              "en": "BIa"
+            }
+          ],
+          "default": "BIII"
+        },
+        "size": {
+          "label": {
+            "en": "Tile size",
+            "zh": "磚塊尺寸"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 300 x 600"
+          }
+        },
+        "colour": {
+          "label": {
+            "en": "Colour and finish",
+            "zh": "顏色及表面"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. white gloss"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Glazed ceramic wall tiles are commonly fixed on cement-sand render in HK toilets and pantries; render should be left to cure before tiling. Heavy large porcelain on high walls may need mechanical retention in addition to adhesive, which the designer should consider."
+      },
+      "standards": [
+        "BS EN 14411"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-TILE-040",
+        "FIN-PLS-040"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "TL"
+      ]
+    },
+    {
+      "id": "FIN-TILE-030",
+      "group": "TILE",
+      "type": "performance",
+      "title": {
+        "en": "Slip resistance of floor finishes"
+      },
+      "text": {
+        "en": "Floor finishes shall be classified for slip resistance under PNAP APP-175, either by a P class from the wet pendulum test to AS 4586:2013 or by an R class from the oil-wet ramp test to DIN 51130 (the edition cited in APP-175). The two scales are separate and shall not be converted. Minimum classes: indoor regulated routes, toilets, bathrooms and kitchens of residential units [[indoor]]; outdoor regulated routes and entrances exposed to rain [[outdoor]]; commercial kitchens and sculleries [[kitchen]]. Submit independent test reports for each floor finish proposed. Wet pendulum values to BS EN 16165 may be provided as supplementary data for UK-sourced products but do not replace the classification."
+      },
+      "fields": {
+        "indoor": {
+          "label": {
+            "en": "Indoor"
+          },
+          "kind": "select",
+          "default": "P3 or R10",
+          "options": [
+            {
+              "v": "P3 or R10",
+              "en": "P3 or R10"
+            },
+            {
+              "v": "P4 or R11",
+              "en": "P4 or R11"
+            }
+          ]
+        },
+        "outdoor": {
+          "label": {
+            "en": "Outdoor"
+          },
+          "kind": "select",
+          "default": "P4 or R11",
+          "options": [
+            {
+              "v": "P4 or R11",
+              "en": "P4 or R11"
+            },
+            {
+              "v": "P5 or R12",
+              "en": "P5 or R12"
+            }
+          ]
+        },
+        "kitchen": {
+          "label": {
+            "en": "Commercial kitchens"
+          },
+          "kind": "select",
+          "default": "P5 or R12",
+          "options": [
+            {
+              "v": "P5 or R12",
+              "en": "P5 or R12"
+            },
+            {
+              "v": "P4 or R11",
+              "en": "P4 or R11"
+            },
+            {
+              "v": "na",
+              "en": "not applicable"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "APP-175 applies to works consented on or after 1 August 2026 (statutory where in scope, best practice elsewhere). The R12 / P5 kitchen value has no HK source. DIN 51130:2014-02, the edition named in APP-175, has since been replaced by DIN 51130:2023-03."
+      },
+      "standards": [
+        "AS 4586:2013",
+        "DIN 51130",
+        "BS EN 16165"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-040",
+      "group": "TILE",
+      "type": "product",
+      "title": {
+        "en": "Tile adhesives"
+      },
+      "text": {
+        "en": "Tile adhesive shall be cementitious to BS EN 12004-1, class [[cls]], selected to suit the tile, background and exposure. Use a deformable adhesive (S1 or better) for large-format tiles, external areas and backgrounds subject to movement. Use adhesive and grout from one manufacturer's compatible system, mixed and applied to the manufacturer's recommendations."
+      },
+      "fields": {
+        "cls": {
+          "label": {
+            "en": "Adhesive class",
+            "zh": "黏合劑類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "C1",
+              "en": "C1"
+            },
+            {
+              "v": "C1T",
+              "en": "C1T"
+            },
+            {
+              "v": "C2",
+              "en": "C2"
+            },
+            {
+              "v": "C2TE",
+              "en": "C2TE"
+            },
+            {
+              "v": "C2TES1",
+              "en": "C2TE S1"
+            }
+          ],
+          "default": "C2TES1"
+        }
+      },
+      "guidance": {
+        "en": "Low-absorption porcelain needs an improved (C2) adhesive because ordinary cement-based adhesive bonds poorly to its dense back; T limits slip on walls and E extends open time in hot weather. Mixing products from different makers is a common cause of disputes over failures."
+      },
+      "standards": [
+        "BS EN 12004-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-050",
+      "group": "TILE",
+      "type": "product",
+      "title": {
+        "en": "Tile grout"
+      },
+      "text": {
+        "en": "Grout joints with [[grout]] grout to BS EN 13888-1, colour [[colour]]. Joint width shall be [[joint]] mm, uniform throughout. Clean joints to a consistent depth before grouting and fill fully with no voids."
+      },
+      "fields": {
+        "grout": {
+          "label": {
+            "en": "Grout class",
+            "zh": "填縫劑類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "CG2WA",
+              "en": "CG2WA cementitious"
+            },
+            {
+              "v": "CG2",
+              "en": "CG2 cementitious"
+            },
+            {
+              "v": "RG",
+              "en": "RG reaction resin (epoxy)"
+            }
+          ],
+          "default": "CG2WA"
+        },
+        "colour": {
+          "label": {
+            "en": "Grout colour",
+            "zh": "填縫劑顏色"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. to match tile"
+          }
+        },
+        "joint": {
+          "label": {
+            "en": "Joint width",
+            "zh": "磚縫寬度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null,
+          "hint": {
+            "en": "e.g. 2 to 3 for rectified porcelain"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Cementitious CG2WA grout suits most offices and toilets, while RG epoxy grout is commonly used in commercial kitchens and areas cleaned with chemicals. Butt-jointed tiles leave no room for size variation or movement, so a narrow joint is still typical with rectified tiles."
+      },
+      "standards": [
+        "BS EN 13888-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-060",
+      "group": "TILE",
+      "type": "execution",
+      "title": {
+        "en": "Setting out and laying tiles"
+      },
+      "text": {
+        "en": "Lay tiles only on a base that meets {{ref:FIN-SCR-040}} and, for adhesive bedding, the moisture condition in {{ref:FIN-SCR-050}}. Set out from the centre lines or setting-out points on the drawings so that perimeter cuts are not less than half a tile where practicable, and submit the setting-out to {{CA}}. Bed tiles with full contact and no voids: for thin-bed adhesive use a notched trowel and back-butter large-format tiles; for semi-dry mortar lay on a compacted cement-sand bed with a slurry bonding coat to each tile back. Lippage between adjacent tiles shall not exceed [[lippage]] mm and the finished surface shall be within [[flat]] mm under a 2 m straightedge."
+      },
+      "fields": {
+        "lippage": {
+          "label": {
+            "en": "Maximum lippage",
+            "zh": "最大磚面高低差"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null,
+          "hint": {
+            "en": "Agree with tile warpage data"
+          }
+        },
+        "flat": {
+          "label": {
+            "en": "Flatness under 2 m straightedge",
+            "zh": "2 米直尺平整度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Hollow-sounding tiles are the most common HK tiling defect, usually from semi-dry beds with poor slurry or compaction, or adhesive without back-buttering. Long tiles are rarely perfectly flat, so a half-bond offset tends to show lippage; an offset of one third or less is the usual remedy."
+      },
+      "standards": [
+        "BS 5385-3"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-SCR-040",
+        "FIN-SCR-050"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-070",
+      "group": "TILE",
+      "type": "execution",
+      "title": {
+        "en": "Movement joints in tiling"
+      },
+      "text": {
+        "en": "Provide movement joints at perimeters, at changes of background, over structural and screed joints, and in field areas at not more than [[spacing]] m centres each way, or as shown on the drawings. Joints over structural or screed joints shall pass through the full depth of tile and bedding. Fill with [[filler]] over a compatible backing, colour to suit the grout. Submit a joint layout to {{CA}} for approval."
+      },
+      "fields": {
+        "spacing": {
+          "label": {
+            "en": "Field joint spacing",
+            "zh": "大面積伸縮縫間距"
+          },
+          "kind": "number",
+          "unit": "m",
+          "default": null
+        },
+        "filler": {
+          "label": {
+            "en": "Joint filler",
+            "zh": "伸縮縫填充物料"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "silicone",
+              "en": "low-modulus silicone sealant"
+            },
+            {
+              "v": "pu",
+              "en": "polyurethane sealant"
+            },
+            {
+              "v": "profile",
+              "en": "prefabricated metal movement profile"
+            }
+          ],
+          "default": "silicone"
+        }
+      },
+      "guidance": {
+        "en": "Omitting perimeter and field joints is a common reason for tiles tenting or popping up, especially where floors are heated by sun through glazing. Prefabricated profiles are typical in heavily trafficked lobbies, sealant elsewhere."
+      },
+      "standards": [
+        "BS 5385-1",
+        "BS 5385-3"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-TILE-080",
+      "group": "TILE",
+      "type": "execution",
+      "title": {
+        "en": "Tile testing and inspection"
+      },
+      "text": {
+        "en": "Where {{CA}} requires, test tiles from delivered batches to the relevant parts of BS EN ISO 10545 at a laboratory [[lab]]. After the bedding has cured, tap-test all tiled areas and replace tiles that sound hollow or are cracked, chipped or loose. Record tap-test results on a floor plan and submit them to {{CA}}."
+      },
+      "fields": {
+        "lab": {
+          "label": {
+            "en": "Laboratory",
+            "zh": "實驗所"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "hoklas",
+              "en": "accredited under HOKLAS"
+            },
+            {
+              "v": "accredited",
+              "en": "with other accreditation, approved in advance"
+            }
+          ],
+          "default": "hoklas"
+        }
+      },
+      "guidance": {
+        "en": "Tap testing with a hard object is the usual HK check for hollowness and is best done before grouting is complete in large areas so defects are cheaper to fix. Batch testing is typically reserved for large orders or where samples and deliveries look different."
+      },
+      "standards": [
+        "BS EN ISO 10545"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-PLS-010",
+      "group": "PLS",
+      "type": "outline",
+      "title": {
+        "en": "Internal plastering: system"
+      },
+      "text": {
+        "en": "Internal walls and soffits shall be finished with [[system]], to the thickness and tolerance in {{ref:FIN-PLS-040}}. Surfaces to receive tiling shall be left with a scratched or keyed finish and no skim coat."
+      },
+      "fields": {
+        "system": {
+          "label": {
+            "en": "Plastering system",
+            "zh": "批盪系統"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "cs",
+              "en": "cement-sand render with a skim coat"
+            },
+            {
+              "v": "gypsum",
+              "en": "gypsum plaster to BS EN 13279-1"
+            },
+            {
+              "v": "skim",
+              "en": "skim coat only on prepared concrete or gypsum board"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Cement-sand render with a skim before paint is the common HK system on concrete and blockwork; gypsum plaster is lighter and quicker but unsuited to wet areas. Concrete soffits are often only skimmed, as thick soffit render can delaminate and fall."
+      },
+      "standards": [
+        "BS EN 13279-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-PLS-040"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "PT"
+      ]
+    },
+    {
+      "id": "FIN-PLS-020",
+      "group": "PLS",
+      "type": "product",
+      "title": {
+        "en": "Plastering materials"
+      },
+      "text": {
+        "en": "Factory-made render shall comply with BS EN 998-1; site-mixed render shall be cement and sand in the proportion [[mix]] by volume, with admixtures only as approved by {{CA}}. Gypsum plasters shall comply with BS EN 13279-1 and come from one manufacturer's system. Bonding agents on smooth concrete shall be as the render manufacturer recommends."
+      },
+      "fields": {
+        "mix": {
+          "label": {
+            "en": "Site mix proportion",
+            "zh": "現場拌製配比"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 1:3 cement:sand"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Pre-bagged render gives more consistent strength than site batching, which commonly varies in sand quality and water content. Bonding agents should be compatible with the render, as a mismatched agent can itself become a plane of weakness."
+      },
+      "standards": [
+        "BS EN 998-1",
+        "BS EN 13279-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-PLS-030",
+      "group": "PLS",
+      "type": "product",
+      "title": {
+        "en": "Plaster beads and junctions"
+      },
+      "text": {
+        "en": "Provide [[bead]] angle and stop beads at external corners, edges and junctions with other materials, to BS EN 13658-1 where metal. Fix beads plumb and true with compatible fixings or dabs. Where plaster meets a dissimilar background, form a neat stop or shadow joint, or bridge the junction with mesh as {{CA}} directs."
+      },
+      "fields": {
+        "bead": {
+          "label": {
+            "en": "Bead material",
+            "zh": "護角條材料"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "galv",
+              "en": "galvanized steel"
+            },
+            {
+              "v": "ss",
+              "en": "stainless steel"
+            },
+            {
+              "v": "pvc",
+              "en": "PVC"
+            }
+          ],
+          "default": "galv"
+        }
+      },
+      "guidance": {
+        "en": "Stainless or PVC beads are typical in toilets and other damp areas where galvanized beads can rust through the finish. Cracks commonly appear where render runs unbroken from concrete onto blockwork, so the junction treatment is worth deciding at design stage."
+      },
+      "standards": [
+        "BS EN 13658-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-PLS-040",
+      "group": "PLS",
+      "type": "execution",
+      "title": {
+        "en": "Applying render and plaster"
+      },
+      "text": {
+        "en": "Prepare backgrounds by removing dust, release agent and laitance, and hack or apply a bonding coat to smooth concrete. Apply render in coats no thicker than the manufacturer recommends, to a total thickness of [[thk]] mm, letting each coat cure before the next. Finished surfaces shall not deviate by more than [[tol]] mm under a 2 m straightedge. Damp-cure cement-based render and protect it from rapid drying."
+      },
+      "fields": {
+        "thk": {
+          "label": {
+            "en": "Total thickness",
+            "zh": "總厚度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        },
+        "tol": {
+          "label": {
+            "en": "Surface tolerance under 2 m straightedge",
+            "zh": "2 米直尺表面偏差"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Hollow and cracked render is a frequent HK defect, usually from thick single coats, poor hacking of smooth concrete, or fast drying in hot weather. Thick render used to correct poor concrete is better addressed by fixing the concrete, particularly on soffits."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-RAF-010",
+      "group": "RAF",
+      "type": "performance",
+      "title": {
+        "en": "Raised access floor: system"
+      },
+      "text": {
+        "en": "Raised access floor shall be a proprietary system to BS EN 12825 with [[panel]] panels, 600 x 600 mm, at a finished floor height of [[ffh]] mm above the structural slab. Load and deflection performance shall be [[load]], to suit the floor loading in the structural design. Submit the manufacturer's test certificates and layout drawings to {{CA}}."
+      },
+      "fields": {
+        "panel": {
+          "label": {
+            "en": "Panel type",
+            "zh": "地台板類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "cement",
+              "en": "steel-encapsulated cementitious core"
+            },
+            {
+              "v": "calcium",
+              "en": "calcium sulphate"
+            },
+            {
+              "v": "chipboard",
+              "en": "steel-clad high-density chipboard"
+            }
+          ],
+          "default": null
+        },
+        "ffh": {
+          "label": {
+            "en": "Finished floor height",
+            "zh": "完成地台高度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        },
+        "load": {
+          "label": {
+            "en": "Load class",
+            "zh": "荷載等級"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "Class to BS EN 12825, confirmed by the structural engineer"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Office raised floors in HK are commonly steel-encapsulated cementitious panels at a modest void height for power and data. Check the floor height against door thresholds, lift landings and stair nosings early, as these are often missed in fit-outs."
+      },
+      "standards": [
+        "BS EN 12825"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "office_bldg"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-RAF-020",
+      "group": "RAF",
+      "type": "product",
+      "title": {
+        "en": "Pedestals, earthing and cut-outs"
+      },
+      "text": {
+        "en": "Pedestals shall be adjustable steel, fixed to the slab with adhesive or mechanical fixings, [[stringer]]. Bond the floor system to the electrical earthing installation as the electrical engineer specifies, in accordance with the Code of Practice for the Electricity (Wiring) Regulations. Form cut-outs for floor boxes and cables at the positions on the coordinated services layout, with edge trims and [[grommet]] grommets."
+      },
+      "fields": {
+        "stringer": {
+          "label": {
+            "en": "Stringers",
+            "zh": "橫杆"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "none",
+              "en": "stringerless"
+            },
+            {
+              "v": "bolted",
+              "en": "with bolted stringers"
+            }
+          ],
+          "default": null
+        },
+        "grommet": {
+          "label": {
+            "en": "Grommet type",
+            "zh": "線孔蓋類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "brush",
+              "en": "brush-sealed"
+            },
+            {
+              "v": "lid",
+              "en": "lidded plastic"
+            }
+          ],
+          "default": "brush"
+        }
+      },
+      "guidance": {
+        "en": "Stringers improve lateral stability at greater heights and where panels are lifted often, such as in comms rooms. Cut-outs placed before the furniture layout is fixed are a common source of abortive work."
+      },
+      "standards": [
+        "BS EN 12825"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "office_bldg"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-RAF-030",
+      "group": "RAF",
+      "type": "execution",
+      "title": {
+        "en": "Installing raised access floor"
+      },
+      "text": {
+        "en": "Clean the slab and apply a dust-proofing sealer before installing pedestals. Install the floor to the height in {{ref:FIN-RAF-010}}, level within [[tol]] mm over the floor area, with no rocking panels or steps between panels. Provide perimeter support and close gaps at walls and columns with trims. Hand over [[lifters]] panel lifters to {{CA}}."
+      },
+      "fields": {
+        "tol": {
+          "label": {
+            "en": "Level tolerance",
+            "zh": "水平容許偏差"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        },
+        "lifters": {
+          "label": {
+            "en": "Number of panel lifters",
+            "zh": "地台板吸盤數量"
+          },
+          "kind": "number",
+          "unit": "no.",
+          "default": 2
+        }
+      },
+      "guidance": {
+        "en": "An unsealed slab sheds dust into the void, which then circulates where the void is used for air supply. Rocking panels are usually traced to uneven pedestal heads or debris, and are cheaper to fix before carpet tiles go down."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-RAF-010"
+      ],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "office_bldg"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CLG-010",
+      "group": "CLG",
+      "type": "product",
+      "title": {
+        "en": "Suspended ceilings: system"
+      },
+      "text": {
+        "en": "Suspended ceilings shall be [[type]] on a proprietary grid, complying with BS EN 13964 and installed to the system manufacturer's instructions, module [[module]], colour and finish [[colour]]. Gypsum boards shall comply with BS EN 520. Submit samples, technical data and a reflected ceiling plan coordinated with services to {{CA}} for approval."
+      },
+      "fields": {
+        "type": {
+          "label": {
+            "en": "Ceiling type",
+            "zh": "假天花類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "mineral",
+              "en": "mineral fibre lay-in tiles on an exposed grid"
+            },
+            {
+              "v": "gypsum",
+              "en": "jointed gypsum board on a concealed grid"
+            },
+            {
+              "v": "metal",
+              "en": "metal clip-in tiles, plain or perforated"
+            }
+          ],
+          "default": null
+        },
+        "module": {
+          "label": {
+            "en": "Module size",
+            "zh": "模數"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 600 x 600, or jointed"
+          }
+        },
+        "colour": {
+          "label": {
+            "en": "Colour and finish",
+            "zh": "顏色及表面"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. white, fine fissured"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Mineral fibre tiles on an exposed grid are the usual office choice for easy access; jointed gypsum board suits feature areas but needs access panels. In HK humidity some mineral fibre tiles sag, so a humidity-resistant grade is commonly chosen where air-conditioning may be off for long periods."
+      },
+      "standards": [
+        "BS EN 13964",
+        "BS EN 520"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "AC",
+        "GB",
+        "MC"
+      ]
+    },
+    {
+      "id": "FIN-CLG-020",
+      "group": "CLG",
+      "type": "execution",
+      "title": {
+        "en": "Ceiling grid and suspension"
+      },
+      "text": {
+        "en": "Suspend the grid from the structural soffit with hangers and fixings to the system manufacturer's design for the loads and soffit type. Do not hang the ceiling from services, ductwork or their supports. Provide additional framing and independent supports for fittings heavier than [[weight]] kg. Install the ceiling level within [[tol]] mm across each room."
+      },
+      "fields": {
+        "weight": {
+          "label": {
+            "en": "Weight needing independent support",
+            "zh": "須獨立吊掛的重量"
+          },
+          "kind": "number",
+          "unit": "kg",
+          "default": null
+        },
+        "tol": {
+          "label": {
+            "en": "Level tolerance",
+            "zh": "水平容許偏差"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Hanging ceilings off ductwork or cable trays is a common site shortcut that causes sagging and makes later services changes difficult. Heavy light fittings and projector brackets are typically supported independently of the grid."
+      },
+      "standards": [
+        "BS EN 13964"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CLG-030",
+      "group": "CLG",
+      "type": "execution",
+      "title": {
+        "en": "Access panels and services coordination"
+      },
+      "text": {
+        "en": "Provide [[panel]] access panels, not smaller than [[size]] mm, at valves, dampers, fire dampers and other items needing maintenance, at positions agreed on the coordinated layout. Coordinate light fittings, diffusers, sprinklers, detectors and speakers with the grid so they sit centrally in tiles or on regular lines. Do not close the ceiling until the services above have been inspected and released by {{CA}}."
+      },
+      "fields": {
+        "panel": {
+          "label": {
+            "en": "Access panel type",
+            "zh": "檢修口類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "hinged",
+              "en": "hinged drop-down panels matching the ceiling finish"
+            },
+            {
+              "v": "tile",
+              "en": "demountable tiles within the grid"
+            }
+          ],
+          "default": "hinged"
+        },
+        "size": {
+          "label": {
+            "en": "Minimum access size",
+            "zh": "檢修口最小尺寸"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 600 x 600"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Missing or undersized access to fire dampers and valves is a common handover snag and can affect statutory inspections. A coordinated reflected ceiling plan signed off by all trades before the grid goes up is the usual way to avoid it."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CLG-040",
+      "group": "CLG",
+      "type": "performance",
+      "title": {
+        "en": "Fire performance of ceilings"
+      },
+      "text": {
+        "en": "Where the fire safety strategy requires the ceiling to contribute to fire resistance or to limit fire spread, the ceiling shall be a complete tested system achieving [[frr]], installed with the same grid, boards, fixings and penetration details as tested. Comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition) and the project's fire safety strategy. Submit test evidence and the manufacturer's installation conditions to {{CA}} before ordering."
+      },
+      "fields": {
+        "frr": {
+          "label": {
+            "en": "Fire performance required",
+            "zh": "所需防火性能"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "As stated in the fire safety strategy"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Fire performance belongs to the tested assembly, not to the board alone, so substituting the grid or adding untested access panels and light fittings commonly invalidates it. Leave the rating to the fire engineer or Authorized Person rather than copying it from another project."
+      },
+      "standards": [
+        "FS Code 2011"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "FIN-FLR-010",
+      "group": "FLR",
+      "type": "product",
+      "title": {
+        "en": "Vinyl sheet and LVT flooring"
+      },
+      "text": {
+        "en": "Resilient flooring shall be [[type]] to BS EN ISO 10582, wear layer not less than [[wear]] mm, colour and pattern [[colour]]. Heat-weld sheet joints with matching weld rod [[weld]]. Submit samples and the manufacturer's data to {{CA}} for approval."
+      },
+      "fields": {
+        "type": {
+          "label": {
+            "en": "Flooring type",
+            "zh": "地板類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "sheet",
+              "en": "heterogeneous vinyl sheet"
+            },
+            {
+              "v": "lvt",
+              "en": "glue-down luxury vinyl tiles (LVT)"
+            },
+            {
+              "v": "click",
+              "en": "click-fit LVT"
+            }
+          ],
+          "default": null
+        },
+        "wear": {
+          "label": {
+            "en": "Wear layer thickness",
+            "zh": "耐磨層厚度"
+          },
+          "kind": "number",
+          "unit": "mm",
+          "default": null,
+          "hint": {
+            "en": "e.g. 0.55 for commercial use"
+          }
+        },
+        "colour": {
+          "label": {
+            "en": "Colour and pattern",
+            "zh": "顏色及花紋"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. light oak plank"
+          }
+        },
+        "weld": {
+          "label": {
+            "en": "Welding extent",
+            "zh": "焊縫範圍"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "all",
+              "en": "in all areas"
+            },
+            {
+              "v": "wet",
+              "en": "in wet and clinical areas only"
+            }
+          ],
+          "default": "all"
+        }
+      },
+      "guidance": {
+        "en": "LVT is now common in HK office and retail fit-outs for its timber look and easy replacement, while welded sheet suits pantries and clinics where hygiene matters. Wear layer thickness is the main indicator of life, so compare it rather than overall thickness."
+      },
+      "standards": [
+        "BS EN ISO 10582"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "VF"
+      ]
+    },
+    {
+      "id": "FIN-FLR-020",
+      "group": "FLR",
+      "type": "product",
+      "title": {
+        "en": "Carpet tiles"
+      },
+      "text": {
+        "en": "Carpet tiles shall be [[pile]] with [[backing]] backing, size [[size]], classified for [[use]] use to BS EN 1307. Lay in a [[pattern]] pattern. Reaction to fire shall be [[fire]] and shall comply with the project's fire safety strategy. Submit samples and the manufacturer's data to {{CA}} for approval."
+      },
+      "fields": {
+        "pile": {
+          "label": {
+            "en": "Pile construction",
+            "zh": "毯面結構"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "loop",
+              "en": "tufted loop pile"
+            },
+            {
+              "v": "cut",
+              "en": "tufted cut pile"
+            },
+            {
+              "v": "cutloop",
+              "en": "tufted cut and loop pile"
+            }
+          ],
+          "default": "loop"
+        },
+        "backing": {
+          "label": {
+            "en": "Backing",
+            "zh": "背襯"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "bitumen",
+              "en": "bitumen-modified"
+            },
+            {
+              "v": "pvc",
+              "en": "PVC"
+            },
+            {
+              "v": "felt",
+              "en": "recycled felt"
+            }
+          ],
+          "default": "bitumen"
+        },
+        "size": {
+          "label": {
+            "en": "Tile size",
+            "zh": "尺寸"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "500",
+              "en": "500 x 500 mm"
+            },
+            {
+              "v": "plank",
+              "en": "250 x 1000 mm plank"
+            }
+          ],
+          "default": "500"
+        },
+        "use": {
+          "label": {
+            "en": "Use class",
+            "zh": "用途等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "33",
+              "en": "Class 33 heavy commercial"
+            },
+            {
+              "v": "32",
+              "en": "Class 32 general commercial"
+            }
+          ],
+          "default": "33"
+        },
+        "pattern": {
+          "label": {
+            "en": "Laying pattern",
+            "zh": "鋪設方式"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "quarter",
+              "en": "quarter-turn"
+            },
+            {
+              "v": "mono",
+              "en": "monolithic"
+            },
+            {
+              "v": "ashlar",
+              "en": "ashlar (brick bond)"
+            }
+          ],
+          "default": "quarter"
+        },
+        "fire": {
+          "label": {
+            "en": "Fire test"
+          },
+          "kind": "select",
+          "default": "tested to BS EN ISO 9239-1",
+          "options": [
+            {
+              "v": "tested to BS EN ISO 9239-1",
+              "en": "tested to BS EN ISO 9239-1"
+            },
+            {
+              "v": "tested to BS 4790 and labelled to BS 5287",
+              "en": "tested to BS 4790 and labelled to BS 5287"
+            }
+          ],
+          "by": [
+            {
+              "when": {
+                "lic": [
+                  "ola_hotel",
+                  "ola_gh"
+                ]
+              },
+              "v": "tested to BS 4790 and labelled to BS 5287"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Carpet tiles over raised floors are the standard HK office finish because individual tiles lift for access to the void. Quarter-turn laying hides shading between tiles, while monolithic laying shows dye-lot differences clearly."
+      },
+      "standards": [
+        "BS EN 1307",
+        "BS EN ISO 9239-1",
+        "BS 4790",
+        "BS 5287"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "CA"
+      ]
+    },
+    {
+      "id": "FIN-FLR-030",
+      "group": "FLR",
+      "type": "execution",
+      "title": {
+        "en": "Laying resilient and textile floorings"
+      },
+      "text": {
+        "en": "Condition flooring and adhesive in the room at service temperature for not less than [[accl]] hours before laying. Lay only on a base meeting {{ref:FIN-SCR-040}} and {{ref:FIN-SCR-050}}, smoothed with a levelling compound where needed. Fix with [[adhesive]] as the flooring manufacturer recommends. Finish edges with [[skirting]] skirting."
+      },
+      "fields": {
+        "accl": {
+          "label": {
+            "en": "Acclimatisation period",
+            "zh": "適應期"
+          },
+          "kind": "number",
+          "unit": "hours",
+          "default": 24
+        },
+        "adhesive": {
+          "label": {
+            "en": "Adhesive",
+            "zh": "黏合劑"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "full",
+              "en": "full-spread adhesive"
+            },
+            {
+              "v": "tackifier",
+              "en": "releasable tackifier (carpet tiles)"
+            },
+            {
+              "v": "psa",
+              "en": "pressure-sensitive adhesive"
+            }
+          ],
+          "default": "full"
+        },
+        "skirting": {
+          "label": {
+            "en": "Skirting",
+            "zh": "地腳線"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "coved",
+              "en": "coved vinyl formed up the wall"
+            },
+            {
+              "v": "rubber",
+              "en": "set-on vinyl or rubber"
+            },
+            {
+              "v": "timber",
+              "en": "painted timber or MDF"
+            },
+            {
+              "v": "metal",
+              "en": "aluminium"
+            }
+          ],
+          "default": "rubber"
+        }
+      },
+      "guidance": {
+        "en": "Laying before materials settle to the air-conditioned temperature commonly leads to gaps and lifting edges, a frequent snag where the air-conditioning is switched on late in a fit-out. Tackifier is typical for carpet tiles on raised floors so they can be lifted."
+      },
+      "standards": [
+        "BS 8203"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [
+        "FIN-SCR-040",
+        "FIN-SCR-050"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Protection of finishes"
+      },
+      "text": {
+        "en": "Protect completed finishes from damage, staining and traffic until handover, using [[protect]]. Keep protection in place while following trades work and remove it only for final cleaning. Make good or replace damaged finishes to the satisfaction of {{CA}}."
+      },
+      "fields": {
+        "protect": {
+          "label": {
+            "en": "Protection",
+            "zh": "保護方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "board",
+              "en": "hardboard or plywood over a breathable sheet"
+            },
+            {
+              "v": "sheet",
+              "en": "proprietary protection sheet"
+            },
+            {
+              "v": "combined",
+              "en": "boards in traffic routes and sheet elsewhere"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Non-breathable sheet laid over fresh grout or screed can trap moisture and stain the surface. Damage from trolleys and ladders during the final weeks of a fit-out is common, so protection to traffic routes is worth keeping until the end."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CMP-020",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Final cleaning of finishes"
+      },
+      "text": {
+        "en": "Clean all finishes at completion with methods and products the manufacturers recommend, removing grout haze, adhesive, paint, labels and dust. Do not use acid cleaners on cementitious grout or polished surfaces. Surface treatment after cleaning: [[treat]]."
+      },
+      "fields": {
+        "treat": {
+          "label": {
+            "en": "Surface treatment",
+            "zh": "表面處理"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "none",
+              "en": "none"
+            },
+            {
+              "v": "sealer",
+              "en": "penetrating sealer to unglazed tiles"
+            },
+            {
+              "v": "maint",
+              "en": "manufacturer's initial maintenance treatment to resilient flooring"
+            }
+          ],
+          "default": "none"
+        }
+      },
+      "guidance": {
+        "en": "Acid cleaners are commonly used to remove grout haze but etch cement grout and some polished tiles. Unglazed porcelain can absorb stains from early use, so some projects seal it before handover."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-CMP-030",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Spare materials and records"
+      },
+      "text": {
+        "en": "Hand over spare materials from the same production batches as installed: [[spare]] % of the installed quantity of each tile, floor and ceiling finish, labelled and stored where {{CA}} directs. Submit records of products, batch numbers, colours, suppliers and maintenance instructions for the operation and maintenance manual."
+      },
+      "fields": {
+        "spare": {
+          "label": {
+            "en": "Spare quantity",
+            "zh": "備用數量"
+          },
+          "kind": "number",
+          "unit": "%",
+          "default": null,
+          "hint": {
+            "en": "e.g. 2 to 5"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Tile and carpet shades vary between batches, so later repairs rarely match without stock from the original run. In HK fit-outs spare stock is commonly handed to building management, so labelling and a recorded location matter."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 18
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "FIN-GEN-010",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Tolerances for finishes"
+      },
+      "text": {
+        "en": "Finishes shall be within the following tolerances unless a tighter value is stated for a system. Floors: level within plus or minus [[flevel]] mm of datum, and surface regularity class [[sr]] to BS 8204-1. Walls: plumb within [[wplumb]] mm in any storey height and no deviation greater than [[wflat]] mm under a 2 m straightedge. Ceilings: level within plus or minus [[clevel]] mm across any room. Tiles: lippage not more than [[lip]] mm between adjacent tiles."
+      },
+      "fields": {
+        "flevel": {
+          "label": {
+            "en": "Floor level"
+          },
+          "kind": "number",
+          "default": "5",
+          "unit": "mm"
+        },
+        "sr": {
+          "label": {
+            "en": "Surface regularity"
+          },
+          "kind": "select",
+          "default": "SR2",
+          "options": [
+            {
+              "v": "SR1",
+              "en": "SR1"
+            },
+            {
+              "v": "SR2",
+              "en": "SR2"
+            },
+            {
+              "v": "SR3",
+              "en": "SR3"
+            }
+          ]
+        },
+        "wplumb": {
+          "label": {
+            "en": "Wall plumb"
+          },
+          "kind": "number",
+          "default": "6",
+          "unit": "mm"
+        },
+        "wflat": {
+          "label": {
+            "en": "Wall flatness"
+          },
+          "kind": "number",
+          "default": "3",
+          "unit": "mm"
+        },
+        "clevel": {
+          "label": {
+            "en": "Ceiling level"
+          },
+          "kind": "number",
+          "default": "3",
+          "unit": "mm"
+        },
+        "lip": {
+          "label": {
+            "en": "Tile lippage"
+          },
+          "kind": "number",
+          "default": "1",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "One tolerance clause keeps the trade sections short; the values are project choices."
+      },
+      "standards": [
+        "BS 8204-1"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "FIN-LIN-010",
+      "group": "LIN",
+      "type": "performance",
+      "title": {
+        "en": "Linings in protected exits"
+      },
+      "text": {
+        "en": "Wall, ceiling and floor linings in protected exits shall be [[lclass]]. Where a licence condition sets a different class, the stricter of the code and the licence shall apply."
+      },
+      "fields": {
+        "lclass": {
+          "label": {
+            "en": "Lining class"
+          },
+          "kind": "select",
+          "default": "c",
+          "options": [
+            {
+              "v": "c",
+              "en": "Class C to BS EN 13501-1 or better"
+            },
+            {
+              "v": "a1",
+              "en": "non-combustible, Class A1 to BS EN 13501-1, a project upgrade above the FS Code minimum"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "FS Code 2011 (2024 Edition) Clauses E13.1(a) and E14.1(a), checked 9 Nov 2026: Class C in protected exits for every Use Class. A1 is offered as a project upgrade. Hotels and guesthouses also need Class 1 or 2 surface spread of flame to BS 476-7 in protected escape routes."
+      },
+      "standards": [
+        "BS EN 13501-1"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "tagWhen": [
+        {
+          "when": {
+            "lic": [
+              "ola_hotel",
+              "ola_gh"
+            ]
+          },
+          "tags": [
+            "S",
+            "LC"
+          ]
+        }
+      ],
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ]
+    },
+    {
+      "id": "FIN-LIN-020",
+      "group": "LIN",
+      "type": "performance",
+      "title": {
+        "en": "Linings in general areas"
+      },
+      "text": {
+        "en": "Linings in corridors shall be [[corr]] and linings in rooms shall be [[room]], unless the fire safety strategy states a higher class."
+      },
+      "fields": {
+        "corr": {
+          "label": {
+            "en": "Corridors"
+          },
+          "kind": "text",
+          "default": "Class B to BS EN 13501-1 (Class 0)"
+        },
+        "room": {
+          "label": {
+            "en": "Rooms"
+          },
+          "kind": "text",
+          "default": "Class C to BS EN 13501-1 (Class 1)"
+        }
+      },
+      "guidance": {
+        "en": "The FS Code 2024 Edition sets no class for general areas of offices, shops or flats; Class 0 corridors and Class 1 rooms is a landlord norm. For Use Class 3 (including purpose-built clinics, child care centres and elderly homes) Clauses E13.1(b) and E14.1(b) require Class B or above in general areas, so set both fields to Class B."
+      },
+      "standards": [],
+      "tags": [
+        "LL",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "office_bldg",
+        "clinic"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "uc": [
+              "3a",
+              "3b"
+            ]
+          },
+          "tags": [
+            "S"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FIN-USE-010",
+      "group": "USE",
+      "type": "execution",
+      "title": {
+        "en": "Food room wall finishes"
+      },
+      "text": {
+        "en": "Walls of food rooms shall have a smooth, impervious, light-coloured finish of glazed tiles to a height of not less than [[h]] above floor level, with a coved junction at the floor formed by a 45 degree tile or a cove tile, and with epoxy grout. The wall above the tiling and the ceiling shall be finished in washable paint. [[ss]]"
+      },
+      "fields": {
+        "h": {
+          "label": {
+            "en": "Tile height"
+          },
+          "kind": "select",
+          "default": "2,000 mm",
+          "options": [
+            {
+              "v": "2,000 mm",
+              "en": "2,000 mm"
+            },
+            {
+              "v": "the full height of the wall",
+              "en": "the full height of the wall"
+            }
+          ]
+        },
+        "ss": {
+          "label": {
+            "en": "Cooking line"
+          },
+          "kind": "select",
+          "default": "ss",
+          "options": [
+            {
+              "v": "ss",
+              "en": "Walls behind the cooking line shall be lined with stainless steel as {{ref:MET-SS-010}}."
+            },
+            {
+              "v": "none",
+              "en": "No stainless steel wall lining is required."
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "FEHD requires the impervious finish to at least 2 m. Stainless steel behind the cooking line is a common upgrade."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      },
+      "codes": [
+        "TL"
+      ]
+    },
+    {
+      "id": "FIN-USE-020",
+      "group": "USE",
+      "type": "execution",
+      "title": {
+        "en": "Food room floors"
+      },
+      "text": {
+        "en": "Floors of food rooms shall be smooth, light-coloured and impervious, laid to falls of [[fall]] to floor drains, with a coved junction at the walls. Kitchens and sculleries shall be [[kslip]] as {{ref:FIN-TILE-030}}. No manhole shall be placed in a food room."
+      },
+      "fields": {
+        "fall": {
+          "label": {
+            "en": "Falls"
+          },
+          "kind": "select",
+          "default": "1:80 to 1:100",
+          "options": [
+            {
+              "v": "1:80",
+              "en": "1:80"
+            },
+            {
+              "v": "1:100",
+              "en": "1:100"
+            },
+            {
+              "v": "1:80 to 1:100",
+              "en": "1:80 to 1:100"
+            }
+          ]
+        },
+        "kslip": {
+          "label": {
+            "en": "Kitchen slip class"
+          },
+          "kind": "select",
+          "default": "P5 or R12",
+          "options": [
+            {
+              "v": "P5 or R12",
+              "en": "P5 or R12"
+            },
+            {
+              "v": "P4 or R11",
+              "en": "P4 or R11"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "FEHD construction rules. The R12 / P5 kitchen rating has no HK source; it is international practice."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      },
+      "codes": [
+        "TL"
+      ]
+    },
+    {
+      "id": "FIN-USE-030",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Food room ceilings"
+      },
+      "text": {
+        "en": "Ceilings of food rooms shall be washable, moisture resistant and non-combustible."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "A non-combustible ceiling avoids a high fire potential finding by FSD."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "FIN-USE-040",
+      "group": "USE",
+      "type": "execution",
+      "title": {
+        "en": "Wet area wall tiling height"
+      },
+      "text": {
+        "en": "Walls of [[rooms]] shall be tiled to a height of not less than [[h]] above floor level."
+      },
+      "fields": {
+        "rooms": {
+          "label": {
+            "en": "Rooms"
+          },
+          "kind": "text",
+          "default": "toilets, washrooms and kitchens",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "guesthouse"
+                ]
+              },
+              "v": "kitchens"
+            },
+            {
+              "when": {
+                "types": [
+                  "childcare",
+                  "school"
+                ]
+              },
+              "v": "washrooms"
+            }
+          ]
+        },
+        "h": {
+          "label": {
+            "en": "Height"
+          },
+          "kind": "text",
+          "default": "1,800 mm",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "guesthouse"
+                ]
+              },
+              "v": "1,200 mm"
+            },
+            {
+              "when": {
+                "types": [
+                  "childcare",
+                  "school"
+                ]
+              },
+              "v": "1,000 mm"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Licence values differ: guesthouse kitchens 1.2 m, child care washrooms 1 m. School washroom dados are best practice."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "guesthouse",
+        "childcare",
+        "school",
+        "rche"
+      ],
+      "codes": [
+        "TL"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "types": [
+              "school"
+            ]
+          },
+          "tags": [
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FIN-USE-050",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Clinical floors"
+      },
+      "text": {
+        "en": "Floors in clinical areas shall be welded sheet vinyl with an integral coved skirting [[cove]] mm high and sealed joints. Carpet and timber shall not be used in clinical areas."
+      },
+      "fields": {
+        "cove": {
+          "label": {
+            "en": "Cove height"
+          },
+          "kind": "number",
+          "default": "100",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "Department of Health guidance for dental clinics; treat as best practice for other clinics."
+      },
+      "standards": [
+        "BS EN ISO 10581"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "clinic"
+      ],
+      "codes": [
+        "VF"
+      ]
+    },
+    {
+      "id": "FIN-USE-060",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Clinical ceilings and walls"
+      },
+      "text": {
+        "en": "Ceilings in operating and procedure rooms shall be sealed metal or sealed board with sealed light fittings and penetrations, and walls shall be finished in a cleanable and disinfectable surface. Ceilings elsewhere in clinical areas shall be clip-in metal."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "The DPC Code requires cleanable surfaces in operating rooms; ventilation to ASHRAE 170 drives sealed ceilings."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "clinic"
+      ],
+      "codes": [
+        "MC"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "lic": [
+              "orphf_clinic"
+            ]
+          },
+          "tags": [
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FIN-USE-070",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Floors for young children"
+      },
+      "text": {
+        "en": "Floors used by young children shall be non-slip and easy to clean. Rubber flooring is acceptable in play and activity rooms."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "From the SWD/EDB operation manual."
+      },
+      "standards": [
+        "BS EN 1817"
+      ],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "childcare"
+      ],
+      "codes": [
+        "RB"
+      ]
+    },
+    {
+      "id": "FIN-USE-080",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Sports floors"
+      },
+      "text": {
+        "en": "Sports floors in halls shall comply with BS EN 14904, with line marking for the sports shown on the drawings."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Best practice; no HK source."
+      },
+      "standards": [
+        "BS EN 14904"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school"
+      ],
+      "codes": [
+        "SP"
+      ]
+    },
+    {
+      "id": "FIN-USE-090",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Clear ceiling heights"
+      },
+      "text": {
+        "en": "The clear height from finished floor to ceiling shall be not less than [[h]]."
+      },
+      "fields": {
+        "h": {
+          "label": {
+            "en": "Height"
+          },
+          "kind": "text",
+          "default": "3 m in classrooms",
+          "by": [
+            {
+              "when": {
+                "types": [
+                  "rche"
+                ]
+              },
+              "v": "2.5 m, or 2.3 m below beams"
+            },
+            {
+              "when": {
+                "types": [
+                  "childcare"
+                ]
+              },
+              "v": "3 m (2.75 m in premises that are not purpose-built)"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Schools: 3 m purpose-built, 2.75 m otherwise (Education Regulations reg. 9). RCHE: 2.5 m, or 2.3 m under beams. Child care: 3 m, or 2.75 m."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "rche",
+        "childcare"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "types": [
+              "rche",
+              "childcare"
+            ]
+          },
+          "tags": [
+            "LC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FIN-USE-100",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Carpet in hotel escape routes"
+      },
+      "text": {
+        "en": "Carpet in protected escape routes shall meet ASTM E648, or BS 5287 when tested to BS 4790, or be pure wool. Carpet with a pile height of not more than 10 mm covering not more than 5 per cent of the protected escape routes on a floor is exempt."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Hotel and guesthouse licensing conditions."
+      },
+      "standards": [
+        "ASTM E648",
+        "BS 5287",
+        "BS 4790"
+      ],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "ola_hotel",
+          "ola_gh"
+        ]
+      },
+      "codes": [
+        "CA"
+      ]
+    },
+    {
+      "id": "FIN-IND-010",
+      "group": "IND",
+      "type": "performance",
+      "title": {
+        "en": "Industrial floor slabs"
+      },
+      "text": {
+        "en": "Industrial floors shall be designed for an imposed load of [[load]] kPa under the Code of Practice for Dead and Imposed Loads 2011 (2021 Edition), with a [[wear]] wearing surface to BS 8204-2 and armoured joints at construction and sawn joints in traffic routes."
+      },
+      "fields": {
+        "load": {
+          "label": {
+            "en": "Imposed load"
+          },
+          "kind": "number",
+          "default": null,
+          "unit": "kPa"
+        },
+        "wear": {
+          "label": {
+            "en": "Wearing surface"
+          },
+          "kind": "select",
+          "default": "dry-shake hardener",
+          "options": [
+            {
+              "v": "dry-shake hardener",
+              "en": "dry-shake hardener"
+            },
+            {
+              "v": "epoxy resin",
+              "en": "epoxy resin"
+            },
+            {
+              "v": "polyurethane resin",
+              "en": "polyurethane resin"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Hardener, epoxy and flatness choices have no HK official source."
+      },
+      "standards": [
+        "BS 8204-2"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "industrial"
+      ],
+      "codes": [
+        "EP"
+      ]
+    }
+  ],
+  "standards": {
+    "BS 8204-1": "Screeds, bases and in situ floorings: concrete bases and cementitious levelling screeds",
+    "BS 8203": "Code of practice for installation of resilient floor coverings",
+    "BS EN 14411": "Ceramic tiles: definitions, classification, characteristics, assessment and verification of constancy of performance and marking",
+    "BS EN 12004-1": "Adhesives for ceramic tiles: requirements, assessment and verification of constancy of performance, classification and marking",
+    "BS EN 13888-1": "Grouts for ceramic tiles: requirements, classification, designation, marking and labelling",
+    "BS 5385-1": "Wall and floor tiling: design and installation of ceramic, natural stone and mosaic wall tiling in normal internal conditions, code of practice",
+    "BS 5385-3": "Wall and floor tiling: design and installation of internal and external ceramic and mosaic, natural stone and terrazzo flooring, and internal agglomerated stone flooring in normal conditions, code of practice",
+    "BS EN ISO 10545": "Ceramic tiles: sampling and test methods (multi-part series)",
+    "BS EN 998-1": "Specification for mortar for masonry: rendering and plastering mortar",
+    "BS EN 13279-1": "Gypsum binders and gypsum plasters: definitions and requirements",
+    "BS EN 13658-1": "Metal lath and beads: definitions, requirements and test methods, internal plastering",
+    "BS EN 12825": "Raised access floors",
+    "BS EN 13964": "Suspended ceilings: requirements and test methods",
+    "BS EN 520": "Gypsum plasterboards: definitions, requirements and test methods",
+    "BS EN ISO 10582": "Resilient floor coverings: heterogeneous poly(vinyl chloride) floor coverings, specification",
+    "BS EN 1307": "Textile floor coverings: classification",
+    "FS Code 2011": "Code of Practice for Fire Safety in Buildings 2011, current edition (2024 Edition at 8 Nov 2026) (Buildings Department, Hong Kong)",
+    "BS EN 16165": "Determination of slip resistance of pedestrian surfaces: methods of evaluation",
+    "BS EN ISO 10581": "Resilient floor coverings: homogeneous PVC floor covering",
+    "DIN 51130": "Testing of floor coverings: determination of the anti-slip property, ramp test (R classes); APP-175 cites the 2014-02 edition, now replaced by 2023-03",
+    "BS EN 1817": "Resilient floor coverings: homogeneous and heterogeneous smooth rubber floor coverings",
+    "BS EN 14904": "Surfaces for sports areas: indoor surfaces for multi-sports use",
+    "BS 5287": "Assessment and labelling of textile floor coverings tested to BS 4790",
+    "BS 8204-2": "Screeds, bases and in situ floorings: concrete wearing surfaces",
+    "BS EN ISO 9239-1": "Reaction to fire tests for floorings: radiant heat source",
+    "AS 4586:2013": "Slip resistance classification of new pedestrian surface materials (wet pendulum P classes)",
+    "BS 4790": "Determination of the effects of a small source of ignition on textile floor coverings (hot metal nut method)",
+    "ASTM E648": "Critical radiant flux of floor-covering systems using a radiant heat energy source",
+    "BS EN 13501-1": "Fire classification of construction products: reaction to fire"
+  }
+}

@@ -1,0 +1,550 @@
+{
+ "types": [
+  {
+   "id": "office_fo",
+   "group": "fitout",
+   "title": {
+    "en": "Office fit-out",
+    "zh": "寫字樓裝修"
+   },
+   "uc": "4a",
+   "lic": "none",
+   "route": "exempt",
+   "flags": [],
+   "sub": "Use Class 4a, landlord fit-out guide"
+  },
+  {
+   "id": "retail_fo",
+   "group": "fitout",
+   "title": {
+    "en": "Retail fit-out",
+    "zh": "零售店舖裝修"
+   },
+   "uc": "4b",
+   "lic": "none",
+   "route": "exempt",
+   "flags": [],
+   "sub": "Use Class 4b, compartment size switches to 120 min"
+  },
+  {
+   "id": "fnb_fo",
+   "group": "fitout",
+   "title": {
+    "en": "Restaurant / F&B fit-out",
+    "zh": "食肆裝修"
+   },
+   "uc": "4b",
+   "lic": "fehd_gr",
+   "route": "mw3",
+   "flags": [],
+   "sub": "Use Class 4b, FEHD, BD and FSD licence requirements"
+  },
+  {
+   "id": "flat_fo",
+   "group": "fitout",
+   "title": {
+    "en": "Residential flat fit-out",
+    "zh": "住宅單位裝修"
+   },
+   "uc": "1",
+   "lic": "none",
+   "route": "exempt",
+   "flags": [],
+   "sub": "Keep it exempt, protect the entrance door"
+  },
+  {
+   "id": "resi_tower",
+   "group": "new",
+   "title": {
+    "en": "Residential tower",
+    "zh": "住宅大廈"
+   },
+   "uc": "1",
+   "lic": "none",
+   "route": "full",
+   "flags": [
+    "beam"
+   ],
+   "sub": "APP-116 windows, APP-156 glass, BEAM Plus"
+  },
+  {
+   "id": "office_bldg",
+   "group": "new",
+   "title": {
+    "en": "Office / commercial building",
+    "zh": "商業 / 寫字樓大廈"
+   },
+   "uc": "4a",
+   "lic": "none",
+   "route": "full",
+   "flags": [
+    "beam"
+   ],
+   "sub": "Curtain wall, APP-37, OTTV"
+  },
+  {
+   "id": "school",
+   "group": "new",
+   "title": {
+    "en": "School",
+    "zh": "學校"
+   },
+   "uc": "5b",
+   "lic": "edb_school",
+   "route": "full",
+   "flags": [],
+   "sub": "Use Class 5b, Education Regulations, BEAM acoustics"
+  },
+  {
+   "id": "industrial",
+   "group": "new",
+   "title": {
+    "en": "Industrial / warehouse",
+    "zh": "工業大廈 / 貨倉"
+   },
+   "uc": "6a",
+   "lic": "none",
+   "route": "full",
+   "flags": [
+    "beam"
+   ],
+   "sub": "120 min, fire shutters, floor loads"
+  },
+  {
+   "id": "hotel",
+   "group": "new",
+   "title": {
+    "en": "Hotel",
+    "zh": "酒店"
+   },
+   "uc": "2",
+   "lic": "ola_hotel",
+   "route": "full",
+   "flags": [
+    "beam"
+   ],
+   "sub": "Use Class 2, OLA hotel licence"
+  },
+  {
+   "id": "guesthouse",
+   "group": "other",
+   "title": {
+    "en": "Guesthouse",
+    "zh": "賓館"
+   },
+   "uc": "2",
+   "lic": "ola_gh",
+   "route": "mw3",
+   "flags": [],
+   "sub": "OLA guesthouse licence: 300 / 1,800 mm upstands"
+  },
+  {
+   "id": "clinic",
+   "group": "other",
+   "title": {
+    "en": "Clinic / day procedure centre",
+    "zh": "診所 / 日間醫療中心"
+   },
+   "uc": "3a",
+   "lic": "orphf_clinic",
+   "route": "exempt",
+   "flags": [],
+   "sub": "Use Class 3a (4a inside an office building), Cap. 633",
+   "ucNote": "A clinic inside an office building may stay Use Class 4a: confirm with the project's Authorized Person."
+  },
+  {
+   "id": "rche",
+   "group": "other",
+   "title": {
+    "en": "Residential care home (elderly)",
+    "zh": "安老院"
+   },
+   "uc": "3a",
+   "lic": "swd_rche",
+   "route": "mw3",
+   "flags": [],
+   "sub": "Use Class 3a, SWD code: 1,050 mm passages"
+  },
+  {
+   "id": "childcare",
+   "group": "other",
+   "title": {
+    "en": "Child care centre / kindergarten",
+    "zh": "幼兒中心 / 幼稚園"
+   },
+   "uc": "3a",
+   "lic": "swd_cc",
+   "route": "mw3",
+   "flags": [],
+   "sub": "Use Class 3a (kindergarten 5b), 1.1 m guarding",
+   "ucNote": "Table A1 lists child care centres under 3a and kindergartens under 5b: choose 5b for a kindergarten."
+  }
+ ],
+ "groups": [
+  {
+   "id": "fitout",
+   "title": {
+    "en": "Fit-out",
+    "zh": "裝修"
+   }
+  },
+  {
+   "id": "new",
+   "title": {
+    "en": "New build",
+    "zh": "新建"
+   }
+  },
+  {
+   "id": "other",
+   "title": {
+    "en": "Other licensed premises",
+    "zh": "其他須領牌處所"
+   }
+  }
+ ],
+ "routes": [
+  {
+   "v": "full",
+   "en": "Full plans approval by the Buildings Department",
+   "text": "building works with plans approved and consent given by the Building Authority"
+  },
+  {
+   "v": "mw1",
+   "en": "Minor Works Class I",
+   "text": "Class I minor works under the Minor Works Control System"
+  },
+  {
+   "v": "mw2",
+   "en": "Minor Works Class II",
+   "text": "Class II minor works under the Minor Works Control System"
+  },
+  {
+   "v": "mw3",
+   "en": "Minor Works Class III",
+   "text": "Class III minor works under the Minor Works Control System"
+  },
+  {
+   "v": "dew",
+   "en": "Designated exempted works",
+   "text": "designated exempted works under the Buildings Ordinance"
+  },
+  {
+   "v": "exempt",
+   "en": "Exempted works (BO s.41(3), interior only)",
+   "text": "exempted works under section 41(3) of the Buildings Ordinance"
+  }
+ ],
+ "useclasses": [
+  {
+   "v": "1",
+   "en": "1 Residential (flats)",
+   "frr": 60
+  },
+  {
+   "v": "2",
+   "en": "2 Hotel and similar",
+   "frr": 60
+  },
+  {
+   "v": "3a",
+   "en": "3a Health / child care (clinic, child care centre, elderly home)",
+   "frrBy": {
+    "le2500": 60,
+    "to10500": null,
+    "gt10500": null
+   }
+  },
+  {
+   "v": "3b",
+   "en": "3b Detention and correctional centres",
+   "frrBy": {
+    "le2500": 60,
+    "to10500": null,
+    "gt10500": null
+   }
+  },
+  {
+   "v": "4a",
+   "en": "4a Office",
+   "frr": 60
+  },
+  {
+   "v": "4b",
+   "en": "4b Shop / commercial (incl. restaurants)",
+   "frrBy": {
+    "le2500": 60,
+    "to10500": 120,
+    "gt10500": 120
+   }
+  },
+  {
+   "v": "5a",
+   "en": "5a / 5d Public entertainment / other assembly",
+   "frrBy": {
+    "le2500": 60,
+    "to10500": 120,
+    "gt10500": null
+   }
+  },
+  {
+   "v": "5b",
+   "en": "5b Educational (schools, kindergartens)",
+   "frrBy": {
+    "le2500": 60,
+    "to10500": 120,
+    "gt10500": null
+   }
+  },
+  {
+   "v": "5c",
+   "en": "5c Transport facilities",
+   "frr": 120
+  },
+  {
+   "v": "6a",
+   "en": "6a Industrial workplace",
+   "frr": 120
+  },
+  {
+   "v": "6b",
+   "en": "6b Bulk storage / warehouse",
+   "frr": 120
+  },
+  {
+   "v": "6c",
+   "en": "6c Hazardous storage",
+   "frr": 120
+  },
+  {
+   "v": "tbc",
+   "en": "Not confirmed: check FS Code Table A1",
+   "frr": null
+  }
+ ],
+ "compartments": [
+  {
+   "v": "le2500",
+   "en": "Up to 2,500 m2"
+  },
+  {
+   "v": "to10500",
+   "en": "2,500 to 10,500 m2"
+  },
+  {
+   "v": "gt10500",
+   "en": "Over 10,500 m2"
+  }
+ ],
+ "licences": [
+  {
+   "v": "none",
+   "en": "None"
+  },
+  {
+   "v": "fehd_gr",
+   "en": "FEHD general restaurant"
+  },
+  {
+   "v": "fehd_lr",
+   "en": "FEHD light refreshment restaurant"
+  },
+  {
+   "v": "fehd_ff",
+   "en": "FEHD food factory"
+  },
+  {
+   "v": "ola_hotel",
+   "en": "OLA hotel licence"
+  },
+  {
+   "v": "ola_gh",
+   "en": "OLA guesthouse licence"
+  },
+  {
+   "v": "swd_rche",
+   "en": "SWD residential care home (elderly)"
+  },
+  {
+   "v": "swd_cc",
+   "en": "SWD child care centre / EDB kindergarten"
+  },
+  {
+   "v": "edb_school",
+   "en": "EDB school registration"
+  },
+  {
+   "v": "orphf_clinic",
+   "en": "Cap. 633 clinic licence"
+  },
+  {
+   "v": "orphf_dpc",
+   "en": "Cap. 633 day procedure centre"
+  },
+  {
+   "v": "fsd_dg",
+   "en": "FSD dangerous goods licence"
+  }
+ ],
+ "flags": [
+  {
+   "v": "aa",
+   "en": "Alteration and addition (existing building)",
+   "zh": "加建改建"
+  },
+  {
+   "v": "occupied",
+   "en": "Building occupied during the works",
+   "zh": "施工期間大廈有人使用"
+  },
+  {
+   "v": "mic",
+   "en": "Modular integrated construction (MiC)",
+   "zh": "組裝合成"
+  },
+  {
+   "v": "heritage",
+   "en": "Heritage building (declared, proposed or graded)",
+   "zh": "歷史建築"
+  },
+  {
+   "v": "notices",
+   "en": "Statutory notices (MBIS / MWIS)",
+   "zh": "強制驗樓 / 驗窗通知"
+  },
+  {
+   "v": "fsdir",
+   "en": "Fire Safety Direction (Cap. 572 / 502)",
+   "zh": "消防安全指示"
+  },
+  {
+   "v": "beam",
+   "en": "BEAM Plus registered (GFA concessions)",
+   "zh": "綠建環評"
+  }
+ ],
+ "gs": {
+  "title": "General Specification for Building, 2022 Edition",
+  "publisher": "Architectural Services Department, HKSAR Government",
+  "corrigendum": "Corrigendum No. GS 2022-05",
+  "corr_note": "the consolidated issue effective for tenders invited on or after 1 October 2026",
+  "url": "https://www.archsd.gov.hk/en/publications-publicity/general-specification-for-building.html",
+  "checked": "2026-11-08",
+  "sections": [
+   {
+    "no": 1,
+    "title": "Preliminaries"
+   },
+   {
+    "no": 2,
+    "title": "Demolition, Site Clearance and Alterations"
+   },
+   {
+    "no": 3,
+    "title": "Excavation and Earthwork"
+   },
+   {
+    "no": 4,
+    "title": "Steel Sheet Piling Work"
+   },
+   {
+    "no": 5,
+    "title": "Piling Work"
+   },
+   {
+    "no": 6,
+    "title": "Structural Concrete Work"
+   },
+   {
+    "no": 7,
+    "title": "Prestressed Concrete Work"
+   },
+   {
+    "no": 8,
+    "title": "Concrete for Minor and Non-structural Work"
+   },
+   {
+    "no": 9,
+    "title": "Brickwork & Blockwork"
+   },
+   {
+    "no": 10,
+    "title": "Masonry"
+   },
+   {
+    "no": 11,
+    "title": "Tanking"
+   },
+   {
+    "no": 12,
+    "title": "Roofing"
+   },
+   {
+    "no": 13,
+    "title": "Carpentry and Joinery"
+   },
+   {
+    "no": 14,
+    "title": "Ironmongery"
+   },
+   {
+    "no": 15,
+    "title": "Structural Steel Work"
+   },
+   {
+    "no": 16,
+    "title": "Curtain Walls"
+   },
+   {
+    "no": 17,
+    "title": "Metal Work"
+   },
+   {
+    "no": 18,
+    "title": "Finishes"
+   },
+   {
+    "no": 19,
+    "title": "Sanitary Appliances"
+   },
+   {
+    "no": 20,
+    "title": "Glazing"
+   },
+   {
+    "no": 21,
+    "title": "Painting"
+   },
+   {
+    "no": 22,
+    "title": "Internal Fittings and Fixtures"
+   },
+   {
+    "no": 23,
+    "title": "Plumbing and Drainage"
+   },
+   {
+    "no": 24,
+    "title": "External Works"
+   },
+   {
+    "no": 25,
+    "title": "Landscape Work"
+   },
+   {
+    "no": 26,
+    "title": "Geotechnical Works on Soil and Rock Slopes"
+   },
+   {
+    "no": 27,
+    "title": "Modular Integrated Construction"
+   }
+  ]
+ },
+ "tags": {
+  "S": "Statutory: Buildings Ordinance, its regulations, a BD code of practice or a PNAP that applies",
+  "LC": "Licence condition: binding only when that licence is sought",
+  "LL": "Landlord, Deed of Mutual Covenant or management rule",
+  "BP": "Best practice or project target with no HK statutory source"
+ }
+}

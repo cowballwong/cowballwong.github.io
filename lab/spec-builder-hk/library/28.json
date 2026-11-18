@@ -1,0 +1,216 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "28",
+    "id": "FST",
+    "title": {
+      "en": "Fire stopping",
+      "zh": "防火封堵"
+    },
+    "intro": {
+      "en": "Fire stopping of penetrations and joints, cavity barriers and inspection."
+    },
+    "related": [],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "flat_fo"
+    ],
+    "flagsOn": [
+      "aa",
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Generally"
+      }
+    },
+    {
+      "id": "EXE",
+      "title": {
+        "en": "Inspection"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "FST-GEN-010",
+      "group": "GEN",
+      "type": "performance",
+      "title": {
+        "en": "Fire stopping generally"
+      },
+      "text": {
+        "en": "Every penetration and joint through a fire-resisting wall, floor or enclosure shall be sealed with a fire-stopping system tested for the same configuration, to BS EN 1366-3 for penetrations and BS EN 1366-4 for linear joints, achieving not less than the rating of the element it passes through. Systems shall be compatible with the substrate and the service."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Statutory performance under the FS Code; the test standards are the usual evidence."
+      },
+      "standards": [
+        "BS EN 1366-3",
+        "BS EN 1366-4"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "FST-GEN-020",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Schedule of fire-stopping products"
+      },
+      "text": {
+        "en": "Submit to {{CA}}, before ordering, a schedule of every fire-stopping product proposed with its test or assessment reference, the rating achieved and the service and substrate covered. Each installed seal shall carry a durable label giving the product, rating, installer and date."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "A product schedule with test references is also required for MiC under ADV-36."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "FST-GEN-030",
+      "group": "GEN",
+      "type": "execution",
+      "title": {
+        "en": "Cavity barriers"
+      },
+      "text": {
+        "en": "Provide cavity barriers in ceiling voids, raised floor voids and wall cavities where the drawings or the fire safety strategy require, and at the slab edge behind any curtain wall or cladding. Cavity barriers shall be tested products fixed to resist displacement in a fire."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Coordinate with the curtain wall slab-edge fire stop."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "FST-EXE-010",
+      "group": "EXE",
+      "type": "completion",
+      "title": {
+        "en": "Inspection before concealment"
+      },
+      "text": {
+        "en": "Fire stopping shall be inspected by {{CA}} before it is concealed. The Contractor shall photograph every seal, indexed by location, and allow for opening up a sample of [[sample]] per cent of seals for inspection at the request of {{CA}}."
+      },
+      "fields": {
+        "sample": {
+          "label": {
+            "en": "Opening-up sample"
+          },
+          "kind": "number",
+          "default": "2",
+          "unit": "%"
+        }
+      },
+      "guidance": {
+        "en": "Licensing inspectors and BD audits ask for photographic records."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 1366-3": "Fire resistance tests for service installations: penetration seals (2021+A1:2024)",
+    "BS EN 1366-4": "Fire resistance tests for service installations: linear joint seals"
+  }
+}

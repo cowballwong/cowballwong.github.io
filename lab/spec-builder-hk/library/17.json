@@ -1,0 +1,388 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "17",
+    "id": "MET",
+    "title": {
+      "en": "Metalwork",
+      "zh": "金屬工程"
+    },
+    "intro": {
+      "en": "Stainless steel, fire shutters, balustrades, handrails and impact protection."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 17,
+        "title": "Metal Work"
+      }
+    ],
+    "types": [
+      "fnb_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "office_fo",
+      "retail_fo",
+      "clinic",
+      "guesthouse"
+    ],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "SS",
+      "title": {
+        "en": "Stainless steel"
+      }
+    },
+    {
+      "id": "SHT",
+      "title": {
+        "en": "Shutters"
+      }
+    },
+    {
+      "id": "BAL",
+      "title": {
+        "en": "Balustrades and handrails"
+      }
+    },
+    {
+      "id": "PRT",
+      "title": {
+        "en": "Protection"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "MET-SS-010",
+      "group": "SS",
+      "type": "product",
+      "title": {
+        "en": "Stainless steel"
+      },
+      "text": {
+        "en": "Stainless steel for hoods, worktops, sinks, wall linings and trims shall be grade [[grade]] to BS EN 10088-2, with a [[finish]] finish. Welds shall be ground and polished to match. Fixings shall be stainless steel of the same or higher grade."
+      },
+      "fields": {
+        "grade": {
+          "label": {
+            "en": "Grade"
+          },
+          "kind": "select",
+          "default": "1.4301 (304)",
+          "options": [
+            {
+              "v": "1.4301 (304)",
+              "en": "1.4301 (304)"
+            },
+            {
+              "v": "1.4401 (316)",
+              "en": "1.4401 (316)"
+            }
+          ]
+        },
+        "finish": {
+          "label": {
+            "en": "Finish"
+          },
+          "kind": "select",
+          "default": "satin brushed",
+          "options": [
+            {
+              "v": "satin brushed",
+              "en": "satin brushed"
+            },
+            {
+              "v": "bead blasted",
+              "en": "bead blasted"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Grade 304 is usual; use 316 for coastal sites or chemical wash-down."
+      },
+      "standards": [
+        "BS EN 10088-2"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "MT"
+      ],
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "rche",
+        "childcare",
+        "office_fo",
+        "retail_fo",
+        "clinic",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "MET-SHT-010",
+      "group": "SHT",
+      "type": "performance",
+      "title": {
+        "en": "Fire shutters"
+      },
+      "text": {
+        "en": "Fire shutters in compartment walls shall have a fire resistance rating of {{FRR}}, tested to BS EN 1634-1. Where openings exceed 25 per cent of the wall length, shutters shall also meet the insulation criterion, which may be reduced to 30 minutes where both sides are sprinklered. Shutter construction shall be approved through BD and its operation and release shall be acceptable to the Fire Services Department."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "FS Code C8. Coordinate release with the fire alarm by the FSI contractor."
+      },
+      "standards": [
+        "BS EN 1634-1"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "MET-SHT-020",
+      "group": "SHT",
+      "type": "product",
+      "title": {
+        "en": "Food hatch shutter"
+      },
+      "text": {
+        "en": "Each food hatch between the kitchen and the dining area shall have a fire shutter with a fusible link release, of the same fire resistance rating as the kitchen wall, with test evidence submitted to {{CA}}."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "BD's licensing requirements for restaurants."
+      },
+      "standards": [
+        "BS EN 1634-1"
+      ],
+      "tags": [
+        "S",
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "lic": [
+          "fehd_gr",
+          "fehd_lr",
+          "fehd_ff"
+        ]
+      }
+    },
+    {
+      "id": "MET-SHT-030",
+      "group": "SHT",
+      "type": "product",
+      "title": {
+        "en": "Loading dock shutters"
+      },
+      "text": {
+        "en": "Roller shutters at loading docks shall be steel, wind rated to class [[wind]] to BS EN 12424, and comply with BS EN 13241 for safe operation. They are not fire shutters unless the Door Schedule says so."
+      },
+      "fields": {
+        "wind": {
+          "label": {
+            "en": "Wind class"
+          },
+          "kind": "select",
+          "default": "4",
+          "options": [
+            {
+              "v": "3",
+              "en": "3"
+            },
+            {
+              "v": "4",
+              "en": "4"
+            },
+            {
+              "v": "5",
+              "en": "5"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "Best practice; no HK source sets the class."
+      },
+      "standards": [
+        "BS EN 13241",
+        "BS EN 12424"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "industrial"
+      ]
+    },
+    {
+      "id": "MET-BAL-010",
+      "group": "BAL",
+      "type": "performance",
+      "title": {
+        "en": "Balustrades and handrails"
+      },
+      "text": {
+        "en": "Balustrades, barriers and handrails shall be designed by the Contractor for the imposed loads of the Code of Practice for Dead and Imposed Loads 2011 (2021 Edition) under the Building (Construction) Regulation, and to BS 6180 for construction and fixing. Barrier height shall be as the drawings, and not less than the statutory height where one applies."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Submit calculations for every balustrade type."
+      },
+      "standards": [
+        "BS 6180"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "MT"
+      ],
+      "types": [
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "rche",
+        "childcare",
+        "office_fo",
+        "retail_fo",
+        "clinic",
+        "guesthouse"
+      ]
+    },
+    {
+      "id": "MET-BAL-020",
+      "group": "BAL",
+      "type": "performance",
+      "title": {
+        "en": "Barriers in care and children's premises"
+      },
+      "text": {
+        "en": "Protective barriers shall be at least [[h]] m high wherever the level changes by more than 600 mm, with a solid lowest 150 mm, no opening that a 100 mm sphere can pass, and no footholds that would help a child climb."
+      },
+      "fields": {
+        "h": {
+          "label": {
+            "en": "Barrier height"
+          },
+          "kind": "number",
+          "default": "1.1",
+          "unit": "m"
+        }
+      },
+      "guidance": {
+        "en": "SWD code values for residential care homes; the same barrier detail is good practice for child care and schools."
+      },
+      "standards": [],
+      "tags": [
+        "LC",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "rche",
+        "childcare",
+        "school"
+      ]
+    },
+    {
+      "id": "MET-BAL-030",
+      "group": "BAL",
+      "type": "product",
+      "title": {
+        "en": "Handrails in care premises"
+      },
+      "text": {
+        "en": "Handrails shall be fitted to every toilet, bathroom and corridor, of 32 to 40 mm diameter, continuous where possible and with returned ends, as the Design Manual: Universal Accessibility 2026 (formerly the Design Manual: Barrier Free Access 2008)."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Licence requirement for residential care homes."
+      },
+      "standards": [],
+      "tags": [
+        "LC"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "rche"
+      ]
+    },
+    {
+      "id": "MET-PRT-010",
+      "group": "PRT",
+      "type": "product",
+      "title": {
+        "en": "Impact protection"
+      },
+      "text": {
+        "en": "Provide bollards, kerbs, column guards and corner guards where the drawings show, in galvanised steel finished in [[colour]], fixed to resist vehicle impact as the Contractor's design."
+      },
+      "fields": {
+        "colour": {
+          "label": {
+            "en": "Finish colour"
+          },
+          "kind": "text",
+          "default": "safety yellow"
+        }
+      },
+      "guidance": {
+        "en": "No HK official source; agree the vehicle type and speed for the design."
+      },
+      "standards": [],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "industrial"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 1634-1": "Fire resistance and smoke control tests for door and shutter assemblies: fire resistance test",
+    "BS 6180": "Barriers in and about buildings: code of practice",
+    "BS EN 13241": "Industrial, commercial, garage doors and gates: product standard",
+    "BS EN 12424": "Industrial, commercial and garage doors and gates: resistance to wind load, classification",
+    "BS EN 10088-2": "Stainless steels: sheet, plate and strip for general purposes (2024)"
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "16",
+    "id": "WIN",
+    "title": {
+      "en": "Curtain walls, windows and cladding",
+      "zh": "幕牆、窗及外牆覆面"
+    },
+    "intro": {
+      "en": "Aluminium windows, curtain walling and stone or metal cladding."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 16,
+        "title": "Curtain Walls",
+        "groups": [
+          "CW",
+          "CLD"
+        ]
+      },
+      {
+        "doc": "GS 2022",
+        "section": 17,
+        "title": "Metal Work",
+        "groups": [
+          "ALW"
+        ]
+      },
+      {
+        "doc": "GS 2022",
+        "section": 10,
+        "title": "Masonry",
+        "groups": [
+          "CLD"
+        ]
+      }
+    ],
+    "types": [
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "retail_fo",
+      "flat_fo"
+    ],
+    "flagsOn": [
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "ALW",
+      "title": {
+        "en": "Aluminium windows"
+      }
+    },
+    {
+      "id": "CW",
+      "title": {
+        "en": "Curtain walling"
+      }
+    },
+    {
+      "id": "CLD",
+      "title": {
+        "en": "Cladding"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "WIN-ALW-010",
+      "group": "ALW",
+      "type": "product",
+      "title": {
+        "en": "Aluminium windows: deemed-to-satisfy construction"
+      },
+      "text": {
+        "en": "Aluminium windows shall comply with PNAP APP-116. In particular: fixing lugs shall be stainless or galvanised steel at least 1.5 mm thick at not more than 300 mm centres; aluminium members shall be at least 2 mm thick and mullions at least 38 mm deep; side-hung sashes shall not exceed 700 mm wide and top-hung sashes 2.5 m2 in area; hinges shall be stainless steel four-bar friction hinges with bars at least 2.5 mm thick, fixed with at least three stainless steel rivets of not less than 4.8 mm diameter or screws of not less than 5 mm to each hinge bar, never aluminium rivets, into a stainless or galvanised steel insert at least 3 mm thick or a section thickened locally to at least 5 mm, and at least 60 per cent of the sash width; each window shall have a projecting drip; and dissimilar metals shall be isolated."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "These deemed-to-satisfy rules map almost line for line from APP-116. Window replacement is a minor works item."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "AL"
+      ],
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-ALW-020",
+      "group": "ALW",
+      "type": "performance",
+      "title": {
+        "en": "Window performance"
+      },
+      "text": {
+        "en": "Windows shall be designed by the Contractor for the wind loads of the Code of Practice on Wind Effects in Hong Kong 2019 and shall comply with BS EN 14351-1 for air permeability, watertightness and resistance to wind load, at classes of not less than [[class]]. Submit calculations and test reports to {{CA}} before fabrication."
+      },
+      "fields": {
+        "class": {
+          "label": {
+            "en": "Performance classes"
+          },
+          "kind": "text",
+          "default": "as stated in the window schedule"
+        }
+      },
+      "guidance": {
+        "en": "Class selection is a project decision; the wind code is statutory."
+      },
+      "standards": [
+        "BS EN 14351-1"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-ALW-030",
+      "group": "ALW",
+      "type": "performance",
+      "title": {
+        "en": "Glass in the residential envelope"
+      },
+      "text": {
+        "en": "Glass forming part of the building envelope, including windows, doors, curtain wall, cladding and skylights, shall have a visible light transmittance of not less than [[vlt]] and an external reflectance of not more than [[er]], as PNAP APP-156 requires, and shall suit the residential thermal transfer value design. Submit the glass performance data with the window submission."
+      },
+      "fields": {
+        "vlt": {
+          "label": {
+            "en": "Minimum VLT"
+          },
+          "kind": "number",
+          "default": "50",
+          "unit": "%"
+        },
+        "er": {
+          "label": {
+            "en": "Maximum external reflectance"
+          },
+          "kind": "number",
+          "default": "20",
+          "unit": "%"
+        }
+      },
+      "guidance": {
+        "en": "APP-156 applies to domestic buildings only: it excludes hotels, guesthouses and residential care homes, which follow APP-67. It sets VLT at least 50% and external reflectance at most 20%, and caps RTTV (wall 12.5, roof 3.5 W/m2)."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower"
+      ]
+    },
+    {
+      "id": "WIN-ALW-040",
+      "group": "ALW",
+      "type": "execution",
+      "title": {
+        "en": "Inspection and repair of existing windows"
+      },
+      "text": {
+        "en": "Existing windows to be retained shall be inspected, and hinges, rivets and stays found defective shall be replaced like for like in stainless steel. Perimeter sealant shall be renewed. Any window to be replaced shall meet the current BD rules for windows. Work shall be coordinated with the Registered Inspector where a window inspection notice applies."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Covers the MWIS repair cycle."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "when": {
+        "flags": [
+          "aa",
+          "notices"
+        ]
+      }
+    },
+    {
+      "id": "WIN-ALW-050",
+      "group": "ALW",
+      "type": "performance",
+      "title": {
+        "en": "Guarding to low windows"
+      },
+      "text": {
+        "en": "Window openings with sills less than [[guard]] m above floor level shall be guarded to that height. Bars or grilles shall be removable by the Fire Services Department where they guard an opening used for rescue."
+      },
+      "fields": {
+        "guard": {
+          "label": {
+            "en": "Guarding height"
+          },
+          "kind": "number",
+          "default": "1.1",
+          "unit": "m"
+        }
+      },
+      "guidance": {
+        "en": "Education Regulations reg. 8 for schools and kindergartens; Child Care Services Regulations reg. 20 for child care centres. For care homes it is a licence-led precaution."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "childcare",
+        "rche"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "types": [
+              "rche"
+            ]
+          },
+          "tags": [
+            "LC",
+            "BP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WIN-CW-010",
+      "group": "CW",
+      "type": "performance",
+      "title": {
+        "en": "Curtain wall design"
+      },
+      "text": {
+        "en": "The curtain wall shall be a unitised system designed by the Contractor in accordance with PNAP APP-37, the Building (Construction) Regulation, the Code of Practice for Structural Use of Glass 2018 and the Code of Practice on Wind Effects in Hong Kong 2019, and shall comply with BS EN 13830. Design submissions shall state the structural sealant, aluminium alloy, fixings and glass, and shall include structural details for large openings and long mullion spans where APP-37 requires."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Design life, performance classes and movement allowances go into the curtain wall performance specification."
+      },
+      "standards": [
+        "BS EN 13830"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "GL",
+        "AL"
+      ],
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-CW-020",
+      "group": "CW",
+      "type": "performance",
+      "title": {
+        "en": "Slab-edge fire and smoke stop"
+      },
+      "text": {
+        "en": "A fire and smoke stop shall be provided at every slab edge and at every compartment and staircase or lobby junction behind the curtain wall, with a tested system rated not less than the floor or wall it closes. The stop is required in sprinklered buildings even where the spandrel requirement is waived."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Keep this clause in every curtain wall section."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-CW-030",
+      "group": "CW",
+      "type": "product",
+      "title": {
+        "en": "Tempered glass quality and heat soaking"
+      },
+      "text": {
+        "en": "Tempered (toughened) glass shall be made in a factory certified to ISO 9001, under a quality assurance scheme that limits spontaneous breakage from nickel sulphide inclusions, as PNAP APP-37 requires. The Contractor shall submit the scheme to {{CA}} in time for submission to the Buildings Department at least 14 days before production starts. Every tempered glass pane shall be heat soak processed to BS EN 14179-1, and the manufacturer's heat soak compliance reports shall be submitted to {{CA}} for the Registered Structural Engineer's endorsement before the occupation permit application. Heat-strengthened glass shall be supplied under the manufacturer's quality assurance scheme."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "APP-37 (February 2024) imposes the ISO 9001 factory, the scheme 14 days before production and heat soaking of all tempered panes to BS EN 14179-1:2016 as conditions of plan approval, so heat soaking is not optional."
+      },
+      "standards": [
+        "BS EN 14179-1"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-CW-040",
+      "group": "CW",
+      "type": "execution",
+      "title": {
+        "en": "Curtain wall mock-up and site testing"
+      },
+      "text": {
+        "en": "A performance mock-up shall be tested before fabrication starts, using the test sequence agreed with {{CA}}. On site, the Contractor shall water test [[sitepct]] per cent of the installed curtain wall to BS EN 13051, at locations chosen by {{CA}}."
+      },
+      "fields": {
+        "sitepct": {
+          "label": {
+            "en": "Site test extent"
+          },
+          "kind": "number",
+          "default": "5",
+          "unit": "%"
+        }
+      },
+      "guidance": {
+        "en": "The APP-37 test standards were not extracted in our research; agree them in the performance specification."
+      },
+      "standards": [
+        "BS EN 13051"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "WIN-CLD-010",
+      "group": "CLD",
+      "type": "execution",
+      "title": {
+        "en": "Cladding fixings and testing"
+      },
+      "text": {
+        "en": "Cladding shall be fixed with stainless steel or other corrosion-resistant fixings, with movement joints at the spacing of the cladding design. Stone shall not rely on adhesive or mortar alone. Anchors above 6 m shall be pull-out tested to 1.5 times the recommended working load. Stone shall be tested for flexural strength to BS EN 12372 or ASTM C880 and for anchorage strength to ASTM C1354."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "From PNAP APP-16 (revised January 2026)."
+      },
+      "standards": [
+        "BS EN 12372",
+        "ASTM C880",
+        "ASTM C1354"
+      ],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "ST"
+      ],
+      "types": [
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "rche",
+        "childcare",
+        "retail_fo",
+        "flat_fo"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 14179-1": "Glass in building: heat soaked thermally toughened soda lime silicate safety glass",
+    "BS EN 13051": "Curtain walling: watertightness, site test",
+    "BS EN 13830": "Curtain walling: product standard",
+    "ASTM C1354": "Strength of individual stone anchorages in dimension stone",
+    "ASTM C880": "Flexural strength of dimension stone",
+    "BS EN 14351-1": "Windows and doors: product standard, windows and external pedestrian doorsets",
+    "BS EN 12372": "Natural stone test methods: flexural strength under concentrated load (2022)"
+  }
+}

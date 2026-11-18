@@ -1,0 +1,179 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "22",
+    "id": "SGN",
+    "title": {
+      "en": "Signage",
+      "zh": "標誌"
+    },
+    "intro": {
+      "en": "Fire door notices, accessible signage and the interface with fire service signs."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 22,
+        "title": "Internal Fittings and Fixtures"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "flat_fo"
+    ],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "FIR",
+      "title": {
+        "en": "Fire signs"
+      }
+    },
+    {
+      "id": "ACC",
+      "title": {
+        "en": "Accessible signs"
+      }
+    },
+    {
+      "id": "EXT",
+      "title": {
+        "en": "Exit and FSI signs"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "SGN-FIR-010",
+      "group": "FIR",
+      "type": "product",
+      "title": {
+        "en": "Fire door notices"
+      },
+      "text": {
+        "en": "Every fire door shall carry, on both faces where the FS Code requires, a notice reading FIRE DOOR TO BE KEPT CLOSED together with the Chinese wording required by the FS Code, in characters not less than 10 mm high. The Chinese characters shall appear on the sign itself even though this specification is in English."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "The specification is English only, but the notice is bilingual by statute."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "SG"
+      ],
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "SGN-ACC-010",
+      "group": "ACC",
+      "type": "product",
+      "title": {
+        "en": "Accessible signage"
+      },
+      "text": {
+        "en": "Directional, room and facility signs on accessible routes shall have tactile and Braille information, mounted between 900 mm and 1,500 mm above floor level, and shall contrast with their background, as the Design Manual: Universal Accessibility 2026 (formerly the Design Manual: Barrier Free Access 2008)."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Obligatory items are statutory; recommended items are best practice."
+      },
+      "standards": [],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "codes": [
+        "SG"
+      ],
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    },
+    {
+      "id": "SGN-EXT-010",
+      "group": "EXT",
+      "type": "outline",
+      "title": {
+        "en": "Exit signs and fire service signs"
+      },
+      "text": {
+        "en": "Exit signs and fire service installation signs are supplied by the fire service installation contractor. The Contractor shall provide backing, openings and power points for them as the drawings show and shall not obstruct them with signage or finishes."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Interface clause only."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo"
+      ]
+    }
+  ],
+  "standards": {}
+}

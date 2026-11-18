@@ -1,0 +1,1217 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "21",
+    "id": "PNT",
+    "title": {
+      "en": "Painting and coatings",
+      "zh": "油漆及塗層"
+    },
+    "intro": {
+      "en": "Paint systems, preparation, application and coatings."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 21,
+        "title": "Painting"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "flat_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "industrial",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [],
+    "flagsOn": []
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "General",
+        "zh": "一般要求"
+      }
+    },
+    {
+      "id": "PREP",
+      "title": {
+        "en": "Surface preparation",
+        "zh": "基層處理"
+      }
+    },
+    {
+      "id": "SYS",
+      "title": {
+        "en": "Paint systems",
+        "zh": "油漆系統"
+      }
+    },
+    {
+      "id": "EXE",
+      "title": {
+        "en": "Application",
+        "zh": "施工"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "PNT-GEN-010",
+      "group": "GEN",
+      "type": "outline",
+      "title": {
+        "en": "Paint systems and manufacturers"
+      },
+      "text": {
+        "en": "Apply paint systems to each surface as the paint system schedule [[schedule_ref]]. All coats of one system shall be from one manufacturer and stated by that manufacturer as compatible. Products: [[voc_option]]. All products shall comply with the Air Pollution Control (Volatile Organic Compounds) Regulation. Submit product data sheets for each system to {{CA}} before ordering."
+      },
+      "fields": {
+        "schedule_ref": {
+          "label": {
+            "en": "Paint system schedule reference",
+            "zh": "油漆系統表編號"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. finishes schedule number"
+          }
+        },
+        "voc_option": {
+          "label": {
+            "en": "VOC content",
+            "zh": "揮發性有機化合物含量"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "low",
+              "en": "low VOC products where available for the system"
+            },
+            {
+              "v": "standard",
+              "en": "standard products"
+            }
+          ],
+          "default": "low"
+        }
+      },
+      "guidance": {
+        "en": "Mixing primer from one brand with finish from another is a common cause of poor adhesion and can void the manufacturer's guarantee; low VOC products are typically asked for in occupied fit-outs and projects assessed under BEAM Plus."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [
+        "PNT-GEN-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ],
+      "tagWhen": [
+        {
+          "when": {
+            "flags": [
+              "beam"
+            ]
+          },
+          "tags": [
+            "S"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PNT-GEN-020",
+      "group": "GEN",
+      "type": "execution",
+      "title": {
+        "en": "Colours and sample areas"
+      },
+      "text": {
+        "en": "Colours shall be as the colour schedule [[colour_ref]], referenced to [[colour_system]]. Before general application, prepare a sample area of each system and colour of not less than [[sample_area]] m² in a location agreed with {{CA}}. Do not proceed until the sample area is approved. Keep approved sample areas as the standard for the remainder of the work."
+      },
+      "fields": {
+        "colour_ref": {
+          "label": {
+            "en": "Colour schedule reference",
+            "zh": "顏色表編號"
+          },
+          "kind": "text",
+          "default": null
+        },
+        "colour_system": {
+          "label": {
+            "en": "Colour reference system",
+            "zh": "顏色參照系統"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "ncs",
+              "en": "NCS"
+            },
+            {
+              "v": "ral",
+              "en": "RAL"
+            },
+            {
+              "v": "mfr",
+              "en": "the manufacturer's colour range"
+            }
+          ],
+          "default": null
+        },
+        "sample_area": {
+          "label": {
+            "en": "Sample area",
+            "zh": "樣板面積"
+          },
+          "kind": "number",
+          "unit": "m²",
+          "default": 2
+        }
+      },
+      "guidance": {
+        "en": "Colours look different on a full wall under site lighting than on a fan deck, so sample areas are typically judged in the final lighting; deep colours often need extra coats, which affects programme."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-PREP-010",
+      "group": "PREP",
+      "type": "execution",
+      "title": {
+        "en": "Preparation of new plaster and concrete"
+      },
+      "text": {
+        "en": "Do not paint new plaster, render or concrete until the moisture content is not more than [[moisture]] % measured by [[moisture_method]]. Test surfaces for alkalinity and apply an alkali resistant primer or sealer where the manufacturer requires. Remove efflorescence, laitance, release agents and loose material, and fill and rub down to an even surface. Record moisture readings and submit to {{CA}} on request."
+      },
+      "fields": {
+        "moisture": {
+          "label": {
+            "en": "Maximum moisture content",
+            "zh": "最大含水率"
+          },
+          "kind": "number",
+          "unit": "%",
+          "default": null,
+          "hint": {
+            "en": "as the paint manufacturer"
+          }
+        },
+        "moisture_method": {
+          "label": {
+            "en": "Measurement method",
+            "zh": "測量方法"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "meter",
+              "en": "a calibrated moisture meter"
+            },
+            {
+              "v": "hygrometer",
+              "en": "a surface hygrometer"
+            }
+          ],
+          "default": "meter"
+        }
+      },
+      "guidance": {
+        "en": "Painting too early on wet concrete is the most common cause of blistering and alkali attack in HK, especially in the humid months when slabs dry slowly; programmes often assume a drying time that the weather does not allow."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-PREP-020",
+      "group": "PREP",
+      "type": "execution",
+      "title": {
+        "en": "Preparation of steel and galvanized surfaces"
+      },
+      "text": {
+        "en": "Blast clean or tool clean uncoated steel to ISO 8501-1 preparation grade [[steel_grade]], and prime the same day before visible rusting occurs. Hot-dip galvanized surfaces to BS EN ISO 1461 shall be degreased and prepared by [[galv_prep]] before priming. Do not paint galvanized steel with alkyd primers directly. Repair damaged shop priming and galvanizing as the coating manufacturer recommends."
+      },
+      "fields": {
+        "steel_grade": {
+          "label": {
+            "en": "Steel preparation grade",
+            "zh": "鋼材處理等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "sa25",
+              "en": "Sa 2½ (blast cleaning)"
+            },
+            {
+              "v": "st3",
+              "en": "St 3 (very thorough hand and power tool cleaning)"
+            },
+            {
+              "v": "st2",
+              "en": "St 2 (thorough hand and power tool cleaning)"
+            }
+          ],
+          "default": "sa25"
+        },
+        "galv_prep": {
+          "label": {
+            "en": "Galvanized preparation",
+            "zh": "鍍鋅表面處理"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "mordant",
+              "en": "mordant solution"
+            },
+            {
+              "v": "etch",
+              "en": "etch primer"
+            },
+            {
+              "v": "sweep",
+              "en": "light sweep blasting"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "St grades are typically kept for site touch-up and mild interior conditions; flaking paint on galvanized railings is a common HK defect where the zinc surface was painted without treatment."
+      },
+      "standards": [
+        "ISO 8501-1",
+        "BS EN ISO 1461"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-PREP-030",
+      "group": "PREP",
+      "type": "execution",
+      "title": {
+        "en": "Preparation of timber and previously painted surfaces"
+      },
+      "text": {
+        "en": "Treat knots and resinous areas in timber with knotting solution, and prime all faces of joinery, including concealed faces, before fixing. Fill holes and cracks after priming and rub down smooth. On previously painted surfaces, [[existing_treatment]], wash down and abrade glossy surfaces to give a key. Where existing paint may contain lead, stop work on that surface and inform {{CA}}."
+      },
+      "fields": {
+        "existing_treatment": {
+          "label": {
+            "en": "Existing coatings",
+            "zh": "現有塗層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "makegood",
+              "en": "remove loose and flaking paint and make good"
+            },
+            {
+              "v": "strip",
+              "en": "strip to the substrate"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Unprimed back faces let joinery take up moisture and move in HK's humidity; lead paint is commonly found in older HK buildings and dry sanding it creates a health hazard."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-SYS-010",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "Emulsion on plaster and board"
+      },
+      "text": {
+        "en": "Internal walls and ceilings of plaster, skim coat and gypsum board: water-borne emulsion, one mist coat and [[coats]] finishing coats. Sheen: [[sheen]]. Wet scrub resistance to BS EN 13300: [[scrub_class]]. Prime gypsum board with the manufacturer's board primer."
+      },
+      "fields": {
+        "coats": {
+          "label": {
+            "en": "Finishing coats",
+            "zh": "面漆道數"
+          },
+          "kind": "number",
+          "unit": "coats",
+          "default": 2
+        },
+        "sheen": {
+          "label": {
+            "en": "Sheen",
+            "zh": "光澤"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "matt",
+              "en": "matt"
+            },
+            {
+              "v": "eggshell",
+              "en": "eggshell"
+            },
+            {
+              "v": "satin",
+              "en": "satin"
+            }
+          ],
+          "default": "matt"
+        },
+        "scrub_class": {
+          "label": {
+            "en": "Scrub class",
+            "zh": "耐擦洗等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "c1",
+              "en": "Class 1"
+            },
+            {
+              "v": "c2",
+              "en": "Class 2"
+            },
+            {
+              "v": "c3",
+              "en": "Class 3"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Matt finishes hide board joints but mark easily in corridors and lift lobbies, where eggshell or a higher scrub class is commonly chosen; the class number goes down as durability goes up."
+      },
+      "standards": [
+        "BS EN 13300",
+        "BS 6150"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "PT"
+      ]
+    },
+    {
+      "id": "PNT-SYS-020",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "Paint in wet and humid areas"
+      },
+      "text": {
+        "en": "Ceilings and walls in bathrooms, kitchens, plant rooms and other humid areas: water-borne acrylic system suitable for high humidity, [[coats]] finishing coats over the manufacturer's primer. Anti-fungal additive: [[anti_fungal]]. Do not paint areas affected by mould until treated with a fungicidal wash and dried."
+      },
+      "fields": {
+        "coats": {
+          "label": {
+            "en": "Finishing coats",
+            "zh": "面漆道數"
+          },
+          "kind": "number",
+          "unit": "coats",
+          "default": 2
+        },
+        "anti_fungal": {
+          "label": {
+            "en": "Anti-fungal",
+            "zh": "防霉"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "yes",
+              "en": "required, as manufacturer's anti-fungal grade"
+            },
+            {
+              "v": "no",
+              "en": "not required"
+            }
+          ],
+          "default": "yes"
+        }
+      },
+      "guidance": {
+        "en": "Mould on bathroom ceilings is one of the most common defects reported in HK flats; paint alone rarely fixes it if the extract fan is undersized or not running."
+      },
+      "standards": [
+        "BS 6150"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "PT"
+      ]
+    },
+    {
+      "id": "PNT-SYS-030",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "External masonry paint"
+      },
+      "text": {
+        "en": "External rendered and concrete walls: [[ext_type]] system with the manufacturer's sealer and [[coats]] finishing coats. Do not apply during rain, when rain is forecast within the manufacturer's stated drying time, or on damp surfaces. Submit the manufacturer's warranty terms for the system to {{CA}} before application."
+      },
+      "fields": {
+        "ext_type": {
+          "label": {
+            "en": "External system",
+            "zh": "外牆系統"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "acrylic",
+              "en": "acrylic masonry paint"
+            },
+            {
+              "v": "elastomeric",
+              "en": "elastomeric crack bridging coating"
+            }
+          ],
+          "default": "acrylic"
+        },
+        "coats": {
+          "label": {
+            "en": "Finishing coats",
+            "zh": "面漆道數"
+          },
+          "kind": "number",
+          "unit": "coats",
+          "default": 2
+        }
+      },
+      "guidance": {
+        "en": "External painting is commonly programmed outside the typhoon and rainy season, roughly May to September, because rain on fresh coats causes wash-off and streaking; elastomeric coatings bridge hairline cracks but can blister if the wall behind is wet."
+      },
+      "standards": [
+        "BS 6150"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "PT"
+      ]
+    },
+    {
+      "id": "PNT-SYS-040",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "Paint systems on timber and metal"
+      },
+      "text": {
+        "en": "Internal and external timber and metal: [[gloss_base]] system of primer, undercoat and [[coats]] finishing coats, sheen [[sheen]]. External and exposed steel shall have a protective paint system designed to ISO 12944 for corrosivity category [[corrosivity]] and durability range [[durability]]. Submit the system with coat thicknesses to {{CA}} before ordering."
+      },
+      "fields": {
+        "gloss_base": {
+          "label": {
+            "en": "System base",
+            "zh": "系統類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "alkyd",
+              "en": "solvent-borne alkyd"
+            },
+            {
+              "v": "water",
+              "en": "water-borne acrylic"
+            }
+          ],
+          "default": "water"
+        },
+        "coats": {
+          "label": {
+            "en": "Finishing coats",
+            "zh": "面漆道數"
+          },
+          "kind": "number",
+          "unit": "coats",
+          "default": 1
+        },
+        "sheen": {
+          "label": {
+            "en": "Sheen",
+            "zh": "光澤"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "gloss",
+              "en": "gloss"
+            },
+            {
+              "v": "satin",
+              "en": "satin"
+            },
+            {
+              "v": "eggshell",
+              "en": "eggshell"
+            }
+          ],
+          "default": "satin"
+        },
+        "corrosivity": {
+          "label": {
+            "en": "Corrosivity category",
+            "zh": "腐蝕性等級"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "c3",
+              "en": "C3"
+            },
+            {
+              "v": "c4",
+              "en": "C4"
+            },
+            {
+              "v": "c5",
+              "en": "C5"
+            },
+            {
+              "v": "cx",
+              "en": "CX"
+            }
+          ],
+          "default": null
+        },
+        "durability": {
+          "label": {
+            "en": "Durability range",
+            "zh": "耐久年限"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "m",
+              "en": "M (medium)"
+            },
+            {
+              "v": "h",
+              "en": "H (high)"
+            },
+            {
+              "v": "vh",
+              "en": "VH (very high)"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Much of urban HK is close to the sea and steel near the waterfront is commonly treated as C4 or C5; water-borne systems yellow less and suit occupied buildings, while alkyd still flows out better on doors."
+      },
+      "standards": [
+        "ISO 12944",
+        "BS 6150"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [
+        "PNT-PREP-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-SYS-050",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "Epoxy and polyurethane floor coatings"
+      },
+      "text": {
+        "en": "Floor coatings to plant rooms, car parks and stores: [[floor_resin]] system to the manufacturer's instructions, including primer. Slip resistance: [[slip]]. Prepare concrete by mechanical means to remove laitance, and check moisture to {{ref:PNT-PREP-010}} before application."
+      },
+      "fields": {
+        "floor_resin": {
+          "label": {
+            "en": "Floor coating",
+            "zh": "地台塗層"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "epoxy",
+              "en": "epoxy"
+            },
+            {
+              "v": "pu",
+              "en": "polyurethane"
+            },
+            {
+              "v": "epoxy_pu",
+              "en": "epoxy with polyurethane top coat"
+            }
+          ],
+          "default": null
+        },
+        "slip": {
+          "label": {
+            "en": "Slip resistance",
+            "zh": "防滑等級"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "as the project's floor finishes schedule"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Epoxy chalks and yellows in sunlight, so a polyurethane top coat is typically used on exposed car park decks; resin floors often fail by debonding where the slab moisture was not checked."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [
+        "PNT-PREP-010"
+      ],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "EP"
+      ]
+    },
+    {
+      "id": "PNT-SYS-060",
+      "group": "SYS",
+      "type": "product",
+      "title": {
+        "en": "Anti-graffiti coating"
+      },
+      "text": {
+        "en": "Apply anti-graffiti coating to [[ag_locations]]. Type: [[ag_type]], compatible with the base system and approved by its manufacturer. Submit the manufacturer's graffiti removal method for inclusion in the operation and maintenance (O&M) manual."
+      },
+      "fields": {
+        "ag_locations": {
+          "label": {
+            "en": "Locations",
+            "zh": "位置"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. ground floor external walls"
+          }
+        },
+        "ag_type": {
+          "label": {
+            "en": "Coating type",
+            "zh": "塗層類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "sacrificial",
+              "en": "sacrificial, removed with the graffiti"
+            },
+            {
+              "v": "permanent",
+              "en": "permanent, non-sacrificial"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Sacrificial coatings need reapplying after each clean, which management offices often do not budget for; permanent coatings can change the sheen of matt walls."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-SYS-070",
+      "group": "SYS",
+      "type": "performance",
+      "title": {
+        "en": "Intumescent coating to structural steel"
+      },
+      "text": {
+        "en": "Where shown on the fire engineer's schedule [[fire_schedule]], structural steel shall be protected with a proprietary intumescent system applied by a specialist approved by the system manufacturer. Comply with the Code of Practice for Fire Safety in Buildings 2011 (2024 Edition) and the project's fire safety strategy. Dry film thickness (DFT) shall be [[dft]] for each member as the manufacturer's assessment for the section and fire resistance rating (FRR). Submit test and assessment evidence acceptable to the Building Authority, the DFT schedule and measured DFT records to {{CA}}. Prepare and prime steel to {{ref:PNT-PREP-020}}, using a primer compatible with the intumescent system."
+      },
+      "fields": {
+        "fire_schedule": {
+          "label": {
+            "en": "Fire engineer's schedule reference",
+            "zh": "消防工程師防火表編號"
+          },
+          "kind": "text",
+          "default": null
+        },
+        "dft": {
+          "label": {
+            "en": "DFT",
+            "zh": "乾膜厚度"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "from the manufacturer's DFT schedule, by member"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Intumescent thickness depends on section size and required period, so it is a specialist output rather than a specification value; topcoats must be ones the intumescent manufacturer has tested, or the fire performance may not hold."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [
+        "PNT-PREP-020",
+        "PNT-EXE-010"
+      ],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "PNT-EXE-010",
+      "group": "EXE",
+      "type": "execution",
+      "title": {
+        "en": "Application conditions and film thickness"
+      },
+      "text": {
+        "en": "Do not apply paint when relative humidity exceeds [[max_rh]] %, when the surface is less than [[dew_margin]] °C above the dew point, or outside the manufacturer's temperature limits. Apply the number of coats in the system, and further coats where the finish is not uniform and opaque. Each coat shall be dry and free of defects before the next is applied. Measure dry film thickness (DFT) of coatings on steel to ISO 19840 for blast cleaned surfaces and to ISO 2808 otherwise, and record the results."
+      },
+      "fields": {
+        "max_rh": {
+          "label": {
+            "en": "Maximum relative humidity",
+            "zh": "最大相對濕度"
+          },
+          "kind": "number",
+          "unit": "%",
+          "default": 85,
+          "hint": {
+            "en": "as the paint manufacturer"
+          }
+        },
+        "dew_margin": {
+          "label": {
+            "en": "Margin above dew point",
+            "zh": "高於露點的差值"
+          },
+          "kind": "number",
+          "unit": "°C",
+          "default": 3
+        }
+      },
+      "guidance": {
+        "en": "HK humidity commonly sits above 85% from spring to autumn, so painting is often limited to drier parts of the day or needs dehumidifiers in enclosed areas; condensation on steel in the early morning is a frequent cause of early rusting under fresh paint."
+      },
+      "standards": [
+        "ISO 19840",
+        "ISO 2808"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "PNT-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Inspection, touch-up and records"
+      },
+      "text": {
+        "en": "Inspect painted surfaces with {{CA}} in normal lighting before handover. Touch up damage. Where touch-up would show, repaint the whole area to the nearest natural break, such as a corner or joint. Hand over a record of each system, product, batch and colour reference for the operation and maintenance (O&M) manual. Leave [[spare_paint]] litres of each finishing colour, in sealed and labelled containers."
+      },
+      "fields": {
+        "spare_paint": {
+          "label": {
+            "en": "Spare paint per colour",
+            "zh": "每種顏色留存油漆"
+          },
+          "kind": "number",
+          "unit": "litres",
+          "default": 5
+        }
+      },
+      "guidance": {
+        "en": "Spot touch-ups commonly show as patches because sheen differs from the original film, so repainting to a corner or joint is the typical remedy; batch records help match later repairs."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 21
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    }
+  ],
+  "standards": {
+    "ISO 8501-1": "Preparation of steel substrates before application of paints: visual assessment of surface cleanliness, rust grades and preparation grades of uncoated and stripped steel",
+    "ISO 12944": "Paints and varnishes: corrosion protection of steel structures by protective paint systems",
+    "BS EN ISO 1461": "Hot dip galvanized coatings on fabricated iron and steel articles: specifications and test methods",
+    "BS 6150": "Painting of buildings: code of practice",
+    "BS EN 13300": "Paints and varnishes: paints and varnishes for interior walls and ceilings, classification",
+    "ISO 2808": "Paints and varnishes: determination of film thickness",
+    "ISO 19840": "Paints and varnishes: corrosion protection of steel structures by protective paint systems, measurement of and acceptance criteria for the thickness of dry films on rough surfaces"
+  }
+}

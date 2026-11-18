@@ -1,0 +1,951 @@
+{
+  "library": "AW Design Spec Builder HK",
+  "version": "2.0",
+  "date": "2026-11-08",
+  "section": {
+    "code": "20",
+    "id": "GLZ",
+    "title": {
+      "en": "Glazing",
+      "zh": "玻璃工程"
+    },
+    "intro": {
+      "en": "Glass types, safety glazing, manifestation, internal glass partitions and fire-rated glazing."
+    },
+    "related": [
+      {
+        "doc": "GS 2022",
+        "section": 20,
+        "title": "Glazing"
+      }
+    ],
+    "types": [
+      "office_fo",
+      "retail_fo",
+      "fnb_fo",
+      "resi_tower",
+      "office_bldg",
+      "school",
+      "hotel",
+      "guesthouse",
+      "clinic",
+      "rche",
+      "childcare"
+    ],
+    "optional": [
+      "flat_fo",
+      "industrial"
+    ],
+    "flagsOn": [
+      "mic"
+    ]
+  },
+  "groups": [
+    {
+      "id": "GEN",
+      "title": {
+        "en": "Glass types",
+        "zh": "玻璃類型"
+      }
+    },
+    {
+      "id": "SAF",
+      "title": {
+        "en": "Safety glazing",
+        "zh": "安全玻璃"
+      }
+    },
+    {
+      "id": "INT",
+      "title": {
+        "en": "Internal glazing and barriers",
+        "zh": "室內玻璃及欄障"
+      }
+    },
+    {
+      "id": "EXE",
+      "title": {
+        "en": "Installation",
+        "zh": "安裝"
+      }
+    },
+    {
+      "id": "CMP",
+      "title": {
+        "en": "Completion",
+        "zh": "完工"
+      }
+    },
+    {
+      "id": "USE",
+      "title": {
+        "en": "Glazing for specific uses"
+      }
+    }
+  ],
+  "clauses": [
+    {
+      "id": "GLZ-GEN-010",
+      "group": "GEN",
+      "type": "outline",
+      "title": {
+        "en": "Glass generally and glass thickness"
+      },
+      "text": {
+        "en": "Provide glass of the types and locations shown in the glazing schedule [[schedule_ref]]. Annealed float glass shall comply with BS EN 572. Glass thickness and make-up shall be determined by design calculation by [[designer]] for the wind, barrier and impact actions of the project, and submitted to {{CA}} before ordering. Do not reduce thickness or change make-up without approval."
+      },
+      "fields": {
+        "schedule_ref": {
+          "label": {
+            "en": "Glazing schedule reference",
+            "zh": "玻璃裝配表編號"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. drawing or schedule number"
+          }
+        },
+        "designer": {
+          "label": {
+            "en": "Glass designed by",
+            "zh": "玻璃設計方"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "specialist",
+              "en": "the glazing specialist"
+            },
+            {
+              "v": "facade",
+              "en": "the facade consultant"
+            },
+            {
+              "v": "engineer",
+              "en": "the project structural engineer"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Thickness is a design output, not a specification choice: tabulated thicknesses from catalogues are commonly used as shortcuts and may not suit HK typhoon wind pressures on high floors. In HK, glass design commonly refers to the Buildings Department's Code of Practice for the Structural Use of Glass 2018 and the Code of Practice on Wind Effects in Hong Kong 2019."
+      },
+      "standards": [
+        "BS EN 572"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-GEN-020",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Thermally toughened glass"
+      },
+      "text": {
+        "en": "Thermally toughened safety glass shall comply with BS EN 12150-1. Heat soak treatment: [[heat_soak]]. Complete all cutting, drilling and edge work before toughening. Submit the processor's heat soak records for each batch where heat soaking applies."
+      },
+      "fields": {
+        "heat_soak": {
+          "label": {
+            "en": "Heat soak",
+            "zh": "熱浸處理"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "en14179",
+              "en": "required, to BS EN 14179-1"
+            },
+            {
+              "v": "overhead",
+              "en": "required for overhead and external glass only, to BS EN 14179-1"
+            },
+            {
+              "v": "none",
+              "en": "not required"
+            }
+          ],
+          "default": "en14179"
+        }
+      },
+      "guidance": {
+        "en": "Toughened glass can break without warning because of nickel sulphide inclusions; HK has had well publicised cases of falling toughened glass, so heat soaking is commonly asked for on facades, canopies and overhead glass. Heat soaking reduces the risk but does not remove it, so overhead glass is typically laminated as well."
+      },
+      "standards": [
+        "BS EN 12150-1",
+        "BS EN 14179-1"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "GL"
+      ]
+    },
+    {
+      "id": "GLZ-GEN-030",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Laminated glass"
+      },
+      "text": {
+        "en": "Laminated glass and laminated safety glass shall comply with BS EN ISO 12543. Interlayer: [[interlayer]]. Exposed edges shall be protected or of an interlayer suitable for edge exposure to moisture. Do not use laminated glass with delamination, bubbles or edge clouding."
+      },
+      "fields": {
+        "interlayer": {
+          "label": {
+            "en": "Interlayer",
+            "zh": "中間膜"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "pvb",
+              "en": "PVB"
+            },
+            {
+              "v": "ionoplast",
+              "en": "ionoplast (stiff structural interlayer)"
+            },
+            {
+              "v": "design",
+              "en": "as the glazing design"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "PVB edges commonly cloud in HK's humid climate where left exposed in frameless or external details; stiffer ionoplast interlayers are typically chosen where glass must stay in place after breakage, such as balustrades and overhead glass."
+      },
+      "standards": [
+        "BS EN ISO 12543"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-GEN-040",
+      "group": "GEN",
+      "type": "product",
+      "title": {
+        "en": "Insulating glass units"
+      },
+      "text": {
+        "en": "Insulating glass units shall comply with BS EN 1279, make-up [[make_up]] as the glazing schedule. Spacer: [[spacer]]. Coatings shall face the surface stated by the manufacturer for the stated performance. Each unit shall carry the manufacturer's identification on the spacer or edge."
+      },
+      "fields": {
+        "make_up": {
+          "label": {
+            "en": "Unit make-up",
+            "zh": "中空玻璃組合"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. 6 mm / 12 mm cavity / 6.38 mm, by design"
+          }
+        },
+        "spacer": {
+          "label": {
+            "en": "Spacer",
+            "zh": "間隔條"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "alu",
+              "en": "aluminium"
+            },
+            {
+              "v": "warm",
+              "en": "warm edge"
+            },
+            {
+              "v": "design",
+              "en": "as the glazing design"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Edge seal failure shows as misting inside the unit and is common where units sit in wet rebates; drained and ventilated frames and compatible sealants matter as much as the unit itself."
+      },
+      "standards": [
+        "BS EN 1279"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-EXE-010"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-SAF-010",
+      "group": "SAF",
+      "type": "performance",
+      "title": {
+        "en": "Safety glazing in critical locations"
+      },
+      "text": {
+        "en": "Glazing in critical locations, including [[locations]], shall be safety glass with an impact classification to BS EN 12600 of [[impact_class]]. Comply with the Buildings Department's Code of Practice for the Structural Use of Glass 2018 and the project's glazing design. Each pane of safety glass shall be permanently marked with the product standard, classification and manufacturer, visible after installation."
+      },
+      "fields": {
+        "locations": {
+          "label": {
+            "en": "Critical locations",
+            "zh": "關鍵位置"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. doors, side panels, low-level glazing; as the project's glazing design"
+          }
+        },
+        "impact_class": {
+          "label": {
+            "en": "Impact classification",
+            "zh": "撞擊分類"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "by the glazing design"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Critical locations are typically glass in and beside doors and glass near floor level where people may fall against it; marks are commonly missing on site-cut or imported glass, so check before installation rather than at handover."
+      },
+      "standards": [
+        "BS EN 12600"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-GEN-020",
+        "GLZ-GEN-030"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-SAF-020",
+      "group": "SAF",
+      "type": "performance",
+      "title": {
+        "en": "Manifestation on full-height glazing"
+      },
+      "text": {
+        "en": "Provide permanent manifestation to full-height glazing and glass doors that could be mistaken for an opening. Manifestation shall be [[style]], not less than [[band]] mm high, placed within the zone [[lower_height]] mm to [[upper_height]] mm above finished floor level, and shall contrast with the background seen through the glass in both light and dark conditions. Submit a sample to {{CA}} for approval."
+      },
+      "fields": {
+        "style": {
+          "label": {
+            "en": "Manifestation type",
+            "zh": "警示標記類型"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "band",
+              "en": "continuous frosted band"
+            },
+            {
+              "v": "dots",
+              "en": "dot pattern"
+            },
+            {
+              "v": "graphic",
+              "en": "graphic to the interior design"
+            }
+          ],
+          "default": "band"
+        },
+        "lower_height": {
+          "label": {
+            "en": "Zone bottom"
+          },
+          "kind": "number",
+          "default": "900",
+          "unit": "mm"
+        },
+        "upper_height": {
+          "label": {
+            "en": "Zone top"
+          },
+          "kind": "number",
+          "default": "1500",
+          "unit": "mm"
+        },
+        "band": {
+          "label": {
+            "en": "Band height"
+          },
+          "kind": "number",
+          "default": "100",
+          "unit": "mm"
+        }
+      },
+      "guidance": {
+        "en": "Heights are commonly taken from the Buildings Department's Design Manual: Barrier Free Access; designers often pick pale film that disappears against white walls, so check contrast on site."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S",
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-INT-010",
+      "group": "INT",
+      "type": "product",
+      "title": {
+        "en": "Internal glass partitions and glass doors"
+      },
+      "text": {
+        "en": "Frameless glass partitions and doors shall be toughened safety glass to {{ref:GLZ-GEN-020}}, with polished edges. Head and base channels: [[channels]]. Patch fittings, pivots and locks: [[fitting_finish]], from one manufacturer, compatible with the glass thickness. Submit shop drawings showing glass sizes, joints, fixings and deflection head details to {{CA}} before fabrication."
+      },
+      "fields": {
+        "channels": {
+          "label": {
+            "en": "Channels",
+            "zh": "槽座"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "recessed",
+              "en": "aluminium, recessed into floor and ceiling"
+            },
+            {
+              "v": "surface",
+              "en": "aluminium, surface mounted"
+            },
+            {
+              "v": "none",
+              "en": "none, top and bottom patch fittings only"
+            }
+          ],
+          "default": "recessed"
+        },
+        "fitting_finish": {
+          "label": {
+            "en": "Fitting finish",
+            "zh": "配件飾面"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "ss_satin",
+              "en": "stainless steel, satin"
+            },
+            {
+              "v": "ss_polish",
+              "en": "stainless steel, polished"
+            },
+            {
+              "v": "powder",
+              "en": "powder coated to colour schedule"
+            }
+          ],
+          "default": "ss_satin"
+        }
+      },
+      "guidance": {
+        "en": "A deflection head is commonly forgotten under post-tensioned or long-span slabs, and glass can crack when the slab moves; frameless doors typically need floor springs set before the screed."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-GEN-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "codes": [
+        "GL"
+      ]
+    },
+    {
+      "id": "GLZ-INT-020",
+      "group": "INT",
+      "type": "performance",
+      "title": {
+        "en": "Glass balustrades and protective barriers"
+      },
+      "text": {
+        "en": "Glass balustrades and glass protective barriers shall be by specialist design, reference [[design_ref]]. Comply with the Building (Construction) Regulations and the project's structural design. Submit design calculations, post-breakage behaviour and fixing details to {{CA}} before fabrication. Do not install until approved."
+      },
+      "fields": {
+        "design_ref": {
+          "label": {
+            "en": "Specialist design reference",
+            "zh": "專業設計編號"
+          },
+          "kind": "text",
+          "default": null,
+          "hint": {
+            "en": "e.g. specialist drawing number"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Barrier loads and glass make-up are design decisions for the engineer, not the specification; in HK the Buildings Department's Code of Practice for the Structural Use of Glass 2018 is commonly referred to, and laminated glass that stays in place after breakage is typical."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-GEN-030"
+      ],
+      "include": false,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "S"
+      ]
+    },
+    {
+      "id": "GLZ-EXE-010",
+      "group": "EXE",
+      "type": "execution",
+      "title": {
+        "en": "Glazing installation and sealants"
+      },
+      "text": {
+        "en": "Set glass on setting blocks with location blocks and distance pieces of the material, size and position recommended by the glass manufacturer, keeping drainage paths clear. Glazing beads shall be fixed securely on the side stated in the glazing design and shall hold glass without point loading. Sealants shall comply with BS EN ISO 11600, class [[sealant_class]]. Submit the sealant manufacturer's written confirmation of compatibility with insulating unit edge seals, laminate interlayers, gaskets and frame finishes."
+      },
+      "fields": {
+        "sealant_class": {
+          "label": {
+            "en": "Sealant class",
+            "zh": "密封膠類別"
+          },
+          "kind": "select",
+          "options": [
+            {
+              "v": "g25lm",
+              "en": "G-25LM"
+            },
+            {
+              "v": "g25hm",
+              "en": "G-25HM"
+            },
+            {
+              "v": "g20lm",
+              "en": "G-20LM"
+            }
+          ],
+          "default": null
+        }
+      },
+      "guidance": {
+        "en": "Incompatible silicones commonly attack PVB edges and insulating unit seals, so ask for the manufacturer's compatibility test, not just a data sheet; beads to external windows are typically on the inside, for security and so glass can be replaced from inside after a typhoon."
+      },
+      "standards": [
+        "BS EN ISO 11600"
+      ],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-GEN-040"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-CMP-010",
+      "group": "CMP",
+      "type": "completion",
+      "title": {
+        "en": "Inspection, replacement and records"
+      },
+      "text": {
+        "en": "Inspect all glass with {{CA}} before handover at a viewing distance of [[viewing_distance]] m. Replace glass that is cracked, chipped, scratched beyond the agreed acceptance criteria or wrongly marked, at the Contractor's cost. Remove temporary labels and protective films, and clean both faces with methods that do not damage coatings or sealants. Hand over a glazing record listing glass type, make-up, location, heat soak batch and supplier for the operation and maintenance (O&M) manual."
+      },
+      "fields": {
+        "viewing_distance": {
+          "label": {
+            "en": "Viewing distance",
+            "zh": "觀察距離"
+          },
+          "kind": "number",
+          "unit": "m",
+          "default": null,
+          "hint": {
+            "en": "agree with the glass supplier's quality standard"
+          }
+        }
+      },
+      "guidance": {
+        "en": "Heat soak batch records are often the only way to trace a later spontaneous breakage, and HK management offices typically ask for them; scratches from scrapers during final cleaning are a common late defect."
+      },
+      "standards": [],
+      "related": [
+        {
+          "doc": "GS 2022",
+          "section": 20
+        }
+      ],
+      "refs": [
+        "GLZ-GEN-020"
+      ],
+      "include": true,
+      "version": "1.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "flat_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "industrial",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare"
+      ],
+      "tags": [
+        "BP"
+      ]
+    },
+    {
+      "id": "GLZ-USE-010",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Fire-rated glazing"
+      },
+      "text": {
+        "en": "Glazing in fire-rated screens and door sets shall be installed only within a frame and glazing system tested together to the required fire resistance rating, with the bead, seal and fixing details of the test."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "A fire-rated glass on its own is not a fire-rated screen."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "office_fo",
+        "retail_fo",
+        "fnb_fo",
+        "resi_tower",
+        "office_bldg",
+        "school",
+        "hotel",
+        "guesthouse",
+        "clinic",
+        "rche",
+        "childcare",
+        "flat_fo",
+        "industrial"
+      ]
+    },
+    {
+      "id": "GLZ-USE-020",
+      "group": "USE",
+      "type": "product",
+      "title": {
+        "en": "Shopfront glazing"
+      },
+      "text": {
+        "en": "Frameless shopfront glazing and glass doors shall carry manifestation as {{ref:GLZ-SAF-020}}. Where shopfront works are minor works items, they shall be carried out by the registered contractor under the minor works submission."
+      },
+      "fields": {},
+      "guidance": {
+        "en": "Shopfront windows and signboards are common minor works triggers."
+      },
+      "standards": [],
+      "tags": [
+        "S"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "retail_fo",
+        "fnb_fo"
+      ]
+    },
+    {
+      "id": "GLZ-USE-030",
+      "group": "USE",
+      "type": "performance",
+      "title": {
+        "en": "Low-level glazing for children"
+      },
+      "text": {
+        "en": "Glazing below [[height]] mm above floor level in areas used by children shall be laminated or toughened safety glass of impact class not less than [[cls]] to BS EN 12600."
+      },
+      "fields": {
+        "height": {
+          "label": {
+            "en": "Zone height"
+          },
+          "kind": "number",
+          "default": "1500",
+          "unit": "mm"
+        },
+        "cls": {
+          "label": {
+            "en": "Impact class"
+          },
+          "kind": "select",
+          "default": "1(B)1",
+          "options": [
+            {
+              "v": "1(B)1",
+              "en": "1(B)1"
+            },
+            {
+              "v": "2(B)2",
+              "en": "2(B)2"
+            }
+          ]
+        }
+      },
+      "guidance": {
+        "en": "No HK source fixes the class; the Structural Use of Glass 2018 clauses on low-level glass were not extracted. Treat as a project decision."
+      },
+      "standards": [
+        "BS EN 12600"
+      ],
+      "tags": [
+        "BP"
+      ],
+      "include": true,
+      "version": "2.0",
+      "types": [
+        "school",
+        "childcare"
+      ]
+    }
+  ],
+  "standards": {
+    "BS EN 572": "Glass in building: basic soda lime silicate glass products",
+    "BS EN 12150-1": "Glass in building: thermally toughened soda lime silicate safety glass",
+    "BS EN 14179-1": "Glass in building: heat soaked thermally toughened soda lime silicate safety glass",
+    "BS EN ISO 12543": "Glass in building: laminated glass and laminated safety glass",
+    "BS EN 1279": "Glass in building: insulating glass units",
+    "BS EN 12600": "Glass in building: pendulum test, impact test method and classification for flat glass",
+    "BS EN ISO 11600": "Building construction: jointing products, classification and requirements for sealants"
+  }
+}
