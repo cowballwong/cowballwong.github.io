@@ -40,12 +40,12 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/courses/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/courses/"/>
   </url>
-  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-17</lastmod>
+  <url><loc>https://anzonwong.com/journal/</loc><lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
   </url>
-  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-17</lastmod>
+  <url><loc>https://anzonwong.com/zh/journal/</loc><lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/"/>
@@ -161,6 +161,16 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/facade-surface-studio/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/facade-surface-studio/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/facade-surface-studio/"/>
+  </url>
+  <url><loc>https://anzonwong.com/journal/uk-has-spec-software-like-nbs/</loc><lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/uk-has-spec-software-like-nbs/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/uk-has-spec-software-like-nbs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/uk-has-spec-software-like-nbs/"/>
+  </url>
+  <url><loc>https://anzonwong.com/zh/journal/uk-has-spec-software-like-nbs/</loc><lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/uk-has-spec-software-like-nbs/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/journal/uk-has-spec-software-like-nbs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/journal/uk-has-spec-software-like-nbs/"/>
   </url>
   <url><loc>https://anzonwong.com/journal/office-ai-tip-bim-clash-detection/</loc><lastmod>2026-11-17</lastmod>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/journal/office-ai-tip-bim-clash-detection/"/>
@@ -1527,14 +1537,5 @@
   <url><loc>https://anzonwong.com/uk-regs-map/</loc>
   </url>
   <url><loc>https://anzonwong.com/teaching-booking/</loc>
-  </url>
-<url><loc>https://anzonwong.com/lab/spec-builder-hk/</loc><lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/spec-builder-hk/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/spec-builder-hk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/spec-builder-hk/"/>
-  </url><url><loc>https://anzonwong.com/zh/lab/spec-builder-hk/</loc><lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://anzonwong.com/lab/spec-builder-hk/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant-HK" href="https://anzonwong.com/zh/lab/spec-builder-hk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://anzonwong.com/lab/spec-builder-hk/"/>
   </url>
 </urlset>
