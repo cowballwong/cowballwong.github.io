@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sex and the city 性與城市 — 1 Corinthians 6:12-20 哥林多前書 6:12-20</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --fs: 17px;
+  /* Day mode (default) */
+  --bg: #faf8f5;
+  --bg-section: #fff;
+  --bg-soft: #f5f0e8;
+  --bg-prayer: #f0f4f8;
+  --bg-question: #fef9f0;
+  --bg-app: #f8f5f0;
+  --text: #2a2a2a;
+  --text-soft: #666;
+  --primary: #2c3e50;
+  --accent: #8b4513;
+  --accent-light: #d4a574;
+  --border: #e0d5c8;
+  --bar-bg: rgba(255,255,255,0.94);
+  --bar-border: #d9cfc1;
+  --btn-active-bg: #2c3e50;
+  --btn-active-fg: #fff;
+  --highlight: #b8860b;
+  --verse: #2860a0;
+  --sermon-bg: #f4efe6;
+  --sermon-sep: #bcaf97;
+}
+html[data-theme="night"] {
+  --bg: #0e0e10;
+  --bg-section: #181a1f;
+  --bg-soft: #1f2128;
+  --bg-prayer: #1a2230;
+  --bg-question: #241f14;
+  --bg-app: #1e1c18;
+  --text: #e8e6e1;
+  --text-soft: #9a948a;
+  --primary: #c9d8e8;
+  --accent: #d4a574;
+  --accent-light: #8b6a3f;
+  --border: #2a2d34;
+  --bar-bg: rgba(18,19,23,0.94);
+  --bar-border: #2a2d34;
+  --btn-active-bg: #d4a574;
+  --btn-active-fg: #0e0e10;
+  --highlight: #ffcc66;
+  --verse: #88ccff;
+  --sermon-bg: #000;
+  --sermon-sep: #3a3a3a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter','Noto Sans TC','Noto Serif TC',sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:var(--fs); line-height:1.75;
+  padding-bottom:90px;
+  transition:background 0.25s, color 0.25s;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:center;
+  gap:18px; padding:20px 20px 12px;
+  max-width:980px; margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar img {
+  height:72px; width:auto;
+  border-radius:6px;
+  display:block;
+}
+.topbar .meta {
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  color:var(--text-soft); font-size:0.8em;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+@media (max-width:500px) {
+  .topbar img { height:58px; }
+}
+
+/* ---------- View wrapper ---------- */
+.view { display:none; }
+.view.active { display:block; }
+
+/* ---------- SERMON VIEW ---------- */
+#view-sermon {
+  background:var(--sermon-bg);
+  color:var(--text);
+  padding:20px 5vw 40px;
+  transition:background 0.25s;
+}
+html[data-theme="night"] #view-sermon { color:#fff; }
+#view-sermon h1 {
+  text-align:center; margin:20px 0 30px;
+  font-size:1.5em; line-height:1.4;
+}
+#view-sermon .sermon-table {
+  width:100%; max-width:1400px; margin:0 auto;
+  border-collapse:collapse;
+}
+#view-sermon td {
+  vertical-align:top; padding:10px 20px; width:50%;
+  line-height:1.75;
+}
+#view-sermon .en { text-align:left; white-space:pre-line; }
+#view-sermon .zh {
+  text-align:left; white-space:pre-line;
+  font-family:'Noto Sans TC','Noto Serif TC', sans-serif;
+}
+#view-sermon .highlight { color:var(--highlight); font-weight:700; }
+#view-sermon .verse { color:var(--verse); font-style:italic; }
+#view-sermon .separator td {
+  color:var(--sermon-sep); text-align:center; padding:10px 20px;
+}
+
+@media (max-width:700px) {
+  #view-sermon .sermon-table, #view-sermon tbody, #view-sermon tr, #view-sermon td {
+    display:block; width:100%;
+  }
+  #view-sermon tr {
+    border-bottom:1px solid var(--sermon-sep);
+    padding:8px 0; margin-bottom:10px;
+  }
+  #view-sermon td { padding:6px 4px; }
+}
+
+/* ---------- STUDY GUIDE VIEW ---------- */
+#view-study {
+  max-width:920px; margin:0 auto; padding:10px 20px 20px;
+}
+.sg-header {
+  text-align:center; padding:20px 10px 30px;
+  border-bottom:3px double var(--accent);
+  margin-bottom:30px;
+}
+.sg-header h1 {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.9em; color:var(--primary); margin-bottom:4px;
+}
+.sg-header h1.zh {
+  font-family:'Noto Serif TC',serif; font-size:1.7em; color:var(--accent);
+}
+.sg-header .subtitle { color:var(--text-soft); margin-top:10px; font-size:0.95em; }
+.sg-header .key-verse {
+  font-style:italic; color:var(--accent);
+  margin-top:14px; font-size:0.92em;
+}
+
+.sg-section {
+  background:var(--bg-section);
+  border:1px solid var(--border);
+  border-radius:10px; padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+html[data-theme="night"] .sg-section { box-shadow:none; }
+.sg-section-title {
+  font-family:'Merriweather','Noto Serif TC',serif;
+  font-size:1.3em; color:var(--primary);
+  border-bottom:2px solid var(--accent-light);
+  padding-bottom:8px; margin-bottom:18px;
+}
+.sg-section-title .icon { margin-right:8px; }
+
+.bilingual {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:12px;
+}
+.lang-en, .lang-zh { padding:14px; border-radius:8px; }
+.lang-en { border-left:3px solid var(--accent); }
+.lang-zh {
+  border-left:3px solid var(--primary);
+  font-family:'Noto Serif TC',serif;
+}
+.lang-label {
+  font-size:0.7em; text-transform:uppercase;
+  letter-spacing:1px; color:var(--text-soft);
+  font-weight:600; margin-bottom:8px;
+}
+
+.verse-card {
+  background:var(--bg-soft); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  border-left:4px solid var(--accent);
+}
+.verse-ref { font-weight:700; color:var(--accent); font-size:0.88em; margin-bottom:8px; }
+.verse-text { font-style:italic; line-height:1.85; }
+.verse-text.zh { font-family:'Noto Serif TC',serif; }
+
+.question-card {
+  background:var(--bg-question); border-radius:8px;
+  padding:18px; margin-bottom:14px;
+  counter-increment:question;
+}
+.question-card::before {
+  content:"Q" counter(question);
+  display:inline-block; background:var(--accent);
+  color:#fff; width:32px; height:32px;
+  line-height:32px; text-align:center;
+  border-radius:50%; font-size:0.78em;
+  font-weight:700; margin-bottom:10px;
+}
+.questions-container { counter-reset:question; }
+
+.prayer-section {
+  background:var(--bg-prayer); border-radius:10px;
+  padding:28px; margin-bottom:22px;
+  border:1px solid var(--border);
+}
+.prayer-text { font-style:italic; line-height:2; }
+
+.summary-point {
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.summary-point:last-child { border-bottom:none; }
+.summary-point > strong { color:var(--accent); }
+
+.application-item {
+  background:var(--bg-app); padding:14px;
+  border-radius:8px; margin-bottom:10px;
+}
+
+.further-list { padding-left:20px; line-height:2; }
+
+.sg-footer {
+  text-align:center; padding:18px;
+  color:var(--text-soft); font-size:0.82em;
+  border-top:1px solid var(--border); margin-top:26px;
+}
+
+@media (max-width:700px) {
+  .bilingual { grid-template-columns:1fr; gap:14px; }
+  .sg-section, .prayer-section { padding:18px; }
+}
+
+/* ---------- Bottom Bar ---------- */
+.bottombar {
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--bar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--bar-border);
+  padding:10px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; z-index:100;
+  font-size:14px;
+}
+.bb-group { display:flex; align-items:center; gap:6px; }
+.bb-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); padding:7px 14px; border-radius:999px;
+  cursor:pointer; font-size:13px; font-weight:600;
+  transition:all 0.15s;
+}
+.bb-btn:hover { border-color:var(--accent); }
+.bb-btn.active {
+  background:var(--btn-active-bg);
+  color:var(--btn-active-fg);
+  border-color:var(--btn-active-bg);
+}
+.bb-icon-btn {
+  background:transparent; border:1px solid var(--border);
+  color:var(--text); width:34px; height:34px;
+  border-radius:50%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px;
+}
+.bb-icon-btn:hover { border-color:var(--accent); }
+.fs-slider {
+  -webkit-appearance:none; appearance:none;
+  width:110px; height:4px; background:var(--border);
+  border-radius:2px; outline:none;
+}
+.fs-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer;
+}
+.fs-slider::-moz-range-thumb {
+  width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; border:none;
+}
+.bb-label { font-size:11px; color:var(--text-soft); letter-spacing:0.5px; }
+
+@media (max-width:600px) {
+  .bottombar { flex-wrap:wrap; gap:8px; padding:8px; }
+  .bb-group.fs-group { order:3; width:100%; justify-content:center; }
+  .fs-slider { width:140px; }
+}
+
+@media print {
+  body { padding-bottom:0; }
+  .bottombar, .topbar { display:none; }
+  .view { display:block !important; page-break-after:always; }
+}
+
+/* ---------- Bottom-bar audio controls ---------- */
+.bb-audio { display:flex; align-items:center; gap:8px; min-width:0; flex:1 1 auto; max-width:520px; }
+.bb-audio .bb-icon-btn.audio-btn { font-size:1.05em; padding:0 10px; }
+.bb-audio .bb-icon-btn.audio-btn[disabled] { opacity:0.45; cursor:not-allowed; }
+.bb-audio .audio-progress { flex:1 1 auto; height:6px; cursor:pointer; -webkit-appearance:none; appearance:none; background:var(--bar-border); border-radius:3px; }
+.bb-audio .audio-progress::-webkit-slider-thumb { -webkit-appearance:none; width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; }
+.bb-audio .audio-progress::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background:var(--accent); cursor:pointer; border:none; }
+.bb-audio .audio-time { font-size:0.78em; color:var(--text-soft); font-variant-numeric:tabular-nums; min-width:84px; text-align:center; }
+.bb-audio .audio-status { font-size:0.7em; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; min-width:54px; text-align:right; }
+.bb-audio .audio-status.playing { color:var(--accent); }
+@media (max-width:780px) {
+  .bb-audio { order:5; flex-basis:100%; max-width:none; padding-top:6px; border-top:1px solid var(--bar-border); }
+  .bb-audio .audio-status { display:none; }
+}
+
+</style>
+</head>
+<body>
+<style>
+.rg-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #2d2a25;
+  border: 1px solid #e6dfd5;
+  border-radius: 999px;
+  font-family: "Noto Serif TC", "Source Han Serif TC", "PingFang TC", Georgia, serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(45,42,37,.08);
+  transition: transform .15s, border-color .15s, color .15s;
+}
+.rg-home-btn:hover {
+  border-color: #b25530;
+  color: #b25530;
+  transform: translateY(-1px);
+}
+.rg-home-btn .arrow { color: #b25530; font-weight: 600; }
+.rg-home-btn .zh { color: #6f6a62; font-size: 12px; }
+@media (prefers-color-scheme: dark) {
+  .rg-home-btn { background: #1d2024; color: #ebe7df; border-color: #2a2d31; }
+  .rg-home-btn .zh { color: #9a9590; }
+  .rg-home-btn .arrow { color: #e9956a; }
+}
+html[data-theme="night"] .rg-home-btn {
+  background: #1d2024; color: #ebe7df; border-color: #2a2d31;
+}
+html[data-theme="night"] .rg-home-btn .zh { color: #9a9590; }
+html[data-theme="night"] .rg-home-btn .arrow { color: #e9956a; }
+
+/* push existing topbars rightward so the pill doesn't overlap */
+body > .topbar { padding-left: 140px !important; }
+@media (max-width: 600px) {
+  .rg-home-btn { padding: 6px 11px; font-size: 12px; }
+  .rg-home-btn .zh { display: none; }
+  body > .topbar { padding-left: 78px !important; }
+}
+</style>
+<a class="rg-home-btn" href="../../" aria-label="Back to resources index">
+  <span class="arrow">&larr;</span>
+  <span>Resources</span>
+  <span class="zh">資源庫</span>
+</a>
+
+
+<!-- Top header with logo -->
+<div class="topbar">
+  <img src="data:image/png;base64,@@LOGO_B64@@" alt="Ridgeway Church St Albans">
+  <div class="meta">2026-11-22 · Sunday Service</div>
+</div>
+
+<!-- =================== SERMON VIEW =================== -->
+<section id="view-sermon" class="view active">
+  <h1>Bilingual Sermon 中英雙語講道<br><span class="highlight">Sex and the city 性與城市<br>(1 Corinthians 6:12-20 哥林多前書 6:12-20)</span></h1>
+  <table class="sermon-table"><tbody>
+<tr><td class="en"><span class="highlight">Sex and the city</span>
+1 Corinthians 6:12-20 · 22nd November 2026</td><td class="zh"><span class="highlight">性與城市</span>
+哥林多前書 6:12-20 · 2026 年 11 月 22 日</td></tr>
+<tr><td class="en">World obsessed with sex.
+Weird combo of over-rating + under-rating!
+One hand…
+Almost meaning of life. Can’t have meaningful life without it!
+On other hand…
+Just another leisure activity. No bigger deal than watching Netflix or burger.</td><td class="zh">這個世界對性著迷。
+奇怪的是，它同時把性高估，又把性低估！
+一方面……
+性幾乎被視為人生的意義，彷彿沒有它，人生就不可能有意義！
+另一方面……
+性又只不過是另一種消遣，跟看 Netflix 或吃一個漢堡包沒有兩樣。</td></tr>
+<tr><td class="en">In that world = very hard for believers (any age) to have healthy + good handle on sex/intimacy.
+No surprise – many = given up trying.
+Stats = Xian behaviour in sex activity outside marriage = almost same!
+(Not surprised?)</td><td class="zh">在這樣的世界裡，信徒（無論任何年齡）都很難對性與親密關係有健康而正確的把握。
+難怪許多人已經放棄嘗試。
+統計數字顯示，基督徒在婚外性行為方面的表現，與世人幾乎一樣！
+（你並不感到意外吧？）</td></tr>
+<tr><td class="en">1st c Roman world = even more messed up than us!
+Cities like Corinth = full of it.
+Everyone at it.
+Instead of Costa for lunch = go to brothel.
+Even those married = no big deal!</td><td class="zh">第一世紀的羅馬世界，比我們今天更加混亂！
+像哥林多這樣的城市，到處充斥著這些事。
+人人都是如此。
+午飯時間不是去 Costa 喝咖啡，而是去妓院。
+即使是已婚的人，也不當作一回事！</td></tr>
+<tr><td class="en">Ill. 2nd c Athenaeus…
+‘We keep mistresses for pleasure, concubines for daily care of our bodies, and wives in order to produce legitimate children + be faithful guardians of our households…’</td><td class="zh">例證：第二世紀的阿特納奧斯（Athenaeus）……
+「我們養情婦是為了享樂，納妾是為了日常照料我們的身體，娶妻則是為了生育合法的兒女，並忠心看守我們的家……」</td></tr>
+<tr><td class="en">No tension between this and religious practice.
+Went well!
+The goddess Aphrodite was worshipped as a prostitute!
+Her temple = centre of ‘debauchery’ as well as idolatry.</td><td class="zh">這種風氣與宗教活動毫無衝突，
+兩者甚至配合得天衣無縫！
+女神阿芙蘿黛蒂（Aphrodite）是以妓女的形象被敬拜的！
+她的神廟既是拜偶像的中心，也是「放蕩淫亂」的中心。</td></tr>
+<tr><td class="en">Believers in city = squeezed into mold.
+NB Justified it theologically!
+Warped view of Christian freedom…
+x2 in v.12 Paul quotes them…
+NB ‘I have right to do anything’.
+Lit = ‘All things are lawful for me’</td><td class="zh">城中的信徒被擠壓進這個模子裡。
+請注意：他們還為此找到神學上的理由！
+那是一種扭曲了的基督徒自由觀……
+在第 12 節，保羅兩次引用他們的口號……
+請注意：「凡事我都可行」。
+直譯是：「凡事對我都是合法的。」</td></tr>
+<tr><td class="en">Probably heard…
+<span class="verse">‘No longer under law, but under grace’ (Romans 6:14)</span>
+“Free to do anything!”
+But not that kind of freedom – been won for us!</td><td class="zh">他們大概聽過……
+<span class="verse">「你們不在律法之下，乃在恩典之下。」（羅馬書 6:14）</span>
+於是便說：「我們可以隨心所欲！」
+但基督為我們贏得的，並不是那種自由！</td></tr>
+<tr><td class="en">So Paul needs to tackle ‘head-on’
+But NB – how does it!
+Doesn’t counter “lawlessness” with laws!
+Instead = way of wisdom!
+Q. ‘Why would you!?’</td><td class="zh">所以保羅需要「正面」處理這個問題。
+但請留意他怎樣處理！
+他沒有用律法去對付「無法無天」！
+他反而用智慧之道！
+他問：「你為何要這樣做？！」</td></tr>
+<tr><td class="en">READ v.12
+<span class="verse">“I have the right to do anything,” you say – but not everything is beneficial. “I have the right to do anything” – but I will not be mastered by anything. (v.12)</span></td><td class="zh">讀第 12 節
+<span class="verse">「凡事我都可行，但不都有益處。凡事我都可行，但無論哪一件，我總不受它的轄制。」（12 節）</span></td></tr>
+<tr><td class="en">Why – something…
+Doesn’t benefit
+has power to control you!?
+Why!?
+Great question – with sexual sin…
+Baggage/addiction/pregnancies/guilt/shame
+Sin always hides the price-tag!</td><td class="zh">為何要做一件……
+對你毫無益處，
+又有能力轄制你的事呢？！
+為甚麼？！
+面對性方面的罪，這是一個很好的問題……
+包袱、上癮、意外懷孕、罪咎、羞恥……
+罪總是把價錢牌藏起來！</td></tr>
+<tr><td class="en">But – as opens this out = not just wisdom.
+Gospel wisdom!
+Goes back again to their identity as people of God.
+And all that means!
+Q. Why would you, given who/what you are!?</td><td class="zh">但當保羅展開論述時，這不只是一般的智慧，
+而是福音的智慧！
+他再次回到他們作為神子民的身分，
+以及這身分所包含的一切！
+他問：既然你是這樣的人，你為何還要這樣做？！</td></tr>
+<tr><td class="en">Big message = v.20b.
+<span class="verse">“Therefore honour God with your bodies.” (v.20)</span>
+Key word = ‘body’ (x8)
+But presenting issue = sexual sin.
+‘Prostitution’ but includes all. E.g. porn, hooking up etc</td><td class="zh">核心信息在第 20 節下半節：
+<span class="verse">「所以，要在你們的身子上榮耀神。」（20 節）</span>
+關鍵字是「身子」（共出現八次）。
+但眼前要處理的問題是性方面的罪。
+經文說的是「娼妓」，但涵蓋一切同類的事，例如色情物品、一夜情等等。</td></tr>
+<tr><td class="en"><span class="highlight">Sex and the city</span>
+x3 reasons to do v.20b – based on ‘who/what we are’…
+Our bodies…</td><td class="zh"><span class="highlight">性與城市</span>
+三個理由，叫我們實踐第 20 節下半節——全都基於「我們是誰」……
+我們的身子……</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">1. Destined for glory (v.13-14)</span></td><td class="zh"><span class="highlight">一、注定得榮耀（13-14 節）</span></td></tr>
+<tr><td class="en">READ v.13
+<span class="verse">You say, “Food for the stomach and the stomach for food, and God will destroy them both.” The body, however, is not meant for sexual immorality but for the Lord, and the Lord for the body. (v.13)</span></td><td class="zh">讀第 13 節
+<span class="verse">「食物是為肚腹，肚腹是為食物；但神要叫這兩樣都廢壞。身子不是為淫亂，乃是為主；主也是為身子。」（13 節）</span></td></tr>
+<tr><td class="en">Saying (v.13)…
+NB ‘Body’ (what does/used for) = irrelevant, coz one day = no more!
+Common back then!
+Greek thinkers = sharp divide between body and spirit.
+‘Salvation’ = ‘soul’ escape ‘body’!
+NB The soul/spirit = real me!
+Outer bit = just “shell”.
+One day…
+= gone
+Only “real me” = remain!</td><td class="zh">他們的口號（13 節）是說……
+「身子」做甚麼、用來做甚麼，根本無關重要，因為總有一天它會不復存在！
+這種想法在當時很普遍！
+希臘思想家把身體和靈魂截然二分。
+所謂「得救」，就是「靈魂」逃離「身體」！
+靈魂才是「真正的我」！
+外面那部分只不過是一個「外殼」。
+總有一天……
+它會消失，
+只有「真正的我」會留下來！</td></tr>
+<tr><td class="en">NB What applies to ‘stomach’ and ‘food’ also = sex!
+Sex = not a “spirit/soul” thing
+Just a “body” thing.
+Today don’t “rubbish” body.
+Worship it!
+NB how much money/time on tweaking/tuning!
+But with ‘sex’ = still around.</td><td class="zh">請注意：他們把適用於「肚腹」和「食物」的道理，也套用在性上！
+性不是「靈魂」層面的事，
+只是「身體」層面的事。
+今天的人不會「貶低」身體，
+反而崇拜它！
+看看人們花多少金錢和時間去修飾、調整自己的身體！
+但說到「性」，這種想法至今仍然存在。</td></tr>
+<tr><td class="en">Ill Vaughan Roberts…
+In recent TV show about celibacy in the RC church.
+Two priests admitted anonymously that they engaged in one night stands
+BUT = insisted they had no significance…
+One said “It’s just a bodily release; it doesn’t affect the real me”
+Another claimed he = “still celibate in his soul”. (p.73)</td><td class="zh">例證：Vaughan Roberts 提到……
+最近一個關於天主教神父守獨身的電視節目中，
+兩位神父匿名承認曾有一夜情，
+但堅持這些事毫無意義……
+其中一位說：「這只是身體的宣洩，並不影響真正的我。」
+另一位則聲稱自己「在靈魂裡仍然守著獨身」。（第 73 頁）</td></tr>
+<tr><td class="en">No!
+Why?
+Made for glory (resurrection)!
+<span class="verse">“By his power God raised the Lord from the dead, and he will raise us also.” (v.14)</span></td><td class="zh">不！
+為甚麼？
+因為身子是為榮耀（復活）而造的！
+<span class="verse">「並且神已經叫主復活，也要用自己的能力叫我們復活。」（14 節）</span></td></tr>
+<tr><td class="en">Disposable culture.
+Most made to throw out.
+But when = not makes all difference.
+Ill. In car = box of disposable gloves – petrol/engine etc.
+Use once + throw!
+But soon = buy waterproof cycling gloves!
+Made to last.
+Look after…
+Wash
+Keep safe
+Keep in good condition!</td><td class="zh">我們活在一個用完即棄的文化裡。
+大部分東西造出來就是為了被丟棄。
+但若某樣東西不是用完即棄的，情況就完全不同了。
+例證：我車裡有一盒即棄手套，是加油、檢查引擎時用的。
+用一次就丟掉！
+但我快要買一對防水的單車手套！
+那是造來耐用的。
+我會好好愛惜它……
+清洗它，
+妥善保管它，
+保持它狀態良好！</td></tr>
+<tr><td class="en">So with us!
+Body = not thrown in the bin!
+Essential part of ‘who we are’!
+Don’t abuse/misuse your bodies!
+Look after it + use it well.
+Important/valuable/precious!
+In this area…
+Don’t give away cheaply!
+Worth more than that!</td><td class="zh">我們也是如此！
+身子不會被丟進垃圾桶！
+它是「我們是誰」不可或缺的一部分！
+不要濫用或誤用你的身子！
+要好好照顧它，善用它。
+它重要、有價值、極其寶貴！
+在性這方面……
+不要把自己廉價地送出去！
+你的價值遠高於此！</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">2. United to Christ (v.15-17)</span></td><td class="zh"><span class="highlight">二、與基督聯合（15-17 節）</span></td></tr>
+<tr><td class="en">READ v.15
+<span class="verse">“Do you not know that your bodies are members of Christ himself? Shall I then take the members of Christ and unite them with a prostitute? Never!” (v.15)</span></td><td class="zh">讀第 15 節
+<span class="verse">「豈不知你們的身子是基督的肢體嗎？我可以將基督的肢體作為娼妓的肢體嗎？斷乎不可！」（15 節）</span></td></tr>
+<tr><td class="en">Believers are joined to Christ.
+= called ‘faith-union’.
+“One” with him.
+Part of him!
+Not only = the church the body of Christ but each ind believer is ‘part of Christ’!
+And not just ‘spirits’ but ‘bodies’.
+Our bodies = part of Christ’s body.</td><td class="zh">信徒與基督聯合，
+這稱為「信心的聯合」。
+與祂「合而為一」，
+成為祂的一部分！
+不只是教會整體是基督的身體，每一位信徒個人也是「基督的一部分」！
+而且不只是我們的「靈」，連我們的「身子」也是。
+我們的身子是基督身體的一部分。</td></tr>
+<tr><td class="en">Hence = to use it for immoral purposes = unthinkable.
+Kind of defiling of Jesus!
+Coz where we go, he goes!
+Christ + his people = marriage-type r/ship!</td><td class="zh">因此，把身子用在不道德的事上，是不可想像的，
+那等於是玷污耶穌！
+因為我們到哪裡，祂就到哪裡！
+基督與祂的子民之間，是一種如同婚姻的關係！</td></tr>
+<tr><td class="en">Sometimes distinction = ‘making love’ and ‘having sex’.
+ie…
+if part of ‘relationship’ = ‘making love’.
+If ‘casual’ = ‘just sex’!
+But = no such thing…</td><td class="zh">有時人會把「做愛」和「發生性關係」區分開來，
+意思是……
+如果是一段「關係」的一部分，就是「做愛」；
+如果只是「隨便」的，就「只是性」而已！
+但根本沒有這回事……</td></tr>
+<tr><td class="en">READ v.16
+<span class="verse">“Do you not know that he who unites himself with a prostitute is one with her in body? For it is said, ‘The two will become one flesh.’” (v.16)</span></td><td class="zh">讀第 16 節
+<span class="verse">「豈不知與娼妓聯合的，便是與她成為一體嗎？因為主說：『二人要成為一體。』」（16 節）</span></td></tr>
+<tr><td class="en">Uses Genesis 2:24 = how ‘two become one’ – through sex.
+ie = can never just be a “body” thing.
+Much deeper!
+We know that!</td><td class="zh">保羅引用創世記 2:24，說明「二人成為一體」是藉著性結合而成的。
+換言之，性永遠不可能「只是身體」的事。
+它深入得多！
+我們心裡都知道！</td></tr>
+<tr><td class="en">Ill Cheating husband can’t make it alright by saying to wife…
+“Don’t worry = just sex!!”
+Didn’t mean anything!
+No-one = buying that!
+Sex = bond-making and bond-breaking.</td><td class="zh">例證：一個出軌的丈夫，不能對妻子這樣說就把事情了結……
+「別擔心，只不過是性而已！！」
+「那不代表甚麼！」
+沒有人會相信這套說法！
+性既能建立聯繫，也能破壞聯繫。</td></tr>
+<tr><td class="en">NB Why…
+A. Cheating in marriage = one ground for divorce in Bible.
+B. Matters so much as Xian…
+Coz already bound to Jesus – using bodies in this way = “cheating” on Him.
+Coz our bodies = part of Christ’s body.</td><td class="zh">請注意，這就是為甚麼……
+甲、婚姻中的不忠，是聖經中准許離婚的理由之一。
+乙、對基督徒而言，這事更是至關重要……
+因為我們已經與耶穌連結，這樣使用身子，就等於對祂「不忠」。
+因為我們的身子是基督身體的一部分。</td></tr>
+<tr><td class="en">READ v.17
+<span class="verse">“But whoever is united with the Lord is one with him in spirit.” (v.17)</span></td><td class="zh">讀第 17 節
+<span class="verse">「但與主聯合的，便是與主成為一靈。」（17 節）</span></td></tr>
+<tr><td class="en">Q. Why would we do that to him!?
+He would never cheat/unfaithful/abandon/change mind – us!
+So next time = vulnerable…
+Why would want to cheat on Jesus!?</td><td class="zh">我們為何要這樣對待祂？！
+祂永遠不會對我們不忠，不會離棄我們，也不會改變心意！
+所以下一次當你軟弱、容易跌倒的時候……
+你為何要對耶穌不忠呢？！</td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">3. Owned by the Spirit (v.19-20)</span></td><td class="zh"><span class="highlight">三、屬於聖靈（19-20 節）</span></td></tr>
+<tr><td class="en">READ v.19-20
+<span class="verse">“Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies.” (v.19-20)</span></td><td class="zh">讀第 19-20 節
+<span class="verse">「豈不知你們的身子就是聖靈的殿嗎？這聖靈是從神而來，住在你們裡頭的；並且你們不是自己的人；因為你們是重價買來的。所以，要在你們的身子上榮耀神。」（19-20 節）</span></td></tr>
+<tr><td class="en">Salvation-history = story of special presence of God.
+Eden
+Tabernacle (tent in desert)
+Temple in Jerusalem.
+Before Jesus – if wanted to meet with God = that = where go.
+Even then – ordinary believer couldn’t go into the very presence of God.
+Holy of Holies!</td><td class="zh">救恩歷史，就是神特別同在的故事：
+伊甸園，
+會幕（曠野中的帳幕），
+耶路撒冷的聖殿。
+在耶穌來臨以前，人若想與神相會，就要到這些地方去。
+即使如此，一般信徒仍不能進到神的面前——
+至聖所！</td></tr>
+<tr><td class="en">NOW = all changed!
+God has made his home in us!
+WE are ‘temple of HS’! (v.19)
+All sorts of wondrous implications…
+Down-payment of our inheritance.
+Empowers godliness.
+Makes real to us = children of God.
+But one particular here – under new ownership.</td><td class="zh">現在，一切都改變了！
+神已經以我們為家！
+我們就是「聖靈的殿」！（19 節）
+這帶來各種奇妙的含意……
+聖靈是我們得基業的憑據；
+祂賜我們能力過敬虔的生活；
+祂使我們真實體會到自己是神的兒女。
+但這裡特別指出一點：我們已經歸於新的主人。</td></tr>
+<tr><td class="en">Ill Years ago – Time magazine = 100 images that changed world.
+Inc…
+US marines raising flag on Iwo Jima (Japanese Island)
+Feb. 23rd 1945.
+Crucial moment – coz 1st piece of Japanese territory captured.
+Now – belonged to USA.
+(Not handed back until 1968)</td><td class="zh">例證：多年前，《時代》雜誌選出了一百張改變世界的照片，
+其中包括……
+美國海軍陸戰隊在硫磺島（日本島嶼）升起國旗，
+時間是 1945 年 2 月 23 日。
+那是關鍵的一刻，因為這是美軍攻佔的第一塊日本領土。
+從此它屬於美國
+（直到 1968 年才歸還日本）。</td></tr>
+<tr><td class="en">So with us…
+‘Not your own’ (v.19)
+Q. Think?
+Transfer of ownership = not always easy.
+Ill. Victory in battle for Iwo Jima – came at great cost.
+36 day battle…
+26K US casualties inc 6800 dead!
+Costly!</td><td class="zh">我們也是如此……
+「你們不是自己的人」（19 節）
+你有想過這一點嗎？
+擁有權的轉移，並不總是容易的。
+例證：硫磺島戰役的勝利，付出了沉重的代價。
+戰役歷時三十六天……
+美軍傷亡二萬六千人，其中六千八百人陣亡！
+代價何等高昂！</td></tr>
+<tr><td class="en">So with us…
+‘Bought with a price’ (v.20)
+Cost life of our saviour.
+Precious blood of Christ!
+‘Bought’ = language of redemption.
+Echoes of ‘redeeming a slave’.
+Freeing!
+From clutches of evil.
+(Sin, self, Satan)
+Into care of kind/gracious/generous master.
+It cost.
+But worth it!</td><td class="zh">我們也是如此……
+「你們是重價買來的」（20 節）
+代價是我們救主的生命，
+是基督的寶血！
+「買」是救贖的用語，
+令人想起「贖回奴隸」。
+那是釋放！
+脫離邪惡的魔掌
+（罪、自我、撒但），
+進入一位仁慈、滿有恩典、慷慨的主人的看顧之中。
+這是要付代價的，
+但是值得！</td></tr>
+<tr><td class="en">So now – we belong to him!
+Now free to honour him, with our bodies.
+Coz = who/what we are!
+Under new ownership.</td><td class="zh">所以現在，我們屬於祂！
+現在我們可以自由地用身子榮耀祂，
+因為這就是我們的身分！
+我們已歸新的主人所有。</td></tr>
+<tr><td class="en"><span class="highlight">Destined for glory · United to Christ · Owned by the Spirit</span></td><td class="zh"><span class="highlight">注定得榮耀 · 與基督聯合 · 屬於聖靈</span></td></tr>
+<tr class="separator"><td>………………</td><td>………………</td></tr>
+<tr><td class="en"><span class="highlight">So what are we left with?</span>
+Only course of action that makes sense?
+Get out there!</td><td class="zh"><span class="highlight">那麼，我們剩下甚麼？</span>
+唯一合理的行動是甚麼？
+離開那裡！</td></tr>
+<tr><td class="en">READ v.18
+<span class="verse">“Flee from sexual immorality. All other sins a person commits are outside the body, but whoever sins sexually, sins against their own body.” (v.18)</span></td><td class="zh">讀第 18 節
+<span class="verse">「你們要逃避淫行。人所犯的，無論甚麼罪，都在身子以外；惟有行淫的，是得罪自己的身子。」（18 節）</span></td></tr>
+<tr><td class="en">‘Flee sexual immorality’ (v.18)
+This week!
+Get out of there.
+Don’t tinker/tamper/tickle.
+Run.</td><td class="zh">「你們要逃避淫行」（18 節）
+就在這個星期！
+離開那裡。
+不要撥弄，不要試探，不要挑逗。
+逃跑！</td></tr>
+<tr><td class="en">Ill. David Jackman…
+‘Running away from sexual sin is often not given the credit it deserves. After all, it is neither clever nor courageous to put one’s head in the lion’s mouth and then pray fervently that it will not be bitten off! Paul is always a realist in these matters. Because sexual sins affect us so deeply, within our personality and because sex drive is so powerful, Christians must take determined and strong action. In practice that means putting a distance between ourselves and temptation’ (p.104-5)</td><td class="zh">例證：David Jackman 說……
+「逃離性方面的罪，往往沒有得到應有的肯定。畢竟，把自己的頭放進獅子口中，然後熱切禱告求獅子不要咬下去，既不聰明，也不勇敢！在這些事上，保羅總是一位實事求是的人。正因為性方面的罪深深影響我們，深入我們的人格之內，又因為性慾是如此強大，基督徒必須採取堅決而有力的行動。實際上，這意味著要在自己與試探之間拉開距離。」（第 104-105 頁）</td></tr>
+<tr><td class="en">Flee!
+Q. Will you!?
+Not coz unforgiveable.
+Coz…
+Q. Why wouldn’t you!?</td><td class="zh">逃跑吧！
+你願意嗎？！
+不是因為這罪不可饒恕，
+而是因為……
+你有甚麼理由不逃呢？！</td></tr>
+</tbody></table>
+</section>
+
+<!-- =================== STUDY GUIDE VIEW =================== -->
+<section id="view-study" class="view">
+  <div class="sg-header">
+    <h1>Sex and the city</h1>
+    <h1 class="zh">性與城市</h1>
+    <div class="subtitle">1 Corinthians 6:12-20 哥林多前書 6:12-20 · Bible Study Guide 聖經學習指南</div>
+    <div class="key-verse">"You are not your own; you were bought at a price. Therefore honour God with your bodies." · 「你們不是自己的人；因為你們是重價買來的。所以，要在你們的身子上榮耀神。」(1 Corinthians 哥林多前書 6:19-20)</div>
+  </div>
+
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📖</span> Summary 摘要</div>
+    <div class="bilingual">
+      <div class="lang-en">
+        <div class="lang-label">English</div>
+        <p>Our world both over-rates and under-rates sex: it is treated as almost the meaning of life, and at the same time as just another leisure activity. First-century Corinth was even more extreme. Some believers there had absorbed the culture and even justified it theologically with a slogan: "I have the right to do anything."</p><br>
+        <p>Paul does not answer lawlessness with a list of laws. He answers with gospel wisdom: why would you do something that does you no good and has the power to master you? Sin always hides the price-tag. Above all, why would you, given who you are? His big message is v.20b: "Therefore honour God with your bodies."</p><br>
+        <p>He gives three reasons rooted in our identity. Our bodies are <strong>destined for glory</strong>: God will raise them, so they are not disposable shells. Our bodies are <strong>united to Christ</strong>: sex is never "just a body thing", and to use our bodies immorally is to be unfaithful to him. Our bodies are <strong>owned by the Spirit</strong>: we are his temple, bought at the price of Christ's blood. So the only course of action that makes sense is to flee sexual immorality. We flee not because it is unforgivable, but because we belong to him.</p>
+      </div>
+      <div class="lang-zh">
+        <div class="lang-label">繁體中文</div>
+        <p>我們的世界對性既高估又低估：一方面把性視為幾乎是人生的意義，另一方面又把它當作一種普通的消遣。第一世紀的哥林多更加極端。那裡有些信徒被文化同化，甚至用一句口號為此提供神學理由：「凡事我都可行。」</p><br>
+        <p>保羅並沒有用一連串律法去對付這種無法無天，而是用福音的智慧回應：為何要做一件對你毫無益處、又能轄制你的事？罪總是把價錢牌藏起來。更重要的是：既然你是這樣的人，為何還要這樣做？他的核心信息在第 20 節下半節：「所以，要在你們的身子上榮耀神。」</p><br>
+        <p>他根據我們的身分提出三個理由。我們的身子<strong>注定得榮耀</strong>：神要叫它復活，所以它不是用完即棄的外殼。我們的身子<strong>與基督聯合</strong>：性永遠不「只是身體」的事，把身子用於淫亂就是對祂不忠。我們的身子<strong>屬於聖靈</strong>：我們是祂的殿，是用基督的寶血重價買來的。因此，唯一合理的行動就是逃避淫行。我們逃避，不是因為這罪不可饒恕，而是因為我們屬於祂。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">✝️</span> Key Scriptures 重要經文</div>
+
+    <div class="verse-card">
+      <div class="verse-ref">1 Corinthians 哥林多前書 6:12-20 (NIV / 和合本)</div>
+      <div class="verse-text">"'I have the right to do anything,' you say—but not everything is beneficial. 'I have the right to do anything'—but I will not be mastered by anything. You say, 'Food for the stomach and the stomach for food, and God will destroy them both.' The body, however, is not meant for sexual immorality but for the Lord, and the Lord for the body. By his power God raised the Lord from the dead, and he will raise us also. Do you not know that your bodies are members of Christ himself? Shall I then take the members of Christ and unite them with a prostitute? Never! Do you not know that he who unites himself with a prostitute is one with her in body? For it is said, 'The two will become one flesh.' But whoever is united with the Lord is one with him in spirit. Flee from sexual immorality. All other sins a person commits are outside the body, but whoever sins sexually, sins against their own body. Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies."</div><br>
+      <div class="verse-text zh">「凡事我都可行，但不都有益處。凡事我都可行，但無論哪一件，我總不受它的轄制。食物是為肚腹，肚腹是為食物；但神要叫這兩樣都廢壞。身子不是為淫亂，乃是為主；主也是為身子。並且神已經叫主復活，也要用自己的能力叫我們復活。豈不知你們的身子是基督的肢體嗎？我可以將基督的肢體作為娼妓的肢體嗎？斷乎不可！豈不知與娼妓聯合的，便是與她成為一體嗎？因為主說：『二人要成為一體。』但與主聯合的，便是與主成為一靈。你們要逃避淫行。人所犯的，無論甚麼罪，都在身子以外；惟有行淫的，是得罪自己的身子。豈不知你們的身子就是聖靈的殿嗎？這聖靈是從神而來，住在你們裡頭的；並且你們不是自己的人；因為你們是重價買來的。所以，要在你們的身子上榮耀神。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Romans 羅馬書 6:14 — Under grace, not a licence 在恩典之下，並非放縱的藉口</div>
+      <div class="verse-text">"For sin shall no longer be your master, because you are not under the law, but under grace."</div><br>
+      <div class="verse-text zh">「罪必不能作你們的主，因你們不在律法之下，乃在恩典之下。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Genesis 創世記 2:24 — The two become one 二人成為一體</div>
+      <div class="verse-text">"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</div><br>
+      <div class="verse-text zh">「因此，人要離開父母與妻子連合，二人成為一體。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">1 Peter 彼得前書 1:18-19 — Bought with a price 重價買來的</div>
+      <div class="verse-text">"For you know that it was not with perishable things such as silver or gold that you were redeemed from the empty way of life handed down to you from your ancestors, but with the precious blood of Christ, a lamb without blemish or defect."</div><br>
+      <div class="verse-text zh">「知道你們得贖，脫去你們祖宗所傳流虛妄的行為，不是憑著能壞的金銀等物，乃是憑著基督的寶血，如同無瑕疵、無玷污的羔羊之血。」</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-ref">Ephesians 以弗所書 1:13-14 — The Spirit, our down-payment 聖靈是得基業的憑據</div>
+      <div class="verse-text">"When you believed, you were marked in him with a seal, the promised Holy Spirit, who is a deposit guaranteeing our inheritance until the redemption of those who are God's possession — to the praise of his glory."</div><br>
+      <div class="verse-text zh">「你們既聽見真理的道，就是那叫你們得救的福音，也信了基督，既然信他，就受了所應許的聖靈為印記。這聖靈是我們得基業的憑據，直等到神之民被贖，使他的榮耀得著稱讚。」</div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">💡</span> Key Themes 主要主題</div>
+
+    <div class="summary-point"><strong>1. Freedom is not licence 自由不是放縱</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>The Corinthians twisted grace into "I can do anything." Paul answers not with more rules but with wisdom: is it beneficial, and will it master me? The freedom Christ won is freedom from sin's control, not freedom to sin. Sin always hides the price-tag.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>哥林多人把恩典扭曲為「凡事我都可行」。保羅沒有用更多規條回應，而是用智慧提問：這事有益處嗎？它會轄制我嗎？基督為我們贏得的自由，是脫離罪的轄制，而不是犯罪的自由。罪總是把價錢牌藏起來。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>2. The body is destined for glory 身子注定得榮耀</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Against the Greek idea that only the soul is the "real me", Paul insists the body matters because God will raise it. Like gloves made to last rather than disposable ones, our bodies are to be looked after and used well. They are precious and not to be given away cheaply.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>希臘思想認為只有靈魂才是「真正的我」，保羅卻堅持身子是重要的，因為神要叫它復活。正如耐用的手套不同於即棄手套，我們的身子也要好好照顧、善加使用。它極其寶貴，不可廉價地送出去。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>3. United to Christ, body and spirit 身體與靈都與基督聯合</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Each believer is joined to Christ in a marriage-like union, and our bodies are members of his body. Sex makes and breaks bonds: it is never "just sex". Sexual sin is therefore a kind of unfaithfulness to the Lord, who will never be unfaithful to us.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>每一位信徒都與基督有如同婚姻般的聯合，我們的身子是祂身體的肢體。性能建立聯繫，也能破壞聯繫，從來不會「只是性」。因此，性方面的罪就是對主的不忠，而祂永遠不會對我們不忠。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>4. Owned by the Spirit, bought at a price 屬於聖靈，重價買來</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>God's presence once dwelt in Eden, the tabernacle and the temple. Now he makes his home in us. Like the flag raised on Iwo Jima, our lives have changed ownership, and at great cost: the precious blood of Christ. We have been redeemed from sin, self and Satan into the care of a gracious master.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>神的同在曾經在伊甸園、會幕和聖殿中，如今祂以我們為家。正如硫磺島上升起的國旗，我們的生命已經轉換了主人，而且代價高昂：那是基督的寶血。我們已從罪、自我和撒但手中被贖出來，進入一位滿有恩典的主人的看顧之中。</div>
+      </div>
+    </div>
+
+    <div class="summary-point"><strong>5. Flee — the wise response 逃跑才是智慧的回應</strong>
+      <div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Paul's command is to flee: not to tinker, tamper or tickle, but to run. It is neither clever nor courageous to put your head in the lion's mouth. In practice this means putting distance between ourselves and temptation. We flee not because sexual sin is unforgivable, but because of who we are.</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>保羅的命令是「逃避」：不要撥弄、不要試探、不要挑逗，而是要逃跑。把頭放進獅子口中，既不聰明，也不勇敢。實際上，這意味著在自己與試探之間拉開距離。我們逃避，不是因為性方面的罪不可饒恕，而是因為我們的身分。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🤔</span> Thinking Questions 思考問題</div>
+    <div class="questions-container">
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Paul quotes two Corinthian slogans (v.12-13). What were they, and how did each one justify sexual immorality?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>保羅引用了哥林多人的兩句口號（12-13 節）。這兩句口號是甚麼？它們各自怎樣為淫亂提供藉口？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Paul answers "I have the right to do anything" with two tests: is it beneficial, and will it master me? Why is this "way of wisdom" more powerful than simply giving a rule?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>保羅用兩個準則回應「凡事我都可行」：這事有益處嗎？它會轄制我嗎？為甚麼這種「智慧之道」比單單訂立規條更有力量？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Our culture both over-rates and under-rates sex. Where do you see each of these attitudes around you, and which one pulls on you more?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>我們的文化對性既高估又低估。你在身邊甚麼地方看見這兩種態度？哪一種對你的影響更大？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>How does the promise of resurrection (v.14) change the way you think about your body: how you treat it, use it and value it?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>復活的應許（14 節）怎樣改變你對自己身子的看法，包括你怎樣對待它、使用它、看重它？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>Why can sex never be "just a body thing" (v.16)? How does being united to Christ (v.15, 17) make sexual sin a matter of faithfulness to him?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>為甚麼性永遠不可能「只是身體」的事（16 節）？與基督聯合（15、17 節）怎樣使性方面的罪成為對祂是否忠心的問題？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>"You are not your own; you were bought at a price" (v.19-20). Do you find that freeing or restricting? What does it mean for you to be "under new ownership"?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>「你們不是自己的人；因為你們是重價買來的」（19-20 節）。你覺得這句話是釋放還是束縛？「歸於新的主人」對你來說意味著甚麼？</div>
+      </div></div>
+
+      <div class="question-card"><div class="bilingual">
+        <div class="lang-en"><div class="lang-label">English</div>"Flee" (v.18). Where are you most tempted to "tinker, tamper or tickle" rather than run? What would putting real distance between you and temptation look like this week, and who could help you?</div>
+        <div class="lang-zh"><div class="lang-label">繁體中文</div>「要逃避」（18 節）。在哪些方面你最容易去「撥弄、試探、挑逗」，而不是逃跑？本週在你與試探之間真正拉開距離，會是怎樣的？誰可以幫助你？</div>
+      </div></div>
+
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">🎯</span> Application 生活應用</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="application-item"><strong>Read the price-tag.</strong> Before you click, look or go, ask Paul's two questions: will this benefit me, and could it master me? Remember that sin always hides its cost.</div>
+        <div class="application-item"><strong>Treat your body as made to last.</strong> Your body will be raised. Look after it, use it well, and do not give yourself away cheaply.</div>
+        <div class="application-item"><strong>Remember who goes with you.</strong> When you feel vulnerable, remember that you are joined to Christ and that where you go, he goes. Ask: why would I want to be unfaithful to Jesus?</div>
+        <div class="application-item"><strong>Flee this week.</strong> Name one specific situation, device, app or relationship where you need distance from temptation, and act on it now. Do not wait until you are already in the lion's mouth.</div>
+        <div class="application-item"><strong>Run to grace, not away from it.</strong> If you have fallen, sexual sin is not unforgivable. Confess it to God, and consider telling a trusted Christian friend who can pray with you and help you keep running.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="application-item"><strong>看清價錢牌。</strong>在你點擊、觀看或前往之前，先問保羅的兩個問題：這事對我有益處嗎？它會轄制我嗎？記住，罪總是把代價藏起來。</div>
+        <div class="application-item"><strong>把身子當作造來耐用的。</strong>你的身子將要復活。要好好照顧它、善用它，不要把自己廉價地送出去。</div>
+        <div class="application-item"><strong>記住誰與你同行。</strong>當你感到軟弱時，記住你已與基督聯合，你到哪裡，祂就到哪裡。問問自己：我為何要對耶穌不忠？</div>
+        <div class="application-item"><strong>本週就逃跑。</strong>指出一個你需要與試探保持距離的具體處境、裝置、應用程式或關係，並且立即行動。不要等到頭已經在獅子口中才行動。</div>
+        <div class="application-item"><strong>奔向恩典，而不是逃離恩典。</strong>如果你曾經跌倒，性方面的罪並非不可饒恕。向神認罪，並考慮告訴一位可信的基督徒朋友，請他為你禱告，幫助你繼續逃跑。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prayer-section">
+    <div class="sg-section-title"><span class="icon">🙏</span> Prayer 禱告</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <div class="prayer-text">Heavenly Father, thank you that our bodies matter to you. You made them, you will raise them, and you have made them your home by your Holy Spirit. Thank you that we are joined to Christ, and that he will never be unfaithful to us, never abandon us and never change his mind about us.<br><br>Forgive us for believing the lies of our city: that sex is everything, or that it is nothing; that what we do with our bodies does not touch the "real me". Forgive us for the times we have tinkered with temptation instead of running from it. Thank you that no sin is beyond the reach of the precious blood of Christ, by which you bought us.<br><br>By your Spirit, give us wisdom to see the hidden price-tag, courage to flee, and joy in belonging to you. Help us this week to honour you with our bodies, because we are not our own. In the name of Jesus, our Redeemer, Amen.</div>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <div class="prayer-text">天父，感謝祢看重我們的身子。祢創造了它，祢要叫它復活，祢又藉著聖靈以它為家。感謝祢使我們與基督聯合；祂永遠不會對我們不忠，永遠不會離棄我們，也永遠不會改變對我們的心意。<br><br>求祢赦免我們聽信這城的謊言：以為性就是一切，或以為性無關重要；以為我們用身子所做的事，不會觸及「真正的我」。求祢赦免我們多次撥弄試探，而不是逃離試探。感謝祢，沒有任何罪是基督的寶血所不能洗淨的；祢正是用這寶血把我們買贖回來。<br><br>求祢藉著聖靈，賜我們智慧看清罪所隱藏的代價，賜我們勇氣逃避，並以屬於祢為喜樂。求祢幫助我們在這個星期用身子榮耀祢，因為我們不是自己的人。奉我們救贖主耶穌的名祈求，阿們。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-title"><span class="icon">📚</span> Further Reading 延伸閱讀</div>
+    <div class="bilingual">
+      <div class="lang-en"><div class="lang-label">English</div>
+        <ul class="further-list">
+          <li><strong>Genesis 2:18-25</strong> — God's design: the two become one flesh.</li>
+          <li><strong>Genesis 39</strong> — Joseph literally runs from Potiphar's wife.</li>
+          <li><strong>Proverbs 5 – 7</strong> — A father's wisdom on the hidden cost of sexual sin.</li>
+          <li><strong>Romans 6:12-23</strong> — Free from sin's mastery; offering our bodies to God.</li>
+          <li><strong>1 Corinthians 15:35-58</strong> — The resurrection body.</li>
+          <li><strong>Ephesians 5:25-33</strong> — Christ and the church: the great marriage.</li>
+          <li><strong>1 Thessalonians 4:1-8</strong> — Controlling our bodies in holiness and honour.</li>
+          <li><strong>2 Timothy 2:22</strong> — "Flee the evil desires of youth."</li>
+        </ul>
+      </div>
+      <div class="lang-zh"><div class="lang-label">繁體中文</div>
+        <ul class="further-list">
+          <li><strong>創世記 2:18-25</strong>——神的設計：二人成為一體。</li>
+          <li><strong>創世記 39</strong>——約瑟真的從波提乏的妻子面前逃跑。</li>
+          <li><strong>箴言 5–7 章</strong>——父親論淫亂所隱藏代價的智慧。</li>
+          <li><strong>羅馬書 6:12-23</strong>——脫離罪的轄制；將身子獻給神。</li>
+          <li><strong>哥林多前書 15:35-58</strong>——復活的身體。</li>
+          <li><strong>以弗所書 5:25-33</strong>——基督與教會：偉大的婚姻。</li>
+          <li><strong>帖撒羅尼迦前書 4:1-8</strong>——用聖潔、尊貴守著自己的身體。</li>
+          <li><strong>提摩太後書 2:22</strong>——「你要逃避少年的私慾。」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="sg-footer">
+    <p>Ridgeway Evangelical Church · St Albans</p>
+    <p>Generated 2026-11-22 · Source: 1 Corinthians 6.12-20 Sex and the city. For printing.docx</p>
+  </div>
+</section>
+
+<!-- =================== BOTTOM BAR =================== -->
+<nav class="bottombar" role="toolbar" aria-label="Document controls">
+  <div class="bb-group bb-audio" role="group" aria-label="Sermon audio">
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-play" aria-label="Play / Pause sermon" title="Play / Pause 播放／暫停">▶</button>
+    <button type="button" class="bb-icon-btn audio-btn" id="aud-stop" aria-label="Stop sermon" title="Stop 停止" disabled>⏹</button>
+    <input type="range" class="audio-progress" id="aud-progress" min="0" max="1000" value="0" step="1" aria-label="Sermon progress" disabled>
+    <span class="audio-time" id="aud-time">0:00 / —</span>
+    <span class="audio-status" id="aud-status">Idle</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-btn active" data-view="sermon" aria-pressed="true">Sermon 講道</button>
+    <button class="bb-btn" data-view="study" aria-pressed="false">Study 研經</button>
+  </div>
+
+  <div class="bb-group fs-group">
+    <span class="bb-label">A-</span>
+    <input type="range" class="fs-slider" min="12" max="28" step="1" value="17" aria-label="Font size">
+    <span class="bb-label">A+</span>
+  </div>
+
+  <div class="bb-group">
+    <button class="bb-icon-btn" id="theme-toggle" aria-label="Toggle night mode" title="Toggle night/day">🌙</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const STORAGE = 'hb31-prefs-v1';
+
+  const state = {
+    theme: 'day',
+    fs: 17,
+    view: 'sermon'
+  };
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE) || '{}');
+    Object.assign(state, saved);
+  } catch(e){}
+
+  function apply() {
+    root.setAttribute('data-theme', state.theme);
+    root.style.setProperty('--fs', state.fs + 'px');
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + state.view);
+    });
+    document.querySelectorAll('.bb-btn[data-view]').forEach(b => {
+      const on = b.dataset.view === state.view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    document.querySelector('.fs-slider').value = state.fs;
+    document.getElementById('theme-toggle').textContent = state.theme === 'night' ? '☀️' : '🌙';
+  }
+
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch(e){}
+  }
+
+  // View switching
+  document.querySelectorAll('.bb-btn[data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.view = btn.dataset.view;
+      apply(); save();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Font size
+  document.querySelector('.fs-slider').addEventListener('input', e => {
+    state.fs = parseInt(e.target.value, 10);
+    root.style.setProperty('--fs', state.fs + 'px');
+    save();
+  });
+
+  // Theme toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    state.theme = state.theme === 'night' ? 'day' : 'night';
+    apply(); save();
+  });
+
+  apply();
+})();
+</script>
+
+
+<audio id="sermon-audio" preload="metadata" src="audio/cantonese.mp3"></audio>
+<script>
+(function(){
+  const audio  = document.getElementById('sermon-audio');
+  const play   = document.getElementById('aud-play');
+  const stop   = document.getElementById('aud-stop');
+  const prog   = document.getElementById('aud-progress');
+  const time   = document.getElementById('aud-time');
+  const status = document.getElementById('aud-status');
+
+  function fmt(t){
+    if (!isFinite(t)) return '—';
+    t = Math.max(0, Math.floor(t));
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toString().padStart(2,'0');
+    return m + ':' + s;
+  }
+  function setStatus(s, playing){
+    status.textContent = s;
+    status.classList.toggle('playing', !!playing);
+  }
+  function syncButtons(){
+    const ready = !isNaN(audio.duration) && audio.duration > 0;
+    prog.disabled = !ready;
+    if (audio.paused) {
+      play.textContent = '▶';
+      play.setAttribute('title', 'Play 播放');
+    } else {
+      play.textContent = '⏸';
+      play.setAttribute('title', 'Pause 暫停');
+    }
+    stop.disabled = audio.paused && audio.currentTime === 0;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + fmt(audio.duration);
+    syncButtons();
+  });
+  audio.addEventListener('timeupdate', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      prog.value = (audio.currentTime / audio.duration) * 1000;
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    }
+  });
+  audio.addEventListener('play',  () => { setStatus('Playing', true); syncButtons(); });
+  audio.addEventListener('pause', () => { setStatus(audio.currentTime === 0 ? 'Idle' : 'Paused', false); syncButtons(); });
+  audio.addEventListener('ended', () => { setStatus('Ended', false); audio.currentTime = 0; syncButtons(); });
+  audio.addEventListener('error', () => { setStatus('Error', false); });
+
+  play.addEventListener('click', () => { if (audio.paused) audio.play(); else audio.pause(); });
+  stop.addEventListener('click', () => { audio.pause(); audio.currentTime = 0; prog.value = 0; setStatus('Idle', false); syncButtons(); });
+  prog.addEventListener('input', () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = (prog.value / 1000) * audio.duration;
+    }
+  });
+
+  audio.load();
+})();
+</script>
+
+</body>
+</html>
