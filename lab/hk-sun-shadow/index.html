@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HK Sun Shadow · 香港日照陰影</title>
+<meta name="description" content="Place a building anywhere in Hong Kong and see the shadow it casts on its neighbours on the winter solstice, the equinox or the summer solstice, hour by hour, plus a whole-day hours-in-shadow map. A teaching sketch, not a sunlight or daylight study.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hss" id="hss">
+  <header class="hss-head">
+    <div class="hss-title">
+      <h1>HK Sun Shadow <span>香港日照陰影</span></h1>
+      <p>Place a block, pick a day, see whose sun it takes. 放一座樓，選一天，看看它遮擋了誰的陽光。</p>
+    </div>
+    <div class="hss-warn" role="note" id="hssWarn">
+      <strong>Teaching sketch only 教學草圖</strong>
+      <span>Not a sunlight, daylight or right-to-light study, and not for any submission. Buildings are simple boxes from Lands Department block heights; no trees, balconies or fins. 並非日照或採光研究，不可用於入則或任何正式用途。</span>
+    </div>
+  </header>
+
+  <div class="hss-body">
+    <aside class="hss-panel">
+      <section>
+        <h2><b>1</b> Place 地點</h2>
+        <form id="hssSearch" class="hss-search" autocomplete="off">
+          <input id="hssQ" type="search" placeholder="Place or address 地方或地址" aria-label="Place or address">
+          <button type="submit">Search 搜尋</button>
+        </form>
+        <ul id="hssSugg" class="hss-sugg" hidden></ul>
+        <p class="hint">Or click the map. A 400 m square around the point is loaded. 或直接點選地圖。</p>
+        <p class="hss-status" id="hssStatus" aria-live="polite"></p>
+      </section>
+
+      <section id="secBlock" class="needs-site">
+        <h2><b>2</b> Your block 你的建築</h2>
+        <div class="seg" role="group" aria-label="Block shape">
+          <button type="button" data-shape="rect" class="on">Box 方盒</button>
+          <button type="button" data-shape="draw">Draw outline 畫輪廓</button>
+        </div>
+        <div id="rectCtl">
+          <label>Width 闊 <output id="oW">30 m</output><input type="range" id="inW" min="8" max="120" step="1" value="30"></label>
+          <label>Depth 深 <output id="oD">20 m</output><input type="range" id="inD" min="8" max="120" step="1" value="20"></label>
+          <label>Turn 轉角 <output id="oR">0°</output><input type="range" id="inR" min="-90" max="90" step="1" value="0"></label>
+        </div>
+        <p id="drawHint" class="hint" hidden>Click corners on the plan; click the first corner (or double-click) to close. 在平面圖逐點點選，點回第一點即完成。</p>
+        <label>Height 高度 <output id="oH">100 m</output><input type="range" id="inH" min="3" max="300" step="1" value="100"></label>
+        <p class="hint">Drag the block on the plan to move it. Existing blocks under it are taken as cleared. 在平面圖拖動即可移位；其下原有建築視作已拆卸。</p>
+        <p class="hss-facts" id="hssBlockFacts"></p>
+      </section>
+
+      <section id="secDay" class="needs-site">
+        <h2><b>3</b> Day and time 日期及時間</h2>
+        <div class="seg seg3" role="group" aria-label="Date preset">
+          <button type="button" data-preset="winter" class="on">Winter solstice<br>冬至 21/12</button>
+          <button type="button" data-preset="equinox">Equinox<br>春分 20/3</button>
+          <button type="button" data-preset="summer">Summer solstice<br>夏至 21/6</button>
+        </div>
+        <label class="row">Date 日期 <input type="date" id="inDate" value="2026-12-21" min="2026-01-01" max="2026-12-31"></label>
+        <label>Time (HKT) 時間 <output id="oT">12:00</output><input type="range" id="inT" min="300" max="1200" step="5" value="720"></label>
+        <div class="row">
+          <button type="button" id="btnPlay" class="btn">▶ Play the day 播放一日</button>
+        </div>
+        <p class="hss-sun" id="hssSun"></p>
+      </section>
+
+      <section id="secView" class="needs-site">
+        <h2><b>4</b> Show 顯示</h2>
+        <div class="seg" role="group" aria-label="Layer">
+          <button type="button" data-layer="now" class="on">Shadow now 此刻陰影</button>
+          <button type="button" data-layer="hours">Hours in shadow 全日陰影時數</button>
+        </div>
+        <div class="seg" role="group" aria-label="Hours layer" id="hoursKind" hidden>
+          <button type="button" data-hk="new" class="on">Extra, from your block 新建築帶來</button>
+          <button type="button" data-hk="all">All shade 全部陰影</button>
+        </div>
+        <div id="hssLegend" class="hss-legend"></div>
+      </section>
+
+      <section id="secNb" class="needs-site">
+        <h2><b>5</b> Neighbours in its shadow 受影響的鄰近建築</h2>
+        <p class="hint" id="nbHint">Sun-facing walls of neighbouring blocks, checked every 10 min while the sun is at least 5° up. 鄰近建築向陽的外牆，太陽仰角 5° 以上時每 10 分鐘檢查一次。</p>
+        <ol id="hssNb" class="hss-nb"></ol>
+      </section>
+
+      <section class="hss-limits">
+        <h2>Limits 限制</h2>
+        <ul>
+          <li>Shadows from block outlines and their recorded top heights, on a 2 m grid, over the 5 m terrain model. Hills more than 200 m outside the square are not counted. 採用地政總署建築物輪廓及頂部高度，2 米格網，5 米地形。</li>
+          <li>Existing shade is shown so you can see what your block adds; it is still a sketch. 原有陰影只供比較。</li>
+          <li>For a real scheme, a qualified consultant runs a proper sunlight and daylight study. 正式項目須由合資格顧問進行日照及採光研究。</li>
+        </ul>
+        <p class="credits" id="hssCredits"></p>
+      </section>
+    </aside>
+
+    <main class="hss-main">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-tab="map" class="on">Map 地圖</button>
+        <button type="button" role="tab" data-tab="plan" class="needs-site">Plan 平面</button>
+        <button type="button" role="tab" data-tab="3d" class="needs-site">3D 立體</button>
+        <span class="tag" id="hssTag">Fictional block · teaching sketch 虛構建築 · 教學草圖</span>
+      </div>
+      <div class="stage">
+        <div id="hssMap" class="pane on"></div>
+        <div id="hssPlanWrap" class="pane"><canvas id="hssPlan"></canvas></div>
+        <div id="hss3d" class="pane"></div>
+        <div id="hssBusy" class="busy" hidden></div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.1/proj4.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module" src="app.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dad2ccbec8bd477e808500f82f77a580"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
