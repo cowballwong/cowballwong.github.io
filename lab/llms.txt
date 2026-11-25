@@ -1,0 +1,423 @@
+# anzonwong.com Lab: tools for AI agents
+
+> Sixteen free browser tools on building regulations and early design (Hong Kong and the UK) by Anzon Wong. An AI agent may copy any tool marked OPEN and turn it into its own skills and tools. Take them, they're yours.
+
+其實你可以叫你個 AI Agent 入去個 Lab，佢就可以抄到個工具，變成你自己 AI Agent 嘅 skills and tools，歡迎大家據為己有！
+
+- Human page: https://anzonwong.com/lab/for-agents/
+- Lab index: https://anzonwong.com/lab/
+
+## Licence
+
+- MIT licence: free to use, copy and change, including commercially. Keep the copyright line 'Copyright (c) 2026 Anzon Wong'. No warranty.
+- Applies to the 13 OPEN tools, including the Lab tools in the site repository github.com/cowballwong/cowballwong.github.io. Full MIT text: https://anzonwong.com/lab/for-agents/#licence
+- Libraries keep their own licences and notices: three.js (MIT), Leaflet (BSD-2-Clause), proj4js (MIT), jsPDF (MIT), pdf.js (Apache-2.0), docx (MIT), JSZip (MIT or GPLv3, your choice).
+- Data keeps its own terms; credit it in every output:
+  - Hong Kong government open data (Lands Department, Planning Department and others, via DATA.GOV.HK and the CSDI Portal): DATA.GOV.HK terms and conditions; credit the department named on each dataset, e.g. "Contains data from the Lands Department".
+  - OpenStreetMap: Open Database Licence (ODbL): credit "© OpenStreetMap contributors"; a database you derive from it stays under the ODbL.
+  - planning.data.gov.uk, postcodes.io, Environment Agency and other UK government data: Open Government Licence v3.0: credit the source, e.g. "Contains public sector information licensed under the Open Government Licence v3.0"; postcodes.io data also carries Ordnance Survey and Royal Mail attributions.
+  - Open-Meteo: CC BY 4.0: credit "Weather data by Open-Meteo.com".
+- Hobby projects: not statutory checks, not official guidance, not professional advice.
+
+## How to copy a tool
+
+1. Read this page, or the plain-text version at anzonwong.com/lab/llms.txt.
+2. Pick a tool marked Open. Fetch its raw files or clone its repository.
+3. Remove the Cloudflare Web Analytics script where the recipe says so: it reports page views to this site's account.
+4. Serve the files over http and check the tool works as it does here.
+5. Wrap it as a skill (a SKILL.md that says when to use it, what to give it and what comes back), or port the core functions into your agent's own code.
+6. Keep the copyright line, the MIT text and the library notices, and credit the data in every output.
+
+# Tools
+
+## HK Landscape Sheets (香港園境圖則)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/hk-landscape-sheets/
+- Region: Hong Kong
+- What it does: Draw a podium garden and get a set of A1 landscape sheets: site analysis, planting plan, tree schedule and growth studies.
+- Inputs: site boundary drawn on the sheet; neighbouring buildings with heights; date and time for shadows; plants picked from a 56-plant HK palette; growth slider (planting to 40 years); project JSON file (import); EN / 中 language toggle or ?lang=zh
+- Outputs: on-screen A1 sheet: LP-01 Site Analysis, LP-02 Planting Plan (plan, Section A-A, view, plant schedule), LP-03 Tree Studies, LP-04 Growth Anatomy; numbered red revision marks from the 14-rule checker; project JSON export (匯出 JSON)
+- Data sources: Plant library (56 plants), 10 tree species, sources and scale figures in js/data.js, each value cited (GLTMS guides, PNAP APP-152, DEVB TC(W) No. 4/2020, HKO Monthly Meteorological Normals 1991-2020, Hong Kong Herbarium, Halle/Oldeman/Tomlinson 1978) (bundled static data: author-compiled plant and tree data with cited sources; values not verified are marked 未核實 or *); Species photographs (Bombax ceiba, Ficus microcarpa, etc.) (other: Wikimedia Commons, each photo under its own CC licence (e.g. CC BY-SA 3.0), not MIT); Scale figures (bundled static data: AI-generated images made for the project, released with the code); Sun position for 22.3N (other: computed, no external data)
+- Limits: Personal hobby project, version 1, not official guidance; mature spreads, shrub sizes and seasonal appearance are partly estimated, the checker's design rules are rules of thumb not regulations, and shadows use simple building boxes with no trees or terrain.
+- Libraries: none
+- Source: https://github.com/cowballwong/hk-landscape-sheets
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/index.html
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/css/app.css
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/app.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/board.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/data.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/geom.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/i18n.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/i18n_en.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/research.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/sheet.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/site.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/tree.js
+  - https://raw.githubusercontent.com/cowballwong/hk-landscape-sheets/main/js/why.js
+- Bulky data folders (clone): assets/figures (11 files, 2.74 MB); assets/photos (4 files, 0.9 MB); assets/brand (1 files, 0.01 MB)
+- Turn it into a skill:
+  1. git clone --depth 1 https://github.com/cowballwong/hk-landscape-sheets.git and keep its LICENSE file.
+  2. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  3. Write a SKILL.md for it. Skill idea: Build or edit a project JSON (site polygon, neighbour heights, plant placements) and load it into the sheet to return the 14-rule red-pen planting check and sun/shade zones for an HK garden or podium. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  4. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## HK Building Regulations Map (香港建築規例關係地圖)
+
+- Status: USE ONLY, not available to copy yet
+- Use it: https://anzonwong.com/hk-regs-map/
+- Region: Hong Kong
+- What it does: A 3D bilingual map of Hong Kong building control documents and the links between them: ordinance, regulations, practice notes, codes and guidance.
+- Inputs: click a node; search by code, title or topic; group by department, domain or subject; legend filters
+- Outputs: on-screen 3D force graph (desktop) or 2D canvas graph (phones <= 768px); per-node EN/ZH summary panel with official source link; citation lines that keep the quoted sentence and page
+- Data sources: Document graph: 2,276 nodes (907 documents, 1,174 legislative provisions), 4,806 citation links, 99 AI-suggested dashed links, AI-written EN/ZH summaries and topic tags (September 2026 build) (bundled static data: AW Design summaries, tags and link data under CC BY 4.0 (credit 'AW Design · Anzon Wong'); source documents are linked, not redistributed); Source documents read by the pipeline: Hong Kong e-Legislation (Cap. 123 and subsidiary), BD, LandsD, PlanD/TPB, FSD websites (other: Government of the HKSAR copyright; only linked and short-quoted, per README)
+- Limits: Personal hobby project, not an official website and not legal advice; summaries, tags and links were produced with AI help and may be incomplete, out of date or wrong, and the data was checked in September 2026.
+- Note: Use it at the link. Not available to copy yet: part of its source still needs tidying before it can be shared.
+
+## Is it Building Work? Reg 3 Checker (是否屬建築工程？Reg 3 檢查器)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/uk-reg3-checker/
+- Region: United Kingdom
+- What it does: A step-by-step check against Regulation 3 of the Building Regulations 2010: does the planned work need Building Control, and which Approved Documents apply.
+- Inputs: answers to a 2-4 layer branching questionnaire across 10 branches (A erection/extension to J repair/replace)
+- Outputs: on-screen result: verdict (Yes / No / Borderline), Reg 3(1) sub-clause with citation, Approved Document Parts, likely route (Building Notice / Full Plans / CPS / Gateway 2), named CPS; print via window.print()
+- Data sources: Decision logic citing Building Regulations 2010 (SI 2010/2214) Regs 3, 4, 5, 6, 22, 23, 28, Schedule 2 and Approved Documents A-T (bundled static data: author-written decision tree citing legislation.gov.uk)
+- Limits: General guidance, not legal advice; the final determination rests with the Building Control Body, it submits nothing, and it does not cover Higher-Risk Buildings under the Building Safety Act 2022 in detail.
+- Libraries: none
+- Source: https://github.com/cowballwong/uk-reg3-checker
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/uk-reg3-checker/main/index.html
+- Turn it into a skill:
+  1. git clone --depth 1 https://github.com/cowballwong/uk-reg3-checker.git and keep its LICENSE file.
+  2. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  3. Write a SKILL.md for it. Skill idea: Walk a described piece of work through the Reg 3 branches and return the verdict, the Reg 3(1) sub-clause, the Approved Document Parts engaged and the likely submission route or CPS. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  4. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## CPS Checker (CPS 自我認證檢查器)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/uk-cps-checker/
+- Region: United Kingdom
+- What it does: Can your installer self-certify the work under a Competent Person Scheme, or do you need Building Control?
+- Inputs: work category (one of 8: windows, gas, electrical, microgeneration, air-con, solid fuel, oil, plumbing); building type (dwelling, office, mixed, HRB, listed); category-specific follow-up answers (e.g. like-for-like vs new; PV / heat pump / biomass size)
+- Outputs: on-screen verdict: Green (CPS self-cert), Amber (CPS + Building Control), Red (Building Control only); scheme name and URL, documentation to keep, regulatory citations, HRB / listed / F-Gas caveats; print-friendly result page (window.print())
+- Data sources: Decision logic citing Building Act 1984 Sch 1 para 4A, Building Regulations 2010 Regs 20, 20A and Schedule 3, BSA 2022 and HRB regs 2023, ADs A, B, G, H, J, L, M, P, Q, S; scheme links (FENSA, CERTASS, Gas Safe, NICEIC, HETAS, OFTEC, MCS, APHC, REFCOM) (bundled static data: author-written decision tree with links to scheme sites)
+- Limits: General guidance, not legal advice; CPS scope is set by the scheme operator and can change, so verify on the official register, and Higher-Risk Buildings follow a separate Building Safety Regulator regime.
+- Libraries: none
+- Source: https://github.com/cowballwong/uk-cps-checker
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/uk-cps-checker/main/index.html
+- Turn it into a skill:
+  1. git clone --depth 1 https://github.com/cowballwong/uk-cps-checker.git and keep its LICENSE file.
+  2. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  3. Write a SKILL.md for it. Skill idea: Given a work category, building type and the follow-up answers, return the Green / Amber / Red CPS verdict with the scheme name, URL and citations. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  4. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## HK Wind Sketch (香港風環境草圖)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/hk-wind-sketch/
+- Region: Hong Kong
+- What it does: Pick a Hong Kong area and a wind direction, drag in a building, and watch a qualitative 2D wind field react at pedestrian level. Runs in the browser.
+- Inputs: place search (map.gov.hk) or address search (ALS); map click; one of four ready-made areas (Kwun Tong, Central, Mong Kok, Tsuen Wan); wind direction; drawn buildings (corner-by-corner or rectangle, move/delete); grid level Light 96 / Normal 128 / Fine 160
+- Outputs: on-screen 3D view: ground colour = speed ratio in the first air cell vs incoming wind, streamlines, drifting particles, vertical section along the wind; PlanD wind-rose hint for direction; phone / no-GPU fallback: 2D D2Q9 slice about 2 m above ground
+- Data sources: LandsD Building dataset (footprints, base/top height mPD, storeys, block type) via CSDI WFS landsd_rcd_1637211194312_35158 (DATA.GOV.HK/LandsD/CSDI terms); LandsD 5 m DTM (DATA.GOV.HK hk-landsd-openmap-5m-grid-dtm, Dec 2015 DOP5000), cut into 1,602 x 1 km tiles (int16 m, zlib) (bundled static data: LandsD 5 m DTM tiles, DATA.GOV.HK terms); PlanD Site Wind Availability Data, 200 m level, 500 m grid (annual/summer/winter direction frequency) (bundled static data: PlanD SWAD table, DATA.GOV.HK terms); Ready-made area snapshots, October 2026 (central, kwun_tong, mong_kok, tsuen_wan) (bundled static data: LandsD buildings snapshot, DATA.GOV.HK terms); Base map and labels (CSDI Map API XYZ tiles) (DATA.GOV.HK/LandsD/CSDI terms); Place search (LandsD location search) (DATA.GOV.HK/LandsD/CSDI terms); Address Lookup Service (other: ALS terms (README))
+- Limits: A qualitative teaching sketch on a coarse 4-6 m grid for early design feel: not an AVA under HPLB/ETWB TC No. 1/06, no velocity ratios, comfort ratings, pass/fail or wind loads, not checked against a wind tunnel or reference CFD, and must not be relied on for any planning, building or lease application.
+- Libraries: three.js 0.160.0 (MIT)
+- Source: https://github.com/cowballwong/hk-wind-sketch
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/index.html
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/static/wind.css
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/static/wind.js
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/static/solver3d.js
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/static/wind3d.js
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/app.py
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/wind_web.py
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/templates/wind/page.html
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/templates/wind/_body.html
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/app/templates/wind/standalone_base.html
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/prep_data.py
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/prep_pland_grid.py
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/prep_terrain.py
+  - https://raw.githubusercontent.com/cowballwong/hk-wind-sketch/main/DISCLAIMER.md
+- Bulky data folders (clone): app/static/data/dtm (1603 files, 23.2 MB); app/static/data (excluding dtm: areas.json, 4 area snapshots, pland_grid.json) (6 files, 1.0 MB)
+- Turn it into a skill:
+  1. git clone --depth 1 https://github.com/cowballwong/hk-wind-sketch.git and keep its LICENSE file.
+  2. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  3. Write a SKILL.md for it. Skill idea: Given an HK place or address and a wind direction (optionally a drawn building outline and height), load the 600 m square, run the browser solver and return views of the ground-level speed ratio and streamlines. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  4. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## St Albans Live (St Albans 實時地圖)
+
+- Status: USE ONLY, not available to copy yet
+- Use it: https://anzonwong.com/lab/st-albans-live/
+- Region: United Kingdom
+- What it does: Buses in their real liveries, trains as carriages, road speeds, parking, EV chargers and fuel prices on one live 3D map. Runs in the browser, in English or Chinese.
+- Inputs: tap a bus, train, car park, charger or fuel station; layer drawer; day/night toggle; EN / 繁 toggle
+- Outputs: on-screen live 3D map; bus route both directions and next stop; train calling points with booked/expected times and platforms; drive times to M25, M1, Hatfield, Harpenden and slowest-road ranking; car park tariffs with PayByPhone codes; EV charger status and price per kWh where published; fuel prices with cheapest E10
+- Data sources: Buses: bustimes.org (Bus Open Data) (other: Bus Open Data via bustimes.org (licence not stated in article)); Trains: Realtime Trains (other: Realtime Trains (licence not stated)); Speeds, drive times, incidents: TomTom (other: TomTom commercial API (key kept on server)); Motorway closures and roadworks: National Highways Transport Data Feeds (other: National Highways (licence not stated)); Parking tariffs: St Albans City and District Council, APCOA, SABA (other: published tariffs (licence not stated)); EV chargers: Evolt (Swarco), MFG EV Power, GeniePoint open data; locations from OpenStreetMap (other: operator open feeds; OSM ODbL for locations); Fuel prices: Asda, MFG, Esso open price data (other: retailer open price data (licence not stated)); Map: MapLibre, OpenFreeMap, OpenStreetMap, Esri World Imagery (OSM ODbL); Routes, weather, search: OSRM, Open-Meteo, Photon (Komoot) (other: OSRM / Open-Meteo / Photon (licences not stated in article))
+- Limits: A personal hobby project, not an official service of the council, operators or data providers; for reference only, not for navigation, safety or travel decisions, live data can be late, wrong or missing, and train positions are estimated from the live departure board, not GPS.
+- Note: Use it at the link. Not available to copy yet: it needs a server and API keys behind it.
+
+## HK Site Model (香港地盤模型)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/hk-site-model/
+- Region: Hong Kong
+- What it does: Pick a 250 m, 500 m or 1 km square anywhere in Hong Kong and download a 3D massing model: terrain, buildings at their recorded mPD heights, and roads. DXF in HK1980 Grid, OBJ and GLB.
+- Inputs: square size: 250 m / 500 m / 1 km; click the map to place the square, drag to adjust; typed coordinates (lat, lon or HK1980 E, N)
+- Outputs: on-screen 3D preview (orbit/zoom); zip download containing: site.dxf (true HK1980 Grid, mPD; layers TERRAIN, BLDG_TOWER, BLDG_PODIUM, BLDG_OTHER, ROADS, SITE_BOUNDARY, NOTES); site.glb and site.obj (local origin at SW corner, 0 mPD, metres, Y up, one object per block); origin.txt (origin in HK1980 and WGS84, axis mapping); README.txt (sources, dates, estimated-height blocks, accuracy limits)
+- Data sources: LandsD Building (footprints, base/top height) via CSDI FeatureServer landsd_rcd_1637211194312_35158 (DATA.GOV.HK/LandsD/CSDI terms); LandsD Road Centreline via CSDI FeatureServer landsd_rcd_1637310758814_80061 (DATA.GOV.HK/LandsD/CSDI terms); LandsD 5m Grid DTM via DATA.GOV.HK, tiled 18 Oct 2026 (1 km tiles, 201 samples, decimetres) (bundled static data: LandsD 5 m DTM tiles, DATA.GOV.HK terms); Base map and labels (LandsD map API tiles) (DATA.GOV.HK/LandsD/CSDI terms)
+- Limits: Massing only, not for survey, statutory or legal use: buildings are base-to-top prisms with no roof features, setbacks or basements (missing heights estimated from storeys and marked _EST), and the 5 m DTM is about +/-5 m and includes some flyovers and tree canopy.
+- Libraries: three.js 0.170.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/hk-site-model
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-model/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-model/app.js
+- Bulky data folders (clone): lab/hk-site-model/dtm (1605 files, 15.65 MB); lab/hk-site-model/img (Blender renders for the page) (3 files, 0.11 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/hk-site-model
+  2. Keep it at /lab/hk-site-model/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given an HK address-derived lat/lon or HK1980 E,N and a square size (250 m, 500 m, 1 km), return the zip with site.dxf in HK1980 Grid plus site.glb/site.obj and origin.txt. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## St Albans Abbey (St Albans 座堂)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/st-albans-abbey/
+- Region: United Kingdom
+- What it does: Seventeen centuries on one hill: an interactive 3D model of St Albans Cathedral, its town and Roman Verulamium, with a timeline that builds the abbey century by century. Now you can step inside too.
+- Inputs: timeline slider or play; buttons: Explore, Tour, Places, Inside, Section, Life, Overview, About; place filter: All / Outside / Town & Verulamium; orbit / zoom
+- Outputs: on-screen 3D model that changes with the timeline; interior nave view; section view; place cards with history and photograph; guided tour
+- Data sources: Town buildings and context features (OSM ODbL); Terrain: Copernicus EU-DEM v1.1 via OpenTopoData (other: Copernicus EU-DEM v1.1 via OpenTopoData (licence terms not stated in source)); History events and place texts: Victoria County History (British History Online), RCHME 1910, stalbanscathedral.org, Historic England, Wikipedia (bundled static data: author-written summaries citing those sources); Place photographs (other: Wikimedia Commons contributors, CC BY / CC BY-SA / CC0, credited on each card); Cathedral geometry: modelled from the 1908 VCH ground plan, John Carter's c.1813 sections, Grimthorpe's published heights and photographs (bundled static data: procedural model code)
+- Limits: A personal hobby project, not affiliated with St Albans Cathedral and for interest only: the model is a reconstruction, the figures are simplified, some dates, heights and the Roman street grid are estimates, and the Lady Chapel and retrochoir interiors are not modelled.
+- Libraries: three.js 0.169.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/st-albans-abbey
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/style.css
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/main.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/scene.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/model.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/facade.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/interior.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/context.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/life.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/textures.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/timeline.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/tour.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/st-albans-abbey/ui.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/st-albans-abbey/index.html
+- Bulky data folders (clone): st-albans-abbey/data (4 files, 0.59 MB); st-albans-abbey/assets/spots (40 files, 8.83 MB); st-albans-abbey/assets/photos (5 files, 1.07 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set st-albans-abbey
+  2. Keep it at /st-albans-abbey/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  4. Write a SKILL.md for it. Skill idea: Set the timeline to a year or open one of the 44 places (or the Inside view) and return a captured view with the place's history text. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  5. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## HK Site Analysis (香港地盤分析)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/hk-site-analysis/
+- Region: Hong Kong
+- What it does: Pick a site anywhere in Hong Kong and get twelve site analysis diagrams at one frame and scale (walking distance wider), including sunlight hours, walking distance and sky view factor, a 3D exploded view, colour styles, and DXF/SVG in HK1980 Grid.
+- Inputs: address or building name search (ALS); map click; typed coordinates (lat, lon or HK1980 E, N); site as a circle (r 25/50/100/200 m) or drawn boundary; board title (optional); frame size (Auto, 200-1200 m); colour style (Paper, Line, Vivid, Night); frame shape (square or round)
+- Outputs: on-screen board of 12 diagrams; A3 PDF; A2 PDF; PNG board; 12 squares as ZIP; exploded view PNG (A3 sheet); DXF (2D layers, HK1980 Grid metres, named layers); SVG (same layers); interactive 3D model and exploded layers
+- Data sources: LandsD Building via CSDI (landsd_rcd_1637211194312_35158) (DATA.GOV.HK/LandsD/CSDI terms); LandsD Road Centreline via CSDI (landsd_rcd_1637310758814_80061) (DATA.GOV.HK/LandsD/CSDI terms); LandsD 3D Pedestrian Network via CSDI (landsd_rcd_1637222018065_52265) (DATA.GOV.HK/LandsD/CSDI terms); TD Coordinate of Bus Stop Location via CSDI (td_rcd_1638874475129_49745) (DATA.GOV.HK/LandsD/CSDI terms); PlanD Site Wind Availability Data via CSDI (pland_rcd_1634281652589_43389) (DATA.GOV.HK/LandsD/CSDI terms); AFCD Territory-wide Terrestrial Habitat Map (2019 imagery) via CSDI (afcd_rcd_1639382960762_55768) (DATA.GOV.HK/LandsD/CSDI terms); LCSD Parks, Zoos and Gardens via CSDI (lcsd_rcd_1629267205215_19292) (DATA.GOV.HK/LandsD/CSDI terms); Address Lookup Service (DATA.GOV.HK/LandsD/CSDI terms); Base map and labels (DATA.GOV.HK/LandsD/CSDI terms); LandsD 5 m DTM tiles (shared with HK Site Model) (bundled static data: LandsD 5 m DTM tiles, DATA.GOV.HK terms); MTR stations, exits and Light Rail stops, OSM snapshot 25 Oct 2026 (OSM ODbL); Sun position: NOAA solar equations computed in the browser (other: method only, no data)
+- Limits: Hobby project, not official, for reference only and not a substitute for a survey or professional advice: wind is PlanD's simulated 2009 data at 200 m (not an AVA), road noise is a distance proxy, shadows fall on a level plane, sunlight hours are direct sun only, and the DTM is +/-5 m.
+- Libraries: three.js 0.170.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/hk-site-analysis
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/app.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/analyses.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/board.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/diagrams3.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/view3d.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/cad.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-site-analysis/mtr_exits.json
+- Bulky data folders (clone): lab/hk-site-model/dtm (shared, owned by hk-site-model) (1605 files, 15.65 MB); lab/hk-site-analysis/img (page illustrations) (8 files, 1.01 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/hk-site-analysis
+  2. Keep it at /lab/hk-site-analysis/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. It also needs files outside its folder: lab/hk-site-model/dtm/ (index.json + *.bin, via new URL('../hk-site-model/dtm/', import.meta.url)). Copy them too, or point the paths at your own copies.
+  5. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  6. Write a SKILL.md for it. Skill idea: Given an HK address and a site radius or boundary, return the 12-diagram A3 or A2 PDF board plus the DXF/SVG layers in HK1980 Grid. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  7. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## UK Site Analysis
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/uk-site-analysis/
+- Region: England
+- What it does: Pick a site anywhere in England, or draw its boundary, and get fourteen site analysis diagrams at one frame and scale: LiDAR building heights, sun and shadows, sunlight hours, planning constraints, flood zones, road and rail noise and a BRE 25° screening, plus a 3D exploded view and DXF/SVG in British National Grid. English only.
+- Inputs: postcode, town or village search (postcodes.io); map click; typed coordinates (lat, lon or British National Grid E, N); drawn site boundary (corner by corner, editable) or circle 25-200 m; board title (optional); frame size; colour style; frame shape
+- Outputs: on-screen board of 14 diagrams with site area and perimeter; A3 PDF; A2 PDF; PNG board; 14 squares as ZIP; exploded view PNG; DXF (British National Grid metres); SVG; interactive 3D model and exploded layers
+- Data sources: EA LiDAR Composite DTM and First/Last Return DSM 1 m (WCS) (EA/OS OpenData OGL); Defra strategic noise mapping Round 4 (2022), road and rail LAeq16h and Lnight (WCS) (OGL v3); Planning constraints and flood zones, planning.data.gov.uk (MHCLG, with Historic England, Natural England, EA and councils) (OGL v3); Natural England Priority Habitats Inventory (England) (OGL v3); ERA5 reanalysis wind via Open-Meteo historical weather API (Open-Meteo CC BY 4.0); Postcode and place search (ONS Postcode Directory, OS Open Names) (EA/OS OpenData OGL); OSM paths and names via Overpass (OSM ODbL); Base map tiles (OSM ODbL); OS Open Roads, October 2026 release (roads, street names, walking network), 10 km tiles (EA/OS OpenData OGL); NaPTAN transport stops, snapshot 28 Oct 2026 (OGL v3); England land borders from ONS Countries (Dec 2023) BUC (OGL v3); Sun position: NOAA equations computed in the browser (other: method only, no data)
+- Limits: Hobby project, not official, for reference only and not a substitute for a survey or professional advice; England only, buildings are inferred from LiDAR, the BRE 25-degree check is a screening test with assumed window positions, wind is ~25 km ERA5 at 10 m, noise is Defra's 2022 model, and walks follow road centre lines only.
+- Libraries: three.js 0.170.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/uk-site-analysis
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/app.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/ukdata.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/analyses.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/board.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/diagrams3.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/view3d.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/cad.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/uk-site-analysis/border.json
+- Bulky data folders (clone): lab/uk-site-analysis/roads (1504 files, 23.48 MB); lab/uk-site-analysis/naptan (51 files, 3.2 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/uk-site-analysis
+  2. Keep it at /lab/uk-site-analysis/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given an England postcode and a site boundary or radius, return the 14-diagram A3/A2 PDF board and the DXF/SVG layers in British National Grid. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## HK Swept Path (泊車軌跡)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/hk-swept-path/
+- Region: Hong Kong
+- What it does: Drop in a car park plan (PDF, image or DXF), mark the entrance, exit and bays, and your browser drives vehicles from the TPDM, from a private car to a container truck, into and out of every bay. Each bay is graded green, amber or red against our reading of APP-111's one-manoeuvre guideline, with clashes painted where they happen; export layered DXF, PNG and PDF.
+- Inputs: car park plan: PDF (page 1), PNG, JPG or DXF; or one of 4 fictional samples; DXF layer picks for obstacles and drawing units; scale from two points on a known dimension (mm); darkness threshold and thinnest wall kept (raster plans); touch-up: wall, column, brush, eraser; entrance and exit arrows, bay rows or single bays, bay angle, gate width, bay length/width; vehicle (TPDM/HKPSG types, editable dimensions); buffer and amber buffer (mm); empty car park option
+- Outputs: on-screen green/amber/red grade per bay with clash shown; layered DXF (bays, wheel paths, body envelope, clearance envelope, clashes, vehicle outlines, traced obstacles); PNG; one-page A3 PDF summary
+- Data sources: Design vehicles and turning data from TPDM (Aug 2026 edition, Vol 2 Ch 2, Vol 7 Table 5.4.4.2), bay sizes from HKPSG Ch 8 Table 6 (Sep 2025), APP-111 (Jul 2019) rules (bundled static data: vehicle dimensions transcribed from TPDM / HKPSG); Fictional sample plans (A basement, B narrowed aisle, C container bays, A as DXF) (bundled static data: fictional samples made for the tool)
+- Limits: A sketch-stage aid where the documents decide: the 300 mm buffer is common practice not an HK rule, 'no path found within the search limit' means the search stopped not that no path exists, and hatched-outline walls are not detected so untraced walls can give a false green.
+- Libraries: pdf.js 4.10.38 (Apache-2.0); jsPDF 2.5.1 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/hk-swept-path
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/app.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/dxfread.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/dxfwrite.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/planner.worker.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/raster.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/js/vehicles.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/vendor/pdf.min.mjs
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/vendor/pdf.worker.min.mjs
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-swept-path/vendor/jspdf.umd.min.js
+- Bulky data folders (clone): lab/hk-swept-path/samples (5 files, 0.16 MB); lab/hk-swept-path/vendor (vendored libraries) (3 files, 2.09 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/hk-swept-path
+  2. Keep it at /lab/hk-swept-path/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given a car park plan (PDF/PNG/DXF) with entrance, exit and bay rows marked and a TPDM vehicle chosen, grade every bay green/amber/red and return the layered DXF and A3 PDF summary. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## Podium Pattern Studio (平台外牆圖案工作室)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/podium-pattern-studio/
+- Region: Hong Kong
+- What it does: Lay out a perforated or finned podium screen. Draggable points, the way the facade faces, floor use and a mask you paint set how open each panel is; cap the number of panel types and the gradient snaps to sizes a fabricator can make. Export SVG, layered DXF and a CSV panel schedule with open area per floor.
+- Inputs: preset (e.g. car park screen, south); elevation width (m); floors (ground first) with heights and uses; module size; most solid / most open open-area %; orientation; draggable attractor points; painted privacy mask; keep-clear rectangles; number of panel types and snapping mode; driver weights
+- Outputs: on-screen elevation with panel openness; open area per floor; flags for types used by fewer than 3 panels; SVG; layered DXF (one layer per panel type, keep-clear zones, floor lines, labels; mm, origin bottom left); CSV panel schedule; PNG
+- Limits: A free hobby tool: the orientation driver is a design proxy not a solar or daylight result, it handles one flat rectangular elevation only, hole sizes and fin angles are geometry only, and open area figures state no ventilation, fire or other statutory requirement.
+- Libraries: none (plain JavaScript inline in index.html) n/a (n/a)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/podium-pattern-studio
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/podium-pattern-studio/index.html
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/podium-pattern-studio
+  2. Keep it at /lab/podium-pattern-studio/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given an elevation width, a floor list with uses and heights, and a panel-type cap, return the panel SVG/DXF and a CSV schedule with open area per floor. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## Facade Surface Studio (曲面幕牆工作室)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/facade-surface-studio/
+- Region: Hong Kong
+- What it does: Bend a podium skin in 3D by its control points and watch it panelise live: quad, diamond, triangle, hex, perforated, fins or pyramids. Attractors, curvature, sun, view and height set the openings; rationalise thousands of panels into a few types, check planarity on a heat map, and export OBJ, STL, GLB, a flattened DXF type sheet and a CSV schedule.
+- Inputs: control lattice values (8 around x 4 up to start), drag handles in 3D or on the lattice pad; footprint curve, twist and taper, smooth or faceted; U columns and V rows; panel pattern; attractor points and curve, viewer position, sun month; driver weights; number of panel types, snap to type; planarity tolerance (mm)
+- Outputs: on-screen 3D model with driver colouring, planarity and Gaussian/mean curvature analysis; OBJ; STL; GLB; DXF of panel types flattened with edge lengths (pyramids as unfolded nets); SVG type sheet; CSV
+- Limits: A free hobby tool at concept stage: panel types are not fabrication data, doubly curved quads are shown but not made planar, the sun driver is one sun direction (not radiation or daylight), nothing checks fire, wind load, ventilation, glare or other statutory requirements, and phones cap the panel count.
+- Libraries: three.js 0.170.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/facade-surface-studio
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/facade-surface-studio/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/facade-surface-studio/fss.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/facade-surface-studio/geom.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/facade-surface-studio/io.js
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/facade-surface-studio
+  2. Keep it at /lab/facade-surface-studio/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given a control lattice, pattern and type count, return GLB/OBJ/STL of the panelised skin plus the flattened panel-type DXF and CSV with planarity deviation. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## UK Building Regulations Map (英國建築規例關係地圖（英格蘭）)
+
+- Status: USE ONLY, not available to copy yet
+- Use it: https://anzonwong.com/uk-regs-map/
+- Region: England
+- What it does: England's Building Act, Building Regulations 2010, Building Safety Act regulations, Approved Documents A to S, CDM 2015, fire safety law and the British Standards the Approved Documents cite, as one 3D map with every link quoted from its source.
+- Inputs: click a node; search (search-first start panel); full-text reader and search by clause; pasted specification text for 'Check my spec'
+- Outputs: on-screen 3D/2D graph with quoted solid links and labelled AI-suggested dashed links; clause-by-clause full text with source, OGL attribution and PDF page per block; edition check of cited British Standards (newer edition / withdrawn / not checked, with source); 'Check my spec' table, downloadable as CSV
+- Data sources: Graph: 525 nodes, 836 quoted solid links, 17 AI-suggested dashed links (data checked 9 Nov 2026) (bundled static data: AW Design graph data; keeps the licences of its sources); Full text of the Building Regulations 2010 (England), revised, from legislation.gov.uk (valid 2026-11-06, fetched 2026-11-10) (OGL v3); Full text of all 24 Approved Documents in force, from the GOV.UK PDFs (assets.publishing.service.gov.uk) (OGL v3); Full-text search index and quote-back index (bundled static data: derived index of the OGL texts); HSE L153 (OGL v3); British Standards: number, title and edition only, as printed in the Approved Documents (other: metadata only; BSI owns the standards, no BS text reproduced)
+- Limits: A personal project, not an official website and not endorsed by MHCLG, the Building Safety Regulator, HSE, BSI or any other body; England only, and the edition check is a prompt to check, not a ban.
+- Note: Use it at the link. Not available to copy yet: part of its source still needs tidying before it can be shared.
+
+## Spec Builder HK (建築規範產生器)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/spec-builder-hk/
+- Region: Hong Kong
+- What it does: Draft a Hong Kong architectural specification set: answer four questions on the submission route, Fire Safety Code use class, licence and delivery, pick one of 13 building types, then adjust the clauses and schedules. Exports a Word set, a .zip of separate documents or a print PDF. Specification output in English.
+- Inputs: Q1 submission route; Q2 FS Code Use Class and compartment size; Q3 licence sought; delivery mode; building type (13 types in 3 groups); project and document control fields (name, address, client, contract form, CA, prefix, package); clause options and blanks; rooms, doors, hardware sets, materials; saved project file; office clause library JSON (import); optional note for a local AI model
+- Outputs: .docx set; .zip with one .docx per document; PDF via the browser print dialog; saved project file; library JSON download; open items list (TBC with item numbers)
+- Data sources: Clause library v2.0 (2026-11-08): 16 section files plus drivers, codes and glossary JSON, in the author's own words; GS section numbers and titles from ArchSD General Specification for Building 2022 (Corrigendum GS 2022-05); codes and practice notes from BD (bundled static data: author-written clause library; ArchSD GS referenced by section number and title only)
+- Limits: A free hobby drafting aid, not professional advice: statutory values are defaults whose source is marked and must be confirmed by the project's Authorized Person and consultants, BP clauses (acoustics, glazing safety, slip, waterproofing) have no HK statutory source, and AI-drafted clauses stay marked 'AI draft, verify'.
+- Libraries: docx 9.5.1 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/spec-builder-hk
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/spec-builder-hk/index.html
+- Bulky data folders (clone): lab/spec-builder-hk/library (20 files, 0.57 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/spec-builder-hk
+  2. Keep it at /lab/spec-builder-hk/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  5. Write a SKILL.md for it. Skill idea: Given the four driver answers, a building type and project details, return a numbered .docx specification set with its standards schedule and open-items list. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  6. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
+
+## HK Sun Shadow (香港日照陰影)
+
+- Status: OPEN, MIT licence
+- Use it: https://anzonwong.com/lab/hk-sun-shadow/
+- Region: Hong Kong
+- What it does: Place a block anywhere in Hong Kong and see the shadow it casts on its neighbours on the winter solstice, the equinox, the summer solstice or any date, hour by hour, with a whole-day hours-in-shadow map, in plan and 3D. Buildings and terrain from Lands Department open data; sun from the NOAA solar equations.
+- Inputs: place search (map.gov.hk) / address lookup (ALS) or map click (loads a 400 m square); block as a box (width, depth, turn) or drawn outline; height (m); drag to move (existing blocks under it treated as cleared); date (solstice/equinox presets or any date) and time (HKT), play the day
+- Outputs: on-screen Map, Plan and 3D views; shadow now; hours in shadow (whole day); extra shade from your block vs all shade; list of neighbouring blocks in its shadow (sun-facing walls checked every 10 min with sun at least 5 degrees up)
+- Data sources: LandsD building outlines and top heights via CSDI FeatureServer landsd_rcd_1637211194312_35158 (DATA.GOV.HK/LandsD/CSDI terms); LandsD 5 m DTM tiles (hk-site-model's set) (bundled static data: LandsD 5 m DTM tiles, DATA.GOV.HK terms); Place search (DATA.GOV.HK/LandsD/CSDI terms); Address Lookup Service (DATA.GOV.HK/LandsD/CSDI terms); Base map and labels (DATA.GOV.HK/LandsD/CSDI terms); Sun position: NOAA solar calculator equations (sun.js cites gml.noaa.gov/grad/solcalc) (other: method only, no data)
+- Limits: A teaching sketch, not a sunlight or daylight study: shadows come from LandsD outlines and recorded top heights on a 2 m grid over the 5 m terrain, hills more than 200 m outside the square are not counted, and a real scheme needs a qualified consultant's sunlight and daylight study.
+- Libraries: three.js 0.170.0 (MIT)
+- Source: https://github.com/cowballwong/cowballwong.github.io/tree/main/lab/hk-sun-shadow
+- Raw files:
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-sun-shadow/index.html
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-sun-shadow/style.css
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-sun-shadow/app.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-sun-shadow/sun.js
+  - https://raw.githubusercontent.com/cowballwong/cowballwong.github.io/main/lab/hk-sun-shadow/view3d.js
+- Bulky data folders (clone): lab/hk-site-model/dtm (shared, owned by hk-site-model) (1605 files, 15.65 MB)
+- Turn it into a skill:
+  1. Fetch the raw files above, or sparse-clone the folder: git clone --depth 1 --filter=blob:none --sparse https://github.com/cowballwong/cowballwong.github.io.git, then git sparse-checkout set lab/hk-sun-shadow
+  2. Keep it at /lab/hk-sun-shadow/ under your web root, or fix the relative script paths in index.html: they assume that depth.
+  3. Delete the Cloudflare Web Analytics <script> (static.cloudflareinsights.com/beacon.min.js) from index.html: it reports page views to this site's analytics account, not yours.
+  4. It also needs files outside its folder: lab/hk-site-model/dtm/ (as ../hk-site-model/dtm/ when served on anzonwong.com, otherwise hard-coded https://anzonwong.com/lab/hk-site-model/dtm/). Copy them too, or point the paths at your own copies.
+  5. Serve it over http (e.g. python -m http.server); ES modules and fetch() do not run from file://.
+  6. Write a SKILL.md for it. Skill idea: Given an HK location and a block footprint and height, report which neighbouring blocks' sun-facing walls lose sun, and for how long, on the solstices and equinox. Drive the page with a headless browser (e.g. Playwright) or port the core functions into a script.
+  7. Keep "Copyright (c) 2026 Anzon Wong" and the MIT text with your copy, keep each library's notice, and credit the data sources in anything the skill outputs.
